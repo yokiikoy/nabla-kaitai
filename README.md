@@ -8,7 +8,7 @@
 |------|------|
 | `docs/abf-context/` | ABF 参照用メモ（`brief.md`・wishlist など）。Markdown |
 | `reference/ocr/` | 種本のテキスト抽出チャンク（`fleisch/`・`schutz/`・`doran/`・`flanders/` など）。**`.gitignore` で除外**（手元生成・RAG 用） |
-| `volumes/ch03/` | 第3章の執筆正の置き場（README から開始） |
+| `volumes/ch03/` | 第3章（vol03）— `main/`・`note/`・`handoff-prompt.md` を `differential-forms-notes` から複写済み |
 | `volumes/` 他 | シリーズ拡張時に同様の慣習で追加 |
 
 ## ABF から参照させるには
