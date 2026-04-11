@@ -1,4 +1,4 @@
-# unmaskingnabula（ナブラ解体新書シリーズ）
+# nabla-kaitai（ナブラ解体新書シリーズ）
 
 執筆リポジトリ。ABF（`/home/yokii/dev/knowledge/work/abf`）は**ツール**として別管理し、原稿の**正**は本リポで育てる。
 
@@ -16,11 +16,11 @@
 
 ```json
 "referenceGlobs": [
-  "../unmaskingnabula/docs/abf-context/**/*.md",
-  "../unmaskingnabula/reference/ocr/**/*.md"
+  "../nabla-kaitai/docs/abf-context/**/*.md",
+  "../nabla-kaitai/reference/ocr/**/*.md"
 ]
 ```
 
 ## DevOrchestrator
 
-プロジェクトキー: **`unmaskingnabula`**、チケット接頭辞: **`UNAB`**（`docs/tickets/` を置く場合）。
+プロジェクトキー: **`nabla-kaitai`**、チケット接頭辞: **`NKAI`**（`docs/tickets/` を置く場合）。
