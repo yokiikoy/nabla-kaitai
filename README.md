@@ -6,20 +6,25 @@
 
 | パス | 用途 |
 |------|------|
-| `docs/abf-context/` | ABF 参照用メモ（章立て・問題背景・用語）。Markdown |
-| `reference/ocr/` | 種本の OCR チャンク（`.md`）。必要に応じて `.gitignore` |
-| `volumes/` など | 原稿本体（プロジェクトの慣習に合わせて後から追加） |
+| `docs/abf-context/` | ABF 参照用メモ（`brief.md`・wishlist など）。Markdown |
+| `reference/ocr/` | 種本のテキスト抽出チャンク（`fleisch/`・`schutz/`・`doran/`・`flanders/` など）。**`.gitignore` で除外**（手元生成・RAG 用） |
+| `volumes/ch03/` | 第3章の執筆正の置き場（README から開始） |
+| `volumes/` 他 | シリーズ拡張時に同様の慣習で追加 |
 
 ## ABF から参照させるには
 
-`abf/abf.config.json` の `draft.referenceGlobs` に例:
+`abf/abf.config.json` の `draft.referenceGlobs` に、少なくとも次を含める:
 
 ```json
-"referenceGlobs": [
-  "../nabla-kaitai/docs/abf-context/**/*.md",
-  "../nabla-kaitai/reference/ocr/**/*.md"
-]
+"draft": {
+  "referenceGlobs": [
+    "../nabla-kaitai/docs/abf-context/**/*.md",
+    "../nabla-kaitai/reference/ocr/**/*.md"
+  ]
+}
 ```
+
+（他リポの参照コーパスを足す場合は同配列に glob を追加。）
 
 ## DevOrchestrator
 
