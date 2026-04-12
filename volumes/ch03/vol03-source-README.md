@@ -12,6 +12,8 @@
 | 第2章（note 表示用） | `note/ch02_area_volume_note.md` |
 | 第3章（執筆正） | `main/ch03_integration_forms_main.md` |
 | 第3章（note 表示用） | `note/ch03_integration_forms_note.md` |
+| 第4章（執筆正・ドラフト） | `main/ch04_exterior_derivative_main.md` |
+| 第4章（レビュー通過稿） | `main/ch04_exterior_derivative_main-reviewed.md` |
 
 リポジトリ直下で:
 
