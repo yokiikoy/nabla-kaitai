@@ -209,9 +209,7 @@ $$\bigl(F(x(t))\,dx\bigr)(\Delta \mathbf{r}) \approx F(x(t))\,\frac{dx}{dt}\,\De
 $$\bigl(f'(x(t))\,dx\bigr)(\Delta \mathbf{r}) = f'(x(t))\,\Delta x \approx f'(x(t))\,\frac{dx}{dt}\,\Delta t$$
 の極限として
 $$\int_a^b f'(x)\,dx = \int_{t_0}^{t_1} f'(x(t))\,\frac{dx}{dt}\,dt$$
-となる。基本定理
-$$\int_a^b f'(x)\,dx = f(b)-f(a)$$
-が成り立ち、従来の置換積分と一致する。
+となる。
 
 #### 1.3.5 なぜ行列表示が優れているか — 拡張性の観点から
 $df$ を横ベクトルとして定義する利点は、**多次元への自然な拡張**にある。
