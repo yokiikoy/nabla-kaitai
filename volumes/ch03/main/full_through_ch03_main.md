@@ -138,6 +138,8 @@ $F(x)\,dx = \begin{pmatrix} F(x) & 0 & 0 \end{pmatrix}$ は演算子であり、
 関数 $f(x)$ が点 $x$ で微分可能であるとは、次の一次近似が成り立つことである：
 $$\Delta f = f(x + \Delta x) - f(x) = f'(x) \Delta x + o(|\Delta x|) \quad (|\Delta x| \to 0)$$
 
+> **注** 記号 **$o(|\Delta x|)$** は**ランダウの記号**の一種で、いわゆる**オー小型**（英語の "little-o"）と呼ばれる。$|\Delta x| \to 0$ のとき、$o(|\Delta x|)$ でまとめて書いた量は **$|\Delta x|$ よりずっと速くゼロに近づく余り**を意味し、主項 $f'(x)\Delta x$ に比べれば**無視してよいほど小さい**、という約束である。理工系の専門書では頻出するが、初見の読者もいるかもしれない。
+
 ここで $\Delta x$ はスカラーだが、我々はこれを前節同様、3次元の変位ベクトルとして捉え直す：
 $$\mathbf{v} = \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix}$$
 
