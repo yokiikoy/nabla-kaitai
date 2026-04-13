@@ -182,45 +182,48 @@ $$df(\mathbf{v}) = \begin{pmatrix} 6 & 0 & 0 \end{pmatrix} \begin{pmatrix} 0.1 \
 実際、$f(3.1) - f(3) = 9.61 - 9 = 0.61$ であり、一次近似 $0.6$ はよく一致している。
 
 #### 1.3.4 置換積分の行列解釈
-置換積分は、積分変数を取り換えて被積分関数を書き換える操作である（高校数学で扱う）。ここでは、その操作を<strong>行列表現と一次形式の枠</strong>に載せる。例として<strong>力学における仕事</strong>を用いる。
+置換積分は、積分変数を取り換えて被積分関数を書き換える操作である（高校数学で扱う）。本節の目的はそれ<strong>単体の公式暗記ではない</strong>。§1.2 までに整えた言葉で言えば、<strong>「空間側の一次形式 $F\,dx$ が各ステップの変位 $\Delta\mathbf{r}$ に作用する」リーマン和</strong>と、<strong>「時間パラメータ $t$ 上のステップ幅 $\Delta t$」</strong>を、<strong>同じステップの中で対応づける</strong>と、置換後の積分 $\int F(x(t))\,\frac{dx}{dt}\,dt$ の形に自然に落ちる、という骨格を見せることである（いま必要なのは 1-form とパラメータの話までで、ウェッジ積 $\wedge$ や 2-form はまだ登場しない）。
 
-仕事は
+仕事を例に取る。仕事は
 $$W = \int_a^b F(x)\,dx$$
 と書ける（§1.2.5 でも同じ量を行列作用の極限として見た）。位置が時間 $t$ とともに動き、$t_0<t_1$ で $x(t_0)=a,\; x(t_1)=b$ となるようにパラメータ表示すると、空間内の点は
 $$\mathbf{r}(t) = \begin{pmatrix} x(t) \\ 0 \\ 0 \end{pmatrix}$$
 と書ける。
 
-パラメータ $t$ の軸上で、<strong>1ステップ分の幅</strong> $\Delta t$ を縦1成分のベクトルとして
+<strong>時間軸側の1ステップ</strong>を、縦1成分のベクトル
 $$\mathbf{w} := \begin{pmatrix} \Delta t \end{pmatrix}$$
-とおく。$dx=\begin{pmatrix}1&0&0\end{pmatrix}$ と並べるなら、<strong>$t$ だけを見た場合の「$t$ 成分を抜き出す横ベクトル」</strong>は $1\times 1$ 行列
+で表す。$dx=\begin{pmatrix}1&0&0\end{pmatrix}$ と<strong>並べて考えるなら</strong>、$t$ 成分だけを抜き出す「測定器」を $1\times 1$ 行列
 $$dt := \begin{pmatrix} 1 \end{pmatrix}$$
-として
-$$dt(\mathbf{w}) = \Delta t$$
-と読める。
+とおき、$dt(\mathbf{w})=\Delta t$ と読む。これは §1.2.6 の「横が測定器・縦がステップ・作用でスカラー」という<strong>型</strong>を、時間だけに縮めたものである。
 
-> <strong>注</strong> すまない——$dt$ を $1\times 1$ の横ベクトルとみなすのは、第1章までに導入した $3$ 次元の $dx$ とは次元が異なり、<strong>厳密には本書の導入だけではカバーしきれていない</strong>。<strong>しかし物理学者として、時間は空間の3次元の中にすっぽり埋め込めるものではない——空間だけの話に丸めてごまかすわけにもいかなかったのだ。</strong> だから $t$ の軸は $1\times1$ として切り出して正面から置く。ただし横が測定器、縦が微小ステップ、作用でスカラー——という $dx$ と<strong>同じ型</strong>にそろえてあるので、理解は容易であろう。
+> <strong>注</strong> 時間 $t$ は空間の $x,y,z$ とは別の独立なパラメータとして扱う。$dt$ を $1\times1$ と書くのは、空間の $dx$（$1\times3$）と<strong>論理の形をそろえるための記法</strong>であり、厳密な多様体の言葉では「時間軸を別の1次元として切り出している」と思えばよい。
 
-この $\Delta t$ に対応する<strong>空間での変位</strong>は
+この $\Delta t$ に対応する<strong>空間での実際の変位</strong>は
 $$\Delta \mathbf{r} = \mathbf{r}(t+\Delta t) - \mathbf{r}(t) = \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix}, \qquad \Delta x = x(t+\Delta t)-x(t)$$
-であり、ステップ内の比を用いて
-$$\Delta \mathbf{r} = \begin{pmatrix} \dfrac{\Delta x}{\Delta t} \\ 0 \\ 0 \end{pmatrix} dt(\mathbf{w})$$
-と書ける。<strong>左の縦ベクトルは「$t$ が $\Delta t$ 進むと $x$ がどれだけ動くか」の情報</strong>、右の $dt(\mathbf{w})$ は <strong>$t$ 軸側のステップの幅</strong>である。
+である。ここで $\Delta t \neq 0$ とする。商 $\Delta x/\Delta t$ は<strong>そのステップにおける $x$ の平均変化率</strong>であり、中学生でも知っている恒等式
+$$\Delta x = \frac{\Delta x}{\Delta t}\,\Delta t$$
+が成り立つ。したがって
+$$\Delta \mathbf{r} = \begin{pmatrix} \dfrac{\Delta x}{\Delta t} \\ 0 \\ 0 \end{pmatrix}\,\Delta t
+= \begin{pmatrix} \dfrac{\Delta x}{\Delta t} \\ 0 \\ 0 \end{pmatrix}\,dt(\mathbf{w})$$
+と書ける。<strong>これは近似でも微積の魔法でもなく、$\Delta x$ を $\Delta t$ で割った商を途中に挟んだだけの書き換えである。</strong>左の縦ベクトルは「そのステップでの $x$ 方向の平均変化率」、右の $dt(\mathbf{w})=\Delta t$ は時間ステップの幅である。
 
-$F\,dx$ は横ベクトル（演算子）なので、各ステップで
-$$\bigl(F(x)\,dx\bigr)(\Delta \mathbf{r}) = F(x)\,\Delta x = F(x)\,\frac{\Delta x}{\Delta t}\,dt(\mathbf{w})$$
-という<strong>スカラー</strong>が得られる。$\int_{t_0}^{t_1} g(t)\,dt$ における末尾の $dt$ は、§1.2.6 の $\int f(x)\,dx$ の $dx$ と同じく<strong>積分変数とセットの慣用記法</strong>であり、<strong>リーマン和では $\Delta t$ と $dt(\mathbf{w})$ が対応する</strong>。
+さて $F\,dx$ は横ベクトル（演算子）なので、各ステップで
+$$\bigl(F(x)\,dx\bigr)(\Delta \mathbf{r}) = F(x)\,\Delta x = F(x)\,\frac{\Delta x}{\Delta t}\,\Delta t = F(x)\,\frac{\Delta x}{\Delta t}\,dt(\mathbf{w})$$
+という<strong>スカラー</strong>が得られる。積分記号 $\int_{t_0}^{t_1} g(t)\,dt$ の末尾の $dt$ は、§1.2.6 の $\int f(x)\,dx$ の $dx$ と同じく<strong>積分変数とセットの慣用記法</strong>であり、リーマン和の段階では <strong>$\Delta t$ と $dt(\mathbf{w})$ が対応する</strong>と読めばよい。
 
-分割を細かくする極限では、高校数学の置換積分の形
+分割を細かくし $\Delta t \to 0$ の極限をとると、各ステップで平均変化率 $\Delta x/\Delta t$ は接線の傾き $\dfrac{dx}{dt}$ に近づく。したがって高校数学の置換積分の形
 $$W = \int_a^b F(x)\,dx = \int_{t_0}^{t_1} F(x(t))\,\frac{dx}{dt}\,dt$$
-に帰着する（$\dfrac{dx}{dt}$ は $\Delta x/\Delta t$ の極限として理解する）。極限の内側は
+に帰着する（$\dfrac{dx}{dt}$ は $\Delta x/\Delta t$ の極限）。極限の内側のリーマン項は
 $$\bigl(F(x(t))\,dx\bigr)(\Delta \mathbf{r}) \approx F(x(t))\,\frac{dx}{dt}\,\Delta t$$
-と読め、<strong>空間側の一次形式 $F\,dx$ が $\Delta\mathbf{r}$ に作用した値</strong>と、<strong>時間側の $dt(\mathbf{w})=\Delta t$ を積み上げる構造</strong>が対応する。
+と読め、<strong>空間側の一次形式 $F\,dx$ が $\Delta\mathbf{r}$ に作用した値</strong>と、<strong>時間側のステップ $\Delta t$（すなわち $dt(\mathbf{w})$）を積み上げる構造</strong>が対応している。
 
 微小ステップでは、運動エネルギーの変化と仕事の関係 $\Delta\bigl(\tfrac12 m v^2\bigr) \approx F\,\Delta x$ が成り立つ。ここで $v$ はそのステップにおける速度の代表値である。右辺の $F\,\Delta x$ は $\bigl(F\,dx\bigr)(\Delta\mathbf{r})$ に他ならない。
 
 同じ骨格は $df = f'(x)\,dx$ の積分にも入る。同じパラメータ表示で $\Delta\mathbf{r}=(\Delta x,0,0)^T$ とすれば
-$$\bigl(f'(x(t))\,dx\bigr)(\Delta \mathbf{r}) = f'(x(t))\,\Delta x \approx f'(x(t))\,\frac{dx}{dt}\,\Delta t$$
-の極限として
+$$\bigl(f'(x(t))\,dx\bigr)(\Delta \mathbf{r}) = f'(x(t))\,\Delta x = f'(x(t))\,\frac{\Delta x}{\Delta t}\,\Delta t$$
+であり、$\Delta t \to 0$ で $\Delta x/\Delta t \to \dfrac{dx}{dt}$ として
+$$\bigl(f'(x(t))\,dx\bigr)(\Delta \mathbf{r}) \approx f'(x(t))\,\frac{dx}{dt}\,\Delta t$$
+の極限から
 $$\int_a^b f'(x)\,dx = \int_{t_0}^{t_1} f'(x(t))\,\frac{dx}{dt}\,dt$$
 となる。
 
