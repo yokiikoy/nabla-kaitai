@@ -62,7 +62,7 @@ $$W = \int_\gamma \omega$$
 $$\Phi: D \to \mathbb{R}^3,\quad (u,v) \mapsto \mathbf{r}(u,v) = (x(u,v),\, y(u,v),\, z(u,v))$$
 が与えられたとき、像 $S = \Phi(D)$ を **パラメータ曲面**と呼ぶ。各点における偏微分
 $$\Phi_u := \frac{\partial \mathbf{r}}{\partial u},\quad \Phi_v := \frac{\partial \mathbf{r}}{\partial v}$$
-は、曲面の接平面を張る2本のベクトルである（線形独立を仮定する）。
+は、曲面の上で「$u$ だけ動かす」「$v$ だけ動かす」ときの進む向きをそれぞれ表す2本のベクトルである（線形独立を仮定する）。
 
 #### 3.2.2 2-form の曲面積分
 
