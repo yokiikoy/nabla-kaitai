@@ -56,7 +56,11 @@ $$\mathbf{v}_i = \begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix}$$
 
 すなわち、**横ベクトル**（$1\times 3$ **行列**として成分を横に並べて書く）として
 $$dx = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}$$
-と置く。変位ベクトル $\mathbf{v}_i$ に左から掛けると
+と置く。
+
+> **注（成分並びの約束）** 横ベクトル（行）の成分を括弧に並べて略記するときは **$(1,0,0)$** のように、**カンマの直後にスペースを入れない**。**$(1, 0, 0)$** のように空ける書き方は**座標**（点の位置など）を強調するときに用い、**行列・横ベクトルの略記には使わない**。
+
+変位ベクトル $\mathbf{v}_i$ に左から掛けると
 $$dx\,\mathbf{v}_i = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix} \begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix} = \Delta x_i$$
 となる。ここで「$dx$ が変位ベクトル $\mathbf{v}_i$ を食べてスカラー $\Delta x_i$ を吐く」というイメージを、**関数の値のように書く**ことにする：
 $$dx(\mathbf{v}_i) := dx\,\mathbf{v}_i = \Delta x_i$$
