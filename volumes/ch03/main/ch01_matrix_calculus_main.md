@@ -192,7 +192,7 @@ $$\mathbf{w} := \begin{pmatrix} \Delta t \end{pmatrix}$$
 $$dt := \begin{pmatrix} 1 \end{pmatrix}$$
 とおき、$dt(\mathbf{w})=\Delta t$ と読む。これは §1.2.6 の「横が測定器・縦がステップ・作用でスカラー」という<strong>型</strong>を、時間だけに縮めたものである。
 
-> <strong>注</strong> 時間 $t$ は空間の $x,y,z$ とは別の独立なパラメータとして扱う。$dt$ を $1\times1$ と書くのは、空間の $dx$（$1\times3$）と<strong>論理の形をそろえるための記法</strong>であり、厳密な多様体の言葉では「時間軸を別の1次元として切り出している」と思えばよい。
+> <strong>注</strong> すまない——$dt$ を $1\times 1$ の横ベクトルとみなすのは、第1章までに導入した $3$ 次元の $dx$ とは次元が異なり、<strong>厳密には本書の導入だけではカバーしきれていない</strong>。数学者はここで言葉を増やして一気に厳密化するかもしれない。<strong>しかし物理学者として、時間は空間の3次元の中にすっぽり埋め込めるものではない——空間だけの話に丸めてごまかすわけにもいかなかったのだ。</strong> だから $t$ の軸は $1\times1$ として切り出して正面から置く。時間 $t$ は $x,y,z$ とは<strong>別の独立なパラメータ</strong>であることはそのままだ。横が測定器、縦が微小ステップ、作用でスカラー——という $dx$ と<strong>同じ型</strong>にそろえてあるので、理解は容易であろう。
 
 この $\Delta t$ に対応する<strong>空間での実際の変位</strong>は
 $$\Delta \mathbf{r} = \mathbf{r}(t+\Delta t) - \mathbf{r}(t) = \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix}, \qquad \Delta x = x(t+\Delta t)-x(t)$$
