@@ -169,23 +169,37 @@ $$df(\mathbf{v}) = \begin{pmatrix} 6 & 0 & 0 \end{pmatrix} \begin{pmatrix} 0.1 \
 実際、$f(3.1) - f(3) = 9.61 - 9 = 0.61$ であり、一次近似 $0.6$ はよく一致している。
 
 #### 1.3.4 置換積分の行列解釈
-直線上の質点の位置を $x(t)$ とし、力を $F(x)$ とする。仕事は
+置換積分は、読者も**ご存知であろう**。ここでは、その見慣れた操作を**行列表現と一次形式の言葉で読み直す**。手本として**力学の仕事**を取り上げる。
+
+仕事は
 $$W = \int_a^b F(x)\,dx$$
-と書ける（§1.2.5 でも同じ量を行列作用の極限として見た）。いま、空間内の位置を時間 $t$ でパラメータ表示し
-$$\mathbf{r}(t) = \begin{pmatrix} x(t) \\ 0 \\ 0 \end{pmatrix}, \qquad \frac{d\mathbf{r}}{dt} = \begin{pmatrix} \dot x(t) \\ 0 \\ 0 \end{pmatrix}$$
-とおく（$x(t_0)=a,\; x(t_1)=b$ となる $t_0<t_1$ をとる）。本書の流儀では $F\,dx$ は横ベクトル（演算子）なので、各瞬間
-$$\bigl(F(x(t))\,dx\bigr)\!\left(\frac{d\mathbf{r}}{dt}\right) = F(x(t))\,\dot x(t)$$
-という**スカラー**が得られる。したがって
-$$W = \int_a^b F(x)\,dx = \int_{t_0}^{t_1} \bigl(F(x(t))\,dx\bigr)\!\left(\frac{d\mathbf{r}}{dt}\right) dt$$
-であり、右辺は「一次形式 $F\,dx$ が接ベクトル $d\mathbf{r}/dt$ に作用してから $dt$ で積む」形である。**置換積分で $x$ を $t$ に取り換えたとき被積分に $\dot x(t)$ が現れるのは、この作用の積み上げに他ならない。**
+と書ける（§1.2.5 でも同じ量を行列作用の極限として見た）。いま、位置が時間 $t$ とともに動くとし、$t_0<t_1$ で $x(t_0)=a,\; x(t_1)=b$ となるようにパラメータ表示する。空間内の点は
+$$\mathbf{r}(t) = \begin{pmatrix} x(t) \\ 0 \\ 0 \end{pmatrix}$$
+と書ける。
 
-運動方程式 $m\dot v = F$（$v=\dot x$）の両辺に $v$ を掛けた形は、エネルギーの観点で $\dfrac{d}{dt}\bigl(\tfrac12 m v^2\bigr) = F\dot x$ と読める。右辺はまさに $\bigl(F\,dx\bigr)(d\mathbf{r}/dt)$ に一致する。微小時間 $dt$ の変位 $\mathbf{v}_{\mathrm{disp}} = (\dot x\,dt,\,0,\,0)^T$ に対しては $F\,dx(\mathbf{v}_{\mathrm{disp}}) \approx F\dot x\,dt$ であり、上の積分のリーマン片と対応する。
+時間軸を**有限の微小幅** $\Delta t$ で刻み、各ステップで位置の変化を
+$$\Delta \mathbf{r} = \mathbf{r}(t+\Delta t) - \mathbf{r}(t) = \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix}$$
+とおく。ここで $\Delta x = x(t+\Delta t)-x(t)$ である。§1.2 以来の流儀どおり、**まず有限の変位 $\Delta\mathbf{r}$ に作用させてから**、分割を細かくする極限へ進む。
 
-同じ骨格は $df = f'(x)\,dx$ の積分にも入る。同じく $x(t_0)=a,\; x(t_1)=b$ となるパラメータ表示 $\mathbf{r}(t)=(x(t),0,0)^T$ に対し
-$$\bigl(f'(x(t))\,dx\bigr)\!\left(\frac{d\mathbf{r}}{dt}\right) = f'(x(t))\,\dot x(t)$$
-だから
-$$\int_a^b f'(x)\,dx = \int_{t_0}^{t_1} \bigl(f'(x(t))\,dx\bigr)\!\left(\frac{d\mathbf{r}}{dt}\right) dt$$
-である。基本定理 $\int_a^b f'(x)\,dx = f(b)-f(a)$ とは矛盾しない。極座標や重積分の置換の動機は §1.5.2、微分形式としての変数変換の厳密な定式化は後章にまわす。
+$F\,dx$ は横ベクトル（演算子）なので、各ステップで
+$$\bigl(F(x)\,dx\bigr)(\Delta \mathbf{r}) = F(x)\,\Delta x$$
+という**スカラー**が得られる。一方、積分を $t$ について書き換えるとき、記号の末尾に現れる **$dt$** は何か。**$dx$ と同じく一次形式**である——$t$ に沿った微小変位を表す縦ベクトル（成分を $\Delta t$ のようにとる）に作用し、その $t$ 方向の幅を読み取る演算子として読む。$\int_{t_0}^{t_1} g(t)\,dt$ の $dt$ は、§1.2.6 で述べた $\int f(x)\,dx$ の $dx$ と同型の**慣用の積分記法**であり、**被積分の外側では幅 $\Delta t$ とセットでリーマン和を作る**。
+
+ステップごとの比 $\Delta x/\Delta t$ を窓に、
+$$\bigl(F(x)\,dx\bigr)(\Delta \mathbf{r}) = F(x)\,\frac{\Delta x}{\Delta t}\,\Delta t$$
+と見る。時間で細切りした和の極限では、高校数学の置換積分の形
+$$W = \int_a^b F(x)\,dx = \int_{t_0}^{t_1} F(x(t))\,\frac{dx}{dt}\,dt$$
+に帰着する（$\dfrac{dx}{dt}$ は $\Delta x/\Delta t$ の極限として理解する）。行列表現では、極限の内側を
+$$\bigl(F(x(t))\,dx\bigr)(\Delta \mathbf{r}) \approx F(x(t))\,\frac{dx}{dt}\,\Delta t$$
+と読み、**一次形式 $F\,dx$ が空間側の微小変位 $\Delta\mathbf{r}$ に作用した値**を、**一次形式 $dt$ が時間側の幅 $\Delta t$ と結びつけた積み上げ**に対応させる。
+
+力学との接続は次のように短くてよい。微小ステップでは運動エネルギーの変化と仕事の関係 $\Delta\bigl(\tfrac12 m v^2\bigr) \approx F\,\Delta x$ が成り立ち、ここで $v$ はそのステップでの速度の代表値とすればよい。右辺の $F\,\Delta x$ はまさに $\bigl(F\,dx\bigr)(\Delta\mathbf{r})$ である。
+
+同じ骨格は $df = f'(x)\,dx$ の積分にも入る。同じパラメータ表示で $\Delta\mathbf{r}=(\Delta x,0,0)^T$ とすれば
+$$\bigl(f'(x(t))\,dx\bigr)(\Delta \mathbf{r}) = f'(x(t))\,\Delta x \approx f'(x(t))\,\frac{dx}{dt}\,\Delta t$$
+の極限として
+$$\int_a^b f'(x)\,dx = \int_{t_0}^{t_1} f'(x(t))\,\frac{dx}{dt}\,dt$$
+となる。基本定理 $\int_a^b f'(x)\,dx = f(b)-f(a)$ とは矛盾しない。極座標や重積分の置換の動機は §1.5.2、微分形式としての変数変換の厳密な定式化は後章にまわす。
 
 #### 1.3.5 なぜ行列表示が優れているか — 拡張性の観点から
 $df$ を横ベクトルとして定義する利点は、**多次元への自然な拡張**にある。
