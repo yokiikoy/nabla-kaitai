@@ -30,7 +30,7 @@ $$\omega(\mathbf{v}) = f_x v_x + f_y v_y + f_z v_z$$
 
 #### 3.1.2 曲線に沿った積分の定義
 
-滑らかな曲線 $\gamma: [t_0, t_1] \to \mathbb{R}^3$ を考える。接ベクトル $\gamma'(t)$ に $\omega$ を作用させ、時間パラメータ $t$ に沿って集計する：
+滑らかな曲線 $\gamma: [t_0, t_1] \to \mathbb{R}^3$ を考える。各 $t$ におけるベクトル $\gamma'(t)$（曲線がその瞬間に進む向きと速さを表す）に $\omega$ を作用させ、時間パラメータ $t$ に沿って集計する：
 $$\int_\gamma \omega := \int_{t_0}^{t_1} \omega|_{\gamma(t)}\bigl(\gamma'(t)\bigr)\,dt$$
 
 ここで $\omega|_{\gamma(t)}$ は、係数 $f_x, f_y, f_z$ を点 $\gamma(t)$ で評価したものである。
@@ -56,7 +56,7 @@ $$W = \int_\gamma \omega$$
 
 ### §3.2 面積分 — 2-form をパラメータ曲面に沿って集計する
 
-#### 3.2.1 パラメータ曲面と接ベクトル
+#### 3.2.1 パラメータ曲面と座標方向のベクトル
 
 平面領域 $D \subset \mathbb{R}^2$ から空間への滑らかな写像
 $$\Phi: D \to \mathbb{R}^3,\quad (u,v) \mapsto \mathbf{r}(u,v) = (x(u,v),\, y(u,v),\, z(u,v))$$
@@ -66,7 +66,7 @@ $$\Phi_u := \frac{\partial \mathbf{r}}{\partial u},\quad \Phi_v := \frac{\partia
 
 #### 3.2.2 2-form の曲面積分
 
-第2章で、2-form $\eta$ は2つの変位ベクトル $\mathbf{v}_1, \mathbf{v}_2$ に対して **反対称かつ双線形**なスカラー $\eta(\mathbf{v}_1, \mathbf{v}_2)$ を返す「面積計」として定義された。曲面では、各点で接ベクトル2本 $\Phi_u, \Phi_v$ に食わせる：
+第2章で、2-form $\eta$ は2つの変位ベクトル $\mathbf{v}_1, \mathbf{v}_2$ に対して **反対称かつ双線形**なスカラー $\eta(\mathbf{v}_1, \mathbf{v}_2)$ を返す「面積計」として定義された。曲面では、各点でパラメータ $u,v$ の偏微分が与える2本のベクトル $\Phi_u, \Phi_v$ に食わせる：
 $$\iint_S \eta := \iint_D \eta|_{\Phi(u,v)}\bigl(\Phi_u(u,v),\,\Phi_v(u,v)\bigr)\,du\,dv$$
 
 向きの約定として、$(u,v)$ の並びと曲面の「表側」を対応させる。$(u,v) \mapsto (v,u)$ と入れ替えると $\eta(\Phi_v, \Phi_u) = -\eta(\Phi_u, \Phi_v)$ となり、**符号が反転**する——向きを制御する操作が、代数として自動的に組み込まれている。
@@ -83,14 +83,14 @@ $$\eta_{\mathbf{F}}(\mathbf{u}, \mathbf{v}) = \mathbf{F} \cdot (\mathbf{u} \time
 したがって：
 $$\iint_S \eta_{\mathbf{F}} = \iint_D \mathbf{F}\bigl(\Phi(u,v)\bigr) \cdot \bigl(\Phi_u \times \Phi_v\bigr)\,du\,dv$$
 
-右辺は、ベクトル解析で書く **通量** $\iint_S \mathbf{F} \cdot d\mathbf{S}$（$d\mathbf{S} = \mathbf{n}\,dS$ で法線と面積要素の積）と、向きの取り方が一致すれば同一になる。すなわち **「2-form を接ベクトルで評価して集計する」** と **「ベクトル場を法線成分で面に打ち込む」** は、同じ幾何量の二つの表現なのである。
+右辺は、ベクトル解析で書く **通量** $\iint_S \mathbf{F} \cdot d\mathbf{S}$（$d\mathbf{S} = \mathbf{n}\,dS$ で法線と面積要素の積）と、向きの取り方が一致すれば同一になる。すなわち **「2-form を $\Phi_u,\Phi_v$ で評価して集計する」** と **「ベクトル場を法線成分で面に打ち込む」** は、同じ幾何量の二つの表現なのである。
 
 ホッジ・スター $\ast$ を使えば $\eta_{\mathbf{F}}$ と $\mathbf{F}$ の対応をより機械的に書けるが、その本格導入は第5章に譲る。ここでは **成分がピタリと合う** ことを踏み台にすれば十分だ。
 
 ```text
 [図の挿入プレースホルダー]
 パラメータ空間 (u,v) の長方形が、空間内の曲面片 S に貼り付けられる模式図。
-接ベクトル Φ_u, Φ_v と、それらの外積の向き（法線）を示す。
+$\Phi_u,\Phi_v$（$u,v$ を動かしたときの曲面の進む向き）と、それらの外積の向き（法線）を示す。
 ```
 
 ---
@@ -117,7 +117,7 @@ $$\iiint_V \Omega := \iiint_V \rho(x,y,z)\,dx\,dy\,dz$$
 | 曲面 $S$ | 2-form $\eta$ | $\displaystyle\iint \eta(\Phi_u, \Phi_v)\,du\,dv$ |
 | 領域 $V$ | 3-form $\Omega$ | $\displaystyle\iiint \rho\,dx\,dy\,dz$ |
 
-いずれも **「形式を、パラメータ空間の接ベクトル（または1次元では接ベクトル1本）に食わせ、スカラーになったものを集計する」** という同じ型の操作である。次数が上がるごとに、食わせるベクトルの本数が増え、反対称性が面積・体積の向きを司る。
+いずれも **「形式を、パラメータ表示が各座標で与えるベクトル（曲線では $\gamma'(t)$ の1本、曲面では $\Phi_u,\Phi_v$ の2本）に食わせ、スカラーになったものを集計する」** という同じ型の操作である。次数が上がるごとに、食わせるベクトルの本数が増え、反対称性が面積・体積の向きを司る。
 
 ---
 
