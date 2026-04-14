@@ -101,8 +101,8 @@ $$\int_a^b f(x)\,dx = \lim_{n\to\infty} R_n = \lim_{n\to\infty} \sum_{i=1}^n \bi
 直線上の質点に力 $F(x)$ が作用する場合の仕事を考えよう。力学を学んだ読者であれば
 $$W = \int_a^b F(x)\,dx$$
 という表現を知っているだろう。本書の流儀で行列表現すると、
-$$W = \lim_{n\to\infty} \sum_{i=1}^n \bigl(F(\xi_i)\,dx\bigr)(\mathbf{v}_i) = \int_a^b F(x)\,dx$$
-である。左は<strong>リーマン和を行列作用で書いた極限</strong>、右は<strong>慣用の積分記号</strong>であり、<strong>同じ量</strong>を二通りに表している。ここで $\mathbf{v}_i$ は各小区間の変位ベクトルである。
+$$W = \lim_{n\to\infty} \sum_{i=1}^n \begin{pmatrix} F(\xi_i) & 0 & 0 \end{pmatrix} \begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix} = \lim_{n\to\infty} \sum_{i=1}^n \bigl(F(\xi_i)\,dx\bigr)(\mathbf{v}_i) = \int_a^b F(x)\,dx$$
+である。左から順に、<strong>成分を明示したリーマン和の極限</strong>、<strong>演算子記法による同じ極限</strong>、<strong>慣用の積分記号</strong>であり、<strong>同じ量</strong>を三通りに表している。ここで $\mathbf{v}_i = \begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix}$ である。
 
 $F(x)\,dx = \begin{pmatrix} F(x) & 0 & 0 \end{pmatrix}$ は演算子であり、$\bigl(F(x)\,dx\bigr)(\mathbf{v}) = F(x)\,\Delta x$ が一次近似としての微小仕事になる。
 
