@@ -31,7 +31,7 @@ $$\mathbf{v} = \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix}$$
 ### §1.2 リーマン積分のベクトル解剖 — 区分求積法を行列作用として見る
 前節で、物理的な微小変位を縦ベクトル $\mathbf{v} = \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix}$ と捉え直した。この視点を持って、今度は高校以来慣れ親しんだリーマン積分のプロセスを徹底的に解体し、その中に潜む「行列としての $dx$」を炙り出してみよう。
 
-> <strong>注</strong> 右上の ${}^T$ は<strong>転置</strong>の記号である。本文を横書きに収めるとき、縦ベクトルを成分の横並びに ${}^T$ をつけて書くこともある（列ベクトルを行ベクトルに見せる）。
+> <strong>注</strong> 数学や他文献では、縦ベクトルの成分を横に並べ、右上に ${}^T$ を添えて略記することもある（列ベクトルを行として見せる）。<strong>本書の第1章では縦ベクトルは主に $\begin{pmatrix}\cdots\end{pmatrix}$ で書き統一する。</strong> 他書や後の章で ${}^T$ が出たときは、転置の記号として読んでほしい。
 
 #### 1.2.1 リーマン和の標準的構成（復習）
 関数 $f(x)$ の区間 $[a, b]$ における定積分は、次のように定義される：
@@ -215,7 +215,7 @@ $$\bigl(F(x(t))\,dx\bigr)(\Delta \mathbf{r}) \approx F(x(t))\,\frac{dx}{dt}\,\De
 
 微小ステップでは、運動エネルギーの変化と仕事の関係 $\Delta\bigl(\tfrac12 m v^2\bigr) \approx F\,\Delta x$ が成り立つ。ここで $v$ はそのステップにおける速度の代表値である。右辺の $F\,\Delta x$ は $\bigl(F\,dx\bigr)(\Delta\mathbf{r})$ に他ならない。
 
-同じ骨格は $df = f'(x)\,dx$ の積分にも入る。同じパラメータ表示で $\Delta\mathbf{r}=(\Delta x,0,0)^T$ とすれば
+同じ骨格は $df = f'(x)\,dx$ の積分にも入る。同じパラメータ表示で $\Delta\mathbf{r}=\begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix}$ とすれば
 $$\bigl(f'(x(t))\,dx\bigr)(\Delta \mathbf{r}) = f'(x(t))\,\Delta x = f'(x(t))\,\frac{\Delta x}{\Delta t}\,\Delta t$$
 であり、$\Delta t \to 0$ で $\Delta x/\Delta t \to \dfrac{dx}{dt}$ として
 $$\bigl(f'(x(t))\,dx\bigr)(\Delta \mathbf{r}) \approx f'(x(t))\,\frac{dx}{dt}\,\Delta t$$
@@ -360,7 +360,7 @@ $$
 計算結果 $dx|_P(\mathbf{v}) = 0.1 \times \frac{\sqrt{3}}{2}$ を見ると、$r$方向成分$0.1$（長さの次元）と、第1成分の係数$\frac{\sqrt{3}}{2}$（無次元）の積となっており、出力は確かに長さの次元を持つ。
 しかし、もし$\theta$方向の変位$\mathbf{v} = \begin{pmatrix} 0 \\ 0.1 \\ 0 \end{pmatrix}$（角度変位$0.1$ラジアン）を入力したとすると：
 $$dx|_P(\mathbf{v}) = \begin{pmatrix} \frac{\sqrt{3}}{2} & -1 & 0 \end{pmatrix} \begin{pmatrix} 0 \\ 0.1 \\ 0 \end{pmatrix} = -0.1$$
-この場合、無次元の入力$0.1$に対して、出力は$-0.1$という長さの次元を持つ値になる。
+この場合、<strong>入力ベクトルの第2成分</strong> $0.1$ は角度（無次元）だが、<strong>行列の第2列に対応する係数</strong> $-r\sin\theta$ が長さの次元を運ぶため、積としての出力 $-0.1$ は長さの次元を持つ。
 
 ここに<strong>一次形式</strong>の驚くべき性質がある： $dx$ の行列成分自体が $r$ を含む関数であり、入力が座標成分（次元がバラバラでも）であっても、出力は常に「$x$ 方向の長さ」という正しい物理的次元を持つように自動調整される。<strong>一次形式は、座標系の歪みを吸収し、物理的に意味のある測定値を出力する「賢い測定器」</strong>なのである。
 
