@@ -181,7 +181,7 @@ $$dy = \begin{pmatrix} 0 & 1 & 0 \end{pmatrix}, \qquad dz = \begin{pmatrix} 0 & 
 
 3次元の空間には、**三つの物差し**がそろった。本章では説明の主線として $x$ 方向の断面に寄せてきたが、座標 $y,z$ と測定子 $dy,dz$ は最初からそろっている、と考えてほしい。なお §1.5.3 で触れる円柱座標の $dr$, $d\theta$ などは<strong>別の座標系での基底</strong>であり、いまのデカルトの $dy$, $dz$ とは<strong>載る座標が違う</strong>——混同しないこと。
 
-いま、一変数の $df=f'(x)\,dx$ に $dy$, $dz$ を同じ型の物差しとして足しそろえた。以下の具体例、§1.3.6 での $f(x,y,z)$ への拡張、§1.3.7 での代数的まとめで、この三つがどう効いてくるかを追う。
+いま、一変数の $df=f'(x)\,dx$ に $dy$, $dz$ を同じ型の物差しとして足しそろえた。以下の具体例、§1.3.6 での三次元への拡張、§1.3.7 での代数的まとめで、この三つがどう効いてくるかを追う。
 
 #### 1.3.4 具体例： $f(x) = x^2$ の場合
 $f(x) = x^2$ とする。$f'(x) = 2x$ である。
@@ -239,17 +239,26 @@ $$\bigl(f'(x(t))\,dx\bigr)(\Delta \mathbf{r}) \approx f'(x(t))\,\frac{dx}{dt}\,\
 $$\int_a^b f'(x)\,dx = \int_{t_0}^{t_1} f'(x(t))\,\frac{dx}{dt}\,dt$$
 となる。
 
-#### 1.3.6 $f(x,y,z)$ への拡張
+#### 1.3.6 三次元への拡張
 
-いままでの議論——1変数の $df=f'(x)\,dx$ を $1\times 3$ 横ベクトルとして読み、さらに §1.3.3 でデカルトの物差し $dx,dy,dz$ をそろえた——を、<strong>三変数のスカラー場 $f(x,y,z)$</strong> にまで広げるのは、<strong>形式的には容易である</strong>。
+スカラー場 $f(x,y,z)$ が点 $(x,y,z)$ で<strong>（全）微分可能である</strong>とは、変位 $\mathbf{v}=\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$ に対して次の一次近似が成り立つことである：
+$$\Delta f = f(x+\Delta x,\,y+\Delta y,\,z+\Delta z) - f(x,y,z) = \frac{\partial f}{\partial x}\,\Delta x + \frac{\partial f}{\partial y}\,\Delta y + \frac{\partial f}{\partial z}\,\Delta z + o(\|\mathbf{v}\|) \quad (\|\mathbf{v}\|\to 0)$$
 
-$f$ が十分滑らか（各偏導関数が存在し、変位に対する変化の一次近似が通常の意味で定まる）とする。設計図は 1変数・2変数のときと同じで、全微分は
-$$df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz = \begin{pmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & \frac{\partial f}{\partial z} \end{pmatrix}$$
-となる。ここでの $dx,dy,dz$ はいずれも §1.3.3 どおりの一次形式である。
+（全）微分可能であるとは、いま述べたように<strong>変位に対する変化が、この形の一次近似で書けること</strong>である。§1.3.1 の1変数の定義と<strong>形式をそろえれば、三次元（成分が三つのデカルト座標）への拡張は容易である</strong>——1変数では主項が $f'(x)\,\Delta x$ だったのが、偏導関数の一次結合に並ぶだけにすぎない。$o(\|\mathbf{v}\|)$ は $\|\mathbf{v}\|$ より速くゼロへ近づく余りをまとめた記法であり（§1.3.1 の $o(|\Delta x|)$ と同趣旨）、ここでは厳密な定義に立ち入らない。
 
-変位 $\mathbf{v}=\begin{pmatrix} v_x\\v_y\\v_z\end{pmatrix}$ に対しては
+いま §1.3.3 でデカルトの物差し $dx,dy,dz$ をそろえたので、全微分 $df$ を §1.3.2 と同じ型で
+$$df := \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz = \begin{pmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & \frac{\partial f}{\partial z} \end{pmatrix}$$
+と定義する。ここでの $dx,dy,dz$ はいずれも §1.3.3 どおりの一次形式である。変位 $\mathbf{v}=\begin{pmatrix} v_x\\v_y\\v_z\end{pmatrix}$ に対しては
 $$df(\mathbf{v}) = \frac{\partial f}{\partial x}\,v_x + \frac{\partial f}{\partial y}\,v_y + \frac{\partial f}{\partial z}\,v_z$$
-であり、<strong>1変数のときと同じく——横ベクトル（演算子）が縦ベクトル（変位）に作用してスカラーを返す——という読み方のまま、和の項が三つに増えただけ</strong>にすぎない。
+であり、<strong>横ベクトル（演算子）が縦ベクトル（変位）に作用してスカラーを返す</strong>という読み方は、1変数のときと変わらない。
+
+座標が二つまでしか現れない $f(x,y)$ も、$z$ に依らなければ $\partial f/\partial z=0$ として上の式に含めればよい——<strong>三次元に載せた枠組みが、そのまま低次元に退化する</strong>。
+
+<strong>線積分の先取り。</strong> 空間内の曲線をパラメータ $t$ で $\mathbf{r}(t)=\begin{pmatrix}x(t)\\y(t)\\z(t)\end{pmatrix}$ と表し、細かいステップの変位を $\Delta\mathbf{r}$ と書くとき、各ステップで $\bigl(df\bigr)(\Delta\mathbf{r})$ を足し上げる操作の極限を、記号では
+$$\int_\gamma df$$
+の形で表す（$\gamma$ は曲線）。§1.3.5 で見た $\int f'(x)\,dx$ と同じく、<strong>一次形式 $df$ が各ステップの変位に作用するリーマン和の極限</strong>という骨格である。閉曲線・向き・パラメータの取り換えなど、厳密な定式化は<strong>後の章に譲る</strong>[^lineint-ch3]。
+
+[^lineint-ch3]: 線積分・1-form の曲線への制限・ストークスの定理の枠組みは、本書では主として第3章以降で改めて置く。ここは動機と記号の予告にすぎない。
 
 #### 1.3.7 なぜ行列表示が優れているか — 拡張性の観点から
 $df$ を横ベクトルとして定義し直す利点は、§1.3.6 が示したとおり、<strong>次元が増えても骨格が変わらない</strong>点にある。見比べてみよう。
