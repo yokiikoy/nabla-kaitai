@@ -241,7 +241,7 @@ $$\int_a^b f'(x)\,dx = \int_{t_0}^{t_1} f'(x(t))\,\frac{dx}{dt}\,dt$$
 
 #### 1.3.6 三次元への拡張
 
-スカラー場 $f(x,y,z)$ が点 $(x,y,z)$ で<strong>（全）微分可能である</strong>とは、変位 $\mathbf{v}=\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$ に対して次の一次近似が成り立つことである：
+空間の各点 $(x,y,z)$ にスカラー（実数）を対応させる関数 $f$ を、物理学では<strong>スカラー場</strong>と呼ぶことが多い。数学的には、デカルト座標の開集合上の<strong>実数値関数</strong>として同じ対象を扱えばよい。さてそのような $f(x,y,z)$ が点 $(x,y,z)$ で<strong>（全）微分可能である</strong>とは、変位 $\mathbf{v}=\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$ に対して次の一次近似が成り立つことである：
 $$\Delta f = f(x+\Delta x,\,y+\Delta y,\,z+\Delta z) - f(x,y,z) = \frac{\partial f}{\partial x}\,\Delta x + \frac{\partial f}{\partial y}\,\Delta y + \frac{\partial f}{\partial z}\,\Delta z + o(\|\mathbf{v}\|) \quad (\|\mathbf{v}\|\to 0)$$
 
 （全）微分可能であるとは、いま述べたように<strong>変位に対する変化が、この形の一次近似で書けること</strong>である。§1.3.1 の1変数の定義と<strong>形式をそろえれば、三次元（成分が三つのデカルト座標）への拡張は容易である</strong>——1変数では主項が $f'(x)\,\Delta x$ だったのが、偏導関数の一次結合に並ぶだけにすぎない。$o(\|\mathbf{v}\|)$ は $\|\mathbf{v}\|$ より速くゼロへ近づく余りをまとめた記法であり（§1.3.1 の $o(|\Delta x|)$ と同趣旨）、ここでは厳密な定義に立ち入らない。
