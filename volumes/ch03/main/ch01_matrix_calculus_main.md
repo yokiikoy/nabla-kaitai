@@ -181,7 +181,7 @@ $$dy = \begin{pmatrix} 0 & 1 & 0 \end{pmatrix}, \qquad dz = \begin{pmatrix} 0 & 
 
 3次元の空間には、**三つの物差し**がそろった。本章では説明の主線として $x$ 方向の断面に寄せてきたが、座標 $y,z$ と測定子 $dy,dz$ は最初からそろっている、と考えてほしい。なお §1.5.3 で触れる円柱座標の $dr$, $d\theta$ などは<strong>別の座標系での基底</strong>であり、いまのデカルトの $dy$, $dz$ とは<strong>載る座標が違う</strong>——混同しないこと。
 
-いま、一変数の $df=f'(x)\,dx$ に $dy$, $dz$ を同じ型の物差しとして足しそろえた。以下の具体例や §1.3.6 の多変数への拡張で、この三つがどう効いてくるかを追う。
+いま、一変数の $df=f'(x)\,dx$ に $dy$, $dz$ を同じ型の物差しとして足しそろえた。以下の具体例、§1.3.6 での $f(x,y,z)$ への拡張、§1.3.7 での代数的まとめで、この三つがどう効いてくるかを追う。
 
 #### 1.3.4 具体例： $f(x) = x^2$ の場合
 $f(x) = x^2$ とする。$f'(x) = 2x$ である。
@@ -239,13 +239,26 @@ $$\bigl(f'(x(t))\,dx\bigr)(\Delta \mathbf{r}) \approx f'(x(t))\,\frac{dx}{dt}\,\
 $$\int_a^b f'(x)\,dx = \int_{t_0}^{t_1} f'(x(t))\,\frac{dx}{dt}\,dt$$
 となる。
 
-#### 1.3.6 なぜ行列表示が優れているか — 拡張性の観点から
-$df$ を横ベクトルとして定義する利点は、<strong>多次元への自然な拡張</strong>にある。
+#### 1.3.6 $f(x,y,z)$ への拡張
+
+いままでの議論——1変数の $df=f'(x)\,dx$ を $1\times 3$ 横ベクトルとして読み、さらに §1.3.3 でデカルトの物差し $dx,dy,dz$ をそろえた——を、<strong>三変数のスカラー場 $f(x,y,z)$</strong> にまで広げるのは、<strong>形式的には容易である</strong>。
+
+$f$ が十分滑らか（各偏導関数が存在し、変位に対する変化の一次近似が通常の意味で定まる）とする。設計図は 1変数・2変数のときと同じで、全微分は
+$$df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz = \begin{pmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & \frac{\partial f}{\partial z} \end{pmatrix}$$
+となる。ここでの $dx,dy,dz$ はいずれも §1.3.3 どおりの一次形式である。
+
+変位 $\mathbf{v}=\begin{pmatrix} v_x\\v_y\\v_z\end{pmatrix}$ に対しては
+$$df(\mathbf{v}) = \frac{\partial f}{\partial x}\,v_x + \frac{\partial f}{\partial y}\,v_y + \frac{\partial f}{\partial z}\,v_z$$
+であり、<strong>1変数のときと同じく——横ベクトル（演算子）が縦ベクトル（変位）に作用してスカラーを返す——という読み方のまま、和の項が三つに増えただけ</strong>にすぎない。
+
+#### 1.3.7 なぜ行列表示が優れているか — 拡張性の観点から
+$df$ を横ベクトルとして定義し直す利点は、§1.3.6 が示したとおり、<strong>次元が増えても骨格が変わらない</strong>点にある。見比べてみよう。
+
 1変数では： $df = f'(x) dx = \begin{pmatrix} f'(x) & 0 & 0 \end{pmatrix}$
 2変数関数 $f(x, y)$ では（§1.3.3 の $dy$ を用いる）： $df = \frac{\partial f}{\partial x} dx + \frac{\partial f}{\partial y} dy = \begin{pmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & 0 \end{pmatrix}$
-3変数では： $df = \frac{\partial f}{\partial x} dx + \frac{\partial f}{\partial y} dy + \frac{\partial f}{\partial z} dz = \begin{pmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & \frac{\partial f}{\partial z} \end{pmatrix}$
+3変数 $f(x,y,z)$ では、§1.3.6 の式のとおり、横ベクトルの成分が三つそろうだけである。
 
-このように、<strong>次元が増えても形式は変わらない</strong>。ただ横ベクトルの成分が増えるだけだ。これが「代数の武器」としての威力である。
+このように、<strong>形式は同じで、ただ成分の個数が増える</strong>。これが「代数の武器」としての威力である。
 
 $df$ を行列と見なすことで、微分は「変位に対する線形近似を与える演算子」として統一的に扱える。次節では、ライプニッツの記法がこの流儀とどう響き合うかを短く拾い、続いてデカルト座標の「特権」へ進む。
 
