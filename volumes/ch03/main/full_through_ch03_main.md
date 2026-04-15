@@ -35,7 +35,7 @@ $$\mathbf{v} = \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix}$$
 ### §1.2 リーマン積分のベクトル解剖 — 区分求積法を行列作用として見る
 前節で、物理的な微小変位を縦ベクトル $\mathbf{v} = \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix}$ と捉え直した。この視点を持って、今度は高校以来慣れ親しんだリーマン積分のプロセスを徹底的に解体し、その中に潜む「行列としての $dx$」を炙り出してみよう。
 
-> <strong>注</strong> 右上の ${}^T$ は<strong>転置</strong>の記号である。本文を横書きに収めるとき、縦ベクトルを成分の横並びに ${}^T$ をつけて書くこともある（列ベクトルを行ベクトルに見せる）。
+> <strong>注</strong> 数学や他文献では、縦ベクトルの成分を横に並べ、右上に ${}^T$ を添えて略記することもある（列ベクトルを行として見せる）。<strong>本書の第1章では縦ベクトルは主に $\begin{pmatrix}\cdots\end{pmatrix}$ で書き統一する。</strong> 他書や後の章で ${}^T$ が出たときは、転置の記号として読んでほしい。
 
 #### 1.2.1 リーマン和の標準的構成（復習）
 関数 $f(x)$ の区間 $[a, b]$ における定積分は、次のように定義される：
@@ -109,7 +109,7 @@ $$W = \lim_{n\to\infty} \sum_{i=1}^n \begin{pmatrix} F(\xi_i) & 0 & 0 \end{pmatr
 
 $F(x)\,dx = \begin{pmatrix} F(x) & 0 & 0 \end{pmatrix}$ は演算子であり、$\bigl(F(x)\,dx\bigr)(\mathbf{v}) = F(x)\,\Delta x$ が一次近似としての微小仕事になる。
 
-この視点の強みは、<strong>力が $y$ 方向にも成分を持つ一般的な場合に自然に拡張できる</strong>点だ。次章で $dy$ を導入すれば、$F_x dx + F_y dy$ という形で2次元の仕事を統一的に扱える。
+この視点の強みは、<strong>力が $y$ 方向にも成分を持つ一般的な場合に自然に拡張できる</strong>点だ。§1.2.7 で置く $dy$ を使えば、$F_x dx + F_y dy$ という形で2次元の仕事を統一的に扱える。
 
 #### 1.2.6 一次形式（1-form）
 
@@ -134,12 +134,23 @@ $F(x)\,dx = \begin{pmatrix} F(x) & 0 & 0 \end{pmatrix}$ は演算子であり、
 
 > <strong>注</strong> 同じ注意を繰り返し書くが、<strong>それほど記号の使い分けが本書の骨格だから</strong>である。
 
+#### 1.2.7 $y$ 方向と $z$ 方向の物差し $dy$, $dz$
+
+$dx$ が $x$ 成分を抜き出すのと同様に、デカルト座標では **$dy$ は $y$ 成分**、**$dz$ は $z$ 成分**を抜き出す横ベクトル（一次形式）と定める。行列表現は
+$$dy = \begin{pmatrix} 0 & 1 & 0 \end{pmatrix}, \qquad dz = \begin{pmatrix} 0 & 0 & 1 \end{pmatrix}$$
+である。変位 $\mathbf{v} = \begin{pmatrix} v_x \\ v_y \\ v_z \end{pmatrix}$ に対して $dy(\mathbf{v}) = v_y$, $dz(\mathbf{v}) = v_z$ となる。
+
+> <strong>注（$dy$, $dz$ の契約）</strong> <strong>§1.2.6 の $dx$ と同じ約束</strong>を適用する。単独の $dy$, $dz$ は演算子であり、$y$ や $z$ の微小幅を語るときは $\Delta y$, $\Delta z$ または $dy(\mathbf{v})$, $dz(\mathbf{v})$ と書く。積分記号の末尾に並ぶ $dy$, $dz$ も、高校以来の慣用記法として $dx$ と同型に読めばよい。
+
+3次元の空間には、**同じ型の物差しが三つ**そろった。本章では説明の主線として $x$ 方向の断面に寄せてきたが、座標 $y,z$ と測定子 $dy,dz$ は最初からそろっている、と考えてほしい。なお §1.5.3 で触れる円柱座標の $dr$, $d\theta$ などは<strong>別の座標系での基底</strong>であり、いまのデカルトの $dy$, $dz$ とは<strong>載る座標が違う</strong>——混同しないこと。
+
 次節では、この視点を関数の微分へと拡張し、全微分 $df$ を行列として定義していく。
 
 ---
 
 > <strong>【ここまでのチェックポイント】</strong>
 > - 微小変位は縦ベクトル $\mathbf{v}$。$\Delta x$ はスカラー幅であり、単独の $dx$ は横ベクトル（一次形式）としての演算子である。
+> - デカルト座標では $dy = \begin{pmatrix}0&1&0\end{pmatrix}$, $dz = \begin{pmatrix}0&0&1\end{pmatrix}$ も同型の一次形式（§1.2.7）。$\Delta y$, $\Delta z$ や $dy(\mathbf{v})$, $dz(\mathbf{v})$ との区別も §1.2.6 と同じである。
 > - リーマン和の各項は $(f\,dx)(\mathbf{v}_i)$ の形で、積分はその極限として理解できる。
 > - 積分記号 $\int_a^b f(x)\,dx$ の末尾の $dx$ は慣用記法であり、変位そのものは $\Delta x$ や $dx(\mathbf{v})$ で書く（§1.2.6 の契約）。
 
@@ -222,7 +233,7 @@ $$\bigl(F(x(t))\,dx\bigr)(\Delta \mathbf{r}) \approx F(x(t))\,\frac{dx}{dt}\,\De
 
 微小ステップでは、運動エネルギーの変化と仕事の関係 $\Delta\bigl(\tfrac12 m v^2\bigr) \approx F\,\Delta x$ が成り立つ。ここで $v$ はそのステップにおける速度の代表値である。右辺の $F\,\Delta x$ は $\bigl(F\,dx\bigr)(\Delta\mathbf{r})$ に他ならない。
 
-同じ骨格は $df = f'(x)\,dx$ の積分にも入る。同じパラメータ表示で $\Delta\mathbf{r}=(\Delta x,0,0)^T$ とすれば
+同じ骨格は $df = f'(x)\,dx$ の積分にも入る。同じパラメータ表示で $\Delta\mathbf{r}=\begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix}$ とすれば
 $$\bigl(f'(x(t))\,dx\bigr)(\Delta \mathbf{r}) = f'(x(t))\,\Delta x = f'(x(t))\,\frac{\Delta x}{\Delta t}\,\Delta t$$
 であり、$\Delta t \to 0$ で $\Delta x/\Delta t \to \dfrac{dx}{dt}$ として
 $$\bigl(f'(x(t))\,dx\bigr)(\Delta \mathbf{r}) \approx f'(x(t))\,\frac{dx}{dt}\,\Delta t$$
@@ -233,7 +244,7 @@ $$\int_a^b f'(x)\,dx = \int_{t_0}^{t_1} f'(x(t))\,\frac{dx}{dt}\,dt$$
 #### 1.3.5 なぜ行列表示が優れているか — 拡張性の観点から
 $df$ を横ベクトルとして定義する利点は、<strong>多次元への自然な拡張</strong>にある。
 1変数では： $df = f'(x) dx = \begin{pmatrix} f'(x) & 0 & 0 \end{pmatrix}$
-2変数関数 $f(x, y)$ では（次章で詳述）： $df = \frac{\partial f}{\partial x} dx + \frac{\partial f}{\partial y} dy = \begin{pmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & 0 \end{pmatrix}$
+2変数関数 $f(x, y)$ では（§1.2.7 の $dy$ を用いる）： $df = \frac{\partial f}{\partial x} dx + \frac{\partial f}{\partial y} dy = \begin{pmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & 0 \end{pmatrix}$
 3変数では： $df = \frac{\partial f}{\partial x} dx + \frac{\partial f}{\partial y} dy + \frac{\partial f}{\partial z} dz = \begin{pmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & \frac{\partial f}{\partial z} \end{pmatrix}$
 
 このように、<strong>次元が増えても形式は変わらない</strong>。ただ横ベクトルの成分が増えるだけだ。これが「代数の武器」としての威力である。
@@ -255,7 +266,7 @@ $df$ を行列と見なすことで、微分は「変位に対する線形近似
 
 ライプニッツが $dx$, $dy$ という記号を導入したとき、彼はこれらを「無限小」として直感的に扱った。現代の我々は、その直感を<strong>線形代数の言葉</strong>で再配置したと言える。
 ライプニッツの記法 $df = f'(x)dx$ は、単なる形式的等式ではない：
-* $dx$：ライプニッツの無限小の直感 → 本書では <strong>演算子</strong>としての $x$ 成分抽出（微小変位そのものを語るときは $\Delta x$ や $dx(\mathbf{v})$）
+* $dx$：ライプニッツの無限小の直感 → 本書では <strong>演算子</strong>としての $x$ 成分抽出（微小変位そのものを語るときは $\Delta x$ や $dx(\mathbf{v})$）。$dy$, $dz$ も §1.2.7 で同型に定義する。
 * $df$：ライプニッツの無限小変化の直感 → 本書では <strong>演算子</strong>としての全微分（数値の変化量は $df(\mathbf{v})$ などで）
 
 <strong>ライプニッツの天才は、微分・積分が本質的に代数的操作であることを見抜いていた</strong>。我々は、彼の直感に行列という具体的な骨格を与えたに過ぎない。
@@ -370,7 +381,7 @@ $$
 計算結果 $dx|_P(\mathbf{v}) = 0.1 \times \frac{\sqrt{3}}{2}$ を見ると、$r$方向成分$0.1$（長さの次元）と、第1成分の係数$\frac{\sqrt{3}}{2}$（無次元）の積となっており、出力は確かに長さの次元を持つ。
 しかし、もし$\theta$方向の変位$\mathbf{v} = \begin{pmatrix} 0 \\ 0.1 \\ 0 \end{pmatrix}$（角度変位$0.1$ラジアン）を入力したとすると：
 $$dx|_P(\mathbf{v}) = \begin{pmatrix} \frac{\sqrt{3}}{2} & -1 & 0 \end{pmatrix} \begin{pmatrix} 0 \\ 0.1 \\ 0 \end{pmatrix} = -0.1$$
-この場合、無次元の入力$0.1$に対して、出力は$-0.1$という長さの次元を持つ値になる。
+この場合、<strong>入力ベクトルの第2成分</strong> $0.1$ は角度（無次元）だが、<strong>行列の第2列に対応する係数</strong> $-r\sin\theta$ が長さの次元を運ぶため、積としての出力 $-0.1$ は長さの次元を持つ。
 
 ここに<strong>一次形式</strong>の驚くべき性質がある： $dx$ の行列成分自体が $r$ を含む関数であり、入力が座標成分（次元がバラバラでも）であっても、出力は常に「$x$ 方向の長さ」という正しい物理的次元を持つように自動調整される。<strong>一次形式は、座標系の歪みを吸収し、物理的に意味のある測定値を出力する「賢い測定器」</strong>なのである。
 
@@ -381,12 +392,12 @@ $$dx|_P(\mathbf{v}) = \begin{pmatrix} \frac{\sqrt{3}}{2} & -1 & 0 \end{pmatrix} 
 #### 1.6.3 この先の章へ
 
 > <strong>【ここまでのチェックポイント — 第1章全体】</strong>
-> - 第1章の主役は「$dx$ を行列・一次形式として読み、$\int f\,dx$ を作用の極限として読む」ことである。
+> - 第1章の主役は「$dx$ を行列・一次形式として読み、$\int f\,dx$ を作用の極限として読む」ことである。説明の主線は $x$ 方向に寄せたが、デカルトの物差し $dy$, $dz$ は §1.2.7 で $dx$ と同型に定義済みである。
 > - $df$ も横ベクトルとして統一し、多次元への拡張は成分の増加として素直に繋がる。
-> - 次章以降は $dy, dz$、ウェッジ積、曲線積分、外微分、ホッジスターへと拡張する。
+> - 次章以降は、これらの物差しの<strong>ウェッジ積</strong>、曲線積分、外微分、ホッジスターへと拡張する。
 
-本章では $dx$ だけを扱い、$y, z$ 方向は常に「断面」として無視してきた。
-次章からは $dy = \begin{pmatrix}0&1&0\end{pmatrix}$, $dz = \begin{pmatrix}0&0&1\end{pmatrix}$ を正式に導入し、3次元空間全体を記述する<strong>一次形式（1-form）</strong>の理論を仕上げる。そのうえで、直線的な変位だけに閉じない<strong>曲線に沿った積分</strong>や、ベクトルに作用してスカラーを返す型にとどまらない<strong>高次の微分形式</strong>への拡張へと進む。それらを掛け合わせる「外積（ウェッジ積 $\wedge$）」も導入する。
+本章では<strong>積分と $df$ の具体例</strong>の主線として $x$ 方向に寄せ、$y,z$ は多くの場面で「断面」として抑えてきた。とはいえ、デカルト座標での一次形式は <strong>$dx$, $dy$, $dz$ の三つがそろっている</strong>（§1.2.7）。
+次章では、この三つを組み合わせて<strong>面積計・体積計（2-form, 3-form）</strong>を作る<strong>ウェッジ積（外積 $\wedge$）</strong>を導入し、直線的な変位だけに閉じない<strong>曲線に沿った積分</strong>や、ベクトルに作用してスカラーを返す型にとどまらない<strong>高次の微分形式</strong>へと進む。
 
 その後の部では、<strong>微分演算子 $d$</strong>、<strong>ホッジスター演算子 $*$</strong>、ベクトル解析の $\mathrm{grad}$（$\nabla$）、$\mathrm{rot}$（$\nabla\times$、$\mathrm{curl}$）、$\mathrm{div}$（$\nabla\cdot$）、ストークスの定理、マクスウェル方程式や流体力学の基礎方程式へと進む。3次元での微分形式とベクトル場の対応は、ホッジスターで整理できる。
 
@@ -549,7 +560,8 @@ $$
 しかし、我々はこの行列を、§2.2 の3つのルール（線形性、交代性、規格化）を手がかりに導いたものの、あれは $xy$ 平面だけに有効な特別な行列だった。
 <strong>3次元空間のどんな傾いた平面の面積も測れる、一般の面積計（反対称行列）を、体系的に構成する方法はないだろうか？</strong>
 
-ここで、第1章で得た強力な道具を思い出そう。空間の微小な長さを測る<strong>3つの「物差し（1-form）」：$dx, dy, dz$</strong> だ。
+ここで、第1章で得た強力な道具を思い出そう。空間の微小な長さを測る<strong>3つの「物差し（1-form）」：$dx, dy, dz$</strong> だ（デカルト表示の定義は第1章 §1.2.6–§1.2.7）。
+
 これらは、「ベクトルの特定の成分を取り出す」というシンプルな操作だった（例：$dx(\mathbf{v}) = \mathbf{v}$ の $x$ 成分）。
 
 我々の野望はこうだ：
@@ -1075,7 +1087,7 @@ $$V = (-1)(1) + (-1)(1) + (1)(0) = -2$$
 
 # 第3章：形式で積分を書き直す
 
-第1章では、$dx$ を行ベクトルと見なし、1次元の積分を「行列作用の集計」として読み替えた。第2章では $dy$, $dz$ を加え、ウェッジ積によって 2-form（面積計）と 3-form（体積計）を組み立てた。
+第1章では、デカルト座標の一次形式 $dx, dy, dz$ を行ベクトルとして定め（§1.2.6–§1.2.7）、説明の主線は $x$ 方向に寄せながら 1次元の積分を「行列作用の集計」として読み替えた。第2章ではそれらのウェッジ積によって 2-form（面積計）と 3-form（体積計）を組み立てた。
 
 いま我々の手元には、次数 $0,1,2,3$ の「測定器」がそろった。本章の仕事は、<strong>曲線・曲面・領域にわたって、それらをどう集計するか</strong>を一つの言葉で統一することである。そして最後に、座標変換やパラメータ表示のときに現れる <strong>引き戻し（pullback）</strong> を導入し、<strong>ヤコビ行列式</strong>が「体積要素の歪み」として自然に出てくることを見る。
 
