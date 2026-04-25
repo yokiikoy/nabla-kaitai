@@ -1,0 +1,10 @@
+# Tools
+
+Place project-local scripts here.
+
+Expected tool categories:
+
+- concatenate all chapters
+- build full PDF
+- convert manuscript Markdown to note.com Markdown
+- generate or clean OCR Markdown from references
