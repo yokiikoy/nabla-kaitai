@@ -1,7 +1,7 @@
 ---
 title: "第4章：外微分 d — 積分から微分法則を取り出す"
-series: ナブラ解体新書 - 行列表示の微分形式によるベクトル解析の抜け道 -
-chapter: 4 / 11
+series: dx-matrix
+chapter: 4
 ---
 
 # 第4章：外微分 d — 積分から微分法則を取り出す
@@ -10,17 +10,17 @@ chapter: 4 / 11
 
 第3章で我々は、曲線・曲面・領域上の積分を $${k}$$-form の言葉で定義した。曲線 $${\gamma}$$ に沿った仕事は $${\int_\gamma \omega}$$、曲面 $${S}$$ を貫く流量は $${\iint_S \eta}$$、領域 $${V}$$ の総質量は $${\iiint_V \Omega}$$ である。いずれも「$${k}$$-form（はかり）を $${k}$$-vector（図形）に食わせてスカラーを得、領域全体で集計する」という同一の原理に従っていた。
 
-ここで我々が手にした積分は、すべて**マクロ**な量である。仕事は曲線全体にわたる総和であり、流量は曲面全体を貫く総量であり、質量は領域全体での総計だ。それらは測定器の当て方と領域の選び方に依存する。
+ここで我々が手にした積分は、すべてマクロな量である。仕事は曲線全体にわたる総和であり、流量は曲面全体を貫く総量であり、質量は領域全体での総計だ。それらは測定器の当て方と領域の選び方に依存する。
 
-しかし、物理学者が求めているのはこれではない。マクスウェル方程式にせよナビエ–ストークス方程式にせよ、自然界の基本法則は**空間の各点・各瞬間において何が成り立つか**を記述する局所的な関係——微分方程式——として書かれる。マクロな積分量は領域に依存するが、微視的な局所法則は領域に依存しない普遍性を持つからだ。
+しかし、物理学者が求めているのはこれではない。マクスウェル方程式にせよナビエ–ストークス方程式にせよ、自然界の基本法則は空間の各点・各瞬間において何が成り立つかを記述する局所的な関係——微分方程式——として書かれる。マクロな積分量は領域に依存するが、微視的な局所法則は領域に依存しない普遍性を持つからだ。
 
 ここに根本的な問いが生まれる。
 
-> **積分された量から、どのようにして局所法則を取り出すのか。**
+> 積分された量から、どのようにして局所法則を取り出すのか。
 
-この問いに答えるのが本章の主題——**外微分 **$${d}$$ ——である。$${d}$$ は $${k}$$-form に作用して $${(k+1)}$$-form を返す演算子であり、第3章で定義した積分と組み合わせることで「境界で測ったマクロな積分」を「内部のミクロな変化の集積」へと翻訳する。いわば、$${d}$$** は積分法則を微分法則に変換する装置**なのである。
+この問いに答えるのが本章の主題——外微分 $${d}$$——である。$${d}$$ は $${k}$$-form に作用して $${(k+1)}$$-form を返す演算子であり、第3章で定義した積分と組み合わせることで「境界で測ったマクロな積分」を「内部のミクロな変化の集積」へと翻訳する。いわば、$${d}$$ は積分法則を微分法則に変換する装置なのである。
 
-本章の構成はこうだ。まず第1章で導入した $${df}$$ を思い出し、それが 0-form → 1-form の「次元上げ」だったことを確認する（§4.1）。次に一般の 1-form ではその逆演算が破綻することを見て（§4.2）、微小ループの解剖から $${(Q_x-P_y)}$$ という「面積あたりのズレ」を発見する（§4.3）。この発見を手がかりに $${d}$$ の定義へと至り（§4.4）、3次元への拡張（§4.5）、ストークスの定理（§4.6）へと進む。同じ論法を 2-form にも適用し（§4.7）、$${d^2=0}$$ の構造的意味を明らかにする（§4.8）。最後に、この $${d}$$ がどのように物理法則を局所化するかを示し（§4.10）、次章のホッジ・スターへとつなぐ（§4.11）。
+本章の構成はこうだ。まず第1章で導入した $${df}$$ を思い出し、それが $${0}$$-form → $${1}$$-form の「次元上げ」だったことを確認する（§4.1）。次に一般の $${1}$$-form ではその逆演算が破綻することを見て（§4.2）、微小ループの解剖から $${(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y})}$$ という「面積あたりのズレ」を発見する（§4.3）。この発見を手がかりに $${d}$$ の定義へと至り（§4.4）、3次元への拡張（§4.5）、ストークスの定理（§4.6）へと進む。同じ論法を $${2}$$-form にも適用し（§4.7）、$${d^2=0}$$ の構造的意味を明らかにする（§4.8）。最後に、この $${d}$$ がどのように物理法則を局所化するかを示し（§4.10）、次章のホッジ・スターへとつなぐ（§4.11）。
 
 ---
 
@@ -32,17 +32,17 @@ chapter: 4 / 11
 
 
 $$
-df = \frac{\partial f}{\partial x} dx + \frac{\partial f}{\partial y} dy + \frac{\partial f}{\partial z} dz = \begin{pmatrix} f_x & f_y & f_z \end{pmatrix}
+df = \frac{\partial f}{\partial x} dx + \frac{\partial f}{\partial y} dy + \frac{\partial f}{\partial z} dz = \begin{pmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & \frac{\partial f}{\partial z} \end{pmatrix}
 $$
 
 
-これは **0-form（スカラー場 **$${f}$$**）を入力として 1-form（横ベクトル **$${df}$$**）を出力する**操作である。次数が 0 から 1 へ上がった。
+これは $${0}$$-form（スカラー場 $${f}$$）を入力として $${1}$$-form（横ベクトル $${df}$$）を出力する操作である。次数が 0 から 1 へ上がった。
 
 ここで思い出してほしいのは、$${df(\mathbf{v})}$$ が変位 $${\mathbf{v}}$$ に対する $${f}$$ の一次変化量を返す、ということだ。$${\mathbf{v} = \begin{pmatrix}\Delta x\cr\Delta y\cr\Delta z\end{pmatrix}}$$ が十分小さいとき：
 
 
 $$
-df(\mathbf{v}) = f_x \Delta x + f_y \Delta y + f_z \Delta z \approx f(\mathbf{r}+\mathbf{v}) - f(\mathbf{r})
+df(\mathbf{v}) = \frac{\partial f}{\partial x} \Delta x + \frac{\partial f}{\partial y} \Delta y + \frac{\partial f}{\partial z} \Delta z \approx f(\mathbf{r}+\mathbf{v}) - f(\mathbf{r})
 $$
 
 
@@ -68,7 +68,7 @@ $$
 $$
 
 
-隣り合う項 $${f(\mathbf{r}_1), f(\mathbf{r}_2), \dots, f(\mathbf{r}_{n-1})}$$ がプラスとマイナスで打ち消し合う——**望遠和（telescoping sum）**だ。生き残るのは最初と最後だけ。刻みを無限に細かくする極限で：
+隣り合う項 $${f(\mathbf{r}_1), f(\mathbf{r}_2), \dots, f(\mathbf{r}_{n-1})}$$ がプラスとマイナスで打ち消し合う——望遠和（telescoping sum）だ。生き残るのは最初と最後だけ。刻みを無限に細かくする極限で：
 
 
 $$
@@ -78,9 +78,10 @@ $$
 
 ここで $${A}$$ は曲線の始点、$${B}$$ は終点である。
 
-> **【ここまでのチェックポイント】**
-> - $${\int_\gamma df = f(B) - f(A)}$$。積分の結果は経路の形状に一切依存せず、端点の値だけで決まる。
-> - これは $${df}$$ という特別な 1-form だからこそ成立する。力学でいえば「保存力の仕事は経路によらない」という事実の数学的根拠だ。
+【ここまでのチェックポイント】
+
+- $${\int_\gamma df = f(B) - f(A)}$$。積分の結果は経路の形状に一切依存せず、端点の値だけで決まる。
+- これは $${df}$$ という特別な $${1}$$-form だからこそ成立する。力学でいえば「保存力の仕事は経路によらない」という事実の数学的根拠だ。
 
 #### 4.1.3 第3章の例で確かめる
 
@@ -102,9 +103,17 @@ $$
 $$
 
 
-あのときの $${\int_0^{2\pi} \cos 2t dt = 0}$$ という計算は、実は $${\omega}$$ が $${d(xy)}$$ という**完全形式**だったからこそ、機械的にゼロになったのである。
+あのときの $${\int_0^{2\pi} \cos 2t dt = 0}$$ という計算は、実は $${\omega}$$ が $${d(xy)}$$ という完全形式だったからこそ、機械的にゼロになったのである。
 
-> **注** （完全形式）$${\omega = df}$$ と書ける 1-form を**完全形式**（exact form）と呼ぶ。完全形式の閉曲線に沿った積分は、$${f}$$ が一価関数である限り必ずゼロになる。しかし逆は真ではない——閉曲線でゼロになるからといって完全形式とは限らない。この点は §4.2 で詳しく見る。
+
+---
+
+【注】（完全形式）
+
+$${\omega = df}$$ と書ける $${1}$$-form を完全形式（exact form）と呼ぶ。完全形式の閉曲線に沿った積分は、$${f}$$ が一価関数である限り必ずゼロになる。しかし逆は真ではない——閉曲線でゼロになるからといって完全形式とは限らない。この点は §4.2 で詳しく見る。
+
+---
+
 
 ---
 
@@ -112,7 +121,7 @@ $$
 
 #### 4.2.1 一般の 1-form ではどうか
 
-では、一般の 1-form
+では、一般の $${1}$$-form
 
 
 $$
@@ -120,13 +129,21 @@ $$
 $$
 
 
-ではどうか。ここで $${P, Q, R}$$ は場所ごとに変わる係数（スカラー場）であり、第3章 §3.5.1 で導入した「一般の 1-form」である。
+ではどうか。ここで $${P, Q, R}$$ は場所ごとに変わる係数（スカラー場）であり、第3章 §3.5.1 で導入した「一般の $${1}$$-form」である。
 
-> **注** （「一般の」とはどういうことか）§4.1 で扱った $${df}$$ は、係数が $${f_x, f_y, f_z}$$ という特別な組み合わせだった——$${f}$$ という一つの関数から偏微分で導かれた三つ組である。一方、ここでの「一般の」$${\omega}$$ は $${P, Q, R}$$ が**互いに無関係な、任意の三つのスカラー場**である。言い換えれば、$${\omega = df}$$ と書けるとは限らない 1-form のことを「一般の 1-form」と呼んでいる。§4.1.3 の $${y dx + x dy}$$ はたまたま $${d(xy)}$$ と書ける完全形式だったが、そうでないもののほうがむしろ普通なのである。
+
+---
+
+【注】（「一般の」とはどういうことか）
+
+§4.1 で扱った $${df}$$ は、係数が $${\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z}}$$ という特別な組み合わせだった——$${f}$$ という一つの関数から偏微分で導かれた三つ組である。一方、ここでの「一般の」$${\omega}$$ は $${P, Q, R}$$ が互いに無関係な、任意の三つのスカラー場である。言い換えれば、$${\omega = df}$$ と書けるとは限らない $${1}$$-form のことを「一般の $${1}$$-form」と呼んでいる。§4.1.3 の $${y dx + x dy}$$ はたまたま $${d(xy)}$$ と書ける完全形式だったが、そうでないもののほうがむしろ普通なのである。
+
+---
+
 
 $${\omega}$$ は力を表すとは限らず、任意の「線に沿って測る測定器」を表す。
 
-この $${\omega}$$ に対して、§4.1 と同じ望遠和が成り立つ保証はない。それを判定する最も簡潔な方法は**閉ループ**——始点と終点が同じ曲線——で積分してみることだ。もし $${\int_\gamma \omega}$$ が端点の値の差だけで書けるなら、閉ループでは $${f(A)-f(A)=0}$$ とならなければならない。
+この $${\omega}$$ に対して、§4.1 と同じ望遠和が成り立つ保証はない。それを判定する最も簡潔な方法は閉ループ——始点と終点が同じ曲線——で積分してみることだ。もし $${\int_\gamma \omega}$$ が端点の値の差だけで書けるなら、閉ループでは $${f(A)-f(A)=0}$$ とならなければならない。
 
 閉ループに沿った線積分を $${\oint_\gamma \omega}$$ と書く。一般には：
 
@@ -136,19 +153,27 @@ $$
 $$
 
 
-である。摩擦力に逆らって物体を一周させれば仕事はゼロにならず、渦巻く水流に沿って一周すれば正味の仕事を受ける。この **「閉じても帳尻が合わない」という事実こそが、空間の各点に渦や回転が存在することの証拠**だ。典型的にはエネルギーの散逸や、湧き出しのような「何かがその点で起こっている」ことを意味する。
+である。摩擦力に逆らって物体を一周させれば仕事はゼロにならず、渦巻く水流に沿って一周すれば正味の仕事を受ける。この「閉じても帳尻が合わない」という事実こそが、循環や渦のような局所構造の証拠だ。
 
-> **注** （物理を知らなくても大丈夫）摩擦力や水流をまだ物理学で扱っていない読者も、ここで立ち止まる必要はない。いま重要なのは具体的な物理現象ではなく、「閉ループの積分がゼロにならないなら、その場には何か局所的な構造（渦や湧き出しのようなもの）がある」という感覚だけである。物理での詳しい対応は後の章で触れる。
+
+---
+
+【注】（物理を知らなくても大丈夫）
+
+摩擦力や水流をまだ物理学で扱っていない読者も、ここで立ち止まる必要はない。いま重要なのは具体的な物理現象ではなく、「閉ループの積分がゼロにならないなら、その場には循環のような局所構造がある」という感覚だけである。物理での詳しい対応は後の章で触れる。
+
+---
+
 
 #### 4.2.2 局所情報はどこに宿るか
 
-では、この「一周して残るズレ」はどこから来るのか。閉ループをいきなりマクロな大きさで考えていては、中のどの点がどれだけズレに寄与したのかわからない。第1章で $${f'(x)}$$ を求めたときのことを思い出そう——我々は $${\Delta f / \Delta x}$$ の $${\Delta x \to 0}$$ の極限をとることで、**一点での**変化率を取り出した。
+では、この「一周して残るズレ」はどこから来るのか。閉ループをいきなりマクロな大きさで考えていては、中のどの点がどれだけズレに寄与したのかわからない。第1章で $${f'(x)}$$ を求めたときのことを思い出そう——我々は $${\Delta f / \Delta x}$$ の $${\Delta x \to 0}$$ の極限をとることで、一点での変化率を取り出した。
 
-同じ発想をここでも使う。ループをどんどん小さくしていったとき、一周の積分 $${\oint \omega}$$ の値はどうなるか。もし $${\oint \omega}$$ がループの**囲む面積**に比例して小さくなるなら、面積あたりのズレ——単位面積あたりどれだけ帳尻が合わないか——という量が、その点に固有の値として決まるはずだ。
+同じ発想をここでも使う。ループをどんどん小さくしていったとき、一周の積分 $${\oint \omega}$$ の値はどうなるか。もし $${\oint \omega}$$ の主項がループの囲む面積に比例して小さくなるなら、面積あたりのズレ——単位面積あたりどれだけ帳尻が合わないか——という量が、その点に固有の値として決まるはずだ。
 
 逆に、もし比例しなければ（たとえばループの周の長さに比例するなら）、面積あたりの量としては決まらず、「その点での性質」とは呼べない。つまり問題はこうだ：
 
-> **微小ループを一周したとき、**$${\oint \omega}$$** は囲んだ面積に比例するのか。比例するなら、その比例係数は何か。**
+> 微小ループを一周したとき、$${\oint \omega}$$ の主項は囲んだ面積に比例するのか。比例するなら、その比例係数は何か。
 
 次節で実際に、$${xy}$$ 平面に置いた微小長方形でこの問いに答える。
 
@@ -158,59 +183,83 @@ $$
 
 #### 4.3.1 xy 平面の微小長方形
 
-空間内の点 $${(x, y, z)}$$ を左下の頂点とし、$${xy}$$ 平面に平行な微小長方形を考える。$${x}$$ 方向の幅を $${\Delta x}$$、$${y}$$ 方向の幅を $${\Delta y}$$ とする。この長方形の四辺を**反時計回り（右手系）**に一周し、$${\omega = P dx + Q dy + R dz}$$ を積分する。
+空間内の点 $${(x, y, z)}$$ を左下の頂点とし、$${xy}$$ 平面に平行な微小長方形を考える。$${x}$$ 方向の幅を $${\Delta x}$$、$${y}$$ 方向の幅を $${\Delta y}$$ とする。この長方形の四辺を反時計回り（右手系）に一周し、$${\omega = P dx + Q dy + R dz}$$ を積分する。
 
 各辺での積分を、テイラー展開の1次近似（$${\Delta x, \Delta y}$$ が十分小さいとして）で評価しよう。
 
-> **注** （テイラー展開について）「テイラー展開」という言葉に身構える必要はない。ここで使うのは多変数関数の1次近似——第1章 §1.3.1 で $${\Delta f \approx f'(x) \Delta x}$$ とやったのと同じことだ。たとえば $${Q(x+\Delta x, y)}$$ を $${x}$$ 方向に $${\Delta x}$$ だけずらした値は、$${Q}$$ の $${x}$$ に関する偏微分 $${Q_x}$$ を使って $${Q + Q_x \Delta x}$$ と近似できる。$${\Delta x}$$ が十分小さければ、$${\Delta x}$$ の2次以上の項（$${(\Delta x)^2}$$ やそれ以上）は $${\Delta x}$$ に比べて圧倒的に小さいため無視してよい——これが1次近似の意味である。
+
+---
+
+【注】（テイラー展開について）
+
+「テイラー展開」という言葉に身構える必要はない。ここで使うのは多変数関数の1次近似——第1章 §1.3.1 で $${\Delta f \approx f'(x) \Delta x}$$ とやったのと同じことだ。たとえば $${Q(x+\Delta x, y)}$$ を $${x}$$ 方向に $${\Delta x}$$ だけずらした値は、$${Q}$$ の $${x}$$ に関する偏微分 $${\frac{\partial Q}{\partial x}}$$ を使って $${Q + \frac{\partial Q}{\partial x} \Delta x}$$ と近似できる。$${\Delta x}$$ が十分小さければ、$${\Delta x}$$ の2次以上の項（$${(\Delta x)^2}$$ やそれ以上）は $${\Delta x}$$ に比べて圧倒的に小さいため無視してよい——これが1次近似の意味である。
+
+---
+
 
 $${z}$$ は一定なので $${dz=0}$$、$${R}$$ の項は寄与しない。
 
-**辺1（下辺、右向き）**：$${(x, y)}$$ から $${(x+\Delta x, y)}$$ へ。$${y}$$ 一定なので $${dy=0}$$。$${P}$$ はおよそ $${P(x, y, z)}$$。寄与は $${P(x, y, z) \Delta x}$$。
+辺1（下辺、右向き）：$${(x, y)}$$ から $${(x+\Delta x, y)}$$ へ。$${y}$$ 一定なので $${dy=0}$$。$${P}$$ はおよそ $${P(x, y, z)}$$。寄与は $${P(x, y, z) \Delta x}$$。
 
-**辺2（右辺、上向き）**：$${(x+\Delta x, y)}$$ から $${(x+\Delta x, y+\Delta y)}$$ へ。$${dx=0}$$。$${Q}$$ を $${x}$$ 方向に $${\Delta x}$$ だけずれた位置で評価する：
+辺2（右辺、上向き）：$${(x+\Delta x, y)}$$ から $${(x+\Delta x, y+\Delta y)}$$ へ。$${dx=0}$$。$${Q}$$ を $${x}$$ 方向に $${\Delta x}$$ だけずれた位置で評価する：
 
 $$
 Q(x+\Delta x, y, z) \approx Q(x, y, z) + \frac{\partial Q}{\partial x}\Delta x
 $$
 
-寄与は $${\bigl(Q + Q_x\Delta x\bigr) \Delta y}$$。
+寄与は $${\bigl(Q + \frac{\partial Q}{\partial x}\Delta x\bigr) \Delta y}$$。
 
-**辺3（上辺、左向き）**：$${(x+\Delta x, y+\Delta y)}$$ から $${(x, y+\Delta y)}$$ へ。負の方向なので符号が反転。$${P}$$ を $${y}$$ 方向に $${\Delta y}$$ だけずれた位置で：
+辺3（上辺、左向き）：$${(x+\Delta x, y+\Delta y)}$$ から $${(x, y+\Delta y)}$$ へ。負の方向なので符号が反転。$${P}$$ を $${y}$$ 方向に $${\Delta y}$$ だけずれた位置で：
 
 $$
 P(x, y+\Delta y, z) \approx P(x, y, z) + \frac{\partial P}{\partial y}\Delta y
 $$
 
-寄与は $${-\bigl(P + P_y\Delta y\bigr) \Delta x}$$。
+寄与は $${-\bigl(P + \frac{\partial P}{\partial y}\Delta y\bigr) \Delta x}$$。
 
-**辺4（左辺、下向き）**：$${(x, y+\Delta y)}$$ から $${(x, y)}$$ へ戻る。寄与は $${-Q(x, y, z) \Delta y}$$。
+辺4（左辺、下向き）：$${(x, y+\Delta y)}$$ から $${(x, y)}$$ へ戻る。寄与は $${-Q(x, y, z) \Delta y}$$。
 
 四辺の寄与を合計する：
 
 
 $$
 \begin{aligned}
-\oint \omega &\approx P\Delta x + (Q + Q_x\Delta x)\Delta y - (P + P_y\Delta y)\Delta x - Q\Delta y \\
-&= P\Delta x + Q\Delta y + Q_x\Delta x\Delta y - P\Delta x - P_y\Delta x\Delta y - Q\Delta y \\
-&= (Q_x - P_y) \Delta x \Delta y
+\oint \omega &\approx P\Delta x + (Q + \frac{\partial Q}{\partial x}\Delta x)\Delta y - (P + \frac{\partial P}{\partial y}\Delta y)\Delta x - Q\Delta y \\
+&= P\Delta x + Q\Delta y + \frac{\partial Q}{\partial x}\Delta x\Delta y - P\Delta x - \frac{\partial P}{\partial y}\Delta x\Delta y - Q\Delta y \\
+&= (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}) \Delta x \Delta y
 \end{aligned}
 $$
 
 
-$${P\Delta x}$$ と $${Q\Delta y}$$ の項が美しく相殺し、残ったのは $${(Q_x - P_y) \Delta x \Delta y}$$ だけだ。
+$${P\Delta x}$$ と $${Q\Delta y}$$ の項が美しく相殺し、残ったのは $${(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}) \Delta x \Delta y}$$ だけだ。
 
 #### 4.3.2 決定的な事実
 
 この結果が告げていることはただ一つ：
 
-> **一周して残るズレの総量は、囲んだ面積 **$${\Delta x \Delta y}$$** に正確に比例する。**
+> 一周して残るズレの主項は、囲んだ面積 $${\Delta x \Delta y}$$ に比例する。
 
-そして比例係数 $${Q_x - P_y}$$ こそが、点 $${(x,y,z)}$$ における**単位面積あたりのズレ**——その点での「渦の強さ」を表す局所量——である。
+そして比例係数 $${\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}}$$ こそが、点 $${(x,y,z)}$$ における単位面積あたりのズレ——その点での「渦の強さ」を表す局所量——である。より正確には、微小長方形 $${R_{\Delta x,\Delta y}}$$ について
 
-これは第1章で $${f'(x) = \lim_{\Delta x\to 0} \frac{\Delta f}{\Delta x}}$$ とやったのと同じ発想の「微分」だ。分母が「動いた距離」から「囲んだ面積」に変わっただけで、**変化率を局所的に取り出す**という精神は変わっていない。
 
-> **注** （なぜ $${Q_x-P_y}$$ だけが残るか）$${P_x}$$ や $${Q_y}$$ は出てこない。$${P}$$ の $${x}$$ 方向の変化（$${P_x}$$）は下辺と上辺で同じ向きに効くため相殺し、$${Q}$$ の $${y}$$ 方向の変化（$${Q_y}$$）も右辺と左辺で相殺する。生き残るのは「$${P}$$ の $${y}$$ 方向の変化」と「$${Q}$$ の $${x}$$ 方向の変化」——互いに**直交する方向への偏微分の差**だけだ。この交叉性が、次節以降のすべての鍵になる。
+$$
+\lim_{\Delta x,\Delta y\to 0}\frac{1}{\Delta x \Delta y}\oint_{\partial R_{\Delta x,\Delta y}}\omega = \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}
+$$
+
+
+という極限で取り出される量である。
+
+これは第1章で $${f'(x) = \lim_{\Delta x\to 0} \frac{\Delta f}{\Delta x}}$$ とやったのと同じ発想の「微分」だ。分母が「動いた距離」から「囲んだ面積」に変わっただけで、変化率を局所的に取り出すという精神は変わっていない。
+
+
+---
+
+【注】（なぜ $${\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}}$$ だけが残るか）
+
+$${\frac{\partial P}{\partial x}}$$ や $${\frac{\partial Q}{\partial y}}$$ は出てこない。$${P}$$ の $${x}$$ 方向の変化（$${\frac{\partial P}{\partial x}}$$）は下辺と上辺で同じ向きに効くため相殺し、$${Q}$$ の $${y}$$ 方向の変化（$${\frac{\partial Q}{\partial y}}$$）も右辺と左辺で相殺する。生き残るのは「$${P}$$ の $${y}$$ 方向の変化」と「$${Q}$$ の $${x}$$ 方向の変化」——互いに直交する方向への偏微分の差だけだ。この交叉性が、次節以降のすべての鍵になる。
+
+---
+
 
 ---
 
@@ -218,7 +267,7 @@ $${P\Delta x}$$ と $${Q\Delta y}$$ の項が美しく相殺し、残ったの�
 
 #### 4.4.1 ウェッジ積の再確認
 
-§4.3 で得た $${(Q_x - P_y) \Delta x \Delta y}$$ を、第2章の言葉で言い直そう。第2章 §2.4.4 で我々は、$${dx \wedge dy}$$ という面積計を定義した。これは2本のベクトル $${\mathbf{v}_1, \mathbf{v}_2}$$ を食わせると、それらが $${xy}$$ 平面に落とす影の符号付き面積を返す装置だった：
+§4.3 で得た $${(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}) \Delta x \Delta y}$$ を、第2章の言葉で言い直そう。第2章 §2.4.4 で我々は、$${dx \wedge dy}$$ という面積計を定義した。これは2本のベクトル $${\mathbf{v}_1, \mathbf{v}_2}$$ を食わせると、それらが $${xy}$$ 平面に落とす影の符号付き面積を返す装置だった：
 
 
 $$
@@ -230,29 +279,30 @@ $$
 
 #### 4.4.2 d\omega の定義
 
-§4.3 の結果をこの言葉で書けば、微小長方形の二辺 $${\Delta x \hat{e}_x, \Delta y \hat{e}_y}$$ に対して、ある**新しい 2-form** が $${(Q_x - P_y) \Delta x \Delta y}$$ を返したことになる。この 2-form を $${\omega}$$ の**外微分**と呼び、$${d\omega}$$ と書く：
+§4.3 の結果をこの言葉で書けば、微小長方形の二辺 $${\Delta x \hat{e}_x, \Delta y \hat{e}_y}$$ に対して、ある新しい $${2}$$-form が $${(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}) \Delta x \Delta y}$$ という主項を返したことになる。この $${2}$$-form を $${\omega}$$ の外微分と呼び、$${d\omega}$$ と書く：
 
 
 $$
-d\omega := (Q_x - P_y) dx \wedge dy
+d\omega := (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}) dx \wedge dy
 $$
 
 
-$${d\omega}$$ は 2-form である——2本のベクトルを食べてスカラーを返す。その値は「食わせた2本が張る平行四辺形を一周したときの $${\omega}$$ のズレ」に等しい。
+$${d\omega}$$ は $${2}$$-form である——2本のベクトルを食べてスカラーを返す。その値は「食わせた2本が張る微小平行四辺形に対する、単位面積あたりの閉ループのズレ」を表す。
 
 ここで起きていることを整理しよう：
 
-- **入力**：$${\omega = P dx + Q dy + R dz}$$（1-form、ベクトル1本を食べる線の測定器）
-- **出力**：$${d\omega = (Q_x - P_y) dx \wedge dy}$$（2-form、ベクトル2本を食べる面の測定器）
-- **操作**：$${d}$$ は次数を 1 から 2 へ**一つ上げる**
+- 入力：$${\omega = P dx + Q dy + R dz}$$（$${1}$$-form、ベクトル1本を食べる線の測定器）
+- 出力：$${d\omega = (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}) dx \wedge dy}$$（$${2}$$-form、ベクトル2本を食べる面の測定器）
+- 操作：$${d}$$ は次数を 1 から 2 へ一つ上げる
 
-これは §4.1 で見た $${df}$$ とまったく同じ構造だ。$${d}$$ は 0-form $${f}$$ に作用して 1-form $${df}$$ を返し、1-form $${\omega}$$ に作用して 2-form $${d\omega}$$ を返す。$${d}$$** の本質は「次数を1つ上げる」こと**にある。
+これは §4.1 で見た $${df}$$ とまったく同じ構造だ。$${d}$$ は $${0}$$-form $${f}$$ に作用して $${1}$$-form $${df}$$ を返し、$${1}$$-form $${\omega}$$ に作用して $${2}$$-form $${d\omega}$$ を返す。$${d}$$ の本質は「次数を1つ上げる」ことにある。
 
-> **【ここまでのチェックポイント】**
-> - $${df}$$ は 0-form → 1-form の外微分だった。$${\int_\gamma df = f(B)-f(A)}$$（端点のみに依存）。
-> - 一般の $${\omega}$$ では閉ループで $${\oint \omega \neq 0}$$。このズレを調べるためにループを微小化する。
-> - $${xy}$$ 平面の微小長方形では $${\oint \omega \approx (Q_x - P_y) \Delta x \Delta y}$$。ズレは面積に比例する。
-> - この比例係数を測る 2-form を $${d\omega := (Q_x - P_y) dx \wedge dy}$$ と定義する。$${d}$$ は次数を上げる演算子。
+【ここまでのチェックポイント】
+
+- $${df}$$ は $${0}$$-form → $${1}$$-form の外微分だった。$${\int_\gamma df = f(B)-f(A)}$$（端点のみに依存）。
+- 一般の $${\omega}$$ では閉ループで $${\oint \omega \neq 0}$$。このズレを調べるためにループを微小化する。
+- $${xy}$$ 平面の微小長方形では $${\oint \omega = (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}) \Delta x \Delta y +}$$ 高次の項。ズレの主項は面積に比例する。
+- この比例係数を測る $${2}$$-form を $${d\omega := (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}) dx \wedge dy}$$ と定義する。$${d}$$ は次数を上げる演算子。
 
 ---
 
@@ -260,47 +310,63 @@ $${d\omega}$$ は 2-form である——2本のベクトルを食べてスカラ
 
 #### 4.5.1 yz 平面と zx 平面
 
-§4.3–§4.4 では $${xy}$$ 平面のループだけを考えた。しかし 3次元空間には面の向きが3種類ある。$${yz}$$ 平面の微小長方形では同様の計算で $${(R_y - Q_z) \Delta y \Delta z}$$ が、$${zx}$$ 平面では $${(P_z - R_x) \Delta z \Delta x}$$ が得られる。それぞれ $${dy \wedge dz}$$ と $${dz \wedge dx}$$ に対応する。
+§4.3–§4.4 では $${xy}$$ 平面のループだけを考えた。しかし 3次元空間には面の向きが3種類ある。$${yz}$$ 平面の微小長方形では同様の計算で $${(\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z}) \Delta y \Delta z}$$ が、$${zx}$$ 平面では $${(\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x}) \Delta z \Delta x}$$ が得られる。それぞれ $${dy \wedge dz}$$ と $${dz \wedge dx}$$ に対応する。
 
 直感から導かれる完全な式はこうだ：
 
 
 $$
-d\omega = (R_y - Q_z) dy \wedge dz + (P_z - R_x) dz \wedge dx + (Q_x - P_y) dx \wedge dy
+d\omega = (\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z}) dy \wedge dz + (\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x}) dz \wedge dx + (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}) dx \wedge dy
 $$
 
 
-> **注** （$${2}$$-form は傾いた平行四辺形を測る）この $${d\omega}$$ は 2-form——**2本のベクトルを食べる測定器**——である。食わせる2本は、$${xy}$$ 平面に平行とは限らない。3次元空間の中に斜めに浮かぶ平行四辺形の二辺 $${\mathbf{v}_1, \mathbf{v}_2}$$ を食わせれば、その平行四辺形の周りを反時計回りに一周したときの $${\omega}$$ のズレの総量を返す。§4.3 でやったのとまったく同じこと——測定する面が座標平面に平行とは限らなくなっただけだ。2本のベクトルから平行四辺形の面積（と向き）を取り出すしくみは、第2章 §2.4 で $${dy \wedge dz}$$ 等を反対称行列として構成したときにすでに確かめてある。
+
+---
+
+【注】（$${2}$$-form は傾いた平行四辺形を測る）
+
+この $${d\omega}$$ は $${2}$$-form——2本のベクトルを食べる測定器——である。食わせる2本は、$${xy}$$ 平面に平行とは限らない。3次元空間の中に斜めに浮かぶ微小平行四辺形の二辺 $${\mathbf{v}_1, \mathbf{v}_2}$$ を食わせれば、その面に対する単位面積あたりの閉ループのズレを返す。§4.3 でやったのとまったく同じこと——測定する面が座標平面に平行とは限らなくなっただけだ。2本のベクトルから平行四辺形の面積（と向き）を取り出すしくみは、第2章 §2.4 で $${dy \wedge dz}$$ 等を反対称行列として構成したときにすでに確かめてある。
+
+---
+
 
 #### 4.5.2 代数的導出——ライプニッツ則と d(dx)=0
 
 上記の式は、各平面で別々にループ計算をしなくても、次のような計算ルールを仮定すれば機械的に導ける。
 
-> **注** （定義と定理——数学者のいじわる）多くの数学書では、ライプニッツ則と $${d(dx)=0}$$ を $${d}$$ の**定義**としてしまう。物理学者である筆者にはそれではわからない——我々は微小ループの解剖から出発した。これから確かめるのは、その幾何的な $${d}$$ のもとでライプニッツ則が**定理として成り立つ**ことだ。ルールは計算の便宜、**意味は §4.3 にある**。もっとも、高次元まで見据えたときこの代数的定義の簡潔さに悔しさを覚えることも、認めないわけにはいかない。
 
-$${\omega = P dx + Q dy + R dz}$$ に対し、$${d\omega}$$ を $${d(P dx) + d(Q dy) + d(R dz)}$$ と書きたい（線形性の要請）。問題は $${d(P dx)}$$ ——係数 $${P}$$ のついた 1-form に $${d}$$ をどう作用させるか——である。
+---
+
+【注】（定義と定理——数学者のいじわる）
+
+多くの数学書では、ライプニッツ則と $${d(dx)=0}$$ を $${d}$$ の定義としてしまう。物理学者である筆者にはそれではわからない——我々は微小ループの解剖から出発した。これから確かめるのは、その幾何的な $${d}$$ と代数的な計算ルールが整合することだ。ルールは計算の便宜、意味は §4.3 にある。もっとも、高次元まで見据えたときこの代数的定義の簡潔さに悔しさを覚えることも、認めないわけにはいかない。
+
+---
+
+
+$${\omega = P dx + Q dy + R dz}$$ に対し、$${d\omega}$$ を $${d(P dx) + d(Q dy) + d(R dz)}$$ と書きたい（線形性の要請）。問題は $${d(P dx)}$$ ——係数 $${P}$$ のついた $${1}$$-form に $${d}$$ をどう作用させるか——である。
 
 ここで、§4.3–§4.4 で得た幾何的な $${d}$$ がすでに教えてくれていることがある。$${\omega = P dx}$$（$${Q=R=0}$$）の場合、§4.3 の微小ループ計算を $${xy}$$ 平面だけでなく $${zx}$$ 平面でも行えば、$${d(P dx)}$$ は $${yz}$$ 面に成分を持たず、
 
 
 $$
-d(P dx) = P_z (dz \wedge dx) - P_y (dx \wedge dy)
+d(P dx) = \frac{\partial P}{\partial z} (dz \wedge dx) - \frac{\partial P}{\partial y} (dx \wedge dy)
 $$
 
 
-となるはずだ（$${xy}$$ 面のループでは $${(0_x - P_y) = -P_y}$$、$${zx}$$ 面では $${(P_z - 0_x) = P_z}$$）。
+となるはずだ（$${xy}$$ 面のループでは $${(0_x - \frac{\partial P}{\partial y}) = -\frac{\partial P}{\partial y}}$$、$${zx}$$ 面では $${(\frac{\partial P}{\partial z} - 0_x) = \frac{\partial P}{\partial z}}$$）。
 
-さて、ここで $${dP = P_x dx + P_y dy + P_z dz}$$ を思い出そう（§4.1）。これと $${dx}$$ のウェッジ積をとると：
+さて、ここで $${dP = \frac{\partial P}{\partial x} dx + \frac{\partial P}{\partial y} dy + \frac{\partial P}{\partial z} dz}$$ を思い出そう（§4.1）。これと $${dx}$$ のウェッジ積をとると：
 
 
 $$
-dP \wedge dx = (P_x dx + P_y dy + P_z dz) \wedge dx = P_z (dz \wedge dx) - P_y (dx \wedge dy)
+dP \wedge dx = (\frac{\partial P}{\partial x} dx + \frac{\partial P}{\partial y} dy + \frac{\partial P}{\partial z} dz) \wedge dx = \frac{\partial P}{\partial z} (dz \wedge dx) - \frac{\partial P}{\partial y} (dx \wedge dy)
 $$
 
 
-（$${dx \wedge dx = 0}$$ により $${P_x}$$ の項は消えた）
+（$${dx \wedge dx = 0}$$ により $${\frac{\partial P}{\partial x}}$$ の項は消えた）
 
-幾何的計算と**完全に一致する**！ すなわち、少なくとも $${P dx}$$ という形の項について：
+幾何的計算と完全に一致する！ すなわち、少なくとも $${P dx}$$ という形の項について：
 
 
 $$
@@ -308,19 +374,19 @@ d(P dx) = dP \wedge dx
 $$
 
 
-が成り立つ。幾何的結果とライプニッツ則 $${d(P dx) = dP \wedge dx + P \wedge d(dx)}$$ を見比べれば、余分な項 $${P \wedge d(dx)}$$ はゼロでなければならない。$${P}$$ は任意の関数だから、これが常に成り立つためには $${d(dx)=0}$$ でなければならない——すなわち $${d(dx) = 0}$$ が要請される。
+が成り立つ。幾何的結果とライプニッツ則 $${d(P dx) = dP \wedge dx + P d(dx)}$$ を見比べれば、余分な項 $${P d(dx)}$$ はゼロでなければならない。$${P}$$ は任意の関数だから、これが常に成り立つためには $${d(dx)=0}$$ でなければならない——すなわち $${d(dx) = 0}$$ が要請される。
 
-この観察を一般化すると、次の**次数付きライプニッツ則**に到達する。$${P}$$ は 0-form、$${dx}$$ は 1-form であり、0-form と 1-form の「積」に対する $${d}$$ の振る舞いは：
+この観察を一般化すると、次の次数付きライプニッツ則に到達する。$${P}$$ は $${0}$$-form、$${dx}$$ は $${1}$$-form であり、$${0}$$-form と $${1}$$-form の「積」に対する $${d}$$ の振る舞いは：
 
 
 $$
-d(P dx) = (dP) \wedge dx + P \wedge d(dx)
+d(P dx) = (dP) \wedge dx + P d(dx)
 $$
 
 
-$${dP}$$ は既知——§4.1 より $${dP = P_x dx + P_y dy + P_z dz}$$。問題は $${d(dx)}$$ の値だ。
+$${dP}$$ は既知——§4.1 より $${dP = \frac{\partial P}{\partial x} dx + \frac{\partial P}{\partial y} dy + \frac{\partial P}{\partial z} dz}$$。問題は $${d(dx)}$$ の値だ。
 
-ここで、座標関数 $${x}$$ の外微分は $${dx}$$ である（$${d(x) = dx}$$）。もし外微分を**2回続けてゼロになる**よう設計すれば、$${d(dx) = d(d(x)) = 0}$$ となる。この $${d^2=0}$$ は天下りではなく、のちに §4.8 で見るように混合偏微分の対称性とウェッジ積の反対称性から必然的に導かれる性質である。いまはこれを計算ルールとして**仮定**しよう：
+ここで、座標関数 $${x}$$ の外微分は $${dx}$$ である（$${d(x) = dx}$$）。デカルト座標の $${dx}$$ は、場所によって係数が変わらない基準の測定器である。つまり $${dx}$$ 自身を微小ループで一周させても、面積あたりのズレは出てこない。同じことが $${dy,dz}$$ にも成り立つ。したがって座標基底については次を計算ルールとして置く：
 
 
 $$
@@ -332,7 +398,7 @@ $$
 
 
 $$
-d(P dx) = (P_x dx + P_y dy + P_z dz) \wedge dx + P \wedge 0
+d(P dx) = (\frac{\partial P}{\partial x} dx + \frac{\partial P}{\partial y} dy + \frac{\partial P}{\partial z} dz) \wedge dx + P 0
 $$
 
 
@@ -340,7 +406,7 @@ $${\wedge}$$ の反対称性（$${dx \wedge dx = 0}$$、$${dy \wedge dx = -dx \w
 
 
 $$
-d(P dx) = P_x (dx \wedge dx) + P_y (dy \wedge dx) + P_z (dz \wedge dx) = P_z (dz \wedge dx) - P_y (dx \wedge dy)
+d(P dx) = \frac{\partial P}{\partial x} (dx \wedge dx) + \frac{\partial P}{\partial y} (dy \wedge dx) + \frac{\partial P}{\partial z} (dz \wedge dx) = \frac{\partial P}{\partial z} (dz \wedge dx) - \frac{\partial P}{\partial y} (dx \wedge dy)
 $$
 
 
@@ -349,8 +415,8 @@ $$
 
 $$
 \begin{aligned}
-d(Q dy) &= (Q_x dx + Q_y dy + Q_z dz) \wedge dy = Q_x (dx \wedge dy) - Q_z (dy \wedge dz) \\[4pt]
-d(R dz) &= (R_x dx + R_y dy + R_z dz) \wedge dz = -R_x (dz \wedge dx) + R_y (dy \wedge dz)
+d(Q dy) &= (\frac{\partial Q}{\partial x} dx + \frac{\partial Q}{\partial y} dy + \frac{\partial Q}{\partial z} dz) \wedge dy = \frac{\partial Q}{\partial x} (dx \wedge dy) - \frac{\partial Q}{\partial z} (dy \wedge dz) \\
+d(R dz) &= (\frac{\partial R}{\partial x} dx + \frac{\partial R}{\partial y} dy + \frac{\partial R}{\partial z} dz) \wedge dz = -\frac{\partial R}{\partial x} (dz \wedge dx) + \frac{\partial R}{\partial y} (dy \wedge dz)
 \end{aligned}
 $$
 
@@ -360,34 +426,43 @@ $$
 
 $$
 \begin{aligned}
-d\omega &= (-Q_z + R_y) dy \wedge dz + (P_z - R_x) dz \wedge dx + (-P_y + Q_x) dx \wedge dy \\[4pt]
-&= (R_y - Q_z) dy \wedge dz + (P_z - R_x) dz \wedge dx + (Q_x - P_y) dx \wedge dy
+d\omega &= (-\frac{\partial Q}{\partial z} + \frac{\partial R}{\partial y}) dy \wedge dz + (\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x}) dz \wedge dx + (-\frac{\partial P}{\partial y} + \frac{\partial Q}{\partial x}) dx \wedge dy \\
+&= (\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z}) dy \wedge dz + (\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x}) dz \wedge dx + (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}) dx \wedge dy
 \end{aligned}
 $$
 
 
-これは §4.3 で幾何的に導いた $${xy}$$ 成分 $${(Q_x-P_y)}$$ を含み、$${yz}$$ と $${zx}$$ の成分も同じ交叉パターンで揃っている。
+これは §4.3 で幾何的に導いた $${xy}$$ 成分 $${(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y})}$$ を含み、$${yz}$$ と $${zx}$$ の成分も同じ交叉パターンで揃っている。
 
 #### 4.5.3 係数のパターン
 
-係数の並び方に注目してほしい。$${(R_y - Q_z, P_z - R_x, Q_x - P_y)}$$ は、$${(P, Q, R)}$$ の偏微分を**自分以外の軸方向に関して交叉させ、差をとった**ものである。巡回的な対称性がある：
+係数の並び方に注目してほしい。$${(\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z}, \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x}, \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})}$$ は、$${(P, Q, R)}$$ の偏微分を自分以外の軸方向に関して交叉させ、差をとったものである。巡回的な対称性がある：
 
 
 $$
 \begin{aligned}
-dy \wedge dz &\longleftrightarrow R_y - Q_z \\
-dz \wedge dx &\longleftrightarrow P_z - R_x \\
-dx \wedge dy &\longleftrightarrow Q_x - P_y
+dy \wedge dz &\longleftrightarrow \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z} \\
+dz \wedge dx &\longleftrightarrow \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x} \\
+dx \wedge dy &\longleftrightarrow \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}
 \end{aligned}
 $$
 
 
-> **注** （ベクトル解析との対応）ベクトル解析を既習の読者には、この3つの係数が $${\operatorname{rot}(P,Q,R)}$$ の成分に見えるだろう。本書では「回転」という語に依存せずに進むが、知っている読者はその対応を頭の片隅に置いておけばよい。
 
-> **【ここまでのチェックポイント】**
-> - 一般の 1-form $${\omega}$$ の外微分 $${d\omega}$$ は 2-form であり、係数は偏微分の交叉差 $${(R_y-Q_z, P_z-R_x, Q_x-P_y)}$$。
-> - 計算ルールは (1) 線形性、(2) ライプニッツ則 $${d(P dx) = dP \wedge dx + P \wedge d(dx)}$$、(3) $${d(dx)=d(dy)=d(dz)=0}$$ の三つ。
-> - 結果は §4.3 の微小ループ計算と完全に整合する。
+---
+
+【注】（既習者への補助線）
+
+ベクトル解析を既習の読者には、この3つの係数の並びに見覚えがあるだろう。本書ではその名前に依存せず、まず $${d}$$ という操作そのものを組み立てる。対応関係は後の章で整理する。
+
+---
+
+
+【ここまでのチェックポイント】
+
+- 一般の $${1}$$-form $${\omega}$$ の外微分 $${d\omega}$$ は $${2}$$-form であり、係数は偏微分の交叉差 $${(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}, \frac{\partial P}{\partial z}-\frac{\partial R}{\partial x}, \frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y})}$$。
+- 計算ルールは (1) 線形性、(2) ライプニッツ則 $${d(P dx) = dP \wedge dx + P \wedge d(dx)}$$、(3) $${d(dx)=d(dy)=d(dz)=0}$$ の三つ。
+- 結果は §4.3 の微小ループ計算と完全に整合する。
 
 ---
 
@@ -395,19 +470,19 @@ $$
 
 #### 4.6.1 面をタイル貼りする
 
-§4.3 では**ひとつの**微小長方形の周りで $${\oint \omega}$$ を計算し、それが $${d\omega}$$ と面積の積になることを見た。では、この微小長方形を**面全体に敷き詰めて**、全部足し合わせたらどうなるか。
+§4.3 ではひとつの微小長方形の周りで $${\oint \omega}$$ を計算し、その主項が $${d\omega}$$ と面積の積になることを見た。では、この微小長方形を面全体に敷き詰めて、全部足し合わせたらどうなるか。
 
-曲面 $${S}$$ を、$${xy}$$ 平面への射影を介して、無数の微小長方形でタイル貼りする（第3章 §3.3 の面素の考え方そのものだ）。各微小長方形について、四辺を反時計回りに一周した $${\omega}$$ の積分は、§4.3 より $${(Q_x - P_y) \Delta x \Delta y}$$ に等しい。
+曲面 $${S}$$ を小さな座標パッチに分け、それぞれのパラメータ平面上で微小長方形に刻む（第3章 §3.3 の面素の考え方そのものだ）。各微小長方形について、四辺を反時計回りに一周した $${\omega}$$ の積分は、面素に $${d\omega}$$ を食わせた値を主項として持つ。
 
 #### 4.6.2 内部の辺は相殺する
 
-ここで決定的な幾何学的観察がある。**隣り合う二つの長方形が共有する辺**に注目しよう。左の長方形にとってその辺は「上向き」、右の長方形にとっては「下向き」にたどられる。経路が逆向きだから、$${\omega}$$ の線積分はこの辺の上で**完全に打ち消し合う**。
+ここで決定的な幾何学的観察がある。隣り合う二つの長方形が共有する辺に注目しよう。左の長方形にとってその辺は「上向き」、右の長方形にとっては「下向き」にたどられる。経路が逆向きだから、$${\omega}$$ の線積分はこの辺の上で完全に打ち消し合う。
 
-この相殺は面 $${S}$$ の内部の**すべての共有辺**で起こる。いくら細かく分割して足し合わせても、内部の辺の寄与はプラスマイナスで消えるのだ。
+この相殺は面 $${S}$$ の内部のすべての共有辺で起こる。いくら細かく分割して足し合わせても、内部の辺の寄与はプラスマイナスで消えるのだ。
 
 #### 4.6.3 生き残るのは境界だけ
 
-すると、最終的に相殺されずに生き残る辺はどこか——**隣の長方形が存在しない辺**、すなわち面 $${S}$$ の**境界 **$${\partial S}$$ に沿った辺だけである。
+すると、最終的に相殺されずに生き残る辺はどこか——隣の長方形が存在しない辺、すなわち面 $${S}$$ の境界 $${\partial S}$$ に沿った辺だけである。
 
 つまり：
 
@@ -417,28 +492,37 @@ $$
 $$
 
 
-左辺は「面の境界という1次元の閉曲線に沿った $${\omega}$$ の線積分」、右辺は「面の内部に敷き詰めた無数の微小ループのズレの総和」である。両者が厳密に等しい。
+左辺は「面の境界という1次元の閉曲線に沿った $${\omega}$$ の線積分」、右辺は「面の内部に敷き詰めた無数の微小ループのズレ密度の総和」である。分割を細かくする極限で、内部辺の相殺だけが残り、両者が一致する。
 
-これが**ケルビン–ストークスの定理**（単にストークスの定理とも呼ばれる）だ。
+これがケルビン–ストークスの定理（単にストークスの定理とも呼ばれる）だ。
 
 $${\omega = P dx + Q dy + R dz}$$ の成分をあらわに書けば：
 
 
 $$
-\oint_{\partial S} \bigl(P dx + Q dy + R dz\bigr) = \iint_S \Bigl( (R_y - Q_z) dy \wedge dz + (P_z - R_x) dz \wedge dx + (Q_x - P_y) dx \wedge dy \Bigr)
+\oint_{\partial S} \bigl(P dx + Q dy + R dz\bigr) = \iint_S \Bigl( (\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z}) dy \wedge dz + (\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x}) dz \wedge dx + (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}) dx \wedge dy \Bigr)
 $$
 
 
-第2章以来の行列の言葉で書くなら、右辺の 2-form は反対称行列 $${\mathbf{J} - \mathbf{J}^T}$$ そのものだ。$${\mathbf{v}_1, \mathbf{v}_2}$$ を面素の二辺とすれば $${(d\omega)(\mathbf{v}_1, \mathbf{v}_2) = \mathbf{v}_1^T(\mathbf{J} - \mathbf{J}^T)\mathbf{v}_2}$$。付録 B.3 に全成分を書き下してあるので、必要に応じて参照されたい。
+第2章以来の行列の言葉で書くなら、右辺の $${2}$$-form は反対称行列 $${\mathbf{J}^T - \mathbf{J}}$$ で表される。$${\mathbf{v}_1, \mathbf{v}_2}$$ を面素の二辺とすれば $${(d\omega)(\mathbf{v}_1, \mathbf{v}_2) = \mathbf{v}_1^T(\mathbf{J}^T - \mathbf{J})\mathbf{v}_2}$$。付録 B.3 に全成分を書き下してあるので、必要に応じて参照されたい。
 
-この定理の構造は驚くほど単純だ。**マクロな境界で測った積分** $${=}$$ **内部のミクロなズレ（**$${d\omega}$$**）の集積**。$${d}$$ とは、境界 $${\partial S}$$ における $${\omega}$$ の情報を、内部 $${S}$$ における $${d\omega}$$ の情報へと**翻訳**する装置なのである。
+この定理の構造は驚くほど単純だ。マクロな境界で測った積分 $${=}$$ 内部のミクロなズレ（$${d\omega}$$）の集積。$${d}$$ とは、境界 $${\partial S}$$ における $${\omega}$$ の情報を、内部 $${S}$$ における $${d\omega}$$ の情報へと翻訳する装置なのである。
 
-> **注** （第3章との対応）第3章 §3.3.1 で曲面積分を定義したとき、我々は無意識に面素 $${(\mathbf{r}_u\Delta u, \mathbf{r}_v\Delta v)}$$ に $${dx \wedge dy}$$ を食わせていた。あの $${\mathbf{r}_u, \mathbf{r}_v}$$ が張る平行四辺形こそが、ここでいう「微小長方形」であり、あのときの積分の裏にはストークスの定理の構造が潜んでいたのである。
 
-> **【ここまでのチェックポイント】**
-> - 面 $${S}$$ を微小ループで敷き詰めると、内部の辺は相殺し、境界 $${\partial S}$$ の寄与だけが残る。
-> - $${\int_{\partial S} \omega = \int_S d\omega}$$。マクロな境界積分がミクロな外微分の積分に等しい。
-> - 第3章の曲面積分は、このストークスの定理の構造を暗に使っていた。
+---
+
+【注】（第3章との対応）
+
+第3章 §3.3.1 で曲面積分を定義したとき、我々は面素 $${(\mathbf{r}_u\Delta u, \mathbf{r}_v\Delta v)}$$ に $${dx \wedge dy}$$ を食わせていた。ここでも同じく、曲面を小さな面素に分け、各面素で測定器を作用させ、内部で相殺する寄与を整理している。
+
+---
+
+
+【ここまでのチェックポイント】
+
+- 面 $${S}$$ を微小ループで敷き詰めると、内部の辺は相殺し、境界 $${\partial S}$$ の寄与だけが残る。
+- $${\int_{\partial S} \omega = \int_S d\omega}$$。マクロな境界積分がミクロな外微分の積分に等しい。
+- 第3章の曲面積分と同じく、面を小さなパッチに分け、各パッチで測定器を作用させて集計している。
 
 ---
 
@@ -446,7 +530,7 @@ $$
 
 #### 4.7.1 2-form は面の測定器
 
-第3章 §3.5.2 で、一般の 2-form を次の形で書いた：
+第3章 §3.5.2 で、一般の $${2}$$-form を次の形で書いた：
 
 
 $$
@@ -454,48 +538,48 @@ $$
 $$
 
 
-これは「面に沿って流量を測る測定器」である。第2章 §2.4.5 で見たように、3つの基底 2-form がそれぞれ $${yz}$$ 平面、$${zx}$$ 平面、$${xy}$$ 平面への影の面積を測る。
+これは「面に沿って流量を測る測定器」である。第2章 §2.4.5 で見たように、3つの基底 $${2}$$-form がそれぞれ $${yz}$$ 平面、$${zx}$$ 平面、$${xy}$$ 平面への影の面積を測る。
 
 #### 4.7.2 微小直方体の表面で測る
 
-§4.3 と同じ精神で、今度は空間内の微小直方体 $${[x, x+\Delta x] \times [y, y+\Delta y] \times [z, z+\Delta z]}$$ の**6つの面すべて**で $${\eta}$$ を積分する。向きは外向き法線に合わせる。
+§4.3 と同じ精神で、今度は空間内の微小直方体 $${[x, x+\Delta x] \times [y, y+\Delta y] \times [z, z+\Delta z]}$$ の6つの面すべてで $${\eta}$$ を積分する。向きは外向きに合わせる。
 
 たとえば $${C dx \wedge dy}$$ の項について、$${z}$$ に垂直な底面と上面だけを考える：
 
-- **底面**（$${z}$$、外向きは $${-z}$$ 方向）：$${C(x,y,z)}$$ に $${-dx \wedge dy}$$ の向きで評価 → およそ $${-C(x,y,z) \Delta x \Delta y}$$
-- **上面**（$${z+\Delta z}$$、外向きは $${+z}$$ 方向）：$${C(x,y,z+\Delta z) \approx C + C_z\Delta z}$$ → およそ $${(C + C_z\Delta z) \Delta x \Delta y}$$
+- 底面（$${z}$$、外向きは $${-z}$$ 方向）：$${C(x,y,z)}$$ に $${-dx \wedge dy}$$ の向きで評価 → およそ $${-C(x,y,z) \Delta x \Delta y}$$
+- 上面（$${z+\Delta z}$$、外向きは $${+z}$$ 方向）：$${C(x,y,z+\Delta z) \approx C + \frac{\partial C}{\partial z}\Delta z}$$ → およそ $${(C + \frac{\partial C}{\partial z}\Delta z) \Delta x \Delta y}$$
 
-和をとると $${C\Delta x\Delta y}$$ が相殺し、$${C_z \Delta x \Delta y \Delta z}$$ が残る。$${A dy \wedge dz}$$ の項は $${x}$$ に垂直な面から $${A_x \Delta x \Delta y \Delta z}$$ を、$${B dz \wedge dx}$$ の項は $${y}$$ に垂直な面から $${B_y \Delta x \Delta y \Delta z}$$ を与える。
+和をとると $${C\Delta x\Delta y}$$ が相殺し、$${\frac{\partial C}{\partial z} \Delta x \Delta y \Delta z}$$ が残る。$${A dy \wedge dz}$$ の項は $${x}$$ に垂直な面から $${\frac{\partial A}{\partial x} \Delta x \Delta y \Delta z}$$ を、$${B dz \wedge dx}$$ の項は $${y}$$ に垂直な面から $${\frac{\partial B}{\partial y} \Delta x \Delta y \Delta z}$$ を与える。
 
 全6面の合計は：
 
 
 $$
-\oint_{\partial (\text{直方体})} \eta \approx (A_x + B_y + C_z) \Delta x \Delta y \Delta z
+\iint_{\partial (\text{直方体})} \eta \approx (\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z}) \Delta x \Delta y \Delta z
 $$
 
 
-ここでも同じ構造だ——**表面で測ったズレの総量は、囲んだ体積に比例する**。比例係数 $${A_x + B_y + C_z}$$ が「単位体積あたりの湧き出し」を表す。
+ここでも同じ構造だ——表面で測ったズレの主項は、囲んだ体積に比例する。比例係数 $${\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z}}$$ が「単位体積あたりの湧き出し」を表す。
 
 #### 4.7.3 d\eta の定義と代数的導出
 
-直方体の三辺 $${\Delta x \hat{e}_x, \Delta y \hat{e}_y, \Delta z \hat{e}_z}$$ を食わせる 3-form として：
+直方体の三辺 $${\Delta x \hat{e}_x, \Delta y \hat{e}_y, \Delta z \hat{e}_z}$$ を食わせる $${3}$$-form として：
 
 
 $$
-d\eta := (A_x + B_y + C_z) dx \wedge dy \wedge dz
+d\eta := (\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z}) dx \wedge dy \wedge dz
 $$
 
 
 この式は、§4.5.2 の代数的ルールからも導ける。その前に、§4.5.2 でやったのと同じく、幾何的な結果がライプニッツ則と整合することを $${A dy \wedge dz}$$ の項で確かめておこう。
 
-§4.7.2 の幾何計算によれば、$${A dy \wedge dz}$$ の寄与は $${A_x \Delta x \Delta y \Delta z}$$ だった。これを $${dx \wedge dy \wedge dz}$$ の言葉で書けば $${A_x dx \wedge dy \wedge dz}$$ である。
+§4.7.2 の幾何計算によれば、$${A dy \wedge dz}$$ の寄与は $${\frac{\partial A}{\partial x} \Delta x \Delta y \Delta z}$$ だった。これを $${dx \wedge dy \wedge dz}$$ の言葉で書けば $${\frac{\partial A}{\partial x} dx \wedge dy \wedge dz}$$ である。
 
 一方、$${d(A dy \wedge dz)}$$ にライプニッツ則を適用すると：
 
 
 $$
-d(A dy \wedge dz) = dA \wedge dy \wedge dz + A \wedge d(dy \wedge dz)
+d(A dy \wedge dz) = dA \wedge dy \wedge dz + A d(dy \wedge dz)
 $$
 
 
@@ -511,21 +595,21 @@ $$
 
 
 $$
-dA \wedge dy \wedge dz = (A_x dx + A_y dy + A_z dz) \wedge dy \wedge dz
+dA \wedge dy \wedge dz = (\frac{\partial A}{\partial x} dx + \frac{\partial A}{\partial y} dy + \frac{\partial A}{\partial z} dz) \wedge dy \wedge dz
 $$
 
 
-$${\wedge}$$ の反対称性（$${dy \wedge dy = 0}$$、$${dz \wedge dz = 0}$$）により $${A_y}$$ と $${A_z}$$ の項は消え、$${A_x dx \wedge dy \wedge dz}$$ だけが残る。これは §4.7.2 の幾何計算と**完全に一致する**。
+$${\wedge}$$ の反対称性（$${dy \wedge dy = 0}$$、$${dz \wedge dz = 0}$$）により $${\frac{\partial A}{\partial y}}$$ と $${\frac{\partial A}{\partial z}}$$ の項は消え、$${\frac{\partial A}{\partial x} dx \wedge dy \wedge dz}$$ だけが残る。これは §4.7.2 の幾何計算と完全に一致する。
 
 $${B dz \wedge dx}$$、$${C dx \wedge dy}$$ の項も同様で、三つを足し合わせれば：
 
 
 $$
-d\eta = (A_x + B_y + C_z) dx \wedge dy \wedge dz
+d\eta = (\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z}) dx \wedge dy \wedge dz
 $$
 
 
-$${d}$$ は 2-form → 3-form の昇格を果たした。
+$${d}$$ は $${2}$$-form → $${3}$$-form の昇格を果たした。
 
 #### 4.7.4 ガウスの定理
 
@@ -533,26 +617,35 @@ $${d}$$ は 2-form → 3-form の昇格を果たした。
 
 
 $$
-\oint_{\partial V} \eta = \iiint_V d\eta
+\iint_{\partial V} \eta = \iiint_V d\eta
 $$
 
 
-これが**ガウスの発散定理**である。ストークスの定理と、次元が一つずつずれただけで**まったく同じ形**をしている。並べてみれば一目瞭然だ：$${\omega}$$（1-form）$${\to}$$ $${d\omega}$$（2-form）$${\to}$$ 面 $${S}$$、$${\eta}$$（2-form）$${\to}$$ $${d\eta}$$（3-form）$${\to}$$ 立体 $${V}$$。
+これがガウスの定理である。ストークスの定理と、次元が一つずつずれただけでまったく同じ形をしている。並べてみれば一目瞭然だ：$${\omega}$$（$${1}$$-form）$${\to}$$ $${d\omega}$$（$${2}$$-form）$${\to}$$ 面 $${S}$$、$${\eta}$$（$${2}$$-form）$${\to}$$ $${d\eta}$$（$${3}$$-form）$${\to}$$ 立体 $${V}$$。
 
 $${\eta = A dy \wedge dz + B dz \wedge dx + C dx \wedge dy}$$ の成分をあらわに書けば：
 
 
 $$
-\oint_{\partial V} \bigl(A dy \wedge dz + B dz \wedge dx + C dx \wedge dy\bigr) = \iiint_V (A_x + B_y + C_z) dx \wedge dy \wedge dz
+\iint_{\partial V} \bigl(A dy \wedge dz + B dz \wedge dx + C dx \wedge dy\bigr) = \iiint_V (\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z}) dx \wedge dy \wedge dz
 $$
 
 
-> **注** （ベクトル解析との対応）$${A_x + B_y + C_z}$$ は $${\operatorname{div}(A,B,C)}$$ に一致する。ガウスの定理は「表面のフラックス = 内部の発散の積分」を意味する。
 
-> **【ここまでのチェックポイント】**
-> - 2-form $${\eta}$$ の外微分 $${d\eta}$$ は 3-form で、係数は $${A_x + B_y + C_z}$$。
-> - 導出は §4.5 と同じ代数的ルール（ライプニッツ則 $${+}$$ $${d(dx)=0}$$）で機械的にできる。
-> - $${\int_{\partial V} \eta = \iiint_V d\eta}$$。ストークス（1-form→面）とガウス（2-form→立体）は次数が違うだけで同じ構造。
+---
+
+【注】（既習者への補助線）
+
+ベクトル解析を既習の読者には、$${\frac{\partial A}{\partial x}+\frac{\partial B}{\partial y}+\frac{\partial C}{\partial z}}$$ にも見覚えがあるだろう。本書ではまず $${2}$$-form の外微分としてこの量を得た、という順序を大切にする。名前との対応は後の章で整理する。
+
+---
+
+
+【ここまでのチェックポイント】
+
+- $${2}$$-form $${\eta}$$ の外微分 $${d\eta}$$ は $${3}$$-form で、係数は $${\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z}}$$。
+- 導出は §4.5 と同じ代数的ルール（ライプニッツ則 $${+}$$ $${d(dx)=0}$$）で機械的にできる。
+- $${\iint_{\partial V} \eta = \iiint_V d\eta}$$。ストークス（$${1}$$-form→面）とガウス（$${2}$$-form→立体）は次数が違うだけで同じ構造。
 
 ---
 
@@ -560,11 +653,11 @@ $$
 
 #### 4.8.1 d(df) = 0
 
-§4.1 で $${df = f_x dx + f_y dy + f_z dz}$$ を定義した。これをさらにもう一度外微分してみる。§4.5 の公式で $${P = f_x, Q = f_y, R = f_z}$$ とすれば：
+§4.1 で $${df = \frac{\partial f}{\partial x} dx + \frac{\partial f}{\partial y} dy + \frac{\partial f}{\partial z} dz}$$ を定義した。これをさらにもう一度外微分してみる。§4.5 の公式で $${P = \frac{\partial f}{\partial x}, Q = \frac{\partial f}{\partial y}, R = \frac{\partial f}{\partial z}}$$ とすれば：
 
 
 $$
-d(df) = \bigl((f_z)_y - (f_y)_z\bigr) dy \wedge dz + \bigl((f_x)_z - (f_z)_x\bigr) dz \wedge dx + \bigl((f_y)_x - (f_x)_y\bigr) dx \wedge dy
+d(df) = \bigl((\frac{\partial f}{\partial z})_y - (\frac{\partial f}{\partial y})_z\bigr) dy \wedge dz + \bigl((\frac{\partial f}{\partial x})_z - (\frac{\partial f}{\partial z})_x\bigr) dz \wedge dx + \bigl((\frac{\partial f}{\partial y})_x - (\frac{\partial f}{\partial x})_y\bigr) dx \wedge dy
 $$
 
 
@@ -578,11 +671,11 @@ $$
 
 #### 4.8.2 d(d\omega) = 0
 
-§4.5 の $${d\omega}$$ に §4.7 の公式を適用する。$${A = R_y - Q_z, B = P_z - R_x, C = Q_x - P_y}$$ として：
+§4.5 の $${d\omega}$$ に §4.7 の公式を適用する。$${A = \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z}, B = \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x}, C = \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}}$$ として：
 
 
 $$
-d(d\omega) = \bigl((R_y - Q_z)_x + (P_z - R_x)_y + (Q_x - P_y)_z\bigr) dx \wedge dy \wedge dz
+d(d\omega) = \bigl((\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z})_x + (\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x})_y + (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})_z\bigr) dx \wedge dy \wedge dz
 $$
 
 
@@ -602,9 +695,10 @@ d(d\omega) = 0
 $$
 
 
-> **【ここまでのチェックポイント】**
-> - $${d^2 = 0}$$：外微分を2回続けると必ずゼロ。混合偏微分の対称性とウェッジの反対称性が相殺を起こす。
-> - $${\operatorname{rot}(\operatorname{grad})=0}$$ と $${\operatorname{div}(\operatorname{rot})=0}$$ は $${d^2=0}$$ のベクトル解析への翻訳である。
+【ここまでのチェックポイント】
+
+- $${d^2 = 0}$$：外微分を2回続けると必ずゼロ。混合偏微分の対称性とウェッジの反対称性が相殺を起こす。
+- 既習者が知るいくつかの「二度微分すると消える」恒等式は、この $${d^2=0}$$ の別表現として後の章で整理される。
 
 ---
 
@@ -612,7 +706,7 @@ $$
 
 #### 4.9.1 ストークスとガウスは同じ式だった
 
-§4.6 で得たストークスの定理 $${\oint_{\partial S}\omega = \iint_S d\omega}$$ と、§4.7 で得たガウスの定理 $${\oint_{\partial V}\eta = \iiint_V d\eta}$$。並べてみると、$${\oint}$$、$${\iint}$$、$${\iiint}$$ と積分記号の数が違うだけで、構造は同一だ。$${M}$$ が曲線なら $${\int}$$（1次元）、曲面なら $${\iint}$$（2次元）、立体なら $${\iiint}$$（3次元）——つまり積分記号の重なりは $${M}$$ の次元で決まるにすぎない。
+§4.6 で得たストークスの定理 $${\oint_{\partial S}\omega = \iint_S d\omega}$$ と、§4.7 で得たガウスの定理 $${\iint_{\partial V}\eta = \iiint_V d\eta}$$。並べてみると、$${\oint}$$、$${\iint}$$、$${\iiint}$$ と積分記号の数が違うだけで、構造は同一だ。$${M}$$ が曲線なら $${\int}$$（1次元）、曲面なら $${\iint}$$（2次元）、立体なら $${\iiint}$$（3次元）——つまり積分記号の重なりは $${M}$$ の次元で決まるにすぎない。
 
 そこで、次元によらず統一的に：
 
@@ -628,13 +722,21 @@ $$
 
 
 $$
-\int_{\partial(\partial M)} \omega = \int_M d(d\omega) = 0
+\int_{\partial(\partial M)} \omega = \int_{\partial M} d\omega = \int_M d(d\omega) = 0
 $$
 
 
-つまり **「境界の境界は常に空」**（$${\partial(\partial M) = \emptyset}$$）という幾何学的事実と、$${d^2=0}$$ は互いに呼応している。$${d^2=0}$$ はこの位相的な真理の、微分形式による代数的な写し絵なのである。
+つまり 「境界の境界は常に空」（$${\partial(\partial M) = \emptyset}$$）という幾何学的事実と、$${d^2=0}$$ は互いに呼応している。$${d^2=0}$$ はこの位相的な真理の、微分形式による代数的な写し絵なのである。
 
-> **注** （3次元までで十分）本書の舞台は 3次元空間だから、$${M}$$ の次元は1・2・3のいずれかであり、$${\omega}$$ は 0-form・1-form・2-form のいずれかである。$${k=3}$$（$${M}$$ が4次元）には立ち入らない。しかしこの式が $${k}$$ によらず成立するという事実は、頭の片隅に置いておいて損はない。
+
+---
+
+【注】（3次元までで十分）
+
+本書の舞台は 3次元空間だから、$${M}$$ の次元は1・2・3のいずれかであり、$${\omega}$$ は $${0}$$-form・$${1}$$-form・$${2}$$-form のいずれかである。$${k=3}$$（$${M}$$ が4次元）には立ち入らない。しかしこの式が $${k}$$ によらず成立するという事実は、頭の片隅に置いておいて損はない。
+
+---
+
 
 #### 4.9.2 一般の k-form の外微分
 
@@ -652,19 +754,20 @@ $$
 
 本章で構築した外微分 $${d}$$ の全計算は、以下の 4 つのルールに集約される：
 
-1. **0-form への作用**：$${df = f_x dx + f_y dy + f_z dz}$$（第1章 §1.3 以来の定義）
-2. **線形性**：$${d(\omega_1 + \omega_2) = d\omega_1 + d\omega_2}$$
-3. **次数付きライプニッツ則**：$${d(f \omega) = df \wedge \omega + f \wedge d\omega}$$
-4. **座標基底の **$${d^2=0}$$：$${d(dx) = d(dy) = d(dz) = 0}$$
+1. $${0}$$-form への作用：$${df = \frac{\partial f}{\partial x} dx + \frac{\partial f}{\partial y} dy + \frac{\partial f}{\partial z} dz}$$（第1章 §1.3 以来の定義）
+2. 線形性：$${d(\omega_1 + \omega_2) = d\omega_1 + d\omega_2}$$
+3. 次数付きライプニッツ則：$${d(f \omega) = df \wedge \omega + f d\omega}$$
+4. 座標基底の外微分はゼロ：$${d(dx) = d(dy) = d(dz) = 0}$$
 
-ルール4 は天下りではない——ルール1 と §4.8 の $${d^2=0}$$ から導かれる（座標関数 $${x}$$ に対し $${d(d(x)) = d(dx)}$$ であり、$${d^2=0}$$ を全 0-form に要請すれば $${d(dx)=0}$$ となる）。
+ルール4 は、座標基底 $${dx,dy,dz}$$ 自身には位置による係数の変化がなく、微小ループで測っても局所的なズレを生まない、という幾何的事実を反映している。§4.8 の $${d^2=0}$$ とも整合する。
 
-これら4つのルールさえあれば、0-form から 3-form までの任意の形式の外微分が機械的に計算できる。実際に、本章で扱ったすべての計算はこのルールの組み合わせにすぎない。
+これら4つのルールさえあれば、$${0}$$-form から $${3}$$-form までの任意の形式の外微分が機械的に計算できる。実際に、本章で扱ったすべての計算はこのルールの組み合わせにすぎない。
 
-> **【ここまでのチェックポイント】**
-> - $${\int_{\partial M} \omega = \int_M d\omega}$$ 一本で、微積分学の基本定理・ストークスの定理・ガウスの定理を統合できる。
-> - $${d}$$ の計算は 4 ルール（$${df}$$、線形性、ライプニッツ則、$${d(dx)=0}$$）に集約される。
-> - $${d^2=0}$$ と $${\partial(\partial M)=\emptyset}$$ は代数的真理と幾何学的真理の呼応。
+【ここまでのチェックポイント】
+
+- $${\int_{\partial M} \omega = \int_M d\omega}$$ 一本で、微積分学の基本定理・ストークスの定理・ガウスの定理を統合できる。
+- $${d}$$ の計算は 4 ルール（$${df}$$、線形性、ライプニッツ則、$${d(dx)=0}$$）に集約される。
+- $${d^2=0}$$ と $${\partial(\partial M)=\emptyset}$$ は代数的真理と幾何学的真理の呼応。
 
 ---
 
@@ -674,11 +777,11 @@ $$
 
 本章の冒頭に掲げた問いに戻ろう。
 
-> **積分された量から、どのようにして局所法則を取り出すのか。**
+> 積分された量から、どのようにして局所法則を取り出すのか。
 
-答えは、これまでに得た二つの道具——**ストークスの定理**と**外微分 **$${d}$$ ——にある。
+答えは、これまでに得た二つの道具——ストークスの定理と外微分 $${d}$$ ——にある。
 
-物理学の多くの基本法則は、まず**積分の形**で発見される。ある領域の境界で測った量が、内部にある源の総和に等しい、という形だ：
+物理学の多くの基本法則は、まず積分の形で発見される。ある領域の境界で測った量が、内部にある源の総和に等しい、という形だ：
 
 
 $$
@@ -704,7 +807,7 @@ $$
 $$
 
 
-ここが決定的な瞬間だ。この等式が**任意の領域 **$${M}$$ について成り立つならば、被積分関数は各点で恒等的にゼロでなければならない。なぜなら、もし $${d\omega - \eta \neq 0}$$ となる点があれば、その点の周りの微小領域で積分がゼロでなくなり矛盾するからだ。
+ここが決定的な瞬間だ。この等式が任意の領域 $${M}$$ について成り立つならば、被積分関数は各点で恒等的にゼロでなければならない。なぜなら、もし $${d\omega - \eta \neq 0}$$ となる点があれば、その点の周りの微小領域で積分がゼロでなくなり矛盾するからだ。
 
 したがって：
 
@@ -714,40 +817,19 @@ d\omega = \eta
 $$
 
 
-これが**積分法則から抽出された局所微分法則**である。$${d}$$ はまさに「積分方程式を微分方程式に変換する演算子」として機能したのだ。
+これが積分法則から抽出された局所微分法則である。$${d}$$ はまさに「積分方程式を微分方程式に変換する演算子」として機能したのだ。
 
 #### 4.10.2 物理の実例
 
-この構図は電磁気学の基本法則を貫いている。
+この構図は電磁気学の基本法則にも現れる。たとえば、閉じた曲線に沿って測る量と、その曲線が囲む面を貫く量が関係する法則は、左辺をストークスの定理で面積分に直すことで局所的な関係へ移る。また、閉曲面で測る量と内部の総量が関係する法則は、ガウスの定理を通じて体積の各点での関係へ移る。
 
-> **注** （微分形式として読む）以下では、電場 $${\mathbf{E}}$$ は 1-form $${E = E_x dx + E_y dy + E_z dz}$$、磁束密度 $${\mathbf{B}}$$ は 2-form $${B = B_x dy\wedge dz + B_y dz\wedge dx + B_z dx\wedge dy}$$、電束密度 $${\mathbf{D}}$$ も同様の 2-form、電荷密度 $${\rho}$$ は 3-form $${\rho dx\wedge dy\wedge dz}$$ として読む。$${\mathbf{E}}$$ と $${E}$$ のようにベクトル解析記法と微分形式記法を敢えて近い文字で書いているが、本書の本文では $${E}$$（1-form）、$${B}$$（2-form）の次数を意識されたい。
+ここでは、電場や磁場をどの次数の形式として読むか、時間変化をどう入れるか、単位系をどう扱うかには踏み込まない。重要なのは、物理法則の多くが「境界での積分 $${=}$$ 内部の総量」という姿をとり、$${d}$$ がその法則を局所化する共通の機構を与える、という点である。
 
-**ファラデーの電磁誘導法則**。閉ループに生じる起電力は、ループを貫く磁束の時間変化に等しい：
+【ここまでのチェックポイント】
 
-
-$$
-\oint_{\partial S} \mathbf{E} = -\frac{d}{dt}\iint_S \mathbf{B}
-$$
-
-
-これを微分形式で書けば $${\int_{\partial S} E = \int_S (-\partial B/\partial t)}$$。ストークスの定理により $${dE = -\partial B/\partial t}$$。
-
-**ガウスの法則**。閉曲面から出る電束は内部の電荷に等しい：
-
-
-$$
-\oint_{\partial V} \mathbf{D} = \iiint_V \rho
-$$
-
-
-微分形式で $${\int_{\partial V} D = \iiint_V \rho}$$。ストークスの定理により $${dD = \rho}$$。
-
-いずれも「境界での積分 $${=}$$ 内部の源の積分」という形から、$${d}$$ を通じて「各点での微分関係」へと変換されている。
-
-> **【ここまでのチェックポイント】**
-> - 物理法則はしばしば $${\int_{\partial M} \omega = \int_M \eta}$$ の形で与えられる。
-> - ストークスの定理で $${\int_{\partial M} \omega = \int_M d\omega}$$ と書き換え、任意の $${M}$$ で成立することから $${d\omega = \eta}$$（局所法則）を得る。
-> - $${d}$$ は積分法則を微分法則に変換する演算子である。
+- 物理法則はしばしば $${\int_{\partial M} \omega = \int_M \eta}$$ の形で与えられる。
+- ストークスの定理で $${\int_{\partial M} \omega = \int_M d\omega}$$ と書き換え、任意の $${M}$$ で成立することから $${d\omega = \eta}$$（局所法則）を得る。
+- $${d}$$ は積分法則を微分法則に変換する演算子である。
 
 ---
 
@@ -755,40 +837,37 @@ $$
 
 本章で我々は、外微分 $${d}$$ という強力な演算子を手に入れた。$${d}$$ は：
 
-- **0-form **$${\to}$$** 1-form**：$${df = f_x dx + f_y dy + f_z dz}$$（勾配に相当）
-- **1-form **$${\to}$$** 2-form**：$${d\omega = (R_y-Q_z) dy\wedge dz + (P_z-R_x) dz\wedge dx + (Q_x-P_y) dx\wedge dy}$$（回転に相当）
-- **2-form **$${\to}$$** 3-form**：$${d\eta = (A_x+B_y+C_z) dx\wedge dy\wedge dz}$$（発散に相当）
+- $${0}$$-form $${\to}$$ $${1}$$-form：$${df = \frac{\partial f}{\partial x} dx + \frac{\partial f}{\partial y} dy + \frac{\partial f}{\partial z} dz}$$
+- $${1}$$-form $${\to}$$ $${2}$$-form：$${d\omega = (\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}) dy\wedge dz + (\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x}) dz\wedge dx + (\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}) dx\wedge dy}$$
+- $${2}$$-form $${\to}$$ $${3}$$-form：$${d\eta = (\frac{\partial A}{\partial x}+\frac{\partial B}{\partial y}+\frac{\partial C}{\partial z}) dx\wedge dy\wedge dz}$$
 
 次数を一段ずつ上げるたびに、係数は異なるパターンで組み替わる。そして $${d^2=0}$$ が、これらの階層の間に矛盾が入り込めないことを保証する。
 
-しかし、ここで一つの非対称性が目につく。0-form と 3-form は独立成分が 1 つ、1-form と 2-form は独立成分が 3 つ——$${1, 3, 3, 1}$$ という対称性がある（第2章 §2.5.9–§2.5.10 で見た）。この対称性は偶然ではない。デカルト座標の 3 次元空間には、同じ情報量の形式どうしを結びつける「辞書」が存在する。
+しかし、ここで一つの非対称性が目につく。$${0}$$-form と $${3}$$-form は独立成分が 1 つ、$${1}$$-form と $${2}$$-form は独立成分が 3 つ——$${1, 3, 3, 1}$$ という対称性がある（第2章 §2.5.9–§2.5.10 で見た）。この対称性は偶然ではない。デカルト座標の 3 次元空間では、長さ・面積・体積を測る規則を加えることで、同じ情報量の形式どうしを結びつける「辞書」が現れる。
 
-その辞書こそが**ホッジ・スター **$${\ast}$$ である。$${\ast}$$ は：
+その辞書が、次章で導入するホッジ・スター $${\ast}$$ である。ただし、$${\ast}$$ は単なる記号の置き換えではない。どの方向をどの面に対応させるか、面積や体積をどう測るか、向きをどう決めるかに依存する。そのため本章では、具体的な対応式はまだ使わない。
 
-- $${\ast(dx) = dy \wedge dz}$$（1-form を 2-form に写す）
-- $${\ast(dy \wedge dz) = dx}$$（2-form を 1-form に写す）
-- $${\ast(1) = dx \wedge dy \wedge dz}$$（0-form を 3-form に写す）
-
-といった対応を与える。$${\ast}$$ の導入により、$${d}$$ と $${\ast}$$ の組み合わせとして、ベクトル解析の勾配・回転・発散が $${\ast d f}$$、$${\ast d \omega}$$、$${\ast d \ast \omega}$$ のように統一的に書けるようになる。ナブラ $${\nabla}$$ の三つの顔が、$${d}$$ と $${\ast}$$ という二つの演算子の組み合わせに解体されるのだ。
+ここまでで構築したのは、あくまで $${d}$$ である。$${d}$$ は次数を一つ上げ、局所的なズレを取り出し、積分法則を局所法則へ変換する。次章では、そこに「測り方」の規則を加えることで、これまで見慣れていたベクトル解析の各演算との対応が見えてくる。
 
 次章では、この $${\ast}$$ を定義し、$${d}$$ と $${\ast}$$ を両輪として第II部の核心——ナブラの解体——へと進む。
 
 ---
 
-> **【ここまでのチェックポイント — 第4章全体】**
-> - 外微分 $${d}$$ は $${k}$$-form を $${(k+1)}$$-form に写す演算子。0-form $${\to}$$ 1-form（$${df}$$）、1-form $${\to}$$ 2-form、2-form $${\to}$$ 3-form。
-> - 計算ルールは 4 つ：$${df}$$ の定義、線形性、ライプニッツ則 $${d(f\omega) = df\wedge\omega + f\wedge d\omega}$$、$${d(dx)=d(dy)=d(dz)=0}$$。
-> - 幾何学的起源は §4.3 の微小ループ解剖：閉ループのズレが面積に比例し、その比例係数が $${d\omega}$$。
-> - ストークスの定理 $${\int_{\partial M} \omega = \int_M d\omega}$$ は、境界と内部をつなぐ普遍的な橋。
-> - $${d^2 = 0}$$ は混合偏微分の対称性に由来し、幾何学的には $${\partial(\partial M) = \emptyset}$$ に対応。
-> - $${d}$$ は積分法則を局所微分法則へ変換する演算子——物理学の定式化に不可欠な役割を果たす。
-> - 次章のホッジ・スター $${\ast}$$ と組み合わせることで、$${\nabla}$$ の正体が $${d}$$ と $${\ast}$$ に解体される。
+【ここまでのチェックポイント — 第4章全体】
+
+- 外微分 $${d}$$ は $${k}$$-form を $${(k+1)}$$-form に写す演算子。$${0}$$-form $${\to}$$ $${1}$$-form（$${df}$$）、$${1}$$-form $${\to}$$ $${2}$$-form、$${2}$$-form $${\to}$$ $${3}$$-form。
+- 計算ルールは 4 つ：$${df}$$ の定義、線形性、ライプニッツ則 $${d(f\omega) = df\wedge\omega + f d\omega}$$、$${d(dx)=d(dy)=d(dz)=0}$$。
+- 幾何学的起源は §4.3 の微小ループ解剖：閉ループのズレが面積に比例し、その比例係数が $${d\omega}$$。
+- ストークスの定理 $${\int_{\partial M} \omega = \int_M d\omega}$$ は、境界と内部をつなぐ普遍的な橋。
+- $${d^2 = 0}$$ は混合偏微分の対称性に由来し、幾何学的には $${\partial(\partial M) = \emptyset}$$ に対応。
+- $${d}$$ は積分法則を局所微分法則へ変換する演算子——物理学の定式化に不可欠な役割を果たす。
+- 次章では、長さ・面積・体積を測る規則を加え、ホッジ・スター $${\ast}$$ を通じて $${d}$$ とベクトル解析の演算との対応を整理する。
 
 ---
 
 ## 付録：外微分の行列表示
 
-本章本文は基底 $${dx, dy, dz}$$ とウェッジ積の代数で進めた。ここでは第2章以来の本書の真骨頂——**成分をひとつ残らず行列に並べる**——によって、外微分を行列表示の言葉で書き直す。
+本章本文は基底 $${dx, dy, dz}$$ とウェッジ積の代数で進めた。ここでは第2章以来の本書の真骨頂——成分をひとつ残らず行列に並べる——によって、外微分を行列表示の言葉で書き直す。
 
 ### B.1 0-form：df の 1 \times 3 行ベクトル
 
@@ -796,7 +875,7 @@ $${f = f(x,y,z)}$$ に対し、第1章 §1.3 の定義どおり：
 
 
 $$
-df = f_x dx + f_y dy + f_z dz
+df = \frac{\partial f}{\partial x} dx + \frac{\partial f}{\partial y} dy + \frac{\partial f}{\partial z} dz
 $$
 
 
@@ -804,7 +883,7 @@ $$
 
 
 $$
-\boldsymbol{\alpha}_f := \begin{pmatrix} f_x & f_y & f_z \end{pmatrix}
+\boldsymbol{\alpha}_f := \begin{pmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & \frac{\partial f}{\partial z} \end{pmatrix}
 $$
 
 
@@ -812,53 +891,53 @@ $$
 
 ### B.2 1-form：係数のヤコビ行列 \mathbf{J}
 
-$${\omega = P dx + Q dy + R dz}$$ に対し、係数 $${(P,Q,R)}$$ の偏微分を**すべて**並べた $${3 \times 3}$$ 行列を：
+$${\omega = P dx + Q dy + R dz}$$ に対し、係数 $${(P,Q,R)}$$ の偏微分をすべて並べた $${3 \times 3}$$ 行列を：
 
 
 $$
 \mathbf{J} := \begin{pmatrix}
-P_x & P_y & P_z \cr
-Q_x & Q_y & Q_z \cr
-R_x & R_y & R_z
+\frac{\partial P}{\partial x} & \frac{\partial P}{\partial y} & \frac{\partial P}{\partial z} \cr
+\frac{\partial Q}{\partial x} & \frac{\partial Q}{\partial y} & \frac{\partial Q}{\partial z} \cr
+\frac{\partial R}{\partial x} & \frac{\partial R}{\partial y} & \frac{\partial R}{\partial z}
 \end{pmatrix}
 $$
 
 
 とする。これは $${(P,Q,R)}$$ を「縦に積んだ」ベクトル場のヤコビ行列にあたる。§4.1 で「単なる偏微分の行列では足りない」と述べたのは、まさにこの $${\mathbf{J}}$$ が反対称でないからだ。
 
-### B.3 d\omega と反対称行列 \mathbf{M} = \mathbf{J} - \mathbf{J}^T
+### B.3 d\omega と反対称行列 \mathbf{M} = \mathbf{J}^T - \mathbf{J}
 
 §4.5 の結果は：
 
 
 $$
-d\omega = (R_y - Q_z) dy \wedge dz + (P_z - R_x) dz \wedge dx + (Q_x - P_y) dx \wedge dy
+d\omega = (\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z}) dy \wedge dz + (\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x}) dz \wedge dx + (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}) dx \wedge dy
 $$
 
 
 第2章 §2.4.4 の流儀に従い、任意の縦ベクトル $${\mathbf{v}_1, \mathbf{v}_2}$$ に対して $${(d\omega)(\mathbf{v}_1, \mathbf{v}_2) = \mathbf{v}_1^T \mathbf{M} \mathbf{v}_2}$$ となる反対称行列 $${\mathbf{M}}$$ を求めよう。
 
-$${\mathbf{J} - \mathbf{J}^T}$$ の成分を書き下す：
+$${\mathbf{J}^T - \mathbf{J}}$$ の成分を書き下す：
 
 
 $$
-\mathbf{J} - \mathbf{J}^T = \begin{pmatrix}
-0 & P_y - Q_x & P_z - R_x \cr
-Q_x - P_y & 0 & Q_z - R_y \cr
-R_x - P_z & R_y - Q_z & 0
+\mathbf{J}^T - \mathbf{J} = \begin{pmatrix}
+0 & \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} & \frac{\partial R}{\partial x} - \frac{\partial P}{\partial z} \cr
+\frac{\partial P}{\partial y} - \frac{\partial Q}{\partial x} & 0 & \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z} \cr
+\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x} & \frac{\partial Q}{\partial z} - \frac{\partial R}{\partial y} & 0
 \end{pmatrix}
 $$
 
 
-これを 2-form の係数 $${(A, B, C) = (R_y - Q_z, P_z - R_x, Q_x - P_y)}$$ と比較すると：
+これを $${2}$$-form の係数 $${(A, B, C) = (\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z}, \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x}, \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})}$$ と比較すると：
 
 
 $$
 \mathbf{M}(d\omega) = \begin{pmatrix}
-0 & -C & B \cr
-C & 0 & -A \cr
--B & A & 0
-\end{pmatrix} = \mathbf{J} - \mathbf{J}^T
+0 & C & -B \cr
+-C & 0 & A \cr
+B & -A & 0
+\end{pmatrix} = \mathbf{J}^T - \mathbf{J}
 $$
 
 
@@ -866,11 +945,11 @@ $$
 
 
 $$
-\boxed{\mathbf{M}(d\omega) = \mathbf{J} - \mathbf{J}^T}
+\boxed{\mathbf{M}(d\omega) = \mathbf{J}^T - \mathbf{J}}
 $$
 
 
-**外微分 **$${d\omega}$$** の行列表示は、係数のヤコビ行列からその転置を引いた反対称行列である。**
+外微分 $${d\omega}$$ の行列表示は、転置から係数のヤコビ行列を引いた反対称行列である。
 
 ### B.4 2-form：d\eta とヤコビ行列のトレース
 
@@ -879,26 +958,26 @@ $${\eta = A dy \wedge dz + B dz \wedge dx + C dx \wedge dy}$$ に対し、係数
 
 $$
 \mathbf{J}_\eta := \begin{pmatrix}
-A_x & A_y & A_z \cr
-B_x & B_y & B_z \cr
-C_x & C_y & C_z
+\frac{\partial A}{\partial x} & \frac{\partial A}{\partial y} & \frac{\partial A}{\partial z} \cr
+\frac{\partial B}{\partial x} & \frac{\partial B}{\partial y} & \frac{\partial B}{\partial z} \cr
+\frac{\partial C}{\partial x} & \frac{\partial C}{\partial y} & \frac{\partial C}{\partial z}
 \end{pmatrix}
 $$
 
 
-とすると、§4.7 の結果 $${d\eta = (A_x + B_y + C_z) dx \wedge dy \wedge dz}$$ の係数は $${\mathbf{J}_\eta}$$ の**トレース**（対角成分の和）に一致する：
+とすると、§4.7 の結果 $${d\eta = (\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z}) dx \wedge dy \wedge dz}$$ の係数は $${\mathbf{J}_\eta}$$ のトレース（対角成分の和）に一致する：
 
 
 $$
-A_x + B_y + C_z = \operatorname{tr}(\mathbf{J}_\eta)
+\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z} = \operatorname{tr}(\mathbf{J}_\eta)
 $$
 
 
-3-form は基底が $${dx \wedge dy \wedge dz}$$ の 1 つだけなので、行列としてはスカラー係数に縮退している。
+$${3}$$-form は基底が $${dx \wedge dy \wedge dz}$$ の 1 つだけなので、行列としてはスカラー係数に縮退している。
 
 ### B.5 d^2 f = 0 とヘッセ行列
 
-0-form $${f}$$ のヘッセ行列：
+$${0}$$-form $${f}$$ のヘッセ行列：
 
 
 $$
@@ -912,4 +991,4 @@ $$
 
 は $${f}$$ の 2 階偏導関数を並べたものだ。$${f \in C^2}$$ なら $${\mathbf{H}_f}$$ は対称行列（$${f_{xy}=f_{yx}}$$ など）である。
 
-$${d(df) = 0}$$ は §4.5 の $${d\omega}$$ 公式で $${(P,Q,R) = (f_x, f_y, f_z)}$$ とおいたもの。$${\mathbf{J} = \mathbf{H}_f}$$ であり、$${\mathbf{H}_f}$$ が対称だから $${\mathbf{J} - \mathbf{J}^T = 0}$$、したがって $${d(df) = 0}$$。行列の言葉では「ヘッセ行列の反対称成分がゼロ」と言い換えられる。
+$${d(df) = 0}$$ は §4.5 の $${d\omega}$$ 公式で $${(P,Q,R) = (\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z})}$$ とおいたもの。$${\mathbf{J} = \mathbf{H}_f}$$ であり、$${\mathbf{H}_f}$$ が対称だから $${\mathbf{J}^T - \mathbf{J} = 0}$$、したがって $${d(df) = 0}$$。行列の言葉では「ヘッセ行列の反対称成分がゼロ」と言い換えられる。

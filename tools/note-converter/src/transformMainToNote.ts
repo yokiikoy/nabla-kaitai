@@ -143,6 +143,13 @@ const MATRIX_ENV_NAMES = new Set([
   "array",
 ]);
 
+/** 行間スペース指定 `\\[dim]` の `[dim]` を削除すべき環境 */
+const ALIGN_LIKE_ENV_NAMES = new Set([
+  "aligned",
+  "alignedat",
+  "gathered",
+]);
+
 function findMatchingEndEnv(
   s: string,
   env: string,
@@ -174,7 +181,8 @@ function findMatchingEndEnv(
 
 /**
  * 行列環境内の行区切り `\\` を `\cr` に（note.com 向け）。
- * ネストした `\begin{pmatrix}` 等も再帰処理する。`aligned` 等は触れない。
+ * aligned / alignedat / gathered では `\\[dim]` の `[dim]` を削除する。
+ * ネストした `\begin{pmatrix}` 等も再帰処理する。
  */
 export function replaceMatrixRowSeparatorsForNote(text: string): string {
   let pos = 0;
@@ -194,7 +202,9 @@ export function replaceMatrixRowSeparatorsForNote(text: string): string {
     }
     const env = m[1]!;
     const beginTok = m[0]!;
-    if (!MATRIX_ENV_NAMES.has(env)) {
+    const isMatrix = MATRIX_ENV_NAMES.has(env);
+    const isAlignLike = ALIGN_LIKE_ENV_NAMES.has(env);
+    if (!isMatrix && !isAlignLike) {
       out += text.slice(pos, idx + beginTok.length);
       pos = idx + beginTok.length;
       continue;
@@ -208,9 +218,14 @@ export function replaceMatrixRowSeparatorsForNote(text: string): string {
     }
     const inner = text.slice(innerStart, innerEnd);
     const innerRec = replaceMatrixRowSeparatorsForNote(inner);
-    const innerCr = innerRec.replace(/\\\\(\[[^\]]*\])?/g, "\\cr$1");
+    let innerFixed: string;
+    if (isMatrix) {
+      innerFixed = innerRec.replace(/\\\\(\[[^\]]*\])?/g, "\\cr$1");
+    } else {
+      innerFixed = innerRec.replace(/\\\\\[[^\]]*\]/g, "\\\\");
+    }
     const endTok = `\\end{${env}}`;
-    out += beginTok + innerCr + endTok;
+    out += beginTok + innerFixed + endTok;
     pos = innerEnd + endTok.length;
   }
   return out;
@@ -230,6 +245,55 @@ export function replaceThinSpaceForNote(content: string): string {
  */
 export function replaceMediumSpaceForNote(content: string): string {
   return content.replace(/(?<![\\])\\;[ \t]*/g, " ");
+}
+
+/**
+ * note.com 向け: `$$` 表示数式ブロック内で、行頭の `-` が箇条書きと誤解釈されるのを防ぐため、
+ * `-` → `{-}` に置き換える。`$${…}$$`（インライン数式）は対象外。
+ */
+export function replaceLeadingMinusInNoteMath(content: string): string {
+  let pos = 0;
+  let out = "";
+  while (pos < content.length) {
+    const a = content.indexOf("$$", pos);
+    if (a === -1) {
+      out += content.slice(pos);
+      break;
+    }
+    out += content.slice(pos, a);
+    if (content[a + 2] === "{") {
+      let depth = 1;
+      let j = a + 3;
+      while (j < content.length && depth > 0) {
+        const c = content[j]!;
+        if (c === "\\") {
+          j += Math.min(2, content.length - j);
+          continue;
+        }
+        if (c === "{") depth += 1;
+        else if (c === "}") depth -= 1;
+        j += 1;
+      }
+      if (depth !== 0 || content.slice(j, j + 2) !== "$$") {
+        out += "$$";
+        pos = a + 2;
+        continue;
+      }
+      out += content.slice(a, j + 2);
+      pos = j + 2;
+      continue;
+    }
+    const b = content.indexOf("$$", a + 2);
+    if (b === -1) {
+      out += content.slice(a);
+      break;
+    }
+    const body = content.slice(a + 2, b);
+    const newBody = body.replace(/^(\s*)-/gm, "$1{-}");
+    out += "$$" + newBody + "$$";
+    pos = b + 2;
+  }
+  return out;
 }
 
 /**
@@ -555,6 +619,7 @@ export function transformMainToNoteMarkdown(content: string): string {
   transformed = replaceAsteriskInEquations(transformed);
   transformed = transformEquationBlocks(transformed);
   transformed = applyMatrixRowSeparatorFixForNote(transformed);
+  transformed = replaceLeadingMinusInNoteMath(transformed);
   transformed = replaceThinSpaceForNote(transformed);
   transformed = replaceMediumSpaceForNote(transformed);
   transformed = applyBoldSplitAroundNoteMath(transformed);
