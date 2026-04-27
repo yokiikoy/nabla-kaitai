@@ -5,6 +5,12 @@
 # Build intermediates
 build/
 
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+
 # Reference PDFs are usually large and may have licensing constraints.
 # Keep bibliographic notes and OCR markdown in git; keep PDF originals local by default.
 references/pdfs/**/*.pdf
