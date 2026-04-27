@@ -10,21 +10,24 @@ chapter: 4
 
 第3章で我々は、曲線・曲面・領域上の積分を $${k}$$-form の言葉で定義した。曲線 $${\gamma}$$ に沿った仕事は $${\int_\gamma \omega}$$、曲面 $${S}$$ を貫く流量は $${\iint_S \eta}$$、領域 $${V}$$ の総質量は $${\iiint_V \Omega}$$ である。いずれも「$${k}$$-form（はかり）を $${k}$$-vector（図形）に食わせてスカラーを得、領域全体で集計する」という同一の原理に従っていた。
 
-ここで我々が手にした積分は、すべてマクロな量である。仕事は曲線全体にわたる総和であり、流量は曲面全体を貫く総量であり、質量は領域全体での総計だ。それらは測定器の当て方と領域の選び方に依存する。
+ここで我々が手にした積分は、すべて領域全体にわたる量である（以下こうした量を大域的と呼ぶ）。仕事は曲線全体にわたる総和であり、流量は曲面全体を貫く総量であり、質量は領域全体での総計だ。それらは測定器の当て方と領域の選び方に依存する。
 
-しかし、物理学者が求めているのはこれではない。マクスウェル方程式にせよナビエ–ストークス方程式にせよ、自然界の基本法則は空間の各点・各瞬間において何が成り立つかを記述する局所的な関係——微分方程式——として書かれる。マクロな積分量は領域に依存するが、微視的な局所法則は領域に依存しない普遍性を持つからだ。
+しかし、物理学者が求めているのはこれではない。マクスウェル方程式にせよナビエ–ストークス方程式にせよ、自然界の基本法則は空間の各点・各瞬間において何が成り立つかを記述する局所的な関係——微分方程式——として書かれる。大域的な積分量は領域に依存するが、局所的な法則は領域に依存しない普遍性を持つからだ。
 
-ここに根本的な問いが生まれる。
 
-> 積分された量から、どのようにして局所法則を取り出すのか。
+【注】（大域的／局所的という用語）
 
-この問いに答えるのが本章の主題——外微分 $${d}$$——である。$${d}$$ は $${k}$$-form に作用して $${(k+1)}$$-form を返す演算子であり、第3章で定義した積分と組み合わせることで「境界で測ったマクロな積分」を「内部のミクロな変化の集積」へと翻訳する。いわば、$${d}$$ は積分法則を微分法則に変換する装置なのである。
+他書では同じ概念をマクロ／ミクロと呼ぶことも多い。どちらも本質は同じで、積分された領域全体の量（大域的・マクロ）と、各点での微分関係（局所的・ミクロ）の対比である。
+
+---
+
+この問いに答えるのが本章の主題——外微分 $${d}$$——である。$${d}$$ は $${k}$$-form に作用して $${(k+1)}$$-form を返す演算子であり、第3章で定義した積分と組み合わせることで「境界で測った大域的な積分」を「内部の局所的な変化の集積」へと翻訳する。いわば、$${d}$$ は積分法則を微分法則に変換する装置なのである。
 
 本章の構成はこうだ。まず第1章で導入した $${df}$$ を思い出し、それが $${0}$$-form → $${1}$$-form の「次元上げ」だったことを確認する（§4.1）。次に一般の $${1}$$-form ではその逆演算が破綻することを見て（§4.2）、微小ループの解剖から $${(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y})}$$ という「面積あたりのズレ」を発見する（§4.3）。この発見を手がかりに $${d}$$ の定義へと至り（§4.4）、3次元への拡張（§4.5）、ストークスの定理（§4.6）へと進む。同じ論法を $${2}$$-form にも適用し（§4.7）、$${d^2=0}$$ の構造的意味を明らかにする（§4.8）。最後に、この $${d}$$ がどのように物理法則を局所化するかを示し（§4.10）、次章のホッジ・スターへとつなぐ（§4.11）。
 
 ---
 
-### §4.1 df 再訪 — 完全な逆演算が成り立つとき
+### §4.1 df 再訪 — 微分と積分は逆演算か
 
 #### 4.1.1 df は「次元上げ」をしている
 
@@ -112,6 +115,11 @@ $$
 
 $${\omega = df}$$ と書ける $${1}$$-form を完全形式（exact form）と呼ぶ。完全形式の閉曲線に沿った積分は、$${f}$$ が一価関数である限り必ずゼロになる。しかし逆は真ではない——閉曲線でゼロになるからといって完全形式とは限らない。この点は §4.2 で詳しく見る。
 
+
+【注】（$${d}$$ と $${\int}$$ の逆演算——どちらがどれだけ「完全」か）
+
+記号 $${\circ}$$ を「続けて作用させる」の意味で使う（$${f \circ g}$$ は「$${g}$$ をしてから $${f}$$」）。$${\int_\gamma df = f(B)-f(A)}$$ は $${\int \circ d}$$ がつねに境界値へ戻るという意味での逆演算である。いっぽう $${d \circ \int}$$——積分してから外微分——は一般には元に戻らない。これが成り立つ $${\omega}$$ が完全形式だ。つまり $${d}$$ と $${\int}$$ は $${\int \circ d = \text{id}}$$（片側だけ恒等写像）という非対称な逆関係にある。この非対称性こそが、§4.2 以降で展開される外微分 $${d}$$ の真価——「ズレ」を検出する力——の源泉になる。
+
 ---
 
 
@@ -167,7 +175,7 @@ $$
 
 #### 4.2.2 局所情報はどこに宿るか
 
-では、この「一周して残るズレ」はどこから来るのか。閉ループをいきなりマクロな大きさで考えていては、中のどの点がどれだけズレに寄与したのかわからない。第1章で $${f'(x)}$$ を求めたときのことを思い出そう——我々は $${\Delta f / \Delta x}$$ の $${\Delta x \to 0}$$ の極限をとることで、一点での変化率を取り出した。
+では、この「一周して残るズレ」はどこから来るのか。閉ループをいきなり大域的な大きさで考えていては、中のどの点がどれだけズレに寄与したのかわからない。第1章で $${f'(x)}$$ を求めたときのことを思い出そう——我々は $${\Delta f / \Delta x}$$ の $${\Delta x \to 0}$$ の極限をとることで、一点での変化率を取り出した。
 
 同じ発想をここでも使う。ループをどんどん小さくしていったとき、一周の積分 $${\oint \omega}$$ の値はどうなるか。もし $${\oint \omega}$$ の主項がループの囲む面積に比例して小さくなるなら、面積あたりのズレ——単位面積あたりどれだけ帳尻が合わないか——という量が、その点に固有の値として決まるはずだ。
 
@@ -354,7 +362,7 @@ d(P dx) = \frac{\partial P}{\partial z} (dz \wedge dx) - \frac{\partial P}{\part
 $$
 
 
-となるはずだ（$${xy}$$ 面のループでは $${(0_x - \frac{\partial P}{\partial y}) = -\frac{\partial P}{\partial y}}$$、$${zx}$$ 面では $${(\frac{\partial P}{\partial z} - 0_x) = \frac{\partial P}{\partial z}}$$）。
+となるはずだ（$${xy}$$ 面のループでは $${(0 - \frac{\partial P}{\partial y}) = -\frac{\partial P}{\partial y}}$$、$${zx}$$ 面では $${(\frac{\partial P}{\partial z} - 0) = \frac{\partial P}{\partial z}}$$）。
 
 さて、ここで $${dP = \frac{\partial P}{\partial x} dx + \frac{\partial P}{\partial y} dy + \frac{\partial P}{\partial z} dz}$$ を思い出そう（§4.1）。これと $${dx}$$ のウェッジ積をとると：
 
@@ -506,7 +514,7 @@ $$
 
 第2章以来の行列の言葉で書くなら、右辺の $${2}$$-form は反対称行列 $${\mathbf{J}^T - \mathbf{J}}$$ で表される。$${\mathbf{v}_1, \mathbf{v}_2}$$ を面素の二辺とすれば $${(d\omega)(\mathbf{v}_1, \mathbf{v}_2) = \mathbf{v}_1^T(\mathbf{J}^T - \mathbf{J})\mathbf{v}_2}$$。付録 B.3 に全成分を書き下してあるので、必要に応じて参照されたい。
 
-この定理の構造は驚くほど単純だ。マクロな境界で測った積分 $${=}$$ 内部のミクロなズレ（$${d\omega}$$）の集積。$${d}$$ とは、境界 $${\partial S}$$ における $${\omega}$$ の情報を、内部 $${S}$$ における $${d\omega}$$ の情報へと翻訳する装置なのである。
+この定理の構造は驚くほど単純だ。大域的な境界で測った積分 $${=}$$ 内部の局所的なズレ（$${d\omega}$$）の集積。$${d}$$ とは、境界 $${\partial S}$$ における $${\omega}$$ の情報を、内部 $${S}$$ における $${d\omega}$$ の情報へと翻訳する装置なのである。
 
 
 ---
@@ -521,7 +529,7 @@ $$
 【ここまでのチェックポイント】
 
 - 面 $${S}$$ を微小ループで敷き詰めると、内部の辺は相殺し、境界 $${\partial S}$$ の寄与だけが残る。
-- $${\int_{\partial S} \omega = \int_S d\omega}$$。マクロな境界積分がミクロな外微分の積分に等しい。
+- $${\int_{\partial S} \omega = \int_S d\omega}$$。大域的な境界積分が局所的な外微分の積分に等しい。
 - 第3章の曲面積分と同じく、面を小さなパッチに分け、各パッチで測定器を作用させて集計している。
 
 ---
@@ -657,16 +665,23 @@ $$
 
 
 $$
-d(df) = \bigl((\frac{\partial f}{\partial z})_y - (\frac{\partial f}{\partial y})_z\bigr) dy \wedge dz + \bigl((\frac{\partial f}{\partial x})_z - (\frac{\partial f}{\partial z})_x\bigr) dz \wedge dx + \bigl((\frac{\partial f}{\partial y})_x - (\frac{\partial f}{\partial x})_y\bigr) dx \wedge dy
+d(df) = \left(\frac{\partial^2 f}{\partial y \partial z} - \frac{\partial^2 f}{\partial z \partial y}\right) dy \wedge dz + \left(\frac{\partial^2 f}{\partial z \partial x} - \frac{\partial^2 f}{\partial x \partial z}\right) dz \wedge dx + \left(\frac{\partial^2 f}{\partial x \partial y} - \frac{\partial^2 f}{\partial y \partial x}\right) dx \wedge dy
 $$
 
 
-混合偏微分の対称性（$${f}$$ が $${C^2}$$ 級なら $${f_{xy} = f_{yx}}$$ など）により、すべての係数がゼロになる：
+混合偏微分の対称性（$${f}$$ が全微分可能なら $${\frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x}}$$ など。第1章 §1.3 参照）により、すべての係数がゼロになる：
 
 
 $$
 d(df) = 0
 $$
+
+
+【注】（数学者へのエクスキューズ——$${d^2=0}$$ と全微分可能性）
+
+本書では「$${f}$$ が全微分可能なら混合偏微分が可換、ゆえに $${d(df)=0}$$」という順序で進めた。しかし微分形式の公理的な立場では、$${d^2=0}$$ こそが $${d}$$ の定義の一部であり、$${d(df)=0}$$ は定理ではなく要請である。逆に言えば、$${d^2=0}$$ を課すことが「混合偏微分の対称性が成り立つ関数クラス（＝全微分可能な関数）を相手にしている」という宣言に相当する。どちらの順序で学んでも、両者が同値な条件として噛み合うことに変わりはない。
+
+---
 
 
 #### 4.8.2 d(d\omega) = 0
@@ -675,7 +690,7 @@ $$
 
 
 $$
-d(d\omega) = \bigl((\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z})_x + (\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x})_y + (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})_z\bigr) dx \wedge dy \wedge dz
+d(d\omega) = \left(\frac{\partial^2 R}{\partial x \partial y} - \frac{\partial^2 Q}{\partial x \partial z} + \frac{\partial^2 P}{\partial y \partial z} - \frac{\partial^2 R}{\partial y \partial x} + \frac{\partial^2 Q}{\partial z \partial x} - \frac{\partial^2 P}{\partial z \partial y}\right) dx \wedge dy \wedge dz
 $$
 
 
@@ -683,11 +698,11 @@ $$
 
 
 $$
-R_{yx} - Q_{zx} + P_{zy} - R_{xy} + Q_{xz} - P_{yz}
+\frac{\partial^2 R}{\partial y \partial x} - \frac{\partial^2 Q}{\partial z \partial x} + \frac{\partial^2 P}{\partial z \partial y} - \frac{\partial^2 R}{\partial x \partial y} + \frac{\partial^2 Q}{\partial x \partial z} - \frac{\partial^2 P}{\partial y \partial z}
 $$
 
 
-混合偏微分の対称性（$${R_{yx}=R_{xy}}$$ など）により、6項が3組の相殺を起こし、合計はゼロ：
+混合偏微分の対称性（$${\frac{\partial^2 R}{\partial y \partial x}=\frac{\partial^2 R}{\partial x \partial y}}$$ など）により、6項が3組の相殺を起こし、合計はゼロ：
 
 
 $$
@@ -789,7 +804,7 @@ $$
 $$
 
 
-左辺は境界で測った積分（マクロな観測量）、右辺は内部の源の積分（マクロな総量）。$${\omega}$$ と $${\eta}$$ は、それぞれ適切な次数の微分形式である。
+左辺は境界で測った積分（大域的な観測量）、右辺は内部の源の積分（大域的な総量）。$${\omega}$$ と $${\eta}$$ は、それぞれ適切な次数の微分形式である。
 
 ここにストークスの定理を左辺に適用する。$${\int_{\partial M} \omega = \int_M d\omega}$$ だから：
 
@@ -982,13 +997,13 @@ $${0}$$-form $${f}$$ のヘッセ行列：
 
 $$
 \mathbf{H}_f := \begin{pmatrix}
-f_{xx} & f_{xy} & f_{xz} \cr
-f_{yx} & f_{yy} & f_{yz} \cr
-f_{zx} & f_{zy} & f_{zz}
+\frac{\partial^2 f}{\partial x^2} & \frac{\partial^2 f}{\partial x \partial y} & \frac{\partial^2 f}{\partial x \partial z} \cr
+\frac{\partial^2 f}{\partial y \partial x} & \frac{\partial^2 f}{\partial y^2} & \frac{\partial^2 f}{\partial y \partial z} \cr
+\frac{\partial^2 f}{\partial z \partial x} & \frac{\partial^2 f}{\partial z \partial y} & \frac{\partial^2 f}{\partial z^2}
 \end{pmatrix}
 $$
 
 
-は $${f}$$ の 2 階偏導関数を並べたものだ。$${f \in C^2}$$ なら $${\mathbf{H}_f}$$ は対称行列（$${f_{xy}=f_{yx}}$$ など）である。
+は $${f}$$ の 2 階偏導関数を並べたものだ。$${f}$$ が全微分可能なら $${\mathbf{H}_f}$$ は対称行列（$${\frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x}}$$ など）である。
 
 $${d(df) = 0}$$ は §4.5 の $${d\omega}$$ 公式で $${(P,Q,R) = (\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z})}$$ とおいたもの。$${\mathbf{J} = \mathbf{H}_f}$$ であり、$${\mathbf{H}_f}$$ が対称だから $${\mathbf{J}^T - \mathbf{J} = 0}$$、したがって $${d(df) = 0}$$。行列の言葉では「ヘッセ行列の反対称成分がゼロ」と言い換えられる。

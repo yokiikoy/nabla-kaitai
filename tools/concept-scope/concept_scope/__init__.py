@@ -40,7 +40,13 @@ from concept_scope.checker import (
     render_text,
 )
 
-from concept_scope.levels import classify_usage_level, extract_occurrences, extract_occurrences_from_text
+from concept_scope.levels import (
+    classify_usage_level,
+    extract_occurrences,
+    extract_occurrences_from_text,
+    parse_allow_annotations,
+    parse_roles,
+)
 from concept_scope.context import export_context_json, export_context_markdown
 
 __all__ = [

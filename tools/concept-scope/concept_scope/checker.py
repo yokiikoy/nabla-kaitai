@@ -9,7 +9,11 @@ from concept_scope.models import Chapter, Concept, Diagnostic
 from concept_scope.rules import active_rule, allowed_by_context, usage_level_value
 from concept_scope.scope import infer_chapter, relative_path, scope_for_chapter
 from concept_scope.registry import load_concepts
-from concept_scope.levels import extract_occurrences
+from concept_scope.levels import (
+    extract_occurrences,
+    parse_allow_annotations,
+    parse_roles,
+)
 
 
 def iter_checkable_lines(path: Path) -> list[tuple[int, str]]:
@@ -119,8 +123,16 @@ def _check_levels(
     scope = scope_for_chapter(chapter.id, root=root, frontmatter_path=path)
     concept_index = {c.id: c for c in concepts}
     checkable = iter_checkable_lines(path)
-    occurrences = extract_occurrences(checkable, concepts)
-    return _evaluate_occurrences(occurrences, scope, concept_index, path, root, checkable)
+
+    roles = parse_roles(checkable)
+    allowed_on_line, allow_all_lines = parse_allow_annotations(checkable)
+
+    occurrences = extract_occurrences(checkable, concepts, roles=roles)
+    return _evaluate_occurrences(
+        occurrences, scope, concept_index, path, root,
+        checkable, allowed_on_line=allowed_on_line,
+        allow_all_lines=allow_all_lines,
+    )
 
 
 def _evaluate_occurrences(
@@ -130,6 +142,8 @@ def _evaluate_occurrences(
     path: Path,
     root: Path,
     checkable: list[tuple[int, str]] | None = None,
+    allowed_on_line: dict[int, set[str]] | None = None,
+    allow_all_lines: set[int] | None = None,
 ) -> list[Diagnostic]:
     """Evaluate extracted occurrences against chapter scope."""
     diagnostics: list[Diagnostic] = []
@@ -144,6 +158,13 @@ def _evaluate_occurrences(
     for occ in occurrences:
         cid = occ.concept_id
         concept = concept_index.get(cid)
+
+        # ── Annotation: skip if line is in allow-all or concept is explicitly allowed ──
+        if allow_all_lines and occ.line in allow_all_lines:
+            continue
+        if allowed_on_line and occ.line in allowed_on_line:
+            if not allowed_on_line[occ.line] or cid in allowed_on_line[occ.line]:
+                continue
 
         # ── Preview only: exceeds max_level ──
         if cid in scope.preview_only:
@@ -306,8 +327,16 @@ def _check_levels_from_occurrences(
     """Level-based diagnostics from pre-extracted checkable lines (for check_text reuse)."""
     scope = scope_for_chapter(chapter.id, root=root, frontmatter_path=path)
     concept_index = {c.id: c for c in concepts}
-    occurrences = extract_occurrences(checkable, concepts)
-    return _evaluate_occurrences(occurrences, scope, concept_index, path, root, checkable)
+
+    roles = parse_roles(checkable)
+    allowed_on_line, allow_all_lines = parse_allow_annotations(checkable)
+
+    occurrences = extract_occurrences(checkable, concepts, roles=roles)
+    return _evaluate_occurrences(
+        occurrences, scope, concept_index, path, root,
+        checkable, allowed_on_line=allowed_on_line,
+        allow_all_lines=allow_all_lines,
+    )
 
 
 def default_files(root: Path) -> list[Path]:
