@@ -193,6 +193,7 @@ concepts:
       - "計量"
       - "計量テンソル"
       - "metric"
+      - "inner product"
       - "内積"
     summary: "長さ・角度・直交性を与える追加構造。"
 

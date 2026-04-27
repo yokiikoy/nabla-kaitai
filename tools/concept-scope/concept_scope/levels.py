@@ -37,6 +37,7 @@ _IS_COMPUTATION_TOKEN = re.compile(
 
 _DEFINITION_PATTERNS = [
     re.compile(p) for p in [
+        # Japanese
         r"(?<![ことものの])とは",
         r"と定義",
         r"と呼ぶ",
@@ -47,6 +48,15 @@ _DEFINITION_PATTERNS = [
         r"(の|を)定義する",
         r"ここに.*(定義|定める)",
         r"と約束する",
+        # English
+        r"is defined as",
+        r"we define",
+        r"let us define",
+        r"is called",
+        r"we call",
+        r"is referred to as",
+        r"denote by",
+        r"write",
     ]
 ]
 
@@ -66,6 +76,7 @@ _THEOREM_USE_PATTERNS = [
 
 _INTUITION_PATTERNS = [
     re.compile(p) for p in [
+        # Japanese
         r"直感的",
         r"イメージ",
         r"たとえ",
@@ -98,6 +109,21 @@ _INTUITION_PATTERNS = [
         r"後で整理",
         r"先取り",
         r"導入したとき",
+        # English
+        r"intuitive",
+        r"foreshadowing",
+        r"preview",
+        r"later (chapter|part|section)",
+        r"in (later|subsequent|future) chapters?",
+        r"we will see",
+        r"to be introduced",
+        r"names only",
+        r"for now",
+        r"for the time being",
+        r"not (discuss|treat|deal with) here",
+        r"without going into details",
+        r"roadmap",
+        r"outlook",
     ]
 ]
 
@@ -270,12 +296,23 @@ def extract_occurrences(
     for line_no, line in lines:
         line_role = roles.get(line_no) if roles else None
         for alias, concept_id in alias_to_id.items():
-            idx = 0
-            while True:
-                idx = line.find(alias, idx)
-                if idx == -1:
-                    break
+            # Use word-boundary regex for short ASCII alphabetic aliases
+            # to avoid false positives inside longer words (e.g. "metric" in "geometric")
+            if len(alias) <= 6 and alias.isascii() and alias.isalpha():
+                pattern = re.compile(r"\b" + re.escape(alias) + r"\b")
+                match_positions = [(m.start(), m.end()) for m in pattern.finditer(line)]
+            else:
+                # Fallback to substring search for TeX/math/Unicode aliases
+                match_positions = []
+                idx = 0
+                while True:
+                    idx = line.find(alias, idx)
+                    if idx == -1:
+                        break
+                    match_positions.append((idx, idx + len(alias)))
+                    idx += len(alias)
 
+            for start, end in match_positions:
                 # Get surrounding context (adjacent lines)
                 context_before = []
                 context_after = []
@@ -287,7 +324,7 @@ def extract_occurrences(
 
                 level = classify_usage_level(
                     line, concept_id,
-                    column=idx, alias_len=len(alias),
+                    column=start, alias_len=end - start,
                     context_before=context_before, context_after=context_after,
                     role=line_role,
                 )
@@ -298,11 +335,10 @@ def extract_occurrences(
                         surface=alias,
                         level=level,
                         line=line_no,
-                        column=idx + 1,
-                        end_column=idx + len(alias) + 1,
+                        column=start + 1,
+                        end_column=end + 1,
                     )
                 )
-                idx += len(alias)
 
     return occurrences
 
