@@ -100,6 +100,9 @@ chapters:
         max_level: intuition
       jacobian:
         max_level: intuition
+      hodge_star:
+        max_level: intuition
+        note: "名前だけの伏線として許可。具体式や計算は禁止。"
     recap_policy:
       dx_as_row_vector:
         max_level: mention
