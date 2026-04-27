@@ -49,14 +49,14 @@ _DEFINITION_PATTERNS = [
         r"ここに.*(定義|定める)",
         r"と約束する",
         # English
-        r"is defined as",
-        r"we define",
-        r"let us define",
-        r"is called",
-        r"we call",
-        r"is referred to as",
-        r"denote by",
-        r"write",
+        r"\bis defined as\b",
+        r"\bwe define\b",
+        r"\blet us define\b",
+        r"\bis called\b",
+        r"\bwe call\b",
+        r"\bis referred to as\b",
+        r"\bdenote by\b",
+        r"\bwrite\b",
     ]
 ]
 
