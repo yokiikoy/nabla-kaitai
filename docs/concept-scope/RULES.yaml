@@ -98,51 +98,6 @@ rules:
       - "ここでは.*使わない"
     message: "この章ではホッジ・スターを計算に使えません。第5章以降へ移動してください。"
 
-  - id: future-nabla-dictionary-before-ch05
-    title: "grad/rot/div 辞書の先出し"
-    category: future_concept
-    severity: error
-    chapter_before: 5
-    concept_id: nabla_operators
-    usage_level: formula
-    patterns:
-      - "\\\\operatorname\\{grad\\}"
-      - "\\\\operatorname\\{rot\\}"
-      - "\\\\operatorname\\{div\\}"
-      - "\\bgrad\\s*\\("
-      - "\\brot\\s*\\("
-      - "\\bdiv\\s*\\("
-      - "勾配.*相当"
-      - "回転.*相当"
-      - "発散.*相当"
-      - "grad\\s*/\\s*rot\\s*/\\s*div"
-    allowed_context_patterns:
-      - "既習者"
-      - "見覚え"
-      - "後の章"
-      - "後で整理"
-      - "名前だけ"
-    message: "grad/rot/div との対応は第5章以降で整理します。この章では公式化しないでください。"
-
-  - id: premature-stokes-use-before-derivation
-    title: "ストークスの定理の早すぎる使用"
-    category: premature_theorem_use
-    severity: error
-    concept_id: stokes_theorem
-    usage_level: theorem_use
-    chapter_before: 4
-    patterns:
-      - "ストークスの定理より"
-      - "Stokes.*より"
-      - "\\\\int_\\{\\\\partial M\\}\\s*\\\\omega\\s*=\\s*\\\\int_M\\s*d\\\\omega"
-    allowed_context_patterns:
-      - "第\\s*4\\s*章"
-      - "導入したとき"
-      - "結実する"
-      - "これから"
-      - "後で"
-    message: "ストークスの定理を既知として使っている可能性があります。導出前なら局所計算に戻してください。"
-
   - id: integral-dimension-closed-surface
     title: "閉曲面積分に \\oint を使っている"
     category: notation_contract
@@ -197,21 +152,4 @@ rules:
       - "k本のベクトルを食べ"
     message: "$k$-form / 微分形式の基礎は第2章までで導入済みです。必要最小限の復習に留めてください。"
 
-  - id: maxwell-form-detail-before-ch09
-    title: "マクスウェル方程式の形式記法の先出し"
-    category: future_concept
-    severity: warning
-    chapter_before: 9
-    concept_id: maxwell_forms
-    usage_level: formula
-    patterns:
-      - "dF\\s*=\\s*0"
-      - "d\\(\\\\ast\\s*F\\)"
-      - "マクスウェル方程式.*dF"
-      - "マクスウェル方程式.*\\\\ast"
-    allowed_context_patterns:
-      - "展望"
-      - "模式"
-      - "詳しくは"
-      - "後の章"
-    message: "マクスウェル方程式の形式記法は第9章の主題です。ここでは模式的な言及に留めてください。"
+

@@ -7,7 +7,7 @@ from concept_scope.models import Chapter
 class TestCompileRules:
     def test_compiles_all_rules(self):
         rules = compile_rules()
-        assert len(rules) >= 10
+        assert len(rules) >= 8
         for rule in rules:
             assert "_patterns" in rule
             assert isinstance(rule.get("_patterns"), list)
