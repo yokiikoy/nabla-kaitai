@@ -63,9 +63,9 @@ class ConceptScopeServer(LanguageServer):
         self.repo_root = repo_root
         self._chapters: dict[str, Chapter] | None = None
         self._rules: list[dict] | None = None
-        self._concepts: list | None = None
-        self._concept_index: dict | None = None
-        self._alias_index: dict | None = None
+        self._concepts: dict[str, list] = {}
+        self._concept_index: dict[str, dict] = {}
+        self._alias_index: dict[str, dict] = {}
 
     @property
     def chapters(self):
@@ -79,23 +79,37 @@ class ConceptScopeServer(LanguageServer):
             self._rules = compile_rules(str(self.repo_root / "docs" / "concept-scope"))
         return self._rules
 
-    @property
-    def concepts(self):
-        if self._concepts is None:
-            self._concepts = load_concepts()
-        return self._concepts
+    @staticmethod
+    def _detect_language(path: Path) -> str:
+        try:
+            rel = path.relative_to(Path.home() / "dev" / "knowledge" / "work" / "nabla-kaitai")
+        except ValueError:
+            try:
+                rel = path.relative_to(Path("/home/yokii/dev/knowledge/work/nabla-kaitai"))
+            except ValueError:
+                rel = path
+        parts = rel.parts
+        if "en" in parts:
+            return "en"
+        return "ja"
 
-    @property
-    def concept_index(self):
-        if self._concept_index is None:
-            self._concept_index = build_concept_index(self.concepts)
-        return self._concept_index
+    def concepts_for(self, path: Path):
+        lang = self._detect_language(path)
+        if lang not in self._concepts:
+            self._concepts[lang] = load_concepts(language=lang)
+        return self._concepts[lang]
 
-    @property
-    def alias_index(self):
-        if self._alias_index is None:
-            self._alias_index = build_alias_index(self.concepts)
-        return self._alias_index
+    def concept_index_for(self, path: Path):
+        lang = self._detect_language(path)
+        if lang not in self._concept_index:
+            self._concept_index[lang] = build_concept_index(self.concepts_for(path))
+        return self._concept_index[lang]
+
+    def alias_index_for(self, path: Path):
+        lang = self._detect_language(path)
+        if lang not in self._alias_index:
+            self._alias_index[lang] = build_alias_index(self.concepts_for(path))
+        return self._alias_index[lang]
 
     @staticmethod
     def uri_to_path(uri: str) -> Path:
@@ -104,7 +118,7 @@ class ConceptScopeServer(LanguageServer):
 
 
 def _diagnostics_for_path(ls: ConceptScopeServer, path: Path) -> list[Diagnostic]:
-    concept_diags = check_file(path, ls.repo_root, ls.chapters, ls.rules, concepts=ls.concepts)
+    concept_diags = check_file(path, ls.repo_root, ls.chapters, ls.rules, concepts=ls.concepts_for(path))
     ls_diagnostics: list[Diagnostic] = []
     for diag in concept_diags:
         ls_diagnostics.append(
@@ -135,7 +149,7 @@ def _find_concept_at_position(
         return None
 
     # Try aliases sorted by length (longest first = greedy)
-    for alias, concept_id in ls.alias_index.items():
+    for alias, concept_id in ls.alias_index_for(ls.uri_to_path(uri)).items():
         idx = 0
         while True:
             idx = line_text.find(alias, idx)
@@ -222,7 +236,7 @@ def main(argv: list[str] | None = None) -> int:
 
         diags = check_text(
             text, file_path_str, ls.repo_root,
-            ls.chapters, ls.rules, concepts=ls.concepts,
+            ls.chapters, ls.rules, concepts=ls.concepts_for(path),
             mode="regex_only",
         )
         ls_diagnostics: list[Diagnostic] = []
@@ -250,7 +264,7 @@ def main(argv: list[str] | None = None) -> int:
         if not concept_id:
             return None
 
-        concept = ls.concept_index.get(concept_id)
+        concept = ls.concept_index_for(ls.uri_to_path(uri)).get(concept_id)
         if not concept:
             return None
 
@@ -271,7 +285,7 @@ def main(argv: list[str] | None = None) -> int:
             chapter_id, root=ls.repo_root,
             frontmatter_path=ls.uri_to_path(params.text_document.uri)
         )
-        return _format_completions(ls.concepts, scope)
+        return _format_completions(ls.concepts_for(ls.uri_to_path(params.text_document.uri)), scope)
 
     if args.tcp:
         server.start_tcp("127.0.0.1", args.port)

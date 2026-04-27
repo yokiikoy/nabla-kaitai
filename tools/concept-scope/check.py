@@ -58,6 +58,12 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         action="store_true",
         help="Check frontmatter vs CHAPTER_SCOPES.yaml consistency.",
     )
+    parser.add_argument(
+        "--language",
+        choices=["ja", "en"],
+        default="ja",
+        help="Language for concept registry and NLP patterns. Defaults to ja.",
+    )
     return parser.parse_args(argv)
 
 
@@ -93,7 +99,7 @@ def main(argv: list[str] | None = None) -> int:
 
     chapters = load_chapters(root)
     rules = compile_rules(str(root / "docs" / "concept-scope"))
-    concepts = load_concepts()
+    concepts = load_concepts(language=args.language)
 
     files = [Path(item) for item in args.files] if args.files else default_files(root)
     files = [(path if path.is_absolute() else root / path) for path in files]

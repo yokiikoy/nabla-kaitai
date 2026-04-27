@@ -5,12 +5,12 @@ from __future__ import annotations
 import re
 from typing import Any
 
-from concept_scope.config import CONFIG_DIR, load_yaml
+from concept_scope.config import CONFIG_DIR, get_concepts_path, load_yaml
 from concept_scope.models import Concept
 
 
-def load_concepts() -> list[Concept]:
-    data = load_yaml(CONFIG_DIR / "CONCEPTS.yaml")
+def load_concepts(language: str = "ja") -> list[Concept]:
+    data = load_yaml(get_concepts_path(language))
     concepts: list[Concept] = []
     for item in data.get("concepts", []):
         concepts.append(

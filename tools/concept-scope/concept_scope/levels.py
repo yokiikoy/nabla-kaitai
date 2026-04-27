@@ -56,7 +56,6 @@ _DEFINITION_PATTERNS = [
         r"\bwe call\b",
         r"\bis referred to as\b",
         r"\bdenote by\b",
-        r"\bwrite\b",
     ]
 ]
 
