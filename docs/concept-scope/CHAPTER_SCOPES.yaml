@@ -303,7 +303,7 @@ chapters:
 
   - id: ch07
     path: manuscript/ja/ch07/ch07.md
-    title: "統一されたストークスの定理"
+    title: "二つの言語"
     chapter: 7
     order: 70
     assumes:
@@ -312,10 +312,10 @@ chapters:
       - gauss_theorem
       - hodge_star
       - nabla_operators
-    introduces:
-      unified_stokes:
-        from: definition
-        to: theorem_use
+      - cross_product
+      - nabla_symbol
+      - laplacian
+    introduces: {}
     previews:
       maxwell_forms:
         max_level: mention
@@ -323,11 +323,14 @@ chapters:
         max_level: intuition
     recap_policy:
       exterior_derivative:
-        max_level: mention
-        max_lines: 3
+        max_level: formula
+        max_lines: 5
       hodge_star:
-        max_level: mention
-        max_lines: 3
+        max_level: formula
+        max_lines: 5
+      nabla_operators:
+        max_level: formula
+        max_lines: 5
 
   - id: ch08
     path: manuscript/ja/ch08/ch08.md
