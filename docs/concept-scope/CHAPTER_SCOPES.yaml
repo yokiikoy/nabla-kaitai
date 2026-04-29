@@ -224,7 +224,7 @@ chapters:
 
   - id: ch05
     path: manuscript/ja/ch05/ch05.md
-    title: "ホッジ・スター"
+    title: "計量とホッジ・スター"
     chapter: 5
     order: 50
     assumes:
