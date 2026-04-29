@@ -347,7 +347,8 @@ chapters:
     introduces: {}
     previews:
       maxwell_forms:
-        max_level: mention
+        max_level: intuition
+        note: "§8.5で点電荷の計算例に触れる。マクスウェル方程式の全容は第9章。"
     recap_policy:
       pullback:
         max_level: mention
