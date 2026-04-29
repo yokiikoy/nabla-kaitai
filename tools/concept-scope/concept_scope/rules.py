@@ -35,6 +35,8 @@ def compile_rules(config_dir: str | Path | None = None) -> list[dict[str, Any]]:
         item["_allowed_context_patterns"] = [
             re.compile(pattern) for pattern in item.get("allowed_context_patterns", [])
         ]
+        if "after_heading_pattern" in item:
+            item["_after_heading_pattern"] = re.compile(item["after_heading_pattern"])
         compiled.append(item)
     return compiled
 

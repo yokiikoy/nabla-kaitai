@@ -77,11 +77,19 @@ def check_file(
     """
     chapter = infer_chapter(path, root, chapters)
     diagnostics: list[Diagnostic] = []
+    section_active: dict[str, bool] = {}
 
     for line_no, line in iter_checkable_lines(path):
         for rule in rules:
             if not active_rule(rule, chapter):
                 continue
+            if "_after_heading_pattern" in rule:
+                rid = str(rule["id"])
+                if rule["_after_heading_pattern"].search(line):
+                    section_active[rid] = True
+                    continue
+                if not section_active.get(rid, False):
+                    continue
             if allowed_by_context(rule, line):
                 continue
 
@@ -283,12 +291,20 @@ def check_text(
     if file_path.exists():
         chapter = infer_chapter(file_path, root, chapters)
     diagnostics: list[Diagnostic] = []
+    section_active: dict[str, bool] = {}
 
     checkable = iter_checkable_lines_from_text(text)
     for line_no, line in checkable:
         for rule in rules:
             if not active_rule(rule, chapter):
                 continue
+            if "_after_heading_pattern" in rule:
+                rid = str(rule["id"])
+                if rule["_after_heading_pattern"].search(line):
+                    section_active[rid] = True
+                    continue
+                if not section_active.get(rid, False):
+                    continue
             if allowed_by_context(rule, line):
                 continue
 

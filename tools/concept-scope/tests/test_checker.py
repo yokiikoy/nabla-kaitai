@@ -114,6 +114,20 @@ class TestCheckText:
         # In regex_only, no level checking happens
         assert not level_in_regex or len(diags_regex) < len(diags_full)
 
+    def test_appendix_array_shorthand_after_appendix_heading(self, tmp_path, chapters, rules):
+        path = tmp_path / "ch05.md"
+        text = "---\nchapter: 5\norder: 50\n---\n\n本文では $E_x$ は許す。\n\n## 付録C\n\nここで $E_x$ と省略してはいけない。\n"
+        path.write_text(text)
+        diags = check_text(text, str(path), tmp_path, chapters, rules)
+        assert any(d.code == "appendix-array-shorthand" for d in diags)
+
+    def test_appendix_pmatrix_after_appendix_heading(self, tmp_path, chapters, rules):
+        path = tmp_path / "ch05.md"
+        text = "---\nchapter: 5\norder: 50\n---\n\n本文では $\\begin{pmatrix}1\\end{pmatrix}$ は許す。\n\n## 付録C\n\n$\\begin{pmatrix}1\\end{pmatrix}$\n"
+        path.write_text(text)
+        diags = check_text(text, str(path), tmp_path, chapters, rules)
+        assert any(d.code == "appendix-pmatrix-render-risk" for d in diags)
+
 
 class TestRenderText:
     def test_empty(self):

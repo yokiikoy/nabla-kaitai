@@ -152,4 +152,15 @@ rules:
       - "k本のベクトルを食べ"
     message: "$k$-form / 微分形式の基礎は第2章までで導入済みです。必要最小限の復習に留めてください。"
 
+  - id: appendix-array-shorthand
+    title: "付録での配列表示省略"
+    category: notation_contract
+    severity: error
+    applies_to: all
+    after_heading_pattern: "^##\\s+(付録C|Appendix C)"
+    patterns:
+      - "\\bE_[xyz]\\b"
+      - "E_\\{[xyz]\\}"
+    message: "付録では本文用の省略記号 E_x, E_y, E_z を使わず、配列成分を明示してください。"
+
 
