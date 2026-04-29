@@ -260,25 +260,46 @@ chapters:
 
   - id: ch06
     path: manuscript/ja/ch06/ch06.md
-    title: "ナブラの解体"
+    title: "ベクトル解析"
     chapter: 6
     order: 60
     assumes:
-      - exterior_derivative
+      - displacement_vector
+      - dx_as_row_vector
+      - differential
+      - pullback
+      - jacobian
       - metric
-      - hodge_star
-      - nabla_operators
-    introduces: {}
+    introduces:
+      cross_product:
+        from: definition
+        to: computation
+      nabla_symbol:
+        from: definition
+        to: computation
+      laplacian:
+        from: definition
+        to: computation
     previews:
       unified_stokes:
         max_level: mention
+      maxwell_forms:
+        max_level: intuition
+        note: "計量依存／非依存の対比の例として名前に触れるのみ。具体式や展開は禁止。"
     recap_policy:
-      hodge_star:
-        max_level: mention
-        max_lines: 4
+      nabla_operators:
+        max_level: definition
+        max_lines: 10
       exterior_derivative:
-        max_level: mention
-        max_lines: 4
+        max_level: none
+      wedge_product:
+        max_level: none
+      two_form:
+        max_level: none
+      three_form:
+        max_level: none
+      hodge_star:
+        max_level: none
 
   - id: ch07
     path: manuscript/ja/ch07/ch07.md
