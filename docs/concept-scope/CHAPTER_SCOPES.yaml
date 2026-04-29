@@ -359,7 +359,7 @@ chapters:
 
   - id: ch09
     path: manuscript/ja/ch09/ch09.md
-    title: "マクスウェル方程式への展望"
+    title: "マクスウェル方程式"
     chapter: 9
     order: 90
     assumes:
