@@ -293,6 +293,7 @@ try:
         r'\usepackage{fancyhdr}' '\n'
         r'\pagestyle{fancy}' '\n'
         r'\fancyhf{}' '\n'
+        r'\fancyfoot[L]{\tiny CC BY-NC 4.0 \textcopyright\ yokiikoy}' '\n'
         r'\fancyfoot[C]{\thepage}' '\n'
         r'\renewcommand{\headrulewidth}{0pt}' '\n'
         r'\usepackage{hyperref}' '\n'
