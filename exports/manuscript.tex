@@ -107,13 +107,13 @@ v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline
 \end{tabular}\par\bigskip\bigskip\bigskip
 \begin{tabular}{|p{\textwidth}|}\hline
 \multicolumn{1}{|c|}{\textbf{直近の改定履歴}}\\ \hline
+{\small 43eb1c8 (2026-05-01)  全章の\#\#\#\#小節番号をセクション/章番号変更に追従して修正（116件）}\\ \hline
 {\small 9f8d28f (2026-05-01)  ch01: \#\#\#\#小節番号がセクション繰り下げに追従していなかった不整合を修正}\\ \hline
 {\small 0ae14c9 (2026-05-01)  Revert "ch01: dx定義専用ページ（見開き特大レイアウト）を追加"}\\ \hline
-{\small 6c76d44 (2026-05-01)  Revert "fixup: feature pageの内容がPandocで処理されるよう修正"}\\ \hline
 \end{tabular}
 \end{minipage}\par
 \vfill
-{\footnotesize 2026-05-01 20:48 JST --- 著者：yokiikoy\par}
+{\footnotesize 2026-05-01 20:50 JST --- 著者：yokiikoy\par}
 \restoregeometry
 \end{titlepage}
 \tableofcontents
@@ -253,9 +253,13 @@ v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline
 
 さて、本書では \(dx\) という記号に次のような意味を与える。\textbf{大胆で奇妙に思えるかもしれないが、これが本書最大の特徴でもある——我々は \(dx\) を次の \(1\times 3\) 行列だと断言する。}
 
-すなわち、\textbf{横ベクトル}（\(1\times 3\) \textbf{行列}として成分を横に並べて書く）として \begin{center}
-\adjustbox{max width=0.98\linewidth}{\(\displaystyle dx = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}\)}
-\end{center} と置く。これは、入力された縦ベクトルから \(x\) 成分だけを抜き出して返す線形写像の行列表現である。
+すなわち、\textbf{横ベクトル}（\(1\times 3\) \textbf{行列}として成分を横に並べて書く）として
+
+\begin{center}
+\scalebox{1.8}{\(dx = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}\)}
+\end{center}
+
+と置く。これは、入力された縦ベクトルから \(x\) 成分だけを抜き出して返す線形写像の行列表現である。
 
 \begin{quote}
 \textbf{注} （成分並びの約束）横ベクトル（行）や行成分の略記は \textbf{\((1\ 0\ 0)\)} のように\textbf{コンマを打たず}、成分の間だけを区切って書く。\textbf{\((1, 0, 0)\)} のように\textbf{コンマのあとにスペース}を入れる書き方は\textbf{座標}（点の位置など）を強調するときに用い、\textbf{行列・横ベクトルの略記には使わない}。
