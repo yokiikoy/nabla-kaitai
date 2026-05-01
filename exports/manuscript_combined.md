@@ -100,7 +100,7 @@ $$\mathbf{v}_i = \begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix}$$
 \begin{center}\scalebox{1.8}{$\displaystyle dx = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}$}\end{center}
 と**定義する**。これは、入力された縦ベクトルから $x$ 成分だけを抜き出して返す線形演算子の行列表現である。
 
-> **注**（これはトンデモか？）数値計算の世界では、$dx$ を行列と明示することはないが、ヤコビ行列の一行目として暗黙に同じ操作が行われている。$f(\mathbf{x}+\Delta\mathbf{x}) \approx f(\mathbf{x}) + \begin{pmatrix} \frac{\partial f}{\partial x_1} & \frac{\partial f}{\partial x_2} & \frac{\partial f}{\partial x_3} \end{pmatrix} \begin{pmatrix} \Delta x_1 \\ \Delta x_2 \\ \Delta x_3 \end{pmatrix}$ の一行目が、まさに $f(x)\,dx$ が変位ベクトルに作用する操作に対応する。
+> **注**（これはトンデモか？）数値計算の世界では、$dx$ を行列と明示することはないが、「横ベクトル（微分）×縦ベクトル（変位）→スカラー（変化量）」というパターンはごく自然に現れる。たとえば多変数関数の一次近似 $f(\mathbf{x}+\Delta\mathbf{x}) \approx f(\mathbf{x}) + \begin{pmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & \frac{\partial f}{\partial z} \end{pmatrix} \begin{pmatrix} \Delta x \\ \Delta y \\ \Delta z \end{pmatrix}$ は、まさに本書の $df(\mathbf{v})$ と同じ構造である。この「行列を左から掛ける」という見方は、数値微分の実装では標準的だ。
 
 > **注**（数学者へのエクスキューズ）数学者から見れば、$dx$ をいきなり行列 $\begin{pmatrix}1&0&0\end{pmatrix}$ と「定義」するのは乱暴に映るだろう。本来 $dx$ は余接空間の基底であり、$\begin{pmatrix}1&0&0\end{pmatrix}$ はデカルト座標における行列表現にすぎない——変位ベクトルの属する空間すら曖昧だと指摘したいに違いない。百歩譲っても、それは定理であって定義ではない、と言いたいだろう。しかし、それはブルバキスタイルの集合論の方言だ——と断言すると少し攻撃的だろうか。だが本書は、発見的・構築的スタイルで書かれた物理数学の書である。11章では $dx$ を余接空間の基底として数学書の流儀で位置づけるので、どうか目くじらを立てずに見逃してほしい。
 
