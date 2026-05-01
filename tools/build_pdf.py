@@ -9,7 +9,7 @@ for prefix in ['preface']:
     f = f'manuscript/ja/{prefix}.md'
     if os.path.exists(f):
         files.append(f)
-for i in range(1, 12):
+for i in range(1, 13):
     f = f'manuscript/ja/ch{i:02d}/ch{i:02d}.md'
     if os.path.exists(f):
         files.append(f)
@@ -122,6 +122,11 @@ author_name = 'yokiikoy'
 last_commit = git_text(['log', '-1', '--format=%h (%ad)', '--date=short'], '未取得')
 dirty_status = git_text(['status', '--short'])
 working_tree_note = '未コミット変更あり' if dirty_status else 'クリーン'
+git_log = git_text(['log', '-3', '--format=%h (%ad)  %s', '--date=short'], '未取得')
+log_lines = [l.strip() for l in git_log.split('\n') if l.strip()]
+# Pad to exactly 3 lines
+while len(log_lines) < 3:
+    log_lines.append('')
 
 # Generate LaTeX via Pandoc
 try:
@@ -144,6 +149,12 @@ try:
         cursor = 0
         chapter_index = 0
         unnumbered = {0, len(files) - 2, len(files) - 1}
+        # Identify chapter titles by their text for part insertion
+        insert_before = {
+            '第1章': r'\part{第I部：$\mathbb{R}^3$ 上の微分形式}' '\n',
+            '第6章': r'\part{第II部：ベクトル解析}' '\n',
+            '第10章': r'\part{第III部：発展と統合}' '\n',
+        }
 
         while True:
             start = text.find(r'\chapter', cursor)
@@ -169,9 +180,21 @@ try:
                 pos += 1
 
             command = text[start:pos]
+            title = text[brace_start + 1:pos - 1]
+
+            # Insert part command before chapter if title matches
+            part_cmd = None
+            for key, value in insert_before.items():
+                ch_num = key[1:-1]
+                if re.search(r'第' + ch_num + r'章[^0-9]', title):
+                    part_cmd = value
+                    break
+
             result.append(text[cursor:start])
+            if part_cmd:
+                result.append(part_cmd)
+
             if chapter_index in unnumbered:
-                title = text[brace_start + 1:pos - 1]
                 result.append(r'\chapter*{' + title + '}' '\n')
                 result.append(r'\addcontentsline{toc}{chapter}{' + title + '}' '\n')
             else:
@@ -340,16 +363,34 @@ try:
         r'\newgeometry{top=35mm,bottom=30mm,left=40mm,right=40mm}' '\n'
         r'\pagestyle{empty}' '\n'
         r'\centering' '\n'
-        r'\vspace*{40mm}' '\n'
+        r'\vspace*{35mm}' '\n'
         r'{\fontsize{34}{42}\selectfont\bfseries ナブラ解体新書\par}' '\n'
-        r'\vspace{16mm}' '\n'
-        r'{\large 行列表示の微分形式による\par}' '\n'
-        r'\vspace{3mm}' '\n'
-        r'{\large ベクトル解析の抜け道\par}' '\n'
-        r'\vfill' '\n'
-        r'{\normalsize 著者：' + latex_escape(author_name) + r'\par}' '\n'
+        r'\vspace{12mm}' '\n'
+        r'{\Large 行列表示の微分形式による\par}' '\n'
+        r'{\Large ベクトル解析の抜け道\par}' '\n'
         r'\vspace{4mm}' '\n'
-        r'{\small ' + latex_escape(build_datetime) + r'\par}' '\n'
+        r'{\normalsize v0.1.0-alpha\par}' '\n'
+        r'\vfill' '\n'
+        r'\begin{minipage}{0.78\textwidth}' '\n'
+        r'\centering' '\n'
+        r'\small' '\n'
+        r'\begin{tabular}{|l|p{0.6\textwidth}|}\hline' '\n'
+        r'\textbf{v1.0.0} & 全12章の内容確定・相互参照の整合性完了・手計算による検算完了\\ \hline' '\n'
+        r'\textbf{v2.0.0} & 図表や組版の完了\\ \hline' '\n'
+        r'v0.x.0         & 章の追加・章構成の変更・大幅な書き直し\\ \hline' '\n'
+        r'v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline' '\n'
+        r'\end{tabular}' '\n'
+        r'\vspace{5mm}' '\n'
+        r'\begin{tabular}{|p{\textwidth}|}\hline' '\n'
+        + r'\multicolumn{1}{|c|}{\textbf{直近の改定履歴}}\\ \hline' '\n'
+        + ''.join(
+            r'{\small ' + latex_escape(line) + r'}\\ \hline' '\n'
+            for line in log_lines if line
+        )
+        + r'\end{tabular}' '\n'
+        r'\end{minipage}\par' '\n'
+        r'\vfill' '\n'
+        r'{\footnotesize ' + latex_escape(build_datetime) + r' --- 著者：' + latex_escape(author_name) + r'\par}' '\n'
         r'\restoregeometry' '\n'
         r'\end{titlepage}' '\n'
         r'\tableofcontents' '\n'
