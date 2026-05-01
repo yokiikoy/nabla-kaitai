@@ -375,6 +375,7 @@ try:
         r'\centering' '\n'
         r'\small' '\n'
         r'\begin{tabular}{|l|p{0.6\textwidth}|}\hline' '\n'
+        r'\multicolumn{2}{|c|}{\textbf{バージョニングポリシー}}\\ \hline' '\n'
         r'\textbf{v1.0.0} & 全12章の内容確定・相互参照の整合性完了・手計算による検算完了\\ \hline' '\n'
         r'\textbf{v2.0.0} & 図表や組版の完了\\ \hline' '\n'
         r'v0.x.0         & 章の追加・章構成の変更・大幅な書き直し\\ \hline' '\n'
