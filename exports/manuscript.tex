@@ -108,13 +108,13 @@ v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline
 \end{tabular}\par\bigskip\bigskip\bigskip
 \begin{tabular}{|p{\textwidth}|}\hline
 \multicolumn{1}{|c|}{\textbf{直近の改定履歴}}\\ \hline
+{\small bc09324 (2026-05-01)  PDFブックマークの階層崩れをbookmarkパッケージで修正}\\ \hline
 {\small 298bf44 (2026-05-01)  ch01: dx定義前の改ページと数式拡大をbuild\_pdf.pyで処理（mdは純正markdownのまま）}\\ \hline
 {\small 9bf5453 (2026-05-01)  ch01: 1.1.3の前に改ページを挿入}\\ \hline
-{\small 3aafe57 (2026-05-01)  ch01: dx=(1 0 0)を\textbackslash{}scalebox\{1.8\}で拡大}\\ \hline
 \end{tabular}
 \end{minipage}\par
 \vfill
-{\footnotesize 2026-05-01 21:02 JST --- 著者：yokiikoy\par}
+{\footnotesize 2026-05-01 21:04 JST --- 著者：yokiikoy\par}
 \restoregeometry
 \end{titlepage}
 \tableofcontents
@@ -265,6 +265,8 @@ v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline
 \begin{quote}
 \textbf{注} （成分並びの約束）横ベクトル（行）や行成分の略記は \textbf{\((1\ 0\ 0)\)} のように\textbf{コンマを打たず}、成分の間だけを区切って書く。\textbf{\((1, 0, 0)\)} のように\textbf{コンマのあとにスペース}を入れる書き方は\textbf{座標}（点の位置など）を強調するときに用い、\textbf{行列・横ベクトルの略記には使わない}。
 \end{quote}
+
+\clearpage
 
 変位ベクトル \(\mathbf{v}_i\) に左から掛けると \begin{center}
 \adjustbox{max width=0.98\linewidth}{\(\displaystyle dx\,\mathbf{v}_i = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix} \begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix} = \Delta x_i\)}

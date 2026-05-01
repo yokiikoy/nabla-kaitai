@@ -49,6 +49,11 @@ md_text = md_text.replace(
     '$$dx = \\begin{pmatrix} 1 & 0 & 0 \\end{pmatrix}$$',
     '\\begin{center}\\scalebox{1.8}{$dx = \\begin{pmatrix} 1 & 0 & 0 \\end{pmatrix}$}\\end{center}'
 )
+# --- Page break after the notation note ---
+md_text = md_text.replace(
+    '**行列・横ベクトルの略記には使わない**。\n\n変位ベクトル',
+    '**行列・横ベクトルの略記には使わない**。\n\n\\clearpage\n\n変位ベクトル'
+)
 
 # Convert HTML <strong> tags to Pandoc-native **bold** syntax.
 # Pandoc with format=markdown (raw_html enabled by default) passes raw HTML
