@@ -108,13 +108,13 @@ v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline
 \end{tabular}\par\bigskip\bigskip\bigskip
 \begin{tabular}{|p{\textwidth}|}\hline
 \multicolumn{1}{|c|}{\textbf{直近の改定履歴}}\\ \hline
+{\small 6b96153 (2026-05-01)  ch01: 我々は→ここでは（dx定義の文言修正）}\\ \hline
 {\small c79963c (2026-05-01)  fix: ペダゴニー→ペダゴジー（pedagogyの正しい表記）}\\ \hline
 {\small 09d1f23 (2026-05-01)  ch01: 「本書のスタンス」注釈を追加}\\ \hline
-{\small 17ddf10 (2026-05-01)  ch01: エクスキューズ注釈の日本語を推敲}\\ \hline
 \end{tabular}
 \end{minipage}\par
 \vfill
-{\footnotesize 2026-05-01 21:36 JST --- 著者：yokiikoy\par}
+{\footnotesize 2026-05-01 21:37 JST --- 著者：yokiikoy\par}
 \restoregeometry
 \end{titlepage}
 \tableofcontents
@@ -272,6 +272,10 @@ v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline
 
 \begin{quote}
 \textbf{注}（ブラケット記法との対応）量子力学のブラケット記法 \(\langle x |\) は、ベクトルから \(x\) 成分を取り出す「ブラ」（横ベクトル）であり、本書の \(dx\) とまったく同じ役割を果たす。\(\langle x | \psi \rangle = \psi(x)\) は「\(\langle x |\) という測定器が状態 \(|\psi\rangle\) を食べてスカラー \(\psi(x)\) を吐く」と読める。また、近年の量子情報系の書籍では、二状態系においてブラを横ベクトル \(\begin{pmatrix}1&0\end{pmatrix}\) と書くことが広く容認されている。
+\end{quote}
+
+\begin{quote}
+\textbf{注}（数値計算の分野では）数値計算の世界では、\(dx\) を行列と明示することはないが、ヤコビ行列の一行目として暗黙に同じ操作が行われている。\(f(x+\Delta x) \approx f(x) + f'(x)\Delta x\) を「横ベクトル \(f'(x)\) が縦ベクトル \(\Delta x\) に作用している」と読むのは、数値微分の実装ではごく自然な発想である。
 \end{quote}
 
 \begin{quote}
