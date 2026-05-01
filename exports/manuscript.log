@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.4.30)  1 MAY 2026 20:28
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.4.30)  1 MAY 2026 20:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1405,11 +1405,11 @@ L3 programming layer <2024-01-22>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `manuscript.out' has not changed.
-(rerunfilecheck)             Checksum: BECB87CE6B0CD7C86C8A38FA47129734;24664.
+(rerunfilecheck)             Checksum: CF042792CE0585D28B3993B58F8E8149;24528.
  ) 
 Here is how much of TeX's memory you used:
  16515 strings out of 476878
- 327488 string characters out of 5805249
+ 327403 string characters out of 5805249
  1954627 words of memory out of 5000000
  38129 multiletter control sequences out of 15000+600000
  583576 words of font info for 163 fonts, out of 8000000 for 9000

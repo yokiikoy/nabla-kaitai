@@ -2,7 +2,7 @@
 \contentsline {part}{I\hspace {1em}第I部：$\mathbb {R}^3$ 上の微分形式}{6}{part.1}%
 \contentsline {chapter}{\numberline {1}第1章：\(dx\) とは何か —— ベクトルを食べる測定器、あるいは横ベクトル}{7}{chapter.1}%
 \contentsline {subsection}{§1.0 数学者の1次元、物理学者の1次元}{7}{section*.2}%
-\contentsline {subsection}{§1.1 リーマン積分のベクトル解剖 — 区分求積法を行列作用として見る}{8}{section*.3}%
+\contentsline {subsection}{§1.1 リーマン積分は行列の積である}{8}{section*.3}%
 \contentsline {subsubsection}{1.2.1 リーマン和の標準的構成（復習）}{9}{section*.4}%
 \contentsline {subsubsection}{1.2.2 小区間ごとの変位}{9}{section*.5}%
 \contentsline {subsubsection}{1.2.3 \(dx\) の登場 — 本書最大の特徴としての「断言」}{9}{section*.6}%
