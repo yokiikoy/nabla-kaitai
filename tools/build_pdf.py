@@ -39,6 +39,17 @@ for f in files:
 
 md_text = '\n'.join(combined)
 
+# --- Page break before dx definition section ---
+md_text = md_text.replace(
+    '#### 1.1.3 $dx$ の登場 — 本書最大の特徴としての「断言」',
+    '\\clearpage\n\n#### 1.1.3 $dx$ の登場 — 本書最大の特徴としての「断言」'
+)
+# --- Enlarge the dx = (1 0 0) equation ---
+md_text = md_text.replace(
+    '$$dx = \\begin{pmatrix} 1 & 0 & 0 \\end{pmatrix}$$',
+    '\\begin{center}\\scalebox{1.8}{$dx = \\begin{pmatrix} 1 & 0 & 0 \\end{pmatrix}$}\\end{center}'
+)
+
 # Convert HTML <strong> tags to Pandoc-native **bold** syntax.
 # Pandoc with format=markdown (raw_html enabled by default) passes raw HTML
 # through to LaTeX output literally, which renders as text, not bold.
