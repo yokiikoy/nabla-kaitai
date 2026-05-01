@@ -295,6 +295,7 @@ try:
         r'\fancyhf{}' '\n'
         r'\fancyfoot[L]{\tiny CC BY-NC 4.0 \textcopyright\ yokiikoy}' '\n'
         r'\fancyfoot[C]{\thepage}' '\n'
+        r'\fancypagestyle{plain}{\fancyhf{}\fancyfoot[L]{\tiny CC BY-NC 4.0 \textcopyright\ yokiikoy}\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0pt}}' '\n'
         r'\renewcommand{\headrulewidth}{0pt}' '\n'
         r'\usepackage{hyperref}' '\n'
         r'\hypersetup{colorlinks=true,linkcolor=blue}' '\n'
