@@ -309,6 +309,7 @@ try:
         r'\fancypagestyle{plain}{\fancyhf{}\fancyfoot[L]{\tiny CC BY-NC 4.0 \textcopyright\ yokiikoy}\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0pt}}' '\n'
         r'\renewcommand{\headrulewidth}{0pt}' '\n'
         r'\usepackage{hyperref}' '\n'
+        r'\usepackage{bookmark}' '\n'
         r'\hypersetup{colorlinks=true,linkcolor=blue}' '\n'
         r'\renewcommand{\contentsname}{目次}' '\n'
         r'\usepackage{longtable,booktabs,array,calc,multirow,colortbl}' '\n'
