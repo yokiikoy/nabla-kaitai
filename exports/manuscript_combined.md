@@ -100,6 +100,7 @@ $$\mathbf{v}_i = \begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix}$$
 {\Huge\bfseries $dx = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}$\par}
 \end{center}
 \vspace{0.8cm}
+\begin{quote}
 \small
 さて、本書では $dx$ という記号に次のような意味を与える。**大胆で奇妙に思えるかもしれないが、これが本書最大の特徴でもある——我々は $dx$ を次の $1\times 3$ 行列だと断言する。**
 
@@ -126,6 +127,7 @@ $$dx(\mathbf{v}_i) = dx\,\mathbf{v}_i = \Delta x_i$$
 * 右辺：従来のリーマン和に現れる「小区間の幅 $\Delta x_i$」
 
 つまり $\Delta x_i$ は、**1次元の謎の微小変位ではなく、3次元の微小変位 $\mathbf{v}_i$ から $x$ 方向の成分だけを取り出した $dx(\mathbf{v}_i)$ である**。
+\end{quote}
 \vfill
 \clearpage
 

@@ -42,6 +42,7 @@ md_text = '\n'.join(combined)
 # --- Feature page: dx definition spread ---
 def build_dx_feature_page(match):
     body = match.group(1)
+    # Extract heading, remove from body, use in centered header
     heading_match = re.search(r'^#### (.+)$', body, re.MULTILINE)
     heading = heading_match.group(1) if heading_match else ''
     body = re.sub(r'^#### .+$\n?', '', body, count=1, flags=re.MULTILINE)
@@ -55,10 +56,14 @@ def build_dx_feature_page(match):
         r'{\Huge\bfseries $dx = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}$\par}' '\n'
         r'\end{center}' '\n'
         r'\vspace{0.8cm}' '\n'
+    )
+    tex += (
+        r'\begin{quote}' '\n'
         r'\small' '\n'
     )
     tex += body.strip() + '\n'
     tex += (
+        r'\end{quote}' '\n'
         r'\vfill' '\n'
         r'\clearpage' '\n'
     )
