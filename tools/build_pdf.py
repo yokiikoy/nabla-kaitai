@@ -54,18 +54,6 @@ md_text = md_text.replace(
     '**行列・横ベクトルの略記には使わない**。\n\n変位ベクトル',
     '**行列・横ベクトルの略記には使わない**。\n\n\\clearpage\n\n変位ベクトル'
 )
-# --- Add annotations after dx = (1 0 0) definition ---
-apology_note = (
-    '> **注**（数学者へのエクスキューズ）数学者から見れば、$dx$ をいきなり行列 $\\begin{pmatrix}1&0&0\\end{pmatrix}$ と「定義」するのは乱暴に映るだろう。本来 $dx$ は余接空間の基底であり、$\\begin{pmatrix}1&0&0\\end{pmatrix}$ はデカルト座標における行列表現にすぎない——変位ベクトルの属する空間すら曖昧だと言いたいに違いない。百歩譲っても、それは定理であって定義ではない、と。\n'
-    '\n'
-    '> しかし、それはブルバキスタイルの集合論の方言だ——と断言すると少し攻撃的だろうか。だが本書は、高校数学の教科書スタイルで書かれた物理数学の書である。11章では $dx$ を余接空間の基底として正しく位置づけるので、どうか目くじらを立てずに見逃してほしい。\n'
-    '\n'
-    '> **注**（ブラケット記法との対応）量子力学のブラケット記法 $\\langle x |$ は、ベクトルから $x$ 成分を取り出す「ブラ」（横ベクトル）であり、本書の $dx$ とまったく同じ役割を果たす。$\\langle x | \\psi \\rangle = \\psi(x)$ は「$\\langle x |$ という測定器が状態 $|\\psi\\rangle$ を食べてスカラー $\\psi(x)$ を吐く」と読める。また、近年の量子情報系の書籍では、二状態系においてブラを横ベクトル $\\begin{pmatrix}1&0\\end{pmatrix}$ と書くことが広く容認されている。\n'
-)
-md_text = md_text.replace(
-    'と置く。これは、入力された縦ベクトルから $x$ 成分だけを抜き出して返す線形写像の行列表現である。\n\n> **注**',
-    'と置く。これは、入力された縦ベクトルから $x$ 成分だけを抜き出して返す線形写像の行列表現である。\n\n' + apology_note + '\n> **注**'
-)
 
 # Convert HTML <strong> tags to Pandoc-native **bold** syntax.
 # Pandoc with format=markdown (raw_html enabled by default) passes raw HTML
