@@ -108,13 +108,13 @@ v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline
 \end{tabular}\par\bigskip\bigskip\bigskip
 \begin{tabular}{|p{\textwidth}|}\hline
 \multicolumn{1}{|c|}{\textbf{直近の改定履歴}}\\ \hline
+{\small 0f549d9 (2026-05-01)  注釈2つをmdに移動（build\_pdf.pyから削除）}\\ \hline
 {\small 60e6d96 (2026-05-01)  dx定義直後に注釈2つ（数学者へのエクスキューズ＋ブラケット記法対応）を追加}\\ \hline
 {\small cfd7201 (2026-05-01)  注（成分並びの約束）の後にも改ページ}\\ \hline
-{\small bc09324 (2026-05-01)  PDFブックマークの階層崩れをbookmarkパッケージで修正}\\ \hline
 \end{tabular}
 \end{minipage}\par
 \vfill
-{\footnotesize 2026-05-01 21:17 JST --- 著者：yokiikoy\par}
+{\footnotesize 2026-05-01 21:19 JST --- 著者：yokiikoy\par}
 \restoregeometry
 \end{titlepage}
 \tableofcontents
@@ -258,7 +258,7 @@ v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline
 
 すなわち、\textbf{横ベクトル}（\(1\times 3\) \textbf{行列}として成分を横に並べて書く）として
 
-\begin{center}\scalebox{1.8}{$dx = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}$}\end{center}
+\begin{center}\scalebox{1.8}{$\displaystyle dx = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}$}\end{center}
 
 と置く。これは、入力された縦ベクトルから \(x\) 成分だけを抜き出して返す線形写像の行列表現である。
 

@@ -97,7 +97,7 @@ $$\mathbf{v}_i = \begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix}$$
 さて、本書では $dx$ という記号に次のような意味を与える。**大胆で奇妙に思えるかもしれないが、これが本書最大の特徴でもある——我々は $dx$ を次の $1\times 3$ 行列だと断言する。**
 
 すなわち、**横ベクトル**（$1\times 3$ **行列**として成分を横に並べて書く）として
-\begin{center}\scalebox{1.8}{$dx = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}$}\end{center}
+\begin{center}\scalebox{1.8}{$\displaystyle dx = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}$}\end{center}
 と置く。これは、入力された縦ベクトルから $x$ 成分だけを抜き出して返す線形写像の行列表現である。
 
 > **注**（数学者へのエクスキューズ）数学者から見れば、$dx$ をいきなり行列 $\begin{pmatrix}1&0&0\end{pmatrix}$ と「定義」するのは乱暴に映るだろう。本来 $dx$ は余接空間の基底であり、$\begin{pmatrix}1&0&0\end{pmatrix}$ はデカルト座標における行列表現にすぎない——変位ベクトルの属する空間すら曖昧だと言いたいに違いない。百歩譲っても、それは定理であって定義ではない、と。

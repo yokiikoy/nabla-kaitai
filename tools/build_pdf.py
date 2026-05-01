@@ -39,20 +39,13 @@ for f in files:
 
 md_text = '\n'.join(combined)
 
-# --- Page break before dx definition section ---
-md_text = md_text.replace(
-    '#### 1.1.3 $dx$ の登場 — 本書最大の特徴としての「断言」',
-    '\\clearpage\n\n#### 1.1.3 $dx$ の登場 — 本書最大の特徴としての「断言」'
-)
-# --- Enlarge the dx = (1 0 0) equation ---
-md_text = md_text.replace(
-    '$$dx = \\begin{pmatrix} 1 & 0 & 0 \\end{pmatrix}$$',
-    '\\begin{center}\\scalebox{1.8}{$dx = \\begin{pmatrix} 1 & 0 & 0 \\end{pmatrix}$}\\end{center}'
-)
-# --- Page break after the notation note ---
-md_text = md_text.replace(
-    '**行列・横ベクトルの略記には使わない**。\n\n変位ベクトル',
-    '**行列・横ベクトルの略記には使わない**。\n\n\\clearpage\n\n変位ベクトル'
+# --- Process marker tags ---
+md_text = md_text.replace('<!-- pagebreak -->', '\\clearpage')
+md_text = re.sub(
+    r'<!-- scalebox -->\s*\n\$\$(.*?)\$\$\s*\n\s*<!-- endscalebox -->',
+    r'\\begin{center}\\scalebox{1.8}{$\\displaystyle \1$}\\end{center}',
+    md_text,
+    flags=re.DOTALL
 )
 
 # Convert HTML <strong> tags to Pandoc-native **bold** syntax.
