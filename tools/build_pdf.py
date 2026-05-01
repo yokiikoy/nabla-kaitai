@@ -370,6 +370,7 @@ try:
         r'{\Large ベクトル解析の抜け道\par}' '\n'
         r'\vspace{4mm}' '\n'
         r'{\normalsize v0.1.0-alpha\par}' '\n'
+        r'\vspace{6mm}' '\n'
         r'\begin{minipage}{0.78\textwidth}' '\n'
         r'\centering' '\n'
         r'\small' '\n'
