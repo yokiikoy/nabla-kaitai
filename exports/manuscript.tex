@@ -108,9 +108,9 @@ v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline
 \end{tabular}\par\bigskip\bigskip\bigskip
 \begin{tabular}{|p{\textwidth}|}\hline
 \multicolumn{1}{|c|}{\textbf{直近の改定履歴}}\\ \hline
+{\small 25aae8a (2026-05-01)  ch01: トンデモ注釈の数式を3次元ヤコビ行列に修正}\\ \hline
 {\small 18654d3 (2026-05-01)  fix: 数学者へのエクスキューズ注釈のボールド表記を統一}\\ \hline
 {\small aed428c (2026-05-01)  ch01: 注釈群を再構成（トンデモ注釈を先頭に移動）}\\ \hline
-{\small adf0ea4 (2026-05-01)  ch01: 数値計算の分野での暗黙の標準に関する注釈を追加}\\ \hline
 \end{tabular}
 \end{minipage}\par
 \vfill
@@ -263,7 +263,7 @@ v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline
 と\textbf{定義する}。これは、入力された縦ベクトルから \(x\) 成分だけを抜き出して返す線形演算子の行列表現である。
 
 \begin{quote}
-\textbf{注}（これはトンデモか？）数値計算の世界では、\(dx\) を行列と明示することはないが、ヤコビ行列の一行目として暗黙に同じ操作が行われている。\(f(\mathbf{x}+\Delta\mathbf{x}) \approx f(\mathbf{x}) + \begin{pmatrix} \partial_1 f & \partial_2 f & \partial_3 f \end{pmatrix} \begin{pmatrix} \Delta x_1 \\ \Delta x_2 \\ \Delta x_3 \end{pmatrix}\) の一行目が、まさに \(f(x)\,dx\) が変位ベクトルに作用する操作に対応する。
+\textbf{注}（これはトンデモか？）数値計算の世界では、\(dx\) を行列と明示することはないが、ヤコビ行列の一行目として暗黙に同じ操作が行われている。\(f(\mathbf{x}+\Delta\mathbf{x}) \approx f(\mathbf{x}) + \begin{pmatrix} \frac{\partial f}{\partial x_1} & \frac{\partial f}{\partial x_2} & \frac{\partial f}{\partial x_3} \end{pmatrix} \begin{pmatrix} \Delta x_1 \\ \Delta x_2 \\ \Delta x_3 \end{pmatrix}\) の一行目が、まさに \(f(x)\,dx\) が変位ベクトルに作用する操作に対応する。
 \end{quote}
 
 \begin{quote}
