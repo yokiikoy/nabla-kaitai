@@ -107,13 +107,13 @@ v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline
 \end{tabular}\par\bigskip\bigskip\bigskip
 \begin{tabular}{|p{\textwidth}|}\hline
 \multicolumn{1}{|c|}{\textbf{直近の改定履歴}}\\ \hline
-{\small 00e6343 (2026-05-01)  ch01: §1.1「リーマン積分は行列の積である」に短縮}\\ \hline
 {\small 1291d3c (2026-05-01)  ライセンス表示がplainスタイルでも表示されるよう修正}\\ \hline
 {\small 6630f3d (2026-05-01)  全ページフッターにCC BY-NC 4.0ライセンスを表示}\\ \hline
+{\small 1165af8 (2026-05-01)  表紙: v0.1.0-alphaとVersioning Policyの間に6mmのスペース}\\ \hline
 \end{tabular}
 \end{minipage}\par
 \vfill
-{\footnotesize 2026-05-01 20:38 JST --- 著者：yokiikoy\par}
+{\footnotesize 2026-05-01 20:32 JST --- 著者：yokiikoy\par}
 \restoregeometry
 \end{titlepage}
 \tableofcontents
@@ -249,47 +249,42 @@ v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline
 \adjustbox{max width=0.98\linewidth}{\(\displaystyle \mathbf{v}_i = \begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix}\)}
 \end{center} と書く。添字 \(i\) は「第 \(i\) 小区間の分」という意味だけで、\(\mathbf{v}_i\) もまた変位ベクトルである。今は直線運動を考えているので \(y,z\) 成分はゼロだが、それは条件ではなく結果としてゼロになっているだけだ。
 
-\clearpage
-\thispagestyle{empty}
-\vspace*{2cm}
-\begin{center}
-{\huge\bfseries 1.2.3 $dx$ の登場 — 本書最大の特徴としての「断言」\par}
-\vspace{1cm}
-{\Huge\bfseries $dx = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}$\par}
-\end{center}
-\vspace{0.8cm}
+\subsubsection{\texorpdfstring{1.2.3 \(dx\) の登場 — 本書最大の特徴としての「断言」}{1.2.3 dx の登場 — 本書最大の特徴としての「断言」}}\label{dx-ux306eux767bux5834-ux672cux66f8ux6700ux5927ux306eux7279ux5fb4ux3068ux3057ux3066ux306eux65adux8a00}
+
+さて、本書では \(dx\) という記号に次のような意味を与える。\textbf{大胆で奇妙に思えるかもしれないが、これが本書最大の特徴でもある——我々は \(dx\) を次の \(1\times 3\) 行列だと断言する。}
+
+すなわち、\textbf{横ベクトル}（\(1\times 3\) \textbf{行列}として成分を横に並べて書く）として \begin{center}
+\adjustbox{max width=0.98\linewidth}{\(\displaystyle dx = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}\)}
+\end{center} と置く。これは、入力された縦ベクトルから \(x\) 成分だけを抜き出して返す線形写像の行列表現である。
+
 \begin{quote}
-\small
-さて、本書では $dx$ という記号に次のような意味を与える。**大胆で奇妙に思えるかもしれないが、これが本書最大の特徴でもある——我々は $dx$ を次の $1\times 3$ 行列だと断言する。**
-
-すなわち、**横ベクトル**（$1\times 3$ **行列**として成分を横に並べて書く）として
-$$dx = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}$$
-と置く。これは、入力された縦ベクトルから $x$ 成分だけを抜き出して返す線形写像の行列表現である。
-
-> **注** （成分並びの約束）横ベクトル（行）や行成分の略記は **$(1\ 0\ 0)$** のように**コンマを打たず**、成分の間だけを区切って書く。**$(1, 0, 0)$** のように**コンマのあとにスペース**を入れる書き方は**座標**（点の位置など）を強調するときに用い、**行列・横ベクトルの略記には使わない**。
-
-変位ベクトル $\mathbf{v}_i$ に左から掛けると
-$$dx\,\mathbf{v}_i = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix} \begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix} = \Delta x_i$$
-となる。ここで「$dx$ が変位ベクトル $\mathbf{v}_i$ を食べてスカラー $\Delta x_i$ を吐く」というイメージを、**関数の値のように書く**ことにする：
-$$dx(\mathbf{v}_i) = dx\,\mathbf{v}_i = \Delta x_i$$
-**本書では、しばしばこの $dx(\mathbf{v})$ の形で「横ベクトル $dx$ が縦ベクトル $\mathbf{v}$ に作用する」と強調する。何度繰り返しても強調しすぎることはない。**
-
-> **注** （演算子・作用素・関数・写像の呼び分け）この $dx(\mathbf{v})$ を**演算子**と呼ぶか**作用素**と呼ぶか**関数**と呼ぶか**写像**と呼ぶかは、文献によってさまざまな流儀がある。筆者は**演算子**と呼ぶことを好むので、この先も演算子と呼ぶことが多いだろう。
-
-> **注** （座標不変な $dx$ とデカルト表示）数学者は、$dx$ を「座標に依存しない幾何学的主体」として語ることも多い。いま書いた $\begin{pmatrix}1&0&0\end{pmatrix}$ は実空間での表示にすぎない。**§1.4 で成分が場所とともに変わる話をきちんと触れる**ので、ここでは落ち着いて読み進めてほしい。
-
-リーマン和に現れる $\Delta x_i$ は、「1次元の謎の微小量」ではない。**3次元空間の中での変位ベクトル $\mathbf{v}_i$ に対し、上の行列としての $dx$ が $x$ 成分だけを抜き出した結果**である。
-
-**これが決定的な瞬間だ**：
-
-* 左辺：$dx(\mathbf{v}_i)$ は、行列 $dx$ が**変位ベクトル $\mathbf{v}_i$ に**作用する代数的操作
-
-* 右辺：従来のリーマン和に現れる「小区間の幅 $\Delta x_i$」
-
-つまり $\Delta x_i$ は、**1次元の謎の微小変位ではなく、3次元の微小変位 $\mathbf{v}_i$ から $x$ 方向の成分だけを取り出した $dx(\mathbf{v}_i)$ である**。
+\textbf{注} （成分並びの約束）横ベクトル（行）や行成分の略記は \textbf{\((1\ 0\ 0)\)} のように\textbf{コンマを打たず}、成分の間だけを区切って書く。\textbf{\((1, 0, 0)\)} のように\textbf{コンマのあとにスペース}を入れる書き方は\textbf{座標}（点の位置など）を強調するときに用い、\textbf{行列・横ベクトルの略記には使わない}。
 \end{quote}
-\vfill
-\clearpage
+
+変位ベクトル \(\mathbf{v}_i\) に左から掛けると \begin{center}
+\adjustbox{max width=0.98\linewidth}{\(\displaystyle dx\,\mathbf{v}_i = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix} \begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix} = \Delta x_i\)}
+\end{center} となる。ここで「\(dx\) が変位ベクトル \(\mathbf{v}_i\) を食べてスカラー \(\Delta x_i\) を吐く」というイメージを、\textbf{関数の値のように書く}ことにする： \[dx(\mathbf{v}_i) = dx\,\mathbf{v}_i = \Delta x_i\] \textbf{本書では、しばしばこの \(dx(\mathbf{v})\) の形で「横ベクトル \(dx\) が縦ベクトル \(\mathbf{v}\) に作用する」と強調する。何度繰り返しても強調しすぎることはない。}
+
+\begin{quote}
+\textbf{注} （演算子・作用素・関数・写像の呼び分け）この \(dx(\mathbf{v})\) を\textbf{演算子}と呼ぶか\textbf{作用素}と呼ぶか\textbf{関数}と呼ぶか\textbf{写像}と呼ぶかは、文献によってさまざまな流儀がある。筆者は\textbf{演算子}と呼ぶことを好むので、この先も演算子と呼ぶことが多いだろう。
+\end{quote}
+
+\begin{quote}
+\textbf{注} （座標不変な \(dx\) とデカルト表示）数学者は、\(dx\) を「座標に依存しない幾何学的主体」として語ることも多い。いま書いた \(\begin{pmatrix}1&0&0\end{pmatrix}\) は実空間での表示にすぎない。\textbf{§1.4 で成分が場所とともに変わる話をきちんと触れる}ので、ここでは落ち着いて読み進めてほしい。
+\end{quote}
+
+リーマン和に現れる \(\Delta x_i\) は、「1次元の謎の微小量」ではない。\textbf{3次元空間の中での変位ベクトル \(\mathbf{v}_i\) に対し、上の行列としての \(dx\) が \(x\) 成分だけを抜き出した結果}である。
+
+\textbf{これが決定的な瞬間だ}：
+
+\begin{itemize}
+\item
+  左辺：\(dx(\mathbf{v}_i)\) は、行列 \(dx\) が\textbf{変位ベクトル \(\mathbf{v}_i\) に}作用する代数的操作
+\item
+  右辺：従来のリーマン和に現れる「小区間の幅 \(\Delta x_i\)」
+\end{itemize}
+
+つまり \(\Delta x_i\) は、\textbf{1次元の謎の微小変位ではなく、3次元の微小変位 \(\mathbf{v}_i\) から \(x\) 方向の成分だけを取り出した \(dx(\mathbf{v}_i)\) である}。
 
 \subsubsection{1.2.4 リーマン和のベクトル再解釈と積分記号}\label{ux30eaux30fcux30deux30f3ux548cux306eux30d9ux30afux30c8ux30ebux518dux89e3ux91c8ux3068ux7a4dux5206ux8a18ux53f7}
 
