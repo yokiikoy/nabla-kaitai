@@ -39,6 +39,44 @@ for f in files:
 
 md_text = '\n'.join(combined)
 
+# --- Feature page: dx definition spread ---
+def build_dx_feature_page(match):
+    body = match.group(1)
+    # Extract heading, remove from body, use in centered header
+    heading_match = re.search(r'^#### (.+)$', body, re.MULTILINE)
+    heading = heading_match.group(1) if heading_match else ''
+    body = re.sub(r'^#### .+$\n?', '', body, count=1, flags=re.MULTILINE)
+    tex = (
+        r'\clearpage' '\n'
+        r'\thispagestyle{empty}' '\n'
+        r'\vspace*{2cm}' '\n'
+        r'\begin{center}' '\n'
+        + r'{\huge\bfseries ' + heading + r'\par}' '\n'
+        + r'\vspace{1cm}' '\n'
+        r'{\Huge\bfseries $dx = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}$\par}' '\n'
+        r'\end{center}' '\n'
+        r'\vspace{0.8cm}' '\n'
+    )
+    tex += (
+        r'\begin{quote}' '\n'
+        r'\small' '\n'
+    )
+    tex += body.strip() + '\n'
+    tex += (
+        r'\end{quote}' '\n'
+        r'\vfill' '\n'
+        r'\clearpage' '\n'
+    )
+    return tex
+
+md_text = re.sub(
+    r'<!-- FEATURE:dx-main -->\s*\n(.*?)\n\s*<!-- /FEATURE:dx-main -->',
+    build_dx_feature_page,
+    md_text,
+    flags=re.DOTALL
+)
+# --- end feature page ---
+
 # Convert HTML <strong> tags to Pandoc-native **bold** syntax.
 # Pandoc with format=markdown (raw_html enabled by default) passes raw HTML
 # through to LaTeX output literally, which renders as text, not bold.

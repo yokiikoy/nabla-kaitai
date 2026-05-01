@@ -91,7 +91,17 @@ $$\mathbf{v} = \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix}$$
 $$\mathbf{v}_i = \begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix}$$
 と書く。添字 $i$ は「第 $i$ 小区間の分」という意味だけで、$\mathbf{v}_i$ もまた変位ベクトルである。今は直線運動を考えているので $y,z$ 成分はゼロだが、それは条件ではなく結果としてゼロになっているだけだ。
 
-#### 1.2.3 $dx$ の登場 — 本書最大の特徴としての「断言」
+\clearpage
+\thispagestyle{empty}
+\vspace*{2cm}
+\begin{center}
+{\huge\bfseries 1.2.3 $dx$ の登場 — 本書最大の特徴としての「断言」\par}
+\vspace{1cm}
+{\Huge\bfseries $dx = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}$\par}
+\end{center}
+\vspace{0.8cm}
+\begin{quote}
+\small
 さて、本書では $dx$ という記号に次のような意味を与える。**大胆で奇妙に思えるかもしれないが、これが本書最大の特徴でもある——我々は $dx$ を次の $1\times 3$ 行列だと断言する。**
 
 すなわち、**横ベクトル**（$1\times 3$ **行列**として成分を横に並べて書く）として
@@ -117,6 +127,10 @@ $$dx(\mathbf{v}_i) = dx\,\mathbf{v}_i = \Delta x_i$$
 * 右辺：従来のリーマン和に現れる「小区間の幅 $\Delta x_i$」
 
 つまり $\Delta x_i$ は、**1次元の謎の微小変位ではなく、3次元の微小変位 $\mathbf{v}_i$ から $x$ 方向の成分だけを取り出した $dx(\mathbf{v}_i)$ である**。
+\end{quote}
+\vfill
+\clearpage
+
 
 #### 1.2.4 リーマン和のベクトル再解釈と積分記号
 この視点でリーマン和を書き直すと：
