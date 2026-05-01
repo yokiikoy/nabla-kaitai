@@ -1,6 +1,6 @@
 ---
 title: "Preface: To the Lucky, the Suffering, and the Rebels"
-series: ナブラ解体新書
+series: Unmasking Div Grad Curl
 chapter: NA
 order: -3
 ---
