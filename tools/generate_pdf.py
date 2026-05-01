@@ -1,6 +1,14 @@
 #!/usr/bin/env python3
+# [OUTDATED / 非推奨] このスクリプトは実験的な中間生成用です。
+# PDF生成には tools/build_pdf.py (Pandoc → XeLaTeX) を使用してください。
 """Generate PDF from concatenated manuscript chapters with math rendering."""
-import glob, os, re, subprocess, tempfile, base64
+import glob, os, re, subprocess, tempfile, base64, sys
+
+print("=" * 70, file=sys.stderr)
+print("[ERROR] このスクリプト (generate_pdf.py) は非推奨です。", file=sys.stderr)
+print("        PDF生成には tools/build_pdf.py を使用してください。", file=sys.stderr)
+print("=" * 70, file=sys.stderr)
+sys.exit(1)
 
 # --- Chapter order ---
 files = []
