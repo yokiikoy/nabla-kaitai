@@ -370,7 +370,6 @@ try:
         r'{\Large ベクトル解析の抜け道\par}' '\n'
         r'\vspace{4mm}' '\n'
         r'{\normalsize v0.1.0-alpha\par}' '\n'
-        r'\vfill' '\n'
         r'\begin{minipage}{0.78\textwidth}' '\n'
         r'\centering' '\n'
         r'\small' '\n'
@@ -381,7 +380,7 @@ try:
         r'v0.x.0         & 章の追加・章構成の変更・大幅な書き直し\\ \hline' '\n'
         r'v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline' '\n'
         r'\end{tabular}' '\n'
-        r'\vspace{5mm}' '\n'
+        r'\vspace{8mm}' '\n'
         r'\begin{tabular}{|p{\textwidth}|}\hline' '\n'
         + r'\multicolumn{1}{|c|}{\textbf{直近の改定履歴}}\\ \hline' '\n'
         + ''.join(
