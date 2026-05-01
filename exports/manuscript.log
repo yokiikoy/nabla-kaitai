@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.4.30)  1 MAY 2026 20:20
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.4.30)  1 MAY 2026 20:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -892,6 +892,9 @@ LaTeX Font Info:    Trying to load font information for U+esint on input line 9
 (/usr/share/texlive/texmf-dist/tex/latex/esint/uesint.fd
 File: uesint.fd 
 )
+Missing character: There is no ∘ (U+2218) in font IPAexMincho/OT:script=latn;la
+nguage=dflt;mapping=tex-text;!
+
 Overfull \hbox (12.79999pt too wide) in paragraph at lines 98--112
  [] 
  []

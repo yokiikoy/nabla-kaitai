@@ -380,7 +380,7 @@ try:
         r'v0.x.0         & 章の追加・章構成の変更・大幅な書き直し\\ \hline' '\n'
         r'v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline' '\n'
         r'\end{tabular}' '\n'
-        r'\vspace{8mm}' '\n'
+        r'\vspace{12mm}' '\n'
         r'\begin{tabular}{|p{\textwidth}|}\hline' '\n'
         + r'\multicolumn{1}{|c|}{\textbf{直近の改定履歴}}\\ \hline' '\n'
         + ''.join(
