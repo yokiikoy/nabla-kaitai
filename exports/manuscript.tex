@@ -107,13 +107,13 @@ v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline
 \end{tabular}\par\bigskip\bigskip\bigskip
 \begin{tabular}{|p{\textwidth}|}\hline
 \multicolumn{1}{|c|}{\textbf{直近の改定履歴}}\\ \hline
+{\small 9f8d28f (2026-05-01)  ch01: \#\#\#\#小節番号がセクション繰り下げに追従していなかった不整合を修正}\\ \hline
 {\small 0ae14c9 (2026-05-01)  Revert "ch01: dx定義専用ページ（見開き特大レイアウト）を追加"}\\ \hline
 {\small 6c76d44 (2026-05-01)  Revert "fixup: feature pageの内容がPandocで処理されるよう修正"}\\ \hline
-{\small 7f38260 (2026-05-01)  fixup: feature pageの内容がPandocで処理されるよう修正}\\ \hline
 \end{tabular}
 \end{minipage}\par
 \vfill
-{\footnotesize 2026-05-01 20:43 JST --- 著者：yokiikoy\par}
+{\footnotesize 2026-05-01 20:48 JST --- 著者：yokiikoy\par}
 \restoregeometry
 \end{titlepage}
 \tableofcontents
@@ -1555,7 +1555,7 @@ V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = \sum_i\sum_j\sum_k \epsilon_{ijk}\
 
 \subsection{§3.1 体積——3次元、係数1}\label{ux4f53ux7a4d3ux6b21ux5143ux4fc2ux65701}
 
-\subsubsection{3.2.1 直方体から曲がった領域へ——リーマン和で定義する}\label{ux76f4ux65b9ux4f53ux304bux3089ux66f2ux304cux3063ux305fux9818ux57dfux3078ux30eaux30fcux30deux30f3ux548cux3067ux5b9aux7fa9ux3059ux308b}
+\subsubsection{3.1.1 直方体から曲がった領域へ——リーマン和で定義する}\label{ux76f4ux65b9ux4f53ux304bux3089ux66f2ux304cux3063ux305fux9818ux57dfux3078ux30eaux30fcux30deux30f3ux548cux3067ux5b9aux7fa9ux3059ux308b}
 
 第2章 §2.5 で、我々は \(dx \wedge dy \wedge dz\) という体積測定器を組み立てた。これに三本のベクトル \(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\) を食わせると、それらが張る平行六面体の符号付き体積が返ってくる。
 
@@ -1589,7 +1589,7 @@ V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = \sum_i\sum_j\sum_k \epsilon_{ijk}\
 
 さて、定義はした。ではこの和を実際にどう計算するか。\(V\) が \(x^2+y^2+z^2 \le R^2\) のような曲がった領域のとき、どの小直方体が \(V\) の内部にあるかを判定しながら和をとるのは面倒だ。しかし和のとり方を工夫すれば、見通しがよくなる。次節で実際にやってみよう。
 
-\subsubsection{3.2.2 球の体積——泥臭く、愚直に足す}\label{ux7403ux306eux4f53ux7a4dux6ce5ux81edux304fux611aux76f4ux306bux8db3ux3059}
+\subsubsection{3.1.2 球の体積——泥臭く、愚直に足す}\label{ux7403ux306eux4f53ux7a4dux6ce5ux81edux304fux611aux76f4ux306bux8db3ux3059}
 
 半径 \(R\) の球 \(x^2 + y^2 + z^2 \le R^2\) の体積を、本当に泥臭く計算してみよう。これから示したいことはただ一つ——特別な座標系に逃げずとも、\(x, y, z\) のまま愚直にリーマン和を整理するだけで、見慣れた \(4\pi R^3/3\) に到達できることである。特別な座標系は使わない。\(x, y, z\) のまま、小直方体 \(\Delta x\,\Delta y\,\Delta z\) を愚直に積み重ねるだけだ。
 
@@ -1652,7 +1652,7 @@ V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = \sum_i\sum_j\sum_k \epsilon_{ijk}\
 
 \subsection{§3.2 表面積——2次元、係数1}\label{ux8868ux9762ux7a4d2ux6b21ux5143ux4fc2ux65701}
 
-\subsubsection{3.3.1 平行四辺形から曲面へ}\label{ux5e73ux884cux56dbux8fbaux5f62ux304bux3089ux66f2ux9762ux3078}
+\subsubsection{3.2.1 平行四辺形から曲面へ}\label{ux5e73ux884cux56dbux8fbaux5f62ux304bux3089ux66f2ux9762ux3078}
 
 第2章 §2.4 で、我々は \(dx \wedge dy\) という面積測定器を組み立てた。これに二本のベクトル \(\mathbf{v}_1, \mathbf{v}_2\) を食わせると、それらが \(xy\) 平面に落とす影の符号付き面積が返ってくる。同様に \(dy \wedge dz\) は \(yz\) 平面への影、\(dz \wedge dx\) は \(zx\) 平面への影を測る。
 
@@ -1698,7 +1698,7 @@ V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = \sum_i\sum_j\sum_k \epsilon_{ijk}\
 
 と\textbf{書くことにする}。これが \(2\)-form の積分——面積分——の定義である。構成は §3.1 の体積分と同じ型で、食わせるベクトルが2本になっただけだ。
 
-\subsubsection{\texorpdfstring{3.3.2 \(dx \wedge dy\) が測るもの——球面で試す}{3.3.2 dx \textbackslash wedge dy が測るもの——球面で試す}}\label{dx-wedge-dy-ux304cux6e2cux308bux3082ux306eux7403ux9762ux3067ux8a66ux3059}
+\subsubsection{\texorpdfstring{3.2.2 \(dx \wedge dy\) が測るもの——球面で試す}{3.2.2 dx \textbackslash wedge dy が測るもの——球面で試す}}\label{dx-wedge-dy-ux304cux6e2cux308bux3082ux306eux7403ux9762ux3067ux8a66ux3059}
 
 実際に球面で計算してみよう。半径 \(R\) の球面の上半分（\(z \ge 0\)）を考える。この曲面は、\(x, y\) をそのままパラメータとして
 
@@ -1728,7 +1728,7 @@ V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = \sum_i\sum_j\sum_k \epsilon_{ijk}\
 
 したがって球面全体での \(dx \wedge dy\) の積分は \(\pi R^2 + (-\pi R^2) = 0\)。上半球の影と下半球の影が打ち消し合ったのだ。これではっきりした：\textbf{\(dx \wedge dy\) が測るのは「\(xy\) 平面への影の符号付き面積」であり、曲面の面積そのものではない。}同様に、\(dy \wedge dz\) は \(yz\) 平面への影、\(dz \wedge dx\) は \(zx\) 平面への影を測る。
 
-\subsubsection{3.3.3 三つの影から本当の面積へ}\label{ux4e09ux3064ux306eux5f71ux304bux3089ux672cux5f53ux306eux9762ux7a4dux3078}
+\subsubsection{3.2.3 三つの影から本当の面積へ}\label{ux4e09ux3064ux306eux5f71ux304bux3089ux672cux5f53ux306eux9762ux7a4dux3078}
 
 では曲面の本当の面積はどう測ればよいのか。各点で三つの面積測定器すべてに面素を食わせ、その結果を合成する。
 
@@ -1774,7 +1774,7 @@ V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = \sum_i\sum_j\sum_k \epsilon_{ijk}\
 
 見事に \(4\pi R^2\) が出た。第2章 §2.4.7 で平行四辺形の面積を三つの影から復元したのと、\textbf{まったく同じパターン}である。
 
-\subsubsection{3.3.4 ここまででわかったこと}\label{ux3053ux3053ux307eux3067ux3067ux308fux304bux3063ux305fux3053ux3068}
+\subsubsection{3.2.4 ここまででわかったこと}\label{ux3053ux3053ux307eux3067ux3067ux308fux304bux3063ux305fux3053ux3068}
 
 係数1の \(2\)-form は、それ単独では曲面の面積を直接返さない。\(dx \wedge dy\) だけでは「\(xy\) 平面への影の面積」しか測れず、曲面の本当の面積を知るには三つの基底 \(2\)-form の測定値を合成しなければならない。これは第2章の平行四辺形の面積のときとまったく同じ状況だ。
 
@@ -1799,7 +1799,7 @@ V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = \sum_i\sum_j\sum_k \epsilon_{ijk}\
 
 \subsection{§3.3 曲線——1次元、係数1（限界があらわになる）}\label{ux66f2ux7dda1ux6b21ux5143ux4fc2ux65701ux9650ux754cux304cux3042ux3089ux308fux306bux306aux308b}
 
-\subsubsection{3.4.1 直線から曲線へ——リーマン和で定義する}\label{ux76f4ux7ddaux304bux3089ux66f2ux7ddaux3078ux30eaux30fcux30deux30f3ux548cux3067ux5b9aux7fa9ux3059ux308b}
+\subsubsection{3.3.1 直線から曲線へ——リーマン和で定義する}\label{ux76f4ux7ddaux304bux3089ux66f2ux7ddaux3078ux30eaux30fcux30deux30f3ux548cux3067ux5b9aux7fa9ux3059ux308b}
 
 第1章で、我々は \(dx, dy, dz\) を「ベクトルを食べて各成分を返す \(1\)-form（横ベクトル）」として定義した。\(dx = \begin{pmatrix}1&0&0\end{pmatrix}\)、\(\mathbf{v} = \begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}\) のとき \(dx(\mathbf{v}) = \Delta x\) である。\(dy, dz\) も同様。
 
@@ -1837,7 +1837,7 @@ V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = \sum_i\sum_j\sum_k \epsilon_{ijk}\
 
 同様に \(\int_\gamma dy = y(t_1) - y(t_0)\)、\(\int_\gamma dz = z(t_1) - z(t_0)\)。すなわち\textbf{\(dx, dy, dz\) という \(1\)-form の線積分は、曲線の正味の変位——始点と終点の座標の差——を返す。}
 
-\subsubsection{3.4.2 円周で試す——弧長は出ない}\label{ux5186ux5468ux3067ux8a66ux3059ux5f27ux9577ux306fux51faux306aux3044}
+\subsubsection{3.3.2 円周で試す——弧長は出ない}\label{ux5186ux5468ux3067ux8a66ux3059ux5f27ux9577ux306fux51faux306aux3044}
 
 確認しよう。半径 \(R\) の円を
 
@@ -1880,7 +1880,7 @@ V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = \sum_i\sum_j\sum_k \epsilon_{ijk}\
 \textbf{注} （計量への伏線）\(dx(\mathbf{v})^2 + dy(\mathbf{v})^2\) という「成分の二乗和」の形は、第2章 §2.4.7 で平行四辺形のスカラー面積を \(\sqrt{A_{yz}^2 + A_{zx}^2 + A_{xy}^2}\) と出したのと完全に並行である。この「ピタゴラスの組み合わせ方」は、直交デカルト座標における自然な長さの定義に他ならない。任意の座標系への一般化は第6章で計量 \(g\) を使って行う。ここでは「\(dx, dy, dz\) の作用結果の二乗和の平方根をとれば、向きを捨てた正の大きさ（長さ・面積・体積）が得られる」という事実だけを押さえておけばよい。
 \end{quote}
 
-\subsubsection{\texorpdfstring{3.4.3 では \(1\)-form で何が測れるのか}{3.4.3 では 1-form で何が測れるのか}}\label{ux3067ux306f-1-form-ux3067ux4f55ux304cux6e2cux308cux308bux306eux304b}
+\subsubsection{\texorpdfstring{3.3.3 では \(1\)-form で何が測れるのか}{3.3.3 では 1-form で何が測れるのか}}\label{ux3067ux306f-1-form-ux3067ux4f55ux304cux6e2cux308cux308bux306eux304b}
 
 弧長は \(ds(\mathbf{v}) = \sqrt{dx(\mathbf{v})^2 + dy(\mathbf{v})^2}\) という \(1\)-form の積分として測れた。この \(ds\) は \(dx\) と \(dy\) の線形結合では書けず、二乗和の平方根を必要とする。この組み合わせ方を任意の座標系へ一般化するのが第6章の計量 \(g\) の役割だが、ここではまず、計量を必要としない \(1\)-form——すなわち \(dx, dy, dz\) の線形結合で書ける \(1\)-form——が、いったい何を測るのかを見ていこう。
 
@@ -1907,7 +1907,7 @@ V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = \sum_i\sum_j\sum_k \epsilon_{ijk}\
 
 \subsection{§3.4 係数をつける——密度と幾何の積}\label{ux4fc2ux6570ux3092ux3064ux3051ux308bux5bc6ux5ea6ux3068ux5e7eux4f55ux306eux7a4d}
 
-\subsubsection{3.5.0 なぜ係数なのか——物理が要求する}\label{ux306aux305cux4fc2ux6570ux306aux306eux304bux7269ux7406ux304cux8981ux6c42ux3059ux308b}
+\subsubsection{3.4.0 なぜ係数なのか——物理が要求する}\label{ux306aux305cux4fc2ux6570ux306aux306eux304bux7269ux7406ux304cux8981ux6c42ux3059ux308b}
 
 §3.1〜§3.3 では、係数1の形式で曲がった図形を測ってきた。しかし現実の物理では、測定器に\textbf{場所ごとに変わる重み}を掛けたくなる場面が無数にある：
 
@@ -1924,7 +1924,7 @@ V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = \sum_i\sum_j\sum_k \epsilon_{ijk}\
 
 以下、1次元・2次元・3次元の順に、係数付き形式の積分を定義していく。
 
-\subsubsection{\texorpdfstring{3.5.1 一般の \(1\)-form の線積分（仕事）}{3.5.1 一般の 1-form の線積分（仕事）}}\label{ux4e00ux822cux306e-1-form-ux306eux7ddaux7a4dux5206ux4ed5ux4e8b}
+\subsubsection{\texorpdfstring{3.4.1 一般の \(1\)-form の線積分（仕事）}{3.4.1 一般の 1-form の線積分（仕事）}}\label{ux4e00ux822cux306e-1-form-ux306eux7ddaux7a4dux5206ux4ed5ux4e8b}
 
 実空間で、係数が点 \((x,y,z)\) に依存するスカラー場 \(\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z}\) をとり、
 
@@ -1968,7 +1968,7 @@ V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = \sum_i\sum_j\sum_k \epsilon_{ijk}\
 
 仕事がゼロになった。この力場は単位円に沿って正味の仕事をしないのである。
 
-\subsubsection{\texorpdfstring{3.5.2 一般の \(2\)-form の面積分（流量）}{3.5.2 一般の 2-form の面積分（流量）}}\label{ux4e00ux822cux306e-2-form-ux306eux9762ux7a4dux5206ux6d41ux91cf}
+\subsubsection{\texorpdfstring{3.4.2 一般の \(2\)-form の面積分（流量）}{3.4.2 一般の 2-form の面積分（流量）}}\label{ux4e00ux822cux306e-2-form-ux306eux9762ux7a4dux5206ux6d41ux91cf}
 
 同様に、三つのスカラー場 \(P, Q, R\) を係数とする一般の \(2\)-form：
 
@@ -1990,7 +1990,7 @@ V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = \sum_i\sum_j\sum_k \epsilon_{ijk}\
 \textbf{注} （ここではベクトル解析との対応は補助線）流量との対応は、既にベクトル解析を知っている読者のための橋渡しにすぎない。本書の本線はあくまで「\(2\)-form を食わせて集計する」という操作であり、ベクトル解析の知識がなくともこの先の議論に支障はない。
 \end{quote}
 
-\subsubsection{\texorpdfstring{3.5.3 一般の \(3\)-form の体積分（総質量）}{3.5.3 一般の 3-form の体積分（総質量）}}\label{ux4e00ux822cux306e-3-form-ux306eux4f53ux7a4dux5206ux7dcfux8ceaux91cf}
+\subsubsection{\texorpdfstring{3.4.3 一般の \(3\)-form の体積分（総質量）}{3.4.3 一般の 3-form の体積分（総質量）}}\label{ux4e00ux822cux306e-3-form-ux306eux4f53ux7a4dux5206ux7dcfux8ceaux91cf}
 
 \(3\)-form の一般形は、スカラー場 \(\rho(x,y,z)\) を係数として：
 
@@ -2006,7 +2006,7 @@ V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = \sum_i\sum_j\sum_k \epsilon_{ijk}\
 
 と書く。\(\rho=1\) なら §3.1 の係数1の場合に戻る。\(\rho\) が質量密度なら総質量、電荷密度なら総電荷を与える。\(3\)-form の独立成分は \(dx \wedge dy \wedge dz\) の1つだけなので、\textbf{「密度（\(\rho\)）」と「体積の測り方（\(dx \wedge dy \wedge dz\)）」がきれいに分離}して見通しがよい。
 
-\subsubsection{3.5.4 線・面・体の統一像}\label{ux7ddaux9762ux4f53ux306eux7d71ux4e00ux50cf}
+\subsubsection{3.4.4 線・面・体の統一像}\label{ux7ddaux9762ux4f53ux306eux7d71ux4e00ux50cf}
 
 ここまでを俯瞰しよう。
 
@@ -2051,7 +2051,7 @@ V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = \sum_i\sum_j\sum_k \epsilon_{ijk}\
 \end{itemize}
 \end{quote}
 
-\subsubsection{3.5.5 積分の一般形}\label{ux7a4dux5206ux306eux4e00ux822cux5f62}
+\subsubsection{3.4.5 積分の一般形}\label{ux7a4dux5206ux306eux4e00ux822cux5f62}
 
 §3.1〜§3.3 で別々に定義した線積分、面積分、体積分は、実は一つのパターンにまとまる。\(k\)-form \(\omega\) を \(k\) 次元領域 \(M\) 上で積分するという操作を、次元によらず
 
@@ -2507,7 +2507,7 @@ V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = \sum_i\sum_j\sum_k \epsilon_{ijk}\
 
 \subsection{\texorpdfstring{§5.1 \(df\) 再訪——微分と積分は逆演算か}{§5.1 df 再訪——微分と積分は逆演算か}}\label{df-ux518dux8a2aux5faeux5206ux3068ux7a4dux5206ux306fux9006ux6f14ux7b97ux304b}
 
-\subsubsection{\texorpdfstring{4.1.1 \(df\) は「次元上げ」をしている}{4.1.1 df は「次元上げ」をしている}}\label{df-ux306fux6b21ux5143ux4e0aux3052ux3092ux3057ux3066ux3044ux308b}
+\subsubsection{\texorpdfstring{5.1.1 \(df\) は「次元上げ」をしている}{5.1.1 df は「次元上げ」をしている}}\label{df-ux306fux6b21ux5143ux4e0aux3052ux3092ux3057ux3066ux3044ux308b}
 
 第1章 §1.2 で、我々は関数 \(f(x,y,z)\) の全微分を横ベクトルとして定義した：
 
@@ -2523,7 +2523,7 @@ V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = \sum_i\sum_j\sum_k \epsilon_{ijk}\
 
 \(df\) 単独では「変化量そのもの」ではない——第1章 §1.1.6 の契約どおり、\(df\) は演算子であり、変位ベクトルに作用して初めて数値が得られる。
 
-\subsubsection{4.1.2 線積分すると端点の差だけが残る}\label{ux7ddaux7a4dux5206ux3059ux308bux3068ux7aefux70b9ux306eux5deeux3060ux3051ux304cux6b8bux308b}
+\subsubsection{5.1.2 線積分すると端点の差だけが残る}\label{ux7ddaux7a4dux5206ux3059ux308bux3068ux7aefux70b9ux306eux5deeux3060ux3051ux304cux6b8bux308b}
 
 この \(df\) を曲線 \(\gamma\) に沿って積分する。第3章 §3.3.1 の定義どおり、曲線を小区間に刻み、各ステップの変位 \(\Delta\mathbf{r}_i\) に \(df\) を食わせて足し上げる。
 
@@ -2552,7 +2552,7 @@ V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = \sum_i\sum_j\sum_k \epsilon_{ijk}\
 \end{itemize}
 \end{quote}
 
-\subsubsection{4.1.3 第3章の例で確かめる}\label{ux7b2c3ux7ae0ux306eux4f8bux3067ux78baux304bux3081ux308b}
+\subsubsection{5.1.3 第3章の例で確かめる}\label{ux7b2c3ux7ae0ux306eux4f8bux3067ux78baux304bux3081ux308b}
 
 第3章 §3.4.1 で我々は、\(\omega = y\,dx + x\,dy\) を単位円 \(\gamma(t) = (\cos t,\; \sin t,\; 0),\; t \in [0,2\pi]\) に沿って積分し、結果が \(0\) になることを計算した。あのときは係数に沿って愚直に積分したが、いまの言葉で見直すと話はもっと単純だ。
 
@@ -2578,7 +2578,7 @@ V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = \sum_i\sum_j\sum_k \epsilon_{ijk}\
 
 \subsection{§5.2 閉ループで姿を現す「ズレ」}\label{ux9589ux30ebux30fcux30d7ux3067ux59ffux3092ux73feux3059ux30baux30ec}
 
-\subsubsection{\texorpdfstring{4.2.1 一般の \(1\)-form ではどうか}{4.2.1 一般の 1-form ではどうか}}\label{ux4e00ux822cux306e-1-form-ux3067ux306fux3069ux3046ux304b}
+\subsubsection{\texorpdfstring{5.2.1 一般の \(1\)-form ではどうか}{5.2.1 一般の 1-form ではどうか}}\label{ux4e00ux822cux306e-1-form-ux3067ux306fux3069ux3046ux304b}
 
 では、一般の \(1\)-form
 
@@ -2604,7 +2604,7 @@ V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = \sum_i\sum_j\sum_k \epsilon_{ijk}\
 \textbf{注} （物理を知らなくても大丈夫）摩擦力や水流をまだ物理学で扱っていない読者も、ここで立ち止まる必要はない。いま重要なのは具体的な物理現象ではなく、「閉ループの積分がゼロにならないなら、その場には循環のような局所構造がある」という感覚だけである。物理での詳しい対応は後の章で触れる。
 \end{quote}
 
-\subsubsection{4.2.2 局所情報はどこに宿るか}\label{ux5c40ux6240ux60c5ux5831ux306fux3069ux3053ux306bux5bbfux308bux304b}
+\subsubsection{5.2.2 局所情報はどこに宿るか}\label{ux5c40ux6240ux60c5ux5831ux306fux3069ux3053ux306bux5bbfux308bux304b}
 
 では、この「一周して残るズレ」はどこから来るのか。閉ループをいきなり大域的な大きさで考えていては、中のどの点がどれだけズレに寄与したのかわからない。第1章で \(f'(x)\) を求めたときのことを思い出そう——我々は \(\Delta f / \Delta x\) の \(\Delta x \to 0\) の極限をとることで、\textbf{一点での}変化率を取り出した。
 
@@ -2622,7 +2622,7 @@ V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = \sum_i\sum_j\sum_k \epsilon_{ijk}\
 
 \subsection{§5.3 微小ループの解剖——ズレは面積に比例する}\label{ux5faeux5c0fux30ebux30fcux30d7ux306eux89e3ux5256ux30baux30ecux306fux9762ux7a4dux306bux6bd4ux4f8bux3059ux308b}
 
-\subsubsection{\texorpdfstring{4.3.1 \(xy\) 平面の微小長方形}{4.3.1 xy 平面の微小長方形}}\label{xy-ux5e73ux9762ux306eux5faeux5c0fux9577ux65b9ux5f62}
+\subsubsection{\texorpdfstring{5.3.1 \(xy\) 平面の微小長方形}{5.3.1 xy 平面の微小長方形}}\label{xy-ux5e73ux9762ux306eux5faeux5c0fux9577ux65b9ux5f62}
 
 空間内の点 \((x, y, z)\) を左下の頂点とし、\(xy\) 平面に平行な微小長方形を考える。\(x\) 方向の幅を \(\Delta x\)、\(y\) 方向の幅を \(\Delta y\) とする。この長方形の四辺を\textbf{反時計回り（右手系）}に一周し、\(\omega = P\,dx + Q\,dy + R\,dz\) を積分する。
 
@@ -2652,7 +2652,7 @@ V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = \sum_i\sum_j\sum_k \epsilon_{ijk}\
 
 \(P\Delta x\) と \(Q\Delta y\) の項が美しく相殺し、残ったのは \((\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,\Delta x\,\Delta y\) だけだ。
 
-\subsubsection{4.3.2 決定的な事実}\label{ux6c7aux5b9aux7684ux306aux4e8bux5b9f}
+\subsubsection{5.3.2 決定的な事実}\label{ux6c7aux5b9aux7684ux306aux4e8bux5b9f}
 
 この結果が告げていることはただ一つ：
 
@@ -2676,7 +2676,7 @@ V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = \sum_i\sum_j\sum_k \epsilon_{ijk}\
 
 \subsection{\texorpdfstring{§5.4 \(d\) の誕生——面積あたりのズレを測る新しい測定器}{§5.4 d の誕生——面積あたりのズレを測る新しい測定器}}\label{d-ux306eux8a95ux751fux9762ux7a4dux3042ux305fux308aux306eux30baux30ecux3092ux6e2cux308bux65b0ux3057ux3044ux6e2cux5b9aux5668}
 
-\subsubsection{4.4.1 ウェッジ積の再確認}\label{ux30a6ux30a7ux30c3ux30b8ux7a4dux306eux518dux78baux8a8d}
+\subsubsection{5.4.1 ウェッジ積の再確認}\label{ux30a6ux30a7ux30c3ux30b8ux7a4dux306eux518dux78baux8a8d}
 
 §5.3 で得た \((\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,\Delta x\,\Delta y\) を、第2章の言葉で言い直そう。第2章 §2.4.4 で我々は、\(dx \wedge dy\) という面積測定器を定義した。これは2本のベクトル \(\mathbf{v}_1, \mathbf{v}_2\) を食わせると、それらが \(xy\) 平面に落とす影の符号付き面積を返す装置だった：
 
@@ -2686,7 +2686,7 @@ V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = \sum_i\sum_j\sum_k \epsilon_{ijk}\
 
 特に、\(x\) 方向の変位 \(\Delta x\,\hat{e}_x\) と \(y\) 方向の変位 \(\Delta y\,\hat{e}_y\) を食わせれば \((dx \wedge dy)(\Delta x\,\hat{e}_x,\; \Delta y\,\hat{e}_y) = \Delta x\,\Delta y\) である。
 
-\subsubsection{\texorpdfstring{4.4.2 \(d\omega\) の定義}{4.4.2 d\textbackslash omega の定義}}\label{domega-ux306eux5b9aux7fa9}
+\subsubsection{\texorpdfstring{5.4.2 \(d\omega\) の定義}{5.4.2 d\textbackslash omega の定義}}\label{domega-ux306eux5b9aux7fa9}
 
 §5.3 の結果をこの言葉で書けば、微小長方形の二辺 \(\Delta x\,\hat{e}_x,\; \Delta y\,\hat{e}_y\) に対して、ある\textbf{新しい \(2\)-form} が \((\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,\Delta x\,\Delta y\) という主項を返したことになる。この \(2\)-form を \(\omega\) の\textbf{外微分}と呼び、\(d\omega\) と書く：
 
@@ -2726,7 +2726,7 @@ V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = \sum_i\sum_j\sum_k \epsilon_{ijk}\
 
 \subsection{\texorpdfstring{§5.5 一般の \(1\)-form の外微分——3次元への拡張}{§5.5 一般の 1-form の外微分——3次元への拡張}}\label{ux4e00ux822cux306e-1-form-ux306eux5916ux5faeux52063ux6b21ux5143ux3078ux306eux62e1ux5f35}
 
-\subsubsection{\texorpdfstring{4.5.1 \(yz\) 平面と \(zx\) 平面}{4.5.1 yz 平面と zx 平面}}\label{yz-ux5e73ux9762ux3068-zx-ux5e73ux9762}
+\subsubsection{\texorpdfstring{5.5.1 \(yz\) 平面と \(zx\) 平面}{5.5.1 yz 平面と zx 平面}}\label{yz-ux5e73ux9762ux3068-zx-ux5e73ux9762}
 
 §5.3–§5.4 では \(xy\) 平面のループだけを考えた。しかし 3次元空間には面の向きが3種類ある。\(yz\) 平面の微小長方形では同様の計算で \((\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z})\,\Delta y\,\Delta z\) が、\(zx\) 平面では \((\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x})\,\Delta z\,\Delta x\) が得られる。それぞれ \(dy \wedge dz\) と \(dz \wedge dx\) に対応する。
 
@@ -2738,7 +2738,7 @@ V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = \sum_i\sum_j\sum_k \epsilon_{ijk}\
 \textbf{注} （\(2\)-form は傾いた平行四辺形を測る）この \(d\omega\) は \(2\)-form——\textbf{2本のベクトルを食べる測定器}——である。食わせる2本は、\(xy\) 平面に平行とは限らない。3次元空間の中に斜めに浮かぶ微小平行四辺形の二辺 \(\mathbf{v}_1, \mathbf{v}_2\) を食わせれば、その面に対する単位面積あたりの閉ループのズレを返す。§5.3 でやったのとまったく同じこと——測定する面が座標平面に平行とは限らなくなっただけだ。2本のベクトルから平行四辺形の面積（と向き）を取り出すしくみは、第2章 §2.4 で \(dy \wedge dz\) 等を反対称行列として構成したときにすでに確かめてある。
 \end{quote}
 
-\subsubsection{\texorpdfstring{4.5.2 代数的導出——ライプニッツ則と \(d(dx)=0\)}{4.5.2 代数的導出——ライプニッツ則と d(dx)=0}}\label{ux4ee3ux6570ux7684ux5c0eux51faux30e9ux30a4ux30d7ux30cbux30c3ux30c4ux5247ux3068-ddx0}
+\subsubsection{\texorpdfstring{5.5.2 代数的導出——ライプニッツ則と \(d(dx)=0\)}{5.5.2 代数的導出——ライプニッツ則と d(dx)=0}}\label{ux4ee3ux6570ux7684ux5c0eux51faux30e9ux30a4ux30d7ux30cbux30c3ux30c4ux5247ux3068-ddx0}
 
 上記の式は、各平面で別々にループ計算をしても当然導ける。しかし、\(xy\)平面の例から得た直感を使って次のような計算ルールを作り上げれば機械的に導ける。やってみよう。
 
@@ -2800,7 +2800,7 @@ d\omega &= (-\frac{\partial Q}{\partial z} + \frac{\partial R}{\partial y})\,dy 
 
 これは §5.3 で幾何的に導いた \(xy\) 成分 \((\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y})\) を含み、\(yz\) と \(zx\) の成分も同じ交叉パターンで揃っている。
 
-\subsubsection{4.5.3 係数のパターン}\label{ux4fc2ux6570ux306eux30d1ux30bfux30fcux30f3}
+\subsubsection{5.5.3 係数のパターン}\label{ux4fc2ux6570ux306eux30d1ux30bfux30fcux30f3}
 
 係数の並び方に注目してほしい。\((\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z},\; \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x},\; \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\) は、\((P, Q, R)\) の偏微分を\textbf{自分以外の軸方向に関して交叉させ、差をとった}ものである。巡回的な対称性がある：
 
@@ -2831,19 +2831,19 @@ dx \wedge dy &\longleftrightarrow \frac{\partial Q}{\partial x} - \frac{\partial
 
 \subsection{§5.6 集積すれば境界だけが残る——ストークスの定理}\label{ux96c6ux7a4dux3059ux308cux3070ux5883ux754cux3060ux3051ux304cux6b8bux308bux30b9ux30c8ux30fcux30afux30b9ux306eux5b9aux7406}
 
-\subsubsection{4.6.1 面をタイル貼りする}\label{ux9762ux3092ux30bfux30a4ux30ebux8cbcux308aux3059ux308b}
+\subsubsection{5.6.1 面をタイル貼りする}\label{ux9762ux3092ux30bfux30a4ux30ebux8cbcux308aux3059ux308b}
 
 §5.3 では\textbf{ひとつの}微小長方形の周りで \(\oint \omega\) を計算し、その主項が \(d\omega\) と面積の積になることを見た。では、この微小長方形を\textbf{面全体に敷き詰めて}、全部足し合わせたらどうなるか。
 
 曲面 \(S\) を小さな座標パッチに分け、それぞれのパラメータ平面上で微小長方形に刻む（第3章 §3.2 の面素の考え方そのものだ）。各微小長方形について、四辺を反時計回りに一周した \(\omega\) の積分は、面素に \(d\omega\) を食わせた値を主項として持つ。
 
-\subsubsection{4.6.2 内部の辺は相殺する}\label{ux5185ux90e8ux306eux8fbaux306fux76f8ux6bbaux3059ux308b}
+\subsubsection{5.6.2 内部の辺は相殺する}\label{ux5185ux90e8ux306eux8fbaux306fux76f8ux6bbaux3059ux308b}
 
 ここで決定的な幾何学的観察がある。\textbf{隣り合う二つの長方形が共有する辺}に注目しよう。左の長方形にとってその辺は「上向き」、右の長方形にとっては「下向き」にたどられる。経路が逆向きだから、\(\omega\) の線積分はこの辺の上で\textbf{完全に打ち消し合う}。
 
 この相殺は面 \(S\) の内部の\textbf{すべての共有辺}で起こる。いくら細かく分割して足し合わせても、内部の辺の寄与はプラスマイナスで消えるのだ。
 
-\subsubsection{4.6.3 生き残るのは境界だけ}\label{ux751fux304dux6b8bux308bux306eux306fux5883ux754cux3060ux3051}
+\subsubsection{5.6.3 生き残るのは境界だけ}\label{ux751fux304dux6b8bux308bux306eux306fux5883ux754cux3060ux3051}
 
 すると、最終的に相殺されずに生き残る辺はどこか——\textbf{隣の長方形が存在しない辺}、すなわち面 \(S\) の\textbf{境界 \(\partial S\)} に沿った辺だけである。
 
@@ -2884,7 +2884,7 @@ dx \wedge dy &\longleftrightarrow \frac{\partial Q}{\partial x} - \frac{\partial
 
 \subsection{\texorpdfstring{§5.7 同じことをもう一段——\(2\)-form の外微分と発散}{§5.7 同じことをもう一段——2-form の外微分と発散}}\label{ux540cux3058ux3053ux3068ux3092ux3082ux3046ux4e00ux6bb52-form-ux306eux5916ux5faeux5206ux3068ux767aux6563}
 
-\subsubsection{\texorpdfstring{4.7.1 \(2\)-form は面の測定器}{4.7.1 2-form は面の測定器}}\label{form-ux306fux9762ux306eux6e2cux5b9aux5668}
+\subsubsection{\texorpdfstring{5.7.1 \(2\)-form は面の測定器}{5.7.1 2-form は面の測定器}}\label{form-ux306fux9762ux306eux6e2cux5b9aux5668}
 
 第3章 §3.4.2 で、一般の \(2\)-form を次の形で書いた：
 
@@ -2892,7 +2892,7 @@ dx \wedge dy &\longleftrightarrow \frac{\partial Q}{\partial x} - \frac{\partial
 
 これは「面に沿って流量を測る測定器」である。第2章 §2.4.5 で見たように、3つの基底 \(2\)-form がそれぞれ \(yz\) 平面、\(zx\) 平面、\(xy\) 平面への影の面積を測る。
 
-\subsubsection{4.7.2 微小直方体の表面で測る}\label{ux5faeux5c0fux76f4ux65b9ux4f53ux306eux8868ux9762ux3067ux6e2cux308b}
+\subsubsection{5.7.2 微小直方体の表面で測る}\label{ux5faeux5c0fux76f4ux65b9ux4f53ux306eux8868ux9762ux3067ux6e2cux308b}
 
 §5.3 と同じ精神で、今度は空間内の微小直方体 \([x, x+\Delta x] \times [y, y+\Delta y] \times [z, z+\Delta z]\) の\textbf{6つの面すべて}で \(\eta\) を積分する。向きは外向きに合わせる。
 
@@ -2913,7 +2913,7 @@ dx \wedge dy &\longleftrightarrow \frac{\partial Q}{\partial x} - \frac{\partial
 
 ここでも同じ構造だ——\textbf{表面で測ったズレの主項は、囲んだ体積に比例する}。比例係数 \(\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z}\) が「単位体積あたりの湧き出し」を表す。
 
-\subsubsection{\texorpdfstring{4.7.3 \(d\eta\) の定義と代数的導出}{4.7.3 d\textbackslash eta の定義と代数的導出}}\label{deta-ux306eux5b9aux7fa9ux3068ux4ee3ux6570ux7684ux5c0eux51fa}
+\subsubsection{\texorpdfstring{5.7.3 \(d\eta\) の定義と代数的導出}{5.7.3 d\textbackslash eta の定義と代数的導出}}\label{deta-ux306eux5b9aux7fa9ux3068ux4ee3ux6570ux7684ux5c0eux51fa}
 
 直方体の三辺 \(\Delta x\,\hat{e}_x,\; \Delta y\,\hat{e}_y,\; \Delta z\,\hat{e}_z\) を食わせる \(3\)-form として：
 
@@ -2943,7 +2943,7 @@ dx \wedge dy &\longleftrightarrow \frac{\partial Q}{\partial x} - \frac{\partial
 
 \(d\) は \(2\)-form → \(3\)-form の昇格を果たした。
 
-\subsubsection{4.7.4 ガウスの定理}\label{ux30acux30a6ux30b9ux306eux5b9aux7406}
+\subsubsection{5.7.4 ガウスの定理}\label{ux30acux30a6ux30b9ux306eux5b9aux7406}
 
 §5.6 と同じタイル貼りの論法——今度は立体 \(V\) を微小直方体で埋め尽くす——により、内部の面は相殺し、外面 \(\partial V\) だけが残る：
 
@@ -2976,7 +2976,7 @@ dx \wedge dy &\longleftrightarrow \frac{\partial Q}{\partial x} - \frac{\partial
 
 \subsection{\texorpdfstring{§5.8 \(d^2 = 0\)——二度測れば必ずゼロ}{§5.8 d\^{}2 = 0——二度測れば必ずゼロ}}\label{d2-0ux4e8cux5ea6ux6e2cux308cux3070ux5fc5ux305aux30bcux30ed}
 
-\subsubsection{\texorpdfstring{4.8.1 \(d(df) = 0\)}{4.8.1 d(df) = 0}}\label{ddf-0}
+\subsubsection{\texorpdfstring{5.8.1 \(d(df) = 0\)}{5.8.1 d(df) = 0}}\label{ddf-0}
 
 §5.1 で \(df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz\) を定義した。これをさらにもう一度外微分してみる。§5.5 の公式で \(P = \frac{\partial f}{\partial x},\; Q = \frac{\partial f}{\partial y},\; R = \frac{\partial f}{\partial z}\) とすれば：
 
@@ -2990,7 +2990,7 @@ dx \wedge dy &\longleftrightarrow \frac{\partial Q}{\partial x} - \frac{\partial
 \textbf{注} （数学者へのエクスキューズ——\(d^2=0\) と全微分可能性）本書では「\(f\) が全微分可能なら混合偏微分が可換、ゆえに \(d(df)=0\)」という順序で進めた。しかし微分形式の公理的な立場では、\textbf{\(d^2=0\) こそが \(d\) の定義の一部}であり、\(d(df)=0\) は定理ではなく要請である。逆に言えば、\(d^2=0\) を課すことが「混合偏微分の対称性が成り立つ関数クラス（＝全微分可能な関数）を相手にしている」という宣言に相当する。どちらの順序で学んでも、両者が同値な条件として噛み合うことに変わりはない。
 \end{quote}
 
-\subsubsection{\texorpdfstring{4.8.2 \(d(d\omega) = 0\)}{4.8.2 d(d\textbackslash omega) = 0}}\label{ddomega-0}
+\subsubsection{\texorpdfstring{5.8.2 \(d(d\omega) = 0\)}{5.8.2 d(d\textbackslash omega) = 0}}\label{ddomega-0}
 
 §5.5 の \(d\omega\) に §5.7 の公式を適用する。\(A = \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z},\; B = \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x},\; C = \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\) として：
 
@@ -3019,7 +3019,7 @@ dx \wedge dy &\longleftrightarrow \frac{\partial Q}{\partial x} - \frac{\partial
 
 \subsection{§5.9 外微分の統合——一つの式、一つのルール}\label{ux5916ux5faeux5206ux306eux7d71ux5408ux4e00ux3064ux306eux5f0fux4e00ux3064ux306eux30ebux30fcux30eb}
 
-\subsubsection{4.9.1 ストークスとガウスは同じ式だった}\label{ux30b9ux30c8ux30fcux30afux30b9ux3068ux30acux30a6ux30b9ux306fux540cux3058ux5f0fux3060ux3063ux305f}
+\subsubsection{5.9.1 ストークスとガウスは同じ式だった}\label{ux30b9ux30c8ux30fcux30afux30b9ux3068ux30acux30a6ux30b9ux306fux540cux3058ux5f0fux3060ux3063ux305f}
 
 §5.6 で得たストークスの定理 \(\oint_{\partial S}\omega = \iint_S d\omega\) と、§5.7 で得たガウスの定理 \(\iint_{\partial V}\eta = \iiint_V d\eta\)。並べてみると、\(\oint\)、\(\iint\)、\(\iiint\) と積分記号の数が違うだけで、構造は同一だ。\(M\) が曲線なら \(\int\)（1次元）、曲面なら \(\iint\)（2次元）、立体なら \(\iiint\)（3次元）——つまり積分記号の重なりは \(M\) の次元で決まるにすぎない。
 
@@ -3039,7 +3039,7 @@ dx \wedge dy &\longleftrightarrow \frac{\partial Q}{\partial x} - \frac{\partial
 \textbf{注} （3次元までで十分）本書の舞台は 3次元空間だから、\(M\) の次元は1・2・3のいずれかであり、\(\omega\) は \(0\)-form・\(1\)-form・\(2\)-form のいずれかである。\(k=3\)（\(M\) が4次元）には立ち入らない。しかしこの式が \(k\) によらず成立するという事実は、頭の片隅に置いておいて損はない。
 \end{quote}
 
-\subsubsection{\texorpdfstring{4.9.2 一般の \(k\)-form の外微分}{4.9.2 一般の k-form の外微分}}\label{ux4e00ux822cux306e-k-form-ux306eux5916ux5faeux5206}
+\subsubsection{\texorpdfstring{5.9.2 一般の \(k\)-form の外微分}{5.9.2 一般の k-form の外微分}}\label{ux4e00ux822cux306e-k-form-ux306eux5916ux5faeux5206}
 
 同様に、\(d\) の作用も次数によらず一つのパターンにまとまる。任意の \(k\)-form \(\omega\) が係数 \(a_{i_1\cdots i_k}\) と基底 \(dx^{i_1}\wedge\cdots\wedge dx^{i_k}\) の和で書かれているとき：
 
@@ -3047,7 +3047,7 @@ dx \wedge dy &\longleftrightarrow \frac{\partial Q}{\partial x} - \frac{\partial
 
 本書で必要なのは \(k=0,1,2\) の三つの場合だけであり、それぞれ §5.1（\(df\)）、§5.5（\(d\omega\)）、§5.7（\(d\eta\)）で具体的に書き下した。上の一般形は「どの次数でも、係数を全微分してウェッジでつなぐ」という単一の原理に従っていることの確認にすぎない。
 
-\subsubsection{4.9.3 計算ルールまとめ}\label{ux8a08ux7b97ux30ebux30fcux30ebux307eux3068ux3081}
+\subsubsection{5.9.3 計算ルールまとめ}\label{ux8a08ux7b97ux30ebux30fcux30ebux307eux3068ux3081}
 
 本章で構築した外微分 \(d\) の全計算は、以下の 4 つのルールに集約される：
 
@@ -3089,7 +3089,7 @@ dx \wedge dy &\longleftrightarrow \frac{\partial Q}{\partial x} - \frac{\partial
 
 \subsection{§5.10 積分から微分方程式へ——物理法則の局所化}\label{ux7a4dux5206ux304bux3089ux5faeux5206ux65b9ux7a0bux5f0fux3078ux7269ux7406ux6cd5ux5247ux306eux5c40ux6240ux5316}
 
-\subsubsection{4.10.1 積分法則を微分法則に変える}\label{ux7a4dux5206ux6cd5ux5247ux3092ux5faeux5206ux6cd5ux5247ux306bux5909ux3048ux308b}
+\subsubsection{5.10.1 積分法則を微分法則に変える}\label{ux7a4dux5206ux6cd5ux5247ux3092ux5faeux5206ux6cd5ux5247ux306bux5909ux3048ux308b}
 
 本章の冒頭に掲げた問いに戻ろう。
 
@@ -3121,7 +3121,7 @@ dx \wedge dy &\longleftrightarrow \frac{\partial Q}{\partial x} - \frac{\partial
 
 これが\textbf{積分法則から抽出された局所微分法則}である。\(d\) はまさに「積分方程式を微分方程式に変換する演算子」として機能したのだ。
 
-\subsubsection{4.10.2 物理の実例}\label{ux7269ux7406ux306eux5b9fux4f8b}
+\subsubsection{5.10.2 物理の実例}\label{ux7269ux7406ux306eux5b9fux4f8b}
 
 この構図は電磁気学の基本法則にも現れる。たとえば、閉じた曲線に沿って測る量と、その曲線が囲む面を貫く量が関係する法則は、左辺をストークスの定理で面積分に直すことで局所的な関係へ移る。また、閉曲面で測る量と内部の総量が関係する法則は、ガウスの定理を通じて体積の各点での関係へ移る。
 
@@ -3345,7 +3345,7 @@ d\eta_{z,\cdot,\cdot} = \begin{pmatrix}
 
 \subsection{\texorpdfstring{§6.1 パラメータ空間の内積——計量 \(g\) の正体}{§6.1 パラメータ空間の内積——計量 g の正体}}\label{ux30d1ux30e9ux30e1ux30fcux30bfux7a7aux9593ux306eux5185ux7a4dux8a08ux91cf-g-ux306eux6b63ux4f53}
 
-\subsubsection{5.1.1 実空間の内積}\label{ux5b9fux7a7aux9593ux306eux5185ux7a4d}
+\subsubsection{6.1.1 実空間の内積}\label{ux5b9fux7a7aux9593ux306eux5185ux7a4d}
 
 実空間 \((x,y,z)\) における二つの縦ベクトルを成分で書こう。
 
@@ -3359,7 +3359,7 @@ d\eta_{z,\cdot,\cdot} = \begin{pmatrix}
 
 \(xyz\) 座標での内積は、対応する成分同士を掛けて足し合わせるだけで計算できる。
 
-\subsubsection{5.1.2 内積を測定器として読み直す}\label{ux5185ux7a4dux3092ux6e2cux5b9aux5668ux3068ux3057ux3066ux8aadux307fux76f4ux3059}
+\subsubsection{6.1.2 内積を測定器として読み直す}\label{ux5185ux7a4dux3092ux6e2cux5b9aux5668ux3068ux3057ux3066ux8aadux307fux76f4ux3059}
 
 ここで、同じ計算を「測定器」の言葉で読み直しておこう。内積は一見すると、これまで扱ってきた測定器とは別系統の演算に見える。しかし実は、内積もまた「あるものを測定器に変え、別のものに作用させてスカラーを得る」操作として読むことができる。
 
@@ -3384,7 +3384,7 @@ d\eta_{z,\cdot,\cdot} = \begin{pmatrix}
 \textbf{注} （添字の上げ下げの正体）テンソル解析では、ベクトル成分と測定器側の成分を、上付き添字・下付き添字で区別する流儀がある。そして計量 \(g\) を使って添字を上げ下げする、と説明される。本書の言葉で言えば、その正体は「縦ベクトルを、内積を測る横ベクトルへ変換する」操作である。直交デカルト座標では \(g=I\) なので転置だけで済むが、次に見るようにパラメータ空間では途中に \(\mathbf{g}=J^T J\) を挟む必要が出てくる。
 \end{quote}
 
-\subsubsection{5.1.3 パラメータ空間で内積をとるには}\label{ux30d1ux30e9ux30e1ux30fcux30bfux7a7aux9593ux3067ux5185ux7a4dux3092ux3068ux308bux306bux306f}
+\subsubsection{6.1.3 パラメータ空間で内積をとるには}\label{ux30d1ux30e9ux30e1ux30fcux30bfux7a7aux9593ux3067ux5185ux7a4dux3092ux3068ux308bux306bux306f}
 
 では、同じ読み替えをパラメータ空間 \((r,\theta,z)\) で行うとどうなるか。
 
@@ -3515,7 +3515,7 @@ d\eta_{z,\cdot,\cdot} = \begin{pmatrix}
 
 \subsection{\texorpdfstring{§6.2 \(g\) による縦ベクトルと横ベクトルの変換}{§6.2 g による縦ベクトルと横ベクトルの変換}}\label{g-ux306bux3088ux308bux7e26ux30d9ux30afux30c8ux30ebux3068ux6a2aux30d9ux30afux30c8ux30ebux306eux5909ux63db}
 
-\subsubsection{\texorpdfstring{5.2.1 \(\mathbf{v}^T \mathbf{g}\) は横ベクトルである}{5.2.1 \textbackslash mathbf\{v\}\^{}T \textbackslash mathbf\{g\} は横ベクトルである}}\label{mathbfvt-mathbfg-ux306fux6a2aux30d9ux30afux30c8ux30ebux3067ux3042ux308b}
+\subsubsection{\texorpdfstring{6.2.1 \(\mathbf{v}^T \mathbf{g}\) は横ベクトルである}{6.2.1 \textbackslash mathbf\{v\}\^{}T \textbackslash mathbf\{g\} は横ベクトルである}}\label{mathbfvt-mathbfg-ux306fux6a2aux30d9ux30afux30c8ux30ebux3067ux3042ux308b}
 
 §6.1 で導いた内積の式 \(\mathbf{v}_1^T \mathbf{g} \,\mathbf{v}_2\) を、もう一度見てみよう。行列の積は左から順に実行できるから、この式は「まず \(\mathbf{v}_1^T \mathbf{g}\) を計算し、その結果に \(\mathbf{v}_2\) を掛ける」と読むことができる。
 
@@ -3535,7 +3535,7 @@ d\eta_{z,\cdot,\cdot} = \begin{pmatrix}
 
 \(g\) がなければ、「測られる図形」と「測る装置」は互いに変換不能である。\(g\) は両者を繫ぐ唯一の仲介者なのだ。
 
-\subsubsection{\texorpdfstring{5.2.2 計量が与えるもの——平行 \(k\) 面体の幾何学的な大きさ}{5.2.2 計量が与えるもの——平行 k 面体の幾何学的な大きさ}}\label{ux8a08ux91cfux304cux4e0eux3048ux308bux3082ux306eux5e73ux884c-k-ux9762ux4f53ux306eux5e7eux4f55ux5b66ux7684ux306aux5927ux304dux3055}
+\subsubsection{\texorpdfstring{6.2.2 計量が与えるもの——平行 \(k\) 面体の幾何学的な大きさ}{6.2.2 計量が与えるもの——平行 k 面体の幾何学的な大きさ}}\label{ux8a08ux91cfux304cux4e0eux3048ux308bux3082ux306eux5e73ux884c-k-ux9762ux4f53ux306eux5e7eux4f55ux5b66ux7684ux306aux5927ux304dux3055}
 
 計量 \(g\) の最も基本的な役割は、\(k\) 本のベクトルが貼る\textbf{平行 \(k\) 面体の実際の幾何学的な大きさ}（長さ・面積・体積）を定義することである。
 
@@ -3557,7 +3557,7 @@ d\eta_{z,\cdot,\cdot} = \begin{pmatrix}
 
 計量 \(g\) の役割は、この「\(xyz\) での計算」をパラメータ空間のような目盛りの歪んだ座標系へ一般化することである。いずれの場合も、\textbf{\(g\) が決まれば、あらゆる次数の平行 \(k\) 面体に一貫した幾何学的な大きさが定義できる}——これが計量の最も根本的な役割である。
 
-\subsubsection{5.2.3 内積の性質}\label{ux5185ux7a4dux306eux6027ux8cea}
+\subsubsection{6.2.3 内積の性質}\label{ux5185ux7a4dux306eux6027ux8cea}
 
 第5章で外微分 \(d\) の性質（線形性・次数を上げる・\(d^2=0\)・ライプニッツ則）をまとめたのと同じように、内積についても、ここまでの計算から浮かび上がる性質を整理しておこう。これらは特定の座標系に依存しない。
 
@@ -3575,7 +3575,7 @@ d\eta_{z,\cdot,\cdot} = \begin{pmatrix}
 \textbf{注} （対称行列と反対称行列の対比） 第2章で面積の計量器が反対称行列（\(M = -M^T\)）を要請したことと、 ここで内積が対称行列（\(\mathbf{g} = \mathbf{g}^T\)）を要請することは、 ちょうど対をなしている。前者は「重なればゼロ」、後者は「順番によらず同じ値」という、どちらもごく自然な要請から導かれる。行列の世界では、反対称が向き付きの数え上げ（符号付きの面積・体積）を、対称が向きなしの大きさ（符号なし面積・体積）と角度を司る。
 \end{quote}
 
-\subsubsection{5.2.4 計量行列の幾何を成分に宿らせる}\label{ux8a08ux91cfux884cux5217ux306eux5e7eux4f55ux3092ux6210ux5206ux306bux5bbfux3089ux305bux308b}
+\subsubsection{6.2.4 計量行列の幾何を成分に宿らせる}\label{ux8a08ux91cfux884cux5217ux306eux5e7eux4f55ux3092ux6210ux5206ux306bux5bbfux3089ux305bux308b}
 
 \(\mathbf{g}\) の対角成分は「その軸方向の一歩が長さにどれだけ効くか」、非対角成分は「異なる軸方向の一歩が互いにどれだけ干渉するか」を表す。円柱座標の \(\mathbf{g}\) が対角行列だったのは、\(r,\theta,z\) の各軸が互いに直交しているからだ。いずれにせよ、\(\mathbf{g}\) という一個の行列が、その場所での「ものさしの性質」のすべてを成分として担っている。
 
@@ -3602,7 +3602,7 @@ d\eta_{z,\cdot,\cdot} = \begin{pmatrix}
 
 \subsection{\texorpdfstring{§6.3 ホッジ・スター \(\ast\) ——二つの方法を繫ぐ対応}{§6.3 ホッジ・スター \textbackslash ast ——二つの方法を繫ぐ対応}}\label{ux30dbux30c3ux30b8ux30b9ux30bfux30fc-ast-ux4e8cux3064ux306eux65b9ux6cd5ux3092ux7e6bux3050ux5bfeux5fdc}
 
-\subsubsection{5.3.1 スカラーを得る二つの方法}\label{ux30b9ux30abux30e9ux30fcux3092ux5f97ux308bux4e8cux3064ux306eux65b9ux6cd5}
+\subsubsection{6.3.1 スカラーを得る二つの方法}\label{ux30b9ux30abux30e9ux30fcux3092ux5f97ux308bux4e8cux3064ux306eux65b9ux6cd5}
 
 ここまでで \(g = J^T J\) の正体が明らかになり、内積をどの座標系でも計算できるようになった。ここで、より大きな構図を見ておこう。
 
@@ -3639,7 +3639,7 @@ d\eta_{z,\cdot,\cdot} = \begin{pmatrix}
 \textbf{注} （ベクトル解析を知っている読者へ）通常のベクトル解析で面の向きや外積として扱われる操作の多くは、この \(\ast\) が与える対応として読み直せる。ただし本章では、それらを既知の公式として使うのではなく、\(g\) と第2章の基底 \(2\)-form から作り直す。
 \end{quote}
 
-\subsubsection{\texorpdfstring{5.3.2 行列から \(\ast\) を構成する}{5.3.2 行列から \textbackslash ast を構成する}}\label{ux884cux5217ux304bux3089-ast-ux3092ux69cbux6210ux3059ux308b}
+\subsubsection{\texorpdfstring{6.3.2 行列から \(\ast\) を構成する}{6.3.2 行列から \textbackslash ast を構成する}}\label{ux884cux5217ux304bux3089-ast-ux3092ux69cbux6210ux3059ux308b}
 
 付録Aで、我々は \(2\)-form を行列表示する方法を学んだ。\(dy \wedge dz\), \(dz \wedge dx\), \(dx \wedge dy\) という \(3\) つの基底 \(2\)-form は、それぞれ \(3 \times 3\) の反対称行列で表現できるのだった。
 
@@ -3690,7 +3690,7 @@ Q & -P & 0
 \textbf{注} （\(\ast\) の幾何学的意味）\(\ast\omega\) が表す \(2\)-form は、\(\omega\) の係数ベクトル \((P, Q, R)\) に直交する平面を測る面積測定器である。\(x\) 軸方向の線分（\(dx\)）に対応するのは \(x\) 軸に垂直な面（\(dy \wedge dz\)）。ベクトル解析で \(3\) 成分の矢印として扱われる量は、本書の言葉ではこの面積測定器の情報を読み替えたものだ。
 \end{quote}
 
-\subsubsection{\texorpdfstring{5.3.3 実空間での \(\ast\) 辞書}{5.3.3 実空間での \textbackslash ast 辞書}}\label{ux5b9fux7a7aux9593ux3067ux306e-ast-ux8f9eux66f8}
+\subsubsection{\texorpdfstring{6.3.3 実空間での \(\ast\) 辞書}{6.3.3 実空間での \textbackslash ast 辞書}}\label{ux5b9fux7a7aux9593ux3067ux306e-ast-ux8f9eux66f8}
 
 §6.3.2 で行ったのは、\(1\)-form の係数を \(dy \wedge dz\), \(dz \wedge dx\), \(dx \wedge dy\) という三つの面積測定器へ分配することだった。同じ手順を基底 \(1\)-form に対して繰り返す。すなわち、\(dx\) なら第1成分だけを、\(dy\) なら第2成分だけを、\(dz\) なら第3成分だけを取り出せばよい。
 
@@ -3709,7 +3709,7 @@ Q & -P & 0
 \textbf{注} （なぜこの辞書でよいのか）\(\ast dx = dy \wedge dz\) となるのは、\(dx,dy,dz\) が正規直交基底（互いに直交し、長さ \(1\)）であり、かつ空間の向きを \(dx \wedge dy \wedge dz\) が正となる右手系にとっているからだ。この条件のもとでは、上の辞書が一意的に定まる。パラメータ空間まで考慮すると、\(\ast\) の辞書は計量 \(g\) と空間の向きの選び方に依存する——言い換えると、\(g\) が \(I\) でなければ、辞書の係数はもっと複雑になる。
 \end{quote}
 
-\subsubsection{\texorpdfstring{5.3.4 \(\ast\ast = \mathrm{id}\)}{5.3.4 \textbackslash ast\textbackslash ast = \textbackslash mathrm\{id\}}}\label{astast-mathrmid}
+\subsubsection{\texorpdfstring{6.3.4 \(\ast\ast = \mathrm{id}\)}{6.3.4 \textbackslash ast\textbackslash ast = \textbackslash mathrm\{id\}}}\label{astast-mathrmid}
 
 上の辞書から直ちにわかるように、\(\ast\) を二度続けて作用させると元に戻る：
 
@@ -3732,7 +3732,7 @@ Q & -P & 0
 \end{itemize}
 \end{quote}
 
-\subsubsection{\texorpdfstring{5.3.5 \(\ast\) の性質}{5.3.5 \textbackslash ast の性質}}\label{ast-ux306eux6027ux8cea}
+\subsubsection{\texorpdfstring{6.3.5 \(\ast\) の性質}{6.3.5 \textbackslash ast の性質}}\label{ast-ux306eux6027ux8cea}
 
 §6.2.3 で内積の性質を、第5章で外微分 \(d\) の性質をまとめたのに倣い、\(\ast\) についてもここまでの構成から浮かび上がる性質を整理しておく。
 
@@ -3754,7 +3754,7 @@ Q & -P & 0
 
 \subsection{§6.4 対応の実例——微分形式とベクトル解析}\label{ux5bfeux5fdcux306eux5b9fux4f8bux5faeux5206ux5f62ux5f0fux3068ux30d9ux30afux30c8ux30ebux89e3ux6790}
 
-\subsubsection{\texorpdfstring{5.4.1 ジュール熱 \(P=VI\) ——二つの経路}{5.4.1 ジュール熱 P=VI ——二つの経路}}\label{ux30b8ux30e5ux30fcux30ebux71b1-pvi-ux4e8cux3064ux306eux7d4cux8def}
+\subsubsection{\texorpdfstring{6.4.1 ジュール熱 \(P=VI\) ——二つの経路}{6.4.1 ジュール熱 P=VI ——二つの経路}}\label{ux30b8ux30e5ux30fcux30ebux71b1-pvi-ux4e8cux3064ux306eux7d4cux8def}
 
 \(\ast\) が具体的にどのように微分形式と同種ベクトルの内積表示を繫いでいるか、実際の計算で確かめよう。
 
@@ -3793,7 +3793,7 @@ Q & -P & 0
 
 \textbf{つまり、\(\ast\) は方法①の \(3\)-form と方法②のスカラー表示を矛盾なく繫いでいる。} \(\ast\ast = \mathrm{id}\) があるからこそ、どちらの経路を通っても同じ結果に至るのだ。
 
-\subsubsection{\texorpdfstring{5.4.2 ヘリシティ \(A \cdot (\nabla \times A)\) ——\(\ast\) の往復}{5.4.2 ヘリシティ A \textbackslash cdot (\textbackslash nabla \textbackslash times A) ——\textbackslash ast の往復}}\label{ux30d8ux30eaux30b7ux30c6ux30a3-a-cdot-nabla-times-a-ast-ux306eux5f80ux5fa9}
+\subsubsection{\texorpdfstring{6.4.2 ヘリシティ \(A \cdot (\nabla \times A)\) ——\(\ast\) の往復}{6.4.2 ヘリシティ A \textbackslash cdot (\textbackslash nabla \textbackslash times A) ——\textbackslash ast の往復}}\label{ux30d8ux30eaux30b7ux30c6ux30a3-a-cdot-nabla-times-a-ast-ux306eux5f80ux5fa9}
 
 もう一つの例で、\(\ast\) の働きをさらに見てみよう。\(1\)-form \(\alpha\) と、その外微分 \(d\alpha\) を組み合わせた次の \(3\)-form を考える：
 
@@ -3856,7 +3856,7 @@ Q & -P & 0
 
 以降、ベクトル場 \(\mathbf{F} = (F_x, F_y, F_z)\) に対応する \(1\)-form を \(\omega = F_x\,dx + F_y\,dy + F_z\,dz\) と書く。
 
-\subsubsection{\texorpdfstring{5.5.1 勾配 \(\mathrm{grad}\,f = df\)}{5.5.1 勾配 \textbackslash mathrm\{grad\}\textbackslash,f = df}}\label{ux52feux914d-mathrmgradf-df}
+\subsubsection{\texorpdfstring{6.5.1 勾配 \(\mathrm{grad}\,f = df\)}{6.5.1 勾配 \textbackslash mathrm\{grad\}\textbackslash,f = df}}\label{ux52feux914d-mathrmgradf-df}
 
 これはすでに知っている。\(0\)-form（スカラー場）\(f\) の外微分 \(df\) は \(1\)-form であり、その係数は偏微分係数である：
 
@@ -3868,7 +3868,7 @@ Q & -P & 0
 
 \(d\) は次数を \(0 \to 1\) に上げる。これが勾配の正体である。勾配では、\(0\)-form から \(1\)-form への外微分だけが現れる。
 
-\subsubsection{\texorpdfstring{5.5.2 回転 \(\mathrm{rot}\,\mathbf{F} = \ast\,d\,\omega\)}{5.5.2 回転 \textbackslash mathrm\{rot\}\textbackslash,\textbackslash mathbf\{F\} = \textbackslash ast\textbackslash,d\textbackslash,\textbackslash omega}}\label{ux56deux8ee2-mathrmrotmathbff-astdomega}
+\subsubsection{\texorpdfstring{6.5.2 回転 \(\mathrm{rot}\,\mathbf{F} = \ast\,d\,\omega\)}{6.5.2 回転 \textbackslash mathrm\{rot\}\textbackslash,\textbackslash mathbf\{F\} = \textbackslash ast\textbackslash,d\textbackslash,\textbackslash omega}}\label{ux56deux8ee2-mathrmrotmathbff-astdomega}
 
 \(1\)-form \(\omega\) に \(d\) を作用させると \(2\)-form \(d\omega\) が得られる。その係数は第5章で導いたとおり：
 
@@ -3884,7 +3884,7 @@ Q & -P & 0
 
 \(\ast\,d\) は \(1\)-form \(\to\) \(2\)-form \(\to\) \(1\)-form という、次数を上げてから下げる操作である。この「上げて下げる」が、まさに回転の代数構造だ。
 
-\subsubsection{\texorpdfstring{5.5.3 発散 \(\mathrm{div}\,\mathbf{F} = \ast\,d\,\ast\,\omega\)}{5.5.3 発散 \textbackslash mathrm\{div\}\textbackslash,\textbackslash mathbf\{F\} = \textbackslash ast\textbackslash,d\textbackslash,\textbackslash ast\textbackslash,\textbackslash omega}}\label{ux767aux6563-mathrmdivmathbff-astdastomega}
+\subsubsection{\texorpdfstring{6.5.3 発散 \(\mathrm{div}\,\mathbf{F} = \ast\,d\,\ast\,\omega\)}{6.5.3 発散 \textbackslash mathrm\{div\}\textbackslash,\textbackslash mathbf\{F\} = \textbackslash ast\textbackslash,d\textbackslash,\textbackslash ast\textbackslash,\textbackslash omega}}\label{ux767aux6563-mathrmdivmathbff-astdastomega}
 
 さらに \(\ast\,d\,\ast\) と三つの演算子を連ねる。まず \(\ast\,\omega\) で \(1\)-form を \(2\)-form に変換し、\(d\) で \(3\)-form に上げ、最後に \(\ast\) で \(0\)-form（スカラー場）に落とす：
 
@@ -3900,7 +3900,7 @@ Q & -P & 0
 \textbf{注} （ベクトル解析を知っている読者へ）円柱座標や球座標での rot や div の公式が長くなる理由は、ここで明らかになったはずだ。rot は \(\ast\) を \(1\) 回、div は \(\ast\) を \(2\) 回使っている。\(\ast\) の辞書は計量 \(g\) に依存し、\(g\) は \(g = J^T J\) という場所の関数である。公式の複雑さは、裏で \(\ast\) と \(g\) が繰り返し適用されていることの結果に過ぎない。
 \end{quote}
 
-\subsubsection{\texorpdfstring{5.5.4 \(d^2 = 0\) の当然の帰結}{5.5.4 d\^{}2 = 0 の当然の帰結}}\label{d2-0-ux306eux5f53ux7136ux306eux5e30ux7d50}
+\subsubsection{\texorpdfstring{6.5.4 \(d^2 = 0\) の当然の帰結}{6.5.4 d\^{}2 = 0 の当然の帰結}}\label{d2-0-ux306eux5f53ux7136ux306eux5e30ux7d50}
 
 第5章で学んだ \(d^2 = 0\) を思い出そう。この一つの事実から、二つの恒等式が自動的に導かれる。
 
@@ -4195,7 +4195,7 @@ E_3 \cdot E_3 &= \frac{1}{2}\bigl(1^2 + (-1)^2\bigr) = 1
 
 \subsection{§7.1 ドット積とクロス積}\label{ux30c9ux30c3ux30c8ux7a4dux3068ux30afux30edux30b9ux7a4d}
 
-\subsubsection{6.1.1 ドット積}\label{ux30c9ux30c3ux30c8ux7a4d}
+\subsubsection{7.1.1 ドット積}\label{ux30c9ux30c3ux30c8ux7a4d}
 
 二つの縦ベクトル \(\mathbf{a} = (a_x, a_y, a_z)^T\), \(\mathbf{b} = (b_x, b_y, b_z)^T\) の\textbf{ドット積}（内積）を次で定義する。
 
@@ -4203,7 +4203,7 @@ E_3 \cdot E_3 &= \frac{1}{2}\bigl(1^2 + (-1)^2\bigr) = 1
 
 §5.2.3 で見たように、これは実空間 \((x,y,z)\) で \(\mathbf{g} = I\) とした場合の内積 \(\mathbf{a}^T \mathbf{g} \,\mathbf{b}\) に等しい。本書ではすでに縦ベクトルと横ベクトルの積として何度も使ってきた操作だ。
 
-\subsubsection{6.1.2 クロス積}\label{ux30afux30edux30b9ux7a4d}
+\subsubsection{7.1.2 クロス積}\label{ux30afux30edux30b9ux7a4d}
 
 二つの縦ベクトル \(\mathbf{a}, \mathbf{b}\) の\textbf{クロス積}（外積）を次で定義する。
 
@@ -4275,7 +4275,7 @@ a_x b_y - a_y b_x
 
 \subsection{\texorpdfstring{§7.2 \(\nabla\) と勾配}{§7.2 \textbackslash nabla と勾配}}\label{nabla-ux3068ux52feux914d}
 
-\subsubsection{\texorpdfstring{6.2.1 \(\nabla\) の定義}{6.2.1 \textbackslash nabla の定義}}\label{nabla-ux306eux5b9aux7fa9}
+\subsubsection{\texorpdfstring{7.2.1 \(\nabla\) の定義}{7.2.1 \textbackslash nabla の定義}}\label{nabla-ux306eux5b9aux7fa9}
 
 ナブラ \(\nabla\) を、偏微分演算子を縦に並べた形式的なベクトルとして定義する。
 
@@ -4289,7 +4289,7 @@ a_x b_y - a_y b_x
 
 \(\nabla\) は「ベクトル」だが、その成分は数ではなく\textbf{微分演算子}である。\(\nabla\) は単独では意味を持たず、何かに作用して初めて値が定まる。
 
-\subsubsection{6.2.2 勾配}\label{ux52feux914d}
+\subsubsection{7.2.2 勾配}\label{ux52feux914d}
 
 スカラー場 \(f(x,y,z)\) に \(\nabla\) を作用させたものを\textbf{勾配}と呼び、\(\mathrm{grad}\,f\) または \(\nabla f\) と書く。
 
@@ -4448,7 +4448,7 @@ F_x \\ F_y \\ F_z
 
 ここまでに定義した三つの演算の間には、二つの重要な恒等式が成り立つ。どちらも「二度作用させるとゼロになる」という形をしている。
 
-\subsubsection{\texorpdfstring{6.6.1 \(\mathrm{rot}(\mathrm{grad}\,f) = \mathbf{0}\)}{6.6.1 \textbackslash mathrm\{rot\}(\textbackslash mathrm\{grad\}\textbackslash,f) = \textbackslash mathbf\{0\}}}\label{mathrmrotmathrmgradf-mathbf0}
+\subsubsection{\texorpdfstring{7.6.1 \(\mathrm{rot}(\mathrm{grad}\,f) = \mathbf{0}\)}{7.6.1 \textbackslash mathrm\{rot\}(\textbackslash mathrm\{grad\}\textbackslash,f) = \textbackslash mathbf\{0\}}}\label{mathrmrotmathrmgradf-mathbf0}
 
 勾配でベクトル場を得て、その回転をとると必ずゼロベクトルになる。
 
@@ -4464,7 +4464,7 @@ F_x \\ F_y \\ F_z
 
 物理的意味：「勾配場には渦がない」。重力場や静電場がこれに当たる。
 
-\subsubsection{\texorpdfstring{6.6.2 \(\mathrm{div}(\mathrm{rot}\,\mathbf{F}) = 0\)}{6.6.2 \textbackslash mathrm\{div\}(\textbackslash mathrm\{rot\}\textbackslash,\textbackslash mathbf\{F\}) = 0}}\label{mathrmdivmathrmrotmathbff-0}
+\subsubsection{\texorpdfstring{7.6.2 \(\mathrm{div}(\mathrm{rot}\,\mathbf{F}) = 0\)}{7.6.2 \textbackslash mathrm\{div\}(\textbackslash mathrm\{rot\}\textbackslash,\textbackslash mathbf\{F\}) = 0}}\label{mathrmdivmathrmrotmathbff-0}
 
 回転でベクトル場を得て、その発散をとると必ずゼロになる。
 
@@ -4495,7 +4495,7 @@ F_x \\ F_y \\ F_z
 
 実用的な計算のために、\(\nabla\) を含む積の微分則と代表的なベクトル恒等式をまとめておく。以下、\(f, g\) はスカラー場、\(\mathbf{F}, \mathbf{G}\) はベクトル場とする。
 
-\subsubsection{6.7.1 積の微分則}\label{ux7a4dux306eux5faeux5206ux5247}
+\subsubsection{7.7.1 積の微分則}\label{ux7a4dux306eux5faeux5206ux5247}
 
 \textbf{勾配の積}：
 
@@ -4513,7 +4513,7 @@ F_x \\ F_y \\ F_z
 
 \[\nabla \cdot (\mathbf{F} \times \mathbf{G}) = (\nabla \times \mathbf{F}) \cdot \mathbf{G} - \mathbf{F} \cdot (\nabla \times \mathbf{G})\]
 
-\subsubsection{6.7.2 二回作用の恒等式}\label{ux4e8cux56deux4f5cux7528ux306eux6052ux7b49ux5f0f}
+\subsubsection{7.7.2 二回作用の恒等式}\label{ux4e8cux56deux4f5cux7528ux306eux6052ux7b49ux5f0f}
 
 スカラー場の勾配の回転と、ベクトル場の回転の発散は §7.6 で導いた。公式集として再掲する。
 
@@ -4537,7 +4537,7 @@ F_x \\ F_y \\ F_z
 
 §7.5 の定義そのもの。
 
-\subsubsection{6.7.3 スカラー三重積}\label{ux30b9ux30abux30e9ux30fcux4e09ux91cdux7a4d}
+\subsubsection{7.7.3 スカラー三重積}\label{ux30b9ux30abux30e9ux30fcux4e09ux91cdux7a4d}
 
 三つの縦ベクトル \(\mathbf{A}, \mathbf{B}, \mathbf{C}\) のスカラー三重積は、\(\mathbf{A}\) と \(\mathbf{B}\times\mathbf{C}\) のドット積で定義される。
 
@@ -4547,7 +4547,7 @@ F_x \\ F_y \\ F_z
 
 \[\mathbf{A} \cdot (\mathbf{B} \times \mathbf{C}) = \mathbf{B} \cdot (\mathbf{C} \times \mathbf{A}) = \mathbf{C} \cdot (\mathbf{A} \times \mathbf{B})\]
 
-\subsubsection{6.7.4 ベクトル三重積（BAC-CAB 則）}\label{ux30d9ux30afux30c8ux30ebux4e09ux91cdux7a4dbac-cab-ux5247}
+\subsubsection{7.7.4 ベクトル三重積（BAC-CAB 則）}\label{ux30d9ux30afux30c8ux30ebux4e09ux91cdux7a4dbac-cab-ux5247}
 
 \[\mathbf{A} \times (\mathbf{B} \times \mathbf{C}) = \mathbf{B}(\mathbf{A} \cdot \mathbf{C}) - \mathbf{C}(\mathbf{A} \cdot \mathbf{B})\]
 
@@ -4575,7 +4575,7 @@ F_x \\ F_y \\ F_z
 
 ベクトル解析の最も重要な仕事は、微分演算（grad, div, rot）と積分を結びつけることにある。以下に三つの積分定理を、\(\nabla\) の言葉で示す。
 
-\subsubsection{6.8.1 ストークスの定理}\label{ux30b9ux30c8ux30fcux30afux30b9ux306eux5b9aux7406}
+\subsubsection{7.8.1 ストークスの定理}\label{ux30b9ux30c8ux30fcux30afux30b9ux306eux5b9aux7406}
 
 曲面 \(S\) とその境界である閉曲線 \(C = \partial S\) に対し、
 
@@ -4589,7 +4589,7 @@ F_x \\ F_y \\ F_z
 \[\oint_{\partial D} (P\,dx + Q\,dy) = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dx\,dy\]
 \end{quote}
 
-\subsubsection{6.8.2 ガウスの発散定理}\label{ux30acux30a6ux30b9ux306eux767aux6563ux5b9aux7406}
+\subsubsection{7.8.2 ガウスの発散定理}\label{ux30acux30a6ux30b9ux306eux767aux6563ux5b9aux7406}
 
 立体 \(V\) とその境界である閉曲面 \(S = \partial V\) に対し、
 
@@ -4597,7 +4597,7 @@ F_x \\ F_y \\ F_z
 
 左辺は閉曲面 \(S\) を通る \(\mathbf{F}\) の外向きの流束、右辺は立体 \(V\) 内の発散の体積分である。「境界を通る流れの総和は、内部の湧き出しの総和に等しい」という意味を持つ。
 
-\subsubsection{6.8.3 三つの定理の共通構造}\label{ux4e09ux3064ux306eux5b9aux7406ux306eux5171ux901aux69cbux9020}
+\subsubsection{7.8.3 三つの定理の共通構造}\label{ux4e09ux3064ux306eux5b9aux7406ux306eux5171ux901aux69cbux9020}
 
 ストークスの定理とガウスの発散定理を並べて見ると、共通のパターンが浮かぶ。
 
@@ -4688,7 +4688,7 @@ F_x \\ F_y \\ F_z
 
 \subsection{§8.1 二つの微分、二つの世界}\label{ux4e8cux3064ux306eux5faeux5206ux4e8cux3064ux306eux4e16ux754c}
 
-\subsubsection{\texorpdfstring{7.1.1 測定器に微分を乗せる——\(d\) の立場}{7.1.1 測定器に微分を乗せる——d の立場}}\label{ux6e2cux5b9aux5668ux306bux5faeux5206ux3092ux4e57ux305bux308bd-ux306eux7acbux5834}
+\subsubsection{\texorpdfstring{8.1.1 測定器に微分を乗せる——\(d\) の立場}{8.1.1 測定器に微分を乗せる——d の立場}}\label{ux6e2cux5b9aux5668ux306bux5faeux5206ux3092ux4e57ux305bux308bd-ux306eux7acbux5834}
 
 第1章以来、我々は \(dx = \begin{pmatrix}1&0&0\end{pmatrix}\), \(dy = \begin{pmatrix}0&1&0\end{pmatrix}\), \(dz = \begin{pmatrix}0&0&1\end{pmatrix}\) を横ベクトルの測定器として扱ってきた。これらは縦ベクトル（変位）を食わせると、その方向の変位量をスカラーで返す。
 
@@ -4710,7 +4710,7 @@ F_x \\ F_y \\ F_z
 
 このように、\(d\) が作用するたびに測定器の次数が \(0\to1\to2\to3\) と一つずつ上がっていく。核心は\textbf{場はそのまま、測定器の側が変化する}ことだ。\(f\) はスカラー場のままだが、\(d\) が作用するたびに新しい測定器——\(df\)（\(1\)-form）、\(d\omega\)（\(2\)-form）、\(d\eta\)（\(3\)-form）——が生み出される。
 
-\subsubsection{\texorpdfstring{7.1.2 測定器はそのまま、新たな場を考える——\(\nabla\) の立場}{7.1.2 測定器はそのまま、新たな場を考える——\textbackslash nabla の立場}}\label{ux6e2cux5b9aux5668ux306fux305dux306eux307eux307eux65b0ux305fux306aux5834ux3092ux8003ux3048ux308bnabla-ux306eux7acbux5834}
+\subsubsection{\texorpdfstring{8.1.2 測定器はそのまま、新たな場を考える——\(\nabla\) の立場}{8.1.2 測定器はそのまま、新たな場を考える——\textbackslash nabla の立場}}\label{ux6e2cux5b9aux5668ux306fux305dux306eux307eux307eux65b0ux305fux306aux5834ux3092ux8003ux3048ux308bnabla-ux306eux7acbux5834}
 
 一方、第7章で導入した \(\nabla = \begin{pmatrix} \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \end{pmatrix}^T\) の世界では、\textbf{測定器（\(\nabla\)）は変わらず、作用する相手に応じて新たな場が生まれる}。\(\nabla\) はつねに同じ演算子だが、スカラー場 \(f\) に作用すればベクトル場 \(\nabla f\) を、ベクトル場 \(\mathbf{F}\) に作用すればスカラー場 \(\nabla\cdot\mathbf{F}\) やベクトル場 \(\nabla\times\mathbf{F}\) を返す。
 
@@ -4757,7 +4757,7 @@ F_x \\ F_y \\ F_z
 
 以下、ベクトル場 \(\mathbf{F} = (F_x, F_y, F_z)^T\) に対応する \(1\)-form を \(\omega = F_x\,dx + F_y\,dy + F_z\,dz\) と書く。
 
-\subsubsection{7.2.1 勾配}\label{ux52feux914d-1}
+\subsubsection{8.2.1 勾配}\label{ux52feux914d-1}
 
 \[
 \mathrm{grad}\,f = \nabla f
@@ -4767,7 +4767,7 @@ df = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy + \frac{\
 
 \(\nabla f\) は\textbf{縦ベクトル}、\(df\) は\textbf{横ベクトル}。転置の関係にある。本書の記法では、\(\nabla f\) の各成分と \(df\) の各成分は数値として同じだが、縦と横の区別が「場の見方」と「測定器の見方」の違いを反映している。
 
-\subsubsection{7.2.2 回転}\label{ux56deux8ee2-1}
+\subsubsection{8.2.2 回転}\label{ux56deux8ee2-1}
 
 \[
 \mathrm{rot}\,\mathbf{F} = \nabla \times \mathbf{F}
@@ -4779,7 +4779,7 @@ df = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy + \frac{\
 
 \(\nabla\times\mathbf{F}\) の \(x\) 成分 \(\frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z}\) は、\(\ast d\omega\) の \(dx\) の係数と一致する。これは §5.5.2 で確認した通りである。
 
-\subsubsection{7.2.3 発散}\label{ux767aux6563-1}
+\subsubsection{8.2.3 発散}\label{ux767aux6563-1}
 
 \[
 \mathrm{div}\,\mathbf{F} = \nabla \cdot \mathbf{F}
@@ -4789,7 +4789,7 @@ df = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy + \frac{\
 
 \(\nabla\cdot\mathbf{F}\) は\textbf{スカラー場}、\(\ast d\ast\omega\) も\textbf{\(0\)-form（スカラー場）}である。発散は「ホッジ・スターで \(2\)-form に変え、外微分で \(3\)-form に上げ、再びホッジ・スターでスカラーに落とす」という三段階の操作だ。
 
-\subsubsection{7.2.4 辞書の表}\label{ux8f9eux66f8ux306eux8868}
+\subsubsection{8.2.4 辞書の表}\label{ux8f9eux66f8ux306eux8868}
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
@@ -4842,7 +4842,7 @@ df = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy + \frac{\
 
 第5章 §4.6 で、我々はすでに \(\int_{\partial S}\omega = \int_S d\omega\) という形のストークスの定理を導いた。第7章 §6.8.1 では、同じ定理を \(\nabla\) の言葉で \(\oint_C \mathbf{F}\cdot d\mathbf{r} = \iint_S (\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS\) と書いた。この二つが同じものであることを、§8.2 の辞書を使って確認する。
 
-\subsubsection{\texorpdfstring{7.3.1 \(\nabla\) から \(d\) へ}{7.3.1 \textbackslash nabla から d へ}}\label{nabla-ux304bux3089-d-ux3078}
+\subsubsection{\texorpdfstring{8.3.1 \(\nabla\) から \(d\) へ}{8.3.1 \textbackslash nabla から d へ}}\label{nabla-ux304bux3089-d-ux3078}
 
 \(\nabla\) 表記のストークスの定理を出発点とする。
 
@@ -4862,7 +4862,7 @@ df = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy + \frac{\
 
 これは第5章 §4.6 で得た式そのものである。\(\nabla\) の世界のストークスの定理は、辞書を通じて \(d\) の言葉に翻訳すると、ただの \(\int_{\partial M}\omega = \int_M d\omega\) になる。
 
-\subsubsection{7.3.2 翻訳の往復——どちらからでも行ける}\label{ux7ffbux8a33ux306eux5f80ux5fa9ux3069ux3061ux3089ux304bux3089ux3067ux3082ux884cux3051ux308b}
+\subsubsection{8.3.2 翻訳の往復——どちらからでも行ける}\label{ux7ffbux8a33ux306eux5f80ux5fa9ux3069ux3061ux3089ux304bux3089ux3067ux3082ux884cux3051ux308b}
 
 逆方向もできる。\(d\) の言葉で書かれた式に辞書を逆に当てれば、\(\nabla\) の言葉に戻る。この双方向の翻訳が自由にできることこそ、第6章で \(\ast\) を導入した最大の成果である。
 
@@ -4892,7 +4892,7 @@ df = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy + \frac{\
 
 これは第5章 §4.7 で得たガウスの定理の \(d\)-form 表現そのものだ。そしてこの式は、すでに §4.9.1 で \(\int_{\partial M}\omega = \int_M d\omega\) の \(k=2\) の場合として統合されている。
 
-\subsubsection{7.4.1 三つの定理、一つの式}\label{ux4e09ux3064ux306eux5b9aux7406ux4e00ux3064ux306eux5f0f}
+\subsubsection{8.4.1 三つの定理、一つの式}\label{ux4e09ux3064ux306eux5b9aux7406ux4e00ux3064ux306eux5f0f}
 
 第7章で別々の定理として並べた三つの積分定理——グリーン、ストークス、ガウス——は、\(\nabla\) の言葉では確かに異なる顔をしていた。しかし \(d\) の言葉に翻訳すれば、すべてが \(\int_{\partial M}\omega = \int_M d\omega\) の \(k\) の値が違うだけの同一の式になる。
 
@@ -4931,7 +4931,7 @@ df = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy + \frac{\
 
 第6章 §5.3.1 で、スカラーを得る二つの方法を導入した。本章の翻訳作業を経て、この二つの方法論の対比をより深く理解できる段階に来た。ここで改めて、二つの視点を突き合わせる。
 
-\subsubsection{7.5.1 方法①（dの方法）——場はそのまま、測定器の側が変化する}\label{ux65b9ux6cd5ux2460dux306eux65b9ux6cd5ux5834ux306fux305dux306eux307eux307eux6e2cux5b9aux5668ux306eux5074ux304cux5909ux5316ux3059ux308b}
+\subsubsection{8.5.1 方法①（dの方法）——場はそのまま、測定器の側が変化する}\label{ux65b9ux6cd5ux2460dux306eux65b9ux6cd5ux5834ux306fux305dux306eux307eux307eux6e2cux5b9aux5668ux306eux5074ux304cux5909ux5316ux3059ux308b}
 
 場そのものには手を触れない。\(d\) が作用するたびに、\textbf{新しい測定器が生み出される}。
 
@@ -4948,7 +4948,7 @@ df = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy + \frac{\
 
 積分は、作った測定器を領域に適用するだけである。そして \(\int_{\partial M}\omega = \int_M d\omega\) が、測定器のすげ替えと積分の間の整合性を保証する。
 
-\subsubsection{7.5.2 方法②（∇の方法）——測定器はそのまま、新たな場を考える}\label{ux65b9ux6cd5ux2461ux306eux65b9ux6cd5ux6e2cux5b9aux5668ux306fux305dux306eux307eux307eux65b0ux305fux306aux5834ux3092ux8003ux3048ux308b}
+\subsubsection{8.5.2 方法②（∇の方法）——測定器はそのまま、新たな場を考える}\label{ux65b9ux6cd5ux2461ux306eux65b9ux6cd5ux6e2cux5b9aux5668ux306fux305dux306eux307eux307eux65b0ux305fux306aux5834ux3092ux8003ux3048ux308b}
 
 \(\nabla\) という測定器はつねに同じ。作用する相手に応じて、\textbf{異なる種類の場が結果として生まれる}。
 
@@ -4963,7 +4963,7 @@ df = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy + \frac{\
 
 この立場では、\(\nabla f\) も \(\nabla\times\mathbf{F}\) も画面上では同じ「矢印」である。勾配の矢印と回転の矢印は幾何的意味がまったく異なるのに、表示上は区別がつかない。第7章で指摘した「すべてが同じ矢印に見える」問題がここにある。
 
-\subsubsection{7.5.3 なぜ一致するのか}\label{ux306aux305cux4e00ux81f4ux3059ux308bux306eux304b}
+\subsubsection{8.5.3 なぜ一致するのか}\label{ux306aux305cux4e00ux81f4ux3059ux308bux306eux304b}
 
 方法①と方法②は、やっていることが\textbf{根本的に違う}。一方は場をそのままに新しい測定器を生み出し、他方は測定器をそのままに新たな場を考える。操作方法も、出てくる対象の種類も異なる。
 
@@ -5006,7 +5006,7 @@ df = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy + \frac{\
 
 §8.2 の辞書はデカルト座標 \((x,y,z)\) で \(\mathbf{g}=I\) を前提としていた。一般の座標系では計量 \(g = J^T J\) が単位行列ではなくなり、\(\ast\) の辞書も変わる。ここでは円柱座標を例に、辞書の変化を確認したあと、§8.5 で語った二つの方法論を目の前で回してみる。
 
-\subsubsection{7.6.1 辞書は計量で変わる}\label{ux8f9eux66f8ux306fux8a08ux91cfux3067ux5909ux308fux308b}
+\subsubsection{8.6.1 辞書は計量で変わる}\label{ux8f9eux66f8ux306fux8a08ux91cfux3067ux5909ux308fux308b}
 
 第6章 §5.1.3 で円柱座標の計量を導出した。
 
@@ -5024,7 +5024,7 @@ df = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy + \frac{\
 
 \(r\) や \(1/r\) という係数は \(\mathbf{g} = J^T J\) の対角成分 \(1, r^2, 1\) から決まる。\(\ast\) の辞書は、その場所の計量を反映して場所ごとに異なる係数を持つ。
 
-\subsubsection{7.6.2 二つの方法を回してみる}\label{ux4e8cux3064ux306eux65b9ux6cd5ux3092ux56deux3057ux3066ux307fux308b}
+\subsubsection{8.6.2 二つの方法を回してみる}\label{ux4e8cux3064ux306eux65b9ux6cd5ux3092ux56deux3057ux3066ux307fux308b}
 
 辞書が変わるということは、§8.1 で対比した二つの方法の違いが具体的な計算に現れるということだ。ここで、同じ問題を二つの方法で実際に解いてみよう。題材は「二次元平面上のある点での発散を求める」である。
 
@@ -5076,7 +5076,7 @@ d\ast\tilde{\omega} &= \left(\frac{\partial}{\partial r}(r F_r) + \frac{\partial
 
 方法①は均一な正方形グリッドで測り、方法②は扇形の小片を描いて流れを数える。やっていることはまったく違う。しかし出てくる答えは同じ \(\frac{1}{r}\frac{\partial}{\partial r}(rF_r) + \frac{1}{r}\frac{\partial F_\theta}{\partial\theta}\) だ。そして、この一致は発散に限らない。勾配も回転もラプラシアンも、すべての微分演算がこの二つの方法で構成できる。単純な座標変換なら方法②のほうが早いこともあるが、座標系が歪んだり場の種類が入り組んだりしたら方法①に切り替えればよい。
 
-\subsubsection{7.6.3 曲線座標での発散と回転}\label{ux66f2ux7ddaux5ea7ux6a19ux3067ux306eux767aux6563ux3068ux56deux8ee2}
+\subsubsection{8.6.3 曲線座標での発散と回転}\label{ux66f2ux7ddaux5ea7ux6a19ux3067ux306eux767aux6563ux3068ux56deux8ee2}
 
 §8.6.1 の辞書と §8.6.2 の方法①を組み合わせれば、円柱座標での発散と回転の公式が機械的に導出できる。結果だけを示す（\(\mathbf{F} = (F_r, F_\theta, F_z)^T\)）。
 
@@ -5147,7 +5147,7 @@ d\ast\tilde{\omega} &= \left(\frac{\partial}{\partial r}(r F_r) + \frac{\partial
 
 \subsection{\texorpdfstring{§9.2 円柱座標 \((r,\theta,z)\)}{§9.2 円柱座標 (r,\textbackslash theta,z)}}\label{ux5186ux67f1ux5ea7ux6a19-rthetaz}
 
-\subsubsection{8.2.1 辞書の導出}\label{ux8f9eux66f8ux306eux5c0eux51fa}
+\subsubsection{9.2.1 辞書の導出}\label{ux8f9eux66f8ux306eux5c0eux51fa}
 
 円柱座標への変換は \(x = r\cos\theta\), \(y = r\sin\theta\), \(z = z\)。
 
@@ -5174,7 +5174,7 @@ d\ast\tilde{\omega} &= \left(\frac{\partial}{\partial r}(r F_r) + \frac{\partial
 
 また \(\ast(1) = r\,dr\wedge d\theta\wedge dz\), \(\ast(dr\wedge d\theta\wedge dz) = 1/r\)。
 
-\subsubsection{8.2.2 勾配}\label{ux52feux914d-2}
+\subsubsection{9.2.2 勾配}\label{ux52feux914d-2}
 
 \(\mathrm{grad}\,f = df\) は \(\ast\) を使わない。単に偏微分係数を基底 \(1\)-form に載せるだけだ。
 
@@ -5188,7 +5188,7 @@ d\ast\tilde{\omega} &= \left(\frac{\partial}{\partial r}(r F_r) + \frac{\partial
 
 \(\theta\) 成分に \(\frac{1}{r}\) がつくのは、\(\nabla f\) が正規直交基底に対する成分だからだ。\(df\) の \(d\theta\) の係数 \(\frac{\partial f}{\partial\theta}\) は「角度あたりの変化率」だが、\(\nabla f\) の \(\mathbf{e}_\theta\) 成分は「長さあたりの変化率」であり、\(d\theta\) が弧長 \(r\,d\theta\) に対応するための換算 \(\frac{1}{r}\) が必要になる。
 
-\subsubsection{8.2.3 発散}\label{ux767aux6563-2}
+\subsubsection{9.2.3 発散}\label{ux767aux6563-2}
 
 \(\mathbf{F} = (F_r, F_\theta, F_z)^T\) に対応する \(1\)-form は \(\tilde{\omega} = F_r\,dr + rF_\theta\,d\theta + F_z\,dz\) である（§7.6.2 で確認したように、\(d\theta\) の係数は \(rF_\theta\)）。
 
@@ -5205,7 +5205,7 @@ d\ast\omega &= \left(\frac{\partial}{\partial r}(rF_r) + \frac{\partial F_\theta
 
 これが円柱座標での発散の公式である。
 
-\subsubsection{8.2.4 回転}\label{ux56deux8ee2-2}
+\subsubsection{9.2.4 回転}\label{ux56deux8ee2-2}
 
 回転は \(\mathrm{rot}\,\mathbf{F} \leftrightarrow \ast d\omega\)。
 
@@ -5229,7 +5229,7 @@ d\ast\omega &= \left(\frac{\partial}{\partial r}(rF_r) + \frac{\partial F_\theta
 
 \subsection{\texorpdfstring{§9.3 球座標 \((\rho,\theta,\phi)\)}{§9.3 球座標 (\textbackslash rho,\textbackslash theta,\textbackslash phi)}}\label{ux7403ux5ea7ux6a19-rhothetaphi}
 
-\subsubsection{8.3.1 辞書の導出}\label{ux8f9eux66f8ux306eux5c0eux51fa-1}
+\subsubsection{9.3.1 辞書の導出}\label{ux8f9eux66f8ux306eux5c0eux51fa-1}
 
 球座標への変換は \(x = \rho\sin\theta\cos\phi\), \(y = \rho\sin\theta\sin\phi\), \(z = \rho\cos\theta\)（\(\theta\) は \(z\) 軸からの角度、\(\phi\) は \(xy\) 平面内の方位角）。
 
@@ -5254,7 +5254,7 @@ d\ast\omega &= \left(\frac{\partial}{\partial r}(rF_r) + \frac{\partial F_\theta
 \ast(d\phi) &= \frac{1}{\sin\theta}\; d\rho \wedge d\theta
 \end{aligned}\]
 
-\subsubsection{8.3.2 発散}\label{ux767aux6563-3}
+\subsubsection{9.3.2 発散}\label{ux767aux6563-3}
 
 \(\mathbf{F} = (F_\rho, F_\theta, F_\phi)^T\) の \(1\)-form への変換では、\(d\rho\) の係数は \(F_\rho\)（\(\rho\) はすでに長さ）、\(d\theta\) の係数は \(\rho F_\theta\)、\(d\phi\) の係数は \(\rho\sin\theta\,F_\phi\) となる（それぞれ弧長 \(\rho\,d\theta\), \(\rho\sin\theta\,d\phi\) に対応）。
 
@@ -5270,7 +5270,7 @@ d\ast\omega &= \left(\frac{\partial}{\partial r}(rF_r) + \frac{\partial F_\theta
 
 \[\nabla \cdot \mathbf{F} = \frac{1}{\rho^2}\frac{\partial}{\partial\rho}(\rho^2 F_\rho) + \frac{1}{\rho\sin\theta}\frac{\partial}{\partial\theta}(\sin\theta\,F_\theta) + \frac{1}{\rho\sin\theta}\frac{\partial F_\phi}{\partial\phi}\]
 
-\subsubsection{8.3.3 回転}\label{ux56deux8ee2-3}
+\subsubsection{9.3.3 回転}\label{ux56deux8ee2-3}
 
 同様に \(\ast d\omega\) から、
 
@@ -5303,7 +5303,7 @@ d\ast\omega &= \left(\frac{\partial}{\partial r}(rF_r) + \frac{\partial F_\theta
 
 球座標で \(\omega = F_\rho\,d\rho + \rho F_\theta\,d\theta + \rho\sin\theta\,F_\phi\,d\phi\) から出発し、\(d\ast d\ast\omega\) と \(\ast d\ast d\omega\) を個別に計算して差をとる。
 
-\subsubsection{8.4.1 第一項——勾配の発散}\label{ux7b2cux4e00ux9805ux52feux914dux306eux767aux6563}
+\subsubsection{9.4.1 第一項——勾配の発散}\label{ux7b2cux4e00ux9805ux52feux914dux306eux767aux6563}
 
 §9.3.2 より、発散は
 
@@ -5319,7 +5319,7 @@ d\ast\omega &= \left(\frac{\partial}{\partial r}(rF_r) + \frac{\partial F_\theta
 \end{pmatrix}\)}
 \end{center}
 
-\subsubsection{8.4.2 第二項——回転の回転}\label{ux7b2cux4e8cux9805ux56deux8ee2ux306eux56deux8ee2}
+\subsubsection{9.4.2 第二項——回転の回転}\label{ux7b2cux4e8cux9805ux56deux8ee2ux306eux56deux8ee2}
 
 §9.3.3 の回転の結果を \(C_\rho, C_\theta, C_\phi\) とおく。
 
@@ -5337,7 +5337,7 @@ C_\phi &= \frac{1}{\rho}\frac{\partial}{\partial\rho}(\rho F_\theta) - \frac{1}{
 (\nabla\times(\nabla\times\mathbf{F}))_\phi &= \frac{1}{\rho}\frac{\partial}{\partial\rho}(\rho C_\theta) - \frac{1}{\rho}\frac{\partial C_\rho}{\partial\theta}
 \end{aligned}\]
 
-\subsubsection{8.4.3 差をとる——ベクトルラプラシアン}\label{ux5deeux3092ux3068ux308bux30d9ux30afux30c8ux30ebux30e9ux30d7ux30e9ux30b7ux30a2ux30f3}
+\subsubsection{9.4.3 差をとる——ベクトルラプラシアン}\label{ux5deeux3092ux3068ux308bux30d9ux30afux30c8ux30ebux30e9ux30d7ux30e9ux30b7ux30a2ux30f3}
 
 \(\nabla^2\mathbf{F} = \nabla(\nabla\cdot\mathbf{F}) - \nabla\times(\nabla\times\mathbf{F})\) だから、各成分は第一項から第二項を引けばよい。\(\rho\) 成分を展開する。
 
@@ -6041,7 +6041,7 @@ z & 0 &
 \textbf{注} （「曲がった時空」という言葉について）一般相対性理論の解説では「時空が曲がる」と表現される。個人的なこだわりではあるが、筆者はこの言い回しが好きではない。というのも、任意の点の近傍では等価原理により時空は平坦そのものであり、曲率は「異なる点の接空間を比べたときのずれ」として初めて顔を出すからだ。つまり、単体の「曲がったゴム膜」のようなお絵かきでは不十分で、むしろ「場所ごとに計量が異なる」と捉えたほうが正確だと感じている。とはいえこれは筆者が偏屈なのであり、事実として「曲がっている」と考えたほうが直感的だろう。
 \end{quote}
 
-\subsubsection{10.1.1 定義 —— チャートとアトラス}\label{ux5b9aux7fa9-ux30c1ux30e3ux30fcux30c8ux3068ux30a2ux30c8ux30e9ux30b9}
+\subsubsection{11.1.1 定義 —— チャートとアトラス}\label{ux5b9aux7fa9-ux30c1ux30e3ux30fcux30c8ux3068ux30a2ux30c8ux30e9ux30b9}
 
 \(n\) 次元\textbf{位相多様体} \(M\) とは、ハウスドルフかつ第二可算公理を満たす位相空間であって、任意の点 \(p \in M\) に対し、\(p\) を含む開集合 \(U \subset M\) と、\(U\) から \(\mathbb{R}^n\) の開集合への同相写像 \(\varphi: U \to \varphi(U) \subset \mathbb{R}^n\) が存在するものである。この組 \((U, \varphi)\) を\textbf{チャート}（座標近傍）と呼ぶ。\(\varphi(p) = (x^1(p), \dots, x^n(p))\) と書いたとき、\(x^i\) を\textbf{局所座標}という。
 
@@ -6055,7 +6055,7 @@ z & 0 &
 
 よく知られた別の例として、\(n\) 次元球面 \(S^n = \{x \in \mathbb{R}^{n+1} \mid \|x\| = 1\}\) がある。\(S^n\) は一枚のチャートでは覆えないが、北極と南極を除いた二枚のチャート（立体射影）でアトラスが構成できる。一般相対性理論の時空はローレンツ多様体——計量の符号が \((-,+,+,+)\) である4次元多様体——として定式化される。
 
-\subsubsection{10.1.2 接空間 —— 「曲がった空間での微分」の定義}\label{ux63a5ux7a7aux9593-ux66f2ux304cux3063ux305fux7a7aux9593ux3067ux306eux5faeux5206ux306eux5b9aux7fa9}
+\subsubsection{11.1.2 接空間 —— 「曲がった空間での微分」の定義}\label{ux63a5ux7a7aux9593-ux66f2ux304cux3063ux305fux7a7aux9593ux3067ux306eux5faeux5206ux306eux5b9aux7fa9}
 
 \(\mathbb{R}^n\) では「ベクトル」を「原点から伸びる矢印」として素朴に定義できた。多様体上ではそうはいかない。球面の表面に矢印を描こうとしても、矢印は曲面からはみ出してしまう。
 
@@ -6079,7 +6079,7 @@ z & 0 &
 
 と変換される。この変換行列 \(\partial x^i/\partial y^j\) は、本書第3章で座標変換のヤコビ行列として繰り返し登場したものだ。接ベクトルの成分はこのヤコビ行列の逆行列で変換される（反変ベクトル）。これに対し、1-form の成分はヤコビ行列そのもので変換される（共変ベクトル）。この「反変」と「共変」の区別——本書ではベクトルが「縦」、1-form が「横」として視覚化されてきた——が、多様体論におけるテンソル解析の出発点である。
 
-\subsubsection{10.1.3 微分形式 —— 余接束とテンソル場}\label{ux5faeux5206ux5f62ux5f0f-ux4f59ux63a5ux675fux3068ux30c6ux30f3ux30bdux30ebux5834}
+\subsubsection{11.1.3 微分形式 —— 余接束とテンソル場}\label{ux5faeux5206ux5f62ux5f0f-ux4f59ux63a5ux675fux3068ux30c6ux30f3ux30bdux30ebux5834}
 
 接空間 \(T_p M\) の双対空間を\textbf{余接空間} \(T_p^* M\) と呼ぶ。\(\omega_p \in T_p^* M\) は接ベクトルを食べて実数を返す線形写像 \(\omega_p: T_p M \to \mathbb{R}\)、すなわち\textbf{1-form}である。本書第1章で \(dx\) を「変位ベクトルから \(x\) 成分を抽出する横ベクトル」と定義したのは、まさにこの双対性の具現化だった。
 
@@ -6101,7 +6101,7 @@ z & 0 &
 
 この双対性は高次の形式にも拡張される。本書第2章で \(k\)-form を行列（\(k=1\) では横ベクトル、\(k=2\) では反対称行列、\(k=3\) では反対称3階テンソル）で表示したのは、交代多重線形写像としての \(k\)-form の成分表示にほかならない。付録Eで \(4\times4\times4\) のスライス行列を扱ったとき、我々はすでに多様体上の3-form の成分計算を実践していたのだ。
 
-\subsubsection{\texorpdfstring{10.1.4 外微分 \(d\) —— 多様体上で変わらないもの}{10.1.4 外微分 d —— 多様体上で変わらないもの}}\label{ux5916ux5faeux5206-d-ux591aux69d8ux4f53ux4e0aux3067ux5909ux308fux3089ux306aux3044ux3082ux306e}
+\subsubsection{\texorpdfstring{11.1.4 外微分 \(d\) —— 多様体上で変わらないもの}{11.1.4 外微分 d —— 多様体上で変わらないもの}}\label{ux5916ux5faeux5206-d-ux591aux69d8ux4f53ux4e0aux3067ux5909ux308fux3089ux306aux3044ux3082ux306e}
 
 外微分 \(d\) は、多様体上で\textbf{計量を一切使わずに}定義できる数少ない微分演算子の一つである。\(k\)-form \(\omega\) に対し、\(d\omega\) は \((k+1)\)-form であり、その定義は本書第5章で偏微分とウェッジ積の組み合わせとして学んだものと完全に一致する。
 
@@ -6115,7 +6115,7 @@ z & 0 &
 
 が任意の多様体上の任意の次数の形式に対して成立する根拠でもある。本書第8章で「統一ストークスの定理」として出会ったものは、この一般公式の特別な場合（\(M \subset \mathbb{R}^3\), \(n \le 3\)）だった。
 
-\subsubsection{10.1.5 計量とホッジ・スター —— 場所ごとに変わるもの}\label{ux8a08ux91cfux3068ux30dbux30c3ux30b8ux30b9ux30bfux30fc-ux5834ux6240ux3054ux3068ux306bux5909ux308fux308bux3082ux306e}
+\subsubsection{11.1.5 計量とホッジ・スター —— 場所ごとに変わるもの}\label{ux8a08ux91cfux3068ux30dbux30c3ux30b8ux30b9ux30bfux30fc-ux5834ux6240ux3054ux3068ux306bux5909ux308fux308bux3082ux306e}
 
 \(d\) が普遍的であるのに対し、\(\ast\) はそうではない。\textbf{リーマン計量} \(g\) とは、各点 \(p \in M\) において接空間 \(T_p M\) 上の正定値内積 \(g_p: T_p M \times T_p M \to \mathbb{R}\) を滑らかに与える2階の共変テンソル場である。局所座標では
 
@@ -6131,7 +6131,7 @@ z & 0 &
 
 この \(d\) と \(\ast\) の非対称性——\(d\) は普遍的、\(\ast\) は計量依存——こそが、Burke の「計量遅延」が最終的に照射する構造である。一般相対性理論では、計量 \(g\) そのものがアインシュタイン方程式の解として動的に決まる。電磁場の方程式 \(dF = 0\), \(d(\ast F) = \mu_0(\ast\mathcal{J})\) が曲がった時空でもそのまま成立するのは、\(d\) の普遍性と、\(\ast\) が計量を正しく反映するからにほかならない。
 
-\subsubsection{10.1.6 積分 —— 1の分割と向き付け可能性}\label{ux7a4dux5206-1ux306eux5206ux5272ux3068ux5411ux304dux4ed8ux3051ux53efux80fdux6027}
+\subsubsection{11.1.6 積分 —— 1の分割と向き付け可能性}\label{ux7a4dux5206-1ux306eux5206ux5272ux3068ux5411ux304dux4ed8ux3051ux53efux80fdux6027}
 
 多様体上の積分もまた、本書のリーマン和の延長線上にある。\(\mathbb{R}^n\) では、\(n\)-form \(\omega = f\,dx^1 \wedge \cdots \wedge dx^n\) の積分を素朴に \(\int f\,dx^1 \cdots dx^n\) と定義できた。多様体上で \(n\)-form を積分するには、チャートごとに局所積分を計算し、それらを貼り合わせる必要がある。この貼り合わせを可能にするのが\textbf{1の分割（partition of unity）}——多様体を被覆するチャート族に付随する、足して1になる滑らかな関数の族——である。
 
@@ -6139,13 +6139,13 @@ z & 0 &
 
 こうして多様体上の積分論が整備されると、ストークスの定理 \(\int_M d\omega = \int_{\partial M} \omega\) は任意の向き付けられた \(n\) 次元多様体とその上の \((n-1)\)-form に対して成立する。本書の旅が到達した統一ストークスの定理は、この一般的枠組みの \(n \le 3\) への適用だったのだ。
 
-\subsubsection{10.1.7 接続と曲率 —— 一言だけ}\label{ux63a5ux7d9aux3068ux66f2ux7387-ux4e00ux8a00ux3060ux3051}
+\subsubsection{11.1.7 接続と曲率 —— 一言だけ}\label{ux63a5ux7d9aux3068ux66f2ux7387-ux4e00ux8a00ux3060ux3051}
 
 多様体上でベクトル場を「平行移動」するための追加構造が\textbf{接続（connection）}、あるいは\textbf{共変微分} \(\nabla\) である。接続が与えられると、曲がり具合を測る\textbf{曲率テンソル} \(R\) が定義される。一般相対性理論では、レヴィ＝チヴィタ接続（計量と整合的で捩れのない唯一の接続）から得られる曲率が、時空の重力を記述する。
 
 微分形式の言葉では、曲率は\textbf{曲率2-form} \(\Omega\) として表され、ビアンキ恒等式 \(d\Omega = 0\)（\(\Omega\) は外共変微分について閉じている）といった構造が現れる。この先は、Flanders や Burke の専門書に譲る。
 
-\subsubsection{10.1.8 本書との対応}\label{ux672cux66f8ux3068ux306eux5bfeux5fdc}
+\subsubsection{11.1.8 本書との対応}\label{ux672cux66f8ux3068ux306eux5bfeux5fdc}
 
 本書の概念が多様体論のどこに対応するかを一覧にしておく。
 
@@ -6180,7 +6180,7 @@ z & 0 &
 
 多様体論が「幾何学的対象を座標に依存せずに定義する」ことを目指すのに対し、古典的なリーマン幾何学——アインシュタインの一般相対性理論で使われるテンソル解析——は「座標を選び、成分の変換則を正面から扱う」スタイルをとる。本書が行列の成分を明示してきた流儀に近いのは、むしろこちらである。
 
-\subsubsection{10.2.1 テンソル —— 変換則による定義}\label{ux30c6ux30f3ux30bdux30eb-ux5909ux63dbux5247ux306bux3088ux308bux5b9aux7fa9}
+\subsubsection{11.2.1 テンソル —— 変換則による定義}\label{ux30c6ux30f3ux30bdux30eb-ux5909ux63dbux5247ux306bux3088ux308bux5b9aux7fa9}
 
 古典的なテンソル解析では、テンソルを「座標変換に対する変換規則」で定義する。座標 \(x^i\) から \(\bar{x}^i\) への変換に対して、
 
@@ -6194,7 +6194,7 @@ z & 0 &
 
 と変換される。本書第6章で導出した \(\mathbf{g} = J^T J\) という関係式は、デカルト座標で \(g_{ij} = \delta_{ij}\) であるときに曲線座標での \(\bar{g}_{ij}\) を計算する公式にほかならない。
 
-\subsubsection{10.2.2 クリストッフェル記号 —— 微分がテンソルでなくなる問題}\label{ux30afux30eaux30b9ux30c8ux30c3ux30d5ux30a7ux30ebux8a18ux53f7-ux5faeux5206ux304cux30c6ux30f3ux30bdux30ebux3067ux306aux304fux306aux308bux554fux984c}
+\subsubsection{11.2.2 クリストッフェル記号 —— 微分がテンソルでなくなる問題}\label{ux30afux30eaux30b9ux30c8ux30c3ux30d5ux30a7ux30ebux8a18ux53f7-ux5faeux5206ux304cux30c6ux30f3ux30bdux30ebux3067ux306aux304fux306aux308bux554fux984c}
 
 ベクトル場 \(V^i\) の偏微分 \(\partial_j V^i\) は、そのままではテンソルとして振る舞わない。座標変換すると余分な項が現れてしまう。この「微分の非テンソル性」を補正するのが\textbf{クリストッフェル記号（Christoffel symbols）}
 
@@ -6210,7 +6210,7 @@ z & 0 &
 
 本書の経験で言い換えよう。第9章では、円柱座標や球座標の \(\mathbf{g}\) から \(\mathrm{div}\) や \(\mathrm{rot}\) の公式を導出した。あの計算で暗黙のうちに行われていたのは、クリストッフェル記号 \(\Gamma^i_{jk}\) の計算と、それを使った共変微分の発散 \(\sum_i \nabla_i V^i\) や回転 \((\nabla \times V)^i\) の評価だったのだ。第9章の \(\ast\) 辞書は、\(\mathbf{g}\) → \(\Gamma^i_{jk}\) → 微分演算子の公式、という連鎖の前半を隠蔽し、結果だけを「辞書」として与えていた。リーマン幾何学を学ぶとは、この辞書の内側にある \(\Gamma^i_{jk}\) と \(R^i_{\,mjk}\) の世界に踏み込むことである。
 
-\subsubsection{10.2.3 リーマン曲率テンソル}\label{ux30eaux30fcux30deux30f3ux66f2ux7387ux30c6ux30f3ux30bdux30eb}
+\subsubsection{11.2.3 リーマン曲率テンソル}\label{ux30eaux30fcux30deux30f3ux66f2ux7387ux30c6ux30f3ux30bdux30eb}
 
 共変微分の非可換性が、空間の曲がり具合を定量化する。ベクトル場 \(V^i\) に対して
 
@@ -6230,7 +6230,7 @@ z & 0 &
 
 である。左辺が時空の幾何（曲率）、右辺が物質のエネルギー運動量テンソル \(T_{ij}\) を表す。本書はこの式を導出しないし、読者に理解を求めもしない。ただ、この式の背後にある土台——多様体、計量、共変微分、曲率——が、すべて本書が3次元 \(\mathbb{R}^3\) で積み上げてきた \(d\) と \(\ast\) の延長線上にあることを示したかったのである。
 
-\subsubsection{10.2.4 二つのスタイル —— 本書との関係}\label{ux4e8cux3064ux306eux30b9ux30bfux30a4ux30eb-ux672cux66f8ux3068ux306eux95a2ux4fc2}
+\subsubsection{11.2.4 二つのスタイル —— 本書との関係}\label{ux4e8cux3064ux306eux30b9ux30bfux30a4ux30eb-ux672cux66f8ux3068ux306eux95a2ux4fc2}
 
 微分形式（\(d\) と \(\ast\)）による多様体論と、テンソル解析（添字と変換則）によるリーマン幾何学は、同じ対象を異なる言語で記述したものだ。前者は幾何学的対象そのものに焦点を当て、座標をなるべく表に出さない。後者は座標を明示的に選び、成分の変換則を計算の中心に据える。
 
@@ -6294,7 +6294,7 @@ z & 0 &
 
 実はある。物理学者たちが量子力学のために発見した道具が、そのままこの魔法の箱として使える。\textbf{パウリ行列}だ。
 
-\subsubsection{11.2.1 パウリ行列の定義と掛け算}\label{ux30d1ux30a6ux30eaux884cux5217ux306eux5b9aux7fa9ux3068ux639bux3051ux7b97}
+\subsubsection{12.2.1 パウリ行列の定義と掛け算}\label{ux30d1ux30a6ux30eaux884cux5217ux306eux5b9aux7fa9ux3068ux639bux3051ux7b97}
 
 パウリ行列 \(\sigma_1, \sigma_2, \sigma_3\) は次の \(2\times2\) 行列である。
 
@@ -6327,7 +6327,7 @@ z & 0 &
 
 パウリ行列の積は、つねに「内積（対称部分）\(+\) ウェッジ積（反対称部分）」に分解される。この一点が、パウリ行列のすべての魔法の源である。
 
-\subsubsection{11.2.2 ベクトルをパウリ行列で書く}\label{ux30d9ux30afux30c8ux30ebux3092ux30d1ux30a6ux30eaux884cux5217ux3067ux66f8ux304f}
+\subsubsection{12.2.2 ベクトルをパウリ行列で書く}\label{ux30d9ux30afux30c8ux30ebux3092ux30d1ux30a6ux30eaux884cux5217ux3067ux66f8ux304f}
 
 3次元ベクトル \(\mathbf{v} = (v_1, v_2, v_3)\) をパウリ行列で表してみよう。
 
@@ -6374,7 +6374,7 @@ I\text{ の係数（内積）} &: v_1w_1 + v_2w_2 + v_3w_3 \;=\; \mathbf{v}\!\cd
 \textbf{注} （なぜ \(2\times2\) なのか）ベクトルを \(2\times2\) 行列で表すのは奇妙に思えるかもしれない。しかし、内積とウェッジ積の両方を一つの積で表現するには、少なくとも非可換な代数が必要であり、その最小の実現が \(2\times2\) 複素行列なのである。本書の流儀でいえば、\(1\)-form（横ベクトル \(1\times3\)）と \(2\)-form（反対称 \(3\times3\) 行列）という次数の異なる二つの対象を、一つの \(2\times2\) 行列の中に押し込めた——そう考えればよい。
 \end{quote}
 
-\subsubsection{11.2.3 スカラーも混ぜて足す}\label{ux30b9ux30abux30e9ux30fcux3082ux6df7ux305cux3066ux8db3ux3059}
+\subsubsection{12.2.3 スカラーも混ぜて足す}\label{ux30b9ux30abux30e9ux30fcux3082ux6df7ux305cux3066ux8db3ux3059}
 
 ここまでで、ベクトル（\(1\)-form）とウェッジ積（\(2\)-form）が \(VW\) という一通りの計算で同時に出てくることがわかった。さらに一歩進めて、スカラー（\(0\)-form）そのものも同じ代数に混ぜよう。
 
@@ -6408,7 +6408,7 @@ I\text{ の係数（内積）} &: v_1w_1 + v_2w_2 + v_3w_3 \;=\; \mathbf{v}\!\cd
 
 \subsection{§12.3 ディラック演算子と真のナブラ}\label{ux30c7ux30a3ux30e9ux30c3ux30afux6f14ux7b97ux5b50ux3068ux771fux306eux30caux30d6ux30e9}
 
-\subsubsection{\texorpdfstring{11.3.1 \(\bm{\sigma}\!\cdot\!\nabla\) —— すべてを統合する演算子}{11.3.1 \textbackslash bm\{\textbackslash sigma\}\textbackslash!\textbackslash cdot\textbackslash!\textbackslash nabla —— すべてを統合する演算子}}\label{bmsigmacdotnabla-ux3059ux3079ux3066ux3092ux7d71ux5408ux3059ux308bux6f14ux7b97ux5b50}
+\subsubsection{\texorpdfstring{12.3.1 \(\bm{\sigma}\!\cdot\!\nabla\) —— すべてを統合する演算子}{12.3.1 \textbackslash bm\{\textbackslash sigma\}\textbackslash!\textbackslash cdot\textbackslash!\textbackslash nabla —— すべてを統合する演算子}}\label{bmsigmacdotnabla-ux3059ux3079ux3066ux3092ux7d71ux5408ux3059ux308bux6f14ux7b97ux5b50}
 
 パウリ行列とナブラ \(\nabla = (\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z})\) を組み合わせて、次の演算子を定義する。
 
@@ -6452,7 +6452,7 @@ I\text{ の係数} &: \frac{\partial A_1}{\partial x} + \frac{\partial A_2}{\par
 \textbf{注} （\(d\) と \(\ast\) で書くと）\(D\) は本書の言葉でも表現できる。符号規約を別にすれば、\(D\) は \(d\)（次数を上げる）と \(\ast d\ast\)（次数を下げる）を合わせた演算子として理解できる。\(\ast d\ast\) は\textbf{余微分（codifferential）} \(\delta\) と呼ばれ、\(\delta = \pm\ast d\ast\)（符号は次元と次数に依存）と定義される。ここでは厳密な符号には立ち入らず、\(D \sim d + \delta\) という構造だけを押さえておく。\(d\) が次数を上げ、\(\delta\) が次数を下げる——この二つを足した \(D\) が、grad・rot・div を一つの演算子に束ねているのだ。
 \end{quote}
 
-\subsubsection{\texorpdfstring{11.3.2 \(D^2\) —— ラプラシアン}{11.3.2 D\^{}2 —— ラプラシアン}}\label{d2-ux30e9ux30d7ux30e9ux30b7ux30a2ux30f3}
+\subsubsection{\texorpdfstring{12.3.2 \(D^2\) —— ラプラシアン}{12.3.2 D\^{}2 —— ラプラシアン}}\label{d2-ux30e9ux30d7ux30e9ux30b7ux30a2ux30f3}
 
 さらに \(D\) を二度作用させるとどうなるか。
 
@@ -6474,7 +6474,7 @@ D^2 &= \sigma_1\sigma_1\,\frac{\partial^2}{\partial x^2} + \sigma_1\sigma_2\,\fr
 
 \(D^2\) はラプラシアンそのものである。\(D\) はラプラシアンの「平方根」なのだ。この事実——微分演算子の平方根をとる——が、ディラックが相対論的量子力学で電子の方程式を導いたときの核心的な洞察だった。
 
-\subsubsection{11.3.3 マクスウェルを一本に —— 再訪}\label{ux30deux30afux30b9ux30a6ux30a7ux30ebux3092ux4e00ux672cux306b-ux518dux8a2a}
+\subsubsection{12.3.3 マクスウェルを一本に —— 再訪}\label{ux30deux30afux30b9ux30a6ux30a7ux30ebux3092ux4e00ux672cux306b-ux518dux8a2a}
 
 §12.1 では \(F + i\ast F\) によって4次元でマクスウェル方程式を一本化した。\(D\) を使えば、同じことが3次元の言葉だけで書ける。
 
@@ -6512,7 +6512,7 @@ D^2 &= \sigma_1\sigma_1\,\frac{\partial^2}{\partial x^2} + \sigma_1\sigma_2\,\fr
 
 \(dF=0\) と \(d(\ast F)=\mu_0(\ast\mathcal{J})\) の2本が、\(D\) の前ではたった一本の複素方程式に統合された。§12.1 の4次元トリックが特殊な次元に依存していたのに対し、こちらは \(D\) という統合された演算子そのものが統合を実現している。
 
-\subsubsection{\texorpdfstring{11.3.4 \(\cancel{\partial} F = J\) —— 4次元時空のディラック演算子}{11.3.4 \textbackslash cancel\{\textbackslash partial\} F = J —— 4次元時空のディラック演算子}}\label{cancelpartial-f-j-4ux6b21ux5143ux6642ux7a7aux306eux30c7ux30a3ux30e9ux30c3ux30afux6f14ux7b97ux5b50}
+\subsubsection{\texorpdfstring{12.3.4 \(\cancel{\partial} F = J\) —— 4次元時空のディラック演算子}{12.3.4 \textbackslash cancel\{\textbackslash partial\} F = J —— 4次元時空のディラック演算子}}\label{cancelpartial-f-j-4ux6b21ux5143ux6642ux7a7aux306eux30c7ux30a3ux30e9ux30c3ux30afux6f14ux7b97ux5b50}
 
 §12.3.3 の \((D + \frac{\partial}{\partial t})F = \rho + \mathbf{J}\!\cdot\!\bm{\sigma}\) には、時間と空間が分離して現れている。これは3次元のパウリ行列 \(\sigma_1,\sigma_2,\sigma_3\) をベースに組み立てたからだ。4次元時空を最初から扱えば、この分離すら消える。
 
