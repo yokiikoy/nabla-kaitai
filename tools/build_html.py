@@ -6,6 +6,7 @@ Splits content by chapters to improve MathJax performance.
 
 import re
 import sys
+import glob
 from pathlib import Path
 
 # --- Configuration ---
@@ -227,7 +228,17 @@ def main():
     # Split into chapters
     chapters = []
     main_title = "ナブラ解体新書 ——行列表示の微分形式によるベクトル解析の抜け道——"
+    
+    # Identify front matter (ch00)
+    front_matter_files = glob.glob('manuscript/ja/ch00/*.md')
+    front_matter_files.sort()
+    
     current_chapter = {"title": main_title, "content": [], "filename": "index.html"}
+    
+    # Load front matter into index.html
+    for fpath in front_matter_files:
+        with open(fpath, 'r', encoding='utf-8') as f:
+            current_chapter["content"].extend(f.readlines())
     
     lines = full_text.split('\n')
     ch_count = 0

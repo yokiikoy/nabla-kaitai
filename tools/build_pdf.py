@@ -5,10 +5,11 @@ from datetime import datetime
 
 # Build combined markdown
 files = []
-for prefix in ['preface']:
-    f = f'manuscript/ja/{prefix}.md'
-    if os.path.exists(f):
-        files.append(f)
+# Front matter
+front_matter = glob.glob('manuscript/ja/ch00/*.md')
+front_matter.sort()
+files.extend(front_matter)
+
 for i in range(1, 13):
     f = f'manuscript/ja/ch{i:02d}/ch{i:02d}.md'
     if os.path.exists(f):
