@@ -5,9 +5,6 @@
 # Secrets
 .env
 
-# Build intermediates
-build/
-
 # Python
 __pycache__/
 *.pyc
@@ -16,3 +13,6 @@ __pycache__/
 
 # Build intermediates
 build/
+
+# Reference materials (large PDFs and OCR markdown)
+reference/
