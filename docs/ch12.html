@@ -33,7 +33,8 @@
   .nav-buttons { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }
   .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
   .nav-buttons a:hover { background: #f6f8fa; }
-  strong { font-weight: 700 !important; }
+  strong { font-weight: 800 !important; color: #000; }
+  blockquote strong { color: #24292f !important; }
   table { border-collapse: collapse; width: 100%; margin: 1.5em 0; font-size: 0.9em; }
   th, td { border: 1px solid #d0d7de; padding: 6px 13px; }
   tr:nth-child(even) { background-color: #f6f8fa; }
@@ -90,9 +91,9 @@
 </p>
 <p>できるのだ。それも、あっさりと。虚数単位 $i$ を持ち出せば、たったの一行で済む。本章ではまずその「トリック」を見てから、その先にあるもっと深い統合——パウリ行列とディラック演算子——へと進む。
 </p>
-<blockquote><p>
-<strong>注</strong> （本章の立ち位置）本章は完全なおまけであり、本書の本線からは外れている。第8章でベクトル解析の書き換えは完了し、第10章でマクスウェル方程式の行列展開も終えた。本章では、厳密な幾何代数（クリフォード代数）の教科書を書くつもりはない。目的は、本書で解体してきた grad・rot・div が、パウリ行列とディラック演算子の中で再び一つの演算へ統合される様子を、計算として見ることである。<br>
-</p></blockquote>
+<blockquote>
+<p><strong>注</strong> （本章の立ち位置）本章は完全なおまけであり、本書の本線からは外れている。第8章でベクトル解析の書き換えは完了し、第10章でマクスウェル方程式の行列展開も終えた。本章では、厳密な幾何代数（クリフォード代数）の教科書を書くつもりはない。目的は、本書で解体してきた grad・rot・div が、パウリ行列とディラック演算子の中で再び一つの演算へ統合される様子を、計算の入口として見ることである。</p>
+</blockquote>
 <hr />
 <h3 id="121-虚数で一本に--マクスウェル方程式の統合">§12.1 虚数で一本に —— マクスウェル方程式の統合</h3>
 <p>第10章で我々は、マクスウェル方程式を
@@ -187,9 +188,9 @@ $$VW = (\mathbf{v}\!\cdot\!\mathbf{w})\,I \;+\; i\,(\mathbf{v}\times\mathbf{w})\
 </p>
 <p>これが「魔法の箱」の正体だ。パウリ行列の積は、内積（$0$-form に相当するスカラー）と外積（$2$-form に相当するウェッジ積）を、<strong>一つの演算で同時に</strong>生み出す。通常の微分形式では別々の次数に属していたものが、パウリ行列の代数の中では一つの $2\times2$ 行列として共存している。
 </p>
-<blockquote><p>
-<strong>注</strong> （なぜ $2\times2$ なのか）ベクトルを $2\times2$ 行列で表すのは奇妙に思えるかもしれない。しかし、内積とウェッジ積の両方を一つの積で表現するには、少なくとも非可換な代数が必要であり、その最小の実現が $2\times2$ 複素行列なのである。本書の流儀でいえば、$1$-form（横ベクトル $1\times3$）と $2$-form（反対称 $3\times3$ 行列）という次数の異なる二つの対象を、一つの $2\times2$ 行列の中に押し込めた——そう考えればよい。<br>
-</p></blockquote>
+<blockquote>
+<p><strong>注</strong> （なぜ $2\times2$ なのか）ベクトルを $2\times2$ 行列で表すのは奇妙に思えるかもしれない。しかし、内積とウェッジ積の両方を一つの積で表現するには、少なくとも非可換な代数が必要であり、その最小の実現が $2\times2$ 複素行列なのである。本書の流儀でいえば、$1$-form（横ベクトル $1\times3$）と $2$-form（反対称 $3\times3$ 行列）という次数の異なる二つの対象を、一つの $2\times2$ 行列の中に押し込めた——そう考えればよい。</p>
+</blockquote>
 <h4 id="1223-スカラーも混ぜて足す">12.2.3 スカラーも混ぜて足す</h4>
 <p>ここまでで、ベクトル（$1$-form）とウェッジ積（$2$-form）が $VW$ という一通りの計算で同時に出てくることがわかった。さらに一歩進めて、スカラー（$0$-form）そのものも同じ代数に混ぜよう。
 </p>
@@ -198,21 +199,21 @@ $$VW = (\mathbf{v}\!\cdot\!\mathbf{w})\,I \;+\; i\,(\mathbf{v}\times\mathbf{w})\
 $$\psi = \varphi\,I + A_1\sigma_1 + A_2\sigma_2 + A_3\sigma_3$$
 <p>の形をしている。$\varphi$ はスカラー（$0$-form）、$A_1,A_2,A_3$ はベクトルの成分（$1$-form）である。さらに $\psi$ に左から $\sigma_i$ を掛ければ、$2$-form に相当する $i\sigma_k$ の項まで現れる。つまり、パウリ行列の代数は $0,1,2,3$-form の<strong>すべての次数</strong>を一つの枠組みで扱えるのだ。
 </p>
-<blockquote><p>
-<strong>注</strong> （何ができるようになったのか）微分形式でも異なる次数の形式を直和として形式的に並べることはできる。しかし、内積（縮約）と外積（反対称化）を<strong>一つの積として同時に</strong>扱うには、通常のウェッジ積だけでは足りない。パウリ行列の代数では、それらが一つの積 $VW$ の中で自然に分離・共存する。これが幾何代数の核心である。<br>
-</p></blockquote>
-<blockquote><p>
-<strong>注</strong> （全次数の対応）パウリ行列の代数における次数対応を整理しておく。$I$ が $0$-form（スカラー）、$\sigma_1,\sigma_2,\sigma_3$ が $1$-form（ベクトル）、$i\sigma_1,i\sigma_2,i\sigma_3$ が $2$-form（バイベクトル）、$iI$ が $3$-form（擬スカラー）に対応する。最も一般的な元は $\psi = aI + \mathbf{v}\!\cdot\!\boldsymbol{\sigma} + i\,\mathbf{w}\!\cdot\!\boldsymbol{\sigma} + ibI$ の形で、4つの次数すべてを複素係数で含んでいる。<br>
-</p></blockquote>
-<blockquote><p>
-<strong>注</strong> （四元数——すでにあった魔法の箱）実はこの「スカラーとベクトルを一つの数に混ぜる」という発想は、パウリ行列よりもずっと古い。行列代数よりも古い。1843年にハミルトンが発見した<strong>四元数（quaternion）</strong> $q = a + bi + cj + dk$ がまさにそれだ。マクスウェルは自身の電磁気学を四元数で定式化していた。しかしその後、ギブズとヘヴィサイドが四元数からスカラー部分とベクトル部分を<strong>分離</strong>し、現代のベクトル解析（内積とクロス積）が誕生した。パウリ行列は、ギブズが分離したスカラーとベクトルを、約80年後に量子力学の文脈で再び<strong>統合</strong>したものである。歴史は一周したのだ。<br>
-</p></blockquote>
-<blockquote><p>
-> <strong>注</strong> （行列なき時代のベクトル解析）ギブズとヘヴィサイドがベクトル解析を整備した1880年代には、まだ行列代数が存在しなかった。行列式はあったが、行列そのものの代数——積の非可換性、固有値、線形変換としての統一的理解——は、ケイリーの先駆的研究を経て、20世紀初頭のヒルベルトらによってようやく整備される。ギブズは線形変換を表すために<strong>ダイアド（dyad）</strong> $\mathbf{a}\mathbf{b}$ という独自の記法を発明したが、これは現代の行列 $\mathbf{a}\mathbf{b}^T$ に相当する。要するに、ベクトル解析は行列代数が存在しない時代に、四元数を切り刻み、ダイアドを継ぎ接ぎして作られた<strong>キメラ</strong>だったのだ。本書が「ナブラ解体新書」と題して $\nabla$ を $d$ と $\ast$ に解体し、最終章でパウリ行列による再統合を見せたことには、この百年越しの負債を清算する意味もある。<br>
-</p></blockquote>
-<blockquote><p>
-> <strong>注</strong> （行列代数が物理学者の標準語でなかったこと）なお、行列代数が物理学者の標準語でなかったことは、1925年の行列力学にもよく現れている。ハイゼンベルク自身は当初、自分の計算が行列の非可換積であることを知らず、それを行列として読んだのはボルンだった。<br>
-</p></blockquote>
+<blockquote>
+<p><strong>注</strong> （何ができるようになったのか）微分形式でも異なる次数の形式を直和として形式的に並べることはできる。しかし、内積（縮約）と外積（反対称化）を<strong>一つの積として同時に</strong>扱うには、通常のウェッジ積だけでは足りない。パウリ行列の代数では、それらが一つの積 $VW$ の中で自然に分離・共存する。これが幾何代数の核心である。</p>
+</blockquote>
+<blockquote>
+<p><strong>注</strong> （全次数の対応）パウリ行列の代数における次数対応を整理しておく。$I$ が $0$-form（スカラー）、$\sigma_1,\sigma_2,\sigma_3$ が $1$-form（ベクトル）、$i\sigma_1,i\sigma_2,i\sigma_3$ が $2$-form（バイベクトル）、$iI$ が $3$-form（擬スカラー）に対応する。最も一般的な元は $\psi = aI + \mathbf{v}\!\cdot\!\boldsymbol{\sigma} + i\,\mathbf{w}\!\cdot\!\boldsymbol{\sigma} + ibI$ の形で、4つの次数すべてを複素係数で含んでいる。</p>
+</blockquote>
+<blockquote>
+<p><strong>注</strong> （四元数——すでにあった魔法の箱）実はこの「スカラーとベクトルを一つの数に混ぜる」という発想は、パウリ行列よりもずっと古い。行列代数よりも古い。1843年にハミルトンが発見した<strong>四元数（quaternion）</strong> $q = a + bi + cj + dk$ がまさにそれだ。マクスウェルは自身の電磁気学を四元数で定式化していた。しかしその後、ギブズとヘヴィサイドが四元数からスカラー部分とベクトル部分を<strong>分離</strong>し、現代のベクトル解析（内積とクロス積）が誕生した。パウリ行列は、ギブズが分離したスカラーとベクトルを、約80年後に量子力学の文脈で再び<strong>統合</strong>したものである。歴史は一周したのだ。</p>
+</blockquote>
+<blockquote>
+<p><strong>注</strong> （行列なき時代のベクトル解析）ギブズとヘヴィサイドがベクトル解析を整備した1880年代には、まだ行列代数が存在しなかった。行列式はあったが、行列そのものの代数——積の非可換性、固有値、線形変換としての統一的理解——は、ケイリーの先駆的研究を経て、20世紀初頭のヒルベルトらによってようやく整備される。ギブズは線形変換を表すために<strong>ダイアド（dyad）</strong> $\mathbf{a}\mathbf{b}$ という独自の記法を発明したが、これは現代の行列 $\mathbf{a}\mathbf{b}^T$ に相当する。要するに、ベクトル解析は行列代数が存在しない時代に、四元数を切り刻み、ダイアドを継ぎ接ぎして作られた<strong>キメラ</strong>だったのだ。本書が「ナブラ解体新書」と題して $\nabla$ を $d$ と $\ast$ に解体し、最終章でパウリ行列による再統合を見せたことには、この百年越しの負債を清算する意味もある。</p>
+</blockquote>
+<blockquote>
+<p><strong>注</strong> （行列代数が物理学者の標準語でなかったこと）なお、行列代数が物理学者の標準語でなかったことは、1925年の行列力学にもよく現れている。ハイゼンベルク自身は当初、自分の計算が行列の非可換積であることを知らず、それを行列として読んだのはボルンだった。</p>
+</blockquote>
 <hr />
 <h3 id="123-ディラック演算子と真のナブラ">§12.3 ディラック演算子と真のナブラ</h3>
 <h4 id="1231--すべてを統合する演算子">12.3.1 $\boldsymbol{\sigma}\!\cdot\!\nabla$ —— すべてを統合する演算子</h4>
@@ -224,7 +225,7 @@ $$D = \sigma_1\frac{\partial}{\partial x} + \sigma_2\frac{\partial}{\partial y} 
 $$D\varphi = \sigma_1\frac{\partial\varphi}{\partial x} + \sigma_2\frac{\partial\varphi}{\partial y} + \sigma_3\frac{\partial\varphi}{\partial z} = (\nabla\varphi)\!\cdot\!\boldsymbol{\sigma}$$
 <p>これは $\mathrm{grad}\,\varphi$ をパウリ行列で表したものだ。
 </p>
-<p>次に、ベクトル場 $\mathbf{A} = (A_1, A_2, A_3)$ をパウリ行列で $A = \mathbf{A}\!\cdot\!\boldsymbol{\sigma}$ と書いて $D$ を作用させる。11.2.2 の積の公式を思い出そう。
+<p>次に、ベクトル場 $\mathbf{A} = (A_1, A_2, A_3)$ をパウリ行列で $A = \mathbf{A}\!\cdot\!\boldsymbol{\sigma}$ と書いて $D$ を作用させる。§12.2.2 の積の公式を思い出そう。
 </p>
 $$
 \begin{aligned}
@@ -234,9 +235,8 @@ D A &= (\sigma_1\tfrac{\partial}{\partial x} + \sigma_2\tfrac{\partial}{\partial
 &\quad + \tfrac{\partial A_1}{\partial z}\,\sigma_3\sigma_1 + \tfrac{\partial A_2}{\partial z}\,\sigma_3\sigma_2 + \tfrac{\partial A_3}{\partial z}\,\sigma_3\sigma_3
 \end{aligned}
 $$
-<ol>
-<li>2.2 と同じ $\sigma_i\sigma_j$ の置き換えを9項に適用し、$I$ の係数（内積＝発散）と $\sigma_1,\sigma_2,\sigma_3$ の係数（ウェッジ積＝回転）を集める。</li>
-</ol>
+<p>§12.2.2 と同じ $\sigma_i\sigma_j$ の置き換えを9項に適用し、$I$ の係数（内積＝発散）と $\sigma_1,\sigma_2,\sigma_3$ の係数（ウェッジ積＝回転）を集める。
+</p>
 $$
 \begin{aligned}
 I\text{ の係数} &: \frac{\partial A_1}{\partial x} + \frac{\partial A_2}{\partial y} + \frac{\partial A_3}{\partial z} = \mathrm{div}\,\mathbf{A} \\
@@ -250,9 +250,9 @@ $$
 $$D(\mathbf{A}\!\cdot\!\boldsymbol{\sigma}) = (\mathrm{div}\,\mathbf{A})\,I \;+\; i\,(\mathrm{rot}\,\mathbf{A})\!\cdot\!\boldsymbol{\sigma}$$
 <p><strong>一つの演算子 $D$ が、$\mathrm{grad}$（$D\varphi$）、$\mathrm{div}$（$DA$ の実部）、$\mathrm{rot}$（$DA$ の虚部）をすべて産み出す。</strong> これこそが、$\nabla$ を $d$ と $\ast$ に解体した旅の、逆方向の結論——統合——にほかならない。
 </p>
-<blockquote><p>
-<strong>注</strong> （$d$ と $\ast$ で書くと）$D$ は本書の言葉でも表現できる。符号規約を別にすれば、$D$ は $d$（次数を上げる）と $\ast d\ast$（次数を下げる）を合わせた演算子として理解できる。$\ast d\ast$ は<strong>余微分（codifferential）</strong> $\delta$ と呼ばれ、$\delta = \pm\ast d\ast$（符号は次元と次数に依存）と定義される。ここでは厳密な符号には立ち入らず、$D \sim d + \delta$ という構造だけを押さえておく。$d$ が次数を上げ、$\delta$ が次数を下げる——この二つを足した $D$ が、grad・rot・div を一つの演算子に束ねているのだ。<br>
-</p></blockquote>
+<blockquote>
+<p><strong>注</strong> （$d$ と $\ast$ で書くと）$D$ は本書の言葉でも表現できる。符号規約を別にすれば、$D$ は $d$（次数を上げる）と $\ast d\ast$（次数を下げる）を合わせた演算子として理解できる。$\ast d\ast$ は<strong>余微分（codifferential）</strong> $\delta$ と呼ばれ、$\delta = \pm\ast d\ast$（符号は次元と次数に依存）と定義される。ここでは厳密な符号には立ち入らず、$D \sim d + \delta$ という構造だけを押さえておく。$d$ が次数を上げ、$\delta$ が次数を下げる——この二つを足した $D$ が、grad・rot・div を一つの演算子に束ねているのだ。</p>
+</blockquote>
 <h4 id="1232--ラプラシアン">12.3.2 $D^2$ —— ラプラシアン</h4>
 <p>さらに $D$ を二度作用させるとどうなるか。
 </p>
@@ -298,7 +298,7 @@ $$
 \text{虚部・}\boldsymbol{\sigma} &: \mathrm{rot}\,\mathbf{E} + \frac{\partial}{\partial t}\mathbf{B}
 \end{aligned}
 $$
-<p>これらをゼロとおけば、真空のマクスウェル方程式4本がすべて現れる。電流 $\mathbf{J}$ と電荷 $\rho$ がある場合は、右辺に $\rho + \mathbf{J}\!\cdot\!\boldsymbol{\sigma}$ を置けばよい。
+<p>これらをゼロとおけば、真空のマクスウェル方程式4本がすべて現れる。電流 $\mathbf{J}$ と電荷 $\rho$ がある場合は、本章の正規化と符号規約に合わせて右辺を $\rho + \mathbf{J}\!\cdot\!\boldsymbol{\sigma}$ 型に置く、という見取り図になる。
 </p>
 $$(D + \frac{\partial}{\partial t})F = \rho + \mathbf{J}\!\cdot\!\boldsymbol{\sigma}$$
 <p>$dF=0$ と $d(\ast F)=\mu_0(\ast\mathcal{J})$ の2本が、$D$ の前ではたった一本の複素方程式に統合された。§12.1 の4次元トリックが特殊な次元に依存していたのに対し、こちらは $D$ という統合された演算子そのものが統合を実現している。
@@ -312,11 +312,11 @@ $$\cancel{\partial} = \gamma^0\frac{\partial}{\partial t} + \gamma^1\frac{\parti
 <p>と定義する。第10章の電磁場 $F$（$4\times4$ 反対称行列）をガンマ行列のウェッジ積 $\gamma^\mu\!\wedge\!\gamma^\nu$ で展開したものと同一視すれば、マクスウェル方程式は
 </p>
 $$\cancel{\partial} F = J$$
-<p>の一行になる。$F$ は電磁場、$J$ は4元電流（$\gamma^\mu$ で展開されたもの）。真空では $\cancel{\partial} F = 0$。
+<p>の一行にまとめられる、というのが幾何代数側の標準的な見取り図である。$F$ は電磁場、$J$ は4元電流（$\gamma^\mu$ で展開されたもの）。真空では $\cancel{\partial} F = 0$。ここでは詳細な符号規約や単位系の換算までは扱わず、第10章までの演算が一つの演算子へ束ねられることだけを見る。
 </p>
-<blockquote><p>
-<strong>注</strong> （$\cancel{\partial} F$ の積について）ここでの積は通常の行列積ではなく、ガンマ行列が生成する幾何代数の積である。第10章の反対称行列 $F$ は、ここでは $\gamma^\mu\!\wedge\!\gamma^\nu$ で展開された2-vectorとして再解釈される。細部は幾何代数の教科書に譲るが、$\sigma_i\sigma_j = \delta_{ij}I + i\varepsilon_{ijk}\sigma_k$（11.2.1）の4次元版がここでも成り立っていると考えればよい。<br>
-</p></blockquote>
+<blockquote>
+<p><strong>注</strong> （$\cancel{\partial} F$ の積について）ここでの積は通常の行列積ではなく、ガンマ行列が生成する幾何代数の積である。第10章の反対称行列 $F$ は、ここでは $\gamma^\mu\!\wedge\!\gamma^\nu$ で展開された2-vectorとして再解釈される。細部は幾何代数の教科書に譲るが、$\sigma_i\sigma_j = \delta_{ij}I + i\varepsilon_{ijk}\sigma_k$（§12.2.1）の4次元版がここでも成り立っていると考えればよい。</p>
+</blockquote>
 <p>§12.1 の $F + i\ast F$ も、§12.3.3 の $(D + \frac{\partial}{\partial t})F$ も、すべてこの一行に吸収される。これが、$\nabla$ の解体から始まった旅の、最も遠くにある風景である。ディラックが1928年に電子の方程式を導くために発見したこの演算子は、時空の幾何と物理法則を一つの代数で記述する<strong>幾何代数（Geometric Algebra）</strong>の核であり、Doran & Lasenby の Geometric Algebra for Physicists に詳しい。
 </p>
 <h3 id="124-演算子">§12.4 演算子$\nabla$</h3>

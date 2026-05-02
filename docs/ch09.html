@@ -33,7 +33,8 @@
   .nav-buttons { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }
   .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
   .nav-buttons a:hover { background: #f6f8fa; }
-  strong { font-weight: 700 !important; }
+  strong { font-weight: 800 !important; color: #000; }
+  blockquote strong { color: #24292f !important; }
   table { border-collapse: collapse; width: 100%; margin: 1.5em 0; font-size: 0.9em; }
   th, td { border: 1px solid #d0d7de; padding: 6px 13px; }
   tr:nth-child(even) { background-color: #f6f8fa; }
@@ -86,29 +87,29 @@
     <article class="markdown-body">
       <h1 id="第9章実戦--辞書を作り難問を解く">第9章：実戦 —— 辞書を作り、難問を解く</h1>
 <h3 id="90-本書の目的はすでに果たされた">§9.0 本書の目的はすでに果たされた</h3>
-<p>　第8章 §7.0 で「本章はこの本のハイライトである」と宣言し、実際に二つの言語のあいだを翻訳し、積分定理を一本化し、二つの方法論を対比した。そこで本書の知的な核心は、実はすでに終わっている。
+<p>　第8章 §8.0 で「本章はこの本のハイライトである」と宣言し、実際に二つの言語のあいだを翻訳し、積分定理を一本化し、二つの方法論を対比した。そこで本書の知的な核心は、実はすでに終わっている。
 </p>
 <p>しかし、これだけの道具を揃えて、使わずに終わるのはもったいない。本章では、ここまでに構築した辞書を実際の問題に適用し、ベクトル解析の難問を機械的に解いてみせる。理論は第8章までで十分だ——ここから先は<strong>演習</strong>である。
 </p>
 <p>読者は、以下の計算を眺めるだけでよい。あるいは、自分の手で追ってみてもよい。いずれにせよ、ここで見るのは「公式を暗記しなくても、辞書さえあればすべて導出できる」という事実の実演だ。
 </p>
-<blockquote><p>
-<strong>注</strong> （ベクトル解析を学んだことがない読者へ）以下の計算のうち、grad, div, rot の導出はどれも数行で済んでいる。$\ast d\ast$ に辞書を代入し、偏微分を展開する——それだけだ。だから簡単そうに見える。しかし、これと同じ結果をベクトル解析の流儀で導出しようとすると、$\nabla$ に $\frac{1}{r}\frac{\partial}{\partial r}(r\,\cdot\,)$ や $\frac{1}{\rho^2\sin\theta}$ といった因子を手作業で管理しながら、数ページにわたる式変形を強いられる。簡単そうに見えるのは、次数の異なる測定器を $\ast$ が自動的に整理してくれるからだ。§9.4 のラプラシアンはさすがに手強いが、それでもやっていることは辞書を引いて偏微分を展開するだけ——要領は変わらない。この差こそ、本書が第1章から積み上げてきた「測定器」の枠組みの真価である。<br>
-</p></blockquote>
+<blockquote>
+<p><strong>注</strong> （ベクトル解析を学んだことがない読者へ）以下の計算のうち、grad, div, rot の導出はどれも数行で済んでいる。$\ast d\ast$ に辞書を代入し、偏微分を展開する——それだけだ。だから簡単そうに見える。しかし、これと同じ結果をベクトル解析の流儀で導出しようとすると、$\nabla$ に $\frac{1}{r}\frac{\partial}{\partial r}(r\,\cdot\,)$ や $\frac{1}{\rho^2\sin\theta}$ といった因子を手作業で管理しながら、数ページにわたる式変形を強いられる。簡単そうに見えるのは、次数の異なる測定器を $\ast$ が自動的に整理してくれるからだ。§9.4 のラプラシアンはさすがに手強いが、それでもやっていることは辞書を引いて偏微分を展開するだけ——要領は変わらない。この差こそ、本書が第1章から積み上げてきた「測定器」の枠組みの真価である。</p>
+</blockquote>
 <hr />
 <h3 id="91-辞書をその場で作る機械的手順">§9.1 辞書をその場で作る——機械的手順</h3>
-<p>任意の座標系で $\mathrm{grad}, \mathrm{div}, \mathrm{rot}$ の公式を導出する手順は、以下の3ステップに集約される。
+<p>直交曲線座標で $\mathrm{grad}, \mathrm{div}, \mathrm{rot}$ の公式を導出する手順は、以下の3ステップに集約される。
 </p>
 <ol>
 <li><strong>ヤコビ行列 $J$ を書く</strong>。座標変換 $x = x(q_1,q_2,q_3)$, $y = y(q_1,q_2,q_3)$, $z = z(q_1,q_2,q_3)$ から偏微分を並べる。$J$ の各列はパラメータ空間の各軸方向の一歩が実空間でどう動くかを表す。</li>
 </ol>
 <ol>
-<li><strong>計量 $\mathbf{g} = J^T J$ を計算する</strong>。これは第6章 §5.1.3 以来の手順だ。$\mathbf{g}$ の対角成分が各軸方向の目盛りの二乗、非対角成分が軸どうしの直交度を表す。</li>
+<li><strong>計量 $\mathbf{g} = J^T J$ を計算する</strong>。これは第6章 §6.1.3 以来の手順だ。$\mathbf{g}$ の対角成分が各軸方向の目盛りの二乗、非対角成分が軸どうしの直交度を表す。</li>
 </ol>
 <ol>
 <li><strong>$\mathbf{g}$ から $\ast$ の辞書を導き、$d$ と組み合わせる</strong>。$\mathrm{grad} = \ast d\ast$？（いや、$\mathrm{grad}=d$）、$\mathrm{rot}=\ast d$、$\mathrm{div}=\ast d\ast$ の各公式に、その座標系での $\ast$ の辞書を代入すれば、求める公式が機械的に得られる。</li>
 </ol>
-<p>以下、この手順を円柱座標と球座標で実演する。
+<p>以下、この手順を円柱座標と球座標で実演する。どちらも計量行列 $\mathbf{g}$ が対角になる直交曲線座標である。非直交座標でも微分形式とホッジスターは使えるが、$\ast$ の辞書に非対角成分が入り、本章のような短い公式表にはならない。本章で「任意」と言うときは、ここで扱う直交曲線座標の範囲を指す。
 </p>
 <hr />
 <h3 id="92-円柱座標">§9.2 円柱座標 $(r,\theta,z)$</h3>
@@ -125,7 +126,7 @@ $$J = \begin{pmatrix}
 0 & r^2 & 0 \\
 0 & 0 & 1
 \end{pmatrix}$$
-<p>$\mathbf{g}$ から $\ast$ の辞書を導く。第6章 §5.3.3 でデカルト座標の $\ast$ 辞書が $\mathbf{g}=I$ から決まったのと同じ原理で、$\mathbf{g}$ の対角成分の平方根が $\ast$ の係数に現れる。
+<p>$\mathbf{g}$ から $\ast$ の辞書を導く。第6章 §6.3.3 でデカルト座標の $\ast$ 辞書が $\mathbf{g}=I$ から決まったのと同じ原理で、$\mathbf{g}$ の対角成分の平方根が $\ast$ の係数に現れる。
 </p>
 $$\begin{aligned}
 \ast(dr) &= r\,d\theta \wedge dz \\
@@ -146,9 +147,18 @@ $$\nabla f = \begin{pmatrix} \frac{\partial f}{\partial r} & \frac{1}{r}\frac{\p
 <h4 id="923-発散">9.2.3 発散</h4>
 <p>$\mathbf{F} = (F_r, F_\theta, F_z)^T$ に対応する $1$-form は $\tilde{\omega} = F_r\,dr + rF_\theta\,d\theta + F_z\,dz$ である（§7.6.2 で確認したように、$d\theta$ の係数は $rF_\theta$）。
 </p>
-<blockquote><p>
-<strong>注</strong> （$\tilde{\omega}$ のチルダについて）第8章 §7.6.2 で、正規直交成分 $F_\theta$ と form 係数 $rF_\theta$ を区別するために $\tilde{\omega}$ という記法を使った。しかし本来、数学ではこの二つをいちいち区別しないことも多い。文脈からどちらの $\omega$ を指しているか明らかだからだ。以下でもチルダを省く。どちらを指しているかは、係数に $r$ や $\rho$ が現れているかどうかで判断してほしい。<br>
-</p></blockquote>
+<blockquote>
+<p><strong>注</strong> （$\tilde{\omega}$ のチルダについて）第8章 §8.6.2 で、正規直交成分 $F_\theta$ と form 係数 $rF_\theta$ を区別するために $\tilde{\omega}$ という記法を使った。しかし本来、数学ではこの二つをいちいち区別しないことも多い。文脈からどちらの $\omega$ を指しているか明らかだからだ。以下でもチルダを省く。どちらを指しているかは、係数に $r$ や $\rho$ が現れているかどうかで判断してほしい。</p>
+</blockquote>
+<blockquote>
+<p><strong>注</strong> （正規直交成分と form 係数）この章で出てくる $F_\theta$ は、物理でよく使う単位ベクトル $\mathbf{e}_\theta$ 方向の成分である。一方、$1$-form の $d\theta$ 係数は角度あたりの係数なので、弧長係数 $r$ が掛かる。</p>
+<p></p>
+<p>| 表示 | 円柱座標の $\theta$ 成分 |</p>
+<p>|---|---|</p>
+<p>| 正規直交ベクトル成分 | $F_\theta$ |</p>
+<p>| $1$-form 係数 | $rF_\theta$ |</p>
+<p>| 基底の長さ | $r\,d\theta$ |</p>
+</blockquote>
 $$\begin{aligned}
 \ast\omega &= F_r(r\,d\theta\wedge dz) + rF_\theta\!\left(\frac{1}{r}\,dz\wedge dr\right) + F_z(r\,dr\wedge d\theta) \\
 &= rF_r\,d\theta\wedge dz + F_\theta\,dz\wedge dr + rF_z\,dr\wedge d\theta \\[0.3em]
@@ -193,6 +203,8 @@ $$\begin{aligned}
 \ast(d\theta) &= \sin\theta\; d\phi \wedge d\rho \\
 \ast(d\phi) &= \frac{1}{\sin\theta}\; d\rho \wedge d\theta
 \end{aligned}$$
+<p>ここでは $\rho>0$ かつ $0<\theta<\pi$ の座標パッチで計算している。原点 $\rho=0$ と極軸 $\sin\theta=0$ では球座標そのものが特異になり、$1/\rho$ や $1/\sin\theta$ を含む公式をそのまま使うことはできない。特異点をまたぐ問題では、別の座標パッチを使うか、特異点を除いた領域で計算してから境界条件として扱う。
+</p>
 <h4 id="932-発散">9.3.2 発散</h4>
 <p>$\mathbf{F} = (F_\rho, F_\theta, F_\phi)^T$ の $1$-form への変換では、$d\rho$ の係数は $F_\rho$（$\rho$ はすでに長さ）、$d\theta$ の係数は $\rho F_\theta$、$d\phi$ の係数は $\rho\sin\theta\,F_\phi$ となる（それぞれ弧長 $\rho\,d\theta$, $\rho\sin\theta\,d\phi$ に対応）。
 </p>
@@ -270,9 +282,9 @@ $$(\nabla^2\mathbf{F})_\phi = \nabla^2 F_\phi - \frac{F_\phi}{\rho^2\sin^2\theta
 <h3 id="95-電磁気学の難問点電荷の電場と発散">§9.5 電磁気学の難問——点電荷の電場と発散</h3>
 <p>最後に、電磁気学からの例題を一つ。第10章への橋渡しでもある。
 </p>
-<blockquote><p>
-<strong>注</strong> （電磁気学が未習の読者へ）以下に出てくる「電場」や「点電荷」といった用語は、理解できなくても構わない。単に「$\frac{1}{\rho^2}$ に比例するベクトル場」の計算だと思って眺めてほしい。第10章でも、電磁気学そのものを深く掘り下げるわけではない。ただ、マクスウェル方程式を微分形式で書くと恐ろしく簡潔になること、そして「みんなここで美しいと言って終わるが、行列まで落とすとどうなるか」を実際に全部書き下す——それだけだ。<br>
-</p></blockquote>
+<blockquote>
+<p><strong>注</strong> （電磁気学が未習の読者へ）以下に出てくる「電場」や「点電荷」といった用語は、理解できなくても構わない。単に「$\frac{1}{\rho^2}$ に比例するベクトル場」の計算だと思って眺めてほしい。第10章でも、電磁気学そのものを深く掘り下げるわけではない。ただ、マクスウェル方程式を微分形式で書くと恐ろしく簡潔になること、そして「みんなここで美しいと言って終わるが、行列まで落とすとどうなるか」を実際に全部書き下す——それだけだ。</p>
+</blockquote>
 <p>点電荷 $q$ が原点にあるとき、電場は $\mathbf{E} = \frac{q}{4\pi\varepsilon_0}\frac{\hat{\boldsymbol{\rho}}}{\rho^2}$（$\hat{\boldsymbol{\rho}}$ は動径方向の単位ベクトル）。ベクトル解析では $\nabla\cdot\mathbf{E} = 0$（原点以外）を示すために球座標の発散公式に代入するが、電場に対応する $1$-form を直接扱う方が見通しがよい。
 </p>
 <p>$\mathbf{E}$ の $\rho$ 成分は $E_\rho = \frac{k}{\rho^2}$（$k = q/4\pi\varepsilon_0$）、$\theta,\phi$ 成分はゼロ。対応する $1$-form は
@@ -287,25 +299,25 @@ $$d\ast\omega = \frac{\partial}{\partial\rho}(k\sin\theta)\,d\rho\wedge d\theta\
 $$d\ast\omega = 0 \quad (\rho \neq 0)$$
 <p>$\ast d\ast\omega = \nabla\cdot\mathbf{E} = 0$ である。$\rho^2$ が $\ast(d\rho)$ の $\rho^2$ と打ち消し合い、残った $\sin\theta\,d\theta\wedge d\phi$ の外微分がゼロ——これだけの計算で、原点以外での発散ゼロが示された。
 </p>
-<blockquote><p>
-<strong>注</strong> （原点では？）$\rho = 0$ では $\omega$ が定義できない。原点を含む領域での積分には $\int_{\partial V} \ast\omega = \int_V d\ast\omega$（ガウスの定理）を使い、右辺に $\delta$ 関数が現れる。これは第10章で $\ast d\ast\omega = \rho/\varepsilon_0$ として正式に扱う。<br>
-</p></blockquote>
+<blockquote>
+<p><strong>注</strong> （原点では？）$\rho = 0$ では $\omega$ が定義できない。原点を含む領域での積分には $\int_{\partial V} \ast\omega = \int_V d\ast\omega$（ガウスの定理）を使い、右辺に $\delta$ 関数が現れる。これは第10章で $\ast d\ast\omega = \rho/\varepsilon_0$ として正式に扱う。</p>
+</blockquote>
 <hr />
 <h3 id="96-辞書は終わり旅は続く">§9.6 辞書は終わり、旅は続く</h3>
 <p>本章では、第8章までに構築した辞書を使って、ベクトル解析の公式を機械的に導出し、微積分と電磁気学の難問を解いた。重要なのは、どの計算も「公式を思い出す」ではなく「辞書を引いて手順をなぞる」だけで済んだことだ。
 </p>
-<p>もはや、円柱座標や球座標の発散・回転の公式を暗記する必要はない。$J \to g = J^T J \to \ast$ 辞書 $\to \ast d\ast$——この一本道を覚えておけば、どんな座標系でもその場で公式を再構成できる。
+<p>もはや、円柱座標や球座標の発散・回転の公式を暗記する必要はない。$J \to g = J^T J \to \ast$ 辞書 $\to \ast d\ast$——この一本道を覚えておけば、直交曲線座標の公式をその場で再構成できる。非直交座標では同じ原理を使うが、$\mathbf{g}$ の非対角成分まで含めた一般の $\ast$ を扱う必要がある。
 </p>
 <p>第10章では、この道具をマクスウェル方程式に適用する。ベクトル解析では4本の基礎方程式が、微分形式では2本に集約される。多くの教科書はここで「なんと美しい」と止まってしまうが、我々はさらに進む。微分形式のマクスウェル方程式の微分形式表現を全成分書き下すとどうなるか——それを実際にやってみせる。本章の計算練習を経ていれば、その翻訳はもはや難しくないはずだ。
 </p>
-<blockquote><p>
-<strong>【ここまでのチェックポイント — 第9章全体】</strong><br>
-- 任意の座標系での公式導出は $J \to g = J^T J \to \ast$ 辞書 $\to \ast d\ast$ の3ステップ。<br>
-- 円柱座標・球座標での $\ast$ 辞書、発散・回転の公式を導出した。<br>
-- ベクトルラプラシアン $\nabla^2\mathbf{F}$ のような難問も、辞書と恒等式の組み合わせで機械的に解ける。<br>
-- 点電荷の電場の発散ゼロは、$\ast(d\rho)$ と $E_\rho$ の $\rho^2$ が打ち消し合うだけの単純な計算で示せる。<br>
-- 公式は暗記しなくてもよい。辞書さえあれば、そしてその辞書すらも、すべてその場で再構成できる。<br>
-</p></blockquote>
+<blockquote>
+<p><strong>【ここまでのチェックポイント — 第9章全体】</strong></p>
+<p>- 直交曲線座標での公式導出は $J \to g = J^T J \to \ast$ 辞書 $\to \ast d\ast$ の3ステップ。</p>
+<p>- 円柱座標・球座標での $\ast$ 辞書、発散・回転の公式を導出した。</p>
+<p>- ベクトルラプラシアン $\nabla^2\mathbf{F}$ のような難問も、辞書と恒等式の組み合わせで機械的に解ける。</p>
+<p>- 点電荷の電場の発散ゼロは、$\ast(d\rho)$ と $E_\rho$ の $\rho^2$ が打ち消し合うだけの単純な計算で示せる。</p>
+<p>- 公式は暗記しなくてもよい。辞書さえあれば、そしてその辞書すらも、すべてその場で再構成できる。</p>
+</blockquote>
 <p>\newpage
 </p>
       <div class="nav-buttons">

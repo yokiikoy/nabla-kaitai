@@ -63,7 +63,8 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
   .nav-buttons {{ display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }}
   .nav-buttons a {{ padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }}
   .nav-buttons a:hover {{ background: #f6f8fa; }}
-  strong {{ font-weight: 700 !important; }}
+  strong {{ font-weight: 800 !important; color: #000; }}
+  blockquote strong {{ color: #24292f !important; }}
   table {{ border-collapse: collapse; width: 100%; margin: 1.5em 0; font-size: 0.9em; }}
   th, td {{ border: 1px solid #d0d7de; padding: 6px 13px; }}
   tr:nth-child(even) {{ background-color: #f6f8fa; }}
@@ -220,15 +221,15 @@ def process_markdown(markdown_text):
             continue
 
         if line.strip().startswith('>'):
-            content = protector.restore(apply_inline_formatting(line[1:].strip()))
+            content = protector.restore(apply_inline_formatting(line.strip()[1:].strip()))
             if not in_quote:
-                result.append('<blockquote><p>')
+                result.append('<blockquote>')
                 in_quote = True
-            result.append(content + '<br>')
+            result.append(f'<p>{content}</p>')
             in_para = False
             continue
         elif in_quote:
-            result.append('</p></blockquote>')
+            result.append('</blockquote>')
             in_quote = False
 
         ol_match = re.match(r'^(\d+)\.\s*(.*)', line.strip())
