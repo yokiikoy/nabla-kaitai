@@ -196,12 +196,12 @@
 \contentsline {subsubsection}{8.3.1 \(\nabla \) から \(d\) へ}{128}{section*.202}%
 \contentsline {subsubsection}{8.3.2 翻訳の往復——どちらからでも行ける}{129}{section*.203}%
 \contentsline {subsection}{§8.4 ガウスの定理を翻訳する}{129}{section*.204}%
-\contentsline {subsubsection}{8.4.1 三つの定理、一つの式}{129}{section*.205}%
+\contentsline {subsubsection}{8.4.1 三つの定理、一つの式}{130}{section*.205}%
 \contentsline {subsection}{§8.5 二つの方法論——場はそのままか、測定器はそのままか}{130}{section*.206}%
 \contentsline {subsubsection}{8.5.1 方法①（dの方法）——場はそのまま、測定器の側が変化する}{130}{section*.207}%
-\contentsline {subsubsection}{8.5.2 方法②（∇の方法）——測定器はそのまま、新たな場を考える}{130}{section*.208}%
+\contentsline {subsubsection}{8.5.2 方法②（∇の方法）——測定器はそのまま、新たな場を考える}{131}{section*.208}%
 \contentsline {subsubsection}{8.5.3 なぜ一致するのか}{131}{section*.209}%
-\contentsline {subsection}{§8.6 曲線座標と二つの方法}{131}{section*.210}%
+\contentsline {subsection}{§8.6 曲線座標と二つの方法}{132}{section*.210}%
 \contentsline {subsubsection}{8.6.1 辞書は計量で変わる}{132}{section*.211}%
 \contentsline {subsubsection}{8.6.2 二つの方法を回してみる}{132}{section*.212}%
 \contentsline {subsubsection}{8.6.3 曲線座標での発散と回転}{134}{section*.213}%
