@@ -36,14 +36,16 @@ for f in files:
         content = fh.read()
     content = strip_yaml(content)
     combined.append(content)
-    combined.append('\n\n\\newpage\n\n')
 
-md_text = '\n'.join(combined)
-
+# Clean version for HTML and combined preview
+clean_md_text = '\n\n'.join(combined)
 with open('exports/manuscript_combined.md', 'w') as f:
-    f.write(md_text)
+    f.write(clean_md_text)
 
 print(f'Combined {len(files)} chapters → exports/manuscript_combined.md')
+
+# Version with page breaks for PDF
+md_text = '\n\n\\newpage\n\n'.join(combined)
 
 # --- Process marker tags for PDF ONLY ---
 md_text = md_text.replace('<!-- pagebreak -->', '\\clearpage')
