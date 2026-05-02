@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第4章：変数変換とは何か —— 引き戻し $\Phi^*$：測定器のつじつま合わせ | ナブラ解体新書</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+<style>
+  :root { --sidebar-width: 320px; }
+  body { margin: 0; display: flex; background: #fff; line-height: 1.7; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .sidebar { width: var(--sidebar-width); height: 100vh; position: sticky; top: 0; background: #f8f9fa; border-right: 1px solid #d0d7de; overflow-y: auto; padding: 1.5rem; box-sizing: border-box; flex-shrink: 0; }
+  .sidebar h2 { font-size: 1.2rem; border: none; margin-bottom: 0.5rem; color: #24292f; }
+  .sidebar .author { font-size: 0.8rem; color: #666; margin-bottom: 1.5rem; }
+  .sidebar .toc { font-size: 0.85rem; }
+  .sidebar .toc ul { list-style: none; padding-left: 0; margin: 0; }
+  .sidebar .toc li { margin-bottom: 0.4rem; }
+  .sidebar .toc .level-1 { font-weight: bold; margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 2px; }
+  .sidebar .toc .level-2 { padding-left: 1rem; color: #444; }
+  .sidebar a { text-decoration: none; color: #0969da; }
+  .sidebar a:hover { text-decoration: underline; }
+  .sidebar .active { color: #cf222e; font-weight: bold; }
+  .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; }
+  .markdown-body { max-width: 850px; margin: 0 auto; }
+  @media (max-width: 900px) { body { flex-direction: column; } .sidebar { width: 100%; height: auto; position: static; } .main-content { padding: 1.5rem; } }
+  blockquote { border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }
+  .mjx-container { overflow-x: auto !important; padding: 0.8em 0; max-width: 100%; }
+  .nav-buttons { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }
+  .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; }
+  .nav-buttons a:hover { background: #f6f8fa; }
+</style>
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$']],
+    displayMath: [['$$', '$$']],
+    processEscapes: true
+  },
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+
+</script>
+<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+  <nav class="sidebar">
+    <h2><a href="index.html">ナブラ解体新書</a></h2>
+    <div class="author">著者: yokiikoy</div>
+    <div class="toc"><ul>
+<li><a href="index.html" id="link-index.html">まえがき</a></li>
+<li class="level-1"><a href="ch01.html" id="link-ch01.html">第1章</a></li>
+<li class="level-1"><a href="ch02.html" id="link-ch02.html">第2章</a></li>
+<li class="level-1"><a href="ch03.html" id="link-ch03.html">第3章</a></li>
+<li class="level-1"><a href="ch04.html" class="active">第4章</a></li>
+<li class="level-1"><a href="ch05.html" id="link-ch05.html">第5章</a></li>
+<li class="level-1"><a href="ch06.html" id="link-ch06.html">第6章</a></li>
+<li class="level-1"><a href="ch07.html" id="link-ch07.html">第7章</a></li>
+<li class="level-1"><a href="ch08.html" id="link-ch08.html">第8章</a></li>
+<li class="level-1"><a href="ch09.html" id="link-ch09.html">第9章</a></li>
+<li class="level-1"><a href="ch10.html" id="link-ch10.html">第10章</a></li>
+<li class="level-1"><a href="ch11.html" id="link-ch11.html">第11章</a></li>
+<li class="level-1"><a href="ch12.html" id="link-ch12.html">第12章</a></li>
+</ul></div>
+  </nav>
+  <main class="main-content">
+    <article class="markdown-body">
+      <h1 id="第4章変数変換とは何か--引き戻し-span-classtex2jaxprocessspan測定器のつじつま合わせ">第4章：変数変換とは何か —— 引き戻し <span class="tex2jax_process">$\Phi^*$</span>：測定器のつじつま合わせ</h1>
+<h3 id="40-物理は曲がる計算は四角">§4.0 物理は曲がる、計算は四角</h3>
+<p>物理で本当に測りたい量は、座標の名前に依らない。
+</p>
+<p>質点にした仕事は、軌道を <span class="tex2jax_process">$x$</span> で書いても、時刻 <span class="tex2jax_process">$t$</span> で書いても同じでなければならない。惑星が掃く面積は、直交座標で測っても、極座標で測っても同じでなければならない。物体の質量は、直交座標で積分しても、円柱座標で積分しても同じでなければならない。
+</p>
+<p>ところで、物理はたいてい曲がっている。
+軌道は曲がり、面は曲がり、領域の境界も曲がる。
+</p>
+<p>一方、計算は四角い。
+区間に刻み、マス目に分け、箱に切る。積分とは、曲がった物理量を四角い計算の上で集計する技術である。
+</p>
+<p>ここで問題が起こる。
+計算に使う変数を変えると、測定器をそのままでは使えなくなる。
+</p>
+<p>物理量は変わってはいけない。
+しかし、計算に使う四角は変わる。
+</p>
+<p>そのとき、測定器をどう作り替えればよいか。
+</p>
+<p>この問いに答える操作が、引き戻しである。
+引き戻し <span class="tex2jax_process">$\Phi^*$</span> に物理の測定器を渡せば、計算の変数で読める測定器を得る——座標を変えても物理量が変わらないように、測定器を作り替える操作である。
+</p>
+<p>本章では、公式を覚えるのではなく、つじつまを合わせる。
+仕事、面積、体積という三つの物理量を通じて、<span class="tex2jax_process">$dx$</span>、<span class="tex2jax_process">$dx \wedge dy$</span>、<span class="tex2jax_process">$dx \wedge dy \wedge dz$</span> が、それぞれどのように作り替えられるかを見る。
+</p>
+<h3 id="41-1-form-の引き戻し仕事と運動エネルギー定理">§4.1 1-form の引き戻し——仕事と運動エネルギー定理</h3>
+<blockquote><p>
+**注（物理学未習の読者へ）** 以下の例では、物理学を学ぶ者がよく知っている結論（運動エネルギー保存則）を先に使っている。しかし、単に「質点の位置 <span class="tex2jax_process">$x$</span> を時刻 <span class="tex2jax_process">$t$</span> の関数 <span class="tex2jax_process">$\gamma(t)$</span> で書き表せる」という状況だと思って読み進めてほしい。物理を知らなくても、<span class="tex2jax_process">$F(x)$</span> は <span class="tex2jax_process">$x$</span> の関数、<span class="tex2jax_process">$v(t)$</span> は <span class="tex2jax_process">$t$</span> の関数と読めれば十分である。<br>
+</p></blockquote>
+<p>**① 物理量から始める。** いきなり一般論には行かない。まずは、よく知られた力学の事実から始めよう。
+</p>
+<p>質点に力 <span class="tex2jax_process">$F$</span> が働き、質点が <span class="tex2jax_process">$x$</span> 軸上を運動しているとする。仕事は
+</p>
+<p>で与えられる。一方、運動方程式は
+</p>
+<p>である。この二つから、おなじみの運動エネルギー保存則
+</p>
+<p>が出る。本節ではこの導出を、「引き戻し」の目で読み直す。読者は最初から「何が出てくるか」を知っている。そのうえで、計算の裏で測定器がどう作り替えられているかだけを追えばよい。
+</p>
+<p>**② 素朴な置き換え——必ず間違える。** 質点の位置を <span class="tex2jax_process">$x = \gamma(t)$</span> と書く。速度は <span class="tex2jax_process">$v(t) = \gamma'(t)$</span> である。仕事の測定器は <span class="tex2jax_process">$F\,dx$</span> ——これは実空間の変位を食べて仕事の小片を返す <span class="tex2jax_process">$1$</span>-form だ。
+</p>
+<p>しかし運動は時刻 <span class="tex2jax_process">$t$</span> によって与えられている。そこで、仕事を時間で計算したい。
+</p>
+<p>まず実空間側で、等加速度運動 <span class="tex2jax_process">$x(t) = \frac{1}{2}at^2$</span>、一定力 <span class="tex2jax_process">$F = ma$</span> の場合を計算する。終点 <span class="tex2jax_process">$X = \frac{1}{2}aT^2$</span> だから
+</p>
+<p>である。一方、時間側で素朴に——つまり <span class="tex2jax_process">$dx$</span> をそのまま <span class="tex2jax_process">$dt$</span> に置き換えて——積分してみると
+</p>
+<p>となる。<span class="tex2jax_process">$\frac{1}{2}ma^2T^2 \neq ma\,T$</span> だから、明らかに一致しない。<span class="tex2jax_process">$dt$</span> のままでは仕事の値が変わってしまうのだ。
+</p>
+<p>**③ 有限マス目で原因を見る。** 時刻の小区間 <span class="tex2jax_process">$[t_i, t_{i+1}]$</span> を考える。その幅を <span class="tex2jax_process">$\Delta t_i = t_{i+1} - t_i$</span>、対応する位置の変化を <span class="tex2jax_process">$\Delta x_i = \gamma(t_{i+1}) - \gamma(t_i)$</span> とする。実空間側の仕事の一項は <span class="tex2jax_process">$F_i\,\Delta x_i$</span>。時間側で素朴に作った一項は <span class="tex2jax_process">$F_i\,\Delta t_i$</span>。この二つが一致しないのは、<span class="tex2jax_process">$\Delta t_i$</span> と <span class="tex2jax_process">$\Delta x_i$</span> のつじつま係数を無視したからだ。
+</p>
+<p>そこで、時間側の一項に係数 <span class="tex2jax_process">$c_i$</span> を掛けて <span class="tex2jax_process">$F_i\,c_i\,\Delta t_i$</span> としてみる。これが <span class="tex2jax_process">$F_i\,\Delta x_i$</span> と一致するには、<span class="tex2jax_process">$c_i\,\Delta t_i = \Delta x_i$</span> でなければならない。したがって
+</p>
+<p>である。分割を細かくすると、この比は速度 <span class="tex2jax_process">$v(t) = dx/dt$</span> へ近づく。
+</p>
+<p>**④ 具体例の引き戻しを書く。** したがって、時間軸上での測定器は
+</p>
+<p>へ作り替えられる。これを
+</p>
+<p>と書く。
+</p>
+<p>**⑤ 係数付き <span class="tex2jax_process">$1$</span>-form の引き戻し。** 任意の係数 <span class="tex2jax_process">$F(x)$</span> に対して、同じ構造が成り立つ。位置が <span class="tex2jax_process">$x = \gamma(t)$</span> で与えられるとき
+</p>
+<p>である。
+</p>
+<p>**⑥ 一般の変換で定義する。** より一般に、<span class="tex2jax_process">$1$</span>-form <span class="tex2jax_process">$\omega = F(x)\,dx$</span> と、実数上の曲線 <span class="tex2jax_process">$\gamma: t \mapsto x$</span> に対して、引き戻し <span class="tex2jax_process">$\gamma^*$</span> は
+</p>
+<p>で定義される。この式こそが **<span class="tex2jax_process">$1$</span>-form の引き戻しの一般的な定義** である。<span class="tex2jax_process">$\gamma'(t)$</span> が「実空間の測定器 <span class="tex2jax_process">$dx$</span> を時間軸の測定器 <span class="tex2jax_process">$dt$</span> に焼き直す」ためのつじつま係数になっている。
+</p>
+<p>**⑦ 物理量へ戻る。** ここで運動方程式 <span class="tex2jax_process">$F = m\,dv/dt$</span> を使うと、
+</p>
+<p>と読める（<span class="tex2jax_process">$m\frac{dv}{dt}\,dt$</span> は速度軸の測定器 <span class="tex2jax_process">$dv$</span> を時間軸へ引き戻したものだから）。よって
+</p>
+<p>となる——運動エネルギー保存則である。
+</p>
+<blockquote><p>
+**注** （なぜ「引き戻し」という名前なのか）実空間にある測定器をパラメータ空間に「送る」のなら、それは「押し出し」ではないのか——そう感じる読者もいるだろう。我々の直感では、実空間が「現実」で、パラメータ空間は「計算用の道具」だからだ。しかし数学の写像 <span class="tex2jax_process">$\gamma$</span> は、つねに「パラメータ空間 <span class="tex2jax_process">$\to$</span> 実空間」という向きで定義される。数学の世界では、パラメータ空間のほうが出発地なのだ。だから、実空間からパラメータ空間へ逆行する測定器の移動は、写像の向きに逆らって「引き戻し（Pull-back）」と呼ばれる。直感とは逆だが、そういう命名規則なのだと割り切ってほしい。<br>
+</p></blockquote>
+<blockquote><p>
+**注** （<span class="tex2jax_process">$dx$</span> は横ベクトル、<span class="tex2jax_process">$dt$</span> も横ベクトル）§4.1 の計算では、<span class="tex2jax_process">$dx$</span> も <span class="tex2jax_process">$dt$</span> も <span class="tex2jax_process">$dv$</span> も、すべてが「変位を食べてスカラーを返す」という同じ型を保っている。第1章 §1.1.3 以来の「横ベクトル×縦ベクトル→スカラー」の原則は、引き戻しのただ中でも崩れない。<span class="tex2jax_process">$\gamma^*(F\,dx)$</span> の結果も再び時間軸上の <span class="tex2jax_process">$1$</span>-form（横ベクトル）であり、それを時間側の変位 <span class="tex2jax_process">$\Delta t$</span> に食わせればスカラー（仕事の小片）が得られる——この一貫性こそが、引き戻しの理解を支える。<br>
+</p></blockquote>
+<blockquote><p>
+**注** （<span class="tex2jax_process">$dx$</span> は横ベクトル、<span class="tex2jax_process">$dt$</span> も横ベクトル）§4.1 の計算では、<span class="tex2jax_process">$dx$</span> も <span class="tex2jax_process">$dt$</span> も <span class="tex2jax_process">$dv$</span> も、すべてが「変位を食べてスカラーを返す」という同じ型を保っている。第1章 §1.1.3 以来の「横ベクトル×縦ベクトル→スカラー」の原則は、引き戻しのただ中でも崩れない。<span class="tex2jax_process">$\gamma^*(F\,dx)$</span> の結果も再び時間軸上の <span class="tex2jax_process">$1$</span>-form（横ベクトル）であり、それを時間側の変位 <span class="tex2jax_process">$\Delta t$</span> に食わせればスカラー（仕事の小片）が得られる——この一貫性こそが、引き戻しの理解を支える。<br>
+</p></blockquote>
+<h3 id="42-2-form-の引き戻し角運動量保存と面積速度">§4.2 2-form の引き戻し——角運動量保存と面積速度</h3>
+<p>**① 物理量から始める。** 1-form で見た構造——積分値を保つために測定器を作り替える——は、そのまま 2-form にも拡張できる。§4.1 と正確に同じ **7 つの手順** をたどろう。
+</p>
+<p>中心力場の中を運動する質点を考える。力が常に原点に向かうとき、角運動量 <span class="tex2jax_process">$L = m(x \dot{y} - y \dot{x})$</span> は時間に依らず一定である（角運動量保存則）。この保存則には美しい幾何学的意味がある——質点の位置ベクトルが掃く面積の速度（**面積速度**）が一定になるのだ（ケプラーの第二法則）。
+</p>
+<p>質点の運動は <span class="tex2jax_process">$z=0$</span> 平面上で起こるとしてよい。時刻 <span class="tex2jax_process">$t_0$</span> から <span class="tex2jax_process">$t_1$</span> までに位置ベクトルが掃く扇形領域 <span class="tex2jax_process">$D$</span> の面積は
+</p>
+<p>と書ける。<span class="tex2jax_process">$dx \wedge dy$</span> は <span class="tex2jax_process">$xy$</span> 平面上の面積測定器（<span class="tex2jax_process">$2$</span>-form）である。
+</p>
+<blockquote><p>
+**注** （物理学者の二次元）忘れないでほしい——本書は一貫して三次元空間の実在を前提としている。以下の角運動量の議論で <span class="tex2jax_process">$z=0$</span> と置くのは、計算を見やすくするための一時的な簡略化であり、我々は依然として三次元空間の中の一つの平面を眺めているにすぎない。<br>
+</p></blockquote>
+<p>**② 素朴な置き換え——必ず間違える。** 右辺の扇形は <span class="tex2jax_process">$(x,y)$</span> の式では書きづらい。そこで <span class="tex2jax_process">$(r,\theta)$</span> で書きたくなる。しかし、<span class="tex2jax_process">$dx \wedge dy$</span> をそのまま <span class="tex2jax_process">$dr \wedge d\theta$</span> に置き換えるとどうなるか。半径 <span class="tex2jax_process">$C$</span> の完全な円の面積を計算してみよう。正しい値は <span class="tex2jax_process">$\pi C^2$</span> である。ところが、素朴に置き換えると：
+</p>
+<p>これは <span class="tex2jax_process">$\pi C^2$</span> とはまったく違う。<span class="tex2jax_process">$dr \wedge d\theta$</span> のままでは、正しい面積が出ない。
+</p>
+<p>**③ 有限マス目で原因を見る。** §4.1 と同じことをする。<span class="tex2jax_process">$(r,\theta)$</span> 空間に、有限の大きさ <span class="tex2jax_process">$\Delta r \times \Delta\theta$</span> のグリッドを切る。座標 <span class="tex2jax_process">$(r, \theta)$</span> にある一マスが、<span class="tex2jax_process">$(x,y)$</span> 空間で占める面積を求める。
+</p>
+<p>二辺 <span class="tex2jax_process">$\mathbf{v}_r = (\Delta x_r, \Delta y_r)$</span> と <span class="tex2jax_process">$\mathbf{v}_\theta = (\Delta x_\theta, \Delta y_\theta)$</span> が張る平行四辺形の面積を行列式で求める：
+</p>
+<p>結果は <span class="tex2jax_process">$\det = r\Delta r\,\sin\Delta\theta$</span>。マス目全体を足し上げるリーマン和：
+</p>
+<blockquote><p>
+**注** （<span class="tex2jax_process">$\Delta r,\Delta\theta$</span> は微小である必要はない）ここまでの計算に、<span class="tex2jax_process">$\Delta r$</span> や <span class="tex2jax_process">$\Delta\theta$</span> が「十分小さい」という仮定は一切使っていない。上で求めた <span class="tex2jax_process">$\Delta x_r, \Delta y_r, \Delta x_\theta, \Delta y_\theta$</span> は、<span class="tex2jax_process">$\Delta r,\Delta\theta$</span> がどれほど大きくても厳密に成り立つ式である。微小量への移行は、あくまで積分の最終段階——総和の極限をとるとき——で初めて行う。<br>
+</p></blockquote>
+<p>**④ 具体例の引き戻しを書く。** 極座標への変換 <span class="tex2jax_process">$\Phi(r,\theta) = (r\cos\theta,\; r\sin\theta)$</span> に対して：
+</p>
+<p>これが <span class="tex2jax_process">$2$</span>-form の引き戻しの具体例である。この <span class="tex2jax_process">$r$</span> が、§4.1 の <span class="tex2jax_process">$\gamma'(t)$</span> に対応するつじつま係数である。
+</p>
+<p>**⑤ 係数付き <span class="tex2jax_process">$2$</span>-form の引き戻し。** 任意の係数 <span class="tex2jax_process">$G(x,y)$</span> を持つ <span class="tex2jax_process">$2$</span>-form <span class="tex2jax_process">$G(x,y)\,dx \wedge dy$</span> に対して、同じ構造が成り立つ：
+</p>
+<p>係数 <span class="tex2jax_process">$G$</span> は座標を極座標に焼き直すだけ（<span class="tex2jax_process">$0$</span>-form の引き戻し）で、<span class="tex2jax_process">$dx \wedge dy$</span> の部分だけが <span class="tex2jax_process">$r\,dr \wedge d\theta$</span> に変わる。引き戻し <span class="tex2jax_process">$\Phi^*$</span> は「係数の焼き直し」と「測定器の焼き直し」に自然に分解されるのである。
+</p>
+<p>**⑥ 一般の変換で定義する。** より一般に、<span class="tex2jax_process">$2$</span>-form <span class="tex2jax_process">$\eta = G(x,y)\,dx \wedge dy$</span> と、平面間の変換 <span class="tex2jax_process">$\Phi(u,v) = (x(u,v), y(u,v))$</span> に対して、引き戻し <span class="tex2jax_process">$\Phi^*$</span> は
+</p>
+<p>で定義される。ここで <span class="tex2jax_process">$\Delta x_u$</span> は <span class="tex2jax_process">$u$</span> だけを <span class="tex2jax_process">$\Delta u$</span> 増やしたときの <span class="tex2jax_process">$x$</span> の変化、<span class="tex2jax_process">$\Delta x_v$</span> は <span class="tex2jax_process">$v$</span> だけを <span class="tex2jax_process">$\Delta v$</span> 増やしたときの <span class="tex2jax_process">$x$</span> の変化である。<span class="tex2jax_process">$\bigl(\Delta x_u\,\Delta y_v - \Delta x_v\,\Delta y_u\bigr)$</span> が「実空間の面積測定器 <span class="tex2jax_process">$dx \wedge dy$</span> をパラメータ空間の面積測定器 <span class="tex2jax_process">$du \wedge dv$</span> に焼き直す」ためのつじつま係数であり、<span class="tex2jax_process">$2 \times 2$</span> 行列式の形をしている。この式こそが **<span class="tex2jax_process">$2$</span>-form の引き戻しの一般的な定義** である。
+</p>
+<p>**⑦ 物理量へ戻る。** 扇形領域 <span class="tex2jax_process">$D$</span> の面積を、引き戻した測定器で積分すれば：
+</p>
+<p>角運動量の定義 <span class="tex2jax_process">$L = m r^2 \dot{\theta}$</span> より、面積速度は
+</p>
+<p>中心力場では <span class="tex2jax_process">$L$</span> が保存されるから、面積速度も一定——これがケプラーの第二法則であり、角運動量保存則の幾何学的表現である。§4.1 で <span class="tex2jax_process">$1$</span>-form のつじつま係数 <span class="tex2jax_process">$\gamma'(t)$</span> がエネルギー保存を記述したのとまったく同じ構造が、<span class="tex2jax_process">$2$</span>-form のつじつま係数 <span class="tex2jax_process">$r$</span> を通じて角運動量保存を記述している。
+</p>
+<h3 id="43-3-form-の引き戻し質量保存と体積分">§4.3 3-form の引き戻し——質量保存と体積分</h3>
+<p>**① 物理量から始める。** 最後は体積分だ。§4.1、§4.2 と正確に同じ **7 つの手順** を、もう一度たどる。
+</p>
+<p>密度 <span class="tex2jax_process">$\rho$</span> が一様な円柱（半径 <span class="tex2jax_process">$C$</span>、高さ <span class="tex2jax_process">$H$</span>）の質量を考えよう。<span class="tex2jax_process">$(x,y,z)$</span> 空間で直接計算すれば
+</p>
+<p>である。この <span class="tex2jax_process">$M$</span> は——当然だが——どんな座標で計算しても変化してはならない。
+</p>
+<p>**② 素朴な置き換え——必ず間違える。** 積分を円柱座標 <span class="tex2jax_process">$(r,\theta,z)$</span> で書きたい。円柱の範囲は <span class="tex2jax_process">$r \in [0, C],\; \theta \in [0, 2\pi],\; z \in [0, H]$</span> だから、<span class="tex2jax_process">$dx \wedge dy \wedge dz$</span> をそのまま <span class="tex2jax_process">$dr \wedge d\theta \wedge dz$</span> に置き換えて：
+</p>
+<p>これを正しい値 <span class="tex2jax_process">$\rho \pi C^2 H$</span> と比べると、<span class="tex2jax_process">$2\pi\rho C H \neq \rho \pi C^2 H$</span>。明らかに一致しない。
+</p>
+<p>**③ 有限マス目で原因を見る。** <span class="tex2jax_process">$(r,\theta,z)$</span> 空間に、有限の大きさ <span class="tex2jax_process">$\Delta r \times \Delta\theta \times \Delta z$</span> のグリッドを切る。変換は <span class="tex2jax_process">$x = r\cos\theta,\; y = r\sin\theta,\; z = z$</span>。<span class="tex2jax_process">$z$</span> 方向は変換を受けないから、体積は「<span class="tex2jax_process">$xy$</span> 平面内のマス目面積」<span class="tex2jax_process">$\times \Delta z$</span> である。<span class="tex2jax_process">$xy$</span> 平面内の面積は、§4.2 の手順そのままだ：
+</p>
+<p>したがって、一マスの体積は
+</p>
+<p>円柱全体の質量は、マス目 <span class="tex2jax_process">$(i,j,k)$</span> の寄与を足し上げたリーマン和である：
+</p>
+<p>総和の極限をとる最終段階で <span class="tex2jax_process">$\sin\Delta\theta_j \approx \Delta\theta_j$</span> と置く：
+</p>
+<p>**④ 具体例の引き戻しを書く。** 円柱座標への変換 <span class="tex2jax_process">$\Phi(r,\theta,z) = (r\cos\theta,\; r\sin\theta,\; z)$</span> に対して：
+</p>
+<p>これが <span class="tex2jax_process">$3$</span>-form の引き戻しの具体例である。この <span class="tex2jax_process">$r$</span> が、§4.2 の <span class="tex2jax_process">$r$</span> をそのまま引き継いだつじつま係数である。
+</p>
+<p>**⑤ 係数付き <span class="tex2jax_process">$3$</span>-form の引き戻し。** 任意の密度 <span class="tex2jax_process">$\rho(x,y,z)$</span> を持つ <span class="tex2jax_process">$3$</span>-form <span class="tex2jax_process">$\rho\,dx \wedge dy \wedge dz$</span> に対して、同じ構造が成り立つ：
+</p>
+<p>係数 <span class="tex2jax_process">$\rho$</span> は座標を焼き直すだけ（<span class="tex2jax_process">$0$</span>-form の引き戻し）で、<span class="tex2jax_process">$dx \wedge dy \wedge dz$</span> の部分だけが <span class="tex2jax_process">$r\,dr \wedge d\theta \wedge dz$</span> に変わる。
+</p>
+<p>**⑥ 一般の変換で定義する。** より一般に、<span class="tex2jax_process">$3$</span>-form <span class="tex2jax_process">$\Omega = \rho(x,y,z)\,dx \wedge dy \wedge dz$</span> と、空間の変換 <span class="tex2jax_process">$\Phi(u,v,w) = (x(u,v,w), y(u,v,w), z(u,v,w))$</span> に対して、引き戻し <span class="tex2jax_process">$\Phi^*$</span> は三個の方向すべてで辺ベクトルを求め、その <span class="tex2jax_process">$3 \times 3$</span> 行列式をとる：
+</p>
+<p>この <span class="tex2jax_process">$3 \times 3$</span> 行列式を <span class="tex2jax_process">$J(u,v,w)$</span> と書けば
+</p>
+<p>となる。この <span class="tex2jax_process">$3 \times 3$</span> 行列式 <span class="tex2jax_process">$J(u,v,w)$</span> が、<span class="tex2jax_process">$3$</span>-form のつじつま係数である。<span class="tex2jax_process">$J$</span> が負なら向きが反転していることを意味するから、体積積分の変数変換に絶対値 <span class="tex2jax_process">$|J|$</span> が現れる理由もここにある。<span class="tex2jax_process">$1$</span>-form なら <span class="tex2jax_process">$1 \times 1$</span> 行列式（スカラー <span class="tex2jax_process">$\gamma'(t)$</span>）、<span class="tex2jax_process">$2$</span>-form なら <span class="tex2jax_process">$2 \times 2$</span> 行列式（<span class="tex2jax_process">$\Delta x_u\Delta y_v - \Delta x_v\Delta y_u$</span>）、<span class="tex2jax_process">$3$</span>-form なら <span class="tex2jax_process">$3 \times 3$</span> 行列式（<span class="tex2jax_process">$J$</span>）——次数が上がるごとに、つじつま係数を司る行列式のサイズが一つずつ大きくなる。この式こそが **<span class="tex2jax_process">$3$</span>-form の引き戻しの一般的な定義** である。
+</p>
+<blockquote><p>
+**注** （ベクトル解析を学んだ読者へ）変数変換で「極座標にすると <span class="tex2jax_process">$r\,dr\,d\theta$</span> が出る」と習ったとき、多くの教科書は「<span class="tex2jax_process">$\theta$</span> 方向の弧の長さ <span class="tex2jax_process">$r\Delta\theta$</span> を考えて、<span class="tex2jax_process">$\Delta V \approx \Delta r \cdot r\Delta\theta \cdot \Delta z$</span>」という幾何学的な説明をする。その説明に間違いはない。しかし本書の計算では弧の長さを一切考えていない。変換式と三角関数の公式、そして <span class="tex2jax_process">$\wedge$</span> に相当する行列式の計算だけが、正しいつじつま係数 <span class="tex2jax_process">$r$</span> を自動的に導いている。<br>
+</p></blockquote>
+<p>**⑦ 物理量へ戻る。** 引き戻した測定器で積分すれば
+</p>
+<p>正しい値に一致した。積分値を保つために、測定器 <span class="tex2jax_process">$dx \wedge dy \wedge dz$</span> は <span class="tex2jax_process">$(r,\theta,z)$</span> 空間では <span class="tex2jax_process">$r\,dr \wedge d\theta \wedge dz$</span> に作り替えられなければならなかったのである。§4.1 の <span class="tex2jax_process">$\gamma'(t)$</span> がエネルギー保存を、§4.2 の <span class="tex2jax_process">$r$</span> が角運動量保存を記述したのとまったく同じ構造で、§4.3 の <span class="tex2jax_process">$r$</span>（一般には <span class="tex2jax_process">$J$</span>）が質量保存を記述している。
+</p>
+<h3 id="44-引き戻しの性質--ここまでに確立したこと">§4.4 引き戻しの性質 —— ここまでに確立したこと</h3>
+<p>§4.1〜§4.3 で三つの具体例を通じて引き戻しを構成してきた。ここで、これらに共通する代数的な性質を整理しておく。あわせて、§4.3 で現れた <span class="tex2jax_process">$3 \times 3$</span> 行列式 <span class="tex2jax_process">$J$</span> を **ヤコビアン（ヤコビ行列式）** と定義する。もととなる行列
+</p>
+<p>を **ヤコビ行列** と呼び、その行列式 <span class="tex2jax_process">$\det$</span> がヤコビアン <span class="tex2jax_process">$J$</span> である。
+</p>
+<p>**① 0-form（スカラー場）の引き戻し。** スカラー場 <span class="tex2jax_process">$f(x,y,z)$</span> を変換 <span class="tex2jax_process">$\Phi$</span> で引き戻すとは、単に座標をパラメータ表示に焼き直すことである：
+</p>
+<p>たとえば §4.1 で <span class="tex2jax_process">$F(x)\,dx$</span> の <span class="tex2jax_process">$F(x)$</span> を <span class="tex2jax_process">$F(\gamma(t))$</span> に焼き直した操作は、<span class="tex2jax_process">$F$</span> という <span class="tex2jax_process">$0$</span>-form の引き戻しにほかならない。
+</p>
+<p>**② 線形性。** 二つの <span class="tex2jax_process">$k$</span>-form <span class="tex2jax_process">$\omega, \eta$</span> とスカラー <span class="tex2jax_process">$a,b$</span> に対し
+</p>
+<p>が成り立つ。これは測定器の和や定数倍が、引き戻しの前後で整合することを保証する。
+</p>
+<p>**③ ウェッジ積との整合性。** <span class="tex2jax_process">$k$</span>-form <span class="tex2jax_process">$\omega$</span> と <span class="tex2jax_process">$\ell$</span>-form <span class="tex2jax_process">$\eta$</span> に対し
+</p>
+<p>が成り立つ。すなわち「組み立ててから引き戻す」のと「引き戻してから組み立てる」のは同じ結果を与える。§4.2 で <span class="tex2jax_process">$dx$</span> と <span class="tex2jax_process">$dy$</span> を個別に展開してから <span class="tex2jax_process">$\wedge$</span> で組み立てた操作が、まさにこの性質を実行していた。
+</p>
+<p>**④ 次数ごとのつじつま係数。** <span class="tex2jax_process">$k$</span>-form の引き戻しでは、変換 <span class="tex2jax_process">$\Phi$</span> の <span class="tex2jax_process">$k$</span> 個の方向に関する辺ベクトルを並べた <span class="tex2jax_process">$k \times k$</span> 行列式がつじつま係数となる。本書の範囲では：
+</p>
+<blockquote><p>
+- <span class="tex2jax_process">$k=1$</span>（<span class="tex2jax_process">$1$</span>-form）：<span class="tex2jax_process">$1 \times 1$</span> 行列式 → スカラー <span class="tex2jax_process">$\gamma'(t)$</span><br>
+- <span class="tex2jax_process">$k=2$</span>（<span class="tex2jax_process">$2$</span>-form）：<span class="tex2jax_process">$2 \times 2$</span> 行列式 → <span class="tex2jax_process">$\Delta x_u\Delta y_v - \Delta x_v\Delta y_u$</span><br>
+- <span class="tex2jax_process">$k=3$</span>（<span class="tex2jax_process">$3$</span>-form）：<span class="tex2jax_process">$3 \times 3$</span> 行列式 → <span class="tex2jax_process">$J$</span>（ヤコビアン）<br>
+</p></blockquote>
+<blockquote><p>
+**注** （ヤコビアンの呼称について）本書では <span class="tex2jax_process">$3 \times 3$</span> 行列式 <span class="tex2jax_process">$J$</span> を特にヤコビアンと呼んでいる。<span class="tex2jax_process">$2 \times 2$</span> 行列式や <span class="tex2jax_process">$1 \times 1$</span> 行列式（すなわち <span class="tex2jax_process">$\gamma'(t)$</span>）もまたヤコビアンである。一般の <span class="tex2jax_process">$k$</span> 次元でも <span class="tex2jax_process">$k \times k$</span> 行列式をヤコビアンと呼ぶ。対応する <span class="tex2jax_process">$k \times k$</span> 行列はヤコビ行列である。しかし、おおむね断りがなければ「ヤコビアン」は <span class="tex2jax_process">$3 \times 3$</span> の体積換算率を指す、と覚えておけば十分である。<br>
+</p></blockquote>
+<p>次数が上がるごとに行列式のサイズが一つずつ大きくなる。この構造は <span class="tex2jax_process">$n$</span> 次元の一般の <span class="tex2jax_process">$k$</span>-form でもまったく同じである。<span class="tex2jax_process">$k$</span>-form の引き戻しとは、**<span class="tex2jax_process">$k$</span> 個の辺ベクトルを並べた <span class="tex2jax_process">$k \times k$</span> 行列式で、<span class="tex2jax_process">$k$</span> 次元のマス目ごとのつじつま係数を測る操作**にほかならない。
+</p>
+<blockquote><p>
+**注** （外微分 <span class="tex2jax_process">$d$</span> との可換性——第5章への伏線）これらに加えて、引き戻しと外微分 <span class="tex2jax_process">$d$</span> のあいだには重要な関係<br>
+<br>
+</p></blockquote>
+<blockquote><p>
+が成り立つ。すなわち「微分してから引き戻す」のと「引き戻してから微分する」のは同じ結果を与える。この性質は第5章で <span class="tex2jax_process">$d$</span> を正式に導入したのち、§5.9 で改めて取り上げる。<br>
+</p></blockquote>
+<p>これ以上深く立ち入ることはしない——第 10 章で多様体の言葉による一般論に触れる——が、本書の <span class="tex2jax_process">$3$</span> 次元での経験は、その一般論を学ぶ際の確かな足場となるだろう。
+</p>
+<hr />
+<h3 id="45-本章のまとめと第5章外微分への展望">§4.5 本章のまとめと第5章（外微分）への展望</h3>
+<p>第I部「積分記号の尻尾の正体」の三段が、これで完結した：
+</p>
+<ol>
+<li>**第1章**：<span class="tex2jax_process">$dx$</span> を行列（<span class="tex2jax_process">$1$</span>-form）と見なし、積分を行列作用の極限と読む</li>
+<li>**第2章**：ウェッジ積 <span class="tex2jax_process">$\wedge$</span> で <span class="tex2jax_process">$2$</span>-form・<span class="tex2jax_process">$3$</span>-form を構成し、面積・体積を代数で測る</li>
+<li>**第5章（本章）**：曲線・曲面・領域に形式を適用し集計する（積分）。引き戻しにより「積分値を保つために測定器を作り替える」という統一原理を、エネルギー保存・角運動量保存・質量保存の三つの具体例を通じて確立した</li>
+</ol>
+<p>本章で確立したのは、次の統一原理である：
+</p>
+<p>**<span class="tex2jax_process">$k$</span>-form（はかり）が <span class="tex2jax_process">$k$</span>-vector（図形）を食べてスカラーを返し、それを領域全体で集計する。**次数が <span class="tex2jax_process">$0,1,2,3$</span> と変わっても、この構図は不変だった。曲線上の仕事も、曲面上の流量も、領域内の総質量も——すべて同じ言語で書ける。
+</p>
+<p>引き戻しは「積分値を保つために測定器を作り替える」技術であり、その核心は §4.1〜§4.3 で見た発見的導出——「素朴にやって合わない → 有限マス目でつじつま係数を求める → 極限で一般形を得る」——に尽きる。<span class="tex2jax_process">$1$</span>-form では速度 <span class="tex2jax_process">$\gamma'(t)$</span> が、<span class="tex2jax_process">$2$</span>-form では <span class="tex2jax_process">$r$</span> が、<span class="tex2jax_process">$3$</span>-form では <span class="tex2jax_process">$3 \times 3$</span> 行列式 <span class="tex2jax_process">$J$</span> が、いずれも変換式と行列式（<span class="tex2jax_process">$\wedge$</span>）の計算から自動的に導かれた。既存の微分公式は一切必要なかった。
+</p>
+<blockquote><p>
+**【ここまでのチェックポイント——第3章・第I部全体】**<br>
+- <span class="tex2jax_process">$1$</span>-form <span class="tex2jax_process">$\omega$</span> の線積分 <span class="tex2jax_process">$\int_\gamma \omega$</span> は、<span class="tex2jax_process">$\gamma'(t)$</span> に <span class="tex2jax_process">$\omega$</span> を食わせて集計する操作。仕事は <span class="tex2jax_process">$\int_\gamma \omega$</span> で、<span class="tex2jax_process">$\mathbf{F}\cdot d\mathbf{r}$</span> と同じ量。積分値（＝エネルギー変化）は座標のとり方に依らず一定。<br>
+- <span class="tex2jax_process">$2$</span>-form <span class="tex2jax_process">$\eta$</span> の面積分 <span class="tex2jax_process">$\iint_S \eta = \iint_D \eta(\mathbf{r}_u, \mathbf{r}_v)\,du \wedge dv$</span>。係数1では各平面への「影」を測り、三つの影を合成すればスカラー面積が得られる。面積速度と角運動量保存（ケプラーの第二法則）に応用できる。<br>
+- <span class="tex2jax_process">$3$</span>-form <span class="tex2jax_process">$\Omega$</span> の体積分 <span class="tex2jax_process">$\iiint_V \Omega$</span>。係数1でそのまま体積、係数 <span class="tex2jax_process">$\rho$</span> で総質量・総電荷。積分値（＝質量）は座標不変。<br>
+- 引き戻し <span class="tex2jax_process">$\Phi^*$</span> は「積分値が不変となるように測定器をパラメータ空間用に焼き直す」操作。第1章 §1.4 の <span class="tex2jax_process">$dx = \cos\theta\,dr - r\sin\theta\,d\theta$</span> がその原型。<br>
+- <span class="tex2jax_process">$1$</span>-form → <span class="tex2jax_process">$\gamma'(t)$</span>、<span class="tex2jax_process">$2$</span>-form → <span class="tex2jax_process">$r$</span>、<span class="tex2jax_process">$3$</span>-form → <span class="tex2jax_process">$J$</span>。いずれも変換式と行列式（<span class="tex2jax_process">$\wedge$</span>）の計算だけが、幾何的直感なしに正しいつじつま係数を導く。<br>
+</p></blockquote>
+<hr />
+<p>ここから先の**第II部**では、いよいよ**外微分 <span class="tex2jax_process">$d$</span>** を導入する。<span class="tex2jax_process">$d$</span> は形式の次数を1つ上げる線形演算子であり、勾配・回転・発散が**一つの操作のバリエーション**であることが明らかになる。積分側の言葉がそろったいま、微分側の代数を完成させる準備が整ったのである。
+</p>
+<p>\newpage
+</p>
+      <div class="nav-buttons">
+        <a href="ch03.html">← 第3章：積分するとは何か ——...</a>
+        <a href="ch05.html">第5章：微分するとは何か ——... →</a>
+      </div>
+    </article>
+  </main>
+</body>
+</html>

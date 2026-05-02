@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第2章：面積とは何か —— 平行多面体に潜む、符号のルール | ナブラ解体新書</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+<style>
+  :root { --sidebar-width: 320px; }
+  body { margin: 0; display: flex; background: #fff; line-height: 1.7; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .sidebar { width: var(--sidebar-width); height: 100vh; position: sticky; top: 0; background: #f8f9fa; border-right: 1px solid #d0d7de; overflow-y: auto; padding: 1.5rem; box-sizing: border-box; flex-shrink: 0; }
+  .sidebar h2 { font-size: 1.2rem; border: none; margin-bottom: 0.5rem; color: #24292f; }
+  .sidebar .author { font-size: 0.8rem; color: #666; margin-bottom: 1.5rem; }
+  .sidebar .toc { font-size: 0.85rem; }
+  .sidebar .toc ul { list-style: none; padding-left: 0; margin: 0; }
+  .sidebar .toc li { margin-bottom: 0.4rem; }
+  .sidebar .toc .level-1 { font-weight: bold; margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 2px; }
+  .sidebar .toc .level-2 { padding-left: 1rem; color: #444; }
+  .sidebar a { text-decoration: none; color: #0969da; }
+  .sidebar a:hover { text-decoration: underline; }
+  .sidebar .active { color: #cf222e; font-weight: bold; }
+  .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; }
+  .markdown-body { max-width: 850px; margin: 0 auto; }
+  @media (max-width: 900px) { body { flex-direction: column; } .sidebar { width: 100%; height: auto; position: static; } .main-content { padding: 1.5rem; } }
+  blockquote { border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }
+  .mjx-container { overflow-x: auto !important; padding: 0.8em 0; max-width: 100%; }
+  .nav-buttons { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }
+  .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; }
+  .nav-buttons a:hover { background: #f6f8fa; }
+</style>
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$']],
+    displayMath: [['$$', '$$']],
+    processEscapes: true
+  },
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+
+</script>
+<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+  <nav class="sidebar">
+    <h2><a href="index.html">ナブラ解体新書</a></h2>
+    <div class="author">著者: yokiikoy</div>
+    <div class="toc"><ul>
+<li><a href="index.html" id="link-index.html">まえがき</a></li>
+<li class="level-1"><a href="ch01.html" id="link-ch01.html">第1章</a></li>
+<li class="level-1"><a href="ch02.html" class="active">第2章</a></li>
+<li class="level-1"><a href="ch03.html" id="link-ch03.html">第3章</a></li>
+<li class="level-1"><a href="ch04.html" id="link-ch04.html">第4章</a></li>
+<li class="level-1"><a href="ch05.html" id="link-ch05.html">第5章</a></li>
+<li class="level-1"><a href="ch06.html" id="link-ch06.html">第6章</a></li>
+<li class="level-1"><a href="ch07.html" id="link-ch07.html">第7章</a></li>
+<li class="level-1"><a href="ch08.html" id="link-ch08.html">第8章</a></li>
+<li class="level-1"><a href="ch09.html" id="link-ch09.html">第9章</a></li>
+<li class="level-1"><a href="ch10.html" id="link-ch10.html">第10章</a></li>
+<li class="level-1"><a href="ch11.html" id="link-ch11.html">第11章</a></li>
+<li class="level-1"><a href="ch12.html" id="link-ch12.html">第12章</a></li>
+</ul></div>
+  </nav>
+  <main class="main-content">
+    <article class="markdown-body">
+      <h1 id="第2章面積とは何か--平行多面体に潜む符号のルール">第2章：面積とは何か —— 平行多面体に潜む、符号のルール</h1>
+<h3 id="20-測定器と面積・体積そして長さ">§2.0 測定器と面積・体積、そして長さ</h3>
+<p>　第1章では、<span class="tex2jax_process">$dx, dy, dz$</span> を「ベクトルを1つ食べてスカラーを返す横ベクトル（<span class="tex2jax_process">$1$</span>-form）」として定義し、<span class="tex2jax_process">$\int f\,dx$</span> を行列作用の極限として読み直した。本章ではこれを拡張し、**2つのベクトルを食べる面積測定器（<span class="tex2jax_process">$2$</span>-form）**と**3つのベクトルを食べる体積測定器（<span class="tex2jax_process">$3$</span>-form）**を、同じ部品 <span class="tex2jax_process">$dx, dy, dz$</span> から発見する。
+</p>
+<h3 id="21-小学校の面積の限界">§2.1 小学校の面積の限界</h3>
+<p>多くの読者は「積分とはつまり面積を求める計算だ」ということを知っているだろう。
+ところで、面積とはなんだろうか。改めて考えてみると、小学校以来、改めて定式化したことがないのではないだろうか。
+</p>
+<p>ではその小学校での定式化とは何だったか。それは**「<span class="tex2jax_process">$1 \times 1$</span> の正方形（タイル）が、その図形の中にいくつ敷き詰められるか」**という、極めて素朴な直感に基づいていただろう。
+</p>
+<p>2次元の紙の上（<span class="tex2jax_process">$xy$</span>平面）に描かれた図形であれば、この「正方形の敷き詰め」はうまく機能する。例えば、2つの2次元ベクトル <span class="tex2jax_process">$\mathbf{v}_1 = (x_1, y_1)$</span> と <span class="tex2jax_process">$\mathbf{v}_2 = (x_2, y_2)$</span> が張る平行四辺形の面積 <span class="tex2jax_process">$S$</span> は次のように書ける：
+</p>
+<p>ところが、我々が生きているのは3次元空間である。3次元空間の中で「斜めに傾いた平面」の面積を測ろうとしたとき、事態は少し大変になる。
+</p>
+<p>多くの読者は、高校数学で3次元空間のベクトル <span class="tex2jax_process">$\mathbf{v}_1 = (x_1, y_1, z_1)$</span> と <span class="tex2jax_process">$\mathbf{v}_2 = (x_2, y_2, z_2)$</span> が張る平行四辺形の面積を求めさせられた経験があるだろう。高校の記法を使って、次のように書ける：
+</p>
+<p>成分表示を考えると、ノートの幅を埋め尽くすような計算の末に、ようやく次の式にたどり着く。
+</p>
+<p>その過程はなかなか長大であり、人生で何度もやりたくないほどには大変である。
+なぜそんなに大変になってしまうのか？ それは、我々が**面積というものを、はじめに「2次元世界の中」で定義してきたから**だ。**3次元空間では**、平面の「傾き」と、そこに載る2本のベクトルの関係とが絡み、**角度の取り扱い**まで含めて式が膨らんでしまう。
+</p>
+<blockquote><p>
+**注** （未定義の語の先取り）ここでは「角度」や「内積」という言葉を使っているが、この段階では小学校以来の直感的な意味で十分である。形式的な内積の定義は第6章で与えるが、ここでの議論の理解には不要だ。<br>
+</p></blockquote>
+<p>ここで我々は、がらりと考え方を変えよう。**小学校以来の「面積の定義」を一旦棚に上げ**、**「面積を出力する代数的な測定装置」**をゼロから設計し直すのである。
+</p>
+<hr />
+<h3 id="22-面積測定器が満たすべき3つのルール">§2.2 面積測定器が満たすべき「3つのルール」</h3>
+<p>設計の第一歩として、「<span class="tex2jax_process">$1\times 1$</span> の正方形だけ」を足掛かりにするのではなく、**「2つのベクトルが張る平行四辺形」**を基本に据えることにする。
+</p>
+<blockquote><p>
+**注** （平行四辺形から始める理由）いままで「面積＝正方形の敷き詰め」と数えていた読者には、**なぜいきなり平行四辺形なのか**という動機づけが見えにくいかもしれない。平行四辺形を基本に据えると、辺が直交する、という条件が緩和されることになり、これから組み立てるルールがすっきりする。正方形はその**特別な場合**として自然に含まれる。また**積分を高次元へと拡張する**ときにも、こちらのほうが扱いやすい。<br>
+</p></blockquote>
+<p>上記を言い換えると、我々が欲しいのは、2つのベクトル <span class="tex2jax_process">$\mathbf{v}_1$</span> と <span class="tex2jax_process">$\mathbf{v}_2$</span> を入力（インプット）として食べると、それらが張る平行四辺形の面積 <span class="tex2jax_process">$S$</span> を出力（アウトプット）として吐き出す、魔法のブラックボックス <span class="tex2jax_process">$S(\mathbf{v}_1, \mathbf{v}_2)$</span> である。
+</p>
+<p>このブラックボックスが「面積測定器」としてまともに機能するためには、最低限、次の3つのルールを満たさなければならない。原点から伸びる2本の矢印を隣り合う辺とする平行四辺形を思い浮かべながら確認してほしい。
+</p>
+<h4 id="221-ルール1片方が伸びれば面積も伸びる比例関係">2.2.1 ルール1：片方が伸びれば、面積も伸びる（比例関係）</h4>
+<p>もしベクトル <span class="tex2jax_process">$\mathbf{v}_1$</span> の長さが2倍になれば、作られる平行四辺形の面積も当然2倍になるはずだ。
+</p>
+<p>同様に、2つのベクトルを足し合わせたものを入力すれば、面積も足し算に分解できる：
+</p>
+<p>この2つの性質を合わせて**線形性**と呼ぶ。第2引数 <span class="tex2jax_process">$\mathbf{v}_2$</span> についても、同様に「スカラー倍」と「和に関する分配」が成り立つ——すなわち <span class="tex2jax_process">$S$</span> は**両方の引数について線形**（**双線形**）である。
+</p>
+<h4 id="222-ルール2重なればペチャンコでゼロ交代性">2.2.2 ルール2：重なれば、ペチャンコでゼロ（交代性）</h4>
+<p>これが最も重要だ。もし <span class="tex2jax_process">$\mathbf{v}_1$</span> と <span class="tex2jax_process">$\mathbf{v}_2$</span> が全く同じベクトルだったらどうなるか。平行四辺形は潰れてただの「線」になってしまい、面積はゼロになる。
+</p>
+<p>実は、この「同じならゼロ」というルールから、非常に奇妙な性質が導かれる。ルール1（線形性）を使って、<span class="tex2jax_process">$\mathbf{v}_1 + \mathbf{v}_2$</span> を両方の引数に入れてみよう。「同じならゼロ」だから：
+</p>
+<p>左辺を線形性で展開すると：
+</p>
+<p>第1項と第4項はルール2で消えるから、残るのは <span class="tex2jax_process">$S(\mathbf{v}_1, \mathbf{v}_2) + S(\mathbf{v}_2, \mathbf{v}_1) = 0$</span>。すなわち：
+</p>
+<p>入力するベクトルの順番を入れ替えると、**面積の符号がマイナスに反転してしまう**のだ。
+</p>
+<blockquote><p>
+**注**（面積の符号1）「面積がマイナスになる？ それは困る」と驚くかもしれない。しかし、物理学者は自然界の「向き」を無視しない。電流の向き、磁場の向き——すべてベクトルの「向き」が本質だ。だから「面積にも向き（向き付き面積）がある」という発想は、我々物理学者にはむしろ自然なのだ。この概念は後で曲面の「裏表」を区別したり、空間を貫く磁束や流体の流れを計算する際に絶対に不可欠なものとなる。今のところはこだわりすぎずに進んでほしい。<br>
+</p></blockquote>
+<blockquote><p>
+**注** （面積の符号2）1変数でも、<span class="tex2jax_process">$f(x)<0$</span> の区間では <span class="tex2jax_process">$\displaystyle\int_a^b f(x)\,dx<0$</span> となり得る——符号付き「面積」はそこで既に現れている。向き付き面積は、その考え方を2次元に持ち上げたものだ。<br>
+<h4 id="223-ルール3基準の決定規格化">2.2.3 ルール3：基準の決定（規格化）</h4>
+</p></blockquote>
+<p>最後に、「どのくらいの大きさを1とするか」を決めなければならない。ここでは素直に、<span class="tex2jax_process">$x$</span>方向の**基底ベクトル**（標準基底の一つ）<span class="tex2jax_process">$\hat{e}_x$</span> と <span class="tex2jax_process">$y$</span>方向の基底ベクトル <span class="tex2jax_process">$\hat{e}_y$</span> が作る正方形の面積を <span class="tex2jax_process">$1$</span> としよう。本書の慣例どおり**縦ベクトル**で書けば
+</p>
+<p>である。
+</p>
+<blockquote><p>
+**注** （基底ベクトル（標準基底））デカルト座標の各軸方向に長さ <span class="tex2jax_process">$1$</span> の足を伸ばしたものを、基底ベクトル（標準基底）と呼ぶ、といって良いだろう。厳密な定義は線形代数に任せる。<br>
+</p></blockquote>
+<blockquote><p>
+**【ここまでのチェックポイント】**<br>
+- 面積測定器は「2つのベクトルを食べてスカラーを返す」装置。3つのルール——線形性・交代性・規格化——を満たさなければならない。<br>
+- 交代性（同じベクトルを2つ入れるとゼロ）から <span class="tex2jax_process">$S(\mathbf{v}_1,\mathbf{v}_2) = -S(\mathbf{v}_2,\mathbf{v}_1)$</span> が導かれ、面積は**符号付き**になる。<br>
+- 次節では、この3ルールを満たす代数的な装置を具体的に探す。<br>
+</p></blockquote>
+<hr />
+<h3 id="23-面積測定器の正体は反対称行列である">§2.3 面積測定器の正体は「反対称行列」である</h3>
+<p>さて、ここからが数学の魔法だ。
+我々は今、この「平行四辺形」という**図形のイメージ**を頭に描きながら3つのルールを設定した。しかし、一度ルールを決めてしまえば、もはや図形を思い浮かべる必要はない。**「この3つのルールを満たす代数的な計算式」を探せば、それが面積の定義になるからだ。**
+</p>
+<p>本質を抽出するため、まずは <span class="tex2jax_process">$z$</span>成分が常にゼロのベクトル、つまり <span class="tex2jax_process">$xy$</span>平面上にある2つのベクトルで考えよう。
+</p>
+<p>結論から言おう。この **<span class="tex2jax_process">$xy$</span> 平面上のベクトルという制約のもとで**、先ほどの3ルールを完璧に満たす量を出力する装置は、線形代数の世界にただ一つしか存在しない。
+</p>
+<p>それは、真ん中に特定の **<span class="tex2jax_process">$3 \times 3$</span> 行列** を挟んだ、次のような「**横ベクトル** <span class="tex2jax_process">$\times$</span> 行列 <span class="tex2jax_process">$\times$</span> **縦ベクトル**」の計算である：
+</p>
+<p>実際に <span class="tex2jax_process">$\mathbf{v}_1$</span> と <span class="tex2jax_process">$\mathbf{v}_2$</span> を代入して計算してみよう：
+</p>
+<p>出てきた出力 <span class="tex2jax_process">$x_1 y_2 - x_2 y_1$</span> は、まさしく冒頭で触れた「2次元の面積公式」の中身そのものである！
+</p>
+<blockquote><p>
+**注** （数学者へのエクスキューズ）我々は今、平然と <span class="tex2jax_process">$\mathbf{v}_1^T M \mathbf{v}_2$</span> （横 <span class="tex2jax_process">$\times$</span> 行列 <span class="tex2jax_process">$\times$</span> 縦）という書き方をした。厳密な純粋数学の流儀では行儀が悪い——ベクトルを横に寝かせる操作には、計量の議論が絡むからだ。**しかし、我々は物理学者だ。** デカルト直交座標に固定しているかぎり、この計算に支障はない。割り切って進もう。<br>
+</p></blockquote>
+<h4 id="231-なぜ反対称なのか">2.3.1 なぜ「反対称」なのか？</h4>
+<p>話を戻そう。真ん中に挟まった行列の構造をじっくり観察してほしい。
+対角成分（左上から右下）はすべて <span class="tex2jax_process">$0$</span> であり、それを挟んで <span class="tex2jax_process">$1$</span> と <span class="tex2jax_process">$-1$</span> が**符号を反転させて向かい合っている**。このような行列を「反対称行列（交代行列）」と呼ぶ。
+</p>
+<p>この「反対称」こそが、面積の核心である。
+式 <span class="tex2jax_process">$x_1 y_2 - x_2 y_1$</span> を見ればわかるように、これは「<span class="tex2jax_process">$\mathbf{v}_1$</span>の<span class="tex2jax_process">$x$</span>と<span class="tex2jax_process">$\mathbf{v}_2$</span>の<span class="tex2jax_process">$y$</span>の組み合わせ」から、「<span class="tex2jax_process">$\mathbf{v}_2$</span>の<span class="tex2jax_process">$x$</span>と<span class="tex2jax_process">$\mathbf{v}_1$</span>の<span class="tex2jax_process">$y$</span>の組み合わせ」を**引き算**している。
+もし <span class="tex2jax_process">$\mathbf{v}_1$</span> と <span class="tex2jax_process">$\mathbf{v}_2$</span> が全く同じベクトルなら、<span class="tex2jax_process">$x_1 y_1 - x_1 y_1 = 0$</span> となり、見事に打ち消し合う。行列の「非対角成分の符号反転」という性質が、ルール2の「ペチャンコならゼロ（打ち消し合い）」を自動的に代数処理してくれているのだ。
+</p>
+<p>なぜ唯一に決まるのか？ ルール1（線形性）により、どんなベクトルの面積も基底ベクトル（標準基底）同士の面積の足し合わせに分解できる。そしてルール3（規格化）で基準の正方形を「1」と決めた瞬間、行列の右上成分が1に固定される。さらにルール2（交代性）の「ペチャンコならゼロ」が、対角成分を0にし、左下成分を-1へと強制的に反転させるのだ。なお、行列の第3行・第3列がすべてゼロなのは、入力ベクトルの <span class="tex2jax_process">$z$</span> 成分が常にゼロだから——この位置にどんな値を入れても <span class="tex2jax_process">$\mathbf{v}_1^T M \mathbf{v}_2$</span> の計算結果は変わらないので、3ルールだけからは決まらない（不定）。いまの議論は <span class="tex2jax_process">$xy$</span> 平面を <span class="tex2jax_process">$\mathbb{R}^3$</span> に埋め込んだものと見なせるので、**余剰の <span class="tex2jax_process">$z$</span> 方向は測定に入ってこない**——その意味でもゼロを置くのが素直である。つまり、**我々の定めた物理的ルールが、この行列の形を完全に「設計」した**のである。
+</p>
+<h4 id="232-測定器の進化と次なる壁">2.3.2 測定器の進化と、次なる壁</h4>
+<p>我々はここで、次の立場をはっきりさせる。
+小学校で数えていた**タイルの枚数**に相当する素朴な直感を先に置くのではなく、**いま定めたこの <span class="tex2jax_process">$3 \times 3$</span> 反対称行列に2本のベクトルを食わせて得られる量**を、**この測定器（<span class="tex2jax_process">$xy$</span> 平面専用の面積測定器）が返す面積の成分**——<span class="tex2jax_process">$dx \wedge dy$</span> に沿った読み取り値——だと定義するのである。三次元空間における向き付き面積の**すべての情報**を一つの数で尽くすわけではなく、あくまで**一つの眼鏡が切り出したスカラー**にすぎない。全体像は §2.4.5 で3種の測定器をそろえて述べる。
+</p>
+<p>前章の **<span class="tex2jax_process">$1$</span>-form（一次形式）** は、1つのベクトルを捕まえる**「<span class="tex2jax_process">$1 \times 3$</span>行列」**だった。
+今目の前にある行列は、**2つのベクトルを同時に受け取り面積を計算**する**「<span class="tex2jax_process">$3 \times 3$</span>反対称行列」**へと進化したのである。
+</p>
+<p>この行列（あるいは演算子）を、**<span class="tex2jax_process">$2$</span>-form** と呼ぶことにする。
+</p>
+<blockquote><p>
+**注** （二次形式と <span class="tex2jax_process">$2$</span>-form）線形代数の「二次形式（quadratic form）」は、多くの場合「二次の多項式」を指す。ここでの **<span class="tex2jax_process">$2$</span>-form** は微分形式の用語であり、上の quadratic form とは別物である。<br>
+</p></blockquote>
+<p>さて、読者はこう思っているはずだ。
+「なるほど、行列で面積が出るのは分かった。でも、この行列は第3行・第3列がゼロだから、<span class="tex2jax_process">$z$</span>成分を完全に無視しているじゃないか。これではあの『3次元の大変な計算』の解決になっていないぞ」と。
+</p>
+<p>**まったくその通りである。**
+今我々が手にした <span class="tex2jax_process">$\begin{pmatrix} 0 & 1 & 0 \\ -1 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}$</span> という行列は、3次元空間に3種類ある基本測定器の一つ——**<span class="tex2jax_process">$xy$</span>平面専用の面積測定器**——に過ぎない。
+言い換えれば、これは**<span class="tex2jax_process">$xy$</span>平面「だけ」を見る「偏った眼鏡」**のようなものだ。空間には、<span class="tex2jax_process">$yz$</span>平面を見る眼鏡や、<span class="tex2jax_process">$zx$</span>平面を見る眼鏡も存在する。
+</p>
+<hr />
+<blockquote><p>
+**【ここまでのチェックポイント】**<br>
+- 面積測定器（<span class="tex2jax_process">$2$</span>-form）とは「2つのベクトルの絡み合い」を測る代数的な装置であり、測定対象である平行四辺形そのものではない。<br>
+- 面積測定器の正体は「反対称行列」であり、物理的ルールが行列の形を完全に決める。<br>
+- 3次元空間には3種類の「偏った眼鏡」（基底<span class="tex2jax_process">$2$</span>-form）が存在する。<br>
+- 続く §2.4 で、物差しから面積測定器をリバースエンジニアリングする（テンソル積とウェッジ積）。<br>
+</p></blockquote>
+<hr />
+<h3 id="24-面積測定器の内部構造">§2.4 面積測定器の内部構造</h3>
+<h4 id="241-2つの入力をさばく装置の形を決める">2.4.1 「2つの入力をさばく装置」の形を決める</h4>
+<p>§2.3 で、面積測定器（<span class="tex2jax_process">$2$</span>-form）の正体は真ん中に挟まった「<span class="tex2jax_process">$3 \times 3$</span> の反対称行列」であると述べた。しかし、あの行列は筆者から天下り的に与えられたものだった。
+</p>
+<p>我々の次なる野望はこうだ：
+**「第1章で導入したシンプルな物差し <span class="tex2jax_process">$dx, dy, dz$</span> を部品として組み合わせて、あの複雑な行列をシステマティックに作り出せないだろうか？」**
+こうすれば、いまは <span class="tex2jax_process">$xy$</span> 平面専用の面積測定器しかないが、<span class="tex2jax_process">$yz$</span> 平面用・<span class="tex2jax_process">$zx$</span> 平面用の面積測定器も同じ部品から同じ手順で量産できるようになる。
+</p>
+<p>これを実現するために、まずは「2つのベクトルを食べてスカラーを吐き出す装置」の外枠がどうなるべきかを考えよう。
+</p>
+<p>第1章で、ベクトルを1つ食べる装置（<span class="tex2jax_process">$1$</span>-form）は「横ベクトル」で表現できることを見た（横 <span class="tex2jax_process">$\times$</span> 縦 <span class="tex2jax_process">$=$</span> スカラー）。
+では、<span class="tex2jax_process">$\mathbf{v}_1$</span> と <span class="tex2jax_process">$\mathbf{v}_2$</span> という2つのベクトルを同時に食べて、しかも §2.2 のルール1（比例関係・線形性）を両方に対して保つ装置はどう書けるだろうか？
+</p>
+<p>それは、2つのベクトルの間に真四角の表（行列）を挟み込む形、すなわち **「横 <span class="tex2jax_process">$\times$</span> 行列 <span class="tex2jax_process">$\times$</span> 縦（<span class="tex2jax_process">$\mathbf{v}_1^T M \mathbf{v}_2$</span>）」** の形になるしかない。これが線形代数の要請である。我々が探すべきは、この真ん中に挟まる行列 <span class="tex2jax_process">$M$</span> の中身だ。
+</p>
+<h4 id="242-欲しい結果からマス目を埋める">2.4.2 欲しい結果からマス目を埋める</h4>
+<p>闇雲に探す必要はない。我々はすでに、出力されるべき**「答え」**を知っている。
+</p>
+<p>この出力を吐き出すためには、行列 <span class="tex2jax_process">$M$</span> のマス目にどんな数字を配置すればよいか？ 読者も一緒に、<span class="tex2jax_process">$\mathbf{v}_1^T M \mathbf{v}_2$</span> の展開式を想像しながらマス目を埋めるパズルをしてほしい。
+</p>
+<ol>
+<li>**<span class="tex2jax_process">$x_1 y_2$</span> を作る：** <span class="tex2jax_process">$\mathbf{v}_1$</span> の <span class="tex2jax_process">$x$</span> 成分（<span class="tex2jax_process">$x_1$</span>）と <span class="tex2jax_process">$\mathbf{v}_2$</span> の <span class="tex2jax_process">$y$</span> 成分（<span class="tex2jax_process">$y_2$</span>）が掛け合わされる場所、すなわち「1行2列目」には <span class="tex2jax_process">$+1$</span> を置けばよい。</li>
+<li>**<span class="tex2jax_process">$-x_2 y_1$</span> を作る：** <span class="tex2jax_process">$\mathbf{v}_1$</span> の <span class="tex2jax_process">$y$</span> 成分（<span class="tex2jax_process">$y_1$</span>）と <span class="tex2jax_process">$\mathbf{v}_2$</span> の <span class="tex2jax_process">$x$</span> 成分（<span class="tex2jax_process">$x_2$</span>）が掛け合わされる場所、すなわち「2行1列目」には <span class="tex2jax_process">$-1$</span> を置けばよい。</li>
+<li>**それ以外：** 面積の式には <span class="tex2jax_process">$x_1 x_2$</span> や <span class="tex2jax_process">$z$</span> 成分などは一切登場しない。したがって、残りのマス目はすべて <span class="tex2jax_process">$0$</span> である。</li>
+</ol>
+<p>こうして出来上がったのが、§2.3 で天下り的に登場したあの反対称行列なのだ！
+</p>
+<h4 id="243-テンソル積の導入">2.4.3 テンソル積の導入</h4>
+<p>さて、この面積測定器の行列 <span class="tex2jax_process">$M$</span> をよく見ると、2つの部品の「引き算」でできていることがわかる。
+</p>
+<p>右辺の第1項は「1行2列目だけが <span class="tex2jax_process">$1$</span> の行列」であり、これは <span class="tex2jax_process">$\mathbf{v}_1$</span> から <span class="tex2jax_process">$x$</span> 成分を、<span class="tex2jax_process">$\mathbf{v}_2$</span> から <span class="tex2jax_process">$y$</span> 成分を抽出して掛ける（<span class="tex2jax_process">$x_1 y_2$</span>）という**片道切符の演算**を表している。
+</p>
+<p>ここで第1章の物差しを思い出そう。<span class="tex2jax_process">$x$</span> 成分を抽出する物差しは <span class="tex2jax_process">$dx$</span>、<span class="tex2jax_process">$y$</span> 成分を抽出する物差しは <span class="tex2jax_process">$dy$</span> だった。
+この2つの物差しを組み合わせて「<span class="tex2jax_process">$\mathbf{v}_1$</span> は <span class="tex2jax_process">$dx$</span> で測り、<span class="tex2jax_process">$\mathbf{v}_2$</span> は <span class="tex2jax_process">$dy$</span> で測って掛ける」という新しい演算子を作り、これを **テンソル積** と呼び、<span class="tex2jax_process">$dx \otimes dy$</span> と書くことにしよう。
+</p>
+<p>テンソル積 <span class="tex2jax_process">$dx \otimes dy$</span> というといかにも難しそうな響きだが、恐れることはない。行列表現の世界では、これは単に**「1行2列目のマス目だけを <span class="tex2jax_process">$1$</span> にする」**スイッチのような操作に過ぎないのだ。
+</p>
+<blockquote><p>
+**注** （テンソル積の行列表現）数式が好きな読者のために書いておくと、<span class="tex2jax_process">$dx = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}$</span>、<span class="tex2jax_process">$dy = \begin{pmatrix} 0 & 1 & 0 \end{pmatrix}$</span> としたとき、「前のベクトルを転置して縦にし、後ろの横ベクトルと隣り合わせに置き（<span class="tex2jax_process">$dx^T dy$</span>）、縦と横の成分を総当たりで掛け合わせて行列のマス目に配置する」という操作で<span class="tex2jax_process">$dx \otimes dy$</span>の行列表現が機械的に得られる。<br>
+<h4 id="244-ウェッジ積の完成">2.4.4 ウェッジ積の完成</h4>
+</p></blockquote>
+<p>これで準備は整った。
+我々が導き出した <span class="tex2jax_process">$xy$</span> 平面の面積測定器行列は、「<span class="tex2jax_process">$x_1 y_2$</span> のスイッチ」から「<span class="tex2jax_process">$y_1 x_2$</span> のスイッチ」を引いたものだった。
+</p>
+<p>これを物差し（<span class="tex2jax_process">$1$</span>-form）の言葉で翻訳すれば、新しい演算子 **ウェッジ積（<span class="tex2jax_process">$dx \wedge dy$</span>）** の定義が自然に立ち上がる。
+</p>
+<p>記号 <span class="tex2jax_process">$\wedge$</span> は英語で "wedge"、くさびを意味する。この定義をベクトルに作用させるとこうなる：
+</p>
+<p>見事に、第1章の物差し（<span class="tex2jax_process">$1$</span>-form）の組み合わせから、面積測定器（<span class="tex2jax_process">$2$</span>-form）をシステマティックに構成することができた。
+テンソル積の引き算で構成したことにより、**引数を入れ替えると符号が反転する（交代性）**という §2.2 のルール2が、自動的に「仕込まれている」ことにも注目してほしい。
+</p>
+<h4 id="245-3つの基底span-classtex2jaxprocessspan-form">2.4.5 3つの基底<span class="tex2jax_process">$2$</span>-form</h4>
+<p>同じ方法で、残る2つの「偏った眼鏡」も構成できる。
+</p>
+<p>**<span class="tex2jax_process">$yz$</span> 平面を見る眼鏡：<span class="tex2jax_process">$dy \wedge dz$</span>**
+</p>
+<p>**<span class="tex2jax_process">$zx$</span> 平面を見る眼鏡：<span class="tex2jax_process">$dz \wedge dx$</span>**
+</p>
+<p>**これで全部だ！**
+</p>
+<p>では、3つの眼鏡を一つずつ一般のベクトルにかけて、それぞれ何を測るか見てみよう。
+</p>
+<p>一般の3次元ベクトル <span class="tex2jax_process">$\mathbf{v}_1 = \begin{pmatrix} x_1 \\ y_1 \\ z_1 \end{pmatrix}$</span>, <span class="tex2jax_process">$\mathbf{v}_2 = \begin{pmatrix} x_2 \\ y_2 \\ z_2 \end{pmatrix}$</span> に対し、§2.4.4 の定義どおりに（第1引数に <span class="tex2jax_process">$\mathbf{v}_1$</span>、第2引数に <span class="tex2jax_process">$\mathbf{v}_2$</span> を入れる）計算すればよい：
+</p>
+<p>各計算は引き算1回。ベクトルの向きがどうであれ、ウェッジ積の定義が自動的に正しい値を返す。
+</p>
+<h4 id="246-向き付き面積の正体と図形側の基底">2.4.6 向き付き面積の正体と「図形側の基底」</h4>
+<p>さて、読者は当然こう期待していただろう——「3つの眼鏡の計算結果を何かうまく合成すれば、最終的に一つのスカラー（数値）が出てくるんだろう？」と。
+</p>
+<p>実は、そう単純ではない。
+</p>
+<p>§2.2 で面積測定器を設計したとき、<span class="tex2jax_process">$xy$</span>平面に張り付いた話では確かに**一つの数**で足りた。しかし3次元空間の一般の平行四辺形では、向きは <span class="tex2jax_process">$+/-$</span> の2択では済まない。3つの基底 <span class="tex2jax_process">$2$</span>-form（眼鏡）を通した測定値
+</p>
+<p>が、まるごと「向き付き面積」として必要な情報になる。
+</p>
+<p>ここで、鋭い読者は一つの疑問に行き着くはずだ。
+「この3つの数は、いったい**何の基底**に乗っている係数なのか？」と。
+</p>
+<p>思い出してほしい。第1章で、我々は「測る装置（横ベクトル）」である <span class="tex2jax_process">$1$</span>-form の <span class="tex2jax_process">$dx$</span> と、「測られる図形（縦ベクトル）」である標準基底 <span class="tex2jax_process">$\hat{e}_x$</span> が対になっていることを学んだ。横と縦を組み合わせることで、<span class="tex2jax_process">$dx$</span> は <span class="tex2jax_process">$\hat{e}_x$</span> を食べて <span class="tex2jax_process">$1$</span> というスカラーを返す（<span class="tex2jax_process">$dx(\hat{e}_x) = 1$</span>）。
+</p>
+<p>では、面積測定器（<span class="tex2jax_process">$2$</span>-form）である <span class="tex2jax_process">$dy \wedge dz$</span> が食べて <span class="tex2jax_process">$1$</span> を返す**「図形（縦）側の基底」**とは何だろうか？
+横ベクトル同士をウェッジ積 <span class="tex2jax_process">$\wedge$</span> で結んで装置を作ったのなら、**縦ベクトル同士も <span class="tex2jax_process">$\wedge$</span> で結べばよいのだ！**
+</p>
+<p>すなわち、図形側の基底は <span class="tex2jax_process">$\hat{e}_y \wedge \hat{e}_z$</span> という「二重ベクトル（2-vector）」もしくは「面素（area element）」と呼ばれるものである。
+これを用いれば、測られた結果である「向き付き面積の正体」は、次のような明確な実体（図形）として書き下される。
+</p>
+<p>これで完全にスッキリしたはずだ。
+係数に場を含む一般の <span class="tex2jax_process">$\alpha\,dy \wedge dz + \cdots$</span> は**「面積測定器（はかり）」**であり、測定結果の数値を入れた <span class="tex2jax_process">$A_{yz}(\hat{e}_y \wedge \hat{e}_z) + \cdots$</span> は**「測られた図形（面積そのもの）」**である。両者は横と縦の関係にあり、決して混同してはならない。
+</p>
+<blockquote><p>
+**注** （行列はどこへ行った？）前の節まで「面積測定器は反対称行列だ」と散々やってきたのに、図形側の行列表現はどうなるのかと気になるかもしれない。3次元空間では、図形側の二重ベクトルも <span class="tex2jax_process">$3 \times 3$</span> 反対称行列と同型になる（成分に <span class="tex2jax_process">$A_{yz}$</span> 等を並べた行列になる）。しかし、この行列表示をここに明示してしまうと「面積測定器の行列」と足したり掛けたりできそうな気がしてしまい読者の直感に悪影響であるので、本書では「図形は二重ベクトルの基底に乗る」という説明でとどめておく。<br>
+</p></blockquote>
+<h4 id="247-小学校のスカラー面積に戻すには">2.4.7 小学校のスカラー面積に戻すには</h4>
+<p>では、小学校で習った「正の値の面積」に戻していこう。
+</p>
+<p>読者は、1次元の図形データであるベクトル <span class="tex2jax_process">$\mathbf{v} = x\hat{e}_x + y\hat{e}_y + z\hat{e}_z$</span> から「長さ（スカラー）」を取り出すとき、各基底の係数の二乗和の平方根 <span class="tex2jax_process">$\sqrt{x^2+y^2+z^2}$</span> を計算すればよいことを知っているだろう。
+</p>
+<p>2次元の図形データである二重ベクトルの「大きさ（スカラー面積）」を取り出す操作も、これと同じ形である。向き付き面積を構成する3つの基底 <span class="tex2jax_process">$\hat{e}_y \wedge \hat{e}_z,\,\hat{e}_z \wedge \hat{e}_x,\,\hat{e}_x \wedge \hat{e}_y$</span> の係数 <span class="tex2jax_process">$A_{yz}, A_{zx}, A_{xy}$</span> について、縦ベクトルに並べ替えずに、直接その二乗和の平方根をとればよい。
+</p>
+<p>これはまさしく §2.1 で「大変な計算」と呼んだ高校数学の面積の式と完全に一致する。我々はついに、代数的な測定器の設計から出発し、小学校の「タイルの枚数」にまで無事に帰還したのである。
+</p>
+<h4 id="248-1次元の面積長さと0次元の面積点">2.4.8 1次元の「面積」（長さ）と0次元の「面積」（点）</h4>
+<p>ここで少し視点を下げてみよう。「成分の二乗和の平方根」という操作に見覚えがあると言ったが、実は我々は**1次元の図形（線分）**に対しても、全く同じ「はかり」と「図形」の構造をすでに知っている。
+</p>
+<p>第1章で扱った <span class="tex2jax_process">$1$</span>-form（<span class="tex2jax_process">$dx, dy, dz$</span>）は、「ベクトルを1つだけ食べる」測定器だった。
+はかられる図形は、ベクトルそのもの（<span class="tex2jax_process">$\mathbf{v} = x\hat{e}_x + y\hat{e}_y + z\hat{e}_z$</span>）であり、これは「1次元の向き付き面積（向き付きの長さ）」のデータに他ならない。ここから「スカラーの長さ」を取り出す操作が <span class="tex2jax_process">$\sqrt{x^2+y^2+z^2}$</span> だった。
+</p>
+<p>では、**<span class="tex2jax_process">$0$</span>-form** とは何か？
+「ベクトルを <span class="tex2jax_process">$k$</span> 個食べる測定器が <span class="tex2jax_process">$k$</span>-form」なのだから、<span class="tex2jax_process">$0$</span>-form とは**「ベクトルを1つも食べない測定器」**である。入力する方向（矢印）すら必要なく、その場に置くだけで1つのスカラー（温度や密度など）を返すもの——すなわち、ただの**「スカラー場」**のことだ。
+</p>
+<p>点（0次元）、線分（1次元）、平行四辺形（2次元）。すべては「はかり（<span class="tex2jax_process">$k$</span>-form）」と「図形（<span class="tex2jax_process">$k$</span>-ベクトル）」の、横ベクトルと縦ベクトルの関係という、全く同じ構造の反復だったのである。
+</p>
+<p>§2.5 ではこれをさらに一段上げて、3次元の平行六面体（体積）に同じ構造を適用する。まとめると：
+<ul>
+<li>**<span class="tex2jax_process">$k=0$</span>**：<span class="tex2jax_process">$0$</span>-form は点を測る。成分1つ、大きさは絶対値</li>
+<li>**<span class="tex2jax_process">$k=1$</span>**：<span class="tex2jax_process">$1$</span>-form はベクトル（**向き付きの長さ**）を測る。成分3つ、大きさは <span class="tex2jax_process">$\sqrt{x^2+y^2+z^2}$</span></li>
+<li>**<span class="tex2jax_process">$k=2$</span>**：<span class="tex2jax_process">$2$</span>-form は二重ベクトル（**向き付きの面積**）を測る。成分3つ、大きさは <span class="tex2jax_process">$\sqrt{A_{yz}^2+A_{zx}^2+A_{xy}^2}$</span></li>
+<li>**<span class="tex2jax_process">$k=3$</span>**：<span class="tex2jax_process">$3$</span>-form は三重ベクトル（**向き付きの体積**）を測る。成分1つ、大きさは絶対値</li>
+</ul>
+<p>本書の舞台は3次元空間だから <span class="tex2jax_process">$k=0,1,2,3$</span> で打ち止めだが、「<span class="tex2jax_process">$k$</span>-form が <span class="tex2jax_process">$k$</span>-vector を食べてスカラーを返す」という原理は <span class="tex2jax_process">$k$</span> によらない。このパターンが第3章の積分、第5章の外微分へと受け継がれていく。
+</p>
+<h4 id="249-クロス積との符合">2.4.9 クロス積との符合</h4>
+<p>大学の線形代数で「ベクトルの外積（クロス積）」を学んだ読者なら、次の3成分に見覚えがあるだろう。
+</p>
+<p>これは、いまの <span class="tex2jax_process">$dy \wedge dz$</span>, <span class="tex2jax_process">$dz \wedge dx$</span>, <span class="tex2jax_process">$dx \wedge dy$</span> の**値**を、この順に並べたものにほかならない。
+</p>
+<blockquote><p>
+**注**（不安な読者へ）見覚えがなくとも、本書ではウェッジ積を先に発見した、というだけでこの先の理解に支障はない。<br>
+</p></blockquote>
+<blockquote><p>
+**注** （二次形式とクロス積）二次形式としての面積と、3成分ベクトルとしてのクロス積のあいだには、後の章で**ホッジ双対**と名付ける関係が示唆される。詳しい対応と、これが必然かつ奇跡であることは後の章で改めて明らかにするとして、ここでは「向き付き面積の情報の持ち方の違い」程度に留めておこう。<br>
+</p></blockquote>
+<hr />
+<blockquote><p>
+**【ここまでのチェックポイント】**<br>
+- ウェッジ積 <span class="tex2jax_process">$dx \wedge dy := dx \otimes dy - dy \otimes dx$</span> は、テンソル積の引き算で反対称行列を自動生成する。<span class="tex2jax_process">$dy \wedge dz$</span>, <span class="tex2jax_process">$dz \wedge dx$</span> も同様に構成され、3つの基底 <span class="tex2jax_process">$2$</span>-form の線形結合で任意の面積測定器を組み立てられる。<br>
+- 向き付き面積の正体は、測定値 <span class="tex2jax_process">$A_{yz}, A_{zx}, A_{xy}$</span> を図形側の基底 <span class="tex2jax_process">$\hat{e}_y \wedge \hat{e}_z$</span>, <span class="tex2jax_process">$\hat{e}_z \wedge \hat{e}_x$</span>, <span class="tex2jax_process">$\hat{e}_x \wedge \hat{e}_y$</span> に乗じた二重ベクトルである——はかり（基底 <span class="tex2jax_process">$2$</span>-form）と図形（<span class="tex2jax_process">$k$</span>-ベクトル）は横と縦の関係にあり、混同してはならない。<br>
+- スカラー面積（タイルの枚数に相当する正の大きさ）は、係数の二乗和の平方根 <span class="tex2jax_process">$\sqrt{A_{yz}^2 + A_{zx}^2 + A_{xy}^2}$</span> で §2.1 の式に戻る（ラグランジュの恒等式）。ベクトルの長さの公式と同じ形の操作だ。<br>
+</p></blockquote>
+<hr />
+<h3 id="25-体積測定器と行列式">§2.5 体積測定器と行列式</h3>
+<p>前節で我々は、2つの一次形式（物差し）<span class="tex2jax_process">$dx, dy$</span> をウェッジ積で掛け合わせ、面積測定器（<span class="tex2jax_process">$2$</span>-form）<span class="tex2jax_process">$dx \wedge dy$</span> を組み立てた。面積測定器は「2つのベクトルを食べて、それらが張る平行四辺形の符号付き面積を返す装置」だった。
+</p>
+<p>いよいよ**体積**だが、ここでも立場は同じである。まず**標準基底 <span class="tex2jax_process">$\hat{e}_x,\hat{e}_y,\hat{e}_z$</span> を並べた単位立方体**に体積 <span class="tex2jax_process">$1$</span> を対応させ（ルール3）、交代性・線形性で測定器を定める。小学校の「単位立方体がいくつ入るか」という**正の体積**に戻すには、やはり**成分の二乗和の平方根**（あるいは絶対値）が入る——面積のときと同じ構造だ。
+</p>
+<p>自然な問いが湧く。
+**「3つのベクトルが張る平行六面体の体積を測る装置——体積測定器（<span class="tex2jax_process">$3$</span>-form）——も、同じ方法で組み立てられるだろうか？」**
+</p>
+<h4 id="251-体積測定器が満たすべきルール">2.5.1 体積測定器が満たすべきルール</h4>
+<p>§2.2 で面積測定器を設計したときとまったく同じ戦略をとろう。まず「体積測定器 <span class="tex2jax_process">$V$</span> が満たすべきルール」を決め、その後でルールから装置の形を一意に導く。
+</p>
+<p>体積測定器 <span class="tex2jax_process">$V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3)$</span> は3つのベクトルを食べて1つのスカラーを返す関数である。これに課すルールは、面積測定器の3ルールを**3引数へそのまま拡張**したものだ：
+</p>
+<p>**ルール1（各引数について線形）**
+片方のベクトルが2倍になれば体積も2倍。ベクトルの足し算にも分配する。
+</p>
+<p>第2・第3引数についても同様。
+</p>
+<p>**ルール2（交代性 — どの2つを入れ替えても符号反転）**
+</p>
+<p>他のペアについても同様。§2.2 と同じ論法で、**同じベクトルを2つのスロットに入れると必ずゼロ**になる——<span class="tex2jax_process">$\mathbf{v}_1 = \mathbf{v}_2$</span> なら <span class="tex2jax_process">$V(\mathbf{v}_1,\mathbf{v}_1,\mathbf{v}_3) = -V(\mathbf{v}_1,\mathbf{v}_1,\mathbf{v}_3)$</span> だから <span class="tex2jax_process">$V=0$</span> である。図形としては平行六面体が潰れるが、**代数では交代性だけで「潰れてゼロ」が強制される**。これが2次元の面積測定器のルール2と同じ構造だ。
+</p>
+<p>**ルール3（規格化 — 単位立方体の体積を1とする）**
+</p>
+<h4 id="252-ルールから形を決める基底展開と消去">2.5.2 ルールから形を決める——基底展開と消去</h4>
+<p>§2.3 で面積測定器の行列を導いたときと同じ手順を踏もう。3つのベクトルを基底で展開する：
+</p>
+<p>ルール1（多重線形性）により、<span class="tex2jax_process">$V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3)$</span> は <span class="tex2jax_process">$3 \times 3 \times 3 = 27$</span> 個の項に展開される：
+</p>
+<p>ここで <span class="tex2jax_process">$i, j, k$</span> はそれぞれ**独立に** <span class="tex2jax_process">$x, y, z$</span> のいずれかをとる添字だ（「走る」＝和をとるときに <span class="tex2jax_process">$x,y,z$</span> の三通りそれぞれをめぐる、と読めばよい）。
+</p>
+<p>27項は多いが、ルール2（交代性）が大量の項を消してくれる：
+<ul>
+<li>添字に**重複がある項はすべてゼロ**（例：<span class="tex2jax_process">$V(\hat{e}_x, \hat{e}_x, \hat{e}_z) = 0$</span>）</li>
+<li>重複のない組み合わせは <span class="tex2jax_process">$i, j, k$</span> がすべて異なる場合だけ、すなわち <span class="tex2jax_process">$(x,y,z)$</span> の**置換**</li>
+</ul>
+<p>| 置換 | 偶/奇 | 値 |
+|------|-------|----|
+| <span class="tex2jax_process">$(x,y,z)$</span> | 偶（0回交換） | <span class="tex2jax_process">$+1$</span> |
+| <span class="tex2jax_process">$(y,z,x)$</span> | 偶（2回交換） | <span class="tex2jax_process">$+1$</span> |
+| <span class="tex2jax_process">$(z,x,y)$</span> | 偶（2回交換） | <span class="tex2jax_process">$+1$</span> |
+| <span class="tex2jax_process">$(y,x,z)$</span> | 奇（1回交換） | <span class="tex2jax_process">$-1$</span> |
+| <span class="tex2jax_process">$(x,z,y)$</span> | 奇（1回交換） | <span class="tex2jax_process">$-1$</span> |
+| <span class="tex2jax_process">$(z,y,x)$</span> | 奇（1回交換） | <span class="tex2jax_process">$-1$</span> |
+</p>
+<p>したがって：
+</p>
+<p>線形代数を学んだ読者なら、3つのベクトルを列に並べた行列
+</p>
+<p>の**行列式（determinant）**に見えるはずだ。知らない読者も、**いまこの6項の和を「行列式」と呼ぶ**と決めて先に進んでかまわない——上のルールからこの形に落ちた、という事実のほうが本質である。
+</p>
+<p>ここで押さえたいのは次の一点だけだ。行列式は、単なる「成分を掛けて引く手続き」にとどまらず、**3本の列ベクトルをこの順に食わせたときの「符号付き体積」という1つの数**を返す演算子としても読める。第1章の <span class="tex2jax_process">$1$</span>-form は「ベクトル1つ → スカラー」、§2.3 の <span class="tex2jax_process">$2$</span>-form は「ベクトル2つ → スカラー」——行列式は「ベクトル3つ → スカラー」で、この系列をつなぐ。
+</p>
+<p>面積測定器のときは反対称行列、体積測定器のときは行列式が立ち上がったが、**いずれも、先に課したルールが代数的な形を決めた**のだ。
+</p>
+<blockquote><p>
+**注** （行列式の6項の順序）教科書によっては、いきなり「行列式の定義はこの6項」と置く。本書の流れでは、**測定器のルール → 6項**の順である。<br>
+</p></blockquote>
+<h4 id="253-span-classtex2jaxprocessspan-form-の行列式としての再解釈">2.5.3 <span class="tex2jax_process">$2$</span>-form の行列式としての再解釈</h4>
+<p>実は、§2.4 で定義した <span class="tex2jax_process">$2$</span>-form のウェッジ積にも、行列式が隠れていた。定義を振り返ろう：
+</p>
+<p>右辺は、次の <span class="tex2jax_process">$2 \times 2$</span> 行列式に他ならない：
+</p>
+<p>つまり、横に「どの物差しか」、縦に「どのベクトルか」を並べた行列の行列式が、ウェッジ積の値だったのだ。
+</p>
+<h4 id="254-span-classtex2jaxprocessspan-の定義行列式パターンの完成">2.5.4 <span class="tex2jax_process">$dx \wedge dy \wedge dz$</span> の定義——行列式パターンの完成</h4>
+<p>この「行列式パターン」を素直に <span class="tex2jax_process">$3 \times 3$</span> に拡張すれば、体積測定器が手に入る。
+</p>
+<p>**定義：** 3つのベクトル <span class="tex2jax_process">$\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3$</span> に対し、
+</p>
+<p>右辺の各成分は「一次形式 <span class="tex2jax_process">$dx, dy, dz$</span> がベクトル <span class="tex2jax_process">$\mathbf{v}_i$</span> から抽出した座標成分」だから、これはまさに：
+</p>
+<p>§2.5.2 で導いた <span class="tex2jax_process">$V$</span> と完全に一致する。**体積測定器は、3つの物差し <span class="tex2jax_process">$dx, dy, dz$</span> のウェッジ積として構成できた。**
+</p>
+<p>線形代数で行列式を学んだ読者なら、この定義が §2.5.1 の3ルールを満たすことが容易に分かるだろう：
+<ul>
+<li>**多重線形性**：行列式は各列について線形だから、自動的に満たされる。</li>
+<li>**交代性**：行列式の2つの列を入れ替えると符号が反転する。</li>
+<li>**規格化**：<span class="tex2jax_process">$\hat{e}_x, \hat{e}_y, \hat{e}_z$</span> を入れると行列は単位行列になり、<span class="tex2jax_process">$\det(I) = 1$</span>。</li>
+</ul>
+<h4 id="255-体積測定器のテンソル積表現span-classtex2jaxprocessspan-ブロックを横に並べた配列">2.5.5 体積測定器のテンソル積表現——<span class="tex2jax_process">$3 \times 3$</span> ブロックを横に並べた配列</h4>
+<p>§2.4.3–2.4.4 で我々は、面積測定器 <span class="tex2jax_process">$dx \wedge dy$</span> がテンソル積の引き算 <span class="tex2jax_process">$dx \otimes dy - dy \otimes dx$</span> で構成でき、その結果が <span class="tex2jax_process">$3 \times 3$</span> の反対称行列であることを見た。体積測定器 <span class="tex2jax_process">$dx \wedge dy \wedge dz$</span> にも同じ手が使えるだろうか？
+</p>
+<p>なぜここで敢えてテンソル配列を持ち出すのか——それは、**ベクトル3本を食べて行列式を返す操作が、実は面積測定器のときとまったく同じ「添字の縮約」という統一的視点で書ける**ことを示すためである。これを理解すれば、<span class="tex2jax_process">$1$</span>-form・<span class="tex2jax_process">$2$</span>-form・<span class="tex2jax_process">$3$</span>-form がすべて同じ原理で動いていることが見えてくる。
+</p>
+<p>答えはイエスだ。ただし、2つの物差しのテンソル積は <span class="tex2jax_process">$3 \times 3$</span> 行列に収まったが、3つの物差しでは添字が1つ増えて <span class="tex2jax_process">$3 \times 3 \times 3 = 27$</span> 成分の**3次元配列**になる。添字を3つ持つこのような多次元配列は数学でも物理学でも**テンソル**（tensor）と呼ばれる。行列（添字2つ）はテンソルの特殊例であり、今回登場するのは添字を3つ持つ**3階のテンソル**だ。
+</p>
+<p>ところで、3階以上のテンソルは、全成分を書き並べると紙面が爆発するので、さすがの物理学者もめったに配列表示はしない。代わりに成分 <span class="tex2jax_process">$\epsilon_{ijk}$</span> のように**添字つきの代表**で書いて、あとの計算は添字の足し算ルールに任せるのが通常のやり方だ。本節でもその流儀に倣い、必要に応じて成分だけを取り出して話を進める。
+</p>
+<blockquote><p>
+**注** （テンソルの記法）テンソル代数では、しばしば <span class="tex2jax_process">$\epsilon_{ijk}$</span> という**書き方そのもの**が「3階テンソル全体」を指す。本書では紛らわしいので、**3階テンソル全体**を <span class="tex2jax_process">$\widehat{\epsilon}$</span> と書き、**1成分**を <span class="tex2jax_process">$\epsilon_{ijk}$</span> と書き分ける。行列表示（§2.3 の <span class="tex2jax_process">$3\times3$</span>）と「成分1つ」を同一視しないということだ。他書を読む際には気を付けてほしい。<br>
+</p></blockquote>
+<blockquote><p>
+**注** （上付き・下付き添字）本書をのぞき見している数学者のために言い訳しておく。厳密な微分幾何やテンソル解析では、ベクトルと余ベクトル、基底と双対基底を区別するために**上付き・下付きの位置**で添字を書き分ける流儀がよく用いられる。本書は**デカルト直交座標**に固定して議論しており、この座標系では余ベクトル成分とベクトル成分の区別が表面化しないため、<span class="tex2jax_process">$\epsilon_{ijk}$</span> のように**すべて下付き**で通す。<br>
+</p></blockquote>
+<p>さて、この27成分の配列を反対称化（6つの置換を符号つきで足す）すると、27成分のうち6箇所だけが <span class="tex2jax_process">$\pm 1$</span>、残りはゼロの配列が立ち上がる。§2.5.2 で導いた置換の表そのものだ——成分の取り方は次のとおりだ（<span class="tex2jax_process">$\widehat{\epsilon}$</span> の <span class="tex2jax_process">$(i,j,k)$</span> 成分）：
+</p>
+<p>27個の数をどう並べて見せるか——良い方法がある。**<span class="tex2jax_process">$3 \times 3$</span> 行列を3枚、横一列に並べた**と考えるとよい：
+</p>
+<p>第1添字 <span class="tex2jax_process">$i$</span> が「左から何枚目の断面か」を指定し、各断面の中身は <span class="tex2jax_process">$j,k$</span> で添字づけされた <span class="tex2jax_process">$3 \times 3$</span> ブロックだ。
+</p>
+<p>ここで、
+</p>
+<p>としたとき、<span class="tex2jax_process">$1$</span>-form（横ベクトル）が縦ベクトルを食べてスカラーを返すアナロジーの延長として、左から <span class="tex2jax_process">$i$</span> 枚目のブロック <span class="tex2jax_process">$M_i$</span> と成分 <span class="tex2jax_process">$v_{1i}$</span> を添字 <span class="tex2jax_process">$i$</span> で対応付けて掛けて足す——すなわち
+</p>
+<p>と定めれば、結果は一つの <span class="tex2jax_process">$3 \times 3$</span> 行列に落ちる。
+なお、実はこの3つのブロックは、§2.4.4–2.4.5 で構成した**面積測定器の行列そのもの**となり、対応は次のとおりだ：
+</p>
+<p>| 左から <span class="tex2jax_process">$i$</span> 枚目 | 正体 |
+|:---:|:---:|
+| <span class="tex2jax_process">$i=1$</span> | <span class="tex2jax_process">$dy \wedge dz$</span>（<span class="tex2jax_process">$yz$</span> 平面の面積測定器） |
+| <span class="tex2jax_process">$i=2$</span> | <span class="tex2jax_process">$dz \wedge dx$</span>（<span class="tex2jax_process">$zx$</span> 平面の面積測定器） |
+| <span class="tex2jax_process">$i=3$</span> | <span class="tex2jax_process">$dx \wedge dy$</span>（<span class="tex2jax_process">$xy$</span> 平面の面積測定器） |
+</p>
+<p>**ベクトル3本を食べてスカラーに潰す**
+</p>
+<ul>
+<li>**ステップ1（3次元配列 → 行列）：** 添字 <span class="tex2jax_process">$i$</span> について、<span class="tex2jax_process">$\mathbf{v}_1$</span> の各成分で3つの面積測定器行列を重みづけして足す——すなわち <span class="tex2jax_process">$\displaystyle M = \sum_{i=1}^3 v_{1i}\,\epsilon_{i,\cdot,\cdot}$</span>（<span class="tex2jax_process">$\epsilon_{i,\cdot,\cdot}$</span> は <span class="tex2jax_process">$\widehat{\epsilon}$</span> の左から <span class="tex2jax_process">$i$</span> 枚目の <span class="tex2jax_process">$3 \times 3$</span> ブロック）。結果は1つの <span class="tex2jax_process">$3 \times 3$</span> 行列 <span class="tex2jax_process">$M$</span> に降りる。</li>
+<li>**ステップ2（行列 → スカラー）：** 残り2本で「横 <span class="tex2jax_process">$\times$</span> 行列 <span class="tex2jax_process">$\times$</span> 縦」—— <span class="tex2jax_process">$V = \mathbf{v}_2^T\, M\, \mathbf{v}_3$</span>。§2.4 で慣れ親しんだ操作だ。</li>
+</ul>
+<blockquote><p>
+**注** （縮約）上の「共通添字で和をとって次元を落とす」操作を**縮約**と呼ぶ。実は内積や行列の挟み込みも縮約の一種とみなせる。<br>
+</p></blockquote>
+<p>この手順で §2.5.2 の行列式の6項が一つ残らず再現されること、および数値検算は、**付録A**で全成分を書き下して確認する。
+</p>
+<h4 id="256-具体例平行六面体の符号付き体積">2.5.6 具体例：平行六面体の符号付き体積</h4>
+<p>手を動かして確認しよう。§2.4.5 で面積を測った2つのベクトルに、3つ目を加えてみる：
+</p>
+<p>体積測定器に投入する：
+</p>
+<p>これを定義に従って計算すると：
+</p>
+<blockquote><p>
+**注** （体積が負？）§2.2 の向き付き面積と同じで、**順序**によってはマイナスがあり得る。<br>
+</p></blockquote>
+<p>試しに <span class="tex2jax_process">$\mathbf{v}_1$</span> と <span class="tex2jax_process">$\mathbf{v}_2$</span> を入れ替えてみよう：
+</p>
+<h4 id="257-スカラー三重積との符合">2.5.7 スカラー三重積との符合</h4>
+<p>ベクトル解析で「スカラー三重積」を学んだ読者は、次の恒等式を知っているかもしれない：
+</p>
+<p>右辺は、我々が定義した <span class="tex2jax_process">$(dx \wedge dy \wedge dz)(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3)$</span> そのものだ。
+</p>
+<blockquote><p>
+**注** （内積記号の先取り）左辺の「<span class="tex2jax_process">$\cdot$</span>」は**内積**の記号であり、ここでは小学校以来おなじみの「成分ごとの積の和」という意味で使っている。第6章で計量 <span class="tex2jax_process">$g$</span> を使った形式的な定義を与える。<br>
+</p></blockquote>
+<h4 id="258-体積における図形側の基底">2.5.8 体積における「図形側の基底」</h4>
+<p>面積（2次元）のときと同じように、ここでも「はかり」と「図形」を明確に分けておこう。
+</p>
+<p>我々が組み立てた <span class="tex2jax_process">$dx \wedge dy \wedge dz$</span> は、あくまで3つのベクトルを待ち構える**体積測定器（<span class="tex2jax_process">$3$</span>-form）**である。
+これに対して、3つのベクトル <span class="tex2jax_process">$\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3$</span> によって作られる「平行六面体という図形そのもの（向き付き体積）」は、縦ベクトル同士のウェッジ積で作られる**「三重ベクトル（体積要素）」**の基底に乗る。
+</p>
+<p>3次元空間における体積要素の基底は、<span class="tex2jax_process">$\hat{e}_x \wedge \hat{e}_y \wedge \hat{e}_z$</span> のただ1種類しかない（順番を変えても符号が変わるだけだ）。
+したがって、測られた「向き付き体積」のデータは、次のように書ける。
+</p>
+<p>係数となる <span class="tex2jax_process">$V$</span> は、体積測定器にベクトルを入れて計算した行列式の値（§2.5.6 の例なら <span class="tex2jax_process">$-2$</span>）である。
+そして「小学校の正の体積（スカラー体積）」が欲しければ、成分の二乗和の平方根（<span class="tex2jax_process">$\sqrt{V^2} = |V|$</span>）をとればよい。独立成分が1つしかないので、ただの絶対値になるというわけだ。
+</p>
+<h4 id="259-span-classtex2jaxprocessspan-form-のサイズなぜ独立成分は1つだけか">2.5.9 <span class="tex2jax_process">$3$</span>-form の「サイズ」——なぜ独立成分は1つだけか</h4>
+<p>面積測定器（<span class="tex2jax_process">$2$</span>-form）は <span class="tex2jax_process">$3 \times 3$</span> 反対称行列で表現でき、独立な成分は3つだった（<span class="tex2jax_process">$dy \wedge dz$</span>, <span class="tex2jax_process">$dz \wedge dx$</span>, <span class="tex2jax_process">$dx \wedge dy$</span> の係数）。
+</p>
+<p>では体積測定器（<span class="tex2jax_process">$3$</span>-form）の独立成分はいくつか？ 基底 <span class="tex2jax_process">$3$</span>-form として作れる候補を考えてみよう。3つの物差し <span class="tex2jax_process">$dx, dy, dz$</span> から**重複なく**3つを選ぶ方法は……1通りしかない。<span class="tex2jax_process">$dx \wedge dy \wedge dz$</span> だけだ（順序を変えると符号が変わるだけで、新しい基底にはならない）。
+</p>
+<blockquote><p>
+**注** （ホッジ双対の伏線）読者はお気づきだろうか——体積の向きは、面積のときとは違って <span class="tex2jax_process">$+/-$</span> のスカラー1つに収まった。§2.4.6 で面積のときに行ったような「ごまかし」の告白を、体積の側でもう一度繰り返す羽目にならずに済んだのは、<span class="tex2jax_process">$3$</span>-form の独立成分がちょうど1つだからだ。そしてこれは偶然ではない。<span class="tex2jax_process">$0$</span>-form（スカラー場）の独立成分も1つ、<span class="tex2jax_process">$1$</span>-form の独立成分は3つ、<span class="tex2jax_process">$2$</span>-form の独立成分も3つ——つまり <span class="tex2jax_process">$1, 3, 3, 1$</span> と、両端から鏡写しになっている。この並びは、**ホッジ双対**という対称性の前触れだ。詳しくは後の章で。<br>
+</p></blockquote>
+<h4 id="2510-測定器の階層第2章で手に入れた武器の整理">2.5.10 測定器の階層——第2章で手に入れた武器の整理</h4>
+<p>ここで、我々が第1章から積み上げてきた「測定器」の全体像を俯瞰しよう。
+</p>
+<p>§2.4.8 以降、とくに §2.5.8（図形側の三重ベクトル）と §2.5.9（独立成分の個数）までを通じて、**次元 <span class="tex2jax_process">$k$</span> ごとに「はかり（<span class="tex2jax_process">$k$</span>-form）」と「図形（<span class="tex2jax_process">$k$</span>-ベクトル）」の横と縦の関係**が同じ型で繰り返されることが見えてきた。データの成分の個数と、「スカラー（正の大きさ）」の取り出し方を一枚の表にまとめると、次のとおりだ。
+</p>
+<p>| 次元 (<span class="tex2jax_process">$k$</span>) | はかり（<span class="tex2jax_process">$k$</span>-form） | 図形（<span class="tex2jax_process">$k$</span>-ベクトル） | 値（データ）の出方 | スカラーの取り出し方 |
+| :--- | :--- | :--- | :--- | :--- |
+| **0次元** | <span class="tex2jax_process">$0$</span>-form（スカラー場 <span class="tex2jax_process">$f$</span>） | 点 | 1成分（<span class="tex2jax_process">$f$</span>） | <span class="tex2jax_process">$\sqrt{f^2}$</span>  |
+| **1次元** | <span class="tex2jax_process">$1$</span>-form（<span class="tex2jax_process">$dx, dy, dz$</span>） | ベクトル（<span class="tex2jax_process">$\hat{e}_x$</span> 等） | 3成分（<span class="tex2jax_process">$x, y, z$</span>） | <span class="tex2jax_process">$\sqrt{x^2 + y^2 + z^2}$</span> |
+| **2次元** | <span class="tex2jax_process">$2$</span>-form（<span class="tex2jax_process">$dy \wedge dz$</span> 等） | 二重ベクトル（<span class="tex2jax_process">$\hat{e}_y \wedge \hat{e}_z$</span> 等） | 係数3つ（<span class="tex2jax_process">$A_{yz}, A_{zx}, A_{xy}$</span>） | <span class="tex2jax_process">$\sqrt{A_{yz}^2 + A_{zx}^2 + A_{xy}^2}$</span> |
+| **3次元** | <span class="tex2jax_process">$3$</span>-form（<span class="tex2jax_process">$dx \wedge dy \wedge dz$</span>） | 三重ベクトル（<span class="tex2jax_process">$\hat{e}_x \wedge \hat{e}_y \wedge \hat{e}_z$</span>） | 1成分（<span class="tex2jax_process">$V$</span>） | <span class="tex2jax_process">$\sqrt{V^2}$</span> |
+</p>
+<blockquote><p>
+**【ここまでのチェックポイント】**<br>
+- 体積測定器 <span class="tex2jax_process">$dx \wedge dy \wedge dz$</span>（<span class="tex2jax_process">$3$</span>-form）は、3つの物差しのウェッジ積であり、その値は <span class="tex2jax_process">$3 \times 3$</span> 行列式に等しい。<br>
+- <span class="tex2jax_process">$0$</span>-form（1成分）→ <span class="tex2jax_process">$1$</span>-form（3成分）→ <span class="tex2jax_process">$2$</span>-form（3成分）→ <span class="tex2jax_process">$3$</span>-form（1成分）と、<span class="tex2jax_process">$1, 3, 3, 1$</span> の対称性がある。<br>
+- はかり（<span class="tex2jax_process">$k$</span>-form）と図形（<span class="tex2jax_process">$k$</span>-ベクトル）の横と縦の関係は、次元が変わっても同じ型で繰り返される。スカラーの大きさは成分の二乗和の平方根で取り出す。<br>
+</p></blockquote>
+<h3 id="26-本章のまとめと第3章への展望">§2.6 本章のまとめと第3章への展望</h3>
+<blockquote><p>
+**【ここまでのチェックポイント — 第2章全体】**<br>
+- 面積とは「2つのベクトルの絡み合い」を測る反対称行列（<span class="tex2jax_process">$2$</span>-form）であり、物理的ルールが行列の形を完全に決める。<br>
+- ウェッジ積 <span class="tex2jax_process">$\wedge$</span> は「テンソル積の引き算」で反対称行列を構成する演算。3つの基底 <span class="tex2jax_process">$2$</span>-form から場の係数を載せて一般の <span class="tex2jax_process">$2$</span>-form を組み立てる（係数の意味は後章）。<br>
+- 体積測定器 <span class="tex2jax_process">$dx \wedge dy \wedge dz$</span>（<span class="tex2jax_process">$3$</span>-form）は、3つの物差しのウェッジ積であり、その値は <span class="tex2jax_process">$3 \times 3$</span> 行列式に等しい。反対称化した <span class="tex2jax_process">$\widehat{\epsilon}$</span>（成分 <span class="tex2jax_process">$\epsilon_{ijk}$</span>、レヴィ=チヴィタ記号）と縮約でも表せる（付録Aで全成分を確認）。<br>
+</p></blockquote>
+<p>本章では、第1章で揃えた物差し <span class="tex2jax_process">$dx, dy, dz$</span> から出発し、**面積（<span class="tex2jax_process">$2$</span>-form）と体積（<span class="tex2jax_process">$3$</span>-form）を代数的に組み立てる**ところまで来た。ウェッジ積は「幾何を直接描く」のではなく、**測定器のルールを満たす式を機械的に生成する**ための道具である。
+</p>
+<p>次章（第3章）では、これらの形式を**曲線・曲面・領域に沿って集計する**——すなわち線積分・面積分・体積分を、<span class="tex2jax_process">$1$</span>-form / <span class="tex2jax_process">$2$</span>-form / <span class="tex2jax_process">$3$</span>-form の言葉で統一的に書き直す。さらに変数変換と**引き戻し（pullback）**が登場し、ヤコビアンが「影の計算」として自然に現れる。
+</p>
+<hr />
+<h2 id="第2章-付録A体積測定器のテンソル積表現--全成分の計算">第2章 付録A：体積測定器のテンソル積表現 — 全成分の計算</h2>
+<p>§2.5.5 で、<span class="tex2jax_process">$\widehat{\epsilon}$</span>（成分 <span class="tex2jax_process">$\epsilon_{ijk}$</span>）とベクトル3本との縮約で行列式に一致すると述べた。ここではその全過程を手計算で追い、一つ残らず確認する。
+</p>
+<h4 id="A1-テンソル積の3引数への拡張">A.1 テンソル積の3引数への拡張</h4>
+<p>復習しよう。<span class="tex2jax_process">$dx \otimes dy$</span> の <span class="tex2jax_process">$(i,j)$</span> 成分は、<span class="tex2jax_process">$dx$</span> の第 <span class="tex2jax_process">$i$</span> 成分と <span class="tex2jax_process">$dy$</span> の第 <span class="tex2jax_process">$j$</span> 成分の積だった：
+</p>
+<p>3つの物差しへの拡張は自然だ——添字を1つ増やすだけ：
+</p>
+<h4 id="A2-反対称化6つの配列を符号つきで重ねる">A.2 反対称化——6つの配列を符号つきで重ねる</h4>
+<p>§2.4.4 で面積のとき <span class="tex2jax_process">$dx \wedge dy = dx \otimes dy - dy \otimes dx$</span>（2項の符号つき和）だった。3つの物差しは デカルト座標における <span class="tex2jax_process">$dx, dy, dz$</span> である。その並べ替えは <span class="tex2jax_process">$3! = 6$</span> 通りだから、置換 <span class="tex2jax_process">$\sigma$</span> ごとに <span class="tex2jax_process">$(dx,dy,dz)$</span> を並べ替えた順にテンソル積 <span class="tex2jax_process">$\otimes$</span> でつなぎ、符号 <span class="tex2jax_process">$\mathrm{sgn}(\sigma)$</span> を付けて <span class="tex2jax_process">$S_3$</span> 上で和をとる、という意味である——すなわち次の6行の和を、置換の言葉で一行にまとめたものだ。
+</p>
+<blockquote><p>
+**注** （対称群と置換の符号）<span class="tex2jax_process">$S_3$</span> は3次対称群（置換の集合）。<span class="tex2jax_process">$\mathrm{sgn}(\sigma)$</span> は**偶置換なら <span class="tex2jax_process">$+1$</span>、奇置換なら <span class="tex2jax_process">$-1$</span>** と定める符号。<br>
+</p></blockquote>
+<p>書き下すと：
+</p>
+<p>6つの「1箇所だけ非ゼロの配列」を符号つきで重ねると、27成分のうち6箇所だけが <span class="tex2jax_process">$\pm 1$</span> で、残り21箇所はゼロになる。§2.5.2 の置換の表と見比べてほしい——これが <span class="tex2jax_process">$\widehat{\epsilon}$</span> の各成分 <span class="tex2jax_process">$\epsilon_{ijk}$</span> を与える構成原理だ。
+</p>
+<h4 id="A3-各成分の行列を書き下す">A.3 各成分の行列を書き下す</h4>
+<p>§2.5.5 で示した3つの成分行列を、ここでは1マスずつ確認しよう。
+</p>
+<p>**第1成分（<span class="tex2jax_process">$i = 1$</span>, <span class="tex2jax_process">$x$</span>）：** 6項のうち <span class="tex2jax_process">$i = 1$</span> を持つのは <span class="tex2jax_process">$(1,2,3)$</span> に <span class="tex2jax_process">$+1$</span> と <span class="tex2jax_process">$(1,3,2)$</span> に <span class="tex2jax_process">$-1$</span>。
+</p>
+<p>**第2成分（<span class="tex2jax_process">$i = 2$</span>, <span class="tex2jax_process">$y$</span>）：** <span class="tex2jax_process">$(2,3,1)$</span> に <span class="tex2jax_process">$+1$</span> と <span class="tex2jax_process">$(2,1,3)$</span> に <span class="tex2jax_process">$-1$</span>。
+</p>
+<p>**第3成分（<span class="tex2jax_process">$i = 3$</span>, <span class="tex2jax_process">$z$</span>）：** <span class="tex2jax_process">$(3,1,2)$</span> に <span class="tex2jax_process">$+1$</span> と <span class="tex2jax_process">$(3,2,1)$</span> に <span class="tex2jax_process">$-1$</span>。
+</p>
+<p>繰り返しになるが、これらはそれぞれ <span class="tex2jax_process">$dy \wedge dz$</span>、<span class="tex2jax_process">$dz \wedge dx$</span>、<span class="tex2jax_process">$dx \wedge dy$</span> の行列そのものである。
+</p>
+<h4 id="A4-ベクトル3本を食わせる縮約の全過程">A.4 ベクトル3本を食わせる——縮約の全過程</h4>
+<p>**ステップ1：添字 <span class="tex2jax_process">$i$</span> について <span class="tex2jax_process">$\mathbf{v}_1$</span> の成分で加重和（添字 <span class="tex2jax_process">$i$</span> を潰す）**
+</p>
+<p>各成分を足し合わせると：
+</p>
+<p>面積測定器3つを <span class="tex2jax_process">$\mathbf{v}_1$</span> の成分で配合した、「<span class="tex2jax_process">$\mathbf{v}_1$</span> 専用の面積測定器」が出現した。反対称行列であることに注目——<span class="tex2jax_process">$\widehat{\epsilon}$</span> の添字に対する反対称性が受け継がれている。
+</p>
+<p>**ステップ2：残り2本で行列を挟む（添字 <span class="tex2jax_process">$j, k$</span> を潰す）**
+</p>
+<p>あとは §2.4 で馴染んだ「横 <span class="tex2jax_process">$\times$</span> 行列 <span class="tex2jax_process">$\times$</span> 縦」だ：
+</p>
+<p>まず <span class="tex2jax_process">$\mathbf{v}_2^T \times M$</span>（横 <span class="tex2jax_process">$\times$</span> 行列 → 横）を計算する：
+</p>
+<p>最後に、得た横ベクトルと <span class="tex2jax_process">$\mathbf{v}_3$</span> の対応成分の積の和（横 <span class="tex2jax_process">$\times$</span> 縦 → スカラー）：
+</p>
+<p>展開して整理すると：
+</p>
+<p>となり、**§2.5.2 の行列式と、6つの項が1つ残らず一致する。**
+</p>
+<p>\newpage
+</p>
+      <div class="nav-buttons">
+        <a href="ch01.html">← 第1章：$dx$ とは何か —...</a>
+        <a href="ch03.html">第3章：積分するとは何か ——... →</a>
+      </div>
+    </article>
+  </main>
+</body>
+</html>

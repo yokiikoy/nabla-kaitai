@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第12章：真のナブラ —— クリフォード・パウリ・ディラック・ハミルトン | ナブラ解体新書</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+<style>
+  :root { --sidebar-width: 320px; }
+  body { margin: 0; display: flex; background: #fff; line-height: 1.7; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .sidebar { width: var(--sidebar-width); height: 100vh; position: sticky; top: 0; background: #f8f9fa; border-right: 1px solid #d0d7de; overflow-y: auto; padding: 1.5rem; box-sizing: border-box; flex-shrink: 0; }
+  .sidebar h2 { font-size: 1.2rem; border: none; margin-bottom: 0.5rem; color: #24292f; }
+  .sidebar .author { font-size: 0.8rem; color: #666; margin-bottom: 1.5rem; }
+  .sidebar .toc { font-size: 0.85rem; }
+  .sidebar .toc ul { list-style: none; padding-left: 0; margin: 0; }
+  .sidebar .toc li { margin-bottom: 0.4rem; }
+  .sidebar .toc .level-1 { font-weight: bold; margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 2px; }
+  .sidebar .toc .level-2 { padding-left: 1rem; color: #444; }
+  .sidebar a { text-decoration: none; color: #0969da; }
+  .sidebar a:hover { text-decoration: underline; }
+  .sidebar .active { color: #cf222e; font-weight: bold; }
+  .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; }
+  .markdown-body { max-width: 850px; margin: 0 auto; }
+  @media (max-width: 900px) { body { flex-direction: column; } .sidebar { width: 100%; height: auto; position: static; } .main-content { padding: 1.5rem; } }
+  blockquote { border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }
+  .mjx-container { overflow-x: auto !important; padding: 0.8em 0; max-width: 100%; }
+  .nav-buttons { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }
+  .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; }
+  .nav-buttons a:hover { background: #f6f8fa; }
+</style>
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$']],
+    displayMath: [['$$', '$$']],
+    processEscapes: true
+  },
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+
+</script>
+<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+  <nav class="sidebar">
+    <h2><a href="index.html">ナブラ解体新書</a></h2>
+    <div class="author">著者: yokiikoy</div>
+    <div class="toc"><ul>
+<li><a href="index.html" id="link-index.html">まえがき</a></li>
+<li class="level-1"><a href="ch01.html" id="link-ch01.html">第1章</a></li>
+<li class="level-1"><a href="ch02.html" id="link-ch02.html">第2章</a></li>
+<li class="level-1"><a href="ch03.html" id="link-ch03.html">第3章</a></li>
+<li class="level-1"><a href="ch04.html" id="link-ch04.html">第4章</a></li>
+<li class="level-1"><a href="ch05.html" id="link-ch05.html">第5章</a></li>
+<li class="level-1"><a href="ch06.html" id="link-ch06.html">第6章</a></li>
+<li class="level-1"><a href="ch07.html" id="link-ch07.html">第7章</a></li>
+<li class="level-1"><a href="ch08.html" id="link-ch08.html">第8章</a></li>
+<li class="level-1"><a href="ch09.html" id="link-ch09.html">第9章</a></li>
+<li class="level-1"><a href="ch10.html" id="link-ch10.html">第10章</a></li>
+<li class="level-1"><a href="ch11.html" id="link-ch11.html">第11章</a></li>
+<li class="level-1"><a href="ch12.html" class="active">第12章</a></li>
+</ul></div>
+  </nav>
+  <main class="main-content">
+    <article class="markdown-body">
+      <h1 id="第12章真のナブラ--クリフォード・パウリ・ディラック・ハミルトン">第12章：真のナブラ —— クリフォード・パウリ・ディラック・ハミルトン</h1>
+<h3 id="120-2本を1本に">§12.0 2本を1本に</h3>
+<p>　第10章の注釈内で、実はこんなことを書いていた——「なぜ2本なのか。<span class="tex2jax_process">$dF=0$</span> と <span class="tex2jax_process">$d(\ast F)=\mu_0(\ast\mathcal{J})$</span> を1本にまとめられないのか」と。
+</p>
+<p>できるのだ。それも、あっさりと。虚数単位 <span class="tex2jax_process">$i$</span> を持ち出せば、たったの一行で済む。本章ではまずその「トリック」を見てから、その先にあるもっと深い統合——パウリ行列とディラック演算子——へと進む。
+</p>
+<blockquote><p>
+**注** （本章の立ち位置）本章は完全なおまけであり、本書の本線からは外れている。第8章でベクトル解析の書き換えは完了し、第10章でマクスウェル方程式の行列展開も終えた。本章では、厳密な幾何代数（クリフォード代数）の教科書を書くつもりはない。目的は、本書で解体してきた grad・rot・div が、パウリ行列とディラック演算子の中で再び一つの演算へ統合される様子を、計算として見ることである。<br>
+</p></blockquote>
+<hr />
+<h3 id="121-虚数で一本に--マクスウェル方程式の統合">§12.1 虚数で一本に —— マクスウェル方程式の統合</h3>
+<p>第10章で我々は、マクスウェル方程式を
+</p>
+<p>の2本に集約した。ここで <span class="tex2jax_process">$F$</span> も <span class="tex2jax_process">$\ast F$</span> も <span class="tex2jax_process">$2$</span>-form であることに注目しよう。4次元時空では、ホッジ・スター <span class="tex2jax_process">$\ast$</span> は <span class="tex2jax_process">$2$</span>-form を <span class="tex2jax_process">$2$</span>-form に写す。だから <span class="tex2jax_process">$F$</span> と <span class="tex2jax_process">$\ast F$</span> は同じ次数の形式だ。
+</p>
+<p>同じ次数なら、足し算に支障はない。虚数単位 <span class="tex2jax_process">$i$</span> を使って一つの複素 <span class="tex2jax_process">$2$</span>-form を作る。
+</p>
+<p>すなわち
+</p>
+<p>これだけだ。<span class="tex2jax_process">$dF=0$</span> と <span class="tex2jax_process">$d(\ast F)=\mu_0(\ast\mathcal{J})$</span> の2本が、たった一本の複素方程式に統合された。<span class="tex2jax_process">$F$</span> と <span class="tex2jax_process">$\ast F$</span> という実部と虚部が、それぞれ無源側と有源側のマクスウェル方程式を分担している。
+</p>
+<p>しかし、ここで立ち止まって考えてほしい。このトリックが成り立つのは、**たまたま** 4次元で <span class="tex2jax_process">$\ast$</span> が <span class="tex2jax_process">$2$</span>-form を <span class="tex2jax_process">$2$</span>-form に写すからだ。一般の <span class="tex2jax_process">$n$</span> 次元では <span class="tex2jax_process">$\ast$</span> は <span class="tex2jax_process">$k$</span>-form を <span class="tex2jax_process">$(n-k)$</span>-form に写す。<span class="tex2jax_process">$2$</span>-form と <span class="tex2jax_process">$2$</span>-form を足せるのは <span class="tex2jax_process">$n=4$</span> の特権であり、ましてや <span class="tex2jax_process">$1$</span>-form と <span class="tex2jax_process">$2$</span>-form を直接足すことは、通常の微分形式の枠組みでは許されていない。
+</p>
+<p>異なる次数の形式を足し合わせる——そんな「魔法の箱」はないものだろうか。
+</p>
+<hr />
+<h3 id="122-パウリ行列--異なる次数を足す魔法">§12.2 パウリ行列 —— 異なる次数を足す魔法</h3>
+<p>実はある。物理学者たちが量子力学のために発見した道具が、そのままこの魔法の箱として使える。**パウリ行列**だ。
+</p>
+<h4 id="1221-パウリ行列の定義と掛け算">12.2.1 パウリ行列の定義と掛け算</h4>
+<p>パウリ行列 <span class="tex2jax_process">$\sigma_1, \sigma_2, \sigma_3$</span> は次の <span class="tex2jax_process">$2\times2$</span> 行列である。
+</p>
+<p>これらの掛け算規則を調べてみよう。単独では <span class="tex2jax_process">$\sigma_1^2 = \sigma_2^2 = \sigma_3^2 = I$</span>（単位行列）であり、異なるもの同士では <span class="tex2jax_process">$\sigma_1\sigma_2 = -\sigma_2\sigma_1$</span> という**反可換性**が成り立つ。積は全部で9通りある。
+</p>
+<p>この9通りの積を、対称部分と反対称部分に分解してみよう。第2章でウェッジ積 <span class="tex2jax_process">$\wedge$</span> を反対称化によって導入したのと同じ発想である。
+</p>
+<p>同じ添字どうし（<span class="tex2jax_process">$\sigma_1\sigma_1$</span>, <span class="tex2jax_process">$\sigma_2\sigma_2$</span>, <span class="tex2jax_process">$\sigma_3\sigma_3$</span>）の対称部分は <span class="tex2jax_process">$I$</span>、反対称部分は <span class="tex2jax_process">$0$</span> だ。異なる添字の場合は、たとえば <span class="tex2jax_process">$\sigma_1\sigma_2 = i\sigma_3$</span> について、
+</p>
+<p>という具合に、異なる添字の積は純粋に反対称である。対称部分は添字が同じときだけ <span class="tex2jax_process">$I$</span>、それ以外は <span class="tex2jax_process">$0$</span>——これは第6章で導入した計量（デカルト座標では単位行列）が、パウリ行列の積の対称部分として姿を現したことにほかならない。反対称部分は添字を入れ替えると符号が反転する——第2章のウェッジ積 <span class="tex2jax_process">$dx\wedge dy = -dy\wedge dx$</span> とまったく同じ構造だ。
+</p>
+<p>パウリ行列の積は、つねに「内積（対称部分）<span class="tex2jax_process">$+$</span> ウェッジ積（反対称部分）」に分解される。この一点が、パウリ行列のすべての魔法の源である。
+</p>
+<h4 id="1222-ベクトルをパウリ行列で書く">12.2.2 ベクトルをパウリ行列で書く</h4>
+<p>3次元ベクトル <span class="tex2jax_process">$\mathbf{v} = (v_1, v_2, v_3)$</span> をパウリ行列で表してみよう。
+</p>
+<p>二つのベクトル <span class="tex2jax_process">$\mathbf{v}, \mathbf{w}$</span> に対応するパウリ行列 <span class="tex2jax_process">$V = \mathbf{v}\!\cdot\!\bm{\sigma}$</span>, <span class="tex2jax_process">$W = \mathbf{w}\!\cdot\!\bm{\sigma}$</span> の積を計算する。
+</p>
+<p>上記の9通りの積を各項に適用する。非ゼロの置き換えだけ書けば
+</p>
+<p>と、これらの添字を逆順にした <span class="tex2jax_process">$\sigma_2\sigma_1 = -i\sigma_3$</span>, <span class="tex2jax_process">$\sigma_3\sigma_2 = -i\sigma_1$</span>, <span class="tex2jax_process">$\sigma_1\sigma_3 = -i\sigma_2$</span> の計9通りである。<span class="tex2jax_process">$I$</span> の係数（対称部分＝内積）と <span class="tex2jax_process">$\sigma_1,\sigma_2,\sigma_3$</span> の係数（反対称部分＝ウェッジ積）をそれぞれ集める。
+</p>
+<p>と、内積 <span class="tex2jax_process">$+$</span> ウェッジ積の形にまとまる。内積と外積が、**一つの積 <span class="tex2jax_process">$VW$</span> から同時に**現れた。
+</p>
+<p>これが「魔法の箱」の正体だ。パウリ行列の積は、内積（<span class="tex2jax_process">$0$</span>-form に相当するスカラー）と外積（<span class="tex2jax_process">$2$</span>-form に相当するウェッジ積）を、**一つの演算で同時に**生み出す。通常の微分形式では別々の次数に属していたものが、パウリ行列の代数の中では一つの <span class="tex2jax_process">$2\times2$</span> 行列として共存している。
+</p>
+<blockquote><p>
+**注** （なぜ <span class="tex2jax_process">$2\times2$</span> なのか）ベクトルを <span class="tex2jax_process">$2\times2$</span> 行列で表すのは奇妙に思えるかもしれない。しかし、内積とウェッジ積の両方を一つの積で表現するには、少なくとも非可換な代数が必要であり、その最小の実現が <span class="tex2jax_process">$2\times2$</span> 複素行列なのである。本書の流儀でいえば、<span class="tex2jax_process">$1$</span>-form（横ベクトル <span class="tex2jax_process">$1\times3$</span>）と <span class="tex2jax_process">$2$</span>-form（反対称 <span class="tex2jax_process">$3\times3$</span> 行列）という次数の異なる二つの対象を、一つの <span class="tex2jax_process">$2\times2$</span> 行列の中に押し込めた——そう考えればよい。<br>
+</p></blockquote>
+<h4 id="1223-スカラーも混ぜて足す">12.2.3 スカラーも混ぜて足す</h4>
+<p>ここまでで、ベクトル（<span class="tex2jax_process">$1$</span>-form）とウェッジ積（<span class="tex2jax_process">$2$</span>-form）が <span class="tex2jax_process">$VW$</span> という一通りの計算で同時に出てくることがわかった。さらに一歩進めて、スカラー（<span class="tex2jax_process">$0$</span>-form）そのものも同じ代数に混ぜよう。
+</p>
+<p>パウリ行列の線形結合で表される最も一般的な <span class="tex2jax_process">$2\times2$</span> 行列は
+</p>
+<p>の形をしている。<span class="tex2jax_process">$\varphi$</span> はスカラー（<span class="tex2jax_process">$0$</span>-form）、<span class="tex2jax_process">$A_1,A_2,A_3$</span> はベクトルの成分（<span class="tex2jax_process">$1$</span>-form）である。さらに <span class="tex2jax_process">$\psi$</span> に左から <span class="tex2jax_process">$\sigma_i$</span> を掛ければ、<span class="tex2jax_process">$2$</span>-form に相当する <span class="tex2jax_process">$i\sigma_k$</span> の項まで現れる。つまり、パウリ行列の代数は <span class="tex2jax_process">$0,1,2,3$</span>-form の**すべての次数**を一つの枠組みで扱えるのだ。
+</p>
+<blockquote><p>
+**注** （何ができるようになったのか）微分形式でも異なる次数の形式を直和として形式的に並べることはできる。しかし、内積（縮約）と外積（反対称化）を**一つの積として同時に**扱うには、通常のウェッジ積だけでは足りない。パウリ行列の代数では、それらが一つの積 <span class="tex2jax_process">$VW$</span> の中で自然に分離・共存する。これが幾何代数の核心である。<br>
+</p></blockquote>
+<blockquote><p>
+**注** （全次数の対応）パウリ行列の代数における次数対応を整理しておく。<span class="tex2jax_process">$I$</span> が <span class="tex2jax_process">$0$</span>-form（スカラー）、<span class="tex2jax_process">$\sigma_1,\sigma_2,\sigma_3$</span> が <span class="tex2jax_process">$1$</span>-form（ベクトル）、<span class="tex2jax_process">$i\sigma_1,i\sigma_2,i\sigma_3$</span> が <span class="tex2jax_process">$2$</span>-form（バイベクトル）、<span class="tex2jax_process">$iI$</span> が <span class="tex2jax_process">$3$</span>-form（擬スカラー）に対応する。最も一般的な元は <span class="tex2jax_process">$\psi = aI + \mathbf{v}\!\cdot\!\bm{\sigma} + i\,\mathbf{w}\!\cdot\!\bm{\sigma} + ibI$</span> の形で、4つの次数すべてを複素係数で含んでいる。<br>
+</p></blockquote>
+<blockquote><p>
+**注** （四元数——すでにあった魔法の箱）実はこの「スカラーとベクトルを一つの数に混ぜる」という発想は、パウリ行列よりもずっと古い。行列代数よりも古い。1843年にハミルトンが発見した**四元数（quaternion）** <span class="tex2jax_process">$q = a + bi + cj + dk$</span> がまさにそれだ。マクスウェルは自身の電磁気学を四元数で定式化していた。しかしその後、ギブズとヘヴィサイドが四元数からスカラー部分とベクトル部分を**分離**し、現代のベクトル解析（内積とクロス積）が誕生した。パウリ行列は、ギブズが分離したスカラーとベクトルを、約80年後に量子力学の文脈で再び**統合**したものである。歴史は一周したのだ。<br>
+</p></blockquote>
+<blockquote><p>
+> **注** （行列なき時代のベクトル解析）ギブズとヘヴィサイドがベクトル解析を整備した1880年代には、まだ行列代数が存在しなかった。行列式はあったが、行列そのものの代数——積の非可換性、固有値、線形変換としての統一的理解——は、ケイリーの先駆的研究を経て、20世紀初頭のヒルベルトらによってようやく整備される。ギブズは線形変換を表すために**ダイアド（dyad）** <span class="tex2jax_process">$\mathbf{a}\mathbf{b}$</span> という独自の記法を発明したが、これは現代の行列 <span class="tex2jax_process">$\mathbf{a}\mathbf{b}^T$</span> に相当する。要するに、ベクトル解析は行列代数が存在しない時代に、四元数を切り刻み、ダイアドを継ぎ接ぎして作られた**キメラ**だったのだ。本書が「ナブラ解体新書」と題して <span class="tex2jax_process">$\nabla$</span> を <span class="tex2jax_process">$d$</span> と <span class="tex2jax_process">$\ast$</span> に解体し、最終章でパウリ行列による再統合を見せたことには、この百年越しの負債を清算する意味もある。<br>
+</p></blockquote>
+<blockquote><p>
+> **注** （行列代数が物理学者の標準語でなかったこと）なお、行列代数が物理学者の標準語でなかったことは、1925年の行列力学にもよく現れている。ハイゼンベルク自身は当初、自分の計算が行列の非可換積であることを知らず、それを行列として読んだのはボルンだった。<br>
+</p></blockquote>
+<hr />
+<h3 id="123-ディラック演算子と真のナブラ">§12.3 ディラック演算子と真のナブラ</h3>
+<h4 id="1231-span-classtex2jaxprocessspan--すべてを統合する演算子">12.3.1 <span class="tex2jax_process">$\bm{\sigma}\!\cdot\!\nabla$</span> —— すべてを統合する演算子</h4>
+<p>パウリ行列とナブラ <span class="tex2jax_process">$\nabla = (\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z})$</span> を組み合わせて、次の演算子を定義する。
+</p>
+<p>これは <span class="tex2jax_process">$\mathrm{grad}\,\varphi$</span> をパウリ行列で表したものだ。
+</p>
+<p>次に、ベクトル場 <span class="tex2jax_process">$\mathbf{A} = (A_1, A_2, A_3)$</span> をパウリ行列で <span class="tex2jax_process">$A = \mathbf{A}\!\cdot\!\bm{\sigma}$</span> と書いて <span class="tex2jax_process">$D$</span> を作用させる。11.2.2 の積の公式を思い出そう。
+</p>
+<ol>
+<li>2.2 と同じ <span class="tex2jax_process">$\sigma_i\sigma_j$</span> の置き換えを9項に適用し、<span class="tex2jax_process">$I$</span> の係数（内積＝発散）と <span class="tex2jax_process">$\sigma_1,\sigma_2,\sigma_3$</span> の係数（ウェッジ積＝回転）を集める。</li>
+</ol>
+<p>**一つの演算子 <span class="tex2jax_process">$D$</span> が、<span class="tex2jax_process">$\mathrm{grad}$</span>（<span class="tex2jax_process">$D\varphi$</span>）、<span class="tex2jax_process">$\mathrm{div}$</span>（<span class="tex2jax_process">$DA$</span> の実部）、<span class="tex2jax_process">$\mathrm{rot}$</span>（<span class="tex2jax_process">$DA$</span> の虚部）をすべて産み出す。** これこそが、<span class="tex2jax_process">$\nabla$</span> を <span class="tex2jax_process">$d$</span> と <span class="tex2jax_process">$\ast$</span> に解体した旅の、逆方向の結論——統合——にほかならない。
+</p>
+<blockquote><p>
+**注** （<span class="tex2jax_process">$d$</span> と <span class="tex2jax_process">$\ast$</span> で書くと）<span class="tex2jax_process">$D$</span> は本書の言葉でも表現できる。符号規約を別にすれば、<span class="tex2jax_process">$D$</span> は <span class="tex2jax_process">$d$</span>（次数を上げる）と <span class="tex2jax_process">$\ast d\ast$</span>（次数を下げる）を合わせた演算子として理解できる。<span class="tex2jax_process">$\ast d\ast$</span> は**余微分（codifferential）** <span class="tex2jax_process">$\delta$</span> と呼ばれ、<span class="tex2jax_process">$\delta = \pm\ast d\ast$</span>（符号は次元と次数に依存）と定義される。ここでは厳密な符号には立ち入らず、<span class="tex2jax_process">$D \sim d + \delta$</span> という構造だけを押さえておく。<span class="tex2jax_process">$d$</span> が次数を上げ、<span class="tex2jax_process">$\delta$</span> が次数を下げる——この二つを足した <span class="tex2jax_process">$D$</span> が、grad・rot・div を一つの演算子に束ねているのだ。<br>
+</p></blockquote>
+<h4 id="1232-span-classtex2jaxprocessspan--ラプラシアン">12.3.2 <span class="tex2jax_process">$D^2$</span> —— ラプラシアン</h4>
+<p>さらに <span class="tex2jax_process">$D$</span> を二度作用させるとどうなるか。
+</p>
+<p>9項に展開する。
+</p>
+<h4 id="1233-マクスウェルを一本に--再訪">12.3.3 マクスウェルを一本に —— 再訪</h4>
+<p>§12.1 では <span class="tex2jax_process">$F + i\ast F$</span> によって4次元でマクスウェル方程式を一本化した。<span class="tex2jax_process">$D$</span> を使えば、同じことが3次元の言葉だけで書ける。
+</p>
+<p>電場 <span class="tex2jax_process">$\mathbf{E}$</span> と磁場 <span class="tex2jax_process">$\mathbf{B}$</span> を一つの複素ベクトルに束ねる。これは**リーマン－ジルバーシュタイン・ベクトル**と呼ばれる。
+</p>
+<p>パウリ行列で書けば <span class="tex2jax_process">$F = \mathbf{E}\!\cdot\!\bm{\sigma} + i\,\mathbf{B}\!\cdot\!\bm{\sigma}$</span> である。<span class="tex2jax_process">$F$</span> はスカラー部を持たない純粋な複素パウリ・ベクトルだ。時間微分を含めた演算子 <span class="tex2jax_process">$D + \frac{\partial}{\partial t}$</span> を作用させる。
+</p>
+<p>§12.3.1 の <span class="tex2jax_process">$D(\mathbf{A}\!\cdot\!\bm{\sigma})$</span> の公式を <span class="tex2jax_process">$\mathbf{E}$</span> と <span class="tex2jax_process">$\mathbf{B}$</span> の両方に適用する。
+</p>
+<p>実部と虚部、そして <span class="tex2jax_process">$I$</span>（スカラー）と <span class="tex2jax_process">$\bm{\sigma}$</span>（ベクトル）の各成分に整理する。
+</p>
+<p>これらをゼロとおけば、真空のマクスウェル方程式4本がすべて現れる。電流 <span class="tex2jax_process">$\mathbf{J}$</span> と電荷 <span class="tex2jax_process">$\rho$</span> がある場合は、右辺に <span class="tex2jax_process">$\rho + \mathbf{J}\!\cdot\!\bm{\sigma}$</span> を置けばよい。
+</p>
+<h4 id="1234-span-classtex2jaxprocessspan--4次元時空のディラック演算子">12.3.4 <span class="tex2jax_process">$\cancel{\partial} F = J$</span> —— 4次元時空のディラック演算子</h4>
+<p>§12.3.3 の <span class="tex2jax_process">$(D + \frac{\partial}{\partial t})F = \rho + \mathbf{J}\!\cdot\!\bm{\sigma}$</span> には、時間と空間が分離して現れている。これは3次元のパウリ行列 <span class="tex2jax_process">$\sigma_1,\sigma_2,\sigma_3$</span> をベースに組み立てたからだ。4次元時空を最初から扱えば、この分離すら消える。
+</p>
+<p>パウリ行列を <span class="tex2jax_process">$4\times4$</span> に拡張したものが**ガンマ行列** <span class="tex2jax_process">$\gamma^0,\gamma^1,\gamma^2,\gamma^3$</span> である。これらは反可換性 <span class="tex2jax_process">$\gamma^\mu\gamma^\nu + \gamma^\nu\gamma^\mu = 2g^{\mu\nu}I$</span> を満たす（<span class="tex2jax_process">$g^{\mu\nu}$</span> はミンコフスキー計量）。このガンマ行列を用いて、4次元のディラック演算子を
+</p>
+<p>と定義する。第10章の電磁場 <span class="tex2jax_process">$F$</span>（<span class="tex2jax_process">$4\times4$</span> 反対称行列）をガンマ行列のウェッジ積 <span class="tex2jax_process">$\gamma^\mu\!\wedge\!\gamma^\nu$</span> で展開したものと同一視すれば、マクスウェル方程式は
+</p>
+<p>の一行になる。<span class="tex2jax_process">$F$</span> は電磁場、<span class="tex2jax_process">$J$</span> は4元電流（<span class="tex2jax_process">$\gamma^\mu$</span> で展開されたもの）。真空では <span class="tex2jax_process">$\cancel{\partial} F = 0$</span>。
+</p>
+<blockquote><p>
+**注** （<span class="tex2jax_process">$\cancel{\partial} F$</span> の積について）ここでの積は通常の行列積ではなく、ガンマ行列が生成する幾何代数の積である。第10章の反対称行列 <span class="tex2jax_process">$F$</span> は、ここでは <span class="tex2jax_process">$\gamma^\mu\!\wedge\!\gamma^\nu$</span> で展開された2-vectorとして再解釈される。細部は幾何代数の教科書に譲るが、<span class="tex2jax_process">$\sigma_i\sigma_j = \delta_{ij}I + i\varepsilon_{ijk}\sigma_k$</span>（11.2.1）の4次元版がここでも成り立っていると考えればよい。<br>
+</p></blockquote>
+<p>§12.1 の <span class="tex2jax_process">$F + i\ast F$</span> も、§12.3.3 の <span class="tex2jax_process">$(D + \frac{\partial}{\partial t})F$</span> も、すべてこの一行に吸収される。これが、<span class="tex2jax_process">$\nabla$</span> の解体から始まった旅の、最も遠くにある風景である。ディラックが1928年に電子の方程式を導くために発見したこの演算子は、時空の幾何と物理法則を一つの代数で記述する**幾何代数（Geometric Algebra）**の核であり、Doran & Lasenby の Geometric Algebra for Physicists に詳しい。
+</p>
+<h3 id="124-演算子span-classtex2jaxprocessspan">§12.4 演算子<span class="tex2jax_process">$\nabla$</span></h3>
+<p>さあ、ここで最初の問いに戻ろう。<span class="tex2jax_process">$\nabla$</span> とは何だったのか。
+</p>
+<p>ベクトル解析では、<span class="tex2jax_process">$\nabla$</span> は「偏微分を並べた形式的なベクトル」として導入され、grad・rot・div の三つの顔を持つ謎めいた記号だった。本書はそれを <span class="tex2jax_process">$d$</span> と <span class="tex2jax_process">$\ast$</span> に**解体**することで、各演算の正体を明らかにしてきた。
+</p>
+<p>そして今、これを逆方向に辿り、<span class="tex2jax_process">$d$</span> と <span class="tex2jax_process">$\ast$</span> というバラバラだった部品が、幾何代数の中で3次元のディラック演算子<span class="tex2jax_process">$D = \bm{\sigma}\!\cdot\!\nabla$</span> として**統合**され、更にその4次元版のディラック演算子<span class="tex2jax_process">$\cancel{\partial}$</span>が究極のマクスウェル方程式<span class="tex2jax_process">$\cancel{\partial} F = J$</span>を与えた。
+</p>
+<p>ところで、幾何代数の文脈では、この演算子を必ずしも<span class="tex2jax_process">$\cancel{\partial}$</span> とは書かない。むしろ、この種のベクトル微分演算子を
+</p>
+<p>と書く。
+</p>
+<p>\newpage
+</p>
+<h1 id="おわりにナブラ解体新書はいかにして生まれたか">おわりに：『ナブラ解体新書』はいかにして生まれたか</h1>
+<p>長い旅路を終えた読者の皆さんに、まずは心からの敬意を表したい。
+</p>
+<p>本書を閉じるにあたり、この奇妙で、いささか強引な構成を持つ『ナブラ解体新書』がいかにして生まれたのか、少しだけ舞台裏の話をさせてほしい。
+</p>
+<p>ことの発端は、私自身の苦い記憶にある。多くの物理学徒と同じように、私もまた「ベクトル解析」の泥沼で溺れかけた一人だった。円柱座標や球座標の <span class="tex2jax_process">$\mathrm{rot}$</span> や <span class="tex2jax_process">$\mathrm{div}$</span> を前に、「なぜこんな形になるのか」という問いは「とにかく公式を暗記せよ」という圧力に封殺された。微分形式がその特効薬であることは知っていたが、数学書の公理的アプローチは初学者の私には抽象度が高すぎた。
+</p>
+<p>「旧体制の泥沼から抜け出す、安全で強力な『バイパス』は架けられないものか」——そう考えていた私に、第一のブレイクスルーが訪れた。個人的な話になるが、当時の私は量子力学の勉強になかなかのめり込んでおり、ディラックの「ブラ・ケット記法」の扱いに慣れ親しんでいた。状態ベクトル（タテベクトル）を双対ベクトル（ヨコベクトル）として寝かせ、行列の積として颯爽と計算していく、あの感覚である。ふと、この私の中にあった量子力学の直観を、古典的な3次元ユークリッド空間の <span class="tex2jax_process">$dx, dy, dz$</span> にそのままパッチ当てしてみたらどうだろうかと考えた。積分記号の尻尾の <span class="tex2jax_process">$dx$</span> を「変位ベクトルから成分を抽出するヨコベクトル（行列）」として定義し直せば、「ベクトルを食べる関数（1-form）」という抽象概念を、誰もが知る「行列の掛け算」へと瞬時に変換できるのだ。
+</p>
+<p>しかし、これだけではまだ足りなかった。そこで第二のブレイクスルーをもたらしてくれたのが、W. L. Burke が提唱した「計量導入の遅延（put the metric later and later into the course）」という強烈な教育的哲学だった。私は決意した。この高度な哲学を、読者を巻き込む「目次構成のエンターテインメント」にしてやろう、と。
+</p>
+<p>第1章から第5章までは、計量という概念を形式的に定義せず、実空間 <span class="tex2jax_process">$(x,y,z)$</span> における小学校以来の素朴な長さ・面積の定義で押し通した。数学者から見れば「面積には計量が必要だ」と眉をひそめられるだろうが、<span class="tex2jax_process">$xyz$</span> のデカルト座標でピタゴラスの定理が成り立つ限り、それで十分なのだ。計量 <span class="tex2jax_process">$g = J^T J$</span> が真に必要になるのは、パラメータ空間のような目盛りの歪んだ座標系へ一般化するときである——その事実を、第6章で行列計算を通じて発見的に暴き出した。
+</p>
+<p>そして迎えた第6章の冒頭。「筆者もそろそろ飽きてきた」と、数学者へのエクスキューズを打ち切り、内積を正式に定義した。同時に、計量 <span class="tex2jax_process">$g = J^T J$</span> の正体を明らかにし、ホッジ・スター <span class="tex2jax_process">$\ast$</span> を「微分形式とベクトル解析を繫ぐ型変換アダプタ」として位置づけた。この発見的構成を通じて、「勾配（ <span class="tex2jax_process">$d$</span> ）は計量に依存しないが、回転や発散（ <span class="tex2jax_process">$\ast d$</span> や <span class="tex2jax_process">$\ast d \ast$</span> ）は計量に依存している」という真理を、読者に骨の髄まで納得してもらうための仕掛けだった。
+</p>
+<p>これらのアイデアのうち、Burke の「計量遅延」哲学や Flanders の微分形式の物理応用は、いずれも既存の英語文献に書かれている。本書の内容に数学的な新規性はない。ただ、<span class="tex2jax_process">$dx$</span> を行列として定義し全編を通じて行列計算で押し切るこの構成は、筆者の知る限り洋書にも見当たらない。東アジアの学生が行列計算に異様に訓練されているだけなのだろうか——などと茶化しつつ、いずれにせよ筆者が自分自身のために書いたものを整理したに過ぎない。本書が立っている巨人たちの肩については、巻末の参考文献を見てほしい。
+</p>
+<p>本書は、ベクトル解析に挫折したかつての私自身に向けて書いた「サバイバルガイド」である。「ホッジ・スター <span class="tex2jax_process">$\ast$</span> が空間の歪み（計量）に依存する」というツールの限界を知った今のあなたなら、すでに次の世界への扉を開いている。
+</p>
+<p>ここで、本書を読破したあなたに最後に伝えたいことがある。本書は「計量」と「トポロジー」を分離する方針で始まったが、正直なところ、計量は随所でこっそり漏れ出ている。このあたりの徹底ぶりは Burke の原著には遠く及ばない。ほどほどに分離しつつ、行きつ戻りつしながらようやく辿り着いたのが本書の姿だ。しかし、この不完全さには思いがけない効用がある。骨の髄まで分離の苦しみを味わったあなたは、次に出会う「統合」に備えている。C. Doran と A. Lasenby らが提唱する「幾何代数（Geometric Algebra）」——そこでは、我々が引き裂いてきた内積と外積が、最初から「幾何積」として一つに融合している。抽象的な理論としてではなく、長年の煩わしさからの解放として、それは感じられるはずだ。筆者も未だその全容を掴めず、しかしその魅力に惹かれて探求中である。この苦しみを共有した読者の中から、この先、同じように強く惹きつけられる人が少なからず現れるのではないかと思う。
+</p>
+<p>『ナブラ解体新書』が、あなたの物理学の旅において、より高く、より遠くへ飛ぶための強靭な足場となることを、著者として心から願っている。
+</p>
+<p>\newpage
+</p>
+<h1 id="参考文献と著者からのコメント">参考文献（と著者からのコメント）</h1>
+<p>本書の特異な代数的バイパスは、以下の巨人たちの肩の上に立って構築された。それぞれのアプローチの違いを知ることは、物理数学のエコシステムを俯瞰する上で極めて有益である。
+</p>
+<hr />
+<p>**1. Daniel Fleisch, *A Student's Guide to Vectors and Tensors*, Cambridge University Press**
+</p>
+<p>【コメント：旧体制の泥沼と伝統的アプローチ】物理学徒が最初に直面する伝統的なベクトル解析とテンソル解析の教科書。クリストッフェル記号や複雑な成分計算を正面から扱う。本書『ナブラ解体新書』が読者を救い出そうとした「暗記地獄」の典型例（アンチパターン）として意識しているが、古典的な計算手法を身につける上では避けて通れない名著でもある。
+</p>
+<hr />
+<p>**2. David Bachman, *A Geometric Approach to Differential Forms*, Birkhäuser**
+</p>
+<p>【コメント：微分形式の視覚的・幾何学的アプローチ】微分形式を公理や代数ではなく、「平面への投影」などの幾何学的なイメージで視覚的に捉えようとする意欲作。本書の第1章・第2章で「 <span class="tex2jax_process">$dx$</span> は測定器である」という直観を形成する上で大きなインスピレーションを受けたが、成分計算への摩擦を減らすため、本書ではこの幾何学的直観を「行列計算」へと変換して採用した。
+</p>
+<hr />
+<p>**3. Harley Flanders, *Differential Forms with Applications to the Physical Sciences*, Dover Publications**
+</p>
+<p>【コメント：純粋数学と物理学を繋ぐ古典的バイブル】微分形式を物理学へ応用する際の古典的な名著であり、外微分 <span class="tex2jax_process">$d$</span> やホッジ・スター <span class="tex2jax_process">$\ast$</span> の厳密な操作ルールはすべてここにある。ただし、双対空間などの純粋数学的な公理的アプローチから入るため、初学者には敷居が高い。本書は、読者をこの Flanders の実戦レベルまで一気に引き上げることを目標とした。
+</p>
+<hr />
+<p>**4. William L. Burke, *Applied Differential Geometry*, Cambridge University Press**
+</p>
+<p>【コメント：本書の精神的支柱——「計量遅延」の哲学】本書の構成の骨格を決定づけた最重要文献。"metric-blinded symbol pushing"（計量に盲目化された数式いじり）を痛烈に批判し、「計量をコースのどんどん後の方に遅らせる（put the metric later and later into the course）」という強烈な教育的哲学を提唱した。本書の「第6章までの計量の形式的定義の後回しと、第6章での <span class="tex2jax_process">$g = J^T J$</span> としての発見的導入」という構成は、この Burke の思想へのオマージュである。
+</p>
+<hr />
+<p>**5. Leonard Susskind & Art Friedman, *Quantum Mechanics: The Theoretical Minimum*, Basic Books**
+**H. S. Green, *Matrix Mechanics*, P. Noordhoff LTD**
+</p>
+<p>【コメント：記法のハック——第一のブレイクスルーの源泉】量子力学におけるディラックの「ブラ・ケット記法」と行列表現を学ぶためのテキスト。抽象的な 1-form（双対ベクトル）を、「タテベクトルをヨコベクトルに寝かせて行列の積をとる」という物理学者の「母語」に翻訳するという本書の根幹アイデアは、これらの量子力学の直観を古典場へと逆輸入（ハック）することで生まれた。
+</p>
+<hr />
+<p>**6. Chris Doran & Anthony Lasenby, *Geometric Algebra for Physicists*, Cambridge University Press**
+</p>
+<p>【コメント：本書の先にある究極の世界——計量と幾何の統合】本書を終えた読者が次に向かうべき、現代物理学の最前線（幾何代数）。本書では Burke の哲学に倣い「計量」と「幾何」を徹底的に分離（ <span class="tex2jax_process">$d$</span> と <span class="tex2jax_process">$\ast$</span> ）したが、幾何代数では「幾何積」として最初からそれらが不可分に統合されている。分離の苦しみを知った読者こそが、この統合のパラダイムの真の美しさを理解できるはずだ。
+</p>
+<p>\newpage
+</p>
+<h1 id="付録本書で語らなかったもの">付録：本書で語らなかったもの</h1>
+<p>本付録は、本書の記述に対して想定される流儀上の相違、理論的限界、または読者からの典型的な指摘を整理したものである。
+</p>
+<p>本書は、一般多様体上の微分形式論を公理的に展開する本ではない。3次元デカルト空間におけるベクトル解析を、行列表示の微分形式を通して再構成するための教育的な本である。したがって、本書で採用した記法や説明順序は、標準的な数学書の記述と一致しない箇所がある。それらは原則として意図的な選択であり、必要に応じて第11章で標準的理論への接続を示した。
+</p>
+<blockquote><p>
+**注** （本音）「はじめに」ではこのセクションを「本書で語らなかったもの」と穏やかに紹介したが、それは建前である。本音を言えば、これは本書の射程を読まずに投げられる典型的な批判への対応集である。もっと率直に言えば、「クソリプ対策マニュアル」である。ただし、そう書いてしまえば、本当に応援したい読者が怖がって逃げ出してしまう。だから、表向きは穏やかな名前をつけた。<br>
+</p></blockquote>
+<blockquote><p>
+**注** （なぜここまで必死なのか）筆者はかつて、本書と同じスタイルの解説記事を SNS で公開していた。ところが、記事の射程を読まない批判、一般化によるマウント、厳密性を盾にした見当違いの指摘などを繰り返し受け、やがて SNS から距離を置くことになった。無料で公開することには、想像以上の消耗が伴うと身をもって知ったのである。ただ、本書に限っては無料公開することに決めた。その上で、本来の読者を守るために——いや、すまない、これも少し建前だ。私自身の自尊心を守るためにも、精一杯の予防線を張ることにした。<br>
+</p></blockquote>
+<blockquote><p>
+**注** （筆者の対応方針）今後、本書に対して同種の指摘が投げかけられたとしても、筆者はこのページのURLを送るだけで済ませるつもりである。読まずに殴ってくる人のために、私は本の背骨を曲げ、未来ある学徒の物理数学的直感を曇らせるつもりはない。<br>
+</p></blockquote>
+<hr />
+<h2 id="I-理論的枠組みと厳密性について">I. 理論的枠組みと厳密性について</h2>
+<ul>
+<li>**多様体、アトラス、接空間などの数学的定義なしに外微分を導入するのは不正確である**</li>
+</ul>
+<p>  → 本書は一般多様体上の微分形式の教科書ではなく、3次元デカルト空間上でベクトル解析へ到達するための導入書である。一般多様体への移行については第11章で道標を示す。
+</p>
+<ul>
+<li>**反変ベクトルと共変ベクトル（双対空間）の区別を序盤で明確にすべきである**</li>
+</ul>
+<p>  → 第1章 §1.1.6 で「縦ベクトル（変位）」と「横ベクトル（測定器）」の区別を導入しており、これは双対空間の概念の具体的な実装である。より抽象的な双対空間の定式化については第6章および第11章で接続する。
+</p>
+<ul>
+<li>**<span class="tex2jax_process">$dx$</span> を横ベクトルとして扱う記法は数学書の標準的な表記ではない**</li>
+</ul>
+<p>  → 意図的な選択である。第1章 §1.1 で定義し、全章で一貫して使用している。この記法の狙いは「1-form = ベクトルを食べる関数」という抽象概念を、読者が既知の「行列の掛け算」に翻訳することにある。標準的な微分形式の記法との対応は第11章で示す。また、双対を横ベクトルで表すこと自体は、行列代数・数値計算・量子情報で広く行われている。
+</p>
+<ul>
+<li>**外微分 <span class="tex2jax_process">$d$</span> は公理（ライプニッツ則や <span class="tex2jax_process">$d^2=0$</span>）から一般的に定義すべきである**</li>
+</ul>
+<p>  → 本書では公理から始めるのではなく、§4.2–§4.4 で「微小ループを一周したときのズレ」という物理的直感から発見的に <span class="tex2jax_process">$d$</span> を導出している。<span class="tex2jax_process">$d^2=0$</span> は §4.4 で積分経路の連続変形から証明される。公理的定義は第11章で補足する。
+</p>
+<ul>
+<li>**一般の <span class="tex2jax_process">$n$</span> 次元多様体におけるストークスの定理の完全な証明が記載されていない**</li>
+</ul>
+<p>  → 本書では3次元デカルト空間での具体的なケース（ガウスの定理・ストークスの定理・グリーンの定理）を積分の定義から直接導出する（第8章）。一般次元のストークスの定理の証明は本書の射程外であり、第11章で道標のみ示す。
+</p>
+<ul>
+<li>**ウェッジ積の定義において外積代数の普遍性質を用いた公理的アプローチを経由していない**</li>
+</ul>
+<p>  → 本書では §2.4 でテンソル積の反対称化としてウェッジ積を構築している。これは公理的アプローチの最も具体的な実装であり、読者が行列の引き算として手を動かせるようにするための意図的な選択である。普遍性質による定義は第11章で紹介する。
+</p>
+<ul>
+<li>**幾何学的な対象そのものに絶対的な座標表示はないのに成分表示に依存しすぎている**</li>
+</ul>
+<p>  → 意図的な選択である。本書の主題は「微分形式をどう使うか」であり、「座標に依存しない幾何学的主体としての微分形式」の哲学は目的としていない。本書は標準的なベクトル解析の教科書と同様に、実用的な計算手段として成分表示を採用している。座標不変な視点は第11章で接続する。
+</p>
+<ul>
+<li>**標準的な記法を避けているため、独自流派を主張しているように見える**</li>
+</ul>
+<p>  → 本書の記法は「初学者が行列計算で手を動かせる」ことを最優先に選ばれている。標準的な記法（添字による縮約、<span class="tex2jax_process">$\partial_\mu$</span> など）を敢えて使わない理由は第11章 §10.1 で説明している。この方針自体は数値計算の分野などでは広く見られるもので、著者が特に新しいことを主張しているつもりはない。意外と和書がなかったので、筆者が書いたまでである。
+</p>
+<hr />
+<h2 id="II-手法の選択と適用限界について">II. 手法の選択と適用限界について</h2>
+<ul>
+<li>**アインシュタインの縮約記法（テンソル解析）を用いれば行列の束を使わずとも計算できる**</li>
+</ul>
+<p>  → その通りである。本書では、行列の成分を毎回明示的に書き下す方針をとっている。これにより、読者は「ブラックボックス化された添字操作」に惑わされず、各成分がどこから来て、どこへ作用するのかを追うことができる。むしろ、本書を読みこなした読者なら、上付き添字・下付き添字の規則とアインシュタイン縮約を練習するだけで、テンソル解析の成分計算へ比較的すぐ移行できるはずである。添字記法との対応は第11章で示す。
+</p>
+<ul>
+<li>**最初からクリフォード代数（幾何代数）を教えれば外積も内積も統合できる**</li>
+</ul>
+<p>  → 本書はあえて「分離」の道を選んだ。§5.4 で外積（<span class="tex2jax_process">$\wedge$</span>）と内積（<span class="tex2jax_process">$g$</span>）を分けて構成し、その後に §5.3 でホッジ・スター <span class="tex2jax_process">$\ast$</span> を導入することで「なぜ統合が必要になるのか」を読者が実感できるようにしている。幾何代数による統合は第12章で紹介する。
+</p>
+<ul>
+<li>**定数行列の計量 <span class="tex2jax_process">$\mathbf{g}$</span> を前提としているため、空間が曲がった場合に破綻するのではないか**</li>
+</ul>
+<p>  → 第6章で <span class="tex2jax_process">$xyz$</span> 実空間の計量 <span class="tex2jax_process">$\mathbf{g}=I$</span> から出発し、パラメータ空間では <span class="tex2jax_process">$\mathbf{g}=J^T J$</span> が場所の関数になることを示している。曲がった空間（リーマン多様体）への一般化は第11章で道標を示す。本書の <span class="tex2jax_process">$\mathbf{g}=J^T J$</span> という表式は、そのまま一般の計量の定義へ接続可能である。
+</p>
+<ul>
+<li>**第6章の正定値計量の導入から、第10章の擬リーマン計量への適用は論理的に飛躍している**</li>
+</ul>
+<p>  → 第10章 §9.3 の注で明記しているように、第10章では正定値性を放棄する代わりに「計量行列から <span class="tex2jax_process">$\ast$</span> の辞書を作る」という手順だけを第6章から引き継いでいる。正定値から擬リーマンへの一般化の理論的根拠は第11章で補足する。
+</p>
+<ul>
+<li>**捩れ（トーション）のある空間や非対称な接続を持つ多様体が考慮されていない**</li>
+</ul>
+<p>  → 本書の射程外である。本書が扱うのは3次元デカルト空間（およびパラメータ空間）であり、接続は常に対称・計量 compatible な Levi-Civita 接続を暗黙に前提としている。一般の接続の理論は第11章で道標を示す。
+</p>
+<ul>
+<li>**スピンやスピノルといった対象を微分形式のみで扱うには代数的な限界がある**</li>
+</ul>
+<p>  → その通りである。微分形式は反対称テンソルを扱う枠組みであり、スピノル（二価表現）を直接扱うことはできない。本書の到達点の先にある幾何代数（第12章）では、スピノルが代数の自然な要素として現れる。第12章で道標を示す。
+</p>
+<ul>
+<li>**行列の成分のみで計算を進めると、背景にある空間の幾何学的性質（計量等）が隠蔽される**</li>
+</ul>
+<p>  → 本書では幾何を隠蔽しているのではなく、アトミックな行列操作と幾何学的直感を常に対応させて与えている。たとえば第6章 §5.1 では、パラメータ空間の計量 <span class="tex2jax_process">$\mathbf{g}=J^T J$</span> の各成分が「軸方向の目盛りの伸び縮み」を直接表現していることを、行列の対角成分を見ながら確認できる。
+</p>
+<ul>
+<li>**微分形式を行列表示した際、成分がどの基底に関するものかが判別できない**</li>
+</ul>
+<p>  → 記法上の限界であることは認める。熱力学の偏微分のように独自記法で常に明示しようかとも思ったが、これでも一般記法と乖離しすぎないよう気を付けているので受け入れた。本書では第1章 §1.1.6 と §1.4 から「どの座標系の基底で書いているか」を毎回文中で明示する方針をとっている。ただし、標準的な <span class="tex2jax_process">$dx^i$</span> のような上付き添字による基底の明示はむしろ相性が悪いと考えて割愛した。添字記法との対応は第11章を参照。
+</p>
+<ul>
+<li>**外微分 <span class="tex2jax_process">$d$</span> と共変微分 <span class="tex2jax_process">$\nabla$</span> は別物であり、本書の <span class="tex2jax_process">$d$</span> の説明だけでは曲がった空間での微分が扱えないのではないか**</li>
+</ul>
+<p>  → その通りであり、意図的な分離である。本書の <span class="tex2jax_process">$d$</span> は反対称微分（外微分）であり、計量に依存しないトポロジカルな操作である。一方、共変微分 <span class="tex2jax_process">$\nabla$</span> は計量に依存する対称微分であり、曲がった空間で必要になる。この分離（<span class="tex2jax_process">$d$</span> と <span class="tex2jax_process">$\nabla$</span>）は Burke の「計量遅延」から強い影響を受けた筆者の解釈であり、第6章と第11章で扱う。
+</p>
+<ul>
+<li>**曲線座標（円柱座標・極座標）において、本書の <span class="tex2jax_process">$dr$</span> や <span class="tex2jax_process">$d\theta$</span> がデカルト座標の <span class="tex2jax_process">$dx$</span> と同じ「横ベクトル」として扱えるのか不明瞭である**</li>
+</ul>
+<p>  → 第1章 §1.4 と第3章 §3.5 で明示的に扱っている。パラメータ空間の <span class="tex2jax_process">$dr,d\theta,dz$</span> もデカルト座標の <span class="tex2jax_process">$dx,dy,dz$</span> と同様に、パラメータ空間内での横ベクトル（一次形式）である。両者の違いは「引き戻し」によって吸収される。
+</p>
+<hr />
+<h2 id="III-物理的定義と教育的配慮について">III. 物理的定義と教育的配慮について</h2>
+<ul>
+<li>**直感的な図解（右ねじの法則等）がなく、代数計算ばかりで物理的イメージが湧かない**</li>
+</ul>
+<p>  → 本書は「図解」ではなく「行列計算」によって物理的イメージを形成することを目的としている。たとえば第2章 §2.4 では、面積測定器の内部構造を行列として視覚化することで、ウェッジ積の交代性が「引き算」として現れることを示している。これが本書における「イメージ」である。
+</p>
+<ul>
+<li>**「ベクトル解析は間違いだ」とするのは物理学の歴史に対する誤解である**</li>
+</ul>
+<p>  → 本書は「ベクトル解析は間違いだ」とは一言も述べていない。第8章では、ベクトル解析の定理（ガウス・ストークス・グリーン）を微分形式の積分定理の特殊ケースとして再導出しており、両者が等価であること（翻訳可能であること）を示している。第12章では、この翻訳を代数的に完全自動化する。
+</p>
+<ul>
+<li>**内容は既存の数学書に書かれており、著者の独自研究ではない**</li>
+</ul>
+<p>  → その通りである。この流儀自体は Burke や Flanders の先行例があり、数値計算の分野でも見られるアプローチである。意外と和書がなかったため筆者が書いたに過ぎず、新規性を主張する気はない。本書が立っている巨人たちの肩については「参考文献」を参照されたい。
+</p>
+<ul>
+<li>**ホッジ・スター <span class="tex2jax_process">$\ast$</span> は計量と空間の向きに依存するのに、単なる「次数反転」として扱いすぎではないか**</li>
+</ul>
+<p>  → 第6章 §5.3 で <span class="tex2jax_process">$\ast$</span> の定義は計量 <span class="tex2jax_process">$\mathbf{g}$</span> に依存することを明示している。デカルト座標（<span class="tex2jax_process">$\mathbf{g}=I$</span>）では <span class="tex2jax_process">$\ast(dx)=dy\wedge dz$</span> という簡潔な辞書になるが、一般の座標系では <span class="tex2jax_process">$\ast$</span> の係数が場所の関数になることを §5.3.4 と第8章 §7.5 で具体的に示している。
+</p>
+<ul>
+<li>**マクスウェル方程式の微分形式表示において、単位系の正規化・符号規約・計量の符号が曖昧ではないか**</li>
+</ul>
+<p>  → 第10章 §9.1 で <span class="tex2jax_process">$w=ct$</span> と <span class="tex2jax_process">$\mathbf{B}'=c\mathbf{B}$</span> による次元の正規化を明示し、§9.3 でミンコフスキー計量の符号規約を定義し、§9.2 の注で <span class="tex2jax_process">$F_{\mu\nu}$</span> の符号規約を明記し、§9.6 で <span class="tex2jax_process">$F=-dA$</span> の規約を宣言している。§9.5 の注では <span class="tex2jax_process">$\mathcal{J}$</span> の正規化が標準的な相対論的記法と係数が異なる場合があることも注記している。
+</p>
+<ul>
+<li>**<span class="tex2jax_process">$dx$</span> の行列表現 <span class="tex2jax_process">$\begin{pmatrix}1&0&0\end{pmatrix}$</span> は座標変換後に同じ行列として残るわけではない**</li>
+</ul>
+<p>  → 第1章 §1.4 で明示的に扱っている。デカルト座標での <span class="tex2jax_process">$dx = \begin{pmatrix}1&0&0\end{pmatrix}$</span> は、円柱座標の目盛りでは <span class="tex2jax_process">$\begin{pmatrix}\cos\theta & -r\sin\theta & 0\end{pmatrix}$</span> に変わる。これが「引き戻し」の具体化であり、座標変換による行列の成分変化を隠さずに正面から見せている。
+</p>
+<p>\newpage
+</p>
+      <div class="nav-buttons">
+        <a href="ch11.html">← 第11章：曲がった空間へ ——...</a>
+        <span></span>
+      </div>
+    </article>
+  </main>
+</body>
+</html>
