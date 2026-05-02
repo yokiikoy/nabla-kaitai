@@ -63,6 +63,7 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
   .nav-buttons {{ display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }}
   .nav-buttons a {{ padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }}
   .nav-buttons a:hover {{ background: #f6f8fa; }}
+  strong {{ font-weight: 700 !important; }}
   /* KaTeX responsiveness */
   .katex-display {{ overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }}
 </style>
@@ -195,6 +196,7 @@ def process_markdown(markdown_text):
                 if in_list: result.append('</ul>' if in_list == 'ul' else '</ol>')
                 result.append('<ul>')
                 in_list = 'ul'
+
             content = protector.restore(apply_inline_formatting(ul_match.group(1)))
             result.append(f'<li>{content}</li>')
             in_para = False
