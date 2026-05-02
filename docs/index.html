@@ -15,7 +15,9 @@
   .sidebar .toc ul { list-style: none; padding-left: 0; margin: 0; }
   .sidebar .toc li { margin-bottom: 0.4rem; }
   .sidebar .toc .level-1 { font-weight: bold; margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 2px; }
-  .sidebar .toc .level-2 { padding-left: 1rem; color: #444; }
+  .sidebar .toc .sub-toc { font-size: 0.8rem; margin-top: 0.5rem; padding-left: 0.8rem; border-left: 2px solid #eee; }
+  .sidebar .toc .sub-toc li { margin-bottom: 0.2rem; font-weight: normal; }
+  .sidebar .toc .sub-toc .level-3 { padding-left: 0.8rem; font-size: 0.75rem; color: #666; }
   .sidebar a { text-decoration: none; color: #0969da; }
   .sidebar a:hover { text-decoration: underline; }
   .sidebar .active { color: #cf222e; font-weight: bold; }
@@ -49,7 +51,7 @@ window.MathJax = {
     <h2><a href="index.html">ナブラ解体新書</a></h2>
     <div class="author">著者: yokiikoy</div>
     <div class="toc"><ul>
-<li><a href="index.html" class="active">まえがき</a></li>
+<li><a href="index.html" class="active" id="link-index.html">まえがき</a></li>
 <li class="level-1"><a href="ch01.html" id="link-ch01.html">第1章</a></li>
 <li class="level-1"><a href="ch02.html" id="link-ch02.html">第2章</a></li>
 <li class="level-1"><a href="ch03.html" id="link-ch03.html">第3章</a></li>

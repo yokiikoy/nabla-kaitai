@@ -15,7 +15,9 @@
   .sidebar .toc ul { list-style: none; padding-left: 0; margin: 0; }
   .sidebar .toc li { margin-bottom: 0.4rem; }
   .sidebar .toc .level-1 { font-weight: bold; margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 2px; }
-  .sidebar .toc .level-2 { padding-left: 1rem; color: #444; }
+  .sidebar .toc .sub-toc { font-size: 0.8rem; margin-top: 0.5rem; padding-left: 0.8rem; border-left: 2px solid #eee; }
+  .sidebar .toc .sub-toc li { margin-bottom: 0.2rem; font-weight: normal; }
+  .sidebar .toc .sub-toc .level-3 { padding-left: 0.8rem; font-size: 0.75rem; color: #666; }
   .sidebar a { text-decoration: none; color: #0969da; }
   .sidebar a:hover { text-decoration: underline; }
   .sidebar .active { color: #cf222e; font-weight: bold; }
@@ -52,7 +54,7 @@ window.MathJax = {
 <li><a href="index.html" id="link-index.html">まえがき</a></li>
 <li class="level-1"><a href="ch01.html" id="link-ch01.html">第1章</a></li>
 <li class="level-1"><a href="ch02.html" id="link-ch02.html">第2章</a></li>
-<li class="level-1"><a href="ch03.html" class="active">第3章</a></li>
+<li class="level-1"><a href="ch03.html" class="active" id="link-ch03.html">第3章</a><ul class="sub-toc"><li class="level-3"><a href="#30-曲がったものを測る小学校以来の借りを返す">§3.0 曲がったものを測る——小学校以来の借りを返す</a></li><li class="level-3"><a href="#31-体積3次元係数1">§3.1 体積——3次元、係数1</a></li><li class="level-3"><a href="#32-表面積2次元係数1">§3.2 表面積——2次元、係数1</a></li><li class="level-3"><a href="#33-曲線1次元係数1限界があらわになる">§3.3 曲線——1次元、係数1（限界があらわになる）</a></li><li class="level-3"><a href="#34-係数をつける密度と幾何の積">§3.4 係数をつける——密度と幾何の積</a></li><li class="level-3"><a href="#35-本章のまとめと次章への展望">§3.5 本章のまとめと次章への展望</a></li></ul></li>
 <li class="level-1"><a href="ch04.html" id="link-ch04.html">第4章</a></li>
 <li class="level-1"><a href="ch05.html" id="link-ch05.html">第5章</a></li>
 <li class="level-1"><a href="ch06.html" id="link-ch06.html">第6章</a></li>

@@ -15,7 +15,9 @@
   .sidebar .toc ul { list-style: none; padding-left: 0; margin: 0; }
   .sidebar .toc li { margin-bottom: 0.4rem; }
   .sidebar .toc .level-1 { font-weight: bold; margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 2px; }
-  .sidebar .toc .level-2 { padding-left: 1rem; color: #444; }
+  .sidebar .toc .sub-toc { font-size: 0.8rem; margin-top: 0.5rem; padding-left: 0.8rem; border-left: 2px solid #eee; }
+  .sidebar .toc .sub-toc li { margin-bottom: 0.2rem; font-weight: normal; }
+  .sidebar .toc .sub-toc .level-3 { padding-left: 0.8rem; font-size: 0.75rem; color: #666; }
   .sidebar a { text-decoration: none; color: #0969da; }
   .sidebar a:hover { text-decoration: underline; }
   .sidebar .active { color: #cf222e; font-weight: bold; }
@@ -54,7 +56,7 @@ window.MathJax = {
 <li class="level-1"><a href="ch02.html" id="link-ch02.html">第2章</a></li>
 <li class="level-1"><a href="ch03.html" id="link-ch03.html">第3章</a></li>
 <li class="level-1"><a href="ch04.html" id="link-ch04.html">第4章</a></li>
-<li class="level-1"><a href="ch05.html" class="active">第5章</a></li>
+<li class="level-1"><a href="ch05.html" class="active" id="link-ch05.html">第5章</a><ul class="sub-toc"><li class="level-3"><a href="#50-第II部の扉観測は積分法則は微分">§5.0 第II部の扉——観測は積分、法則は微分</a></li><li class="level-3"><a href="#51-span-classtex2jaxprocessspan-再訪微分と積分は逆演算か">§5.1 <span class="tex2jax_process">$df$</span> 再訪——微分と積分は逆演算か</a></li><li class="level-3"><a href="#52-閉ループで姿を現すズレ">§5.2 閉ループで姿を現す「ズレ」</a></li><li class="level-3"><a href="#53-微小ループの解剖ズレは面積に比例する">§5.3 微小ループの解剖——ズレは面積に比例する</a></li><li class="level-3"><a href="#54-span-classtex2jaxprocessspan-の誕生面積あたりのズレを測る新しい測定器">§5.4 <span class="tex2jax_process">$d$</span> の誕生——面積あたりのズレを測る新しい測定器</a></li><li class="level-3"><a href="#55-一般の-span-classtex2jaxprocessspan-form-の外微分3次元への拡張">§5.5 一般の <span class="tex2jax_process">$1$</span>-form の外微分——3次元への拡張</a></li><li class="level-3"><a href="#56-集積すれば境界だけが残るストークスの定理">§5.6 集積すれば境界だけが残る——ストークスの定理</a></li><li class="level-3"><a href="#57-同じことをもう一段span-classtex2jaxprocessspan-form-の外微分と発散">§5.7 同じことをもう一段——<span class="tex2jax_process">$2$</span>-form の外微分と発散</a></li><li class="level-3"><a href="#58-span-classtex2jaxprocessspan二度測れば必ずゼロ">§5.8 <span class="tex2jax_process">$d^2 = 0$</span>——二度測れば必ずゼロ</a></li><li class="level-3"><a href="#59-外微分の統合一つの式一つのルール">§5.9 外微分の統合——一つの式、一つのルール</a></li><li class="level-3"><a href="#510-積分から微分方程式へ物理法則の局所化">§5.10 積分から微分方程式へ——物理法則の局所化</a></li><li class="level-3"><a href="#511-第II部への展望ホッジ・スターへの伏線">§5.11 第II部への展望——ホッジ・スターへの伏線</a></li><li class="level-2"><a href="#付録C外微分の行列表示">付録C：外微分の行列表示</a></li><li class="level-3"><a href="#C1-span-classtex2jaxprocessspan-formspan-classtex2jaxprocessspan-の-span-classtex2jaxprocessspan-行ベクトル">C.1 <span class="tex2jax_process">$0$</span>-form：<span class="tex2jax_process">$df$</span> の <span class="tex2jax_process">$1 \times 3$</span> 行ベクトル</a></li><li class="level-3"><a href="#C2-span-classtex2jaxprocessspan-form係数のヤコビ行列-span-classtex2jaxprocessspan">C.2 <span class="tex2jax_process">$1$</span>-form：係数のヤコビ行列 <span class="tex2jax_process">$\mathbf{J}$</span></a></li><li class="level-3"><a href="#C3-span-classtex2jaxprocessspan">C.3 <span class="tex2jax_process">$d\omega = \mathbf{J}^T - \mathbf{J}$</span></a></li><li class="level-3"><a href="#C4-span-classtex2jaxprocessspan-formspan-classtex2jaxprocessspan-とヤコビ行列のトレース">C.4 <span class="tex2jax_process">$2$</span>-form：<span class="tex2jax_process">$d\eta$</span> とヤコビ行列のトレース</a></li><li class="level-3"><a href="#C5-span-classtex2jaxprocessspan-とヘッセ行列">C.5 <span class="tex2jax_process">$d^2 f = 0$</span> とヘッセ行列</a></li></ul></li>
 <li class="level-1"><a href="ch06.html" id="link-ch06.html">第6章</a></li>
 <li class="level-1"><a href="ch07.html" id="link-ch07.html">第7章</a></li>
 <li class="level-1"><a href="ch08.html" id="link-ch08.html">第8章</a></li>

@@ -40,7 +40,9 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
   .sidebar .toc ul {{ list-style: none; padding-left: 0; margin: 0; }}
   .sidebar .toc li {{ margin-bottom: 0.4rem; }}
   .sidebar .toc .level-1 {{ font-weight: bold; margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 2px; }}
-  .sidebar .toc .level-2 {{ padding-left: 1rem; color: #444; }}
+  .sidebar .toc .sub-toc {{ font-size: 0.8rem; margin-top: 0.5rem; padding-left: 0.8rem; border-left: 2px solid #eee; }}
+  .sidebar .toc .sub-toc li {{ margin-bottom: 0.2rem; font-weight: normal; }}
+  .sidebar .toc .sub-toc .level-3 {{ padding-left: 0.8rem; font-size: 0.75rem; color: #666; }}
   .sidebar a {{ text-decoration: none; color: #0969da; }}
   .sidebar a:hover {{ text-decoration: underline; }}
   .sidebar .active {{ color: #cf222e; font-weight: bold; }}
@@ -236,8 +238,31 @@ def main():
     # Generate each page
     for i, ch in enumerate(chapters):
         content_md = "\n".join(ch["content"])
+        
+        # Extract sub-headings for THIS chapter to show in sidebar
+        sub_headings = []
+        for line in ch["content"]:
+            h_match = re.match(r'^(#{2,3})\s+(.+)$', line)
+            if h_match:
+                level = len(h_match.group(1))
+                text = h_match.group(2).strip()
+                # Protect/Restore math in heading for sidebar
+                temp_protector = MathProtector()
+                protected = temp_protector.protect(text)
+                restored = temp_protector.restore(protected)
+                sub_headings.append((level, restored, slugify(restored)))
+
         content_html = process_markdown(content_md)
         
+        # Build local TOC for this chapter
+        local_toc = ""
+        if sub_headings:
+            local_toc = '<ul class="sub-toc">'
+            for lv, text, anchor in sub_headings:
+                indent = f"level-{lv}"
+                local_toc += f'<li class="{indent}"><a href="#{anchor}">{text}</a></li>'
+            local_toc += '</ul>'
+
         # Navigation
         prev_ch = chapters[i-1] if i > 0 else None
         next_ch = chapters[i+1] if i < len(chapters)-1 else None
@@ -245,8 +270,16 @@ def main():
         prev_btn = f'<a href="{prev_ch["filename"]}">← {prev_ch["title"][:15]}...</a>' if prev_ch else '<span></span>'
         next_btn = f'<a href="{next_ch["filename"]}">{next_ch["title"][:15]}... →</a>' if next_ch else '<span></span>'
         
-        # Mark active TOC item
-        page_toc = toc_html.replace(f'id="link-{ch["filename"]}"', f'class="active"')
+        # Mark active TOC item and insert local TOC
+        active_marker = f'id="link-{ch["filename"]}"'
+        active_replacement = f'class="active" {active_marker}'
+        page_toc = toc_html.replace(active_marker, active_replacement)
+        
+        # Insert the sub-headings under the active chapter link
+        if local_toc:
+            insert_point = f'</a></li>'
+            find_str = f'link-{ch["filename"]}">{ch["title"].split("：")[0] if "：" in ch["title"] else ch["title"]}</a></li>'
+            page_toc = page_toc.replace(find_str, find_str.replace('</li>', local_toc + '</li>'))
         
         final_html = HTML_TEMPLATE.format(
             title=ch["title"],
