@@ -101,10 +101,12 @@ window.MathJax = {
 <h4 id="511-は次元上げをしている">5.1.1 $df$ は「次元上げ」をしている</h4>
 <p>第1章 §1.2 で、我々は関数 $f(x,y,z)$ の全微分を横ベクトルとして定義した：
 </p>
+<div class="math-block">$$df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz = \begin{pmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & \frac{\partial f}{\partial z} \end{pmatrix}$$</div>
 <p>これは <strong>$0$-form（スカラー場 $f$）を入力として $1$-form（横ベクトル $df$）を出力する</strong>操作である。次数が 0 から 1 へ上がった。
 </p>
 <p>ここで思い出してほしいのは、$df(\mathbf{v})$ が変位 $\mathbf{v}$ に対する $f$ の一次変化量を返す、ということだ。$\mathbf{v} = \begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$ が十分小さいとき：
 </p>
+<div class="math-block">$$df(\mathbf{v}) = \frac{\partial f}{\partial x}\,\Delta x + \frac{\partial f}{\partial y}\,\Delta y + \frac{\partial f}{\partial z}\,\Delta z \approx f(\mathbf{r}+\mathbf{v}) - f(\mathbf{r})$$</div>
 <p>$df$ 単独では「変化量そのもの」ではない——第1章 §1.1.6 の契約どおり、$df$ は演算子であり、変位ベクトルに作用して初めて数値が得られる。
 </p>
 <h4 id="512-線積分すると端点の差だけが残る">5.1.2 線積分すると端点の差だけが残る</h4>
@@ -112,10 +114,13 @@ window.MathJax = {
 </p>
 <p>各区間で $df(\Delta\mathbf{r}_i) \approx f(\mathbf{r}_i) - f(\mathbf{r}_{i-1})$ だから、全区間の和は：
 </p>
+<div class="math-block">$$\sum_{i=1}^n df(\Delta\mathbf{r}_i) \approx \sum_{i=1}^n \bigl(f(\mathbf{r}_i) - f(\mathbf{r}_{i-1})\bigr)$$</div>
 <p>この和を展開すると：
 </p>
+<div class="math-block">$$\bigl(f(\mathbf{r}_1)-f(\mathbf{r}_0)\bigr) + \bigl(f(\mathbf{r}_2)-f(\mathbf{r}_1)\bigr) + \cdots + \bigl(f(\mathbf{r}_n)-f(\mathbf{r}_{n-1})\bigr)$$</div>
 <p>隣り合う項 $f(\mathbf{r}_1), f(\mathbf{r}_2), \dots, f(\mathbf{r}_{n-1})$ がプラスとマイナスで打ち消し合う——<strong>望遠和（telescoping sum）</strong>だ。生き残るのは最初と最後だけ。刻みを無限に細かくする極限で：
 </p>
+<div class="math-block">$$\int_\gamma df = f(\mathbf{r}_n) - f(\mathbf{r}_0) = f(B) - f(A)$$</div>
 <p>ここで $A$ は曲線の始点、$B$ は終点である。
 </p>
 <blockquote><p>
@@ -128,8 +133,10 @@ window.MathJax = {
 </p>
 <p>実は $y\,dx + x\,dy$ は $d(xy)$ にほかならない。なぜなら：
 </p>
+<div class="math-block">$$d(xy) = \frac{\partial (xy)}{\partial x}\,dx + \frac{\partial (xy)}{\partial y}\,dy + \frac{\partial (xy)}{\partial z}\,dz = y\,dx + x\,dy$$</div>
 <p>したがって $\omega = df$（$f = xy$）であり、§5.1.2 の望遠和の理屈がそのまま使える。単位円は閉曲線だから $B = A$、よって：
 </p>
+<div class="math-block">$$\oint_\gamma \omega = \oint_\gamma d(xy) = xy\Big|_A^A = \cos 0\cdot\sin 0 - \cos 0\cdot\sin 0 = 0$$</div>
 <p>あのときの $\int_0^{2\pi} \cos 2t\,dt = 0$ という計算は、実は $\omega$ が $d(xy)$ という<strong>完全形式</strong>だったからこそ、機械的にゼロになったのである。
 </p>
 <blockquote><p>
@@ -143,6 +150,7 @@ window.MathJax = {
 <h4 id="521-一般の--form-ではどうか">5.2.1 一般の $1$-form ではどうか</h4>
 <p>では、一般の $1$-form
 </p>
+<div class="math-block">$$\omega = P(x,y,z)\,dx + Q(x,y,z)\,dy + R(x,y,z)\,dz$$</div>
 <p>ではどうか。ここで $P, Q, R$ は場所ごとに変わる係数（スカラー場）であり、第3章 §3.4.1 で導入した「一般の $1$-form」である。
 </p>
 <blockquote><p>
@@ -154,6 +162,7 @@ window.MathJax = {
 </p>
 <p>閉ループに沿った線積分を $\oint_\gamma \omega$ と書く。一般には：
 </p>
+<div class="math-block">$$\oint_\gamma \omega \neq 0$$</div>
 <p>である。摩擦力に逆らって物体を一周させれば仕事はゼロにならず、渦巻く水流に沿って一周すれば正味の仕事を受ける。この<strong>「閉じても帳尻が合わない」という事実こそが、循環や渦のような局所構造の証拠</strong>だ。
 </p>
 <blockquote><p>
@@ -183,12 +192,23 @@ window.MathJax = {
 </p></blockquote>
 <p>$z$ は一定なので $dz=0$、$R$ の項は寄与しない。
 </p>
+<strong>辺1（下辺、右向き）</strong>：$(x, y)$ から $(x+\Delta x, y)$ へ。$y$ 一定なので $dy=0$。$P$ はおよそ $P(x, y, z)$。寄与は $P(x, y, z)\,\Delta x$。
+<strong>辺2（右辺、上向き）</strong>：$(x+\Delta x, y)$ から $(x+\Delta x, y+\Delta y)$ へ。$dx=0$。$Q$ を $x$ 方向に $\Delta x$ だけずれた位置で評価する：
+<div class="math-block">$$Q(x+\Delta x, y, z) \approx Q(x, y, z) + \frac{\partial Q}{\partial x}\Delta x$$</div>
 <p>寄与は $\bigl(Q + \frac{\partial Q}{\partial x}\Delta x\bigr)\,\Delta y$。
 </p>
+<strong>辺3（上辺、左向き）</strong>：$(x+\Delta x, y+\Delta y)$ から $(x, y+\Delta y)$ へ。負の方向なので符号が反転。$P$ を $y$ 方向に $\Delta y$ だけずれた位置で：
+<div class="math-block">$$P(x, y+\Delta y, z) \approx P(x, y, z) + \frac{\partial P}{\partial y}\Delta y$$</div>
 <p>寄与は $-\bigl(P + \frac{\partial P}{\partial y}\Delta y\bigr)\,\Delta x$。
 </p>
+<strong>辺4（左辺、下向き）</strong>：$(x, y+\Delta y)$ から $(x, y)$ へ戻る。寄与は $-Q(x, y, z)\,\Delta y$。
 <p>四辺の寄与を合計する：
 </p>
+<div class="math-block">$$\begin{aligned}
+\oint \omega &\approx P\Delta x + (Q + \frac{\partial Q}{\partial x}\Delta x)\Delta y - (P + \frac{\partial P}{\partial y}\Delta y)\Delta x - Q\Delta y \\
+&= P\Delta x + Q\Delta y + \frac{\partial Q}{\partial x}\Delta x\Delta y - P\Delta x - \frac{\partial P}{\partial y}\Delta x\Delta y - Q\Delta y \\
+&= (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,\Delta x\,\Delta y
+\end{aligned}$$</div>
 <p>$P\Delta x$ と $Q\Delta y$ の項が美しく相殺し、残ったのは $(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,\Delta x\,\Delta y$ だけだ。
 </p>
 <h4 id="532-決定的な事実">5.3.2 決定的な事実</h4>
@@ -199,6 +219,7 @@ window.MathJax = {
 </p></blockquote>
 <p>そして比例係数 $\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}$ こそが、点 $(x,y,z)$ における<strong>単位面積あたりのズレ</strong>——その点での「渦の強さ」を表す局所量——である。より正確には、微小長方形 $R_{\Delta x,\Delta y}$ について
 </p>
+<div class="math-block">$$\lim_{\Delta x,\Delta y\to 0}\frac{1}{\Delta x\,\Delta y}\oint_{\partial R_{\Delta x,\Delta y}}\omega = \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}$$</div>
 <p>という極限で取り出される量である。
 </p>
 <p>これは第1章で $f'(x) = \lim_{\Delta x\to 0} \frac{\Delta f}{\Delta x}$ とやったのと同じ発想の「微分」だ。分母が「動いた距離」から「囲んだ面積」に変わっただけで、<strong>変化率を局所的に取り出す</strong>という精神は変わっていない。
@@ -211,11 +232,13 @@ window.MathJax = {
 <h4 id="541-ウェッジ積の再確認">5.4.1 ウェッジ積の再確認</h4>
 <p>§5.3 で得た $(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,\Delta x\,\Delta y$ を、第2章の言葉で言い直そう。第2章 §2.4.4 で我々は、$dx \wedge dy$ という面積測定器を定義した。これは2本のベクトル $\mathbf{v}_1, \mathbf{v}_2$ を食わせると、それらが $xy$ 平面に落とす影の符号付き面積を返す装置だった：
 </p>
+<div class="math-block">$$(dx \wedge dy)(\mathbf{v}_1, \mathbf{v}_2) = \det\begin{pmatrix} dx(\mathbf{v}_1) & dx(\mathbf{v}_2) \\ dy(\mathbf{v}_1) & dy(\mathbf{v}_2) \end{pmatrix}$$</div>
 <p>特に、$x$ 方向の変位 $\Delta x\,\hat{e}_x$ と $y$ 方向の変位 $\Delta y\,\hat{e}_y$ を食わせれば $(dx \wedge dy)(\Delta x\,\hat{e}_x,\; \Delta y\,\hat{e}_y) = \Delta x\,\Delta y$ である。
 </p>
 <h4 id="542-の定義">5.4.2 $d\omega$ の定義</h4>
 <p>§5.3 の結果をこの言葉で書けば、微小長方形の二辺 $\Delta x\,\hat{e}_x,\; \Delta y\,\hat{e}_y$ に対して、ある<strong>新しい $2$-form</strong> が $(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,\Delta x\,\Delta y$ という主項を返したことになる。この $2$-form を $\omega$ の<strong>外微分</strong>と呼び、$d\omega$ と書く：
 </p>
+<div class="math-block">$$d\omega := (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,dx \wedge dy$$</div>
 <p>$d\omega$ は $2$-form である——2本のベクトルを食べてスカラーを返す。その値は「食わせた2本が張る微小平行四辺形に対する、単位面積あたりの閉ループのズレ」を表す。
 </p>
 <p>ここで起きていることを整理しよう：
@@ -242,6 +265,7 @@ window.MathJax = {
 </p>
 <p>直感から導かれる完全な式はこうだ：
 </p>
+<div class="math-block">$$d\omega = (\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z})\,dy \wedge dz + (\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x})\,dz \wedge dx + (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,dx \wedge dy$$</div>
 <blockquote><p>
 **注** （$2$-form は傾いた平行四辺形を測る）この $d\omega$ は $2$-form——**2本のベクトルを食べる測定器**——である。食わせる2本は、$xy$ 平面に平行とは限らない。3次元空間の中に斜めに浮かぶ微小平行四辺形の二辺 $\mathbf{v}_1, \mathbf{v}_2$ を食わせれば、その面に対する単位面積あたりの閉ループのズレを返す。§5.3 でやったのとまったく同じこと——測定する面が座標平面に平行とは限らなくなっただけだ。2本のベクトルから平行四辺形の面積（と向き）を取り出すしくみは、第2章 §2.4 で $dy \wedge dz$ 等を反対称行列として構成したときにすでに確かめてある。<br>
 </p></blockquote>
@@ -255,35 +279,55 @@ window.MathJax = {
 </p>
 <p>ここで、§5.3–§5.4 で得た幾何的な $d$ がすでに教えてくれていることがある。$\omega = P\,dx$（$Q=R=0$）の場合、§5.3 の微小ループ計算を $xy$ 平面だけでなく $zx$ 平面でも行えば、$d(P\,dx)$ は $yz$ 面に成分を持たず、
 </p>
+<div class="math-block">$$d(P\,dx) = \frac{\partial P}{\partial z}\,(dz \wedge dx) - \frac{\partial P}{\partial y}\,(dx \wedge dy)$$</div>
 <p>となるはずだ（$xy$ 面のループでは $(0 - \frac{\partial P}{\partial y}) = -\frac{\partial P}{\partial y}$、$zx$ 面では $(\frac{\partial P}{\partial z} - 0) = \frac{\partial P}{\partial z}$）。
 </p>
 <p>さて、ここで $dP = \frac{\partial P}{\partial x}\,dx + \frac{\partial P}{\partial y}\,dy + \frac{\partial P}{\partial z}\,dz$ を思い出そう（§5.1）。これと $dx$ のウェッジ積をとると：
 </p>
+<div class="math-block">$$dP \wedge dx = (\frac{\partial P}{\partial x}\,dx + \frac{\partial P}{\partial y}\,dy + \frac{\partial P}{\partial z}\,dz) \wedge dx = \frac{\partial P}{\partial z}\,(dz \wedge dx) - \frac{\partial P}{\partial y}\,(dx \wedge dy)$$</div>
 <p>（$dx \wedge dx = 0$ により $\frac{\partial P}{\partial x}$ の項は消えた）
 </p>
 <p>幾何的計算と<strong>完全に一致する</strong>！ すなわち、少なくとも $P\,dx$ という形の項について：
 </p>
+<div class="math-block">$$d(P\,dx) = dP \wedge dx$$</div>
 <p>が成り立つ。幾何的結果とライプニッツ則 $d(P\,dx) = dP \wedge dx + P\,d(dx)$ を見比べれば、余分な項 $P\,d(dx)$ はゼロでなければならない。$P$ は任意の関数だから、これが常に成り立つためには $d(dx)=0$ でなければならない——すなわち $d(dx) = 0$ が要請される。
 </p>
 <p>この観察を一般化すると、次の<strong>次数付きライプニッツ則</strong>に到達する。$P$ は $0$-form、$dx$ は $1$-form であり、$0$-form と $1$-form の「積」に対する $d$ の振る舞いは：
 </p>
+<div class="math-block">$$d(P\,dx) = (dP) \wedge dx + P\,d(dx)$$</div>
 <p>$dP$ は既知——§5.1 より $dP = \frac{\partial P}{\partial x}\,dx + \frac{\partial P}{\partial y}\,dy + \frac{\partial P}{\partial z}\,dz$。問題は $d(dx)$ の値だ。
 </p>
 <p>ここで、座標関数 $x$ の外微分は $dx$ である（$d(x) = dx$）。デカルト座標の $dx$ は、場所によって係数が変わらない基準の測定器である。つまり $dx$ 自身を微小ループで一周させても、面積あたりのズレは出てこない。同じことが $dy,dz$ にも成り立つ。したがって座標基底については次を計算ルールとして置く：
 </p>
+<div class="math-block">$$d(dx) = d(dy) = d(dz) = 0$$</div>
 <p>すると：
 </p>
+<div class="math-block">$$d(P\,dx) = (\frac{\partial P}{\partial x}\,dx + \frac{\partial P}{\partial y}\,dy + \frac{\partial P}{\partial z}\,dz) \wedge dx + P\,0$$</div>
 <p>$\wedge$ の反対称性（$dx \wedge dx = 0$、$dy \wedge dx = -dx \wedge dy$）を使って：
 </p>
+<div class="math-block">$$d(P\,dx) = \frac{\partial P}{\partial x}\,(dx \wedge dx) + \frac{\partial P}{\partial y}\,(dy \wedge dx) + \frac{\partial P}{\partial z}\,(dz \wedge dx) = \frac{\partial P}{\partial z}\,(dz \wedge dx) - \frac{\partial P}{\partial y}\,(dx \wedge dy)$$</div>
 <p>同様に：
 </p>
+<div class="math-block">$$\begin{aligned}
+d(Q\,dy) &= (\frac{\partial Q}{\partial x}\,dx + \frac{\partial Q}{\partial y}\,dy + \frac{\partial Q}{\partial z}\,dz) \wedge dy = \frac{\partial Q}{\partial x}\,(dx \wedge dy) - \frac{\partial Q}{\partial z}\,(dy \wedge dz) \\
+d(R\,dz) &= (\frac{\partial R}{\partial x}\,dx + \frac{\partial R}{\partial y}\,dy + \frac{\partial R}{\partial z}\,dz) \wedge dz = -\frac{\partial R}{\partial x}\,(dz \wedge dx) + \frac{\partial R}{\partial y}\,(dy \wedge dz)
+\end{aligned}$$</div>
 <p>三つを足し合わせ、基底 $dy \wedge dz,\; dz \wedge dx,\; dx \wedge dy$ の順に整理する（この巡回順は次章の右手系との整合のための布石である）：
 </p>
+<div class="math-block">$$\begin{aligned}
+d\omega &= (-\frac{\partial Q}{\partial z} + \frac{\partial R}{\partial y})\,dy \wedge dz + (\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x})\,dz \wedge dx + (-\frac{\partial P}{\partial y} + \frac{\partial Q}{\partial x})\,dx \wedge dy \\
+&= (\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z})\,dy \wedge dz + (\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x})\,dz \wedge dx + (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,dx \wedge dy
+\end{aligned}$$</div>
 <p>これは §5.3 で幾何的に導いた $xy$ 成分 $(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y})$ を含み、$yz$ と $zx$ の成分も同じ交叉パターンで揃っている。
 </p>
 <h4 id="553-係数のパターン">5.5.3 係数のパターン</h4>
 <p>係数の並び方に注目してほしい。$(\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z},\; \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x},\; \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})$ は、$(P, Q, R)$ の偏微分を<strong>自分以外の軸方向に関して交叉させ、差をとった</strong>ものである。巡回的な対称性がある：
 </p>
+<div class="math-block">$$\begin{aligned}
+dy \wedge dz &\longleftrightarrow \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z} \\
+dz \wedge dx &\longleftrightarrow \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x} \\
+dx \wedge dy &\longleftrightarrow \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}
+\end{aligned}$$</div>
 <blockquote><p>
 **注** （既習者への補助線）ベクトル解析を既習の読者には、この3つの係数の並びに見覚えがあるだろう。本書ではその名前に依存せず、まず $d$ という操作そのものを組み立てる。対応関係は後の章で整理する。<br>
 </p></blockquote>
@@ -310,12 +354,14 @@ window.MathJax = {
 </p>
 <p>つまり：
 </p>
+<div class="math-block">$$\oint_{\partial S} \omega = \iint_S d\omega$$</div>
 <p>左辺は「面の境界という1次元の閉曲線に沿った $\omega$ の線積分」、右辺は「面の内部に敷き詰めた無数の微小ループのズレ密度の総和」である。分割を細かくする極限で、内部辺の相殺だけが残り、両者が一致する。
 </p>
 <p>これが<strong>ケルビン–ストークスの定理</strong>（単にストークスの定理とも呼ばれる）だ。
 </p>
 <p>$\omega = P\,dx + Q\,dy + R\,dz$ の成分をあらわに書けば：
 </p>
+<div class="math-block">$$\oint_{\partial S} \bigl(P\,dx + Q\,dy + R\,dz\bigr) = \iint_S \Bigl( (\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z})\,dy \wedge dz + (\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x})\,dz \wedge dx + (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,dx \wedge dy \Bigr)$$</div>
 <p>第2章以来の行列の言葉で書くなら、右辺の $2$-form は反対称行列 $\mathbf{J}^T - \mathbf{J}$ で表される。$\mathbf{v}_1, \mathbf{v}_2$ を面素の二辺とすれば $(d\omega)(\mathbf{v}_1, \mathbf{v}_2) = \mathbf{v}_1^T(\mathbf{J}^T - \mathbf{J})\mathbf{v}_2$。付録 C.3 に全成分を書き下してあるので、必要に応じて参照されたい。
 </p>
 <p>この定理の構造は驚くほど単純だ。<strong>大域的な境界で測った積分</strong> $=$ <strong>内部の局所的なズレ（$d\omega$）の集積</strong>。$d$ とは、境界 $\partial S$ における $\omega$ の情報を、内部 $S$ における $d\omega$ の情報へと<strong>翻訳</strong>する装置なのである。
@@ -334,6 +380,7 @@ window.MathJax = {
 <h4 id="571--form-は面の測定器">5.7.1 $2$-form は面の測定器</h4>
 <p>第3章 §3.4.2 で、一般の $2$-form を次の形で書いた：
 </p>
+<div class="math-block">$$\eta = A\,dy \wedge dz + B\,dz \wedge dx + C\,dx \wedge dy$$</div>
 <p>これは「面に沿って流量を測る測定器」である。第2章 §2.4.5 で見たように、3つの基底 $2$-form がそれぞれ $yz$ 平面、$zx$ 平面、$xy$ 平面への影の面積を測る。
 </p>
 <h4 id="572-微小直方体の表面で測る">5.7.2 微小直方体の表面で測る</h4>
@@ -349,34 +396,42 @@ window.MathJax = {
 </p>
 <p>全6面の合計は：
 </p>
+<div class="math-block">$$\iint_{\partial (\text{直方体})} \eta \approx (\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z})\,\Delta x\,\Delta y\,\Delta z$$</div>
 <p>ここでも同じ構造だ——<strong>表面で測ったズレの主項は、囲んだ体積に比例する</strong>。比例係数 $\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z}$ が「単位体積あたりの湧き出し」を表す。
 </p>
 <h4 id="573-の定義と代数的導出">5.7.3 $d\eta$ の定義と代数的導出</h4>
 <p>直方体の三辺 $\Delta x\,\hat{e}_x,\; \Delta y\,\hat{e}_y,\; \Delta z\,\hat{e}_z$ を食わせる $3$-form として：
 </p>
+<div class="math-block">$$d\eta := (\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z})\,dx \wedge dy \wedge dz$$</div>
 <p>この式は、§5.5.2 の代数的ルールからも導ける。その前に、§5.5.2 でやったのと同じく、幾何的な結果がライプニッツ則と整合することを $A\,dy \wedge dz$ の項で確かめておこう。
 </p>
 <p>§5.7.2 の幾何計算によれば、$A\,dy \wedge dz$ の寄与は $\frac{\partial A}{\partial x}\,\Delta x\,\Delta y\,\Delta z$ だった。これを $dx \wedge dy \wedge dz$ の言葉で書けば $\frac{\partial A}{\partial x}\,dx \wedge dy \wedge dz$ である。
 </p>
 <p>一方、$d(A\,dy \wedge dz)$ にライプニッツ則を適用すると：
 </p>
+<div class="math-block">$$d(A\,dy \wedge dz) = dA \wedge dy \wedge dz + A\,d(dy \wedge dz)$$</div>
 <p>ここで $d(dy \wedge dz)$ は、§5.5.2 と同じく $d(dy)=d(dz)=0$ を使って：
 </p>
+<div class="math-block">$$d(dy \wedge dz) = d(dy) \wedge dz - dy \wedge d(dz) = 0 \wedge dz - dy \wedge 0 = 0$$</div>
 <p>したがって第2項は消え、第1項だけが残る：
 </p>
+<div class="math-block">$$dA \wedge dy \wedge dz = (\frac{\partial A}{\partial x}\,dx + \frac{\partial A}{\partial y}\,dy + \frac{\partial A}{\partial z}\,dz) \wedge dy \wedge dz$$</div>
 <p>$\wedge$ の反対称性（$dy \wedge dy = 0$、$dz \wedge dz = 0$）により $\frac{\partial A}{\partial y}$ と $\frac{\partial A}{\partial z}$ の項は消え、$\frac{\partial A}{\partial x}\,dx \wedge dy \wedge dz$ だけが残る。これは §5.7.2 の幾何計算と<strong>完全に一致する</strong>。
 </p>
 <p>$B\,dz \wedge dx$、$C\,dx \wedge dy$ の項も同様で、三つを足し合わせれば：
 </p>
+<div class="math-block">$$d\eta = (\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z})\,dx \wedge dy \wedge dz$$</div>
 <p>$d$ は $2$-form → $3$-form の昇格を果たした。
 </p>
 <h4 id="574-ガウスの定理">5.7.4 ガウスの定理</h4>
 <p>§5.6 と同じタイル貼りの論法——今度は立体 $V$ を微小直方体で埋め尽くす——により、内部の面は相殺し、外面 $\partial V$ だけが残る：
 </p>
+<div class="math-block">$$\iint_{\partial V} \eta = \iiint_V d\eta$$</div>
 <p>これが<strong>ガウスの定理</strong>である。ストークスの定理と、次元が一つずつずれただけで<strong>まったく同じ形</strong>をしている。並べてみれば一目瞭然だ：$\omega$（$1$-form）$\to$ $d\omega$（$2$-form）$\to$ 面 $S$、$\eta$（$2$-form）$\to$ $d\eta$（$3$-form）$\to$ 立体 $V$。
 </p>
 <p>$\eta = A\,dy \wedge dz + B\,dz \wedge dx + C\,dx \wedge dy$ の成分をあらわに書けば：
 </p>
+<div class="math-block">$$\iint_{\partial V} \bigl(A\,dy \wedge dz + B\,dz \wedge dx + C\,dx \wedge dy\bigr) = \iiint_V (\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z})\,dx \wedge dy \wedge dz$$</div>
 <blockquote><p>
 **注** （既習者への補助線）ベクトル解析を既習の読者には、$\frac{\partial A}{\partial x}+\frac{\partial B}{\partial y}+\frac{\partial C}{\partial z}$ にも見覚えがあるだろう。本書ではまず $2$-form の外微分としてこの量を得た、という順序を大切にする。名前との対応は後の章で整理する。<br>
 </p></blockquote>
@@ -391,18 +446,23 @@ window.MathJax = {
 <h4 id="581">5.8.1 $d(df) = 0$</h4>
 <p>§5.1 で $df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz$ を定義した。これをさらにもう一度外微分してみる。§5.5 の公式で $P = \frac{\partial f}{\partial x},\; Q = \frac{\partial f}{\partial y},\; R = \frac{\partial f}{\partial z}$ とすれば：
 </p>
+<div class="math-block">$$d(df) = \left(\frac{\partial^2 f}{\partial y \partial z} - \frac{\partial^2 f}{\partial z \partial y}\right) dy \wedge dz + \left(\frac{\partial^2 f}{\partial z \partial x} - \frac{\partial^2 f}{\partial x \partial z}\right) dz \wedge dx + \left(\frac{\partial^2 f}{\partial x \partial y} - \frac{\partial^2 f}{\partial y \partial x}\right) dx \wedge dy$$</div>
 <p>混合偏微分の対称性（$f$ が $C^2$ 級（2階連続微分可能）なら $\frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x}$ など。第1章 §1.2 参照）により、すべての係数がゼロになる：
 </p>
+<div class="math-block">$$d(df) = 0$$</div>
 <blockquote><p>
 **注** （数学者へのエクスキューズ——$d^2=0$ と $C^2$ 条件）本書では「$f$ が $C^2$ 級（2階連続微分可能）なら混合偏微分が可換、ゆえに $d(df)=0$」という順序で進めた。しかし微分形式の公理的な立場では、**$d^2=0$ こそが $d$ の定義の一部**であり、$d(df)=0$ は定理ではなく要請である。逆に言えば、$d^2=0$ を課すことが「混合偏微分の対称性が成り立つ関数クラス（＝$C^2$ 級の関数）を相手にしている」という宣言に相当する。どちらの順序で学んでも、両者が同値な条件として噛み合うことに変わりはない。<br>
 </p></blockquote>
 <h4 id="582">5.8.2 $d(d\omega) = 0$</h4>
 <p>§5.5 の $d\omega$ に §5.7 の公式を適用する。$A = \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z},\; B = \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x},\; C = \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}$ として：
 </p>
+<div class="math-block">$$d(d\omega) = \left(\frac{\partial^2 R}{\partial x \partial y} - \frac{\partial^2 Q}{\partial x \partial z} + \frac{\partial^2 P}{\partial y \partial z} - \frac{\partial^2 R}{\partial y \partial x} + \frac{\partial^2 Q}{\partial z \partial x} - \frac{\partial^2 P}{\partial z \partial y}\right) dx \wedge dy \wedge dz$$</div>
 <p>括弧内を展開：
 </p>
+<div class="math-block">$$\frac{\partial^2 R}{\partial y \partial x} - \frac{\partial^2 Q}{\partial z \partial x} + \frac{\partial^2 P}{\partial z \partial y} - \frac{\partial^2 R}{\partial x \partial y} + \frac{\partial^2 Q}{\partial x \partial z} - \frac{\partial^2 P}{\partial y \partial z}$$</div>
 <p>混合偏微分の対称性（$\frac{\partial^2 R}{\partial y \partial x}=\frac{\partial^2 R}{\partial x \partial y}$ など）により、6項が3組の相殺を起こし、合計はゼロ：
 </p>
+<div class="math-block">$$d(d\omega) = 0$$</div>
 <blockquote><p>
 **【ここまでのチェックポイント】**<br>
 - $d^2 = 0$：外微分を2回続けると必ずゼロ。混合偏微分の対称性とウェッジの反対称性が相殺を起こす。<br>
@@ -415,10 +475,12 @@ window.MathJax = {
 </p>
 <p>そこで、次元によらず統一的に：
 </p>
+<div class="math-block">$$\int_{\partial M} \omega = \int_M d\omega$$</div>
 <p>と書く。$\omega$ は $k$-form、$M$ は $(k+1)$ 次元領域、$\partial M$ はその $k$ 次元の境界である。$k=0$ なら $\int_{\partial M} f = f(B)-f(A) = \int_M df$ という微積分学の基本定理に、$k=1$ ならストークスの定理に、$k=2$ ならガウスの定理になる。すべてがこの一本の式に吸収される。
 </p>
 <p>この統一形の威力は §5.8 の $d^2=0$ との組み合わせでさらに際立つ。$\int_{\partial M} \omega = \int_M d\omega$ の $\omega$ を $d\omega$ に置き換えれば：
 </p>
+<div class="math-block">$$\int_{\partial(\partial M)} \omega = \int_{\partial M} d\omega = \int_M d(d\omega) = 0$$</div>
 <p>つまり <strong>「境界の境界は常に空」</strong>（$\partial(\partial M) = \emptyset$）という幾何学的事実と、<strong>$d^2=0$</strong> は互いに呼応している。$d^2=0$ はこの位相的な真理の、微分形式による代数的な写し絵なのである。
 </p>
 <blockquote><p>
@@ -427,6 +489,7 @@ window.MathJax = {
 <h4 id="592-一般の--form-の外微分">5.9.2 一般の $k$-form の外微分</h4>
 <p>同様に、$d$ の作用も次数によらず一つのパターンにまとまる。任意の $k$-form $\omega$ が係数 $a_{i_1\cdots i_k}$ と基底 $dx^{i_1}\wedge\cdots\wedge dx^{i_k}$ の和で書かれているとき：
 </p>
+<div class="math-block">$$d\omega = \sum \Bigl( \sum_j \frac{\partial a_{i_1\cdots i_k}}{\partial x^j}\,dx^j \Bigr) \wedge dx^{i_1}\wedge\cdots\wedge dx^{i_k}$$</div>
 <p>本書で必要なのは $k=0,1,2$ の三つの場合だけであり、それぞれ §5.1（$df$）、§5.5（$d\omega$）、§5.7（$d\eta$）で具体的に書き下した。上の一般形は「どの次数でも、係数を全微分してウェッジでつなぐ」という単一の原理に従っていることの確認にすぎない。
 </p>
 <h4 id="593-計算ルールまとめ">5.9.3 計算ルールまとめ</h4>
@@ -446,6 +509,7 @@ window.MathJax = {
 **注** （引き戻しとの可換性——§3.5.4 の伏線回収）第3章 §3.5.4 で予告したように、引き戻し $\Phi^*$ と外微分 $d$ のあいだには<br>
 <br>
 </p></blockquote>
+<div class="math-block">$$\Phi^*(d\omega) = d(\Phi^*\omega)$$</div>
 <blockquote><p>
 という可換関係が成り立つ。「微分してから引き戻す」のと「引き戻してから微分する」のは同じ結果を与える。この性質は、これまでの4ルールからは直接導けないが、$d$ が「局所的なズレを測る」操作であり、$\Phi^*$ が「座標を焼き直す」操作であることを思い出せば自然に納得できる——局所的なズレの構造は、座標のとり方に依存しないのだ。この事実は、第11章で一般の多様体上の微分形式を考える際の重要な足場となる。<br>
 </p></blockquote>
@@ -467,16 +531,20 @@ window.MathJax = {
 </p>
 <p>物理学の多くの基本法則は、まず<strong>積分の形</strong>で発見される。ある領域の境界で測った量が、内部にある源の総和に等しい、という形だ：
 </p>
+<div class="math-block">$$\int_{\partial M} \omega = \int_M \eta$$</div>
 <p>左辺は境界で測った積分（大域的な観測量）、右辺は内部の源の積分（大域的な総量）。$\omega$ と $\eta$ は、それぞれ適切な次数の微分形式である。
 </p>
 <p>ここにストークスの定理を左辺に適用する。$\int_{\partial M} \omega = \int_M d\omega$ だから：
 </p>
+<div class="math-block">$$\int_M d\omega = \int_M \eta$$</div>
 <p>移項して：
 </p>
+<div class="math-block">$$\int_M (d\omega - \eta) = 0$$</div>
 <p>ここが決定的な瞬間だ。この等式が<strong>任意の領域 $M$</strong> について成り立つならば、被積分関数は各点で恒等的にゼロでなければならない。なぜなら、もし $d\omega - \eta \neq 0$ となる点があれば、その点の周りの微小領域で積分がゼロでなくなり矛盾するからだ。
 </p>
 <p>したがって：
 </p>
+<div class="math-block">$$d\omega = \eta$$</div>
 <p>これが<strong>積分法則から抽出された局所微分法則</strong>である。$d$ はまさに「積分方程式を微分方程式に変換する演算子」として機能したのだ。
 </p>
 <h4 id="5102-物理の実例">5.10.2 物理の実例</h4>
@@ -527,36 +595,72 @@ window.MathJax = {
 <h3 id="C1--form-の-行ベクトル">C.1 $0$-form：$df$ の $1 \times 3$ 行ベクトル</h3>
 <p>$f = f(x,y,z)$ に対し、第1章 §1.2 の定義どおり：
 </p>
+<div class="math-block">$$df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz$$</div>
 <p>行ベクトル（$1 \times 3$ 行列）として：
 </p>
+<div class="math-block">$$df = \begin{pmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & \frac{\partial f}{\partial z} \end{pmatrix}$$</div>
 <p>である。
 </p>
 <h3 id="C2--form係数のヤコビ行列">C.2 $1$-form：係数のヤコビ行列 $\mathbf{J}$</h3>
 <p>$\omega = P\,dx + Q\,dy + R\,dz$ に対し、係数 $(P,Q,R)$ の偏微分を<strong>すべて</strong>並べた $3 \times 3$ 行列を：
 </p>
+<div class="math-block">$$\mathbf{J} := \begin{pmatrix}
+\frac{\partial P}{\partial x} & \frac{\partial P}{\partial y} & \frac{\partial P}{\partial z} \\
+\frac{\partial Q}{\partial x} & \frac{\partial Q}{\partial y} & \frac{\partial Q}{\partial z} \\
+\frac{\partial R}{\partial x} & \frac{\partial R}{\partial y} & \frac{\partial R}{\partial z}
+\end{pmatrix}$$</div>
 <p>とする。これは $(P,Q,R)$ を「縦に積んだ」ベクトル場のヤコビ行列にあたる。§5.1 で「単なる偏微分の行列では足りない」と述べたのは、まさにこの $\mathbf{J}$ が反対称でないからだ。
 </p>
 <h3 id="C3">C.3 $d\omega = \mathbf{J}^T - \mathbf{J}$</h3>
 <p>§5.5 の結果は：
 </p>
+<div class="math-block">$$d\omega = (\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z})\,dy \wedge dz + (\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x})\,dz \wedge dx + (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,dx \wedge dy$$</div>
 <p>第2章 §2.4.4 の流儀に従い、任意の縦ベクトル $\mathbf{v}_1, \mathbf{v}_2$ に対して $(d\omega)(\mathbf{v}_1, \mathbf{v}_2) = \mathbf{v}_1^T \mathbf{M} \mathbf{v}_2$ となる反対称行列 $\mathbf{M}$ を求めよう。
 </p>
 <p>$\mathbf{J}^T - \mathbf{J}$ の成分を書き下す：
 </p>
+<div class="math-block">$$\mathbf{J}^T - \mathbf{J} = \begin{pmatrix}
+0 & \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} & \frac{\partial R}{\partial x} - \frac{\partial P}{\partial z} \\
+\frac{\partial P}{\partial y} - \frac{\partial Q}{\partial x} & 0 & \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z} \\
+\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x} & \frac{\partial Q}{\partial z} - \frac{\partial R}{\partial y} & 0
+\end{pmatrix}$$</div>
 <p>すなわち、2章で求めた$2$-formの行列表示と照らし合わせて：
 </p>
+<div class="math-block">$$d\omega = \mathbf{J}^T - \mathbf{J}$$</div>
 <p>となり、<strong>外微分 $d\omega$ の行列表示は、転置から係数のヤコビ行列を引いた反対称行列である。</strong>
 </p>
 <h3 id="C4--form-とヤコビ行列のトレース">C.4 $2$-form：$d\eta$ とヤコビ行列のトレース</h3>
 <p>$\eta = A\,dy \wedge dz + B\,dz \wedge dx + C\,dx \wedge dy$ に対し、係数 $(A,B,C)$ のヤコビ行列を：
 </p>
+<div class="math-block">$$\mathbf{J}_\eta := \begin{pmatrix}
+\frac{\partial A}{\partial x} & \frac{\partial A}{\partial y} & \frac{\partial A}{\partial z} \\
+\frac{\partial B}{\partial x} & \frac{\partial B}{\partial y} & \frac{\partial B}{\partial z} \\
+\frac{\partial C}{\partial x} & \frac{\partial C}{\partial y} & \frac{\partial C}{\partial z}
+\end{pmatrix}$$</div>
 <p>とすると、§5.7 の結果 $d\eta = (\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z})\,dx \wedge dy \wedge dz$ の係数は $\mathbf{J}_\eta$ の<strong>トレース</strong>（対角成分の和）に一致する：
 </p>
+<div class="math-block">$$\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z} = \operatorname{tr}(\mathbf{J}_\eta)$$</div>
 <h4 id="C41-の27成分3枚の行列に展開する">C.4.1 $d\eta$ の27成分——3枚の行列に展開する</h4>
 <p>$\eta$ の反対称成分は $\eta_{yz}=A,\; \eta_{zx}=B,\; \eta_{xy}=C$（他は符号反転または $0$）である。$d\eta$ の成分 $d\eta_{abc} = \frac{\partial \eta_{bc}}{\partial x^a}$ は $a,b,c \in \{x,y,z\}$ で $3^3=27$ 個。$a$ を固定した $3 \times 3$ 行列3枚に並べると：
 </p>
+<div class="math-block">$$d\eta_{x,\cdot,\cdot} = \begin{pmatrix}
+0 & \frac{\partial C}{\partial x} & -\frac{\partial B}{\partial x} \\
+-\frac{\partial C}{\partial x} & 0 & \frac{\partial A}{\partial x} \\
+\frac{\partial B}{\partial x} & -\frac{\partial A}{\partial x} & 0
+\end{pmatrix}, \quad
+d\eta_{y,\cdot,\cdot} = \begin{pmatrix}
+0 & \frac{\partial C}{\partial y} & -\frac{\partial B}{\partial y} \\
+-\frac{\partial C}{\partial y} & 0 & \frac{\partial A}{\partial y} \\
+\frac{\partial B}{\partial y} & -\frac{\partial A}{\partial y} & 0
+\end{pmatrix}, \quad
+d\eta_{z,\cdot,\cdot} = \begin{pmatrix}
+0 & \frac{\partial C}{\partial z} & -\frac{\partial B}{\partial z} \\
+-\frac{\partial C}{\partial z} & 0 & \frac{\partial A}{\partial z} \\
+\frac{\partial B}{\partial z} & -\frac{\partial A}{\partial z} & 0
+\end{pmatrix}$$</div>
 <p>この $27$ 成分が $dx^a \wedge dx^b \wedge dx^c$ のウェッジ積と縮約するとき、添字の重複がある項（対角成分や $b=c$ 等）は $dx \wedge dx = 0$ で消え、生き残るのは $a,b,c$ がすべて異なる $6$ 項（$3!$ の順列）だけ。それぞれを符号つきで和をとると、因子 $\frac{1}{2}$ の補正も入って
 </p>
+<div class="math-block">$$d\eta = \left( \frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z} \right) dx \wedge dy \wedge dz$$</div>
 <p>すなわち $d\eta$ は $27$ 成分のうち $6$ 項が生き残り、ペアで足し合わさって $\mathbf{J}_\eta$ のトレースへ収束する。
 </p>
 <p>$3$-form は基底が $dx \wedge dy \wedge dz$ の 1 つだけなので、行列としてはスカラー係数に縮退している。
@@ -564,6 +668,11 @@ window.MathJax = {
 <h3 id="C5-とヘッセ行列">C.5 $d^2 f = 0$ とヘッセ行列</h3>
 <p>$0$-form $f$ のヘッセ行列：
 </p>
+<div class="math-block">$$\mathbf{H}_f := \begin{pmatrix}
+\frac{\partial^2 f}{\partial x^2} & \frac{\partial^2 f}{\partial x \partial y} & \frac{\partial^2 f}{\partial x \partial z} \\
+\frac{\partial^2 f}{\partial y \partial x} & \frac{\partial^2 f}{\partial y^2} & \frac{\partial^2 f}{\partial y \partial z} \\
+\frac{\partial^2 f}{\partial z \partial x} & \frac{\partial^2 f}{\partial z \partial y} & \frac{\partial^2 f}{\partial z^2}
+\end{pmatrix}$$</div>
 <p>は $f$ の 2 階偏導関数を並べたものだ。$f$ が $C^2$ 級なら $\mathbf{H}_f$ は対称行列（$\frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x}$ など）である。
 </p>
 <p>$d(df) = 0$ は §5.5 の $d\omega$ 公式で $(P,Q,R) = (\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z})$ とおいたもの。$\mathbf{J} = \mathbf{H}_f$ であり、$\mathbf{H}_f$ が対称だから $\mathbf{J}^T - \mathbf{J} = 0$、したがって $d(df) = 0$。行列の言葉では「ヘッセ行列の反対称成分がゼロ」と言い換えられる。

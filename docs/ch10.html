@@ -92,6 +92,12 @@ window.MathJax = {
 <h3 id="101-マクスウェル方程式2本で書く">§10.1 マクスウェル方程式——2本で書く</h3>
 <p>電磁気学の基本法則は、SI単位系で次の4本の式として書かれる。
 </p>
+<div class="math-block">$$\begin{aligned}
+\mathrm{div}\,\mathbf{E} &= \frac{\rho}{\varepsilon_0} &
+\mathrm{div}\,\mathbf{B} &= 0 \\[0.5em]
+\mathrm{rot}\,\mathbf{B} &= \mu_0\mathbf{J} + \frac{1}{c^2}\frac{\partial \mathbf{E}}{\partial t} &
+\mathrm{rot}\,\mathbf{E} &= -\frac{\partial \mathbf{B}}{\partial t}
+\end{aligned}$$</div>
 <p>このままでは、これから $4\times4$ 行列に押し込むための「型」が揃っていない。電場 $\mathbf{E}$（次元 $\mathrm{V/m}$）と磁束密度 $\mathbf{B}$（次元 $\mathrm{T}$）は単位が違い、さらに空間の微分（$\mathrm{rot}$ や $\mathrm{div}$）と時間 $t$ の微分も次元が異なる。
 </p>
 <p>そこで、すべてを「長さ」の次元に変換する。
@@ -104,14 +110,22 @@ window.MathJax = {
 </ol>
 <p>これらを上の4式に代入する。ファラデーの法則は、
 </p>
+<div class="math-block">$$\mathrm{rot}\,\mathbf{E} = -\frac{\partial}{\partial t}\!\left(\frac{1}{c}\mathbf{B}'\right) = -c\frac{\partial}{\partial w}\!\left(\frac{1}{c}\mathbf{B}'\right) = -\frac{\partial \mathbf{B}'}{\partial w}$$</div>
 <p>アンペールの法則も同様に整理すると、
 </p>
+<div class="math-block">$$\begin{aligned}
+\mathrm{div}\,\mathbf{E} &= \frac{\rho}{\varepsilon_0} &
+\mathrm{div}\,\mathbf{B}' &= 0 \\[0.5em]
+\mathrm{rot}\,\mathbf{B}' &= c\mu_0\mathbf{J} + \frac{\partial \mathbf{E}}{\partial w} &
+\mathrm{rot}\,\mathbf{E} &= -\frac{\partial \mathbf{B}'}{\partial w}
+\end{aligned}$$</div>
 <p>時間微分が $\frac{\partial}{\partial w}$ になり、空間微分（$\mathrm{rot}, \mathrm{div}$）と分母の次元（長さ）が揃った。
 </p>
 <p>以降、$\mathbf{B}'$ のことを改めて $\mathbf{B}$ と呼び、$w$ を改めて $t$ と書く。つまり、これ以降の $\mathbf{B}$ は本来の磁束密度ではなく $c$ 倍された「次元を揃えた磁場」であり、$t$ は本来の時間ではなく $c$ 倍された「長さの次元を持つ時間座標」である。
 </p>
 <p>これで準備が整った。$\mathbf{E}$ と $\mathbf{B}$ は同じ次元を持ち、同じ行列に並べられる。電磁場をまとめた$2$-form $F$ と、電流・電荷をまとめた$1$-form $\mathcal{J}$ を用意すれば、4本の式は<strong>2本</strong>になる。
 </p>
+<div class="math-block">$$dF = 0, \qquad d(\ast F) = \mu_0(\ast\mathcal{J})$$</div>
 <p>以上である。4本が2本に——この簡潔さをもって「美しい」と讃えるのが、微分形式の教科書の定番の幕引きだ。
 </p>
 <p>しかし、本書はここで終わらない。$F$ の中身は何なのか。$dF=0$ を成分で展開すると、本当に $\mathrm{rot}\,\mathbf{E} = -\frac{\partial\mathbf{B}}{\partial t}$ と $\mathrm{div}\,\mathbf{B} = 0$ が出てくるのか。それを、この章で全部書き下す。
@@ -122,20 +136,37 @@ window.MathJax = {
 </p>
 <p>時間座標を $t$（ただしこれは §10.1 で変換した $w=ct$ を改名したものであり、元のSI単位系の $t$ ではない）、空間座標を $x,y,z$ とする。§10.1 の変換により、$F$ の成分は次のようになる。
 </p>
+<div class="math-block">$$F = \begin{pmatrix}
+0 & -E_x & -E_y & -E_z \\
+E_x & 0 & B_z & -B_y \\
+E_y & -B_z & 0 & B_x \\
+E_z & B_y & -B_x & 0
+\end{pmatrix}$$</div>
 <p>行と列の順は $(t,x,y,z)$。$E_x, E_y, E_z$ は電場（元のSI単位系の値）、$B_x, B_y, B_z$ は $c$ 倍された磁場である。両者は §10.1 の正規化により同一の次元 $\mathrm{V/m}$ を持ち、行列にそのまま並べられる。$F$ は反対称行列（$F^T = -F$）であり、独立な成分はちょうど6個だ。
 </p>
 <p>基底 $2$-form で書けば、
 </p>
+<div class="math-block">$$F = E_x\,dt\wedge dx + E_y\,dt\wedge dy + E_z\,dt\wedge dz + B_x\,dy\wedge dz + B_y\,dz\wedge dx + B_z\,dx\wedge dy$$</div>
 <p>$dt\wedge dx$ の係数が $E_x$ そのものなのは、§10.1 で $\mathbf{E}$ と $\mathbf{B}$ の次元を $\mathrm{V/m}$ に揃えたことの直接の帰結である。同一の次元を持つ量は、同じ行列にそのまま並べられる。
 </p>
 <blockquote><p>
 **注** （符号の規約）上の行列表示は、4元ポテンシャル $A$ から作る<br>
 <br>
 </p></blockquote>
+<div class="math-block">$$
+> F_{\mu\nu}
+> =
+> \frac{\partial A_\nu}{\partial x^\mu}
+> -
+> \frac{\partial A_\mu}{\partial x^\nu}
+> $$</div>
 <blockquote><p>
 という反対称な成分の並べ方に対応する（§10.6 ではこれを $F=-dA$ として扱う）。ここで<br>
 <br>
 </p></blockquote>
+<div class="math-block">$$
+> (x^0,x^1,x^2,x^3)=(t,x,y,z)
+> $$</div>
 <blockquote><p>
 である。通常は $\partial_\mu A_\nu-\partial_\nu A_\mu$ と略記されるが、本書では不要な略記法を避ける。符号が逆の流儀もあるが、本章ではこの規約に従う。<br>
 </p></blockquote>
@@ -145,6 +176,12 @@ window.MathJax = {
 </p>
 <p>幸い、ここまでに積み上げた知識があれば、拡張は容易だ。第6章で $\mathbf{g} = J^T J$ を導出し、第9章で $\mathbf{g}$ から $\ast$ の辞書を作る手順を練習した。時空でも同じことをすればよい。計量は次のようになる（時間成分の符号が空間成分と異なる点が唯一の新しい要素だ）。
 </p>
+<div class="math-block">$$\mathbf{g} = \begin{pmatrix}
+-1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix}$$</div>
 <blockquote><p>
 **注** （正定値性からの離脱）本書の計量はこれまでつねに正定値（$\mathbf{v}^T\mathbf{g}\,\mathbf{v} > 0$ for $\mathbf{v}\neq\mathbf{0}$）だった。ミンコフスキー計量は正定値ではなく、これまでの $\mathbf{g}=J^T J$ 型の計量とは異なる。ここでは「計量行列から $\ast$ の辞書を作る」という手順だけを引き継いでいる。この違いは $\ast$ の辞書に符号の変化として現れるが、計算手順そのものは変わらない。第11章でこの点に簡単に触れる。<br>
 </p></blockquote>
@@ -156,14 +193,31 @@ window.MathJax = {
 </p>
 <p>$F$ の6項を形式で書く。
 </p>
+<div class="math-block">$$F = E_x\,dt\wedge dx + E_y\,dt\wedge dy + E_z\,dt\wedge dz + B_x\,dy\wedge dz + B_y\,dz\wedge dx + B_z\,dx\wedge dy$$</div>
 <p>各項に $d$ を作用させる。$E_x, E_y, E_z, B_x, B_y, B_z$ はすべて $(t,x,y,z)$ の関数である。
 </p>
+<div class="math-block">$$\begin{aligned}
+d\!\left(E_x\,dt\wedge dx\right) &= \frac{\partial E_x}{\partial y}\,dy\wedge dt\wedge dx + \frac{\partial E_x}{\partial z}\,dz\wedge dt\wedge dx \\
+d\!\left(E_y\,dt\wedge dy\right) &= \frac{\partial E_y}{\partial x}\,dx\wedge dt\wedge dy + \frac{\partial E_y}{\partial z}\,dz\wedge dt\wedge dy \\
+d\!\left(E_z\,dt\wedge dz\right) &= \frac{\partial E_z}{\partial x}\,dx\wedge dt\wedge dz + \frac{\partial E_z}{\partial y}\,dy\wedge dt\wedge dz
+\end{aligned}$$</div>
 <p>$B$ の項は $t$ 微分も含む。
 </p>
+<div class="math-block">$$\begin{aligned}
+d(B_x\,dy\wedge dz) &= \frac{\partial B_x}{\partial t}\,dt\wedge dy\wedge dz + \frac{\partial B_x}{\partial x}\,dx\wedge dy\wedge dz \\
+d(B_y\,dz\wedge dx) &= \frac{\partial B_y}{\partial t}\,dt\wedge dz\wedge dx + \frac{\partial B_y}{\partial y}\,dy\wedge dz\wedge dx \\
+d(B_z\,dx\wedge dy) &= \frac{\partial B_z}{\partial t}\,dt\wedge dx\wedge dy + \frac{\partial B_z}{\partial z}\,dz\wedge dx\wedge dy
+\end{aligned}$$</div>
 <p>これらをすべて足し合わせる。基底 $3$-form の種類は $(dt\wedge dx\wedge dy,\; dt\wedge dy\wedge dz,\; dt\wedge dz\wedge dx,\; dx\wedge dy\wedge dz)$ の4つ。ウェッジ積の反対称性を使って項を整理する（たとえば $dy\wedge dt\wedge dx = -dt\wedge dy\wedge dx = dt\wedge dx\wedge dy$）。
 </p>
 <p>各基底 $3$-form の係数をゼロとおくと、$dF=0$ は次と同値になる。
 </p>
+<div class="math-block">$$dF = 0 \Longleftrightarrow \begin{cases}
+\displaystyle \frac{\partial B_x}{\partial x} + \frac{\partial B_y}{\partial y} + \frac{\partial B_z}{\partial z} = 0 \\[1em]
+\displaystyle \frac{\partial E_z}{\partial y} - \frac{\partial E_y}{\partial z} + \frac{\partial B_x}{\partial t} = 0 \\[0.5em]
+\displaystyle \frac{\partial E_x}{\partial z} - \frac{\partial E_z}{\partial x} + \frac{\partial B_y}{\partial t} = 0 \\[0.5em]
+\displaystyle \frac{\partial E_y}{\partial x} - \frac{\partial E_x}{\partial y} + \frac{\partial B_z}{\partial t} = 0
+\end{cases}$$</div>
 <p>1行目は $\mathrm{div}\,\mathbf{B} = 0$、2〜4行目は $\mathrm{rot}\,\mathbf{E} = -\frac{\partial\mathbf{B}}{\partial t}$ の各成分にほかならない。
 </p>
 <hr />
@@ -172,24 +226,48 @@ window.MathJax = {
 </p>
 <p>まず $\ast F$ を求める。$\ast$ は4次元時空の計量に依存するが、特殊相対論の平坦な時空（計量は時間成分だけ符号が異なる）では、$\ast F$ は §10.2 の $F$ で $\mathbf{E}$ と $\mathbf{B}$ を入れ替えた形になる。行列表示は次の通りだ。
 </p>
+<div class="math-block">$$\ast F = \begin{pmatrix}
+0 & B_x & B_y & B_z \\
+-B_x & 0 & E_z & -E_y \\
+-B_y & -E_z & 0 & E_x \\
+-B_z & E_y & -E_x & 0
+\end{pmatrix}$$</div>
 <p>$F$ と見比べてほしい。$E$ と $B$ の位置が入れ替わっている。この規約と正規化のもとでは、$\ast$ はほとんど「$\mathbf{E}$ と $\mathbf{B}$ を入れ替える装置」として働く。
 </p>
 <p>基底 $2$-form で書けば、§10.2 の $F$ と対応する形になる。
 </p>
+<div class="math-block">$$\ast F = B_x\,dt\wedge dx + B_y\,dt\wedge dy + B_z\,dt\wedge dz + E_x\,dy\wedge dz + E_y\,dz\wedge dx + E_z\,dx\wedge dy$$</div>
 <p>次に、$d(\ast F)$ を展開する。$\ast F$ も $2$-form だから、$d(\ast F)$ は $3$-form だ。
 </p>
 <p>まず $B$ の項（$dt\wedge dx, dt\wedge dy, dt\wedge dz$）に $d$ を作用させる。これらの時間微分は $dt\wedge dt = 0$ で消え、空間微分だけが残る。§10.4 の $E$ の項と同じ構造だ。
 </p>
+<div class="math-block">$$\begin{aligned}
+d\!\left(B_x\,dt\wedge dx\right) &= \frac{\partial B_x}{\partial y}\,dy\wedge dt\wedge dx + \frac{\partial B_x}{\partial z}\,dz\wedge dt\wedge dx \\
+d\!\left(B_y\,dt\wedge dy\right) &= \frac{\partial B_y}{\partial x}\,dx\wedge dt\wedge dy + \frac{\partial B_y}{\partial z}\,dz\wedge dt\wedge dy \\
+d\!\left(B_z\,dt\wedge dz\right) &= \frac{\partial B_z}{\partial x}\,dx\wedge dt\wedge dz + \frac{\partial B_z}{\partial y}\,dy\wedge dt\wedge dz
+\end{aligned}$$</div>
 <p>次に $E$ の項（$dy\wedge dz, dz\wedge dx, dx\wedge dy$）に $d$ を作用させる。こちらは時間微分も含む。§10.4 の $B$ の項と同じ構造だ。
 </p>
+<div class="math-block">$$\begin{aligned}
+d\!\left(E_x\,dy\wedge dz\right) &= \frac{\partial E_x}{\partial t}\,dt\wedge dy\wedge dz + \frac{\partial E_x}{\partial x}\,dx\wedge dy\wedge dz \\
+d\!\left(E_y\,dz\wedge dx\right) &= \frac{\partial E_y}{\partial t}\,dt\wedge dz\wedge dx + \frac{\partial E_y}{\partial y}\,dy\wedge dz\wedge dx \\
+d\!\left(E_z\,dx\wedge dy\right) &= \frac{\partial E_z}{\partial t}\,dt\wedge dx\wedge dy + \frac{\partial E_z}{\partial z}\,dz\wedge dx\wedge dy
+\end{aligned}$$</div>
 <p>これらをすべて足し合わせる。基底 $3$-form の種類は §10.4 と同じ $(dt\wedge dx\wedge dy,\; dt\wedge dy\wedge dz,\; dt\wedge dz\wedge dx,\; dx\wedge dy\wedge dz)$ の4つ。ウェッジ積の反対称性を使って項を整理する。
 </p>
 <p>各基底 $3$-form の係数をまとめると、$d(\ast F)$ は次になる。
 </p>
+<div class="math-block">$$\begin{aligned}
+d(\ast F) = &\left(\frac{\partial B_x}{\partial y} - \frac{\partial B_y}{\partial x} + \frac{\partial E_z}{\partial t}\right) dt\wedge dx\wedge dy \\
+{+} &\left(\frac{\partial B_y}{\partial z} - \frac{\partial B_z}{\partial y} + \frac{\partial E_x}{\partial t}\right) dt\wedge dy\wedge dz \\
+{+} &\left(\frac{\partial B_z}{\partial x} - \frac{\partial B_x}{\partial z} + \frac{\partial E_y}{\partial t}\right) dt\wedge dz\wedge dx \\
+{+} &\left(\frac{\partial E_x}{\partial x} + \frac{\partial E_y}{\partial y} + \frac{\partial E_z}{\partial z}\right) dx\wedge dy\wedge dz
+\end{aligned}$$</div>
 <p>$dx\wedge dy\wedge dz$ の係数は $\mathrm{div}\,\mathbf{E}$ にほかならない。$dt\wedge dx\wedge dy$ の係数は $\frac{\partial B_x}{\partial y} - \frac{\partial B_y}{\partial x} + \frac{\partial E_z}{\partial t} = -(\mathrm{rot}\,\mathbf{B})_z + \frac{\partial E_z}{\partial t}$ であり、2〜3行目も同様に $-(\mathrm{rot}\,\mathbf{B})_{x,y} + \frac{\partial E_{x,y}}{\partial t}$ の各成分だ。
 </p>
 <p>一方、右辺の $\ast\mathcal{J}$ は電荷・電流を表す $3$-form である。正規化された系では、次の形をとる。
 </p>
+<div class="math-block">$$\ast\mathcal{J} = \frac{\rho}{\varepsilon_0\mu_0}\,dx\wedge dy\wedge dz - cJ_x\,dt\wedge dy\wedge dz - cJ_y\,dt\wedge dz\wedge dx - cJ_z\,dt\wedge dx\wedge dy$$</div>
 <p>（$\rho$ は電荷密度、$J_x,J_y,J_z$ は電流密度。$\varepsilon_0\mu_0 = 1/c^2$ より、第1項の係数は $c^2\rho$ に等しい。）
 </p>
 <blockquote><p>
@@ -197,12 +275,14 @@ window.MathJax = {
 </p></blockquote>
 <p>$d(\ast F) = \mu_0(\ast\mathcal{J})$ の両辺で基底 $3$-form の係数を比較する。
 </p>
+<div class="math-block">$$\mu_0(\ast\mathcal{J}) = \frac{\rho}{\varepsilon_0}\,dx\wedge dy\wedge dz - c\mu_0J_x\,dt\wedge dy\wedge dz - c\mu_0J_y\,dt\wedge dz\wedge dx - c\mu_0J_z\,dt\wedge dx\wedge dy$$</div>
 <p>$dx\wedge dy\wedge dz$ の係数から $\mathrm{div}\,\mathbf{E} = \frac{\rho}{\varepsilon_0}$。$dt\wedge dy\wedge dz$ の係数から $-\frac{\partial B_z}{\partial y} + \frac{\partial B_y}{\partial z} + \frac{\partial E_x}{\partial t} = -c\mu_0J_x$、すなわち $(\mathrm{rot}\,\mathbf{B})_x - \frac{\partial E_x}{\partial t} = c\mu_0J_x$。整理すると $\mathrm{rot}\,\mathbf{B} = c\mu_0\mathbf{J} + \frac{\partial\mathbf{E}}{\partial t}$ を得る。
 </p>
 <p>以上で、$d(\ast F) = \mu_0(\ast\mathcal{J})$ を成分で完全に展開しきった。§10.4 の $dF=0$ と合わせて、マクスウェル方程式の4本が行列と偏微分の計算だけで再現されたことになる。
 </p>
 <p>つまり、マクスウェル方程式の4本は、微分形式では
 </p>
+<div class="math-block">$$dF = 0, \qquad d(\ast F) = \mu_0(\ast\mathcal{J})$$</div>
 <p>の2本に集約される。そして、この2本を実際に行列と偏微分で展開すれば、見慣れたベクトル解析の式がすべて再現される。美しさの裏に、ちゃんと泥臭い計算が息づいている——それを見届けたことが、本章の成果である。
 </p>
 <blockquote><p>
@@ -217,10 +297,17 @@ window.MathJax = {
 </p>
 <p>4元ポテンシャル $A$ は $1$-form である。電磁気学ではスカラーポテンシャル $\phi$ とベクトルポテンシャル $\mathbf{A} = (A_x, A_y, A_z)$ が組になる。時間成分の符号に注意して（§10.3 の計量の時間成分が $-1$ であることの反映）、
 </p>
+<div class="math-block">$$A = -\phi\,dt + A_x\,dx + A_y\,dy + A_z\,dz$$</div>
 <p>と書く。$\phi, A_x, A_y, A_z$ はいずれも $(t,x,y,z)$ の関数である。
 </p>
 <p>$dA$ の計算は第5章以来の手順そのものだ。$A$ の4項それぞれに $d$ を作用させる。
 </p>
+<div class="math-block">$$\begin{aligned}
+d(-\phi\,dt) &= -\frac{\partial\phi}{\partial x}\,dx\wedge dt - \frac{\partial\phi}{\partial y}\,dy\wedge dt - \frac{\partial\phi}{\partial z}\,dz\wedge dt \\
+d(A_x\,dx) &= \frac{\partial A_x}{\partial t}\,dt\wedge dx + \frac{\partial A_x}{\partial y}\,dy\wedge dx + \frac{\partial A_x}{\partial z}\,dz\wedge dx \\
+d(A_y\,dy) &= \frac{\partial A_y}{\partial t}\,dt\wedge dy + \frac{\partial A_y}{\partial x}\,dx\wedge dy + \frac{\partial A_y}{\partial z}\,dz\wedge dy \\
+d(A_z\,dz) &= \frac{\partial A_z}{\partial t}\,dt\wedge dz + \frac{\partial A_z}{\partial x}\,dx\wedge dz + \frac{\partial A_z}{\partial y}\,dy\wedge dz
+\end{aligned}$$</div>
 <p>（$\phi$ の時間微分は $dt\wedge dt = 0$ で消える。$A_x$ の $x$ 微分も $dx\wedge dx = 0$ で消える。以下同様。）
 </p>
 <p>これらを足し合わせ、ウェッジ積の反対称性（$dx\wedge dt = -dt\wedge dx$ など）で基底 $2$-form ごとに整理する。
@@ -231,10 +318,19 @@ window.MathJax = {
 </p>
 <p>全6基底について同様に整理すると、$dA$ は次のようになる。
 </p>
+<div class="math-block">$$\begin{aligned}
+dA &= \left(\frac{\partial\phi}{\partial x} + \frac{\partial A_x}{\partial t}\right)dt\wedge dx + \left(\frac{\partial\phi}{\partial y} + \frac{\partial A_y}{\partial t}\right)dt\wedge dy + \left(\frac{\partial\phi}{\partial z} + \frac{\partial A_z}{\partial t}\right)dt\wedge dz \\
+&\quad+ \left(\frac{\partial A_z}{\partial y} - \frac{\partial A_y}{\partial z}\right)dy\wedge dz + \left(\frac{\partial A_x}{\partial z} - \frac{\partial A_z}{\partial x}\right)dz\wedge dx + \left(\frac{\partial A_y}{\partial x} - \frac{\partial A_x}{\partial y}\right)dx\wedge dy
+\end{aligned}$$</div>
 <p>ここで $dA$ の $dt\wedge dx$ 係数は $\frac{\partial\phi}{\partial x} + \frac{\partial A_x}{\partial t}$ だが、§10.2 の $F$ では同基底の係数は $E_x$。両者の符号を見比べると、$E_x = -\frac{\partial\phi}{\partial x} - \frac{\partial A_x}{\partial t}$ とする必要がある。つまり、$F = -dA$ と置けばよい。まとめると、
 </p>
+<div class="math-block">$$F = -dA$$</div>
 <p>である。$\mathbf{E}$ の全成分と $\mathbf{B}$ の全成分を、ポテンシャルで書き下すと次のとおり。
 </p>
+<div class="math-block">$$\begin{aligned}
+\mathbf{E} &= -\nabla\phi - \frac{\partial\mathbf{A}}{\partial t} \\[0.3em]
+\mathbf{B} &= -\left(\nabla\times\mathbf{A}\right)
+\end{aligned}$$</div>
 <p>$dt\wedge dx$ の係数 $E_x$ が $-\partial\phi/\partial x - \partial A_x/\partial t$、$dy\wedge dz$ の係数 $B_x$ が $-\frac{\partial A_z}{\partial y} + \frac{\partial A_y}{\partial z}$——電磁気学の教科書では $B_x = \frac{\partial A_z}{\partial y} - \frac{\partial A_y}{\partial z}$ と書かれるが、ここでの負号は本章の規約（$F=-dA$）に由来する。この負号は $\mathbf{A}$ の符号を反転させれば吸収できる、形式的な違いにすぎない。
 </p>
 <blockquote><p>
@@ -243,6 +339,7 @@ window.MathJax = {
 <h4 id="が-を証明する">$dd=0$ が $dF=0$ を証明する</h4>
 <p>§10.4 の主結果——$dF=0$ が $\mathrm{div}\,\mathbf{B}=0$ と $\mathrm{rot}\,\mathbf{E}=-\partial\mathbf{B}/\partial t$ に等しい——の証明は一瞬である。$F=-dA$ だから、
 </p>
+<div class="math-block">$$dF = d(-dA) = -d(dA) = 0$$</div>
 <p>$dd=0$ は第5章 §4.4 で証明した外微分の基本性質だ。$F$ が「何かの外微分」（定数倍を除いて）で書ける以上、その外微分は自動的にゼロになる。§10.4 で4つの基底 $3$-form の係数をゼロとおいて得た4本の式は、すべてこの一行に集約されている。
 </p>
 <p>$dd=0$ が物理法則を導く——この事実こそ、微分形式が電磁気学で「美しい」と言われる最大の理由である。
@@ -253,6 +350,7 @@ window.MathJax = {
 <h4 id="もう1本の式ポテンシャルで書く">もう1本の式——ポテンシャルで書く</h4>
 <p>$d(\ast F) = \mu_0(\ast\mathcal{J})$ の側も、$F=-dA$ を代入すればポテンシャル $A$ に対する方程式になる。
 </p>
+<div class="math-block">$$-d(\ast dA) = \mu_0(\ast\mathcal{J})$$</div>
 <p>これを §10.5 と同様に成分展開してもよいが、本書では第12章でディラック演算子を用いた統一的表現を扱うため、ここではこの形を提示するにとどめる。$\ast d\ast dA$ を展開すると、ローレンツゲージ $\frac{\partial A^0}{\partial t} + \frac{\partial A^1}{\partial x} + \frac{\partial A^2}{\partial y} + \frac{\partial A^3}{\partial z} = 0$ のもとで $\Box A = \mu_0\mathcal{J}$（波動方程式）が現れる——が、その導出は電磁気学の教科書に譲ろう。
 </p>
 <blockquote><p>
@@ -272,19 +370,103 @@ window.MathJax = {
 <h3 id="E1-基底--form-とそのスライス行列--全16枚">E.1 基底 $3$-form とそのスライス行列 —— 全16枚</h3>
 <p>4次元の基底 $3$-form は次の4つである（§10.4 の並びと比べると、$\omega_2$ と $\omega_3$ の符号・順序が異なるが、内容は同じ4つである）。
 </p>
+<div class="math-block">$$
+\omega_1 = dt\wedge dx\wedge dy,\qquad
+\omega_2 = dt\wedge dx\wedge dz,\qquad
+\omega_3 = dt\wedge dy\wedge dz,\qquad
+\omega_4 = dx\wedge dy\wedge dz
+$$</div>
 <p>各 $\omega_i$ について、座標方向 $t,x,y,z$ の<strong>スライス行列</strong> $\mathbf{S}_{t}^{(\omega_i)}, \mathbf{S}_{x}^{(\omega_i)}, \mathbf{S}_{y}^{(\omega_i)}, \mathbf{S}_{z}^{(\omega_i)}$ を定義する。スライス行列とは「その方向の座標を除いた残りの $3$ 方向が作る $3$-form」を $4\times4$ 反対称行列に焼き直したものである。行・列の順は $(t,x,y,z)$。非ゼロ成分には $\pm1$ が入る。$4$ 基底 $\times 4$ スライス $=$ 全 $16$ 枚。
 </p>
+<strong>（1）</strong> $\omega_1 = dt\wedge dx\wedge dy$ のスライス：
+<div class="math-block">$$
+\mathbf{S}_{t}^{(\omega_1)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&1&0\\[2pt]0&-1&0&0\\[2pt]0&0&0&0\end{pmatrix},\;
+\mathbf{S}_{x}^{(\omega_1)}=\begin{pmatrix}0&0&-1&0\\[2pt]0&0&0&0\\[2pt]1&0&0&0\\[2pt]0&0&0&0\end{pmatrix},\;
+\mathbf{S}_{y}^{(\omega_1)}=\begin{pmatrix}0&1&0&0\\[2pt]-1&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix},\;
+\mathbf{S}_{z}^{(\omega_1)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix}
+$$</div>
+<strong>（2）</strong> $\omega_2 = dt\wedge dx\wedge dz$ のスライス：
+<div class="math-block">$$
+\mathbf{S}_{t}^{(\omega_2)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&1\\[2pt]0&0&0&0\\[2pt]0&-1&0&0\end{pmatrix},\;
+\mathbf{S}_{x}^{(\omega_2)}=\begin{pmatrix}0&0&0&-1\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]1&0&0&0\end{pmatrix},\;
+\mathbf{S}_{y}^{(\omega_2)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix},\;
+\mathbf{S}_{z}^{(\omega_2)}=\begin{pmatrix}0&1&0&0\\[2pt]-1&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix}
+$$</div>
+<strong>（3）</strong> $\omega_3 = dt\wedge dy\wedge dz$ のスライス：
+<div class="math-block">$$
+\mathbf{S}_{t}^{(\omega_3)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&1\\[2pt]0&0&-1&0\end{pmatrix},\;
+\mathbf{S}_{x}^{(\omega_3)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix},\;
+\mathbf{S}_{y}^{(\omega_3)}=\begin{pmatrix}0&0&0&-1\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]1&0&0&0\end{pmatrix},\;
+\mathbf{S}_{z}^{(\omega_3)}=\begin{pmatrix}0&0&-1&0\\[2pt]0&0&0&0\\[2pt]1&0&0&0\\[2pt]0&0&0&0\end{pmatrix}
+$$</div>
+<strong>（4）</strong> $\omega_4 = dx\wedge dy\wedge dz$ のスライス：
+<div class="math-block">$$
+\mathbf{S}_{t}^{(\omega_4)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix},\;
+\mathbf{S}_{x}^{(\omega_4)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&1\\[2pt]0&0&-1&0\end{pmatrix},\;
+\mathbf{S}_{y}^{(\omega_4)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&-1\\[2pt]0&0&0&0\\[2pt]0&1&0&0\end{pmatrix},\;
+\mathbf{S}_{z}^{(\omega_4)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&-1&0\\[2pt]0&1&0&0\\[2pt]0&0&0&0\end{pmatrix}
+$$</div>
 <p>16枚のうち、$\mathbf{S}_{z}^{(\omega_1)}, \mathbf{S}_{y}^{(\omega_2)}, \mathbf{S}_{x}^{(\omega_3)}, \mathbf{S}_{t}^{(\omega_4)}$ の4枚はゼロ行列である。残る12枚に $\pm1$ が一つずつ（と反対称のペアが一つずつ）入っている。これが $4\times4\times4$ テンソルの正体だ。
 </p>
 <h3 id="E2-をスライス行列で書く">E.2 $dF$ をスライス行列で書く</h3>
 <p>§10.4 の展開により、$dF$ の各基底係数は次で与えられる（$c$ を含まない正規化された系）。
 </p>
+<div class="math-block">$$
+\begin{aligned}
+A_{txy} &= \frac{\partial E_y}{\partial x} - \frac{\partial E_x}{\partial y} + \frac{\partial B_z}{\partial t}
+\quad (\omega_1 = dt\wedge dx\wedge dy\text{ の係数}) \\[6pt]
+A_{txz} &= \frac{\partial E_z}{\partial x} - \frac{\partial E_x}{\partial z} - \frac{\partial B_y}{\partial t}
+\quad (\omega_2 = dt\wedge dx\wedge dz\text{ の係数}) \\[6pt]
+A_{tyz} &= \frac{\partial E_z}{\partial y} - \frac{\partial E_y}{\partial z} + \frac{\partial B_x}{\partial t}
+\quad (\omega_3 = dt\wedge dy\wedge dz\text{ の係数}) \\[6pt]
+A_{xyz} &= \frac{\partial B_x}{\partial x} + \frac{\partial B_y}{\partial y} + \frac{\partial B_z}{\partial z}
+\quad (\omega_4 = dx\wedge dy\wedge dz\text{ の係数})
+\end{aligned}
+$$</div>
 <p>$dF$ の各スライスは、4つの基底スライス行列を係数 $A_{\cdots}$ で線形結合したものである。たとえば $t$-スライスは
 </p>
+<div class="math-block">$$
+\mathbf{S}_{t}^{(dF)} = A_{txy}\,\mathbf{S}_{t}^{(\omega_1)}
+{+} A_{txz}\,\mathbf{S}_{t}^{(\omega_2)}
+{+} A_{tyz}\,\mathbf{S}_{t}^{(\omega_3)}
+{+} A_{xyz}\,\mathbf{S}_{t}^{(\omega_4)}
+$$</div>
 <p>となる。各 $A_{\cdots}$ を偏微分に展開し、それぞれの基底スライス行列に係数として掛けて並べると次のようになる。
 </p>
+<div class="math-block">$$
+\begin{aligned}
+\mathbf{S}_{t}^{(dF)}
+&= \left(\frac{\partial E_y}{\partial x} - \frac{\partial E_x}{\partial y} + \frac{\partial B_z}{\partial t}\right)
+\begin{pmatrix}0&0&0&0\\[2pt]0&0&1&0\\[2pt]0&-1&0&0\\[2pt]0&0&0&0\end{pmatrix} \\[10pt]
+&\quad+ \left(\frac{\partial E_z}{\partial x} - \frac{\partial E_x}{\partial z} - \frac{\partial B_y}{\partial t}\right)
+\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&1\\[2pt]0&0&0&0\\[2pt]0&-1&0&0\end{pmatrix} \\[10pt]
+&\quad+ \left(\frac{\partial E_z}{\partial y} - \frac{\partial E_y}{\partial z} + \frac{\partial B_x}{\partial t}\right)
+\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&1\\[2pt]0&0&-1&0\end{pmatrix}
+{+} A_{xyz}
+\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix}
+\end{aligned}
+$$</div>
 <p>同じ位置の成分を<strong>一枚の行列に足し合わせる</strong>と、$t$-スライスは $16$ 成分すべてが明示された単一の $4\times4$ 反対称行列にまとまる。
 </p>
+<div class="math-block">$$
+\mathbf{S}_{t}^{(dF)}
+{=}
+\left(\begin{array}{c|cccc}
+ & t & x & y & z \\\hline
+t & 0 & 0 & 0 & 0 \\[6pt]
+x & 0 & 0 &
+\displaystyle\frac{\partial E_y}{\partial x} {-} \frac{\partial E_x}{\partial y} {+} \frac{\partial B_z}{\partial t} &
+\displaystyle\frac{\partial E_z}{\partial x} {-} \frac{\partial E_x}{\partial z} {-} \frac{\partial B_y}{\partial t} \\[14pt]
+y & 0 &
+\displaystyle{-}\frac{\partial E_y}{\partial x} {+} \frac{\partial E_x}{\partial y} {-} \frac{\partial B_z}{\partial t} &
+0 &
+\displaystyle\frac{\partial E_z}{\partial y} {-} \frac{\partial E_y}{\partial z} {+} \frac{\partial B_x}{\partial t} \\[14pt]
+z & 0 &
+\displaystyle{-}\frac{\partial E_z}{\partial x} {+} \frac{\partial E_x}{\partial z} {+} \frac{\partial B_y}{\partial t} &
+\displaystyle{-}\frac{\partial E_z}{\partial y} {+} \frac{\partial E_y}{\partial z} {-} \frac{\partial B_x}{\partial t} &
+0
+\end{array}\right)
+$$</div>
 <p>$x,y,z$ のスライス $\mathbf{S}_{x}^{(dF)}, \mathbf{S}_{y}^{(dF)}, \mathbf{S}_{z}^{(dF)}$ も同様に4項の線形結合から得られる。$dF$ 全体は、これら4枚のスライス行列の束である。
 </p>
 <h3 id="E3-フロベニウス積で係数を抜き出す">E.3 フロベニウス積で係数を抜き出す</h3>
@@ -293,8 +475,14 @@ window.MathJax = {
 <blockquote><p>
 **注** （計量由来の内積ではない）ここでのフロベニウス積は、ミンコフスキー計量に由来する時空の内積ではない。反対称行列表示から係数を抜き出すための、配列上のペアリングである。基底スライス行列との係数抽出演算として使っており、$\frac{1}{2}\operatorname{tr}(A^T B)$ はそのための計算手段だ。<br>
 </p></blockquote>
+<div class="math-block">$$
+A \cdot B = \frac{1}{2}\operatorname{tr}(A^T B) = \frac{1}{2}\sum_{i=1}^{4}\sum_{j=1}^{4} A_{ij}B_{ij}
+$$</div>
 <p>この内積を使うと、各スライスから係数を<strong>一行で抽出</strong>できる。たとえば $A_{txy}$ は
 </p>
+<div class="math-block">$$
+A_{txy} = \mathbf{S}_{t}^{(\omega_1)} \cdot \mathbf{S}_{t}^{(dF)}
+$$</div>
 <p>である。$\mathbf{S}_{t}^{(\omega_1)}$ の非ゼロ成分は $(x,y)=+1, (y,x)=-1$ だけなので、フロベニウス積は $(1 \cdot S_{xy} + (-1) \cdot S_{yx})/2 = (S_{xy} - S_{yx})/2 = S_{xy}$（$\mathbf{S}_{t}^{(dF)}$ が反対称だから $S_{yx}=-S_{xy}$）。一発で係数が抜ける。
 </p>
 <p>同様に、<strong>すべての係数は対応する基底スライスとのフロベニウス積で得られる</strong>。この構造は、第6章付録D で $\ast_{2\to1}(\mathbf{M}) = (E_1\!\cdot\!\mathbf{M},\;E_2\!\cdot\!\mathbf{M},\;E_3\!\cdot\!\mathbf{M})$ が $2$-form $\mathbf{M}$ の各成分を抽出したのと完全に相似である。次数が $1\to2$ から $2\to3$ に上がり、内積をとる相手が縦ベクトルから $4\times4$ 行列の束に変わっただけだ。
@@ -302,6 +490,12 @@ window.MathJax = {
 <h3 id="E4-をスライスで読む">E.4 $dF=0$ をスライスで読む</h3>
 <p>$dF=0$ とは、4枚のスライス行列すべてがゼロ行列になることである。
 </p>
+<div class="math-block">$$
+\mathbf{S}_{t}^{(dF)} = \mathbf{0},\quad
+\mathbf{S}_{x}^{(dF)} = \mathbf{0},\quad
+\mathbf{S}_{y}^{(dF)} = \mathbf{0},\quad
+\mathbf{S}_{z}^{(dF)} = \mathbf{0}
+$$</div>
 <p>$t$-スライス（上記）の非ゼロ成分を読めば、
 <ul class="tex2jax_ignore">
 <li>$(x,y)$ 成分 $=0$ から $\mathrm{rot}_z\,\mathbf{E} + \partial B_z/\partial t = 0$</li>
@@ -315,12 +509,60 @@ window.MathJax = {
 </p>
 <p>$d(\ast F)$ の $\omega_1\sim\omega_4$ 係数を $B_{txy}, B_{txz}, B_{tyz}, B_{xyz}$ と書く。
 </p>
+<div class="math-block">$$
+\begin{aligned}
+B_{txy} &= \frac{\partial B_x}{\partial y} - \frac{\partial B_y}{\partial x} + \frac{\partial E_z}{\partial t}
+\quad (\text{§10.5 の } dt\wedge dx\wedge dy \text{ 係数}) \\[6pt]
+B_{txz} &= \frac{\partial B_x}{\partial z} - \frac{\partial B_z}{\partial x} - \frac{\partial E_y}{\partial t} \\[6pt]
+B_{tyz} &= \frac{\partial B_y}{\partial z} - \frac{\partial B_z}{\partial y} + \frac{\partial E_x}{\partial t} \\[6pt]
+B_{xyz} &= \frac{\partial E_x}{\partial x} + \frac{\partial E_y}{\partial y} + \frac{\partial E_z}{\partial z}
+\quad (= \mathrm{div}\,\mathbf{E})
+\end{aligned}
+$$</div>
 <p>$d(\ast F)$ の各スライスも $dF$ と同様に、4つの係数 $B_{\cdots}$ で基底スライス行列を線形結合すればよい。$t$-スライスを項別に書く。
 </p>
+<div class="math-block">$$
+\begin{aligned}
+\mathbf{S}_{t}^{(d(\ast F))}
+&= \left(\frac{\partial B_x}{\partial y} - \frac{\partial B_y}{\partial x} + \frac{\partial E_z}{\partial t}\right)
+\begin{pmatrix}0&0&0&0\\[2pt]0&0&1&0\\[2pt]0&-1&0&0\\[2pt]0&0&0&0\end{pmatrix} \\[10pt]
+&\quad+ \left(\frac{\partial B_x}{\partial z} - \frac{\partial B_z}{\partial x} - \frac{\partial E_y}{\partial t}\right)
+\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&1\\[2pt]0&0&0&0\\[2pt]0&-1&0&0\end{pmatrix} \\[10pt]
+&\quad+ \left(\frac{\partial B_y}{\partial z} - \frac{\partial B_z}{\partial y} + \frac{\partial E_x}{\partial t}\right)
+\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&1\\[2pt]0&0&-1&0\end{pmatrix}
+{+} B_{xyz}
+\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix}
+\end{aligned}
+$$</div>
 <p>同じ位置の成分を一枚の行列に足し合わせる。$dF$ の $t$-スライスと見比べてほしい——$\mathbf{E}$ と $\mathbf{B}$（および添字の巡回）がきれいに入れ替わっている。
 </p>
+<div class="math-block">$$
+\mathbf{S}_{t}^{(d(\ast F))}
+{=}
+\left(\begin{array}{c|cccc}
+ & t & x & y & z \\\hline
+t & 0 & 0 & 0 & 0 \\[6pt]
+x & 0 & 0 &
+\displaystyle\frac{\partial B_x}{\partial y} {-} \frac{\partial B_y}{\partial x} {+} \frac{\partial E_z}{\partial t} &
+\displaystyle\frac{\partial B_x}{\partial z} {-} \frac{\partial B_z}{\partial x} {-} \frac{\partial E_y}{\partial t} \\[14pt]
+y & 0 &
+\displaystyle{-}\frac{\partial B_x}{\partial y} {+} \frac{\partial B_y}{\partial x} {-} \frac{\partial E_z}{\partial t} &
+0 &
+\displaystyle\frac{\partial B_y}{\partial z} {-} \frac{\partial B_z}{\partial y} {+} \frac{\partial E_x}{\partial t} \\[14pt]
+z & 0 &
+\displaystyle{-}\frac{\partial B_x}{\partial z} {+} \frac{\partial B_z}{\partial x} {+} \frac{\partial E_y}{\partial t} &
+\displaystyle{-}\frac{\partial B_y}{\partial z} {+} \frac{\partial B_z}{\partial y} {-} \frac{\partial E_x}{\partial t} &
+0
+\end{array}\right)
+$$</div>
 <p>右辺 $\mu_0(\ast\mathcal{J})$ も同じ4枚のスライス行列の線形結合で書ける。$\ast\mathcal{J}$ を本付録の基底順に展開し直すと（§10.5 参照）、$\omega_1\!\sim\!\omega_4$ の係数は順に $-\mu_0 c J_z,\; +\mu_0 c J_y,\; -\mu_0 c J_x,\; \rho/\varepsilon_0$ となる。すなわち
 </p>
+<div class="math-block">$$
+\mathbf{S}_{t}^{(d(\ast F))} = \mathbf{S}_{t}^{(\mu_0\ast\mathcal{J})},\quad
+\mathbf{S}_{x}^{(d(\ast F))} = \mathbf{S}_{x}^{(\mu_0\ast\mathcal{J})},\quad
+\mathbf{S}_{y}^{(d(\ast F))} = \mathbf{S}_{y}^{(\mu_0\ast\mathcal{J})},\quad
+\mathbf{S}_{z}^{(d(\ast F))} = \mathbf{S}_{z}^{(\mu_0\ast\mathcal{J})}
+$$</div>
 <p>$t$-スライスの非ゼロ成分を読めば $-\mathrm{rot}\,\mathbf{B} + \partial\mathbf{E}/\partial t = -c\mu_0\mathbf{J}$、すなわち $\mathrm{rot}\,\mathbf{B} = c\mu_0\mathbf{J} + \partial\mathbf{E}/\partial t$ の各成分。$z$-スライスの $(x,y)$ 成分からは $\mathrm{div}\,\mathbf{E} = \rho/\varepsilon_0$ が現れる。
 </p>
 <hr />

@@ -97,15 +97,19 @@ window.MathJax = {
 </p>
 <p>いま、空間内の領域 $V$ の体積を測りたい。$V$ の形がどんなに曲がっていても、十分細かく刻めば各小片はほぼ直方体と見なせる。そこで $V$ を $x$ 方向・$y$ 方向・$z$ 方向に刻み、$V$ の内部にある小直方体に番号 $i$ を振る。第 $i$ 小直方体の三辺を
 </p>
+<div class="math-block">$$\Delta x_i\,\hat{e}_x,\quad \Delta y_i\,\hat{e}_y,\quad \Delta z_i\,\hat{e}_z$$</div>
 <p>とする。これら三本のベクトルを体積測定器 $dx \wedge dy \wedge dz$ に食わせると：
 </p>
+<div class="math-block">$$(dx \wedge dy \wedge dz)(\Delta x_i\,\hat{e}_x,\; \Delta y_i\,\hat{e}_y,\; \Delta z_i\,\hat{e}_z) = \det\begin{pmatrix}\Delta x_i & 0 & 0 \\ 0 & \Delta y_i & 0 \\ 0 & 0 & \Delta z_i\end{pmatrix} = \Delta x_i\,\Delta y_i\,\Delta z_i$$</div>
 <blockquote><p>
 **注** （はかりと図形の縮約）ここで起きていることは、第2章 §2.5.10 で見たパターンそのものだ。**$3$-form（体積測定器＝はかり）**が**$3$-vector（体積素＝図形）**を食べてスカラーを吐き出す。この縮約が各小直方体で行われる。<br>
 </p></blockquote>
 <p>各小直方体から得られたスカラー $\Delta x_i\,\Delta y_i\,\Delta z_i$ を、$V$ の内部にあるすべての小直方体について足し上げる：
 </p>
+<div class="math-block">$$\sum_{\text{小直方体 }i \subset V} \Delta x_i\,\Delta y_i\,\Delta z_i$$</div>
 <p>そして刻みを無限に細かくする極限をとる。この極限を
 </p>
+<div class="math-block">$$\iiint_V dx \wedge dy \wedge dz$$</div>
 <p>と<strong>書くことにする</strong>。これが $3$-form の積分——体積分——の定義である。
 </p>
 <blockquote><p>
@@ -118,18 +122,34 @@ window.MathJax = {
 </p>
 <p>§3.1.1 のリーマン和をどう整理すれば計算できるか。球の内部で $z$ をある値に固定すると、$x, y$ の満たすべき条件は $x^2 + y^2 \le R^2 - z^2$ である。さらに $y$ も固定すれば $x^2 \le R^2 - z^2 - y^2$。したがって $x$ の動く範囲は $-\sqrt{R^2 - z^2 - y^2}$ から $+\sqrt{R^2 - z^2 - y^2}$ まで、$y$ の範囲は $-\sqrt{R^2 - z^2}$ から $+\sqrt{R^2 - z^2}$ まで、$z$ の範囲は $-R$ から $+R$ まで。この順に和をとる——第1章 §1.1 でやった1次元のリーマン和を三回重ねる——と考えれば、極限では：
 </p>
+<div class="math-block">$$\iiint_V dx \wedge dy \wedge dz = \int_{-R}^{R} \Biggl( \int_{-\sqrt{R^2 - z^2}}^{\sqrt{R^2 - z^2}} \Biggl( \int_{-\sqrt{R^2 - z^2 - y^2}}^{\sqrt{R^2 - z^2 - y^2}} dx \Biggr) dy \Biggr) dz$$</div>
 <p>右辺の $dx, dy, dz$ は、左辺の $dx \wedge dy \wedge dz$ を順に和の整理に使った結果として並んでいる。$\wedge$ を省略しているのではない。カッコの内側から順に、$x$ についての和（$\int dx$）→ $y$ についての和（$\int dy$）→ $z$ についての和（$\int dz$）を実行する、という意味である。
 </p>
 <p>一番内側の $x$ についての和（極限で $x$ 積分）はすぐに実行できる：
 </p>
+<div class="math-block">$$\int_{-\sqrt{R^2 - z^2 - y^2}}^{\sqrt{R^2 - z^2 - y^2}} dx = 2\sqrt{R^2 - z^2 - y^2}$$</div>
 <p>次に $y$ 積分。$a = \sqrt{R^2 - z^2}$ とおけば：
 </p>
+<div class="math-block">$$\int_{-a}^{a} 2\sqrt{a^2 - y^2}\,dy$$</div>
 <p>ここで置換積分（高校数学）を使う。$y = a\sin t$ とおくと、$dy = a\cos t\,dt$。$y$ が $-a \to a$ のとき $t$ は $-\pi/2 \to \pi/2$。また $\sqrt{a^2 - y^2} = \sqrt{a^2 - a^2\sin^2 t} = a\cos t$（$t \in [-\pi/2,\pi/2]$ では $\cos t \ge 0$ だから絶対値が外れる）。したがって：
 </p>
+<div class="math-block">$$\begin{aligned}
+\int_{-a}^{a} 2\sqrt{a^2 - y^2}\,dy
+&= \int_{-\pi/2}^{\pi/2} 2\cdot a\cos t \cdot a\cos t\,dt \\
+&= 2a^2\!\int_{-\pi/2}^{\pi/2} \cos^2 t\,dt
+\end{aligned}$$</div>
 <p>$\cos^2 t = (1 + \cos 2t)/2$ だから：
 </p>
+<div class="math-block">$$\begin{aligned}
+2a^2\!\int_{-\pi/2}^{\pi/2} \frac{1 + \cos 2t}{2}\,dt
+&= a^2\int_{-\pi/2}^{\pi/2} (1 + \cos 2t)\,dt \\[4pt]
+&= a^2\Bigl[t + \frac{\sin 2t}{2}\Bigr]_{-\pi/2}^{\pi/2} \\[4pt]
+&= a^2\Bigl[\Bigl(\frac{\pi}{2} + 0\Bigr) - \Bigl(-\frac{\pi}{2} + 0\Bigr)\Bigr] \\[4pt]
+&= \pi a^2 = \pi(R^2 - z^2)
+\end{aligned}$$</div>
 <p>最後に $z$ 積分：
 </p>
+<div class="math-block">$$\int_{-R}^{R} \pi(R^2 - z^2)\,dz = 2\pi\Bigl[R^2 z - \frac{z^3}{3}\Bigr]_{0}^{R} = 2\pi\cdot\frac{2R^3}{3} = \frac{4}{3}\pi R^3$$</div>
 <blockquote><p>
 **注** （この計算の意味）ここで我々がやったことは、§3.1.1 のリーマン和の整理にすぎない。$x,y,z$ のまま、どの小直方体が球の内部にあるかを判定しながら和をとるかわりに、和の順序を $x \to y \to z$ と整理した。各段階は第1章でやった1変数のリーマン和であり、極限で見慣れた1変数積分の計算になる。それだけである。測定器と図形の縮約を愚直に集計すれば $4\pi R^3/3$ に到達する。<br>
 </p></blockquote>
@@ -150,10 +170,12 @@ window.MathJax = {
 </p>
 <p>では曲面が曲がっていたらどうなるか。一般に、曲面 $S$ が二つのパラメータ $u, v$ で
 </p>
+<div class="math-block">$$\mathbf{r}(u,v) = \bigl(x(u,v),\, y(u,v),\, z(u,v)\bigr)$$</div>
 <p>と表されているとする。$u, v$ が平面内の領域 $D$ を動くとき、$\mathbf{r}(u,v)$ が曲面 $S$ を描く。
 </p>
 <p>曲面を小区画に刻む。$u$ 方向に $\Delta u$、$v$ 方向に $\Delta v$ だけ進んだときの変位ベクトルは、偏微分を使って
 </p>
+<div class="math-block">$$\mathbf{r}_u = \frac{\partial \mathbf{r}}{\partial u},\qquad \mathbf{r}_v = \frac{\partial \mathbf{r}}{\partial v}$$</div>
 <p>と近似できる（$\Delta u, \Delta v$ が十分小さいとき）。この二本が張る平行四辺形が、曲面の小片の近似だ。$\mathbf{r}_u, \mathbf{r}_v$ が平行でなく、ちゃんと面を張っているとする。
 </p>
 <blockquote><p>
@@ -161,28 +183,36 @@ window.MathJax = {
 </p></blockquote>
 <p>この面素 $\mathbf{r}_u \Delta u,\; \mathbf{r}_v \Delta v$ を面積測定器 $dx \wedge dy$ に食わせる。$u,v$ 方向の刻みに番号 $i,j$ を振れば、第 $(i,j)$ 小区画からの寄与は：
 </p>
+<div class="math-block">$$(dx \wedge dy)(\mathbf{r}_u \Delta u,\; \mathbf{r}_v \Delta v) = (dx \wedge dy)(\mathbf{r}_u, \mathbf{r}_v)\,\Delta u\,\Delta v$$</div>
 <p>第2章 §2.4.4 の定義より：
 </p>
+<div class="math-block">$$(dx \wedge dy)(\mathbf{r}_u, \mathbf{r}_v) = \det\begin{pmatrix} \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\ \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} \end{pmatrix} = \frac{\partial x}{\partial u} \frac{\partial y}{\partial v} - \frac{\partial x}{\partial v} \frac{\partial y}{\partial u}$$</div>
 <blockquote><p>
 **注** （$2$-form と $2$-vector の縮約）ここでも同じ構図だ。**$2$-form（面積測定器＝はかり）**が**$2$-vector（面素＝図形）**を食べてスカラー（影の面積）を返す。各小区画でこの縮約が行われる。<br>
 </p></blockquote>
 <p>これを $D$ 内のすべての小区画について足し上げる：
 </p>
+<div class="math-block">$$\sum_i\sum_j (\frac{\partial x}{\partial u} \frac{\partial y}{\partial v} - \frac{\partial x}{\partial v} \frac{\partial y}{\partial u})\,\Delta u\,\Delta v$$</div>
 <p>刻みを無限に細かくする極限を
 </p>
+<div class="math-block">$$\iint_S dx \wedge dy$$</div>
 <p>と<strong>書くことにする</strong>。これが $2$-form の積分——面積分——の定義である。構成は §3.1 の体積分と同じ型で、食わせるベクトルが2本になっただけだ。
 </p>
 <h4 id="322-が測るもの球面で試す">3.2.2 $dx \wedge dy$ が測るもの——球面で試す</h4>
 <p>実際に球面で計算してみよう。半径 $R$ の球面の上半分（$z \ge 0$）を考える。この曲面は、$x, y$ をそのままパラメータとして
 </p>
+<div class="math-block">$$z = f(x,y) = \sqrt{R^2 - x^2 - y^2},\qquad x^2 + y^2 \le R^2$$</div>
 <p>と書ける（グラフ表示）。$\mathbf{r}(x,y) = (x,\; y,\; f(x,y))$ とパラメータ表示すれば、偏微分は：
 </p>
+<div class="math-block">$$\mathbf{r}_x = \frac{\partial \mathbf{r}}{\partial x} = \begin{pmatrix} 1 \\[2pt] 0 \\[2pt] \frac{\partial f}{\partial x} \end{pmatrix},\qquad \mathbf{r}_y = \frac{\partial \mathbf{r}}{\partial y} = \begin{pmatrix} 0 \\[2pt] 1 \\[2pt] \frac{\partial f}{\partial y} \end{pmatrix}$$</div>
 <p>ここで $\frac{\partial f}{\partial x} = \dfrac{\partial f}{\partial x} = -\dfrac{x}{\sqrt{R^2 - x^2 - y^2}},\; \frac{\partial f}{\partial y} = \dfrac{\partial f}{\partial y} = -\dfrac{y}{\sqrt{R^2 - x^2 - y^2}}$。
 </p>
 <p>まず $dx \wedge dy$ だけを曲面に食わせてみる：
 </p>
+<div class="math-block">$$(dx \wedge dy)(\mathbf{r}_x, \mathbf{r}_y) = \det\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = 1$$</div>
 <p>したがって上半球面での $dx \wedge dy$ の積分は：
 </p>
+<div class="math-block">$$\iint_{S_{\text{upper}}} dx \wedge dy$$</div>
 <p>の計算は §3.1.2 の $y$ 積分と同じ方法でできて（$a$ を $R$ と思えばまったく同じ）、結果は $\pi R^2$ である。これは上半球を $xy$ 平面に落とした影——半径 $R$ の円板——の面積にほかならない。
 </p>
 <p>下半球（$z = -\sqrt{R^2 - x^2 - y^2}$）でも同様に計算すると、$(dx \wedge dy)(\mathbf{r}_x, \mathbf{r}_y) = 1$ は変わらない（確かめてほしい）が、面の向きが裏返るために符号が反転し、積分は $-\pi R^2$ になる。
@@ -194,20 +224,37 @@ window.MathJax = {
 </p>
 <p>上半球面で残り二つも計算しよう（§3.2.1 の $u=x,\;v=y$ の例）：
 </p>
+<div class="math-block">$$\begin{aligned}
+(dy \wedge dz)(\mathbf{r}_x, \mathbf{r}_y) &= y_x z_y - y_y z_x = 0\cdot \frac{\partial f}{\partial y} - 1\cdot \frac{\partial f}{\partial x} = -\frac{\partial f}{\partial x} = \frac{x}{\sqrt{R^2 - x^2 - y^2}} \\[4pt]
+(dz \wedge dx)(\mathbf{r}_x, \mathbf{r}_y) &= z_x x_y - z_y x_x = \frac{\partial f}{\partial x}\cdot 0 - \frac{\partial f}{\partial y}\cdot 1 = -\frac{\partial f}{\partial y} = \frac{y}{\sqrt{R^2 - x^2 - y^2}} \\[4pt]
+(dx \wedge dy)(\mathbf{r}_x, \mathbf{r}_y) &= 1
+\end{aligned}$$</div>
 <p>これら三つの値——$A_{yz},\,A_{zx},\,A_{xy}$——が、各点での面素の<strong>向きと大きさ</strong>の情報を完全にエンコードしている。第2章 §2.4.6 で見た「向き付き面積＝三つの基底 $\hat{e}_y \wedge \hat{e}_z$ 等の線形結合」の曲面版である。
 </p>
 <p>では、これら三つの「影」から曲面のスカラー面積を取り出す。やることは第2章 §2.4.7 の平行四辺形のときと<strong>一字一句同じ</strong>——三つの値の二乗和の平方根をとればよい：
 </p>
+<div class="math-block">$$\begin{aligned}
+\sqrt{A_{yz}^2 + A_{zx}^2 + A_{xy}^2}
+&= \sqrt{\Bigl(\frac{x}{\sqrt{R^2 - x^2 - y^2}}\Bigr)^2 + \Bigl(\frac{y}{\sqrt{R^2 - x^2 - y^2}}\Bigr)^2 + 1^2} \\
+&= \sqrt{\frac{x^2 + y^2}{R^2 - x^2 - y^2} + 1} \\
+&= \sqrt{\frac{R^2}{R^2 - x^2 - y^2}}
+= \frac{R}{\sqrt{R^2 - x^2 - y^2}}
+\end{aligned}$$</div>
 <p>これをパラメータ領域 $x^2 + y^2 \le R^2$ 全体で積分すれば、上半球面の面積が得られる：
 </p>
+<div class="math-block">$$\iint_{x^2+y^2 \le R^2} \frac{R}{\sqrt{R^2 - x^2 - y^2}}\;dx \wedge dy = R\int_{-R}^{R}\int_{-\sqrt{R^2-x^2}}^{\sqrt{R^2-x^2}} \frac{dy}{\sqrt{R^2 - x^2 - y^2}}\;dx$$</div>
 <p>内側の $y$ 積分。$a = \sqrt{R^2 - x^2}$ とおく：
 </p>
+<div class="math-block">$$\int_{-a}^{a} \frac{dy}{\sqrt{a^2 - y^2}}$$</div>
 <p>置換積分 $y = a\sin t$ を使う（§3.1.2 と同じ手順）。$dy = a\cos t\,dt$、$\sqrt{a^2 - y^2} = a\cos t$、$y$ が $-a \to a$ のとき $t$ は $-\pi/2 \to \pi/2$：
 </p>
+<div class="math-block">$$\int_{-a}^{a} \frac{dy}{\sqrt{a^2 - y^2}} = \int_{-\pi/2}^{\pi/2} \frac{a\cos t}{a\cos t}\,dt = \int_{-\pi/2}^{\pi/2} dt = \pi$$</div>
 <p>積分結果は $a$ に依らず $\pi$ ！ したがって：
 </p>
+<div class="math-block">$$R\int_{-R}^{R} \pi\,dx = R \cdot \pi \cdot 2R = 2\pi R^2$$</div>
 <p>これが上半球面の面積。下半球面でも符号は一部反転するが二乗和は同じなので、同じく $2\pi R^2$。よって球面全体の面積は：
 </p>
+<div class="math-block">$$2\pi R^2 + 2\pi R^2 = 4\pi R^2$$</div>
 <p>見事に $4\pi R^2$ が出た。第2章 §2.4.7 で平行四辺形の面積を三つの影から復元したのと、<strong>まったく同じパターン</strong>である。
 </p>
 <h4 id="324-ここまででわかったこと">3.2.4 ここまででわかったこと</h4>
@@ -229,16 +276,20 @@ window.MathJax = {
 </p>
 <p>では曲線に沿ってこれらを適用し、集計すると何が出るか。曲線を時刻 $t$ の関数として
 </p>
+<div class="math-block">$$\gamma(t) = \bigl(x(t),\, y(t),\, z(t)\bigr),\qquad t \in [t_0, t_1]$$</div>
 <p>と表す。曲線を小区間に刻み、$i$ 番目の小区間での変位ベクトルを $\Delta\mathbf{r}_i = \gamma(t_i + \Delta t) - \gamma(t_i)$ とする。$\Delta\mathbf{r}_i$ は有限の変位であり、近似ではない。成分を明示すれば $\Delta\mathbf{r}_i = (\Delta x_i,\; \Delta y_i,\; \Delta z_i)$ である。
 </p>
 <p>各小区間で<strong>行列 $dx$ を変位ベクトル $\Delta\mathbf{r}_i$ に作用させる</strong>：
 </p>
+<div class="math-block">$$dx(\Delta\mathbf{r}_i) = \begin{pmatrix}1&0&0\end{pmatrix} \begin{pmatrix}\Delta x_i \\ \Delta y_i \\ \Delta z_i\end{pmatrix} = \Delta x_i = \frac{\Delta x_i}{\Delta t}\,\Delta t$$</div>
 <p>この $\Delta x_i/\Delta t$ は有限のままの比であり、近似ではない。全区間で足し上げれば、各項が $\Delta t$ ごとの換算率 $\Delta x_i/\Delta t$ を持つ正確な和になる：
 </p>
+<div class="math-block">$$\sum_i dx(\Delta\mathbf{r}_i) = \sum_i \frac{\Delta x_i}{\Delta t}\,\Delta t$$</div>
 <p>刻みを無限に細かくする極限で、換算率は導関数に収束する：$\Delta x_i/\Delta t \to dx/dt$。この極限を
 </p>
 <p>刻みを無限に細かくする極限を
 </p>
+<div class="math-block">$$\int_\gamma dx$$</div>
 <p>と<strong>書くことにする</strong>。これが $1$-form の積分——線積分——の定義である。
 </p>
 <blockquote><p>
@@ -246,27 +297,36 @@ window.MathJax = {
 </p></blockquote>
 <p>この極限は第1章 §1.2.5 の置換積分とまったく同じ形であり：
 </p>
+<div class="math-block">$$\int_\gamma dx = \int_{t_0}^{t_1} \frac{dx}{dt}\,dt = x(t_1) - x(t_0)$$</div>
 <p>同様に $\int_\gamma dy = y(t_1) - y(t_0)$、$\int_\gamma dz = z(t_1) - z(t_0)$。すなわち<strong>$dx, dy, dz$ という $1$-form の線積分は、曲線の正味の変位——始点と終点の座標の差——を返す。</strong>
 </p>
 <h4 id="332-円周で試す弧長は出ない">3.3.2 円周で試す——弧長は出ない</h4>
 <p>確認しよう。半径 $R$ の円を
 </p>
+<div class="math-block">$$\gamma(t) = (R\cos t,\; R\sin t,\; 0),\qquad t \in [0, 2\pi]$$</div>
 <p>とパラメータ表示する。$\gamma'(t) = (-R\sin t,\; R\cos t,\; 0)$ だから：
 </p>
+<div class="math-block">$$\begin{aligned}
+\int_\gamma dx &= \int_0^{2\pi} dx(\gamma'(t))\,dt = \int_0^{2\pi} (-R\sin t)\,dt = R\bigl[\cos t\bigr]_0^{2\pi} = 0 \\[4pt]
+\int_\gamma dy &= \int_0^{2\pi} dy(\gamma'(t))\,dt = \int_0^{2\pi} (R\cos t)\,dt = R\bigl[\sin t\bigr]_0^{2\pi} = 0
+\end{aligned}$$</div>
 <p>いずれもゼロである。閉曲線だから始点と終点が同じで、行きと帰りで打ち消し合う——当然の結果だ。
 </p>
 <p>しかし、この円の弧長が $2\pi R$ であることも我々は知っている。係数1の $dx, dy$ だけではゼロになってしまうが、では<strong>どうすれば弧長が出るのか</strong>。
 </p>
 <p>各瞬間に $dx, dy$ が測った値はすでに手元にある。$dx(\gamma'(t)) = -R\sin t$、$dy(\gamma'(t)) = R\cos t$。これらはスカラーだから、二乗して足すことができる：
 </p>
+<div class="math-block">$$dx(\gamma'(t))^2 + dy(\gamma'(t))^2 = R^2\sin^2 t + R^2\cos^2 t = R^2$$</div>
 <p>その平方根をとれば、その瞬間の速さ $|\gamma'(t)| = R$ が得られる。全区間で積分すれば：
 </p>
+<div class="math-block">$$\int_0^{2\pi} \!\sqrt{dx(\gamma'(t))^2 + dy(\gamma'(t))^2}\;dt = \int_0^{2\pi} \!R\,dt = 2\pi R$$</div>
 <p>弧長 $2\pi R$ が出た。ここで起きていることは重要だ——$dx$ も $dy$ も単独では閉曲線でゼロになったのに、それらの二乗和の平方根をとって積分すると、正しい弧長が姿を現した。係数1の $1$-form にはなかった「長さを測る力」が、二乗和という代数的な組み換えによって回復されたのである。
 </p>
 <p>弧長 $2\pi R$ が出た。
 </p>
 <p>ここで起きていることを整理しよう。各時刻 $t$ で $dx(\gamma'(t))$ と $dy(\gamma'(t))$ という二つのスカラーを得て、それらの二乗和の平方根 $\sqrt{dx(\gamma'(t))^2 + dy(\gamma'(t))^2}$ をとり、$t$ で積分した。これはすなわち、「変位 $\mathbf{v}$ に対して $\sqrt{dx(\mathbf{v})^2 + dy(\mathbf{v})^2}$ を返す」という新しい $1$-form を曲線上で積分したことにほかならない。この $1$-form を $ds$ と書く：
 </p>
+<div class="math-block">$$ds(\mathbf{v}) = \sqrt{dx(\mathbf{v})^2 + dy(\mathbf{v})^2}$$</div>
 <blockquote><p>
 **注** （記法について）第1章 §1.1.6 の契約により、単独の $dx$ は横ベクトル（演算子）であり、それ自体を二乗することはできない。$dx(\mathbf{v})^2$ は、$1$-form $dx$ をベクトル $\mathbf{v}$ に**作用させて得たスカラー**を二乗したものである。この区別を崩さないことが、本書の記法の一貫性を保つ。<br>
 </p></blockquote>
@@ -307,18 +367,23 @@ window.MathJax = {
 <h4 id="341-一般の--form-の線積分仕事">3.4.1 一般の $1$-form の線積分（仕事）</h4>
 <p>実空間で、係数が点 $(x,y,z)$ に依存するスカラー場 $\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z}$ をとり、
 </p>
+<div class="math-block">$$\omega = \frac{\partial f}{\partial x}(x,y,z)\,dx + \frac{\partial f}{\partial y}(x,y,z)\,dy + \frac{\partial f}{\partial z}(x,y,z)\,dz$$</div>
 <p>を<strong>$1$-form の一般形</strong>と呼ぶ。各 $dx, dy, dz$ は第1章どおり、縦ベクトルから成分を読み取る横ベクトルである。係数 $\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z}$ は場所ごとに変わる重み——$0$-form——である。
 </p>
 <p>曲線 $\gamma(t)$ に沿った積分は、§3.3.1 のリーマン和に係数を乗せるだけだ。各小区間の変位 $\Delta\mathbf{r}_i$ に $\omega$ を食わせる。$\omega$ は横ベクトル、$\Delta\mathbf{r}_i$ は縦ベクトルであり、その縮約は定義そのものとして厳密な等式で書ける：
 </p>
+<div class="math-block">$$\omega(\Delta\mathbf{r}_i) = \frac{\partial f}{\partial x}\,\Delta x_i + \frac{\partial f}{\partial y}\,\Delta y_i + \frac{\partial f}{\partial z}\,\Delta z_i$$</div>
 <p>ここで $=$ であって $\approx$ ではない——これは $\omega$ という横ベクトルと有限変位 $\Delta\mathbf{r}_i$ の縮約であり、近似の余地はない。
 </p>
 <p>各成分の変化を「有限の比 $\times \Delta t$」の形に整理する：
 </p>
+<div class="math-block">$$\omega(\Delta\mathbf{r}_i) = \bigl(\frac{\partial f}{\partial x}\frac{\Delta x_i}{\Delta t} + \frac{\partial f}{\partial y}\frac{\Delta y_i}{\Delta t} + \frac{\partial f}{\partial z}\frac{\Delta z_i}{\Delta t}\bigr)\,\Delta t$$</div>
 <p>$\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z}$ は点 $\gamma(t_i)$ での値。全区間で足し上げて極限をとる。$\Delta x_i/\Delta t \to dx/dt,\; \Delta y_i/\Delta t \to dy/dt,\; \Delta z_i/\Delta t \to dz/dt$ だから：
 </p>
+<div class="math-block">$$\sum_i \omega(\Delta\mathbf{r}_i) \;\xrightarrow{\Delta t \to 0}\; \int_{t_0}^{t_1} \bigl(\frac{\partial f}{\partial x}\frac{dx}{dt} + \frac{\partial f}{\partial y}\frac{dy}{dt} + \frac{\partial f}{\partial z}\frac{dz}{dt}\bigr)\,dt$$</div>
 <p>この極限を
 </p>
+<div class="math-block">$$\int_\gamma \omega$$</div>
 <p>と書く。§3.3.1 の係数1の場合とまったく同じ型で、各瞬間に<strong>横ベクトル（係数付き $1$-form）</strong>が<strong>縦ベクトル（$\gamma'(t)$）</strong>を食べてスカラーを返し、それを集計している。これは第1章 §1.2.5 の $F(x)\,dx$ を3次元に自然拡張しただけである。
 </p>
 <blockquote><p>
@@ -328,17 +393,22 @@ window.MathJax = {
 </p>
 <p>$\omega = y\,dx + x\,dy$ だから、係数は $\frac{\partial f}{\partial x} = y,\; \frac{\partial f}{\partial y} = x$。曲線上では $\frac{\partial f}{\partial x} = \sin t,\; \frac{\partial f}{\partial y} = \cos t$。また $dx/dt = -\sin t,\; dy/dt = \cos t$ より：
 </p>
+<div class="math-block">$$\omega(\gamma'(t)) = (\sin t)(-\sin t) + (\cos t)(\cos t) = -\sin^2\!t + \cos^2\!t = \cos 2t$$</div>
 <p>したがって：
 </p>
+<div class="math-block">$$\int_\gamma \omega = \int_0^{2\pi} \cos 2t\,dt = \Bigl[\frac{1}{2}\sin 2t\Bigr]_0^{2\pi} = 0$$</div>
 <p>仕事がゼロになった。この力場は単位円に沿って正味の仕事をしないのである。
 </p>
 <h4 id="342-一般の--form-の面積分流量">3.4.2 一般の $2$-form の面積分（流量）</h4>
 <p>同様に、三つのスカラー場 $P, Q, R$ を係数とする一般の $2$-form：
 </p>
+<div class="math-block">$$\eta = P\,dy \wedge dz + Q\,dz \wedge dx + R\,dx \wedge dy$$</div>
 <p>曲面 $\mathbf{r}(u,v)$ に沿った積分も、§3.2.1 のリーマン和に係数を乗せるだけだ。各小区画の面素 $(\mathbf{r}_u \Delta u,\; \mathbf{r}_v \Delta v)$ に $\eta$ を食わせる：
 </p>
+<div class="math-block">$$\eta(\mathbf{r}_u \Delta u,\; \mathbf{r}_v \Delta v) = \bigl(P\,(dy \wedge dz) + Q\,(dz \wedge dx) + R\,(dx \wedge dy)\bigr)(\mathbf{r}_u, \mathbf{r}_v)\,\Delta u\,\Delta v$$</div>
 <p>全区画で足し上げて極限をとる。この極限を
 </p>
+<div class="math-block">$$\iint_S \eta$$</div>
 <p>と記す。各点で面素を面積測定器 $\eta$ が食べてスカラーを返し、それを $D$ 全体で集計する点は §3.2 と同じである。
 </p>
 <p>$dy \wedge dz,\; dz \wedge dx,\; dx \wedge dy$ がそれぞれ各平面への「影の面積」を測ることは §3.2 で見た。係数 $P, Q, R$ は、それらの影に<strong>場所ごとに変わる重み</strong>をつける役割を果たす。物理的には、$(P, Q, R)$ が流速場の成分であり、$\iint_S \eta$ が曲面を貫く流量（フラックス）に対応するが、これをベクトル解析の言葉に翻訳して厳密に整理するには計量（内積）が必要である。詳しくは第6章で行う。
@@ -349,10 +419,13 @@ window.MathJax = {
 <h4 id="343-一般の--form-の体積分総質量">3.4.3 一般の $3$-form の体積分（総質量）</h4>
 <p>$3$-form の一般形は、スカラー場 $\rho(x,y,z)$ を係数として：
 </p>
+<div class="math-block">$$\Omega = \rho(x,y,z)\,dx \wedge dy \wedge dz$$</div>
 <p>§3.1.1 のリーマン和に密度 $\rho$ を乗せればよい。各小直方体の体積素に $\Omega$ を食わせる：
 </p>
+<div class="math-block">$$\Omega(\Delta x_i\,\hat{e}_x,\; \Delta y_i\,\hat{e}_y,\; \Delta z_i\,\hat{e}_z) = \rho(x_i,y_i,z_i)\,\Delta x_i\,\Delta y_i\,\Delta z_i$$</div>
 <p>全区間で足し上げて極限をとる。この極限を
 </p>
+<div class="math-block">$$\iiint_V \Omega$$</div>
 <p>と書く。$\rho=1$ なら §3.1 の係数1の場合に戻る。$\rho$ が質量密度なら総質量、電荷密度なら総電荷を与える。$3$-form の独立成分は $dx \wedge dy \wedge dz$ の1つだけなので、<strong>「密度（$\rho$）」と「体積の測り方（$dx \wedge dy \wedge dz$）」がきれいに分離</strong>して見通しがよい。
 </p>
 <h4 id="344-線・面・体の統一像">3.4.4 線・面・体の統一像</h4>
@@ -375,6 +448,7 @@ window.MathJax = {
 <h4 id="345-積分の一般形">3.4.5 積分の一般形</h4>
 <p>§3.1〜§3.3 で別々に定義した線積分、面積分、体積分は、実は一つのパターンにまとまる。$k$-form $\omega$ を $k$ 次元領域 $M$ 上で積分するという操作を、次元によらず
 </p>
+<div class="math-block">$$\int_M \omega$$</div>
 <p>と書く。$M$ が曲線（$k=1$）なら $\int_\gamma$、曲面（$k=2$）なら $\iint_S$、立体（$k=3$）なら $\iiint_V$ ——積分記号の重なりは $M$ の次元で決まるにすぎない。中身は常に「小区分に刻む → $k$-form を $k$-vector に食わせる → 和 $\sum$ → 極限」である。
 </p>
 <p>本書の舞台は 3 次元空間だから $k=1,2,3$ で十分だが、この式が $k$ によらず成立するという事実は頭の片隅に置いておいて損はない。次章で外微分 $d$ を導入したとき、この統一的な見方がストークスの定理の一般形 $\int_{\partial M} \omega = \int_M d\omega$ へと結実する。
@@ -390,6 +464,7 @@ window.MathJax = {
 </ol>
 <p>本章で確立したのは、次の統一原理である：
 </p>
+<strong>$k$-form（はかり）が $k$-vector（図形）を食べてスカラーを返し、それを領域全体で集計する。</strong>次数が $0,1,2,3$ と変わっても、この構図は不変だった。曲線上の仕事も、曲面上の流量も、領域内の総質量も——すべて同じ言語で書ける。
 <blockquote><p>
 **【ここまでのチェックポイント——第3章・第I部全体】**<br>
 - $k$-form $\omega$ の積分 $\int_M \omega$ は「小区分に刻む → $k$-form を $k$-vector に食わせる → 和 → 極限」で定義される。<br>

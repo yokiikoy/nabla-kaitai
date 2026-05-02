@@ -93,10 +93,13 @@ window.MathJax = {
 </p>
 <p>$f(x,y,z)$ がスカラー場のとき、$df$ は $f$ の変化を測る新しい測定器だ。各偏微分係数を成分として持つ横ベクトルになる。
 </p>
+<div class="math-block">$$df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz = \begin{pmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & \frac{\partial f}{\partial z} \end{pmatrix}$$</div>
 <p>$\omega = P\,dx + Q\,dy + R\,dz$ が $1$-form のとき、$d\omega$ は $\omega$ の局所的なズレを測る $2$-form（反対称行列）になる。
 </p>
+<div class="math-block">$$d\omega = \left(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\right)dy\wedge dz + \left(\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x}\right)dz\wedge dx + \left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)dx\wedge dy$$</div>
 <p>$\eta = A\,dy\wedge dz + B\,dz\wedge dx + C\,dx\wedge dy$ が $2$-form のとき、$d\eta$ は $3$-form（三階反対称テンソル）になる。
 </p>
+<div class="math-block">$$d\eta = \left(\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z}\right) dx\wedge dy\wedge dz$$</div>
 <p>このように、$d$ が作用するたびに測定器の次数が $0\to1\to2\to3$ と一つずつ上がっていく。核心は<strong>場はそのまま、測定器の側が変化する</strong>ことだ。$f$ はスカラー場のままだが、$d$ が作用するたびに新しい測定器——$df$（$1$-form）、$d\omega$（$2$-form）、$d\eta$（$3$-form）——が生み出される。
 </p>
 <h4 id="812-測定器はそのまま新たな場を考える-の立場">8.1.2 測定器はそのまま、新たな場を考える——$\nabla$ の立場</h4>
@@ -104,14 +107,17 @@ window.MathJax = {
 </p>
 <p>スカラー場 $f(x,y,z)$ に $\nabla$ を作用させると、各方向の変化率を成分とする縦ベクトル場が得られる。
 </p>
+<div class="math-block">$$\nabla f = \begin{pmatrix} \frac{\partial f}{\partial x} \\[0.3em] \frac{\partial f}{\partial y} \\[0.3em] \frac{\partial f}{\partial z} \end{pmatrix}$$</div>
 <p>これは空間の各点に立つ矢印であり、もはや測定器ではない。$f$ が最も急に増加する方向とその強さを表す。
 </p>
 <p>ベクトル場 $\mathbf{F} = (F_x, F_y, F_z)^T$ に $\nabla\cdot$ を作用させると、スカラー場が得られる。
 </p>
+<div class="math-block">$$\nabla \cdot \mathbf{F} = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z}$$</div>
 <p>各方向の変化率の和——湧き出しの強さ——を返す。
 </p>
 <p>同じ $\mathbf{F}$ に $\nabla\times$ を作用させると、再び縦ベクトル場が得られる。
 </p>
+<div class="math-block">$$\nabla \times \mathbf{F} = \begin{pmatrix} \frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z} \\[0.3em] \frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x} \\[0.3em] \frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y} \end{pmatrix}$$</div>
 <p>渦の軸方向と強さを表す。
 </p>
 <p>$\nabla$ の世界では、結果はつねに実空間の中の矢印かスカラーとして返される。$\nabla f$ も $\nabla\times\mathbf{F}$ も画面上では同じ「矢印」であり、型による区別はつかない。
@@ -128,14 +134,29 @@ window.MathJax = {
 <p>以下、ベクトル場 $\mathbf{F} = (F_x, F_y, F_z)^T$ に対応する $1$-form を $\omega = F_x\,dx + F_y\,dy + F_z\,dz$ と書く。
 </p>
 <h4 id="821-勾配">8.2.1 勾配</h4>
+<div class="math-block">$$
+\mathrm{grad}\,f = \nabla f
+\quad\longleftrightarrow\quad
+df = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy + \frac{\partial f}{\partial z}dz
+$$</div>
 <p>$\nabla f$ は<strong>縦ベクトル</strong>、$df$ は<strong>横ベクトル</strong>。転置の関係にある。本書の記法では、$\nabla f$ の各成分と $df$ の各成分は数値として同じだが、縦と横の区別が「場の見方」と「測定器の見方」の違いを反映している。
 </p>
 <h4 id="822-回転">8.2.2 回転</h4>
+<div class="math-block">$$
+\mathrm{rot}\,\mathbf{F} = \nabla \times \mathbf{F}
+\quad\longleftrightarrow\quad
+\ast d\omega
+$$</div>
 <p>$\nabla\times\mathbf{F}$ は<strong>縦ベクトル</strong>、$d\omega$ は<strong>$2$-form（反対称行列）</strong>、そして $\ast d\omega$ は<strong>$1$-form（横ベクトル）</strong>である。回転は「外微分で次数を上げてから、ホッジ・スターで次数を戻す」という二段階の操作だ。
 </p>
 <p>$\nabla\times\mathbf{F}$ の $x$ 成分 $\frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z}$ は、$\ast d\omega$ の $dx$ の係数と一致する。これは §5.5.2 で確認した通りである。
 </p>
 <h4 id="823-発散">8.2.3 発散</h4>
+<div class="math-block">$$
+\mathrm{div}\,\mathbf{F} = \nabla \cdot \mathbf{F}
+\quad\longleftrightarrow\quad
+\ast d \ast \omega
+$$</div>
 <p>$\nabla\cdot\mathbf{F}$ は<strong>スカラー場</strong>、$\ast d\ast\omega$ も<strong>$0$-form（スカラー場）</strong>である。発散は「ホッジ・スターで $2$-form に変え、外微分で $3$-form に上げ、再びホッジ・スターでスカラーに落とす」という三段階の操作だ。
 </p>
 <h4 id="824-辞書の表">8.2.4 辞書の表</h4>
@@ -159,12 +180,16 @@ window.MathJax = {
 <h4 id="831-から-へ">8.3.1 $\nabla$ から $d$ へ</h4>
 <p>$\nabla$ 表記のストークスの定理を出発点とする。
 </p>
+<div class="math-block">$$\oint_C \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdot \mathbf{n}\,dS$$</div>
 <p>左辺の $\oint_C \mathbf{F}\cdot d\mathbf{r}$ は、ベクトル場 $\mathbf{F}$ を曲線 $C$ に沿って線積分したものだ。$\mathbf{F}$ に対応する $1$-form を $\omega = F_x\,dx + F_y\,dy + F_z\,dz$ とすれば、第3章の定義によりこれは $\int_C \omega$ に等しい。
 </p>
+<div class="math-block">$$\oint_C \mathbf{F} \cdot d\mathbf{r} = \int_{\partial S} \omega$$</div>
 <p>右辺の $\iint_S (\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS$ は、回転の法線成分の面積分である。辞書 $\nabla\times\mathbf{F} \leftrightarrow \ast d\omega$ を使うと、$(\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS$ は $2$-form $\ast(\ast d\omega) = d\omega$ の面積分に対応する（$\ast\ast = \mathrm{id}$ により $\ast$ が打ち消し合う）。
 </p>
+<div class="math-block">$$\iint_S (\nabla \times \mathbf{F}) \cdot \mathbf{n}\,dS = \int_S d\omega$$</div>
 <p>したがって、
 </p>
+<div class="math-block">$$\int_{\partial S} \omega = \int_S d\omega$$</div>
 <p>これは第5章 §4.6 で得た式そのものである。$\nabla$ の世界のストークスの定理は、辞書を通じて $d$ の言葉に翻訳すると、ただの $\int_{\partial M}\omega = \int_M d\omega$ になる。
 </p>
 <h4 id="832-翻訳の往復どちらからでも行ける">8.3.2 翻訳の往復——どちらからでも行ける</h4>
@@ -180,14 +205,17 @@ window.MathJax = {
 <h3 id="84-ガウスの定理を翻訳する">§8.4 ガウスの定理を翻訳する</h3>
 <p>第7章 §6.8.2 のガウスの発散定理も、同様に翻訳できる。
 </p>
+<div class="math-block">$$\oiint_{\partial V} \mathbf{F} \cdot \mathbf{n}\,dS = \iiint_V (\nabla \cdot \mathbf{F})\,dV$$</div>
 <p>左辺の面積分は、$\mathbf{F}$ に対応する $1$-form $\omega$ を使って $\int_{\partial V} \ast\omega$ と書ける（$\ast\omega$ は $2$-form であり、閉曲面上の面積分の対象となる）。
 </p>
 <p>右辺の発散の体積分は、辞書 $\nabla\cdot\mathbf{F} \leftrightarrow \ast d\ast\omega$ により $\int_V \ast d\ast\omega$ となる。ここで $\ast d\ast\omega$ は $0$-form（スカラー場）だから、体積分するには再び $\ast$ を掛けて $3$-form にする必要がある。すなわち $\int_V d\ast\omega$ である。
 </p>
 <p>結局、ガウスの定理は次の形に翻訳される。
 </p>
+<div class="math-block">$$\int_{\partial V} \ast\omega = \int_V d\ast\omega$$</div>
 <p>ここで $\eta = \ast\omega$（$2$-form）と置けば、
 </p>
+<div class="math-block">$$\int_{\partial V} \eta = \int_V d\eta$$</div>
 <p>これは第5章 §4.7 で得たガウスの定理の $d$-form 表現そのものだ。そしてこの式は、すでに §4.9.1 で $\int_{\partial M}\omega = \int_M d\omega$ の $k=2$ の場合として統合されている。
 </p>
 <h4 id="841-三つの定理一つの式">8.4.1 三つの定理、一つの式</h4>
@@ -238,6 +266,7 @@ window.MathJax = {
 </p>
 <p>なのに積分すると一致する。たとえばスカラー場 $f$ の変化を線積分するとき、$df$（横ベクトルの測定器）を使っても $\nabla f$（縦ベクトルの矢印）を使っても、結果はどちらも $f(B)-f(A)$ だ。
 </p>
+<div class="math-block">$$\int_C df = \int_C \nabla f \cdot d\mathbf{r} = f(B) - f(A)$$</div>
 <p>なぜか。$\ast$ が両者を繫いでいるからだ。$\ast$ は、方法②の「矢印」を方法①の「測定器」に変換する（またはその逆）。この変換を経由することで、$\nabla f$ と $df$、$\nabla\times\mathbf{F}$ と $\ast d\omega$、$\nabla\cdot\mathbf{F}$ と $\ast d\ast\omega$ が、積分のレベルで同じ結果を与えることが保証される。
 </p>
 <p>そして $\ast\ast = \mathrm{id}$ があるから、変換を何度往復しても情報は失われない。この往復の自由こそ、両方の言語を話せることの力である。
@@ -264,8 +293,14 @@ window.MathJax = {
 <h4 id="861-辞書は計量で変わる">8.6.1 辞書は計量で変わる</h4>
 <p>第6章 §5.1.3 で円柱座標の計量を導出した。
 </p>
+<div class="math-block">$$\mathbf{g} = \begin{pmatrix} 1 & 0 & 0 \\ 0 & r^2 & 0 \\ 0 & 0 & 1 \end{pmatrix}$$</div>
 <p>この $\mathbf{g} \neq I$ が $\ast$ の辞書にどう影響するか。デカルト座標では $\ast(dx) = dy \wedge dz$ だった。円柱座標の基底 $1$-form を $(dr, d\theta, dz)$ とすると、$\ast$ の辞書は次のように変わる。
 </p>
+<div class="math-block">$$\begin{aligned}
+\ast(dr) &= r\,d\theta \wedge dz \\
+\ast(d\theta) &= \frac{1}{r}\,dz \wedge dr \\
+\ast(dz) &= r\,dr \wedge d\theta
+\end{aligned}$$</div>
 <p>$r$ や $1/r$ という係数は $\mathbf{g} = J^T J$ の対角成分 $1, r^2, 1$ から決まる。$\ast$ の辞書は、その場所の計量を反映して場所ごとに異なる係数を持つ。
 </p>
 <h4 id="862-二つの方法を回してみる">8.6.2 二つの方法を回してみる</h4>
@@ -274,10 +309,12 @@ window.MathJax = {
 <blockquote><p>
 **注** （二次元で考える）第1章以来、二次元の問題を扱うときは $z=0$ と断ってきた。しかし本章まで読み進めた読者に、もはやそのような断りは不要だろう。以下では二次元平面 $(x,y)$ とその極座標 $(r,\theta)$ だけで話を進める。<br>
 </p></blockquote>
+<strong>方法①——場はそのまま、測定器を変える。</strong>
 <p>パラメータ空間 $(r,\theta)$ と実空間 $(x,y)$、二枚のデカルト座標を用意する。パラメータ空間の用紙には、どこも同じ大きさの正方形グリッドが敷き詰められている。この正方形グリッドの上で、我々は測定を行う。
 </p>
 <p>ベクトル場 $\mathbf{F} = (F_x, F_y)^T$ は実空間に住んでいる。その測定器 $\omega = F_x\,dx + F_y\,dy$ を、パラメータ空間の用紙に<strong>引き戻す</strong>。引き戻し（pullback）とは、実空間の測定器をパラメータ空間の言葉に焼き直す操作だ。写像 $\phi: (r,\theta) \to (x,y)$ で実空間に送るのと逆向きに、測定器を戻してくる。$dx = \cos\theta\,dr - r\sin\theta\,d\theta$, $dy = \sin\theta\,dr + r\cos\theta\,d\theta$ を使って、
 </p>
+<div class="math-block">$$\tilde{\omega} = F_r\,dr + (r F_\theta)\,d\theta$$</div>
 <p>が得られる。
 </p>
 <blockquote><p>
@@ -285,10 +322,16 @@ window.MathJax = {
 </p></blockquote>
 <p>ここから先は $\ast d\ast$ の機械的な計算だ。極座標の計量 $\mathbf{g} = \begin{pmatrix} 1 & 0 \\ 0 & r^2 \end{pmatrix}$ から $\ast$ の辞書は $\ast(dr) = r\,d\theta$, $\ast(d\theta) = -\frac{1}{r}\,dr$ となる（§8.6.1 の二次元版）。$d$ は偏微分の係数をそのまま拾うだけ——途中に $\frac{1}{r}$ などを挟み込む必要は一切ない。
 </p>
+<div class="math-block">$$\begin{aligned}
+\ast\tilde{\omega} &= F_r \cdot r\,d\theta + (r F_\theta) \cdot \left(-\frac{1}{r}\,dr\right) = r F_r\,d\theta - F_\theta\,dr \\[0.3em]
+d\ast\tilde{\omega} &= \left(\frac{\partial}{\partial r}(r F_r) + \frac{\partial F_\theta}{\partial \theta}\right) dr \wedge d\theta \\[0.3em]
+\ast d\ast\tilde{\omega} &= \frac{1}{r}\frac{\partial}{\partial r}(r F_r) + \frac{1}{r}\frac{\partial F_\theta}{\partial \theta}
+\end{aligned}$$</div>
 <p>$\frac{1}{r}$ が現れたのは最後の $\ast(dr\wedge d\theta) = \frac{1}{r}$ の一箇所だけだ。途中の $r$ と $\frac{1}{r}$ は、$d\theta$ の係数に付いていた $r$ と $\ast(d\theta)$ の $\frac{1}{r}$ が打ち消し合った結果である。$\ast$ が計量の情報を一手に引き受け、$d$ は純粋に偏微分だけを担当する——この分業こそが方法①の最大の強みだ。
 </p>
 <p>測るのはつねに均一な正方形グリッド。場所ごとの換算係数の違いは pullback が織り込み、$\ast$ が整理する。グリッドは有限でよい——極限は最後の一手で十分だ。
 </p>
+<strong>方法②——測定器はそのまま、新たな場を考える。</strong>
 <p>今度は実空間に一枚のグラフ用紙を使う。極座標 $(r,\theta)$ の上に、点 $(r,\theta)$ を中心とする小さな面積要素を直接描く。$r$ 方向に $\Delta r$、$\theta$ 方向に $\Delta\theta$ の幅を持った小片だ。ここでは<strong>$\Delta r, \Delta\theta$ は微小でなければならない</strong>——角度があるために、有限の $\Delta\theta$ では動径方向の辺が平行にならず、単純な四角形にならないからだ。
 </p>
 <p>この小片は扇形の一部である。$\theta$ 方向の内側の辺の長さは $r\Delta\theta$、外側の辺の長さは $(r+\Delta r)\Delta\theta$ で、$r$ が大きいほど辺が長い。ベクトル場 $\mathbf{F} = (F_r, F_\theta)^T$ がこの小片の四辺を通り抜ける流束を、一辺ずつ勘定する。
@@ -297,13 +340,21 @@ window.MathJax = {
 </p>
 <p>$\theta$ 方向：$\theta$ 側の辺から $-F_\theta(r,\theta) \cdot \Delta r$ が流入し、$\theta+\Delta\theta$ 側の辺から $+F_\theta(r,\theta+\Delta\theta) \cdot \Delta r$ が流出する。同様に処理すれば $\frac{1}{r}\frac{\partial F_\theta}{\partial\theta}$ が現れる。
 </p>
+<div class="math-block">$$\nabla \cdot \mathbf{F} = \frac{1}{r}\frac{\partial}{\partial r}(r F_r) + \frac{1}{r}\frac{\partial F_\theta}{\partial \theta}$$</div>
 <p>実空間に直接小片を描き、壁を通る流れを数え上げる——絵は直感的だ。しかし座標系が変わるたびに小片の形が変わり、毎回異なる勘定を強いられる。$\frac{1}{r}\frac{\partial}{\partial r}(rF_r)$ の $\frac{1}{r}$ は扇形の面積 $r\Delta r\Delta\theta$ で割るために出てくるが、デカルト座標で同じ計算をしたときには現れなかった項だ。
 </p>
+<strong>どちらが優れているというわけではない</strong>
 <p>方法①は均一な正方形グリッドで測り、方法②は扇形の小片を描いて流れを数える。やっていることはまったく違う。しかし出てくる答えは同じ $\frac{1}{r}\frac{\partial}{\partial r}(rF_r) + \frac{1}{r}\frac{\partial F_\theta}{\partial\theta}$ だ。そして、この一致は発散に限らない。勾配も回転もラプラシアンも、すべての微分演算がこの二つの方法で構成できる。単純な座標変換なら方法②のほうが早いこともあるが、座標系が歪んだり場の種類が入り組んだりしたら方法①に切り替えればよい。
 </p>
 <h4 id="863-曲線座標での発散と回転">8.6.3 曲線座標での発散と回転</h4>
 <p>§8.6.1 の辞書と §8.6.2 の方法①を組み合わせれば、円柱座標での発散と回転の公式が機械的に導出できる。結果だけを示す（$\mathbf{F} = (F_r, F_\theta, F_z)^T$）。
 </p>
+<div class="math-block">$$\nabla \cdot \mathbf{F} = \frac{1}{r}\frac{\partial}{\partial r}(r F_r) + \frac{1}{r}\frac{\partial F_\theta}{\partial \theta} + \frac{\partial F_z}{\partial z}$$</div>
+<div class="math-block">$$\nabla \times \mathbf{F} = \begin{pmatrix}
+\frac{1}{r}\frac{\partial F_z}{\partial \theta} - \frac{\partial F_\theta}{\partial z} \\[0.3em]
+\frac{\partial F_r}{\partial z} - \frac{\partial F_z}{\partial r} \\[0.3em]
+\frac{1}{r}\frac{\partial}{\partial r}(r F_\theta) - \frac{1}{r}\frac{\partial F_r}{\partial \theta}
+\end{pmatrix}$$</div>
 <p>これらの公式を暗記するのは骨が折れる。しかし $\ast d\ast\omega$ という $d$ と $\ast$ の組み合わせで考えれば、$g = J^T J$ から $\ast$ の辞書をその場で導出し、機械的に計算できる。第9章では、この「辞書をその場で作る」技術を実践する。
 </p>
 <blockquote><p>

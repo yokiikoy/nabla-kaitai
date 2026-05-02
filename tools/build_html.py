@@ -199,6 +199,12 @@ def process_markdown(markdown_text):
                 in_para = True
             else:
                 result.append(processed)
+        else:
+            if in_para:
+                result.append('</p>')
+                in_para = False
+            if processed.strip():
+                result.append(processed)
     
     if in_para: result.append('</p>')
     if in_quote: result.append('</p></blockquote>')

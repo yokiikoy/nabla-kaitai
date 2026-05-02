@@ -110,36 +110,55 @@ $dx \wedge dy \wedge dz$ もまた、$dr \wedge d\theta \wedge dz$ に差し替�
 <blockquote><p>
 **注（物理学未習の読者へ）** 以下の例では、物理学を学ぶ者がよく知っている結論（運動エネルギー保存則）を先に使っている。しかし、単に「質点の位置 $x$ を時刻 $t$ の関数 $\gamma(t)$ で書き表せる」という状況だと思って読み進めてほしい。物理を知らなくても、$F(x)$ は $x$ の関数、$v(t)$ は $t$ の関数と読めれば十分である。<br>
 </p></blockquote>
+<strong>① 物理量から始める。</strong> いきなり一般論には行かない。まずは、よく知られた力学の事実から始めよう。
 <p>質点に力 $F$ が働き、質点が $x$ 軸上を運動しているとする。仕事は
 </p>
+<div class="math-block">$$W = \int F\,dx$$</div>
 <p>で与えられる。一方、運動方程式は
 </p>
+<div class="math-block">$$F = m\frac{dv}{dt}$$</div>
 <p>である。この二つから、おなじみの運動エネルギー保存則
 </p>
+<div class="math-block">$$W = \frac{1}{2}mv^2\,\Big|_{t_0}^{t_1}$$</div>
 <p>が出る。本節ではこの導出を、「引き戻し」の目で読み直す。読者は最初から「何が出てくるか」を知っている。そのうえで、計算の裏で測定器がどう作り替えられているかだけを追えばよい。
 </p>
+<strong>② 素朴な置き換え——必ず間違える。</strong> 質点の位置を $x = \gamma(t)$ と書く。速度は $v(t) = \gamma'(t)$ である。仕事の測定器は $F\,dx$ ——これは実空間の変位を食べて仕事の小片を返す $1$-form だ。
 <p>しかし運動は時刻 $t$ によって与えられている。そこで、仕事を時間で計算したい。
 </p>
 <p>まず実空間側で、等加速度運動 $x(t) = \frac{1}{2}at^2$、一定力 $F = ma$ の場合を計算する。終点 $X = \frac{1}{2}aT^2$ だから
 </p>
+<div class="math-block">$$W_{\text{実}} = \int_0^X ma\,dx = ma\,X = \frac{1}{2}ma^2T^2$$</div>
 <p>である。一方、時間側で素朴に——つまり $dx$ をそのまま $dt$ に置き換えて——積分してみると
 </p>
+<div class="math-block">$$W_{\text{素朴}} = \int_0^T ma\,dt = ma\,T$$</div>
 <p>となる。$\frac{1}{2}ma^2T^2 \neq ma\,T$ だから、明らかに一致しない。$dt$ のままでは仕事の値が変わってしまうのだ。
 </p>
+<strong>③ 有限マス目で原因を見る。</strong> 時刻の小区間 $[t_i, t_{i+1}]$ を考える。その幅を $\Delta t_i = t_{i+1} - t_i$、対応する位置の変化を $\Delta x_i = \gamma(t_{i+1}) - \gamma(t_i)$ とする。実空間側の仕事の一項は $F_i\,\Delta x_i$。時間側で素朴に作った一項は $F_i\,\Delta t_i$。この二つが一致しないのは、$\Delta t_i$ と $\Delta x_i$ のつじつま係数を無視したからだ。
 <p>そこで、時間側の一項に係数 $c_i$ を掛けて $F_i\,c_i\,\Delta t_i$ としてみる。これが $F_i\,\Delta x_i$ と一致するには、$c_i\,\Delta t_i = \Delta x_i$ でなければならない。したがって
 </p>
+<div class="math-block">$$c_i = \frac{\Delta x_i}{\Delta t_i}$$</div>
 <p>である。分割を細かくすると、この比は速度 $v(t) = dx/dt$ へ近づく。
 </p>
+<strong>④ 具体例の引き戻しを書く。</strong> したがって、時間軸上での測定器は
+<div class="math-block">$$F\,dx = F\,v(t)\,dt$$</div>
 <p>へ作り替えられる。これを
 </p>
+<div class="math-block">$$\gamma^*(F\,dx) = F(\gamma(t))\,v(t)\,dt$$</div>
 <p>と書く。
 </p>
+<strong>⑤ 係数付き $1$-form の引き戻し。</strong> 任意の係数 $F(x)$ に対して、同じ構造が成り立つ。位置が $x = \gamma(t)$ で与えられるとき
+<div class="math-block">$$\gamma^*(F(x)\,dx) = F(\gamma(t))\,\gamma'(t)\,dt$$</div>
 <p>である。
 </p>
+<strong>⑥ 一般の変換で定義する。</strong> より一般に、$1$-form $\omega = F(x)\,dx$ と、実数上の曲線 $\gamma: t \mapsto x$ に対して、引き戻し $\gamma^*$ は
+<div class="math-block">$$\gamma^*(F(x)\,dx) = F(\gamma(t))\,\gamma'(t)\,dt$$</div>
 <p>で定義される。この式こそが <strong>$1$-form の引き戻しの一般的な定義</strong> である。$\gamma'(t)$ が「実空間の測定器 $dx$ を時間軸の測定器 $dt$ に焼き直す」ためのつじつま係数になっている。
 </p>
+<strong>⑦ 物理量へ戻る。</strong> ここで運動方程式 $F = m\,dv/dt$ を使うと、
+<div class="math-block">$$\gamma^*(F\,dx) = m\frac{dv}{dt}\,v\,dt = m v\,dv$$</div>
 <p>と読める（$m\frac{dv}{dt}\,dt$ は速度軸の測定器 $dv$ を時間軸へ引き戻したものだから）。よって
 </p>
+<div class="math-block">$$W = \int F\,dx = \int_{\gamma} F\,dx = \int_{t_0}^{t_1} \gamma^*(F\,dx) = \int_{v(t_0)}^{v(t_1)} m v\,dv = \frac{1}{2}mv^2\,\Big|_{t_0}^{t_1}$$</div>
 <p>となる——運動エネルギー保存則である。
 </p>
 <blockquote><p>
@@ -152,79 +171,142 @@ $dx \wedge dy \wedge dz$ もまた、$dr \wedge d\theta \wedge dz$ に差し替�
 **注** （$dx$ は横ベクトル、$dt$ も横ベクトル）§4.1 の計算では、$dx$ も $dt$ も $dv$ も、すべてが「変位を食べてスカラーを返す」という同じ型を保っている。第1章 §1.1.3 以来の「横ベクトル×縦ベクトル→スカラー」の原則は、引き戻しのただ中でも崩れない。$\gamma^*(F\,dx)$ の結果も再び時間軸上の $1$-form（横ベクトル）であり、それを時間側の変位 $\Delta t$ に食わせればスカラー（仕事の小片）が得られる——この一貫性こそが、引き戻しの理解を支える。<br>
 </p></blockquote>
 <h3 id="42-2-form-の引き戻し角運動量保存と面積速度">§4.2 2-form の引き戻し——角運動量保存と面積速度</h3>
+<strong>① 物理量から始める。</strong> 1-form で見た構造——積分値を保つために測定器を作り替える——は、そのまま 2-form にも拡張できる。§4.1 と正確に同じ <strong>7 つの手順</strong> をたどろう。
 <p>中心力場の中を運動する質点を考える。力が常に原点に向かうとき、角運動量 $L = m(x \dot{y} - y \dot{x})$ は時間に依らず一定である（角運動量保存則）。この保存則には美しい幾何学的意味がある——質点の位置ベクトルが掃く面積の速度（<strong>面積速度</strong>）が一定になるのだ（ケプラーの第二法則）。
 </p>
 <p>質点の運動は $z=0$ 平面上で起こるとしてよい。時刻 $t_0$ から $t_1$ までに位置ベクトルが掃く扇形領域 $D$ の面積は
 </p>
+<div class="math-block">$$A = \iint_D dx \wedge dy$$</div>
 <p>と書ける。$dx \wedge dy$ は $xy$ 平面上の面積測定器（$2$-form）である。
 </p>
 <blockquote><p>
 **注** （物理学者の二次元）忘れないでほしい——本書は一貫して三次元空間の実在を前提としている。以下の角運動量の議論で $z=0$ と置くのは、計算を見やすくするための一時的な簡略化であり、我々は依然として三次元空間の中の一つの平面を眺めているにすぎない。<br>
 </p></blockquote>
+<strong>② 素朴な置き換え——必ず間違える。</strong> 右辺の扇形は $(x,y)$ の式では書きづらい。そこで $(r,\theta)$ で書きたくなる。しかし、$dx \wedge dy$ をそのまま $dr \wedge d\theta$ に置き換えるとどうなるか。半径 $C$ の完全な円の面積を計算してみよう。正しい値は $\pi C^2$ である。ところが、素朴に置き換えると：
+<div class="math-block">$$A_{\text{素朴}} = \iint dr \wedge d\theta = \int_0^{2\pi}\!\int_0^C dr\,d\theta = 2\pi C$$</div>
 <p>これは $\pi C^2$ とはまったく違う。$dr \wedge d\theta$ のままでは、正しい面積が出ない。
 </p>
+<strong>③ 有限マス目で原因を見る。</strong> §4.1 と同じことをする。$(r,\theta)$ 空間に、有限の大きさ $\Delta r \times \Delta\theta$ のグリッドを切る。座標 $(r, \theta)$ にある一マスが、$(x,y)$ 空間で占める面積を求める。
 <p>$\Delta r$ 方向の辺：$r$ だけ変えて $\theta$ を固定するから、差は正確に求まる：
 </p>
+<div class="math-block">$$\Delta x_r = \Delta r \cos\theta,\qquad \Delta y_r = \Delta r \sin\theta$$</div>
 <p>$\Delta\theta$ 方向の辺：三角関数の差の公式を用いる：
 </p>
+<div class="math-block">$$\begin{aligned}
+\Delta x_\theta &= r\bigl(\cos(\theta+\Delta\theta) - \cos\theta\bigr)
+= -2r\sin\bigl(\theta+\tfrac{\Delta\theta}{2}\bigr)\sin\tfrac{\Delta\theta}{2} \\[4pt]
+\Delta y_\theta &= r\bigl(\sin(\theta+\Delta\theta) - \sin\theta\bigr)
+= 2r\cos\bigl(\theta+\tfrac{\Delta\theta}{2}\bigr)\sin\tfrac{\Delta\theta}{2}
+\end{aligned}$$</div>
 <p>二辺 $\mathbf{v}_r = (\Delta x_r, \Delta y_r)$ と $\mathbf{v}_\theta = (\Delta x_\theta, \Delta y_\theta)$ が張る平行四辺形の面積を行列式で求める：
 </p>
+<div class="math-block">$$\begin{aligned}
+\det(\mathbf{v}_r,\mathbf{v}_\theta) &= \Delta x_r\,\Delta y_\theta - \Delta x_\theta\,\Delta y_r \\
+&= 2r\Delta r\,\sin\tfrac{\Delta\theta}{2}\bigl[ \cos\theta\cos\bigl(\theta+\tfrac{\Delta\theta}{2}\bigr) + \sin\theta\sin\bigl(\theta+\tfrac{\Delta\theta}{2}\bigr) \bigr] \\
+&= r\Delta r\,\sin\Delta\theta
+\end{aligned}$$</div>
 <p>結果は $\det = r\Delta r\,\sin\Delta\theta$。マス目全体を足し上げるリーマン和：
 </p>
+<div class="math-block">$$A \approx \sum_i\sum_j r_i\,\Delta r_i \,\sin\Delta\theta_j$$</div>
 <p>$\sin\Delta\theta_j$ は有限の $\Delta\theta_j$ に対して厳密な値である。総和の極限をとる最終段階で $\sin\Delta\theta_j \approx \Delta\theta_j$ と置き：
 </p>
+<div class="math-block">$$A = \lim_{\substack{\Delta r_i \to 0 \\ \Delta\theta_j \to 0}} \sum_i\sum_j r_i\,\Delta r_i \,\sin\Delta\theta_j = \iint_D r\,dr\,d\theta$$</div>
 <blockquote><p>
 **注** （$\Delta r,\Delta\theta$ は微小である必要はない）ここまでの計算に、$\Delta r$ や $\Delta\theta$ が「十分小さい」という仮定は一切使っていない。上で求めた $\Delta x_r, \Delta y_r, \Delta x_\theta, \Delta y_\theta$ は、$\Delta r,\Delta\theta$ がどれほど大きくても厳密に成り立つ式である。微小量への移行は、あくまで積分の最終段階——総和の極限をとるとき——で初めて行う。<br>
 </p></blockquote>
+<strong>④ 具体例の引き戻しを書く。</strong> 極座標への変換 $\Phi(r,\theta) = (r\cos\theta,\; r\sin\theta)$ に対して：
+<div class="math-block">$$\Phi^*(dx \wedge dy) = r\,dr \wedge d\theta$$</div>
 <p>これが $2$-form の引き戻しの具体例である。この $r$ が、§4.1 の $\gamma'(t)$ に対応するつじつま係数である。
 </p>
+<strong>⑤ 係数付き $2$-form の引き戻し。</strong> 任意の係数 $G(x,y)$ を持つ $2$-form $G(x,y)\,dx \wedge dy$ に対して、同じ構造が成り立つ：
+<div class="math-block">$$\Phi^*\bigl(G(x,y)\,dx \wedge dy\bigr) = G(r\cos\theta,\, r\sin\theta)\; r\,dr \wedge d\theta$$</div>
 <p>係数 $G$ は座標を極座標に焼き直すだけ（$0$-form の引き戻し）で、$dx \wedge dy$ の部分だけが $r\,dr \wedge d\theta$ に変わる。引き戻し $\Phi^*$ は「係数の焼き直し」と「測定器の焼き直し」に自然に分解されるのである。
 </p>
+<strong>⑥ 一般の変換で定義する。</strong> より一般に、$2$-form $\eta = G(x,y)\,dx \wedge dy$ と、平面間の変換 $\Phi(u,v) = (x(u,v), y(u,v))$ に対して、引き戻し $\Phi^*$ は
+<div class="math-block">$$\Phi^*\bigl(G(x,y)\,dx \wedge dy\bigr) = G(x(u,v), y(u,v))\; \bigl(\Delta x_u\,\Delta y_v - \Delta x_v\,\Delta y_u\bigr)\,du \wedge dv$$</div>
 <p>で定義される。ここで $\Delta x_u$ は $u$ だけを $\Delta u$ 増やしたときの $x$ の変化、$\Delta x_v$ は $v$ だけを $\Delta v$ 増やしたときの $x$ の変化である。$\bigl(\Delta x_u\,\Delta y_v - \Delta x_v\,\Delta y_u\bigr)$ が「実空間の面積測定器 $dx \wedge dy$ をパラメータ空間の面積測定器 $du \wedge dv$ に焼き直す」ためのつじつま係数であり、$2 \times 2$ 行列式の形をしている。この式こそが <strong>$2$-form の引き戻しの一般的な定義</strong> である。
 </p>
+<strong>⑦ 物理量へ戻る。</strong> 扇形領域 $D$ の面積を、引き戻した測定器で積分すれば：
+<div class="math-block">$$A = \iint_D dx \wedge dy = \iint_D r\,dr \wedge d\theta = \int_{\theta_0}^{\theta_1} \frac{1}{2}R(\theta)^2\,d\theta$$</div>
 <p>$r$ で積分した結果、$\frac{1}{2}r^2$ が現れ、面積が $\theta$ 軸上の $1$-form の線積分に還元された。さらに時間パラメータ $t$ へ引き戻す。質点の軌道を $r = R(t),\, \theta = \Theta(t)$ とすれば：
 </p>
+<div class="math-block">$$\frac{dA}{dt} = \frac{1}{2}r(t)^2\,\dot{\theta}(t)$$</div>
 <p>角運動量の定義 $L = m r^2 \dot{\theta}$ より、面積速度は
 </p>
+<div class="math-block">$$\frac{dA}{dt} = \frac{L}{2m}$$</div>
 <p>中心力場では $L$ が保存されるから、面積速度も一定——これがケプラーの第二法則であり、角運動量保存則の幾何学的表現である。§4.1 で $1$-form のつじつま係数 $\gamma'(t)$ がエネルギー保存を記述したのとまったく同じ構造が、$2$-form のつじつま係数 $r$ を通じて角運動量保存を記述している。
 </p>
 <h3 id="43-3-form-の引き戻し質量保存と体積分">§4.3 3-form の引き戻し——質量保存と体積分</h3>
+<strong>① 物理量から始める。</strong> 最後は体積分だ。§4.1、§4.2 と正確に同じ <strong>7 つの手順</strong> を、もう一度たどる。
 <p>密度 $\rho$ が一様な円柱（半径 $C$、高さ $H$）の質量を考えよう。$(x,y,z)$ 空間で直接計算すれば
 </p>
+<div class="math-block">$$M = \rho \cdot (\text{体積}) = \rho \cdot \pi C^2 H$$</div>
 <p>である。この $M$ は——当然だが——どんな座標で計算しても変化してはならない。
 </p>
+<strong>② 素朴な置き換え——必ず間違える。</strong> 積分を円柱座標 $(r,\theta,z)$ で書きたい。円柱の範囲は $r \in [0, C],\; \theta \in [0, 2\pi],\; z \in [0, H]$ だから、$dx \wedge dy \wedge dz$ をそのまま $dr \wedge d\theta \wedge dz$ に置き換えて：
+<div class="math-block">$$M_{\text{素朴}} = \rho \iiint dr\,d\theta\,dz = \rho \cdot C \cdot 2\pi \cdot H = 2\pi\rho C H$$</div>
 <p>これを正しい値 $\rho \pi C^2 H$ と比べると、$2\pi\rho C H \neq \rho \pi C^2 H$。明らかに一致しない。
 </p>
+<strong>③ 有限マス目で原因を見る。</strong> $(r,\theta,z)$ 空間に、有限の大きさ $\Delta r \times \Delta\theta \times \Delta z$ のグリッドを切る。変換は $x = r\cos\theta,\; y = r\sin\theta,\; z = z$。$z$ 方向は変換を受けないから、体積は「$xy$ 平面内のマス目面積」$\times \Delta z$ である。$xy$ 平面内の面積は、§4.2 の手順そのままだ：
+<div class="math-block">$$\det = r\Delta r\,\sin\Delta\theta$$</div>
 <p>したがって、一マスの体積は
 </p>
+<div class="math-block">$$\text{体積} = \bigl(r\Delta r\,\sin\Delta\theta\bigr) \times \Delta z$$</div>
 <p>円柱全体の質量は、マス目 $(i,j,k)$ の寄与を足し上げたリーマン和である：
 </p>
+<div class="math-block">$$M \approx \sum_i\sum_j\sum_k \rho\; r_i\,\Delta r_i\,\sin\Delta\theta_j\,\Delta z_k$$</div>
 <p>総和の極限をとる最終段階で $\sin\Delta\theta_j \approx \Delta\theta_j$ と置く：
 </p>
+<div class="math-block">$$M = \lim_{\substack{\Delta r_i \to 0 \\ \Delta\theta_j \to 0 \\ \Delta z_k \to 0}} \sum_i\sum_j\sum_k \rho\, r_i\,\Delta r_i\,\sin\Delta\theta_j\,\Delta z_k = \rho \iiint_{V'} r\,dr\,d\theta\,dz = \rho \cdot \pi C^2 H$$</div>
+<strong>④ 具体例の引き戻しを書く。</strong> 円柱座標への変換 $\Phi(r,\theta,z) = (r\cos\theta,\; r\sin\theta,\; z)$ に対して：
+<div class="math-block">$$\Phi^*(dx \wedge dy \wedge dz) = r\,dr \wedge d\theta \wedge dz$$</div>
 <p>これが $3$-form の引き戻しの具体例である。この $r$ が、§4.2 の $r$ をそのまま引き継いだつじつま係数である。
 </p>
+<strong>⑤ 係数付き $3$-form の引き戻し。</strong> 任意の密度 $\rho(x,y,z)$ を持つ $3$-form $\rho\,dx \wedge dy \wedge dz$ に対して、同じ構造が成り立つ：
+<div class="math-block">$$\Phi^*\bigl(\rho(x,y,z)\,dx \wedge dy \wedge dz\bigr) = \rho(r\cos\theta,\, r\sin\theta,\, z)\; r\,dr \wedge d\theta \wedge dz$$</div>
 <p>係数 $\rho$ は座標を焼き直すだけ（$0$-form の引き戻し）で、$dx \wedge dy \wedge dz$ の部分だけが $r\,dr \wedge d\theta \wedge dz$ に変わる。
 </p>
+<strong>⑥ 一般の変換で定義する。</strong> より一般に、$3$-form $\Omega = \rho(x,y,z)\,dx \wedge dy \wedge dz$ と、空間の変換 $\Phi(u,v,w) = (x(u,v,w), y(u,v,w), z(u,v,w))$ に対して、引き戻し $\Phi^*$ は三個の方向すべてで辺ベクトルを求め、その $3 \times 3$ 行列式をとる：
+<div class="math-block">$$\Phi^*\bigl(\rho(x,y,z)\,dx \wedge dy \wedge dz\bigr) = \rho(x(u,v,w), y(u,v,w), z(u,v,w))\ \det\!\begin{pmatrix}
+\Delta x_u & \Delta x_v & \Delta x_w \\[2pt]
+\Delta y_u & \Delta y_v & \Delta y_w \\[2pt]
+\Delta z_u & \Delta z_v & \Delta z_w
+\end{pmatrix}\,du \wedge dv \wedge dw$$</div>
 <p>この $3 \times 3$ 行列式を $J(u,v,w)$ と書けば
 </p>
+<div class="math-block">$$\Phi^*(\rho\,dx \wedge dy \wedge dz) = \rho(\Phi(u,v,w))\,J\,du \wedge dv \wedge dw$$</div>
 <p>となる。この $3 \times 3$ 行列式 $J(u,v,w)$ が、$3$-form のつじつま係数である。$J$ が負なら向きが反転していることを意味するから、体積積分の変数変換に絶対値 $|J|$ が現れる理由もここにある。$1$-form なら $1 \times 1$ 行列式（スカラー $\gamma'(t)$）、$2$-form なら $2 \times 2$ 行列式（$\Delta x_u\Delta y_v - \Delta x_v\Delta y_u$）、$3$-form なら $3 \times 3$ 行列式（$J$）——次数が上がるごとに、つじつま係数を司る行列式のサイズが一つずつ大きくなる。この式こそが <strong>$3$-form の引き戻しの一般的な定義</strong> である。
 </p>
 <blockquote><p>
 **注** （ベクトル解析を学んだ読者へ）変数変換で「極座標にすると $r\,dr\,d\theta$ が出る」と習ったとき、多くの教科書は「$\theta$ 方向の弧の長さ $r\Delta\theta$ を考えて、$\Delta V \approx \Delta r \cdot r\Delta\theta \cdot \Delta z$」という幾何学的な説明をする。その説明に間違いはない。しかし本書の計算では弧の長さを一切考えていない。変換式と三角関数の公式、そして $\wedge$ に相当する行列式の計算だけが、正しいつじつま係数 $r$ を自動的に導いている。<br>
 </p></blockquote>
+<strong>⑦ 物理量へ戻る。</strong> 引き戻した測定器で積分すれば
+<div class="math-block">$$M = \rho \iiint_V dx \wedge dy \wedge dz = \rho \iiint_{V'} r\,dr \wedge d\theta \wedge dz = \rho \cdot \pi C^2 H$$</div>
 <p>正しい値に一致した。積分値を保つために、測定器 $dx \wedge dy \wedge dz$ は $(r,\theta,z)$ 空間では $r\,dr \wedge d\theta \wedge dz$ に作り替えられなければならなかったのである。§4.1 の $\gamma'(t)$ がエネルギー保存を、§4.2 の $r$ が角運動量保存を記述したのとまったく同じ構造で、§4.3 の $r$（一般には $J$）が質量保存を記述している。
 </p>
 <h3 id="44-引き戻しの性質--ここまでに確立したこと">§4.4 引き戻しの性質 —— ここまでに確立したこと</h3>
 <p>§4.1〜§4.3 で三つの具体例を通じて引き戻しを構成してきた。ここで、これらに共通する代数的な性質を整理しておく。あわせて、§4.3 で現れた $3 \times 3$ 行列式 $J$ を <strong>ヤコビアン（ヤコビ行列式）</strong> と定義する。もととなる行列
 </p>
+<div class="math-block">$$\begin{pmatrix}
+\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} & \frac{\partial x}{\partial w} \\[4pt]
+\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} & \frac{\partial y}{\partial w} \\[4pt]
+\frac{\partial z}{\partial u} & \frac{\partial z}{\partial v} & \frac{\partial z}{\partial w}
+\end{pmatrix}$$</div>
 <p>を <strong>ヤコビ行列</strong> と呼び、その行列式 $\det$ がヤコビアン $J$ である。
 </p>
+<strong>① 0-form（スカラー場）の引き戻し。</strong> スカラー場 $f(x,y,z)$ を変換 $\Phi$ で引き戻すとは、単に座標をパラメータ表示に焼き直すことである：
+<div class="math-block">$$\Phi^*(f) = f(\Phi(u,v,w))$$</div>
 <p>たとえば §4.1 で $F(x)\,dx$ の $F(x)$ を $F(\gamma(t))$ に焼き直した操作は、$F$ という $0$-form の引き戻しにほかならない。
 </p>
+<strong>② 線形性。</strong> 二つの $k$-form $\omega, \eta$ とスカラー $a,b$ に対し
+<div class="math-block">$$\Phi^*(a\omega + b\eta) = a\,\Phi^*(\omega) + b\,\Phi^*(\eta)$$</div>
 <p>が成り立つ。これは測定器の和や定数倍が、引き戻しの前後で整合することを保証する。
 </p>
+<strong>③ ウェッジ積との整合性。</strong> $k$-form $\omega$ と $\ell$-form $\eta$ に対し
+<div class="math-block">$$\Phi^*(\omega \wedge \eta) = \Phi^*(\omega) \wedge \Phi^*(\eta)$$</div>
 <p>が成り立つ。すなわち「組み立ててから引き戻す」のと「引き戻してから組み立てる」のは同じ結果を与える。§4.2 で $dx$ と $dy$ を個別に展開してから $\wedge$ で組み立てた操作が、まさにこの性質を実行していた。
 </p>
+<strong>④ 次数ごとのつじつま係数。</strong> $k$-form の引き戻しでは、変換 $\Phi$ の $k$ 個の方向に関する辺ベクトルを並べた $k \times k$ 行列式がつじつま係数となる。本書の範囲では：
 <blockquote><p>
 - $k=1$（$1$-form）：$1 \times 1$ 行列式 → スカラー $\gamma'(t)$<br>
 - $k=2$（$2$-form）：$2 \times 2$ 行列式 → $\Delta x_u\Delta y_v - \Delta x_v\Delta y_u$<br>
@@ -239,6 +321,7 @@ $dx \wedge dy \wedge dz$ もまた、$dr \wedge d\theta \wedge dz$ に差し替�
 **注** （外微分 $d$ との可換性——第5章への伏線）これらに加えて、引き戻しと外微分 $d$ のあいだには重要な関係<br>
 <br>
 </p></blockquote>
+<div class="math-block">$$\Phi^*(d\omega) = d(\Phi^*\omega)$$</div>
 <blockquote><p>
 が成り立つ。すなわち「微分してから引き戻す」のと「引き戻してから微分する」のは同じ結果を与える。この性質は第5章で $d$ を正式に導入したのち、§5.9 で改めて取り上げる。<br>
 </p></blockquote>
@@ -255,6 +338,7 @@ $dx \wedge dy \wedge dz$ もまた、$dr \wedge d\theta \wedge dz$ に差し替�
 </ol>
 <p>本章で確立したのは、次の統一原理である：
 </p>
+<strong>$k$-form（はかり）が $k$-vector（図形）を食べてスカラーを返し、それを領域全体で集計する。</strong>次数が $0,1,2,3$ と変わっても、この構図は不変だった。曲線上の仕事も、曲面上の流量も、領域内の総質量も——すべて同じ言語で書ける。
 <p>引き戻しは「積分値を保つために測定器を作り替える」技術であり、その核心は §4.1〜§4.3 で見た発見的導出——「素朴にやって合わない → 有限マス目でつじつま係数を求める → 極限で一般形を得る」——に尽きる。$1$-form では速度 $\gamma'(t)$ が、$2$-form では $r$ が、$3$-form では $3 \times 3$ 行列式 $J$ が、いずれも変換式と行列式（$\wedge$）の計算から自動的に導かれた。既存の微分公式は一切必要なかった。
 </p>
 <blockquote><p>
