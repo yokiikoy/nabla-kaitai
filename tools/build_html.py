@@ -255,13 +255,13 @@ def process_markdown(markdown_text, heading_anchors):
             i += 1
             continue
 
+        # Blockquote handling
         if line.strip().startswith('>'):
             content = protector.restore(line[1:].strip())
-            if in_blockquote:
-                result.append(content)
-            else:
-                result.append(f'<blockquote><p>{content}</p>')
+            if not in_blockquote:
+                result.append('<blockquote><p>')
                 in_blockquote = True
+            result.append(content + '<br>')
             in_paragraph = False
             i += 1
             continue
@@ -269,30 +269,31 @@ def process_markdown(markdown_text, heading_anchors):
             result.append('</p></blockquote>')
             in_blockquote = False
 
-        if line.strip().startswith(('1.', '2.', '3.', '4.', '5.', '6.', '7.', '8.', '9.')) and not in_list:
-            num = re.match(r'^(\d+)\.\s*(.*)', line.strip())
-            if num:
-                if not in_list:
-                    result.append('<ol>')
-                    in_list = True
-                result.append(f'<li>{protector.restore(num.group(2))}</li>')
-                in_paragraph = False
-                i += 1
-                continue
-        elif in_list:
+        # List handling (ordered)
+        num_match = re.match(r'^(\d+)\.\s*(.*)', line.strip())
+        if num_match:
+            if not in_list:
+                result.append('<ol>')
+                in_list = 'ol'
+            result.append(f'<li>{protector.restore(num_match.group(2))}</li>')
+            in_paragraph = False
+            i += 1
+            continue
+        elif in_list == 'ol':
             result.append('</ol>')
             in_list = False
 
+        # List handling (unordered)
         list_match = re.match(r'^[-*]\s+(.*)', line)
         if list_match:
             if not in_list:
                 result.append('<ul>')
-                in_list = True
+                in_list = 'ul'
             result.append(f'<li>{protector.restore(list_match.group(1))}</li>')
             in_paragraph = False
             i += 1
             continue
-        elif in_list:
+        elif in_list == 'ul':
             result.append('</ul>')
             in_list = False
 
@@ -336,8 +337,10 @@ def process_markdown(markdown_text, heading_anchors):
         result.append('</p>')
     if in_blockquote:
         result.append('</p></blockquote>')
-    if in_list:
-        result.append('</ul>' if not result or '</ol>' not in result[-1] else '</ol>')
+    if in_list == 'ul':
+        result.append('</ul>')
+    if in_list == 'ol':
+        result.append('</ol>')
 
     html = '\n'.join(result)
 
