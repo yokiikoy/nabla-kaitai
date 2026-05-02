@@ -30,25 +30,28 @@
     .markdown-body { padding: 0.5rem; }
   }
   blockquote { border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }
-  .mjx-container { overflow-x: auto !important; padding: 0.8em 0; max-width: 100%; }
   .nav-buttons { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }
   .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
   .nav-buttons a:hover { background: #f6f8fa; }
+  /* KaTeX responsiveness */
+  .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }
 </style>
-<script>
-window.MathJax = {
-  tex: {
-    inlineMath: [['$', '$']],
-    displayMath: [['$$', '$$']],
-    processEscapes: true
-  },
-  options: {
-    enableMenu: false
-  }
-};
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ],
+            throwOnError : false
+        });
+    });
 </script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
 </head>
 <body>
   <nav class="sidebar">
@@ -94,27 +97,30 @@ window.MathJax = {
 <h4 id="711-ドット積">7.1.1 ドット積</h4>
 <p>二つの縦ベクトル $\mathbf{a} = (a_x, a_y, a_z)^T$, $\mathbf{b} = (b_x, b_y, b_z)^T$ の<strong>ドット積</strong>（内積）を次で定義する。
 </p>
-<div class="math-block">$$\mathbf{a} \cdot \mathbf{b} = a_x b_x + a_y b_y + a_z b_z$$</div>
+<p>$$\mathbf{a} \cdot \mathbf{b} = a_x b_x + a_y b_y + a_z b_z$$
+</p>
 <p>§5.2.3 で見たように、これは実空間 $(x,y,z)$ で $\mathbf{g} = I$ とした場合の内積 $\mathbf{a}^T \mathbf{g} \,\mathbf{b}$ に等しい。本書ではすでに縦ベクトルと横ベクトルの積として何度も使ってきた操作だ。
 </p>
 <h4 id="712-クロス積">7.1.2 クロス積</h4>
 <p>二つの縦ベクトル $\mathbf{a}, \mathbf{b}$ の<strong>クロス積</strong>（外積）を次で定義する。
 </p>
-<div class="math-block">$$\mathbf{a} \times \mathbf{b} = \begin{pmatrix}
+<p>$$\mathbf{a} \times \mathbf{b} = \begin{pmatrix}
 a_y b_z - a_z b_y \\
 a_z b_x - a_x b_z \\
 a_x b_y - a_y b_x
-\end{pmatrix}$$</div>
+\end{pmatrix}$$
+</p>
 <p>この結果は再び縦ベクトルである。クロス積の成分の並びには規則性があり、次の反対称行列を使うと簡潔に書ける。
 </p>
-<div class="math-block">$$\mathbf{a} \times = \begin{pmatrix}
+<p>$$\mathbf{a} \times = \begin{pmatrix}
 0 & -a_z & a_y \\
 a_z & 0 & -a_x \\
 -a_y & a_x & 0
-\end{pmatrix}$$</div>
+\end{pmatrix}$$
+</p>
 <p>この $3\times 3$ 行列をベクトル $\mathbf{b}$ に左から掛ければ、
 </p>
-<div class="math-block">$$\mathbf{a} \times \mathbf{b} = (\mathbf{a} \times)\,\mathbf{b} = \begin{pmatrix}
+<p>$$\mathbf{a} \times \mathbf{b} = (\mathbf{a} \times)\,\mathbf{b} = \begin{pmatrix}
 0 & -a_z & a_y \\
 a_z & 0 & -a_x \\
 -a_y & a_x & 0
@@ -124,7 +130,8 @@ b_x \\ b_y \\ b_z
 a_y b_z - a_z b_y \\
 a_z b_x - a_x b_z \\
 a_x b_y - a_y b_x
-\end{pmatrix}$$</div>
+\end{pmatrix}$$
+</p>
 <p>となる。この $(\mathbf{a} \times)$ を $\mathbf{a}$ の<strong>外積行列</strong>と呼ぶ。第2章 §2.4.9 で $2$-form の行列表現として現れ、§5.3.2 では $\ast$ の出力として再登場した行列と、まったく同じ形である。本章ではこれを純粋に「ベクトルにベクトルを掛けてベクトルを得る演算」として使う。
 </p>
 <p>クロス積には次の基本的な性質がある。
@@ -147,91 +154,103 @@ a_x b_y - a_y b_x
 <h4 id="721-の定義">7.2.1 $\nabla$ の定義</h4>
 <p>ナブラ $\nabla$ を、偏微分演算子を縦に並べた形式的なベクトルとして定義する。
 </p>
-<div class="math-block">$$\nabla = \begin{pmatrix}
+<p>$$\nabla = \begin{pmatrix}
 \frac{\partial}{\partial x} \\[0.5em]
 \frac{\partial}{\partial y} \\[0.5em]
 \frac{\partial}{\partial z}
-\end{pmatrix}$$</div>
+\end{pmatrix}$$
+</p>
 <p>$\nabla$ は「ベクトル」だが、その成分は数ではなく<strong>微分演算子</strong>である。$\nabla$ は単独では意味を持たず、何かに作用して初めて値が定まる。
 </p>
 <h4 id="722-勾配">7.2.2 勾配</h4>
 <p>スカラー場 $f(x,y,z)$ に $\nabla$ を作用させたものを<strong>勾配</strong>と呼び、$\mathrm{grad}\,f$ または $\nabla f$ と書く。
 </p>
-<div class="math-block">$$\mathrm{grad}\,f = \nabla f = \begin{pmatrix}
+<p>$$\mathrm{grad}\,f = \nabla f = \begin{pmatrix}
 \frac{\partial f}{\partial x} \\[0.5em]
 \frac{\partial f}{\partial y} \\[0.5em]
 \frac{\partial f}{\partial z}
-\end{pmatrix}$$</div>
+\end{pmatrix}$$
+</p>
 <p>勾配の各成分は、$f$ の各座標方向の変化率である。幾何学的には、$\nabla f$ は $f$ が最も急に増加する方向を指すベクトル場になる。
 </p>
 <blockquote><p>
 **注** （勾配は横ベクトルか縦ベクトルか）§5.5 では $\mathrm{grad}\,f = df$ と書き、$df$ は係数の横ベクトルだった。本章では $\nabla f$ を縦ベクトルとして扱う。これは単なる転置の違いではない。$\nabla f$（縦）は「空間の各点に矢印を立てる」見方——実空間が変化しているとみなす立場——に立ち、$df$（横）は「微分そのもの（form）が変化している」とみなす立場に立つ。出発点の絵は異なるが、線積分で集計すれば同じスカラー量を与える。この一致は偶然ではない。<br>
 </p></blockquote>
 <strong>例</strong>：$f(x,y,z) = x^2 + y^2 + z^2$ の勾配。
-<div class="math-block">$$\nabla f = \begin{pmatrix} 2x \\ 2y \\ 2z \end{pmatrix}$$</div>
+<p>$$\nabla f = \begin{pmatrix} 2x \\ 2y \\ 2z \end{pmatrix}$$
+</p>
 <p>このベクトル場は原点から放射状に外向きで、原点から離れるほど大きくなる。
 </p>
 <hr />
 <h3 id="73-発散">§7.3 発散</h3>
 <p>ベクトル場 $\mathbf{F}(x,y,z) = (F_x, F_y, F_z)^T$ に対して、$\nabla$ とのドット積をとったものを<strong>発散</strong>と呼ぶ。
 </p>
-<div class="math-block">$$\mathrm{div}\,\mathbf{F} = \nabla \cdot \mathbf{F} = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z}$$</div>
+<p>$$\mathrm{div}\,\mathbf{F} = \nabla \cdot \mathbf{F} = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z}$$
+</p>
 <p>形式的には「$\nabla$ と $\mathbf{F}$ のドット積」だが、$\nabla$ の各成分が微分演算子であるため、結果はスカラー場になる。
 </p>
 <p>発散は行列の言葉でも書ける。$\mathbf{F}$ のヤコビ行列 $\mathbf{J}_\mathbf{F}$ を考える。
 </p>
-<div class="math-block">$$\mathbf{J}_\mathbf{F} = \begin{pmatrix}
+<p>$$\mathbf{J}_\mathbf{F} = \begin{pmatrix}
 \frac{\partial F_x}{\partial x} & \frac{\partial F_x}{\partial y} & \frac{\partial F_x}{\partial z} \\[0.3em]
 \frac{\partial F_y}{\partial x} & \frac{\partial F_y}{\partial y} & \frac{\partial F_y}{\partial z} \\[0.3em]
 \frac{\partial F_z}{\partial x} & \frac{\partial F_z}{\partial y} & \frac{\partial F_z}{\partial z}
-\end{pmatrix}$$</div>
+\end{pmatrix}$$
+</p>
 <p>この行列の<strong>トレース</strong>（対角成分の和）が発散に一致する。
 </p>
-<div class="math-block">$$\mathrm{div}\,\mathbf{F} = \operatorname{tr}(\mathbf{J}_\mathbf{F}) = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z}$$</div>
+<p>$$\mathrm{div}\,\mathbf{F} = \operatorname{tr}(\mathbf{J}_\mathbf{F}) = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z}$$
+</p>
 <p>物理的には、$\mathrm{div}\,\mathbf{F}$ はその点での「湧き出し」の強さを表す。正なら湧き出し、負なら吸い込み、ゼロならその点では湧き出しも吸い込みもない。
 </p>
 <strong>例</strong>：$\mathbf{F} = (x, y, z)^T$ の発散。
-<div class="math-block">$$\nabla \cdot \mathbf{F} = \frac{\partial x}{\partial x} + \frac{\partial y}{\partial y} + \frac{\partial z}{\partial z} = 1 + 1 + 1 = 3$$</div>
+<p>$$\nabla \cdot \mathbf{F} = \frac{\partial x}{\partial x} + \frac{\partial y}{\partial y} + \frac{\partial z}{\partial z} = 1 + 1 + 1 = 3$$
+</p>
 <strong>例</strong>：$\mathbf{F} = (-y, x, 0)^T$ の発散。
-<div class="math-block">$$\nabla \cdot \mathbf{F} = \frac{\partial (-y)}{\partial x} + \frac{\partial x}{\partial y} + \frac{\partial 0}{\partial z} = 0 + 0 + 0 = 0$$</div>
+<p>$$\nabla \cdot \mathbf{F} = \frac{\partial (-y)}{\partial x} + \frac{\partial x}{\partial y} + \frac{\partial 0}{\partial z} = 0 + 0 + 0 = 0$$
+</p>
 <p>この場は回転しているが、湧き出してはいない。
 </p>
 <hr />
 <h3 id="74-回転">§7.4 回転</h3>
 <p>ベクトル場 $\mathbf{F}$ に対して、$\nabla$ とのクロス積をとったものを<strong>回転</strong>（ローテーション）と呼ぶ。
 </p>
-<div class="math-block">$$\mathrm{rot}\,\mathbf{F} = \nabla \times \mathbf{F} = \begin{pmatrix}
+<p>$$\mathrm{rot}\,\mathbf{F} = \nabla \times \mathbf{F} = \begin{pmatrix}
 \frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z} \\[0.5em]
 \frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x} \\[0.5em]
 \frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y}
-\end{pmatrix}$$</div>
+\end{pmatrix}$$
+</p>
 <p>外積行列を使えば次のようにも書ける。
 </p>
-<div class="math-block">$$\mathrm{rot}\,\mathbf{F} = (\nabla \times)\,\mathbf{F} = \begin{pmatrix}
+<p>$$\mathrm{rot}\,\mathbf{F} = (\nabla \times)\,\mathbf{F} = \begin{pmatrix}
 0 & -\frac{\partial}{\partial z} & \frac{\partial}{\partial y} \\[0.3em]
 \frac{\partial}{\partial z} & 0 & -\frac{\partial}{\partial x} \\[0.3em]
 -\frac{\partial}{\partial y} & \frac{\partial}{\partial x} & 0
 \end{pmatrix}\begin{pmatrix}
 F_x \\ F_y \\ F_z
-\end{pmatrix}$$</div>
+\end{pmatrix}$$
+</p>
 <p>物理的には、$\mathrm{rot}\,\mathbf{F}$ はその点での「渦」の強さと向きを表す。渦の軸方向を向き、大きさが渦の強さに対応する。
 </p>
 <strong>例</strong>：$\mathbf{F} = (-y, x, 0)^T$ の回転。
-<div class="math-block">$$\nabla \times \mathbf{F} = \begin{pmatrix}
+<p>$$\nabla \times \mathbf{F} = \begin{pmatrix}
 \frac{\partial 0}{\partial y} - \frac{\partial x}{\partial z} \\[0.3em]
 \frac{\partial (-y)}{\partial z} - \frac{\partial 0}{\partial x} \\[0.3em]
 \frac{\partial x}{\partial x} - \frac{\partial (-y)}{\partial y}
 \end{pmatrix} = \begin{pmatrix}
 0 - 0 \\ 0 - 0 \\ 1 - (-1)
-\end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 2 \end{pmatrix}$$</div>
+\end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 2 \end{pmatrix}$$
+</p>
 <p>この場は $z$ 軸まわりに一様に回転しており、渦の強さは $2$ である。
 </p>
 <strong>例</strong>：$\mathbf{F} = (x, y, z)^T$ の回転。
-<div class="math-block">$$\nabla \times \mathbf{F} = \begin{pmatrix}
+<p>$$\nabla \times \mathbf{F} = \begin{pmatrix}
 \frac{\partial z}{\partial y} - \frac{\partial y}{\partial z} \\[0.3em]
 \frac{\partial x}{\partial z} - \frac{\partial z}{\partial x} \\[0.3em]
 \frac{\partial y}{\partial x} - \frac{\partial x}{\partial y}
-\end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$$</div>
+\end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$$
+</p>
 <p>放射状の場には渦がない——直感とも一致する。
 </p>
 <blockquote><p>
@@ -245,14 +264,17 @@ F_x \\ F_y \\ F_z
 <h3 id="75-ラプラシアン">§7.5 ラプラシアン</h3>
 <p>勾配（スカラー→ベクトル）と発散（ベクトル→スカラー）を連続して作用させると、スカラー場からスカラー場への演算が得られる。これを<strong>ラプラシアン</strong>と呼ぶ。
 </p>
-<div class="math-block">$$\nabla^2 f = \mathrm{div}(\mathrm{grad}\,f) = \nabla \cdot (\nabla f) = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2}$$</div>
+<p>$$\nabla^2 f = \mathrm{div}(\mathrm{grad}\,f) = \nabla \cdot (\nabla f) = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2}$$
+</p>
 <p>記号 $\nabla^2$ は $\nabla \cdot \nabla$ の略記であり、$\Delta f$ と書く流儀もある。
 </p>
 <strong>例</strong>：$f(x,y,z) = x^2 + y^2 + z^2$ のラプラシアン。
-<div class="math-block">$$\nabla^2 f = \frac{\partial^2}{\partial x^2}(x^2) + \frac{\partial^2}{\partial y^2}(y^2) + \frac{\partial^2}{\partial z^2}(z^2) = 2 + 2 + 2 = 6$$</div>
+<p>$$\nabla^2 f = \frac{\partial^2}{\partial x^2}(x^2) + \frac{\partial^2}{\partial y^2}(y^2) + \frac{\partial^2}{\partial z^2}(z^2) = 2 + 2 + 2 = 6$$
+</p>
 <p>ベクトル場 $\mathbf{F}$ に対しても、成分ごとにラプラシアンを作用させたものを<strong>ベクトルラプラシアン</strong>と呼ぶ。
 </p>
-<div class="math-block">$$\nabla^2 \mathbf{F} = \begin{pmatrix} \nabla^2 F_x \\ \nabla^2 F_y \\ \nabla^2 F_z \end{pmatrix}$$</div>
+<p>$$\nabla^2 \mathbf{F} = \begin{pmatrix} \nabla^2 F_x \\ \nabla^2 F_y \\ \nabla^2 F_z \end{pmatrix}$$
+</p>
 <p>ラプラシアンは物理の至るところに現れる。熱伝導方程式、波動方程式、ポアソン方程式——いずれも $\nabla^2$ を中心に据えた方程式である。
 </p>
 <hr />
@@ -262,11 +284,12 @@ F_x \\ F_y \\ F_z
 <h4 id="761">7.6.1 $\mathrm{rot}(\mathrm{grad}\,f) = \mathbf{0}$</h4>
 <p>勾配でベクトル場を得て、その回転をとると必ずゼロベクトルになる。
 </p>
-<div class="math-block">$$\nabla \times (\nabla f) = \begin{pmatrix}
+<p>$$\nabla \times (\nabla f) = \begin{pmatrix}
 \frac{\partial}{\partial y}\frac{\partial f}{\partial z} - \frac{\partial}{\partial z}\frac{\partial f}{\partial y} \\[0.5em]
 \frac{\partial}{\partial z}\frac{\partial f}{\partial x} - \frac{\partial}{\partial x}\frac{\partial f}{\partial z} \\[0.5em]
 \frac{\partial}{\partial x}\frac{\partial f}{\partial y} - \frac{\partial}{\partial y}\frac{\partial f}{\partial x}
-\end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$$</div>
+\end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$$
+</p>
 <p>各成分で、偏微分の順序交換 $\frac{\partial^2 f}{\partial y\partial z} = \frac{\partial^2 f}{\partial z\partial y}$ により打ち消し合う。これは $f$ がなめらか（二階連続微分可能）であれば常に成り立つ。
 </p>
 <p>物理的意味：「勾配場には渦がない」。重力場や静電場がこれに当たる。
@@ -274,7 +297,8 @@ F_x \\ F_y \\ F_z
 <h4 id="762">7.6.2 $\mathrm{div}(\mathrm{rot}\,\mathbf{F}) = 0$</h4>
 <p>回転でベクトル場を得て、その発散をとると必ずゼロになる。
 </p>
-<div class="math-block">$$\nabla \cdot (\nabla \times \mathbf{F}) = \frac{\partial}{\partial x}\!\left(\frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z}\right) + \frac{\partial}{\partial y}\!\left(\frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x}\right) + \frac{\partial}{\partial z}\!\left(\frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y}\right)$$</div>
+<p>$$\nabla \cdot (\nabla \times \mathbf{F}) = \frac{\partial}{\partial x}\!\left(\frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z}\right) + \frac{\partial}{\partial y}\!\left(\frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x}\right) + \frac{\partial}{\partial z}\!\left(\frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y}\right)$$
+</p>
 <p>展開すると、$\frac{\partial^2 F_z}{\partial x\partial y}$ と $-\frac{\partial^2 F_z}{\partial y\partial x}$ のように、やはり偏微分の順序交換により項がペアで打ち消し合い、総和は $0$ になる。
 </p>
 <p>物理的意味：「渦場に湧き出しはない」。磁場がこれに当たる（モノポールが存在しないことの数学的表現）。
@@ -292,37 +316,48 @@ F_x \\ F_y \\ F_z
 </p>
 <h4 id="771-積の微分則">7.7.1 積の微分則</h4>
 <strong>勾配の積</strong>：
-<div class="math-block">$$\nabla(fg) = f\,\nabla g + g\,\nabla f$$</div>
+<p>$$\nabla(fg) = f\,\nabla g + g\,\nabla f$$
+</p>
 <strong>発散の積</strong>：
-<div class="math-block">$$\nabla \cdot (f\mathbf{F}) = (\nabla f) \cdot \mathbf{F} + f\,(\nabla \cdot \mathbf{F})$$</div>
+<p>$$\nabla \cdot (f\mathbf{F}) = (\nabla f) \cdot \mathbf{F} + f\,(\nabla \cdot \mathbf{F})$$
+</p>
 <strong>回転の積</strong>：
-<div class="math-block">$$\nabla \times (f\mathbf{F}) = (\nabla f) \times \mathbf{F} + f\,(\nabla \times \mathbf{F})$$</div>
+<p>$$\nabla \times (f\mathbf{F}) = (\nabla f) \times \mathbf{F} + f\,(\nabla \times \mathbf{F})$$
+</p>
 <strong>クロス積の発散</strong>：
-<div class="math-block">$$\nabla \cdot (\mathbf{F} \times \mathbf{G}) = (\nabla \times \mathbf{F}) \cdot \mathbf{G} - \mathbf{F} \cdot (\nabla \times \mathbf{G})$$</div>
+<p>$$\nabla \cdot (\mathbf{F} \times \mathbf{G}) = (\nabla \times \mathbf{F}) \cdot \mathbf{G} - \mathbf{F} \cdot (\nabla \times \mathbf{G})$$
+</p>
 <h4 id="772-二回作用の恒等式">7.7.2 二回作用の恒等式</h4>
 <p>スカラー場の勾配の回転と、ベクトル場の回転の発散は §7.6 で導いた。公式集として再掲する。
 </p>
 <strong>勾配の回転はゼロ</strong>：
-<div class="math-block">$$\nabla \times (\nabla f) = \mathbf{0}$$</div>
+<p>$$\nabla \times (\nabla f) = \mathbf{0}$$
+</p>
 <strong>回転の発散はゼロ</strong>：
-<div class="math-block">$$\nabla \cdot (\nabla \times \mathbf{F}) = 0$$</div>
+<p>$$\nabla \cdot (\nabla \times \mathbf{F}) = 0$$
+</p>
 <strong>回転の回転</strong>：
-<div class="math-block">$$\nabla \times (\nabla \times \mathbf{F}) = \nabla(\nabla \cdot \mathbf{F}) - \nabla^2 \mathbf{F}$$</div>
+<p>$$\nabla \times (\nabla \times \mathbf{F}) = \nabla(\nabla \cdot \mathbf{F}) - \nabla^2 \mathbf{F}$$
+</p>
 <p>これはラプラシアンを発散と回転に分解する式である。導出には BAC-CAB 則（§7.7.4）を使う。
 </p>
 <strong>スカラー場の勾配の発散</strong>（= ラプラシアン）：
-<div class="math-block">$$\nabla \cdot (\nabla f) = \nabla^2 f$$</div>
+<p>$$\nabla \cdot (\nabla f) = \nabla^2 f$$
+</p>
 <p>§7.5 の定義そのもの。
 </p>
 <h4 id="773-スカラー三重積">7.7.3 スカラー三重積</h4>
 <p>三つの縦ベクトル $\mathbf{A}, \mathbf{B}, \mathbf{C}$ のスカラー三重積は、$\mathbf{A}$ と $\mathbf{B}\times\mathbf{C}$ のドット積で定義される。
 </p>
-<div class="math-block">$$\mathbf{A} \cdot (\mathbf{B} \times \mathbf{C})$$</div>
+<p>$$\mathbf{A} \cdot (\mathbf{B} \times \mathbf{C})$$
+</p>
 <p>この値は $\mathbf{A}, \mathbf{B}, \mathbf{C}$ の張る平行六面体の符号付き体積に等しい。巡回置換に対して不変であり、二つのベクトルを入れ替えると符号が反転する。
 </p>
-<div class="math-block">$$\mathbf{A} \cdot (\mathbf{B} \times \mathbf{C}) = \mathbf{B} \cdot (\mathbf{C} \times \mathbf{A}) = \mathbf{C} \cdot (\mathbf{A} \times \mathbf{B})$$</div>
+<p>$$\mathbf{A} \cdot (\mathbf{B} \times \mathbf{C}) = \mathbf{B} \cdot (\mathbf{C} \times \mathbf{A}) = \mathbf{C} \cdot (\mathbf{A} \times \mathbf{B})$$
+</p>
 <h4 id="774-ベクトル三重積BAC-CAB-則">7.7.4 ベクトル三重積（BAC-CAB 則）</h4>
-<div class="math-block">$$\mathbf{A} \times (\mathbf{B} \times \mathbf{C}) = \mathbf{B}(\mathbf{A} \cdot \mathbf{C}) - \mathbf{C}(\mathbf{A} \cdot \mathbf{B})$$</div>
+<p>$$\mathbf{A} \times (\mathbf{B} \times \mathbf{C}) = \mathbf{B}(\mathbf{A} \cdot \mathbf{C}) - \mathbf{C}(\mathbf{A} \cdot \mathbf{B})$$
+</p>
 <p>クロス積を二重に使うときに現れる。右辺の各項はスカラー倍されたベクトルであり、BAC-CAB の語呂で記憶される。
 </p>
 <blockquote><p>
@@ -346,7 +381,8 @@ F_x \\ F_y \\ F_z
 <h4 id="781-ストークスの定理">7.8.1 ストークスの定理</h4>
 <p>曲面 $S$ とその境界である閉曲線 $C = \partial S$ に対し、
 </p>
-<div class="math-block">$$\oint_C \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdot \mathbf{n}\,dS$$</div>
+<p>$$\oint_C \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdot \mathbf{n}\,dS$$
+</p>
 <p>左辺は曲線 $C$ に沿った $\mathbf{F}$ の線積分（循環）、右辺は曲面 $S$ 上の回転の法線成分の面積分である。「境界での循環は、内部の渦の総和に等しい」という意味を持つ。$\mathbf{n}$ は曲面の単位法線ベクトルで、$C$ の向きに対して右ねじの関係で選ぶ。
 </p>
 <blockquote><p>
@@ -354,11 +390,13 @@ F_x \\ F_y \\ F_z
 <br>
 <br>
 </p></blockquote>
-<div class="math-block">$$\oint_{\partial D} (P\,dx + Q\,dy) = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dx\,dy$$</div>
+<p>$$\oint_{\partial D} (P\,dx + Q\,dy) = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dx\,dy$$
+</p>
 <h4 id="782-ガウスの発散定理">7.8.2 ガウスの発散定理</h4>
 <p>立体 $V$ とその境界である閉曲面 $S = \partial V$ に対し、
 </p>
-<div class="math-block">$$\oiint_S \mathbf{F} \cdot \mathbf{n}\,dS = \iiint_V (\nabla \cdot \mathbf{F})\,dV$$</div>
+<p>$$\oiint_S \mathbf{F} \cdot \mathbf{n}\,dS = \iiint_V (\nabla \cdot \mathbf{F})\,dV$$
+</p>
 <p>左辺は閉曲面 $S$ を通る $\mathbf{F}$ の外向きの流束、右辺は立体 $V$ 内の発散の体積分である。「境界を通る流れの総和は、内部の湧き出しの総和に等しい」という意味を持つ。
 </p>
 <h4 id="783-三つの定理の共通構造">7.8.3 三つの定理の共通構造</h4>

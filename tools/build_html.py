@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Generate multi-page HTML from manuscript_combined.md.
-Splits content by chapters to improve MathJax performance.
+Generate multi-page HTML from manuscript_combined.md using KaTeX.
+Splits content by chapters and provides fast, beautiful math rendering.
 """
 
 import re
@@ -11,16 +11,22 @@ from pathlib import Path
 
 # --- Configuration ---
 
-MATHJAX_CONFIG = '''window.MathJax = {
-  tex: {
-    inlineMath: [['$', '$']],
-    displayMath: [['$$', '$$']],
-    processEscapes: true
-  },
-  options: {
-    enableMenu: false
-  }
-};
+# KaTeX is much faster and cleaner than MathJax.
+KATEX_CDN = '''
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ],
+            throwOnError : false
+        });
+    });
+</script>
 '''
 
 HTML_TEMPLATE = '''<!DOCTYPE html>
@@ -55,15 +61,13 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
     .markdown-body {{ padding: 0.5rem; }}
   }}
   blockquote {{ border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }}
-  .mjx-container {{ overflow-x: auto !important; padding: 0.8em 0; max-width: 100%; }}
   .nav-buttons {{ display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }}
   .nav-buttons a {{ padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }}
   .nav-buttons a:hover {{ background: #f6f8fa; }}
+  /* KaTeX responsiveness */
+  .katex-display {{ overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }}
 </style>
-<script>
-{MATHJAX_CONFIG}
-</script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+{KATEX_CDN}
 </head>
 <body>
   <nav class="sidebar">
@@ -91,7 +95,7 @@ class MathProtector:
         def replace_display(match):
             idx = len(self.math_blocks)
             self.math_blocks.append(match.group(0))
-            return f'\n\n<div class="math-block">MATH_BLOCK_{idx}_END</div>\n\n'
+            return f'\n\nMATH_BLOCK_{idx}_END\n\n'
         def replace_inline(match):
             idx = len(self.inline_math)
             self.inline_math.append(match.group(0))
@@ -119,12 +123,9 @@ def process_markdown(markdown_text):
     text = text.replace('<!-- scalebox -->', '')
     text = text.replace('<!-- endscalebox -->', '')
 
-    # 1. Global replacement of \bm before any protection or processing
-    # Alphabet \bm{v} -> \mathbf{v}
-    text = re.sub(r'\\bm\{([a-zA-Z0-9]+)\}', r'\\mathbf{\1}', markdown_text)
-    # Greek or symbols \bm{\sigma} -> \boldsymbol{\sigma}
+    # 1. Global replacement of \bm for KaTeX compatibility
+    text = re.sub(r'\\bm\{([a-zA-Z0-9]+)\}', r'\\mathbf{\1}', text)
     text = re.sub(r'\\bm\{(.+?)\}', r'\\boldsymbol{\1}', text)
-    # Naked \bm \sigma -> \boldsymbol \sigma
     text = text.replace('\\bm ', '\\boldsymbol ')
     
     protector = MathProtector()
@@ -185,7 +186,7 @@ def process_markdown(markdown_text):
         elif ul_match:
             if in_list != 'ul':
                 if in_list: result.append('</ul>' if in_list == 'ul' else '</ol>')
-                result.append('<ul class="tex2jax_ignore">')
+                result.append('<ul>')
                 in_list = 'ul'
             result.append(f'<li>{protector.restore(ul_match.group(1))}</li>')
             in_para = False
@@ -314,7 +315,7 @@ def main():
             page_toc = page_toc.replace(find_str, find_str.replace('</li>', local_toc + '</li>'))
         
         final_html = HTML_TEMPLATE.format(
-            title=ch["title"], MATHJAX_CONFIG=MATHJAX_CONFIG, toc=page_toc,
+            title=ch["title"], toc=page_toc, KATEX_CDN=KATEX_CDN,
             content=content_html, prev_button=prev_btn, next_button=next_btn
         )
         with open(docs_dir / ch["filename"], 'w', encoding='utf-8') as f:
