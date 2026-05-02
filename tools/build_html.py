@@ -18,9 +18,14 @@ MATHJAX_CONFIG = '''window.MathJax = {
     processEscapes: true,
     packages: {'[+]': ['bm', 'ams']}
   },
+  chtml: {
+    displayAlign: 'center',
+    adaptiveCSS: true
+  },
   options: {
     ignoreHtmlClass: 'tex2jax_ignore',
-    processHtmlClass: 'tex2jax_process'
+    processHtmlClass: 'tex2jax_process',
+    enableMenu: false
   }
 };
 '''
@@ -49,18 +54,23 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
   .sidebar a:hover {{ text-decoration: underline; }}
   .sidebar .active {{ color: #cf222e; font-weight: bold; }}
   .main-content {{ flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; }}
-  .markdown-body {{ max-width: 850px; margin: 0 auto; }}
-  @media (max-width: 900px) {{ body {{ flex-direction: column; }} .sidebar {{ width: 100%; height: auto; position: static; }} .main-content {{ padding: 1.5rem; }} }}
+  .markdown-body {{ max-width: 850px; margin: 0 auto; min-height: 100vh; }}
+  @media (max-width: 900px) {{ 
+    body {{ flex-direction: column; }} 
+    .sidebar {{ width: 100%; height: auto; position: static; padding: 1rem; }} 
+    .main-content {{ padding: 1rem; }} 
+    .markdown-body {{ padding: 0.5rem; }}
+  }}
   blockquote {{ border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }}
   .mjx-container {{ overflow-x: auto !important; padding: 0.8em 0; max-width: 100%; }}
   .nav-buttons {{ display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }}
-  .nav-buttons a {{ padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; }}
+  .nav-buttons a {{ padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }}
   .nav-buttons a:hover {{ background: #f6f8fa; }}
 </style>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <script>
 {MATHJAX_CONFIG}
 </script>
-<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
   <nav class="sidebar">
