@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>はじめに：本書の読み方と記法 | ナブラ解体新書</title>
+<title>サポートページとちょっとした試みのご案内 | ナブラ解体新書</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
 <style>
   :root { --sidebar-width: 320px; }
@@ -67,8 +67,8 @@
     </div>
     <div class="toc"><ul>
 <li class="level-1"><a href="index.html" id="link-index.html">まえがき</a></li>
-<li class="level-1"><a href="intro.html" class="active" id="link-intro.html">はじめに</a><ul class="sub-toc"><li class="level-3"><a href="#前提知識">前提知識</a></li><li class="level-3"><a href="#本書のロードマップ">本書のロードマップ</a></li><li class="level-3"><a href="#本書の記法ルール">本書の記法ルール</a></li></ul></li>
-<li class="level-1"><a href="portal.html" id="link-portal.html">サポートページとちょっとした試みのご案内</a></li>
+<li class="level-1"><a href="intro.html" id="link-intro.html">はじめに</a></li>
+<li class="level-1"><a href="portal.html" class="active" id="link-portal.html">サポートページとちょっとした試みのご案内</a><ul class="sub-toc"><li class="level-3"><a href="#Project-Co-Vector-Space">Project Co-Vector Space</a></li><li class="level-3"><a href="#小さな部室の試み">小さな「部室」の試み</a></li></ul></li>
 <li class="level-1"><a href="ch01.html" id="link-ch01.html">第1章</a></li>
 <li class="level-1"><a href="ch02.html" id="link-ch02.html">第2章</a></li>
 <li class="level-1"><a href="ch03.html" id="link-ch03.html">第3章</a></li>
@@ -88,54 +88,23 @@
   </nav>
   <main class="main-content">
     <article class="markdown-body">
-      <h1 id="はじめに本書の読み方と記法">はじめに：本書の読み方と記法</h1>
-<p>本書をスムーズに読み進めるためのガイドマップと、本書独自のルールを整理します。
+      <h1 id="サポートページとちょっとした試みのご案内">サポートページとちょっとした試みのご案内</h1>
+<p>本書の PDF 版のダウンロード、正誤表、改訂履歴、GitHub リポジトリ、およびコミュニティへの入口は、以下のポータルサイトにまとめています。
 </p>
-<h3 id="前提知識">前提知識</h3>
-<p>本書は、高度な大学数学の知識を要求しません。以下の基本事項に馴染みがあれば、十分に読み進めることができます。
+<h3 id="Project-Co-Vector-Space">Project Co-Vector Space</h3>
+<p><a href="https://covectorspace.xyz/jp/">https://covectorspace.xyz/jp/</a>
 </p>
-<ul>
-<li><strong>微積分</strong>：一変数関数の微積分ができること。特に<strong>置換積分</strong>の計算がスムーズだと、中盤以降の理解が非常に楽になります。</li>
-<li><strong>線形代数</strong>：行列の積の計算に抵抗がないこと。また、「矢印としてのベクトル」のイメージを持っていること。（行列式の詳細な性質などは、曖昧な状態でも読み進めながら補完できます）</li>
-</ul>
-<p>これ以上の専門的な知識（多変数微積分の厳密な証明、多様体論、テンソル解析など）は、一切必要ありません。
+<p>本書の閲覧そのものは無料です。誤植の報告や、より分かりやすい説明への修正案などは GitHub Issue でも受け付けています。
 </p>
-<h3 id="本書のロードマップ">本書のロードマップ</h3>
-<p>本書は全12章で、大きく3つの部に分かれています。
+<h3 id="小さな部室の試み">小さな「部室」の試み</h3>
+<p>また、本書をきっかけにした小さな <strong>Discord 部室</strong> を試験的に用意しています。
+これは単なる読者サポート窓口ではありません。公開前の原稿のチラ見せ、未整理のアイデアの壁打ち、あるいは「初歩的すぎて表に出しにくい質問」などを、心地よい距離感で置いておける場所を目指しています。
 </p>
-<ol>
-<li><strong>第I部：$\mathbb{R}^3$ 上の微分形式（第1章〜第5章）</strong></li>
-</ol>
-<p>   積分記号の尻尾にある $dx$ を「行列」として定義し直し、面積や体積を測る仕組みを代数的に組み上げます。さらに「外微分 $d$」と「ホッジ・スター $\ast$」という二つの強力な武器を手に入れます。
-<ol>
-<li><strong>第II部：ベクトル解析（第6章〜第9章）</strong></li>
-</ol>
-<p>   本書の核心部です。手に入れた武器を使って、ベクトル解析の grad, rot, div を「解体」し、ストークスの定理や曲線座標（極座標・球座標）を攻略します。
-<ol>
-<li><strong>第III部：発展と統合（第10章〜第12章）</strong></li>
-</ol>
-<p>   電磁気学（マクスウェル方程式）への応用と、さらにその先にある多様体や幾何代数（Geometric Algebra）の世界を展望します。
-</p>
-<h3 id="本書の記法ルール">本書の記法ルール</h3>
-<p>本書では、一貫して以下の視覚的な約束を守ります。
-</p>
-<ul>
-<li><strong>縦ベクトル（矢印）</strong>： $\mathbf{v} = \begin{pmatrix} \Delta x \\ \Delta y \\ \Delta z \end{pmatrix}$</li>
-</ul>
-<p>  - 「測られる対象」である変位や場を表します。
-<ul>
-<li><strong>横ベクトル（測定器）</strong>： $dx = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}$</li>
-</ul>
-<p>  - 「測る道具」である微分形式を表します。
-<ul>
-<li><strong>作用（スカラー）</strong>： $dx(\mathbf{v}) = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix} \begin{pmatrix} \Delta x \\ \Delta y \\ \Delta z \end{pmatrix} = \Delta x$</li>
-</ul>
-<p>  - 道具を対象に適用し、成分を取り出す操作です。
-この「行列の掛け算」という手触りのある言葉を頼りに、抽象的な概念を解き明かしていきます。
+<p>物理数学の骨格を自分の手で組み立てる「過程」を、静かに共有したいと考えています。詳しい参加方法や利用規約については、上記のポータルサイトを確認してください。
 </p>
       <div class="nav-buttons">
-        <a href="index.html">← まえがき：なぜナブラを解体する...</a>
-        <a href="portal.html">サポートページとちょっとした試... →</a>
+        <a href="intro.html">← はじめに：本書の読み方と記法...</a>
+        <a href="ch01.html">第1章：$dx$ とは何か —... →</a>
       </div>
     </article>
   </main>

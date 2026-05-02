@@ -303,7 +303,11 @@ def main():
     chapters = []
     front_matter_files = glob.glob('manuscript/ja/ch00/*.md')
     front_matter_files.sort()
-    front_mapping = {"01_preface.md": "index.html", "02_introduction.md": "intro.html"}
+    front_mapping = {
+        "01_preface.md": "index.html",
+        "02_introduction.md": "intro.html",
+        "03_portal.md": "portal.html"
+    }
     
     for fpath in front_matter_files:
         fname = Path(fpath).name
