@@ -55,7 +55,8 @@ window.MathJax = {
     <h2><a href="index.html">ナブラ解体新書</a></h2>
     <div class="author">著者: yokiikoy</div>
     <div class="toc"><ul>
-<li><a href="index.html" id="link-index.html">まえがき</a></li>
+<li class="level-1"><a href="index.html" id="link-index.html">まえがき</a></li>
+<li class="level-1"><a href="intro.html" id="link-intro.html">はじめに</a></li>
 <li class="level-1"><a href="ch01.html" id="link-ch01.html">第1章</a></li>
 <li class="level-1"><a href="ch02.html" id="link-ch02.html">第2章</a></li>
 <li class="level-1"><a href="ch03.html" id="link-ch03.html">第3章</a></li>
@@ -219,7 +220,7 @@ window.MathJax = {
 </p>
 <p>ここで起きていることを整理しよう：
 </p>
-<ul>
+<ul class="tex2jax_ignore">
 <li>**入力**：$\omega = P\,dx + Q\,dy + R\,dz$（$1$-form、ベクトル1本を食べる線の測定器）</li>
 <li>**出力**：$d\omega = (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,dx \wedge dy$（$2$-form、ベクトル2本を食べる面の測定器）</li>
 <li>**操作**：$d$ は次数を 1 から 2 へ**一つ上げる**</li>
@@ -340,7 +341,7 @@ window.MathJax = {
 </p>
 <p>たとえば $C\,dx \wedge dy$ の項について、$z$ に垂直な底面と上面だけを考える：
 </p>
-<ul>
+<ul class="tex2jax_ignore">
 <li>**底面**（$z$、外向きは $-z$ 方向）：$C(x,y,z)$ に $-dx \wedge dy$ の向きで評価 → およそ $-C(x,y,z)\,\Delta x\,\Delta y$</li>
 <li>**上面**（$z+\Delta z$、外向きは $+z$ 方向）：$C(x,y,z+\Delta z) \approx C + \frac{\partial C}{\partial z}\Delta z$ → およそ $(C + \frac{\partial C}{\partial z}\Delta z)\,\Delta x\,\Delta y$</li>
 </ul>
@@ -493,7 +494,7 @@ window.MathJax = {
 <h3 id="511-第II部への展望ホッジ・スターへの伏線">§5.11 第II部への展望——ホッジ・スターへの伏線</h3>
 <p>本章で我々は、外微分 $d$ という強力な演算子を手に入れた。$d$ は：
 </p>
-<ul>
+<ul class="tex2jax_ignore">
 <li>$0$-form $\to$ $1$-form：$df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz$</li>
 <li>$1$-form $\to$ $2$-form：$d\omega = (\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z})\,dy\wedge dz + (\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x})\,dz\wedge dx + (\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y})\,dx\wedge dy$</li>
 <li>$2$-form $\to$ $3$-form：$d\eta = (\frac{\partial A}{\partial x}+\frac{\partial B}{\partial y}+\frac{\partial C}{\partial z})\,dx\wedge dy\wedge dz$</li>

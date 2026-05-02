@@ -55,7 +55,8 @@ window.MathJax = {
     <h2><a href="index.html">ナブラ解体新書</a></h2>
     <div class="author">著者: yokiikoy</div>
     <div class="toc"><ul>
-<li><a href="index.html" id="link-index.html">まえがき</a></li>
+<li class="level-1"><a href="index.html" id="link-index.html">まえがき</a></li>
+<li class="level-1"><a href="intro.html" id="link-intro.html">はじめに</a></li>
 <li class="level-1"><a href="ch01.html" id="link-ch01.html">第1章</a></li>
 <li class="level-1"><a href="ch02.html" class="active" id="link-ch02.html">第2章</a><ul class="sub-toc"><li class="level-3"><a href="#20-測定器と面積・体積そして長さ">§2.0 測定器と面積・体積、そして長さ</a></li><li class="level-3"><a href="#21-小学校の面積の限界">§2.1 小学校の面積の限界</a></li><li class="level-3"><a href="#22-面積測定器が満たすべき3つのルール">§2.2 面積測定器が満たすべき「3つのルール」</a></li><li class="level-3"><a href="#23-面積測定器の正体は反対称行列である">§2.3 面積測定器の正体は「反対称行列」である</a></li><li class="level-3"><a href="#24-面積測定器の内部構造">§2.4 面積測定器の内部構造</a></li><li class="level-3"><a href="#25-体積測定器と行列式">§2.5 体積測定器と行列式</a></li><li class="level-3"><a href="#26-本章のまとめと第3章への展望">§2.6 本章のまとめと第3章への展望</a></li><li class="level-2"><a href="#第2章-付録A体積測定器のテンソル積表現--全成分の計算">第2章 付録A：体積測定器のテンソル積表現 — 全成分の計算</a></li></ul></li>
 <li class="level-1"><a href="ch03.html" id="link-ch03.html">第3章</a></li>
@@ -313,7 +314,7 @@ $0$-form が測る「0次元の図形」とは単なる「点」であり、成�
 <p>点（0次元）、線分（1次元）、平行四辺形（2次元）。すべては「はかり（$k$-form）」と「図形（$k$-ベクトル）」の、横ベクトルと縦ベクトルの関係という、全く同じ構造の反復だったのである。
 </p>
 <p>§2.5 ではこれをさらに一段上げて、3次元の平行六面体（体積）に同じ構造を適用する。まとめると：
-<ul>
+<ul class="tex2jax_ignore">
 <li>**$k=0$**：$0$-form は点を測る。成分1つ、大きさは絶対値</li>
 <li>**$k=1$**：$1$-form はベクトル（**向き付きの長さ**）を測る。成分3つ、大きさは $\sqrt{x^2+y^2+z^2}$</li>
 <li>**$k=2$**：$2$-form は二重ベクトル（**向き付きの面積**）を測る。成分3つ、大きさは $\sqrt{A_{yz}^2+A_{zx}^2+A_{xy}^2}$</li>
@@ -366,7 +367,7 @@ $0$-form が測る「0次元の図形」とは単なる「点」であり、成�
 <p>ここで $i, j, k$ はそれぞれ<strong>独立に</strong> $x, y, z$ のいずれかをとる添字だ（「走る」＝和をとるときに $x,y,z$ の三通りそれぞれをめぐる、と読めばよい）。
 </p>
 <p>27項は多いが、ルール2（交代性）が大量の項を消してくれる：
-<ul>
+<ul class="tex2jax_ignore">
 <li>添字に**重複がある項はすべてゼロ**（例：$V(\hat{e}_x, \hat{e}_x, \hat{e}_z) = 0$）</li>
 <li>重複のない組み合わせは $i, j, k$ がすべて異なる場合だけ、すなわち $(x,y,z)$ の**置換**</li>
 </ul>
@@ -409,7 +410,7 @@ $0$-form が測る「0次元の図形」とは単なる「点」であり、成�
 <p>§2.5.2 で導いた $V$ と完全に一致する。<strong>体積測定器は、3つの物差し $dx, dy, dz$ のウェッジ積として構成できた。</strong>
 </p>
 <p>線形代数で行列式を学んだ読者なら、この定義が §2.5.1 の3ルールを満たすことが容易に分かるだろう：
-<ul>
+<ul class="tex2jax_ignore">
 <li>**多重線形性**：行列式は各列について線形だから、自動的に満たされる。</li>
 <li>**交代性**：行列式の2つの列を入れ替えると符号が反転する。</li>
 <li>**規格化**：$\hat{e}_x, \hat{e}_y, \hat{e}_z$ を入れると行列は単位行列になり、$\det(I) = 1$。</li>
@@ -450,7 +451,7 @@ $0$-form が測る「0次元の図形」とは単なる「点」であり、成�
 </p>
 <p>$\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3$ を代入する手順は、<strong>配列の添字とベクトル成分を、合うところどうしで掛けて足す</strong>——と見るのが早い：
 </p>
-<ul>
+<ul class="tex2jax_ignore">
 <li>**ステップ1（3次元配列 → 行列）：** 添字 $i$ について、$\mathbf{v}_1$ の各成分で3つの面積測定器行列を重みづけして足す——すなわち $\displaystyle M = \sum_{i=1}^3 v_{1i}\,\epsilon_{i,\cdot,\cdot}$（$\epsilon_{i,\cdot,\cdot}$ は $\widehat{\epsilon}$ の左から $i$ 枚目の $3 \times 3$ ブロック）。結果は1つの $3 \times 3$ 行列 $M$ に降りる。</li>
 <li>**ステップ2（行列 → スカラー）：** 残り2本で「横 $\times$ 行列 $\times$ 縦」—— $V = \mathbf{v}_2^T\, M\, \mathbf{v}_3$。§2.4 で慣れ親しんだ操作だ。</li>
 </ul>

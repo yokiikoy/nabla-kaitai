@@ -11,7 +11,6 @@ from pathlib import Path
 
 # --- Configuration ---
 
-# MathJax 3 configuration MUST be defined BEFORE the script is loaded.
 MATHJAX_CONFIG = '''window.MathJax = {
   tex: {
     inlineMath: [['$', '$']],
@@ -122,7 +121,6 @@ def process_markdown(markdown_text):
     in_code, in_quote, in_list, in_para = False, False, False, False
     
     for line in lines:
-        # Code block
         if line.strip().startswith('```'):
             if not in_code:
                 result.append('<pre><code>')
@@ -135,7 +133,6 @@ def process_markdown(markdown_text):
             result.append(line)
             continue
 
-        # Headings
         h_match = re.match(r'^(#{1,6})\s+(.+)$', line)
         if h_match:
             lv, content = len(h_match.group(1)), h_match.group(2).strip()
@@ -144,13 +141,11 @@ def process_markdown(markdown_text):
             in_para = in_list = False
             continue
 
-        # Horizontal rule
         if line.strip() == '---':
             result.append('<hr />')
             in_para = in_list = False
             continue
 
-        # Blockquote
         if line.strip().startswith('>'):
             content = protector.restore(line[1:].strip())
             if not in_quote:
@@ -163,7 +158,6 @@ def process_markdown(markdown_text):
             result.append('</p></blockquote>')
             in_quote = False
 
-        # Lists
         ol_match = re.match(r'^(\d+)\.\s*(.*)', line.strip())
         ul_match = re.match(r'^[-*]\s+(.*)', line)
         
@@ -178,7 +172,7 @@ def process_markdown(markdown_text):
         elif ul_match:
             if in_list != 'ul':
                 if in_list: result.append('</ul>' if in_list == 'ul' else '</ol>')
-                result.append('<ul>')
+                result.append('<ul class="tex2jax_ignore">')
                 in_list = 'ul'
             result.append(f'<li>{protector.restore(ul_match.group(1))}</li>')
             in_para = False
@@ -187,18 +181,13 @@ def process_markdown(markdown_text):
             result.append('</ul>' if in_list == 'ul' else '</ol>')
             in_list = False
 
-        # Paragraphs
         if line.strip() == '':
             if in_para: result.append('</p>'); in_para = False
             continue
         
-        # Inline formatting (bold, italic, code) - DO THIS BEFORE RESTORING MATH
         processed = line
-        
-        # Automatic replacement of \bm with \mathbf for better MathJax compatibility
         processed = processed.replace('\\bm{', '\\mathbf{')
         processed = processed.replace('\\bm ', '\\mathbf ')
-        
         processed = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', processed)
         processed = re.sub(r'\*(.+?)\*', r'<em>\1</em>', processed)
         processed = re.sub(r'`(.+?)`', r'<code>\1</code>', processed)
@@ -214,7 +203,6 @@ def process_markdown(markdown_text):
     if in_para: result.append('</p>')
     if in_quote: result.append('</p></blockquote>')
     if in_list: result.append('</ul>' if in_list == 'ul' else '</ol>')
-    
     return '\n'.join(result)
 
 def main():
@@ -225,58 +213,51 @@ def main():
     with open(md_path, 'r', encoding='utf-8') as f:
         full_text = f.read()
 
-    # Split into chapters
     chapters = []
-    main_title = "ナブラ解体新書 ——行列表示の微分形式によるベクトル解析の抜け道——"
-    
-    # Identify front matter (ch00)
     front_matter_files = glob.glob('manuscript/ja/ch00/*.md')
     front_matter_files.sort()
+    front_mapping = {"01_preface.md": "index.html", "02_introduction.md": "intro.html"}
     
-    current_chapter = {"title": main_title, "content": [], "filename": "index.html"}
-    
-    # Load front matter into index.html
     for fpath in front_matter_files:
+        fname = Path(fpath).name
+        target_html = front_mapping.get(fname, fname.replace('.md', '.html'))
         with open(fpath, 'r', encoding='utf-8') as f:
-            current_chapter["content"].extend(f.readlines())
+            content = f.read()
+            title_match = re.search(r'^#\s+(.+)$', content, re.MULTILINE)
+            title = title_match.group(1) if title_match else "まえがき"
+            chapters.append({"title": title, "content": content.split('\n'), "filename": target_html})
     
     lines = full_text.split('\n')
     ch_count = 0
-    special_mapping = {
-        "まえがき": "index.html",
-        "おわりに": "postscript.html",
-        "参考文献": "refs.html",
-        "付録": "appendix.html"
-    }
+    special_mapping = {"おわりに": "postscript.html", "参考文献": "refs.html", "付録": "appendix.html"}
+    current_chapter = None
 
     for line in lines:
         if line.startswith('# '):
             title = line.lstrip('#').strip()
-            is_new_section = False
+            is_new = False
             new_filename = ""
             if title.startswith('第'):
                 ch_count += 1
                 new_filename = f"ch{ch_count:02d}.html"
-                is_new_section = True
+                is_new = True
             else:
                 for key, fname in special_mapping.items():
-                    if key in title and key != "まえがき":
+                    if key in title:
                         new_filename = fname
-                        is_new_section = True
+                        is_new = True
                         break
-            if is_new_section:
-                if current_chapter["content"]:
-                    chapters.append(current_chapter)
+            if is_new:
+                if current_chapter: chapters.append(current_chapter)
                 current_chapter = {"title": title, "content": [line], "filename": new_filename}
                 continue
-        current_chapter["content"].append(line)
-    chapters.append(current_chapter)
+        if current_chapter:
+            current_chapter["content"].append(line)
+    if current_chapter: chapters.append(current_chapter)
 
     # Build TOC HTML
     toc_html_parts = ["<ul>"]
-    toc_html_parts.append('<li><a href="index.html" id="link-index.html">まえがき</a></li>')
     for ch in chapters:
-        if ch["filename"] == "index.html": continue
         display_title = ch["title"]
         if '：' in display_title: display_title = display_title.split('：')[0]
         elif '——' in display_title: display_title = display_title.split('——')[0]
@@ -284,9 +265,7 @@ def main():
     toc_html_parts.append("</ul>")
     toc_html = "\n".join(toc_html_parts)
 
-    # Generate each page
     for i, ch in enumerate(chapters):
-        content_md = "\n".join(ch["content"])
         sub_headings = []
         for line in ch["content"]:
             h_match = re.match(r'^(#{2,3})\s+(.+)$', line)
@@ -297,7 +276,7 @@ def main():
                 restored = temp_protector.restore(protected)
                 sub_headings.append((lv, restored, slugify(restored)))
 
-        content_html = process_markdown(content_md)
+        content_html = process_markdown("\n".join(ch["content"]))
         local_toc = ""
         if sub_headings:
             local_toc = '<ul class="sub-toc">'
@@ -313,22 +292,17 @@ def main():
         active_marker = f'id="link-{ch["filename"]}"'
         page_toc = toc_html.replace(active_marker, f'class="active" {active_marker}')
         if local_toc:
-            find_str = f'link-{ch["filename"]}">{ch["title"].split("：")[0] if "：" in ch["title"] else ch["title"].split("——")[0]}</a></li>'
+            short_title = ch["title"].split("：")[0] if "：" in ch["title"] else ch["title"].split("——")[0]
+            find_str = f'link-{ch["filename"]}">{short_title}</a></li>'
             page_toc = page_toc.replace(find_str, find_str.replace('</li>', local_toc + '</li>'))
         
         final_html = HTML_TEMPLATE.format(
-            title=ch["title"],
-            MATHJAX_CONFIG=MATHJAX_CONFIG,
-            toc=page_toc,
-            content=content_html,
-            prev_button=prev_btn,
-            next_button=next_btn
+            title=ch["title"], MATHJAX_CONFIG=MATHJAX_CONFIG, toc=page_toc,
+            content=content_html, prev_button=prev_btn, next_button=next_btn
         )
-        
-        output_path = docs_dir / ch["filename"]
-        with open(output_path, 'w', encoding='utf-8') as f:
+        with open(docs_dir / ch["filename"], 'w', encoding='utf-8') as f:
             f.write(final_html)
-        print(f"Generated {output_path}")
+        print(f"Generated {docs_dir / ch['filename']}")
 
 if __name__ == '__main__':
     main()
