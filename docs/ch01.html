@@ -83,7 +83,8 @@
 <h3 id="10-数学者の1次元物理学者の1次元">§1.0 数学者の1次元、物理学者の1次元</h3>
 <p>高校で $\int f(x) dx$ という1次元の積分を習ったとき、教科書の記述では「$x$軸という1本の線」が置かれる。数学の教科書としてはそれで妥当だ。<strong>数学者</strong>は1次元空間 $\mathbb{R}^1$ という自己完結した抽象世界を仮定し、その上で論理を積み上げる。点は実数 $x$、変位は実数 $\Delta x$、積分は「関数×微小幅」の極限として定義される。すべてが完結している。
 </p>
-<strong>しかし、我々は物理学者である。</strong>
+<p><strong>しかし、我々は物理学者である。</strong>
+</p>
 <p>我々が扱う<strong>現実の物理空間は、常に3次元だ。</strong>質点が直線上を運動しているように見えても、それは「架空の1次元空間」にいるのではなく、「3次元空間 $\mathbb{R}^3$ の中で、たまたま $y$ 方向と $z$ 方向への変位が観測されない（あるいは無視できる）断面」を見ているに過ぎない。
 例えば、摩擦のない直線レール上を滑る台車を考えよう。我々は「これは $x$ 軸方向の1次元運動だ」と言うが、実際には：
 <ul>
@@ -94,57 +95,54 @@
 <p>物理学者の「1次元運動」とは、<strong>3次元空間内で特定の方向への変位が支配的であり、他の方向の変位が無視できるほど小さいか、系の対称性によって厳密にゼロに拘束されている状況</strong>を指す。
 したがって、物理学者が「1次元の微小変位」と呼ぶものの真の姿は、単なるスカラー $\Delta x$ ではなく、次のような<strong>縦ベクトル（列ベクトル）</strong>で表すのがふさわしい：
 </p>
-<p>$$\mathbf{v} = \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix}$$
-</p>
+$$\mathbf{v} = \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix}$$
 <blockquote><p>
-**注** （標準的でない呼び方）本書全体を通して**縦ベクトル・横ベクトル**という言い方をする（縦が列、横が行、と対応させて読んでほしい）。筆者は行と列という語の区別が苦手だからだ。<br>
+<strong>注</strong> （標準的でない呼び方）本書全体を通して<strong>縦ベクトル・横ベクトル</strong>という言い方をする（縦が列、横が行、と対応させて読んでほしい）。筆者は行と列という語の区別が苦手だからだ。<br>
 </p></blockquote>
 <p>我々はこのように、3次元空間内の一点からの変位を3成分で表したものを<strong>変位ベクトル</strong>と呼ぶ。成分の並びは慣習に従い、<strong>第1成分が $x$ 軸方向、第2が $y$ 軸方向、第3が $z$ 軸方向</strong>の変位に対応するものとする。
 </p>
 <p>この第2成分・第3成分のゼロは、「無視されている」あるいは「存在しない」という消極的な意味ではない。<strong>「我々が今、$x$軸方向の運動だけに注目し、他の成分を測定対象から意図的に除外している」という積極的な選択の結果</strong>なのである。
 この「物理学者としての3次元前提」こそが、積分記号の末尾にへばりついている $dx$ という記号の真の姿を暴き出す鍵となる。次節では、この視点から <strong>$dx$ を「微小量」から「行列」へと解体していく。</strong>
 </p>
-<strong>本書はあくまで初等微分積分学とベクトル解析の教科書であり、一般次元の微分形式を展開しようとするものではない。したがって最後まで3次元デカルト座標 $(x,y,z)$ に固定し、線形代数学として最も素直な表現——行列表現——を採用する。</strong>よって、本書で用いる $dx,dy,dz$ は、この座標系において成分を取り出す具体的な行列として定義し、まずは「3次元・デカルト・行列」という素直な道具立ての中で、誤魔化しのないベクトル解析を身体に染み込ませることが狙いである。
+<p><strong>本書はあくまで初等微分積分学とベクトル解析の教科書であり、一般次元の微分形式を展開しようとするものではない。したがって最後まで3次元デカルト座標 $(x,y,z)$ に固定し、線形代数学として最も素直な表現——行列表現——を採用する。</strong>よって、本書で用いる $dx,dy,dz$ は、この座標系において成分を取り出す具体的な行列として定義し、まずは「3次元・デカルト・行列」という素直な道具立ての中で、誤魔化しのないベクトル解析を身体に染み込ませることが狙いである。
 <blockquote><p>
-**注**（デカルト座標の呼称について）本書の「デカルト座標」とは、**正規直交座標系**（原点が一致し、各軸が互いに直交し、間隔が等間隔である座標系）を指す。数学や他書籍では「ユークリッド空間上の直交直線座標」「デカルト座標系」などとも呼ばれるが、本書では単に「デカルト座標」と呼ぶ。<br>
+<strong>注</strong>（デカルト座標の呼称について）本書の「デカルト座標」とは、<strong>正規直交座標系</strong>（原点が一致し、各軸が互いに直交し、間隔が等間隔である座標系）を指す。数学や他書籍では「ユークリッド空間上の直交直線座標」「デカルト座標系」などとも呼ばれるが、本書では単に「デカルト座標」と呼ぶ。<br>
 </p></blockquote>
 <blockquote><p>
-**注** （第III部での拡張）ただし第III部では、必要に応じて曲線座標や高次元への拡張にも触れる。<br>
+<strong>注</strong> （第III部での拡張）ただし第III部では、必要に応じて曲線座標や高次元への拡張にも触れる。<br>
 </p></blockquote>
 <blockquote><p>
-**注** （筆者の経歴について）念のため断っておくと、筆者の学位は物理学ではなく化学であり、しかも本職の学者ですらない。本書で「物理学者が」「物理学者は」などと呼ぶときは、学術的な帰属ではなく、**「本書の読者が想定しているであろう物理学のスタンダード」**をレトリック（修辞法）として指している。どうか専門家の意見としてではなく、一つの語り口として受け取ってほしい。<br>
+<strong>注</strong> （筆者の経歴について）念のため断っておくと、筆者の学位は物理学ではなく化学であり、しかも本職の学者ですらない。本書で「物理学者が」「物理学者は」などと呼ぶときは、学術的な帰属ではなく、<strong>「本書の読者が想定しているであろう物理学のスタンダード」</strong>をレトリック（修辞法）として指している。どうか専門家の意見としてではなく、一つの語り口として受け取ってほしい。<br>
 </p></blockquote>
 <hr />
 <h3 id="11-リーマン積分は行列の積である">§1.1 リーマン積分は行列の積である</h3>
 <p>前節で、物理的な微小変位を縦ベクトル $\mathbf{v}$ として捉え直した。§1.0 と同じく
 </p>
-<p>$$\mathbf{v} = \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix}$$
-</p>
+$$\mathbf{v} = \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix}$$
 <p>である。この視点を持って、今度は高校以来慣れ親しんだリーマン積分のプロセスを徹底的に解体し、その中に潜む「行列としての $dx$」を炙り出してみよう。
 </p>
 <blockquote><p>
-**注** （転置の記法について）数学や他文献では、縦ベクトルの成分を横に並べ、右上に ${}^T$ を添えて略記することもある。本書では縦ベクトルはすべて $\begin{pmatrix}\cdots\end{pmatrix}$ の形で書く。${}^T$ が出てきたときは、行列の転置演算の記号として読んでほしい。<br>
+<strong>注</strong> （転置の記法について）数学や他文献では、縦ベクトルの成分を横に並べ、右上に ${}^T$ を添えて略記することもある。本書では縦ベクトルはすべて $\begin{pmatrix}\cdots\end{pmatrix}$ の形で書く。${}^T$ が出てきたときは、行列の転置演算の記号として読んでほしい。<br>
 </p></blockquote>
 <h4 id="111-リーマン和の標準的構成復習">1.1.1 リーマン和の標準的構成（復習）</h4>
 <p>関数 $f(x)$ の区間 $[a, b]$ における定積分は、次のように定義される：
 </p>
 <blockquote><p>
-**注** （閉区間とは）記号 $[a,b]$ は、端点 $a$ と $b$ を両方含む**閉区間**（$a \le x \le b$ の実数 $x$ の集合）を表す。数学者の流儀に慣れていない読者のために明示しておく。<br>
+<strong>注</strong> （閉区間とは）記号 $[a,b]$ は、端点 $a$ と $b$ を両方含む<strong>閉区間</strong>（$a \le x \le b$ の実数 $x$ の集合）を表す。数学者の流儀に慣れていない読者のために明示しておく。<br>
 </p></blockquote>
 <ol>
 <li>区間を $n$ 個の小区間に分割： $a = x_0 < x_1 < \cdots < x_n = b$</li>
 <li>小区間の幅を $\Delta x_i = x_i - x_{i-1}$</li>
-<li>各小区間 $[x_{i-1}, x_i]$ の**中から**代表点 $\xi_i$ を1つ選ぶ</li>
+<li>各小区間 $[x_{i-1}, x_i]$ の<strong>中から</strong>代表点 $\xi_i$ を1つ選ぶ</li>
 <li>リーマン和 $R_n = \sum_{i=1}^n f(\xi_i) \Delta x_i$ を作る（この $n$ 分割に対する和を $R_n$ と書く）</li>
-<li>分割を細かくする極限をとる（厳密には、小区間の幅の**最大値**が $0$ に近づく。分割数 $n$ だけを大きくしても幅が残る取り方がありうるので、数学ではこちらを重視する。以下の $\lim_{n\to\infty} R_n$ は、この条件を満たす分割の取り方を前提にしている）： $\int_a^b f(x)\,dx = \lim_{n\to\infty} R_n$</li>
+<li>分割を細かくする極限をとる（厳密には、小区間の幅の<strong>最大値</strong>が $0$ に近づく。分割数 $n$ だけを大きくしても幅が残る取り方がありうるので、数学ではこちらを重視する。以下の $\lim_{n\to\infty} R_n$ は、この条件を満たす分割の取り方を前提にしている）： $\int_a^b f(x)\,dx = \lim_{n\to\infty} R_n$</li>
 </ol>
 <p>この教科書的な説明では、$\Delta x_i$ は「微小な幅」という一次元の量だ。しかし、我々はもう一歩踏み込めるはずだ。
 </p>
 <h4 id="112-小区間ごとの変位">1.1.2 小区間ごとの変位</h4>
 <p>第 $i$ 小区間 $[x_{i-1}, x_i]$ における変位は、§1.0 の<strong>変位ベクトル</strong>を、その区間の幅に合わせて
 </p>
-<p>$$\mathbf{v}_i = \begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix}$$
-</p>
+$$\mathbf{v}_i = \begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix}$$
 <p>と書く。添字 $i$ は「第 $i$ 小区間の分」という意味だけで、$\mathbf{v}_i$ もまた変位ベクトルである。今は直線運動を考えているので $y,z$ 成分はゼロだが、それは条件ではなく結果としてゼロになっているだけだ。
 </p>
 <h4 id="113-の登場--本書最大の特徴としての断言">1.1.3 $dx$ の登場 — 本書最大の特徴としての「断言」</h4>
@@ -152,100 +150,89 @@
 </p>
 <p>すなわち、<strong>横ベクトル</strong>（$1\times 3$ <strong>行列</strong>として成分を横に並べて書く）として
 </p>
-<p>$$dx = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}$$
-</p>
+$$dx = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}$$
 <p>と<strong>定義する</strong>。これは、入力された縦ベクトルから $x$ 成分だけを抜き出して返す線形演算子の行列表現である。
 </p>
 <blockquote><p>
-**注**（これはトンデモか？）<br>
+<strong>注</strong>（これはトンデモか？）<br>
 双対ベクトルを横ベクトルで表すこと自体は、テンソル解析や線形代数、量子力学のブラケット記法などの文脈で普通に行われる。たとえば標準基底 $e_1,e_2,e_3$ に対する双対基底のひとつ $e^1$ は、行列表現では<br>
 <br>
 </p></blockquote>
-<p>$$
+$$
 > e^1=\begin{pmatrix}1&0&0\end{pmatrix}
 > $$
-</p>
 <blockquote><p>
 と書ける。テンソル解析でいう共変成分を、行ベクトルとして配列に起こしたものに対応する。本書では、標準デカルト座標のもとで、$dx$ をこの $e^1$ と同一視する。<br>
 <br>
 もちろんこれは、多様体論における座標自由な幾何学的実体としての $dx$ を否定するものではない。その立場では、$dx$ そのものと、その標準基底に関する行列表現は区別される。すなわち、<br>
 <br>
 </p></blockquote>
-<p>$$
+$$
 > dx \longleftrightarrow \begin{pmatrix}1&0&0\end{pmatrix}
 > $$
-</p>
 <blockquote><p>
 という「表示の対応」として理解するのがより慎重だ。<br>
 <br>
 しかし本文では、等号 $=$ を採用する。理由は、日本の高校数学を通ってきた初学者にとって、$\longleftrightarrow$ や $\mapsto$ と $=$ の違いへ初手から立ち入ることが、余計な認知的負荷になると考えるからである。重要なのは、$=$ か $\mapsto$ かという記号そのものではなく、どの同一視を読者と約束しているかだ。本書では、「標準デカルト座標を固定した表示として、$dx$ を $\begin{pmatrix}1&0&0\end{pmatrix}$ と書く」という約束のもとで、この省略記法を用いる。この同一視の裏側やテンソル解析・多様体論への発展は第11章で改めて述べる。<br>
 </p></blockquote>
 <blockquote><p>
-**注**（なぜこんなに必死なのか）<br>
+<strong>注</strong>（なぜこんなに必死なのか）<br>
 この種の発見的・構築的な導入は、しばしば「不正確だ」「一般論を矮小化している」と誤解される。したがって、本書の射程をあらかじめ明示しておく。本書の主戦場は、物理数学としての三次元ベクトル解析であり、一般多様体上の微分形式論やド・ラームコホモロジーではない。詳しくは「付録：本書で語らなかったもの」を参照のこと。<br>
 </p></blockquote>
 <p>変位ベクトル $\mathbf{v}_i$ に左から掛けると
 </p>
-<p>$$dx\,\mathbf{v}_i = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix} \begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix} = \Delta x_i$$
-</p>
+$$dx\,\mathbf{v}_i = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix} \begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix} = \Delta x_i$$
 <p>となる。ここで「$dx$ が変位ベクトル $\mathbf{v}_i$ を食べてスカラー $\Delta x_i$ を吐く」というイメージを、<strong>関数の値のように書く</strong>ことにする：
 </p>
-<p>$$dx(\mathbf{v}_i) = dx\,\mathbf{v}_i = \Delta x_i$$
+$$dx(\mathbf{v}_i) = dx\,\mathbf{v}_i = \Delta x_i$$
+<p><strong>本書では、しばしばこの $dx(\mathbf{v})$ の形で「横ベクトル $dx$ が縦ベクトル $\mathbf{v}$ に作用する」と強調する。何度繰り返しても強調しすぎることはない。</strong>
 </p>
-<strong>本書では、しばしばこの $dx(\mathbf{v})$ の形で「横ベクトル $dx$ が縦ベクトル $\mathbf{v}$ に作用する」と強調する。何度繰り返しても強調しすぎることはない。</strong>
 <blockquote><p>
-**注** （演算子・作用素・関数・写像の呼び分け）この $dx(\mathbf{v})$ を**演算子**と呼ぶか**作用素**と呼ぶか**関数**と呼ぶか**写像**と呼ぶかは、文献によってさまざまな流儀がある。筆者は**演算子**と呼ぶことを好むので、この先も演算子と呼ぶことが多いだろう。<br>
+<strong>注</strong> （演算子・作用素・関数・写像の呼び分け）この $dx(\mathbf{v})$ を<strong>演算子</strong>と呼ぶか<strong>作用素</strong>と呼ぶか<strong>関数</strong>と呼ぶか<strong>写像</strong>と呼ぶかは、文献によってさまざまな流儀がある。筆者は<strong>演算子</strong>と呼ぶことを好むので、この先も演算子と呼ぶことが多いだろう。<br>
 </p></blockquote>
 <blockquote><p>
-**注**（座標不変な $dx$ とデカルト表示）上で述べた通り、ここでの $\begin{pmatrix}1&0&0\end{pmatrix}$ は標準デカルト座標での表示である。§1.4 で、座標を替えるとこの表示がどう変わるかを見る。<br>
+<strong>注</strong>（座標不変な $dx$ とデカルト表示）上で述べた通り、ここでの $\begin{pmatrix}1&0&0\end{pmatrix}$ は標準デカルト座標での表示である。§1.4 で、座標を替えるとこの表示がどう変わるかを見る。<br>
 </p></blockquote>
 <p>リーマン和に現れる $\Delta x_i$ は、「1次元の謎の微小量」ではない。<strong>3次元空間の中での変位ベクトル $\mathbf{v}_i$ に対し、上の行列としての $dx$ が $x$ 成分だけを抜き出した結果</strong>である。
 </p>
-<strong>これが決定的な瞬間だ</strong>：
+<p><strong>これが決定的な瞬間だ</strong>：
 <ul>
-<li>左辺：$dx(\mathbf{v}_i)$ は、行列 $dx$ が**変位ベクトル $\mathbf{v}_i$ に**作用する代数的操作</li>
+<li>左辺：$dx(\mathbf{v}_i)$ は、行列 $dx$ が<strong>変位ベクトル $\mathbf{v}_i$ に</strong>作用する代数的操作</li>
 <li>右辺：従来のリーマン和に現れる「小区間の幅 $\Delta x_i$」</li>
 </ul>
 <p>つまり $\Delta x_i$ は、<strong>1次元の謎の微小変位ではなく、3次元の微小変位 $\mathbf{v}_i$ から $x$ 方向の成分だけを取り出した $dx(\mathbf{v}_i)$ である</strong>。
 </p>
 <blockquote><p>
-**注** （成分並びの約束）横ベクトル（行）や行成分の略記は **$(1\ 0\ 0)$** のように**コンマを打たず**、成分の間だけを区切って書く。**$(1, 0, 0)$** のように**コンマのあとにスペース**を入れる書き方は**座標**（点の位置など）を強調するときに用い、**行列・横ベクトルの略記には使わない**。<br>
+<strong>注</strong> （成分並びの約束）横ベクトル（行）や行成分の略記は <strong>$(1\ 0\ 0)$</strong> のように<strong>コンマを打たず</strong>、成分の間だけを区切って書く。<strong>$(1, 0, 0)$</strong> のように<strong>コンマのあとにスペース</strong>を入れる書き方は<strong>座標</strong>（点の位置など）を強調するときに用い、<strong>行列・横ベクトルの略記には使わない</strong>。<br>
 </p></blockquote>
 <h4 id="114-リーマン和のベクトル再解釈と積分記号">1.1.4 リーマン和のベクトル再解釈と積分記号</h4>
 <p>この視点でリーマン和を書き直すと：
 </p>
-<p>$$R_n = \sum_{i=1}^n f(\xi_i) \cdot dx(\mathbf{v}_i)$$
-</p>
+$$R_n = \sum_{i=1}^n f(\xi_i) \cdot dx(\mathbf{v}_i)$$
 <p>さらに、各小区間で
 </p>
-<p>$$f(\xi_i)\,dx = \begin{pmatrix} f(\xi_i) & 0 & 0 \end{pmatrix}$$
-</p>
+$$f(\xi_i)\,dx = \begin{pmatrix} f(\xi_i) & 0 & 0 \end{pmatrix}$$
 <p>とおけば（スカラー $f(\xi_i)$ が各行をスケールする）、
 </p>
-<p>$$\bigl(f(\xi_i)\,dx\bigr)(\mathbf{v}_i) = f(\xi_i) \cdot dx(\mathbf{v}_i) = f(\xi_i)\,\Delta x_i$$
-</p>
+$$\bigl(f(\xi_i)\,dx\bigr)(\mathbf{v}_i) = f(\xi_i) \cdot dx(\mathbf{v}_i) = f(\xi_i)\,\Delta x_i$$
 <p>であり、リーマン和の各項そのものが得られる：
 </p>
-<p>$$R_n = \sum_{i=1}^n \bigl(f(\xi_i)\,dx\bigr)(\mathbf{v}_i)$$
-</p>
+$$R_n = \sum_{i=1}^n \bigl(f(\xi_i)\,dx\bigr)(\mathbf{v}_i)$$
 <p>分割を無限に細かくする極限では（手順5と同じく、幅の最大値が $0$ に近づく意味で）、リーマン積分の定義より
 </p>
-<p>$$\int_a^b f(x)\,dx = \lim_{n\to\infty} R_n = \lim_{n\to\infty} \sum_{i=1}^n \bigl(f(\xi_i)\,dx\bigr)(\mathbf{v}_i)$$
-</p>
+$$\int_a^b f(x)\,dx = \lim_{n\to\infty} R_n = \lim_{n\to\infty} \sum_{i=1}^n \bigl(f(\xi_i)\,dx\bigr)(\mathbf{v}_i)$$
 <p>左辺の $\int_a^b f(x)\,dx$ は、高校以来おなじみの積分記号そのものである——すなわち、上の手順5で書いた $\lim_{n\to\infty} R_n$ と同じ量だ。右辺は、<strong>各小区間で「行列 $f(\xi_i)\,dx$ を変位ベクトルに作用させた値」を足し上げたものの極限</strong>という、同じ積分の別顔だ。
 </p>
 <h4 id="115-物理的解釈--仕事の計算を例に">1.1.5 物理的解釈 — 仕事の計算を例に</h4>
 <blockquote><p>
-**注** （力学になじみがない読者へ）ここで力学の講義をしようとするわけではない。下に出す $W=\int F\,dx$ は、**積分を行列作用の極限としてどう読むか**を示すための、馴染みのある例として借りるだけである。力の厳密な定義や単位の細部まで押さえなくとも、本節の主眼を追ううえで支障はない。想定読者の多くは高校程度の力学に触れているであろうが、これから初学者の読者も、上の趣旨だけ押さえていれば、同様に支障はない。<br>
+<strong>注</strong> （力学になじみがない読者へ）ここで力学の講義をしようとするわけではない。下に出す $W=\int F\,dx$ は、<strong>積分を行列作用の極限としてどう読むか</strong>を示すための、馴染みのある例として借りるだけである。力の厳密な定義や単位の細部まで押さえなくとも、本節の主眼を追ううえで支障はない。想定読者の多くは高校程度の力学に触れているであろうが、これから初学者の読者も、上の趣旨だけ押さえていれば、同様に支障はない。<br>
 </p></blockquote>
 <p>直線上の質点に力 $F(x)$ が作用する場合の仕事を考えよう。力学を学んだ読者であれば
 </p>
-<p>$$W = \int_a^b F(x)\,dx$$
-</p>
+$$W = \int_a^b F(x)\,dx$$
 <p>という表現を知っているだろう。本書の流儀で行列表現すると、
 </p>
-<p>$$W = \lim_{n\to\infty} \sum_{i=1}^n \begin{pmatrix} F(\xi_i) & 0 & 0 \end{pmatrix} \begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix} = \lim_{n\to\infty} \sum_{i=1}^n \bigl(F(\xi_i)\,dx\bigr)(\mathbf{v}_i) = \int_a^b F(x)\,dx$$
-</p>
+$$W = \lim_{n\to\infty} \sum_{i=1}^n \begin{pmatrix} F(\xi_i) & 0 & 0 \end{pmatrix} \begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix} = \lim_{n\to\infty} \sum_{i=1}^n \bigl(F(\xi_i)\,dx\bigr)(\mathbf{v}_i) = \int_a^b F(x)\,dx$$
 <p>である。左から順に、<strong>成分を明示したリーマン和の極限</strong>、<strong>演算子記法による同じ極限</strong>、<strong>慣用の積分記号</strong>であり、<strong>同じ量</strong>を三通りに表している。ここで $\mathbf{v}_i = \begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix}$ である。
 </p>
 <p>$F(x)\,dx = \begin{pmatrix} F(x) & 0 & 0 \end{pmatrix}$ は演算子であり、$\bigl(F(x)\,dx\bigr)(\mathbf{v}) = F(x)\,\Delta x$ が一次近似としての微小仕事になる。
@@ -254,32 +241,34 @@
 <p>ここまで、我々は $dx$ を「変位ベクトルに作用して特定の成分を抽出し、スカラー（実数）を返す横ベクトル」として定義してきた。このような、ベクトルを食べてスカラーを吐き出す<strong>線形</strong>な測定器のことを、専門的には<strong>一次形式（$1$-form）</strong>と呼ぶ。本稿で「行列としての $dx$」と呼んできたものは、まさにこの一次形式に他ならない。
 </p>
 <blockquote><p>
-**注** （余ベクトルという用語）数学者は **一次形式（$1$-form）** の別名として **余ベクトル（covector）**と呼ぶ流儀をとることもよくある。他書を読むときの辞書として、頭の片隅に置いておけばよい。<br>
+<strong>注</strong> （余ベクトルという用語）数学者は <strong>一次形式（$1$-form）</strong> の別名として <strong>余ベクトル（covector）</strong>と呼ぶ流儀をとることもよくある。他書を読むときの辞書として、頭の片隅に置いておけばよい。<br>
 </p></blockquote>
 <p>命名の由来は単純だ：
 </p>
 <ul>
-<li>**「一次」**：変位ベクトルを**一次（線形）**に処理するから</li>
-<li>**「形式」**：「測定の形式」「作用の形式」を意味する</li>
+<li><strong>「一次」</strong>：変位ベクトルを<strong>一次（線形）</strong>に処理するから</li>
+<li><strong>「形式」</strong>：「測定の形式」「作用の形式」を意味する</li>
 </ul>
 <p>これ以降、この測定器のことを「行列」とも「一次形式（$1$-form）」とも呼ぶことにする。どちらの呼び方も、同じ実体を指している。
 </p>
-<strong>本書の記号契約</strong>
-<strong>$dx$ を単独で「微小な変位」や「微小変化」の意味には用いない</strong>——変位の幅と測定器（横ベクトル）を混同しないために、次のように約束する。$x$ 方向の（微小）変位の大きさは <strong>$\Delta x$</strong> を使うか、変位ベクトル $\mathbf{v}$ を明示して <strong>$dx(\mathbf{v})$</strong> と書く。
+<p><strong>本書の記号契約</strong>
+</p>
+<p><strong>$dx$ を単独で「微小な変位」や「微小変化」の意味には用いない</strong>——変位の幅と測定器（横ベクトル）を混同しないために、次のように約束する。$x$ 方向の（微小）変位の大きさは <strong>$\Delta x$</strong> を使うか、変位ベクトル $\mathbf{v}$ を明示して <strong>$dx(\mathbf{v})$</strong> と書く。
+</p>
 <p>一方、<strong>単独で現れる $dx$</strong> は、<strong>$x$ 成分を抜き出す横ベクトル（一次形式）としての演算子</strong>を指す。式 $df = f'(x)\,dx$ のように並ぶ $dx$ も、<strong>常に演算子として読む</strong>。<strong>この区別を徹底することが、以降のすべての理解の土台となる。</strong>
 </p>
 <p>積分記号 $\int_a^b f(x)\,dx$ の末尾の $dx$ は、高校以来の<strong>慣用記法</strong>として残す（積分変数 $x$ とセットの「ひとかたまり」）。本書ではここを毎回 $dx(\mathbf{v})$ まで展開しないことも多いが、<strong>変位や微小幅を語る本文では $\Delta x$ か $dx(\mathbf{v})$ に揃え、裸の $dx$ には幅や変化量のイメージを載せない</strong>。
 </p>
 <blockquote><p>
-**注** （文献における $dx$ の用法）物理学者は変位の成分そのものを $dx$ と書く慣習もよく使う。しかし、本書の記法に慣れると、**測定器としての $dx$ と変位のスカラーを切り分けた**読みがしやすくなる——より進んだ本では、その区別がそのまま効いてくる。<br>
+<strong>注</strong> （文献における $dx$ の用法）物理学者は変位の成分そのものを $dx$ と書く慣習もよく使う。しかし、本書の記法に慣れると、<strong>測定器としての $dx$ と変位のスカラーを切り分けた</strong>読みがしやすくなる——より進んだ本では、その区別がそのまま効いてくる。<br>
 </p></blockquote>
 <p>次節では、この視点を関数の微分へと拡張し、全微分 $df$ を行列として定義していく。
 </p>
 <hr />
 <blockquote><p>
-**【ここまでのチェックポイント】**<br>
+<strong>【ここまでのチェックポイント】</strong><br>
 - 微小変位は縦ベクトル $\mathbf{v}$。$\Delta x$ はスカラー幅であり、単独の $dx$ は横ベクトル（一次形式）としての演算子である。<br>
-- デカルトの $dy$, $dz$ は**次節 §1.2.3**で置く（§1.1.6 の $dx$ と**同じ考え方の**一次形式）。$\Delta y$, $\Delta z$ や $dy(\mathbf{v})$, $dz(\mathbf{v})$ との区別は §1.1.6 の**記号契約**に沿う。<br>
+- デカルトの $dy$, $dz$ は<strong>次節 §1.2.3</strong>で置く（§1.1.6 の $dx$ と<strong>同じ考え方の</strong>一次形式）。$\Delta y$, $\Delta z$ や $dy(\mathbf{v})$, $dz(\mathbf{v})$ との区別は §1.1.6 の<strong>記号契約</strong>に沿う。<br>
 - リーマン和の各項は $(f\,dx)(\mathbf{v}_i)$ の形で、積分はその極限として理解できる。<br>
 - 積分記号 $\int_a^b f(x)\,dx$ の末尾の $dx$ は慣用記法であり、変位そのものは $\Delta x$ や $dx(\mathbf{v})$ で書く（§1.1.6 の契約）。<br>
 </p></blockquote>
@@ -289,48 +278,42 @@
 <h4 id="121-微分可能性の行列表現">1.2.1 微分可能性の行列表現</h4>
 <p>関数 $f(x)$ が点 $x$ で微分可能であるとは、次の一次近似が成り立つことである：
 </p>
-<p>$$\Delta f = f(x + \Delta x) - f(x) = f'(x) \Delta x + o(|\Delta x|) \quad (|\Delta x| \to 0)$$
-</p>
+$$\Delta f = f(x + \Delta x) - f(x) = f'(x) \Delta x + o(|\Delta x|) \quad (|\Delta x| \to 0)$$
 <blockquote><p>
-**注** （ランダウのオーダー記法）**$o(|\Delta x|)$** は**ランダウのオーダー記法**である。$\Delta x \to 0$ のとき、$o(|\Delta x|)$ でまとめて書いた量は **$|\Delta x|$ よりずっと速くゼロに近づく余り**を意味し、主項 $f'(x)\Delta x$ に比べれば**無視してよいほど小さい**、という約束である。理工系の専門書ではよく出るが、初めて見る読者もいるかもしれない。<br>
+<strong>注</strong> （ランダウのオーダー記法）<strong>$o(|\Delta x|)$</strong> は<strong>ランダウのオーダー記法</strong>である。$\Delta x \to 0$ のとき、$o(|\Delta x|)$ でまとめて書いた量は <strong>$|\Delta x|$ よりずっと速くゼロに近づく余り</strong>を意味し、主項 $f'(x)\Delta x$ に比べれば<strong>無視してよいほど小さい</strong>、という約束である。理工系の専門書ではよく出るが、初めて見る読者もいるかもしれない。<br>
 </p></blockquote>
 <p>ここで $\Delta x$ はスカラーだが、我々はこれを前節同様、3次元の変位ベクトルとして捉え直す：
 </p>
-<p>$$\mathbf{v} = \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix}$$
-</p>
+$$\mathbf{v} = \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix}$$
 <p>すると、関数の変化 $\Delta f$ は、この $\mathbf{v}$ によって引き起こされる効果と見なせる。
 </p>
 <h4 id="122-の行列としての定義と">1.2.2 $df$ の行列としての定義と $df(\mathbf{v})$</h4>
 <p>点 $x$ における関数 $f$ の<strong>全微分</strong> $df$ を、次の $1 \times 3$ 横ベクトルとして定義する：
 </p>
-<p>$$df = f'(x) \, dx = \begin{pmatrix} f'(x) & 0 & 0 \end{pmatrix}$$
-</p>
+$$df = f'(x) \, dx = \begin{pmatrix} f'(x) & 0 & 0 \end{pmatrix}$$
 <p>この $df$ を変位 $\mathbf{v}$ に作用させた結果を、前節と同様に <strong>$df(\mathbf{v})$</strong> と書く：
 </p>
-<p>$$df(\mathbf{v}) = \begin{pmatrix} f'(x) & 0 & 0 \end{pmatrix} \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix} = f'(x)\,\Delta x$$
-</p>
-<strong>重要な認識の転換</strong>（<strong>常に次のように読む</strong>）：
+$$df(\mathbf{v}) = \begin{pmatrix} f'(x) & 0 & 0 \end{pmatrix} \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix} = f'(x)\,\Delta x$$
+<p><strong>重要な認識の転換</strong>（<strong>常に次のように読む</strong>）：
 <ul>
-<li>式 $df = f'(x)\,dx$ は、微積分でおなじみの**全微分の記法**だが、本書では **$df$ も $dx$ も演算子としての横ベクトル**であり、**単体では微小変化量ではない**、と読む。</li>
-<li>**$df(\mathbf{v})$** と書いたときは、**有限の（ただし十分小さい）変位 $\mathbf{v}$ に対する一次近似としての変化量**を意味する。</li>
+<li>式 $df = f'(x)\,dx$ は、微積分でおなじみの<strong>全微分の記法</strong>だが、本書では <strong>$df$ も $dx$ も演算子としての横ベクトル</strong>であり、<strong>単体では微小変化量ではない</strong>、と読む。</li>
+<li><strong>$df(\mathbf{v})$</strong> と書いたときは、<strong>有限の（ただし十分小さい）変位 $\mathbf{v}$ に対する一次近似としての変化量</strong>を意味する。</li>
 </ul>
 <p>$df$ それ自体は変化量ではない。<strong>変化量の一次部分を生成する「装置」</strong>なのである。
 </p>
 <blockquote><p>
-**注** （$df$ は演算子、$df(\mathbf{v})$ が変化量）§1.1.6 の記号契約と同じ区別を、ここでもう一度述べる。くどいと感じるかもしれないが、**ここを誤読すると以降すべてがずれる**ので、繰り返しに価値がある。<br>
+<strong>注</strong> （$df$ は演算子、$df(\mathbf{v})$ が変化量）§1.1.6 の記号契約と同じ区別を、ここでもう一度述べる。くどいと感じるかもしれないが、<strong>ここを誤読すると以降すべてがずれる</strong>ので、繰り返しに価値がある。<br>
 </p></blockquote>
 <h4 id="123-方向と-方向の物差し-">1.2.3 $y$ 方向と $z$ 方向の物差し $dy$, $dz$</h4>
 <p>この視点の強みを、§1.1.5 の力学の例に戻せば、<strong>力が $y$ 方向にも成分を持つ一般的な場合に自然に拡張できる</strong>点だ。
-</p>
 <strong>いま定める $dy$</strong>を使えば、$F_x dx + F_y dy$ という形で2次元の仕事を統一的に扱える。
-<p>$dx$ が $x$ 成分を抜き出すのと同様に、実空間では <strong>$dy$ は $y$ 成分</strong>、<strong>$dz$ は $z$ 成分</strong>を抜き出す横ベクトル（一次形式）と定める。行列表現は
+$dx$ が $x$ 成分を抜き出すのと同様に、実空間では <strong>$dy$ は $y$ 成分</strong>、<strong>$dz$ は $z$ 成分</strong>を抜き出す横ベクトル（一次形式）と定める。行列表現は
 </p>
-<p>$$dy = \begin{pmatrix} 0 & 1 & 0 \end{pmatrix}, \qquad dz = \begin{pmatrix} 0 & 0 & 1 \end{pmatrix}$$
-</p>
+$$dy = \begin{pmatrix} 0 & 1 & 0 \end{pmatrix}, \qquad dz = \begin{pmatrix} 0 & 0 & 1 \end{pmatrix}$$
 <p>である。変位 $\mathbf{v} = \begin{pmatrix} \Delta x \\ \Delta y \\ \Delta z \end{pmatrix}$ に対して $dy(\mathbf{v}) = \Delta y$, $dz(\mathbf{v}) = \Delta z$ となる。
 </p>
 <blockquote><p>
-**注** （$dy$, $dz$ の契約）単独の $dy$, $dz$ は演算子であり、$y$ や $z$ の微小幅を語るときは $\Delta y$, $\Delta z$ または $dy(\mathbf{v})$, $dz(\mathbf{v})$ と書く。積分記号の末尾に並ぶ $dy$, $dz$ も、高校以来の慣用記法として **$dx$ と同じ仕方で読めばよい**。細部の約束は、§1.1.6 で $dx$ についてまとめた**記号契約**と**同じ考え方**を適用する。<br>
+<strong>注</strong> （$dy$, $dz$ の契約）単独の $dy$, $dz$ は演算子であり、$y$ や $z$ の微小幅を語るときは $\Delta y$, $\Delta z$ または $dy(\mathbf{v})$, $dz(\mathbf{v})$ と書く。積分記号の末尾に並ぶ $dy$, $dz$ も、高校以来の慣用記法として <strong>$dx$ と同じ仕方で読めばよい</strong>。細部の約束は、§1.1.6 で $dx$ についてまとめた<strong>記号契約</strong>と<strong>同じ考え方</strong>を適用する。<br>
 </p></blockquote>
 <p>3次元の空間には、<strong>三つの物差し</strong>がそろった。本章では説明の主線として $x$ 方向の断面に寄せてきたが、座標 $y,z$ と測定子 $dy,dz$ は最初からそろっている、と考えてほしい。
 いま、一変数の $df=f'(x)\,dx$ に $dy$, $dz$ を同じ型の物差しとして足しそろえた。以下の具体例と §1.2.6 での三次元への拡張で、この三つがどう効いてくるかを追う。
@@ -340,43 +323,39 @@
 </p>
 <p>たとえば <strong>$x=3$ において</strong>全微分を具体的に書き下ろす。横ベクトルと縦ベクトルを並べて、
 </p>
-<p>$$df = 6\,dx = \begin{pmatrix} 6 & 0 & 0 \end{pmatrix}, \qquad \mathbf{v} = \begin{pmatrix} 0.1 \\ 0 \\ 0 \end{pmatrix}$$
-</p>
+$$df = 6\,dx = \begin{pmatrix} 6 & 0 & 0 \end{pmatrix}, \qquad \mathbf{v} = \begin{pmatrix} 0.1 \\ 0 \\ 0 \end{pmatrix}$$
 <p>であるから、行列の積は
 </p>
-<p>$$df(\mathbf{v}) = \begin{pmatrix} 6 & 0 & 0 \end{pmatrix} \begin{pmatrix} 0.1 \\ 0 \\ 0 \end{pmatrix} = 6\cdot 0.1 + 0\cdot 0 + 0\cdot 0 = 0.6$$
-</p>
+$$df(\mathbf{v}) = \begin{pmatrix} 6 & 0 & 0 \end{pmatrix} \begin{pmatrix} 0.1 \\ 0 \\ 0 \end{pmatrix} = 6\cdot 0.1 + 0\cdot 0 + 0\cdot 0 = 0.6$$
 <p>実際、$f(3.1) - f(3) = 9.61 - 9 = 0.61$ であり、一次近似 $0.6$ はよく一致している。
 </p>
 <h4 id="125-置換積分の行列解釈">1.2.5 置換積分の行列解釈</h4>
 <blockquote><p>
-**注** （読み進め方）本節は §1.1 で整えた「一次形式が変位に作用する」視点の応用例である。§1.2.6 以降の本線（$df$ の多次元拡張）に進むうえで必須ではないため、興味がなければ §1.2.6 へ進んでかまわない。<br>
+<strong>注</strong> （読み進め方）本節は §1.1 で整えた「一次形式が変位に作用する」視点の応用例である。§1.2.6 以降の本線（$df$ の多次元拡張）に進むうえで必須ではないため、興味がなければ §1.2.6 へ進んでかまわない。<br>
 </p></blockquote>
 <p>置換積分は、積分変数を取り換えて被積分関数を書き換える操作である（高校数学で扱う）。本節の目的はそれ<strong>単体の公式暗記ではない</strong>。§1.1 までに整えた言葉で言えば、<strong>「空間側の一次形式 $F\,dx$ が各ステップの変位 $\Delta\mathbf{r}$ に作用する」リーマン和</strong>と、<strong>「時間パラメータ $t$ 上のステップ幅 $\Delta t$」</strong>を、<strong>同じステップの中で対応づける</strong>と、置換後の積分 $\int F(x(t))\,\frac{dx}{dt}\,dt$ の形に自然に落ちる、という骨格を見せることである。
 </p>
 <p>仕事を例に取る。仕事は
 </p>
-<p>$$W = \int_a^b F(x)\,dx$$
-</p>
+$$W = \int_a^b F(x)\,dx$$
 <p>と書ける（§1.1.5 でも同じ量を行列作用の極限として見た）。位置が時間 $t$ とともに動き、$t_0<t_1$ で $x(t_0)=a,\; x(t_1)=b$ となるようにパラメータ表示すると、空間内の点は
 </p>
-<p>$$\mathbf{r}(t) = \begin{pmatrix} x(t) \\ 0 \\ 0 \end{pmatrix}$$
-</p>
+$$\mathbf{r}(t) = \begin{pmatrix} x(t) \\ 0 \\ 0 \end{pmatrix}$$
 <p>と書ける。
 </p>
-<strong>時間軸側の1ステップ</strong>を、縦1成分のベクトル
-<p>$$\mathbf{w} = \begin{pmatrix} \Delta t \end{pmatrix}$$
+<p><strong>時間軸側の1ステップ</strong>を、縦1成分のベクトル
 </p>
+$$\mathbf{w} = \begin{pmatrix} \Delta t \end{pmatrix}$$
 <p>で表す。$dx=\begin{pmatrix}1&0&0\end{pmatrix}$ と<strong>並べて考えるなら</strong>、$t$ 成分だけを抜き出す「測定器」を $1\times 1$ 行列
 </p>
-<p>$$dt = \begin{pmatrix} 1 \end{pmatrix}$$
-</p>
+$$dt = \begin{pmatrix} 1 \end{pmatrix}$$
 <p>とおき、$dt(\mathbf{w})=\Delta t$ と読む。これは §1.1.6 の「横が測定器・縦がステップ・作用でスカラー」という<strong>型</strong>を、時間だけに縮めたものである。
 </p>
 <blockquote><p>
-**注** （時間軸の $dt$ — 空間の$1$-formとの違い）すまない——$dt$ は $1\times 1$ の横ベクトルであり、空間 $\mathbb{R}^3$ 上で定義した $3$ 次元の $dx$ とは**異なる空間の測定器**である。幾何学的には、$dx$ は3次元空間の余接空間に属する$1$-form、$dt$ は時間という1次元パラメータ軸の余接空間に属する$1$-formであり、**厳密には本書のここまでの導入だけでは両者の関係をカバーしきれていない**。**しかし物理学者として、時間は空間の3次元の中にすっぽり埋め込めるものではない——空間だけの話に丸めてごまかすわけにもいかなかったのだ。** だから $t$ の軸は $1\times1$ として切り出して正面から置く。横が測定器、縦が微小ステップ、作用でスカラー——という $dx$ と**同じ型**にそろえてあるので、理解は容易であろう。<br>
+<strong>注</strong> （時間軸の $dt$ — 空間の$1$-formとの違い）すまない——$dt$ は $1\times 1$ の横ベクトルであり、空間 $\mathbb{R}^3$ 上で定義した $3$ 次元の $dx$ とは<strong>異なる空間の測定器</strong>である。幾何学的には、$dx$ は3次元空間の余接空間に属する$1$-form、$dt$ は時間という1次元パラメータ軸の余接空間に属する$1$-formであり、<strong>厳密には本書のここまでの導入だけでは両者の関係をカバーしきれていない</strong>。<strong>しかし物理学者として、時間は空間の3次元の中にすっぽり埋め込めるものではない——空間だけの話に丸めてごまかすわけにもいかなかったのだ。</strong> だから $t$ の軸は $1\times1$ として切り出して正面から置く。横が測定器、縦が微小ステップ、作用でスカラー——という $dx$ と<strong>同じ型</strong>にそろえてあるので、理解は容易であろう。<br>
 </p></blockquote>
-<strong>空間側と時間側の対応を整理する</strong>と、次の表の通りになる。まったく同じ型が、異なる次元で繰り返されているだけだ。
+<p><strong>空間側と時間側の対応を整理する</strong>と、次の表の通りになる。まったく同じ型が、異なる次元で繰り返されているだけだ。
+</p>
 <p>|  | 空間側 | 時間側 |
 |---|---|---|
 | <strong>横ベクトル（測定器）</strong> | $F(x)\,dx$（$1\times 3$） | $dt$（$1\times 1$） |
@@ -385,59 +364,49 @@
 </p>
 <p>この $\Delta t$ に対応する<strong>空間での実際の変位</strong>は
 </p>
-<p>$$\Delta \mathbf{r} = \mathbf{r}(t+\Delta t) - \mathbf{r}(t) = \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix}, \qquad \Delta x = x(t+\Delta t)-x(t)$$
-</p>
+$$\Delta \mathbf{r} = \mathbf{r}(t+\Delta t) - \mathbf{r}(t) = \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix}, \qquad \Delta x = x(t+\Delta t)-x(t)$$
 <p>である。ここで $\Delta t \neq 0$ とする。商 $\Delta x/\Delta t$ は<strong>そのステップにおける $x$ の平均変化率</strong>であり、中学生でも知っている恒等式
 </p>
-<p>$$\Delta x = \frac{\Delta x}{\Delta t}\,\Delta t$$
-</p>
+$$\Delta x = \frac{\Delta x}{\Delta t}\,\Delta t$$
 <p>が成り立つ。したがって
 </p>
-<p>$$\begin{aligned}
+$$\begin{aligned}
 \Delta \mathbf{r} &= \begin{pmatrix} \dfrac{\Delta x}{\Delta t} \\ 0 \\ 0 \end{pmatrix}\,\Delta t \\
 &= \begin{pmatrix} \dfrac{\Delta x}{\Delta t} \\ 0 \\ 0 \end{pmatrix}\,dt(\mathbf{w})
 \end{aligned}$$
-</p>
 <p>と書ける。<strong>これは近似でも微積の魔法でもなく、$\Delta x$ を $\Delta t$ で割った商を途中に挟んだだけの書き換えである。</strong>左の縦ベクトルは「そのステップでの $x$ 方向の平均変化率」、右の $dt(\mathbf{w})=\Delta t$ は時間ステップの幅である。
 </p>
 <p>さて $F\,dx$ は横ベクトル（演算子）なので、各ステップで
 </p>
-<p>$$\bigl(F(x)\,dx\bigr)(\Delta \mathbf{r}) = F(x)\,\Delta x = F(x)\,\frac{\Delta x}{\Delta t}\,\Delta t = F(x)\,\frac{\Delta x}{\Delta t}\,dt(\mathbf{w})$$
-</p>
+$$\bigl(F(x)\,dx\bigr)(\Delta \mathbf{r}) = F(x)\,\Delta x = F(x)\,\frac{\Delta x}{\Delta t}\,\Delta t = F(x)\,\frac{\Delta x}{\Delta t}\,dt(\mathbf{w})$$
 <p>という<strong>スカラー</strong>が得られる。積分記号 $\int_{t_0}^{t_1} g(t)\,dt$ の末尾の $dt$ は、§1.1.6 の $\int f(x)\,dx$ の $dx$ と同じく<strong>積分変数とセットの慣用記法</strong>であり、リーマン和の段階では <strong>$\Delta t$ と $dt(\mathbf{w})$ が対応する</strong>と読めばよい。
 </p>
 <p>分割を細かくし $\Delta t \to 0$ の極限をとると、各ステップで平均変化率 $\Delta x/\Delta t$ は接線の傾き $\dfrac{dx}{dt}$ に近づく。したがって高校数学の置換積分の形
 </p>
-<p>$$W = \int_a^b F(x)\,dx = \int_{t_0}^{t_1} F(x(t))\,\frac{dx}{dt}\,dt$$
-</p>
+$$W = \int_a^b F(x)\,dx = \int_{t_0}^{t_1} F(x(t))\,\frac{dx}{dt}\,dt$$
 <p>に帰着する（$\dfrac{dx}{dt}$ は $\Delta x/\Delta t$ の極限）。直前まで平均変化率 $\Delta x/\Delta t$ による<strong>恒等</strong>の書き換えだったが、<strong>各ステップの $\Delta t$ が十分小さいときの一次近似として</strong>、平均変化率を接線の傾き $\dfrac{dx}{dt}$ に置き換えて評価すると、極限の内側の典型的なリーマン項は
 </p>
-<p>$$\bigl(F(x(t))\,dx\bigr)(\Delta \mathbf{r}) \approx F(x(t))\,\frac{dx}{dt}\,\Delta t$$
-</p>
+$$\bigl(F(x(t))\,dx\bigr)(\Delta \mathbf{r}) \approx F(x(t))\,\frac{dx}{dt}\,\Delta t$$
 <p>と読め、<strong>空間側の一次形式 $F\,dx$ が $\Delta\mathbf{r}$ に作用した値</strong>と、<strong>時間側のステップ $\Delta t$（すなわち $dt(\mathbf{w})$）を積み上げる構造</strong>が対応している。
 </p>
 <h4 id="126-三次元への拡張">1.2.6 三次元への拡張</h4>
 <p>空間の各点 $(x,y,z)$ にスカラー（実数）を対応させる関数 $f$ は、実空間の開集合上の<strong>実数値関数</strong>として扱えばよい。
 </p>
 <blockquote><p>
-**注** （スカラー場）物理学ではこのような関数を**スカラー場**と呼ぶことが多い。<br>
+<strong>注</strong> （スカラー場）物理学ではこのような関数を<strong>スカラー場</strong>と呼ぶことが多い。<br>
 </p></blockquote>
 <p>その $f(x,y,z)$ が点 $(x,y,z)$ で<strong>（全）微分可能である</strong>とは、変位 $\mathbf{v}=\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$ に対して
 </p>
-<p>$$\Delta f = f(x+\Delta x,\,y+\Delta y,\,z+\Delta z) - f(x,y,z) = \frac{\partial f}{\partial x}\,\Delta x + \frac{\partial f}{\partial y}\,\Delta y + \frac{\partial f}{\partial z}\,\Delta z + o(\|\mathbf{v}\|) \quad (\|\mathbf{v}\|\to 0)$$
-</p>
+$$\Delta f = f(x+\Delta x,\,y+\Delta y,\,z+\Delta z) - f(x,y,z) = \frac{\partial f}{\partial x}\,\Delta x + \frac{\partial f}{\partial y}\,\Delta y + \frac{\partial f}{\partial z}\,\Delta z + o(\|\mathbf{v}\|) \quad (\|\mathbf{v}\|\to 0)$$
 <p>が成り立つことである。§1.2.1 の1変数の定義と形式がそろっている。$o(\|\mathbf{v}\|)$ は余り項の略記（$o(|\Delta x|)$ と同趣旨）であり、ここでは深追いしないが、理解に支障はないであろう。
 </p>
 <p>§1.2.3 の物差し $dx,dy,dz$ を使い、§1.2.2 と同じ型の演算子として
 </p>
-<p>$$df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz = \begin{pmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & \frac{\partial f}{\partial z} \end{pmatrix}$$
-</p>
+$$df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz = \begin{pmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & \frac{\partial f}{\partial z} \end{pmatrix}$$
 <p>と定義する。いちばん初めの式にあった $o(\|\mathbf{v}\|)$ は、ここから数行では省略し、<strong>記号の骨格だけ</strong>を追う。$\mathbf{v}=\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$ のとき、微分可能性の定義より $\Delta f = df(\mathbf{v}) + o(\|\mathbf{v}\|)$ である——すなわち <strong>$df(\mathbf{v})$ は厳密な変化量 $\Delta f$ そのものではなく、剰余を除いた一次（主）項</strong>である。以下ではその主項を行列の積で書き下ろす：
 </p>
-<p>$$df(\mathbf{v}) = \frac{\partial f}{\partial x}\begin{pmatrix}1&0&0\end{pmatrix}\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix} + \frac{\partial f}{\partial y}\begin{pmatrix}0&1&0\end{pmatrix}\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix} + \frac{\partial f}{\partial z}\begin{pmatrix}0&0&1\end{pmatrix}\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$$
-</p>
-<p>$$= \frac{\partial f}{\partial x}\,\Delta x + \frac{\partial f}{\partial y}\,\Delta y + \frac{\partial f}{\partial z}\,\Delta z.$$
-</p>
+$$df(\mathbf{v}) = \frac{\partial f}{\partial x}\begin{pmatrix}1&0&0\end{pmatrix}\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix} + \frac{\partial f}{\partial y}\begin{pmatrix}0&1&0\end{pmatrix}\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix} + \frac{\partial f}{\partial z}\begin{pmatrix}0&0&1\end{pmatrix}\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$$
+$$= \frac{\partial f}{\partial x}\,\Delta x + \frac{\partial f}{\partial y}\,\Delta y + \frac{\partial f}{\partial z}\,\Delta z.$$
 <p>第一行は、§1.2.3 の物差し $dx,dy,dz$ が行ベクトルとして $\mathbf{v}$ から $x,y,z$ 成分を抜き出し、偏導関数が係数としてかかる様子を<strong>行列の積</strong>で見せたものである。第二行はその評価結果であり、先の $\Delta f$ の定義式における<strong>線形主項</strong>と同じ形である。<strong>横ベクトル（演算子）× 縦ベクトル（変位）→ スカラー</strong>という §1.2.2 の読みが、三次元でも変わらない。
 </p>
 <p>座標が二つまでしか現れない $f(x,y)$ も、$z$ に依らなければ $\partial f/\partial z=0$ として上の枠に含めればよい——<strong>三次元に載せた枠組みが、そのまま低次元に退化する</strong>。
@@ -452,16 +421,15 @@
 <h4 id="127-線積分の先取り">1.2.7 線積分の先取り</h4>
 <p>空間内の曲線をパラメータ $t$ で $\mathbf{r}(t)=\begin{pmatrix}x(t)\\y(t)\\z(t)\end{pmatrix}$ と表し、細かいステップの変位を $\Delta\mathbf{r}$ と書くとき、各ステップで $\bigl(df\bigr)(\Delta\mathbf{r})$ を足し上げる操作の極限を、記号では
 </p>
-<p>$$\int_\gamma df$$
-</p>
+$$\int_\gamma df$$
 <p>の形で表す（$\gamma$ は曲線）。§1.2.5 で見た $\int f'(x)\,dx$ と同じく、<strong>一次形式 $df$ が各ステップの変位に作用するリーマン和の極限</strong>という骨格である。閉曲線・向き・パラメータの取り換えなど、厳密な定式化は<strong>後の章に譲る</strong>。
 </p>
 <blockquote><p>
-**注** （線積分とストークスは後章）線積分・$1$-form の曲線への制限・ストークスの定理の枠組みは、本書では主として第3章以降で改めて置く。第2章ではまず面積・体積の測定器（$2$-form, $3$-form）を構築する。ここは動機と記号の予告にすぎない。<br>
+<strong>注</strong> （線積分とストークスは後章）線積分・$1$-form の曲線への制限・ストークスの定理の枠組みは、本書では主として第3章以降で改めて置く。第2章ではまず面積・体積の測定器（$2$-form, $3$-form）を構築する。ここは動機と記号の予告にすぎない。<br>
 </p></blockquote>
 <hr />
 <blockquote><p>
-**【ここまでのチェックポイント】**<br>
+<strong>【ここまでのチェックポイント】</strong><br>
 - 微分可能性は $\Delta f = f'(x)\Delta x + o(|\Delta x|)$（$o$ はランダウのオーダー記法）で表される一次近似として捉えられる。<br>
 - $df = f'(x)\,dx$ は横ベクトル；数値の変化量は $df(\mathbf{v})$ として読む。<br>
 - 置換積分は、一次形式 $F\,dx$ が空間の変位に作用する構造と、時間軸上の $dt$ を積み上げる構造の対応としても見られる。<br>
@@ -471,20 +439,21 @@
 <p>ライプニッツが $dx$, $dy$ という記号を導入したとき、彼はこれらを「無限小」として直感的に扱った。
 </p>
 <blockquote><p>
-**注** （ライプニッツと記号）**ライプニッツ**（Gottfried Wilhelm Leibniz, 1646–1716）は、$dx$, $dy$ など微積分の記号体系を整えた数学者である。以下では歴史の経緯には立ち入らず、記号を導入した人物として名前だけに触れる（記号 $dx$ 自体は慣れている読者も多いが、人名に心当たりがなければ、この一行で足りる）。<br>
+<strong>注</strong> （ライプニッツと記号）<strong>ライプニッツ</strong>（Gottfried Wilhelm Leibniz, 1646–1716）は、$dx$, $dy$ など微積分の記号体系を整えた数学者である。以下では歴史の経緯には立ち入らず、記号を導入した人物として名前だけに触れる（記号 $dx$ 自体は慣れている読者も多いが、人名に心当たりがなければ、この一行で足りる）。<br>
 </p></blockquote>
 <p>現代の我々は、その直感を<strong>線形代数の言葉</strong>で再配置したと言える。
 ライプニッツの記法 $df = f'(x)dx$ は、単なる形式的等式ではない：
 <ul>
-<li>$dx$：ライプニッツの無限小の直感 → 本書では **演算子**としての $x$ 成分抽出（微小変位そのものを語るときは $\Delta x$ や $dx(\mathbf{v})$）。$dy$, $dz$ も §1.2.3 で $dx$ と同様に定義する。</li>
-<li>$df$：ライプニッツの無限小変化の直感 → 本書では **演算子**としての全微分（数値の変化量は $df(\mathbf{v})$ などで）</li>
+<li>$dx$：ライプニッツの無限小の直感 → 本書では <strong>演算子</strong>としての $x$ 成分抽出（微小変位そのものを語るときは $\Delta x$ や $dx(\mathbf{v})$）。$dy$, $dz$ も §1.2.3 で $dx$ と同様に定義する。</li>
+<li>$df$：ライプニッツの無限小変化の直感 → 本書では <strong>演算子</strong>としての全微分（数値の変化量は $df(\mathbf{v})$ などで）</li>
 </ul>
-<strong>ライプニッツの天才は、微分・積分が本質的に代数的操作であることを見抜いていた</strong>。我々は、彼の直感に行列という具体的な骨格を与えたに過ぎない。
+<p><strong>ライプニッツの天才は、微分・積分が本質的に代数的操作であることを見抜いていた</strong>。我々は、彼の直感に行列という具体的な骨格を与えたに過ぎない。
+</p>
 <p>次節では、この枠組みが依存している暗黙の前提——デカルト座標系の「使いやすさ」——を明らかにし、より一般的な座標への接続を示唆する。
 </p>
 <hr />
 <blockquote><p>
-**【ここまでのチェックポイント】**<br>
+<strong>【ここまでのチェックポイント】</strong><br>
 - ライプニッツの $dx$、$df$ の直感は、本書ではいずれも「変位に作用する横ベクトル（演算子）」として再配置されている。<br>
 - 微小変化量を語るときは $\Delta x$ や $df(\mathbf{v})$ とし、記号の役割を混同しない。<br>
 </p></blockquote>
@@ -497,23 +466,20 @@
 <h4 id="141-連鎖律は物差しの成分表示を与える">1.4.1 連鎖律は「物差し」の成分表示を与える</h4>
 <p>座標変換の式を思い出そう。
 </p>
-<p>$$x = r\cos\theta,\qquad y = r\sin\theta,\qquad z = z$$
-</p>
+$$x = r\cos\theta,\qquad y = r\sin\theta,\qquad z = z$$
 <p>この変換則を、§1.2.2 で定義した<strong>全微分（演算子としての $d$）</strong>の枠組みに入れる。座標関数 $x(r,\theta,z)=r\cos\theta$ の<strong>全微分 $dx$</strong>（あくまで一次形式としての演算子であり、§1.1.6 の「微小変化」ではない）は、連鎖律によって次のように展開される。
 </p>
-<p>$$dx = \frac{\partial x}{\partial r}dr + \frac{\partial x}{\partial \theta}d\theta + \frac{\partial x}{\partial z}dz = \cos\theta\,dr - r\sin\theta\,d\theta$$
-</p>
+$$dx = \frac{\partial x}{\partial r}dr + \frac{\partial x}{\partial \theta}d\theta + \frac{\partial x}{\partial z}dz = \cos\theta\,dr - r\sin\theta\,d\theta$$
 <p>ここで $dx, dr, d\theta, dz$ はいずれも<strong>演算子（一次形式）</strong>だ。右辺の式が告げているのは、<strong>「実空間の物差し $dx$ を、$(dr,d\theta,dz)$ を目盛りとして表現し直すと、場所ごとに変わる係数 $(\cos\theta,\,-r\sin\theta,\,0)$ を持つ行列になる」</strong>という事実である。
 </p>
-<p>$$dx \;\xrightarrow{\text{円柱座標の目盛りで書くと}} \;\begin{pmatrix} \cos\theta & -r\sin\theta & 0 \end{pmatrix}$$
-</p>
+$$dx \;\xrightarrow{\text{円柱座標の目盛りで書くと}} \;\begin{pmatrix} \cos\theta & -r\sin\theta & 0 \end{pmatrix}$$
 <p>実空間の $(x,y,z)$ では定数成分 $\begin{pmatrix} 1 & 0 & 0 \end{pmatrix}$ だった $dx$ が、目盛りを取り替えた途端、場所 $(r,\theta)$ に依存する関数を成分に持つ行列へと姿を変える。対象そのものは不変であっても、「別の座標で書けば、その成分表示も変わる」——これが座標変換の代数的な正体である。
 </p>
 <blockquote><p>
-**注** （連鎖律と変数変換——第3章への伏線）上では多変数関数の連鎖律 $dx = \frac{\partial x}{\partial r}dr + \frac{\partial x}{\partial \theta}d\theta + \frac{\partial x}{\partial z}dz$ を計算ルールとして使った。本書ではまだ**微分形式の変数変換を正式には定式化していない**——この公式の厳密な意味づけ、すなわち「別の座標で書く」ことの一般論は、第3章 §3.5 の**引き戻し（pullback）**で改めて扱う。読者の既知の計算経験と、本章の「横ベクトル $dx$ が変位に作用する」という流儀がのちほど接続できそうだという動機だけ先に示す。いまは「行列の成分が機械的に出てくる」という感覚だけ掴めば十分である。<br>
+<strong>注</strong> （連鎖律と変数変換——第3章への伏線）上では多変数関数の連鎖律 $dx = \frac{\partial x}{\partial r}dr + \frac{\partial x}{\partial \theta}d\theta + \frac{\partial x}{\partial z}dz$ を計算ルールとして使った。本書ではまだ<strong>微分形式の変数変換を正式には定式化していない</strong>——この公式の厳密な意味づけ、すなわち「別の座標で書く」ことの一般論は、第3章 §3.5 の<strong>引き戻し（pullback）</strong>で改めて扱う。読者の既知の計算経験と、本章の「横ベクトル $dx$ が変位に作用する」という流儀がのちほど接続できそうだという動機だけ先に示す。いまは「行列の成分が機械的に出てくる」という感覚だけ掴めば十分である。<br>
 </p></blockquote>
 <blockquote><p>
-**注** （行列の積で読むときの約束）横ベクトル $\begin{pmatrix} \cos\theta & -r\sin\theta & 0 \end{pmatrix}$ を左から掛ける相手は、デカルト成分 $\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$ ではなく、円柱座標のパラメータの変化量を並べた縦ベクトル $\begin{pmatrix}\Delta r\\\Delta\theta\\\Delta z\end{pmatrix}$ である。測定器（一次形式）を円柱座標の目盛りで書き換えた以上、測られる側の変位も同じ目盛りで入力しなければならない、という当たり前の理屈だ。§1.5 の演習で、その積が $dx(\mathbf{v})$ と一致することを手で確かめる。<br>
+<strong>注</strong> （行列の積で読むときの約束）横ベクトル $\begin{pmatrix} \cos\theta & -r\sin\theta & 0 \end{pmatrix}$ を左から掛ける相手は、デカルト成分 $\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$ ではなく、円柱座標のパラメータの変化量を並べた縦ベクトル $\begin{pmatrix}\Delta r\\\Delta\theta\\\Delta z\end{pmatrix}$ である。測定器（一次形式）を円柱座標の目盛りで書き換えた以上、測られる側の変位も同じ目盛りで入力しなければならない、という当たり前の理屈だ。§1.5 の演習で、その積が $dx(\mathbf{v})$ と一致することを手で確かめる。<br>
 </p></blockquote>
 <h4 id="142-行列の一歩一歩に幾何を宿らせる">1.4.2 行列の一歩一歩に幾何を宿らせる</h4>
 <p>多くの教科書では、実空間に $(r,\theta)$ の「曲がったグリッド」を描き込み、「$\theta$ 方向の弧の長さは約 $r\Delta\theta$」と幾何学的に説明する。この直感自体は正しい——問題は、その絵を「証明」の土台に据えることだ。座標系が複雑になるほど、曲がった図形を相手にした幾何学的な「見積もり」はすぐに限界を迎える。
@@ -526,99 +492,93 @@
 <p>実空間も円柱座標のパラメータ空間も、どちらも「平坦な方眼紙」だ。両者の違いは、そのあいだに $\cos\theta$ や $-r\sin\theta$ といった偏微分係数（換算係数）が挟まっているかどうか、それだけである。計算のあいだは「実空間の中に曲がった座標軸がある」のではなく「二つの空間のあいだに翻訳規則があるだけ」と割り切って考えると、見通しがよい。
 </p>
 <blockquote><p>
-**注** （$dr$, $d\theta$ の行列表現）では $dr$ や $d\theta$ についても、「数ベクトルとしての行列表現は何か」と気になるだろう。パラメータ空間もまたデカルト座標なのだから、答えは単純だ——$dr$ はパラメータ空間の第1成分を抜く $(1\ 0\ 0)$ であり、$d\theta$ は $(0\ 1\ 0)$、$dz$ は $(0\ 0\ 1)$ である。デカルトの実空間で書いた $dx=\begin{pmatrix}1&0&0\end{pmatrix}$ と同じ見た目をしているが、載っている座標系が違う。数学者ならば「$\omega \in \Omega^1(M)$、局所では $\omega = \omega_i(x)\,dx^i$、座標系の取り替え、$\phi^*\omega$、開集合の重なりでの整合……」と衒学的な呪文を唱えるだろう。**なるほど、頭が痛くなってきた。私も読者も疲れてしまう。深追いはしないでおく。**<br>
+<strong>注</strong> （$dr$, $d\theta$ の行列表現）では $dr$ や $d\theta$ についても、「数ベクトルとしての行列表現は何か」と気になるだろう。パラメータ空間もまたデカルト座標なのだから、答えは単純だ——$dr$ はパラメータ空間の第1成分を抜く $(1\ 0\ 0)$ であり、$d\theta$ は $(0\ 1\ 0)$、$dz$ は $(0\ 0\ 1)$ である。デカルトの実空間で書いた $dx=\begin{pmatrix}1&0&0\end{pmatrix}$ と同じ見た目をしているが、載っている座標系が違う。数学者ならば「$\omega \in \Omega^1(M)$、局所では $\omega = \omega_i(x)\,dx^i$、座標系の取り替え、$\phi^*\omega$、開集合の重なりでの整合……」と衒学的な呪文を唱えるだろう。<strong>なるほど、頭が痛くなってきた。私も読者も疲れてしまう。深追いはしないでおく。</strong><br>
 </p></blockquote>
 <h4 id="144-第3章への伏線引き戻し">1.4.4 第3章への伏線——引き戻し</h4>
 <p>このように、元の世界の測定器を別の目盛り用に焼き直す操作を、数学の専門用語で<strong>引き戻し（pullback）</strong>と呼ぶ。いまは「偏微分を使えば行列の成分が機械的に書き換えられる」という感覚さえ掴めれば十分だ。第3章において、面積や体積の物差しを一気に引き戻す際、この代数的アプローチの圧倒的な強さを確信することになるだろう。
 </p>
 <blockquote><p>
-**注** （計量という言葉はまだ使わない）本書では第6章まで**計量**という概念の形式的な導入を後回しにする。ここで出てきた換算係数 $\cos\theta$ や $-r\sin\theta$ は、のちに第6章で計量 $g$ として体系的に整理されるが、現時点では単に「連鎖律から出てきた偏微分係数」として扱えば十分である。実空間に曲がった図形を描いてその辺の長さを「弧の長さ $r\Delta\theta$」などと幾何学的に見積もる発想に頼るのではなく、パラメータ空間の格子と変換式だけからすべてを導く——この代数優先の構えが、本書の一貫した姿勢である。<br>
+<strong>注</strong> （計量という言葉はまだ使わない）本書では第6章まで<strong>計量</strong>という概念の形式的な導入を後回しにする。ここで出てきた換算係数 $\cos\theta$ や $-r\sin\theta$ は、のちに第6章で計量 $g$ として体系的に整理されるが、現時点では単に「連鎖律から出てきた偏微分係数」として扱えば十分である。実空間に曲がった図形を描いてその辺の長さを「弧の長さ $r\Delta\theta$」などと幾何学的に見積もる発想に頼るのではなく、パラメータ空間の格子と変換式だけからすべてを導く——この代数優先の構えが、本書の一貫した姿勢である。<br>
 </p></blockquote>
 <hr />
 <blockquote><p>
-**【ここまでのチェックポイント】**<br>
+<strong>【ここまでのチェックポイント】</strong><br>
 - $dx$ という測定器自体は不変だが、座標系を取り替えると行列表現（成分）が変わる。<br>
 - 座標変換の係数は、図形的なイメージからではなく、連鎖律（偏微分）から機械的に求まる。<br>
 - 座標の取り替えの影響はすべて行列の成分に現れるため、我々は常に「真っ直ぐな変数」として計算を進めればよい。<br>
-- **確認：**実空間の $(x,y,z)$ では $dx = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}$ だが、円柱座標の目盛り $(dr,d\theta,dz)$ ではどう書けるか、§1.4.1 を振り返れ。<br>
+- <strong>確認：</strong>実空間の $(x,y,z)$ では $dx = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}$ だが、円柱座標の目盛り $(dr,d\theta,dz)$ ではどう書けるか、§1.4.1 を振り返れ。<br>
 </p></blockquote>
 <hr />
 <h3 id="15-別の座標で書く演習">§1.5 別の座標で書く——演習</h3>
 <p>本章の終盤で、読者自身の手で「別の座標で書くこと」を一度、計算として体験してもらう。ここではまだ<strong>座標系の取り替えを一般論として定義したわけではない</strong>が、§1.4.3 で見たように、<strong>同じ $dx$ でも座標の取り方で行列表現が変わる</strong>ことは既に述べた。この演習は、その感覚を手で確かめるためのものである。<strong>いま座標系の取り替えの厳密な言語を全部そろえるより先に、なぜ計算をしておきたいのか</strong>——それは、後の章で式が一気に忙しくなるときに、「成分が変わるのは当たり前」という腹落ちを持っておくためだ。
 </p>
 <h4 id="151-演習問題円柱座標での測定">1.5.1 演習問題：円柱座標での測定</h4>
-<strong>問題設定</strong>  
-<p>前節で見た通り、円柱座標 $(r, \theta, z)$ における $dx$ の行列表示は以下のようになる：
+<p><strong>問題設定</strong>  
+前節で見た通り、円柱座標 $(r, \theta, z)$ における $dx$ の行列表示は以下のようになる：
 </p>
-<p>$$
+$$
 dx = \begin{pmatrix} \cos\theta & -r\sin\theta & 0 \end{pmatrix}
 $$
-</p>
 <p>（上の行は §1.4.3 の $(dr,d\theta,dz)$ 展開の係数を並べたものであり、§1.1.3 のデカルト表示 $\begin{pmatrix}1&0&0\end{pmatrix}$ とは<strong>右に立てる縦ベクトルの意味が違う</strong>。）
 </p>
 <p>このとき、次の問いに答えよ。
 </p>
-<strong>問1</strong>  
-<p>円柱座標空間内の点 $P(r=2, \theta=\pi/6, z=0)$ に質点があるとする。この質点が、$r$ 方向に $0.1$ だけ微小変位した。<strong>この節では記号 $\mathbf{v}$ を、$r,\theta,z$ のパラメータの変化量を並べた $\begin{pmatrix}\Delta r\\\Delta\theta\\\Delta z\end{pmatrix}$ とする</strong>（§1.0–§1.2 のデカルト列 $\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$ とは別の並べ方である）。この変位ベクトル $\mathbf{v}$ を、その成分で表せ。
+<p><strong>問1</strong>  
+円柱座標空間内の点 $P(r=2, \theta=\pi/6, z=0)$ に質点があるとする。この質点が、$r$ 方向に $0.1$ だけ微小変位した。<strong>この節では記号 $\mathbf{v}$ を、$r,\theta,z$ のパラメータの変化量を並べた $\begin{pmatrix}\Delta r\\\Delta\theta\\\Delta z\end{pmatrix}$ とする</strong>（§1.0–§1.2 のデカルト列 $\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$ とは別の並べ方である）。この変位ベクトル $\mathbf{v}$ を、その成分で表せ。
 </p>
-<strong>問2</strong>  
-<p>問1の変位ベクトル $\mathbf{v}$ に対して、点 $P$ における行列 $dx$ を作用させよ。（$\cos(\pi/6) = \sqrt{3}/2$ を用いよ）
+<p><strong>問2</strong>  
+問1の変位ベクトル $\mathbf{v}$ に対して、点 $P$ における行列 $dx$ を作用させよ。（$\cos(\pi/6) = \sqrt{3}/2$ を用いよ）
 </p>
-<strong>問3</strong>  
-<p>問2で計算した結果 $dx(\mathbf{v})$ は、物理的に何を意味しているか説明せよ。
+<p><strong>問3</strong>  
+問2で計算した結果 $dx(\mathbf{v})$ は、物理的に何を意味しているか説明せよ。
 </p>
 <h4 id="152-解答と解説">1.5.2 解答と解説</h4>
-<strong>問1の解答</strong>  
-<p>変位は $r$ 方向に $0.1$、$\theta$ 方向と $z$ 方向にはゼロなので、<strong>円柱座標のパラメータの変化量</strong>を縦に並べたベクトルとして次のように書ける：
+<p><strong>問1の解答</strong>  
+変位は $r$ 方向に $0.1$、$\theta$ 方向と $z$ 方向にはゼロなので、<strong>円柱座標のパラメータの変化量</strong>を縦に並べたベクトルとして次のように書ける：
 </p>
-<p>$$
+$$
 \mathbf{v} = \begin{pmatrix} 0.1 \\ 0 \\ 0 \end{pmatrix}
 $$
+<p><strong>問2の解答</strong>  
+点 $P$ における行列 $dx$ は、$\theta = \pi/6, r=2$ を代入して得られる $1\times 3$ 行ベクトルとして
 </p>
-<strong>問2の解答</strong>  
-<p>点 $P$ における行列 $dx$ は、$\theta = \pi/6, r=2$ を代入して得られる $1\times 3$ 行ベクトルとして
-</p>
-<p>$$
+$$
 dx = \begin{pmatrix} \cos(\frac{\pi}{6}) & -2\sin(\frac{\pi}{6}) & 0 \end{pmatrix} = \begin{pmatrix} \frac{\sqrt{3}}{2} & -2 \times \frac{1}{2} & 0 \end{pmatrix} = \begin{pmatrix} \frac{\sqrt{3}}{2} & -1 & 0 \end{pmatrix}
 $$
-</p>
 <p>と書く（円柱座標では $dx$ の成分は $r,\theta$ に依存するので、ここでは点 $P$ の座標で評価したあとを指す。$\mathbf{v}$ への作用の記号 $dx(\mathbf{v})$ 自体は §1.1.3 以来と同じである）。
 </p>
 <p>重要なのは、第2成分は一般に <strong>$-r\sin\theta$</strong> という係数であり、$r$ のおかげで<strong>長さの次元を持つ</strong>ことだ。$r=2,\;\theta=\pi/6$ と代入するとその係数の値として $-1$ が見えるが、<strong>数値の $-1$ そのものに次元が付いているのではない</strong>。行列の成分としての $-r\sin\theta$ が長さの次元を運んでいる、と読むのが正確である。これが次元解析の鍵となる。
 これを変位ベクトル $\mathbf{v}$ に作用させると：
 </p>
-<p>$$
+$$
 dx(\mathbf{v}) = \begin{pmatrix} \frac{\sqrt{3}}{2} & -1 & 0 \end{pmatrix} \begin{pmatrix} 0.1 \\ 0 \\ 0 \end{pmatrix} = 0.1 \times \frac{\sqrt{3}}{2} \approx 0.0866
 $$
-</p>
-<strong>問3の解答（物理的意味）</strong>  
-<p>この結果は、<strong>「円柱座標において外側（$r$方向）へ $0.1$ だけ進むという運動は、実空間の $x$ 軸方向から見ると約 $0.0866$ の前進に相当する」</strong>という物理的事実を表している。
+<p><strong>問3の解答（物理的意味）</strong>  
+この結果は、<strong>「円柱座標において外側（$r$方向）へ $0.1$ だけ進むという運動は、実空間の $x$ 軸方向から見ると約 $0.0866$ の前進に相当する」</strong>という物理的事実を表している。
 </p>
 <blockquote><p>
-**注** （「約」と厳密一致）この変位では $\Delta\theta=\Delta z=0$ なので、$x=r\cos\theta$ より $\Delta x=(\Delta r)\cos\theta$ が**厳密に**成り立つ。したがって $dx(\mathbf{v})$ の値は、**この変位のもとでは**真の $\Delta x$ と誤差なく一致する。「約」は $\sqrt{3}/2$ を小数で表した丸めにすぎず、一次近似の誤差ではない。<br>
+<strong>注</strong> （「約」と厳密一致）この変位では $\Delta\theta=\Delta z=0$ なので、$x=r\cos\theta$ より $\Delta x=(\Delta r)\cos\theta$ が<strong>厳密に</strong>成り立つ。したがって $dx(\mathbf{v})$ の値は、<strong>この変位のもとでは</strong>真の $\Delta x$ と誤差なく一致する。「約」は $\sqrt{3}/2$ を小数で表した丸めにすぎず、一次近似の誤差ではない。<br>
 </p></blockquote>
 <h4 id="153-次元解析の深い考察">1.5.3 次元解析の深い考察</h4>
 <p>計算結果 $dx(\mathbf{v}) = 0.1 \times \frac{\sqrt{3}}{2}$ を見ると、$r$方向成分$0.1$（長さの次元）と、第1成分の係数$\frac{\sqrt{3}}{2}$（無次元）の積となっており、出力は確かに長さの次元を持つ。
 しかし、もし$\theta$方向の変位$\mathbf{v} = \begin{pmatrix} 0 \\ 0.1 \\ 0 \end{pmatrix}$（角度変位$0.1$ラジアン）を入力したとすると（係数はいまも点 $P$ で評価した同じ行ベクトル）：
 </p>
-<p>$$dx(\mathbf{v}) = \begin{pmatrix} \frac{\sqrt{3}}{2} & -1 & 0 \end{pmatrix} \begin{pmatrix} 0 \\ 0.1 \\ 0 \end{pmatrix} = -0.1$$
-</p>
+$$dx(\mathbf{v}) = \begin{pmatrix} \frac{\sqrt{3}}{2} & -1 & 0 \end{pmatrix} \begin{pmatrix} 0 \\ 0.1 \\ 0 \end{pmatrix} = -0.1$$
 <p>この場合、<strong>入力ベクトルの第2成分</strong> $0.1$ は角度（無次元）だが、<strong>行列の第2列に対応する係数</strong> $-r\sin\theta$ が長さの次元を運ぶため、積としての出力 $-0.1$ は長さの次元を持つ。
 </p>
 <p>ここに<strong>一次形式</strong>の驚くべき性質がある： $dx$ の行列成分自体が $r$ を含む関数であり、入力が座標成分（次元がバラバラでも）であっても、出力は常に「$x$ 方向の長さ」という正しい物理的次元を持つように自動調整される。<strong>一次形式は、座標系の歪みを吸収し、物理的に意味のある測定値を出力する「賢い測定器」</strong>なのである。
 </p>
 <h3 id="16-本章のまとめと次章への展望">§1.6 本章のまとめと次章への展望</h3>
 <blockquote><p>
-**【ここまでのチェックポイント — 第1章全体】**<br>
+<strong>【ここまでのチェックポイント — 第1章全体】</strong><br>
 - 第1章の主役は「$dx$ を行列・一次形式として読み、$\int f\,dx$ を作用の極限として読む」ことである。説明の主線は $x$ 方向に寄せたが、デカルトの物差し $dy$, $dz$ は §1.2.3 で $dx$ と同様に定義済みである。<br>
 - $df$ も横ベクトルとして統一し、多次元への拡張は成分の増加として素直に繋がる。<br>
-- 次章以降は、これらの物差しの**ウェッジ積**、外微分、ホッジスターへと拡張する。<br>
+- 次章以降は、これらの物差しの<strong>ウェッジ積</strong>、外微分、ホッジスターへと拡張する。<br>
 </p></blockquote>
 <p>本章では<strong>積分と $df$ の具体例</strong>の主線として $x$ 方向に寄せ、$y,z$ は多くの場面で「断面」として抑えてきた。とはいえ、実空間での一次形式は <strong>$dx$, $dy$, $dz$ の三つがそろっている</strong>（§1.2.3）。
 次章では、この三つを組み合わせて<strong>面積計・体積計（$2$-form, $3$-form）</strong>を作る<strong>ウェッジ積（外積 $\wedge$）</strong>を導入し、ベクトルに作用してスカラーを返す型にとどまらない<strong>高次の微分形式</strong>へと進む。曲線・曲面・領域に沿った集計（線積分・面積分・体積分）は、それらの測定器を揃えた後の章で扱う。
-</p>
 <!-- role: roadmap -->
-<p>その後の部では、<strong>微分演算子 $\mathrm{d}$</strong>、<strong>ホッジスター演算子 $\ast$</strong>、ベクトル解析の $\mathrm{grad}$（$\nabla$）、$\mathrm{rot}$（$\nabla\times$、$\mathrm{curl}$）、$\mathrm{div}$（$\nabla\cdot$）、ストークスの定理、マクスウェル方程式や流体力学の基礎方程式へと進む。3次元での微分形式とベクトル場の対応は、ホッジスターで整理できる。
+その後の部では、<strong>微分演算子 $\mathrm{d}$</strong>、<strong>ホッジスター演算子 $\ast$</strong>、ベクトル解析の $\mathrm{grad}$（$\nabla$）、$\mathrm{rot}$（$\nabla\times$、$\mathrm{curl}$）、$\mathrm{div}$（$\nabla\cdot$）、ストークスの定理、マクスウェル方程式や流体力学の基礎方程式へと進む。3次元での微分形式とベクトル場の対応は、ホッジスターで整理できる。
 </p>
 <p>3次元ユークリッド空間の真の姿を解き明かす旅へ、いざ出発しよう。
 </p>

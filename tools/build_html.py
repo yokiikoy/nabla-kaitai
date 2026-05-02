@@ -11,7 +11,6 @@ from pathlib import Path
 
 # --- Configuration ---
 
-# KaTeX is much faster and cleaner than MathJax.
 KATEX_CDN = '''
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
@@ -117,6 +116,13 @@ def slugify(text):
     text = re.sub(r'[^a-zA-Z0-9\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FAF-]', '', text)
     return text or 'section'
 
+def apply_inline_formatting(text):
+    """Apply markdown-style inline formatting (bold, italic, code)."""
+    text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
+    text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
+    text = re.sub(r'`(.+?)`', r'<code>\1</code>', text)
+    return text
+
 def process_markdown(markdown_text):
     # 0. Clean up PDF-specific markers
     text = markdown_text.replace('<!-- pagebreak -->', '')
@@ -150,7 +156,7 @@ def process_markdown(markdown_text):
         h_match = re.match(r'^(#{1,6})\s+(.+)$', line)
         if h_match:
             lv, content = len(h_match.group(1)), h_match.group(2).strip()
-            restored = protector.restore(content)
+            restored = protector.restore(apply_inline_formatting(content))
             result.append(f'<h{lv} id="{slugify(restored)}">{restored}</h{lv}>')
             in_para = in_list = False
             continue
@@ -161,7 +167,7 @@ def process_markdown(markdown_text):
             continue
 
         if line.strip().startswith('>'):
-            content = protector.restore(line[1:].strip())
+            content = protector.restore(apply_inline_formatting(line[1:].strip()))
             if not in_quote:
                 result.append('<blockquote><p>')
                 in_quote = True
@@ -180,7 +186,8 @@ def process_markdown(markdown_text):
                 if in_list: result.append('</ul>' if in_list == 'ul' else '</ol>')
                 result.append('<ol>')
                 in_list = 'ol'
-            result.append(f'<li>{protector.restore(ol_match.group(2))}</li>')
+            content = protector.restore(apply_inline_formatting(ol_match.group(2)))
+            result.append(f'<li>{content}</li>')
             in_para = False
             continue
         elif ul_match:
@@ -188,7 +195,8 @@ def process_markdown(markdown_text):
                 if in_list: result.append('</ul>' if in_list == 'ul' else '</ol>')
                 result.append('<ul>')
                 in_list = 'ul'
-            result.append(f'<li>{protector.restore(ul_match.group(1))}</li>')
+            content = protector.restore(apply_inline_formatting(ul_match.group(1)))
+            result.append(f'<li>{content}</li>')
             in_para = False
             continue
         elif in_list:
@@ -199,13 +207,13 @@ def process_markdown(markdown_text):
             if in_para: result.append('</p>'); in_para = False
             continue
         
-        processed = line
-        processed = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', processed)
-        processed = re.sub(r'\*(.+?)\*', r'<em>\1</em>', processed)
-        processed = re.sub(r'`(.+?)`', r'<code>\1</code>', processed)
-        
+        processed = apply_inline_formatting(line)
         processed = protector.restore(processed)
-        if not processed.strip().startswith('<') and processed.strip():
+        
+        is_block = any(processed.strip().startswith(t) for t in ['<h', '<blockquote', '<ul', '<ol', '<pre', '<hr', '<div', '$$'])
+        is_inline_tag = any(processed.strip().startswith(t) for t in ['<strong', '<em', '<code', '<a', '<span'])
+        
+        if (not is_block or is_inline_tag) and processed.strip():
             if not in_para:
                 result.append(f'<p>{processed}')
                 in_para = True
@@ -291,7 +299,7 @@ def main():
                 lv, text = len(h_match.group(1)), h_match.group(2).strip()
                 temp_protector = MathProtector()
                 protected = temp_protector.protect(text)
-                restored = temp_protector.restore(protected)
+                restored = temp_protector.restore(apply_inline_formatting(protected))
                 sub_headings.append((lv, restored, slugify(restored)))
 
         content_html = process_markdown("\n".join(ch["content"]))
