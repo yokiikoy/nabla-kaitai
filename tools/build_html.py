@@ -11,10 +11,12 @@ from pathlib import Path
 # --- Configuration ---
 
 MATHJAX_CONFIG = '''window.MathJax = {
+  loader: { load: ['[tex]/bm', '[tex]/ams'] },
   tex: {
     inlineMath: [['$', '$']],
     displayMath: [['$$', '$$']],
-    processEscapes: true
+    processEscapes: true,
+    packages: {'[+]': ['bm', 'ams']}
   },
   options: {
     ignoreHtmlClass: 'tex2jax_ignore',
