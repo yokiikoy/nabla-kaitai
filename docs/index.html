@@ -6,10 +6,46 @@
 <title>ナブラ解体新書</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
 <style>
-  body { padding: 2rem; max-width: 1000px; margin: 0 auto; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
-  .markdown-body { box-sizing: border-box; min-width: 200px; max-width: 100%; margin: 0 auto; padding: 2em; }
-  blockquote { border-left: 4px solid #d0d7de; color: #57606a; background: #f8f9fa; padding: 0.5em 1em; margin: 1em 0; }
-  .math-display { overflow-x: auto; }
+  :root { --sidebar-width: 300px; }
+  body { margin: 0; display: flex; background: #fff; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  
+  /* サイドバーのスタイル */
+  .sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    background: #f8f9fa;
+    border-right: 1px solid #d0d7de;
+    overflow-y: auto;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+  .sidebar h2 { font-size: 1.2rem; margin-bottom: 1rem; border: none; }
+  .sidebar .toc { font-size: 0.9rem; }
+  .sidebar .toc ul { list-style: none; padding-left: 1rem; }
+  .sidebar .toc li { margin: 0.5rem 0; }
+  .sidebar a { text-decoration: none; color: #0969da; }
+  .sidebar a:hover { text-decoration: underline; }
+
+  /* メインコンテンツ */
+  .main-content {
+    flex: 1;
+    padding: 2rem 3rem;
+    max-width: calc(100vw - var(--sidebar-width));
+    box-sizing: border-box;
+  }
+  .markdown-body { max-width: 900px; margin: 0 auto; }
+  
+  /* スマホ対応 */
+  @media (max-width: 768px) {
+    body { flex-direction: column; }
+    .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid #d0d7de; }
+    .main-content { max-width: 100%; padding: 1.5rem; }
+  }
+
+  blockquote { border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1em; margin: 1em 0; }
+  .math-display { overflow-x: auto; padding: 1rem 0; }
 </style>
 <script>
 window.MathJax = {
@@ -17,14 +53,445 @@ window.MathJax = {
     inlineMath: [['$', '$'], ['\\(', '\\)']],
     displayMath: [['$$', '$$'], ['\\[', '\\]']],
     processEscapes: true
-  }
+  },
+  options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
 };
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-<article class="markdown-body">
-<h1 id="sns">はじめに —— かつての私への贈り物、およびSNS時代の予防線</h1>
+  <nav class="sidebar">
+    <h2>ナブラ解体新書</h2>
+    <div class="toc"><div class="toc">
+<ul>
+<li><a href="#sns">はじめに —— かつての私への贈り物、およびSNS時代の予防線</a></li>
+<li><a href="#1dx">第1章：$dx$ とは何か —— ベクトルを食べる測定器、あるいは横ベクトル</a><ul>
+<li><a href="#10-11">§1.0 数学者の1次元、物理学者の1次元</a></li>
+<li><a href="#11">§1.1 リーマン積分は行列の積である</a><ul>
+<li><a href="#111">1.1.1 リーマン和の標準的構成（復習）</a></li>
+<li><a href="#112">1.1.2 小区間ごとの変位</a></li>
+<li><a href="#113-dx">1.1.3 $dx$ の登場 — 本書最大の特徴としての「断言」</a></li>
+<li><a href="#114">1.1.4 リーマン和のベクトル再解釈と積分記号</a></li>
+<li><a href="#115">1.1.5 物理的解釈 — 仕事の計算を例に</a></li>
+<li><a href="#116-1-form">1.1.6 一次形式（$1$-form）</a></li>
+</ul>
+</li>
+<li><a href="#12-df">§1.2 全微分 $df$ — 変化率を行列にまとめた演算子</a><ul>
+<li><a href="#121">1.2.1 微分可能性の行列表現</a></li>
+<li><a href="#122-df-dfmathbfv">1.2.2 $df$ の行列としての定義と $df(\mathbf{v})$</a></li>
+<li><a href="#123-y-z-dy-dz">1.2.3 $y$ 方向と $z$ 方向の物差し $dy$, $dz$</a></li>
+<li><a href="#124-fx-x2">1.2.4 具体例： $f(x) = x^2$ の場合</a></li>
+<li><a href="#125">1.2.5 置換積分の行列解釈</a></li>
+<li><a href="#126">1.2.6 三次元への拡張</a></li>
+<li><a href="#127">1.2.7 線積分の先取り</a></li>
+</ul>
+</li>
+<li><a href="#13">§1.3 ライプニッツの記法と代数的直感</a></li>
+<li><a href="#14">§1.4 座標変換——「物差し」の目盛りを書き換える</a><ul>
+<li><a href="#141">1.4.1 連鎖律は「物差し」の成分表示を与える</a></li>
+<li><a href="#142">1.4.2 行列の一歩一歩に幾何を宿らせる</a></li>
+<li><a href="#143">1.4.3 二つのデカルト座標</a></li>
+<li><a href="#144-3">1.4.4 第3章への伏線——引き戻し</a></li>
+</ul>
+</li>
+<li><a href="#15">§1.5 別の座標で書く——演習</a><ul>
+<li><a href="#151">1.5.1 演習問題：円柱座標での測定</a></li>
+<li><a href="#152">1.5.2 解答と解説</a></li>
+<li><a href="#153">1.5.3 次元解析の深い考察</a></li>
+</ul>
+</li>
+<li><a href="#16">§1.6 本章のまとめと次章への展望</a></li>
+</ul>
+</li>
+<li><a href="#2">第2章：面積とは何か —— 平行多面体に潜む、符号のルール</a><ul>
+<li><a href="#20">§2.0 測定器と面積・体積、そして長さ</a></li>
+<li><a href="#21">§2.1 小学校の面積の限界</a></li>
+<li><a href="#22-3">§2.2 面積測定器が満たすべき「3つのルール」</a><ul>
+<li><a href="#221-1">2.2.1 ルール1：片方が伸びれば、面積も伸びる（比例関係）</a></li>
+<li><a href="#222-2">2.2.2 ルール2：重なれば、ペチャンコでゼロ（交代性）</a></li>
+<li><a href="#223-3">2.2.3 ルール3：基準の決定（規格化）</a></li>
+</ul>
+</li>
+<li><a href="#23">§2.3 面積測定器の正体は「反対称行列」である</a><ul>
+<li><a href="#231">2.3.1 なぜ「反対称」なのか？</a></li>
+<li><a href="#232">2.3.2 測定器の進化と、次なる壁</a></li>
+</ul>
+</li>
+<li><a href="#24">§2.4 面積測定器の内部構造</a><ul>
+<li><a href="#241-2">2.4.1 「2つの入力をさばく装置」の形を決める</a></li>
+<li><a href="#242">2.4.2 欲しい結果からマス目を埋める</a></li>
+<li><a href="#243">2.4.3 テンソル積の導入</a></li>
+<li><a href="#244">2.4.4 ウェッジ積の完成</a></li>
+<li><a href="#245-32-form">2.4.5 3つの基底$2$-form</a></li>
+<li><a href="#246">2.4.6 向き付き面積の正体と「図形側の基底」</a></li>
+<li><a href="#247">2.4.7 小学校のスカラー面積に戻すには</a></li>
+<li><a href="#248-10">2.4.8 1次元の「面積」（長さ）と0次元の「面積」（点）</a></li>
+<li><a href="#249">2.4.9 クロス積との符合</a></li>
+</ul>
+</li>
+<li><a href="#25">§2.5 体積測定器と行列式</a><ul>
+<li><a href="#251">2.5.1 体積測定器が満たすべきルール</a></li>
+<li><a href="#252">2.5.2 ルールから形を決める——基底展開と消去</a></li>
+<li><a href="#253-2-form">2.5.3 $2$-form の行列式としての再解釈</a></li>
+<li><a href="#254-dx-wedge-dy-wedge-dz">2.5.4 $dx \wedge dy \wedge dz$ の定義——行列式パターンの完成</a></li>
+<li><a href="#255-3-times-3">2.5.5 体積測定器のテンソル積表現——$3 \times 3$ ブロックを横に並べた配列</a></li>
+<li><a href="#256">2.5.6 具体例：平行六面体の符号付き体積</a></li>
+<li><a href="#257">2.5.7 スカラー三重積との符合</a></li>
+<li><a href="#258">2.5.8 体積における「図形側の基底」</a></li>
+<li><a href="#259-3-form-1">2.5.9 $3$-form の「サイズ」——なぜ独立成分は1つだけか</a></li>
+<li><a href="#2510-2">2.5.10 測定器の階層——第2章で手に入れた武器の整理</a></li>
+</ul>
+</li>
+<li><a href="#26-3">§2.6 本章のまとめと第3章への展望</a></li>
+<li><a href="#2-a">第2章 付録A：体積測定器のテンソル積表現 — 全成分の計算</a><ul>
+<li><a href="#a1-3">A.1 テンソル積の3引数への拡張</a></li>
+<li><a href="#a2-6">A.2 反対称化——6つの配列を符号つきで重ねる</a></li>
+<li><a href="#a3">A.3 各成分の行列を書き下す</a></li>
+<li><a href="#a4-3">A.4 ベクトル3本を食わせる——縮約の全過程</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#3">第3章：積分するとは何か —— 有限のマスを数え、最後に極限を取る</a><ul>
+<li><a href="#30">§3.0 曲がったものを測る——小学校以来の借りを返す</a></li>
+<li><a href="#31-31">§3.1 体積——3次元、係数1</a><ul>
+<li><a href="#311">3.1.1 直方体から曲がった領域へ——リーマン和で定義する</a></li>
+<li><a href="#312">3.1.2 球の体積——泥臭く、愚直に足す</a></li>
+</ul>
+</li>
+<li><a href="#32-21">§3.2 表面積——2次元、係数1</a><ul>
+<li><a href="#321">3.2.1 平行四辺形から曲面へ</a></li>
+<li><a href="#322-dx-wedge-dy">3.2.2 $dx \wedge dy$ が測るもの——球面で試す</a></li>
+<li><a href="#323">3.2.3 三つの影から本当の面積へ</a></li>
+<li><a href="#324">3.2.4 ここまででわかったこと</a></li>
+</ul>
+</li>
+<li><a href="#33-11">§3.3 曲線——1次元、係数1（限界があらわになる）</a><ul>
+<li><a href="#331">3.3.1 直線から曲線へ——リーマン和で定義する</a></li>
+<li><a href="#332">3.3.2 円周で試す——弧長は出ない</a></li>
+<li><a href="#333-1-form">3.3.3 では $1$-form で何が測れるのか</a></li>
+</ul>
+</li>
+<li><a href="#34">§3.4 係数をつける——密度と幾何の積</a><ul>
+<li><a href="#340">3.4.0 なぜ係数なのか——物理が要求する</a></li>
+<li><a href="#341-1-form">3.4.1 一般の $1$-form の線積分（仕事）</a></li>
+<li><a href="#342-2-form">3.4.2 一般の $2$-form の面積分（流量）</a></li>
+<li><a href="#343-3-form">3.4.3 一般の $3$-form の体積分（総質量）</a></li>
+<li><a href="#344">3.4.4 線・面・体の統一像</a></li>
+<li><a href="#345">3.4.5 積分の一般形</a></li>
+</ul>
+</li>
+<li><a href="#35">§3.5 本章のまとめと次章への展望</a></li>
+</ul>
+</li>
+<li><a href="#4-phi">第4章：変数変換とは何か —— 引き戻し $\Phi^*$：測定器のつじつま合わせ</a><ul>
+<li><a href="#40">§4.0 物理は曲がる、計算は四角</a></li>
+<li><a href="#41-1-form">§4.1 1-form の引き戻し——仕事と運動エネルギー定理</a></li>
+<li><a href="#42-2-form">§4.2 2-form の引き戻し——角運動量保存と面積速度</a></li>
+<li><a href="#43-3-form">§4.3 3-form の引き戻し——質量保存と体積分</a></li>
+<li><a href="#44">§4.4 引き戻しの性質 —— ここまでに確立したこと</a></li>
+<li><a href="#45-5">§4.5 本章のまとめと第5章（外微分）への展望</a></li>
+</ul>
+</li>
+<li><a href="#5-d">第5章：微分するとは何か —— 外微分 $d$：局所のズレと積分の逆</a><ul>
+<li><a href="#50-ii">§5.0 第II部の扉——観測は積分、法則は微分</a></li>
+<li><a href="#51-df">§5.1 $df$ 再訪——微分と積分は逆演算か</a><ul>
+<li><a href="#511-df">5.1.1 $df$ は「次元上げ」をしている</a></li>
+<li><a href="#512">5.1.2 線積分すると端点の差だけが残る</a></li>
+<li><a href="#513-3">5.1.3 第3章の例で確かめる</a></li>
+</ul>
+</li>
+<li><a href="#52">§5.2 閉ループで姿を現す「ズレ」</a><ul>
+<li><a href="#521-1-form">5.2.1 一般の $1$-form ではどうか</a></li>
+<li><a href="#522">5.2.2 局所情報はどこに宿るか</a></li>
+</ul>
+</li>
+<li><a href="#53">§5.3 微小ループの解剖——ズレは面積に比例する</a><ul>
+<li><a href="#531-xy">5.3.1 $xy$ 平面の微小長方形</a></li>
+<li><a href="#532">5.3.2 決定的な事実</a></li>
+</ul>
+</li>
+<li><a href="#54-d">§5.4 $d$ の誕生——面積あたりのズレを測る新しい測定器</a><ul>
+<li><a href="#541">5.4.1 ウェッジ積の再確認</a></li>
+<li><a href="#542-domega">5.4.2 $d\omega$ の定義</a></li>
+</ul>
+</li>
+<li><a href="#55-1-form-3">§5.5 一般の $1$-form の外微分——3次元への拡張</a><ul>
+<li><a href="#551-yz-zx">5.5.1 $yz$ 平面と $zx$ 平面</a></li>
+<li><a href="#552-ddx0">5.5.2 代数的導出——ライプニッツ則と $d(dx)=0$</a></li>
+<li><a href="#553">5.5.3 係数のパターン</a></li>
+</ul>
+</li>
+<li><a href="#56">§5.6 集積すれば境界だけが残る——ストークスの定理</a><ul>
+<li><a href="#561">5.6.1 面をタイル貼りする</a></li>
+<li><a href="#562">5.6.2 内部の辺は相殺する</a></li>
+<li><a href="#563">5.6.3 生き残るのは境界だけ</a></li>
+</ul>
+</li>
+<li><a href="#57-2-form">§5.7 同じことをもう一段——$2$-form の外微分と発散</a><ul>
+<li><a href="#571-2-form">5.7.1 $2$-form は面の測定器</a></li>
+<li><a href="#572">5.7.2 微小直方体の表面で測る</a></li>
+<li><a href="#573-deta">5.7.3 $d\eta$ の定義と代数的導出</a></li>
+<li><a href="#574">5.7.4 ガウスの定理</a></li>
+</ul>
+</li>
+<li><a href="#58-d2-0">§5.8 $d^2 = 0$——二度測れば必ずゼロ</a><ul>
+<li><a href="#581-ddf-0">5.8.1 $d(df) = 0$</a></li>
+<li><a href="#582-ddomega-0">5.8.2 $d(d\omega) = 0$</a></li>
+</ul>
+</li>
+<li><a href="#59">§5.9 外微分の統合——一つの式、一つのルール</a><ul>
+<li><a href="#591">5.9.1 ストークスとガウスは同じ式だった</a></li>
+<li><a href="#592-k-form">5.9.2 一般の $k$-form の外微分</a></li>
+<li><a href="#593">5.9.3 計算ルールまとめ</a></li>
+</ul>
+</li>
+<li><a href="#510">§5.10 積分から微分方程式へ——物理法則の局所化</a><ul>
+<li><a href="#5101">5.10.1 積分法則を微分法則に変える</a></li>
+<li><a href="#5102">5.10.2 物理の実例</a></li>
+</ul>
+</li>
+<li><a href="#511-ii">§5.11 第II部への展望——ホッジ・スターへの伏線</a></li>
+<li><a href="#c">付録C：外微分の行列表示</a><ul>
+<li><a href="#c1-0-formdf-1-times-3">C.1 $0$-form：$df$ の $1 \times 3$ 行ベクトル</a></li>
+<li><a href="#c2-1-form-mathbfj">C.2 $1$-form：係数のヤコビ行列 $\mathbf{J}$</a></li>
+<li><a href="#c3-domega-mathbfjt-mathbfj">C.3 $d\omega = \mathbf{J}^T - \mathbf{J}$</a></li>
+<li><a href="#c4-2-formdeta">C.4 $2$-form：$d\eta$ とヤコビ行列のトレース</a><ul>
+<li><a href="#c41-deta-273">C.4.1 $d\eta$ の27成分——3枚の行列に展開する</a></li>
+</ul>
+</li>
+<li><a href="#c5-d2-f-0">C.5 $d^2 f = 0$ とヘッセ行列</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#6-g-ast">第6章：計量 $g$ とホッジ・スター $\ast$ — 内積の召喚と次数の反転</a><ul>
+<li><a href="#60">§6.0 言い訳の終焉——内積を解放する</a></li>
+<li><a href="#61-g">§6.1 パラメータ空間の内積——計量 $g$ の正体</a><ul>
+<li><a href="#611">6.1.1 実空間の内積</a></li>
+<li><a href="#612">6.1.2 内積を測定器として読み直す</a></li>
+<li><a href="#613">6.1.3 パラメータ空間で内積をとるには</a></li>
+</ul>
+</li>
+<li><a href="#62-g">§6.2 $g$ による縦ベクトルと横ベクトルの変換</a><ul>
+<li><a href="#621-mathbfvt-mathbfg">6.2.1 $\mathbf{v}^T \mathbf{g}$ は横ベクトルである</a></li>
+<li><a href="#622-k">6.2.2 計量が与えるもの——平行 $k$ 面体の幾何学的な大きさ</a></li>
+<li><a href="#623">6.2.3 内積の性質</a></li>
+<li><a href="#624">6.2.4 計量行列の幾何を成分に宿らせる</a></li>
+</ul>
+</li>
+<li><a href="#63-ast">§6.3 ホッジ・スター $\ast$ ——二つの方法を繫ぐ対応</a><ul>
+<li><a href="#631">6.3.1 スカラーを得る二つの方法</a></li>
+<li><a href="#632-ast">6.3.2 行列から $\ast$ を構成する</a></li>
+<li><a href="#633-ast">6.3.3 実空間での $\ast$ 辞書</a></li>
+<li><a href="#634-astast-mathrmid">6.3.4 $\ast\ast = \mathrm{id}$</a></li>
+<li><a href="#635-ast">6.3.5 $\ast$ の性質</a></li>
+</ul>
+</li>
+<li><a href="#64">§6.4 対応の実例——微分形式とベクトル解析</a><ul>
+<li><a href="#641-pvi">6.4.1 ジュール熱 $P=VI$ ——二つの経路</a></li>
+<li><a href="#642-a-cdot-nabla-times-a-ast">6.4.2 ヘリシティ $A \cdot (\nabla \times A)$ ——$\ast$ の往復</a></li>
+</ul>
+</li>
+<li><a href="#65">§6.5 ナブラの三兄弟を解体する</a><ul>
+<li><a href="#651-mathrmgradf-df">6.5.1 勾配 $\mathrm{grad}\,f = df$</a></li>
+<li><a href="#652-mathrmrotmathbff-astdomega">6.5.2 回転 $\mathrm{rot}\,\mathbf{F} = \ast\,d\,\omega$</a></li>
+<li><a href="#653-mathrmdivmathbff-astdastomega">6.5.3 発散 $\mathrm{div}\,\mathbf{F} = \ast\,d\,\ast\,\omega$</a></li>
+<li><a href="#654-d2-0">6.5.4 $d^2 = 0$ の当然の帰結</a></li>
+</ul>
+</li>
+<li><a href="#66-ii-iii">§6.6 第II部の結び —— 第III部へ</a></li>
+<li><a href="#d">付録D：フロベニウス積とホッジ・スターの完全な行列表現</a><ul>
+<li><a href="#d1">D.1 行列の内積——フロベニウス積</a></li>
+<li><a href="#d2-ast_1to2">D.2 $\ast_{1\to2}$ ——行列の縦ベクトル</a></li>
+<li><a href="#d3-ast_2to1">D.3 $\ast_{2\to1}$ ——フロベニウス積による係数抽出</a></li>
+<li><a href="#d4">D.4 転置関係</a></li>
+<li><a href="#d5-e_k-cdot-m">D.5 $E_k \cdot M$ の成分</a></li>
+<li><a href="#d6-ast">D.6 $\ast$ の二回作用</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#7">第7章：ベクトル解析 —— ナブラの登場</a><ul>
+<li><a href="#70">§7.0 ナブラの登場</a></li>
+<li><a href="#71">§7.1 ドット積とクロス積</a><ul>
+<li><a href="#711">7.1.1 ドット積</a></li>
+<li><a href="#712">7.1.2 クロス積</a></li>
+</ul>
+</li>
+<li><a href="#72-nabla">§7.2 $\nabla$ と勾配</a><ul>
+<li><a href="#721-nabla">7.2.1 $\nabla$ の定義</a></li>
+<li><a href="#722">7.2.2 勾配</a></li>
+</ul>
+</li>
+<li><a href="#73">§7.3 発散</a></li>
+<li><a href="#74">§7.4 回転</a></li>
+<li><a href="#75">§7.5 ラプラシアン</a></li>
+<li><a href="#76">§7.6 恒等式</a><ul>
+<li><a href="#761-mathrmrotmathrmgradf-mathbf0">7.6.1 $\mathrm{rot}(\mathrm{grad}\,f) = \mathbf{0}$</a></li>
+<li><a href="#762-mathrmdivmathrmrotmathbff-0">7.6.2 $\mathrm{div}(\mathrm{rot}\,\mathbf{F}) = 0$</a></li>
+</ul>
+</li>
+<li><a href="#77">§7.7 ナブラの公式集</a><ul>
+<li><a href="#771">7.7.1 積の微分則</a></li>
+<li><a href="#772">7.7.2 二回作用の恒等式</a></li>
+<li><a href="#773">7.7.3 スカラー三重積</a></li>
+<li><a href="#774-bac-cab">7.7.4 ベクトル三重積（BAC-CAB 則）</a></li>
+</ul>
+</li>
+<li><a href="#78">§7.8 積分定理——ストークス・ガウス・グリーン</a><ul>
+<li><a href="#781">7.8.1 ストークスの定理</a></li>
+<li><a href="#782">7.8.2 ガウスの発散定理</a></li>
+<li><a href="#783">7.8.3 三つの定理の共通構造</a></li>
+</ul>
+</li>
+<li><a href="#79-iii">§7.9 第III部へ —— 矢印を見るな、測定器を見ろ</a></li>
+</ul>
+</li>
+<li><a href="#8">第8章：二つの言語 —— 測定器の微分と、場の微分</a><ul>
+<li><a href="#80">§8.0 本書のハイライト</a></li>
+<li><a href="#81">§8.1 二つの微分、二つの世界</a><ul>
+<li><a href="#811-d">8.1.1 測定器に微分を乗せる——$d$ の立場</a></li>
+<li><a href="#812-nabla">8.1.2 測定器はそのまま、新たな場を考える——$\nabla$ の立場</a></li>
+</ul>
+</li>
+<li><a href="#82">§8.2 翻訳辞書の完成</a><ul>
+<li><a href="#821">8.2.1 勾配</a></li>
+<li><a href="#822">8.2.2 回転</a></li>
+<li><a href="#823">8.2.3 発散</a></li>
+<li><a href="#824">8.2.4 辞書の表</a></li>
+</ul>
+</li>
+<li><a href="#83">§8.3 ストークスの定理を翻訳する</a><ul>
+<li><a href="#831-nabla-d">8.3.1 $\nabla$ から $d$ へ</a></li>
+<li><a href="#832">8.3.2 翻訳の往復——どちらからでも行ける</a></li>
+</ul>
+</li>
+<li><a href="#84">§8.4 ガウスの定理を翻訳する</a><ul>
+<li><a href="#841">8.4.1 三つの定理、一つの式</a></li>
+</ul>
+</li>
+<li><a href="#85">§8.5 二つの方法論——場はそのままか、測定器はそのままか</a><ul>
+<li><a href="#851-1d">8.5.1 方法①（dの方法）——場はそのまま、測定器の側が変化する</a></li>
+<li><a href="#852-2">8.5.2 方法②（∇の方法）——測定器はそのまま、新たな場を考える</a></li>
+<li><a href="#853">8.5.3 なぜ一致するのか</a></li>
+</ul>
+</li>
+<li><a href="#86">§8.6 曲線座標と二つの方法</a><ul>
+<li><a href="#861">8.6.1 辞書は計量で変わる</a></li>
+<li><a href="#862">8.6.2 二つの方法を回してみる</a></li>
+<li><a href="#863">8.6.3 曲線座標での発散と回転</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#9">第9章：実戦 —— 辞書を作り、難問を解く</a><ul>
+<li><a href="#90">§9.0 本書の目的はすでに果たされた</a></li>
+<li><a href="#91">§9.1 辞書をその場で作る——機械的手順</a></li>
+<li><a href="#92-rthetaz">§9.2 円柱座標 $(r,\theta,z)$</a><ul>
+<li><a href="#921">9.2.1 辞書の導出</a></li>
+<li><a href="#922">9.2.2 勾配</a></li>
+<li><a href="#923">9.2.3 発散</a></li>
+<li><a href="#924">9.2.4 回転</a></li>
+</ul>
+</li>
+<li><a href="#93-rhothetaphi">§9.3 球座標 $(\rho,\theta,\phi)$</a><ul>
+<li><a href="#931">9.3.1 辞書の導出</a></li>
+<li><a href="#932">9.3.2 発散</a></li>
+<li><a href="#933">9.3.3 回転</a></li>
+</ul>
+</li>
+<li><a href="#94">§9.4 微積分の難問——球座標でのベクトルラプラシアン</a><ul>
+<li><a href="#941">9.4.1 第一項——勾配の発散</a></li>
+<li><a href="#942">9.4.2 第二項——回転の回転</a></li>
+<li><a href="#943">9.4.3 差をとる——ベクトルラプラシアン</a></li>
+</ul>
+</li>
+<li><a href="#95">§9.5 電磁気学の難問——点電荷の電場と発散</a></li>
+<li><a href="#96">§9.6 辞書は終わり、旅は続く</a></li>
+</ul>
+</li>
+<li><a href="#10">第10章：マクスウェル方程式 —— 美しさのその先へ</a><ul>
+<li><a href="#100">§10.0 お約束</a></li>
+<li><a href="#101-2">§10.1 マクスウェル方程式——2本で書く</a></li>
+<li><a href="#102-f">§10.2 $F$ の中身——行列で全部書く</a></li>
+<li><a href="#103-mathbbr3-4">§10.3 ミンコフスキー計量——$\mathbb{R}^3$ から4次元へ</a></li>
+<li><a href="#104-df0">§10.4 $dF=0$ を全部書き下す</a></li>
+<li><a href="#105-ast-f-2">§10.5 $\ast F$ と残りの2本</a></li>
+<li><a href="#106-f-da">§10.6 ポテンシャル構成——$F=-dA$ から始める</a><ul>
+<li><a href="#dd0-df0">$dd=0$ が $dF=0$ を証明する</a></li>
+<li><a href="#1">もう1本の式——ポテンシャルで書く</a></li>
+</ul>
+</li>
+<li><a href="#edf-dast-f-4times4times4">付録E：$dF$ と $d(\ast F)$ のスライス行列表示 —— $4\times4\times4$ 配列で見るマクスウェル方程式</a><ul>
+<li><a href="#e1-3-form-16">E.1 基底 $3$-form とそのスライス行列 —— 全16枚</a></li>
+<li><a href="#e2-df">E.2 $dF$ をスライス行列で書く</a></li>
+<li><a href="#e3">E.3 フロベニウス積で係数を抜き出す</a></li>
+<li><a href="#e4-df0">E.4 $dF=0$ をスライスで読む</a></li>
+<li><a href="#e5-dast-f-mu_0astmathcalj">E.5 $d(\ast F) = \mu_0(\ast\mathcal{J})$ のスライス表示</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#11_1">第11章：曲がった空間へ —— 本書の先にあるもの</a><ul>
+<li><a href="#110">§11.0 この章の立ち位置 —— さらに先を見たい読者のための道標</a></li>
+<li><a href="#111-mathbfgx">§11.1 多様体 —— $\mathbf{g}(x)$ から始める</a><ul>
+<li><a href="#1111">11.1.1 定義 —— チャートとアトラス</a></li>
+<li><a href="#1112">11.1.2 接空間 —— 「曲がった空間での微分」の定義</a></li>
+<li><a href="#1113">11.1.3 微分形式 —— 余接束とテンソル場</a></li>
+<li><a href="#1114-d">11.1.4 外微分 $d$ —— 多様体上で変わらないもの</a></li>
+<li><a href="#1115">11.1.5 計量とホッジ・スター —— 場所ごとに変わるもの</a></li>
+<li><a href="#1116-1">11.1.6 積分 —— 1の分割と向き付け可能性</a></li>
+<li><a href="#1117">11.1.7 接続と曲率 —— 一言だけ</a></li>
+<li><a href="#1118">11.1.8 本書との対応</a></li>
+</ul>
+</li>
+<li><a href="#112_1">§11.2 リーマン幾何学 —— テンソル解析のスタイル</a><ul>
+<li><a href="#1121">11.2.1 テンソル —— 変換則による定義</a></li>
+<li><a href="#1122">11.2.2 クリストッフェル記号 —— 微分がテンソルでなくなる問題</a></li>
+<li><a href="#1123">11.2.3 リーマン曲率テンソル</a></li>
+<li><a href="#1124">11.2.4 二つのスタイル —— 本書との関係</a></li>
+</ul>
+</li>
+<li><a href="#113">§11.3 その先へ</a></li>
+</ul>
+</li>
+<li><a href="#12">第12章：真のナブラ —— クリフォード・パウリ・ディラック・ハミルトン</a><ul>
+<li><a href="#120-21">§12.0 2本を1本に</a></li>
+<li><a href="#121_1">§12.1 虚数で一本に —— マクスウェル方程式の統合</a></li>
+<li><a href="#122">§12.2 パウリ行列 —— 異なる次数を足す魔法</a><ul>
+<li><a href="#1221">12.2.1 パウリ行列の定義と掛け算</a></li>
+<li><a href="#1222">12.2.2 ベクトルをパウリ行列で書く</a></li>
+<li><a href="#1223">12.2.3 スカラーも混ぜて足す</a></li>
+</ul>
+</li>
+<li><a href="#123">§12.3 ディラック演算子と真のナブラ</a><ul>
+<li><a href="#1231-bmsigmacdotnabla">12.3.1 $\bm{\sigma}!\cdot!\nabla$ —— すべてを統合する演算子</a></li>
+<li><a href="#1232-d2">12.3.2 $D^2$ —— ラプラシアン</a></li>
+<li><a href="#1233">12.3.3 マクスウェルを一本に —— 再訪</a></li>
+<li><a href="#1234-cancelpartial-f-j-4">12.3.4 $\cancel{\partial} F = J$ —— 4次元時空のディラック演算子</a></li>
+</ul>
+</li>
+<li><a href="#124-nabla">§12.4 演算子$\nabla$</a></li>
+</ul>
+</li>
+<li><a href="#_1">おわりに：『ナブラ解体新書』はいかにして生まれたか</a></li>
+<li><a href="#_2">参考文献（と著者からのコメント）</a></li>
+<li><a href="#_3">付録：本書で語らなかったもの</a><ul>
+<li><a href="#i">I. 理論的枠組みと厳密性について</a></li>
+<li><a href="#ii">II. 手法の選択と適用限界について</a></li>
+<li><a href="#iii">III. 物理的定義と教育的配慮について</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+    <hr>
+    <p style="font-size:0.8rem; color:#666;">著者: yokiikoy<br>License: CC BY-NC 4.0</p>
+  </nav>
+  <main class="main-content">
+    <article class="markdown-body">
+      <h1 id="sns">はじめに —— かつての私への贈り物、およびSNS時代の予防線</h1>
 <p>本書<strong>『ナブラ解体新書 — 行列表示の微分形式によるベクトル解析の抜け道 —』</strong>を開いていただき、ありがとうございます。</p>
 <p>正直に申し上げれば、本書を<strong>無料で公開する</strong>という決断には、現在無職である私自身の生活への不安や、半生をかけて積み上げた知見を見返りなく放流することへの、<strong>経済合理的な惜しさ</strong>の感情がないわけではありません。</p>
 <p>それでもなお、本書を対価なしで公開することを選んだのは、かつて若かりし日にベクトル解析に挫折した<strong>「かつての私」</strong>へ向けた、<strong>ある種の代償行為</strong>だからです。あるいは、私が愛する<strong>学問への、最大限の敬意</strong>の表明でもあります。</p>
@@ -4206,4 +4673,7 @@ $$</p>
 </li>
 </ul>
 <p>\newpage</p>
-</article></body></html>
+    </article>
+  </main>
+</body>
+</html>
