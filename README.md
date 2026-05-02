@@ -1,33 +1,57 @@
-# nabla-kaitai
+# ナブラ解体新書
 
-『ナブラ解体新書』（行列表示の微分形式によるベクトル解析の抜け道）の執筆リポジトリ。
+『ナブラ解体新書 —— 行列表示の微分形式によるベクトル解析の抜け道 ——』の執筆リポジトリ。
 
-原稿の正本は Markdown math 形式の `.md` とし、全11章を日本語版・英訳版・note.com変換版・PDF/ゲラへ展開する。
+3次元ユークリッド空間におけるベクトル解析を、微分形式の行列表示（横ベクトル＝一次形式）を通して再構成する教科書。全12章構成。
 
-## Directory Layout
+## 構成
 
-| Path | Role |
-| --- | --- |
-| `manuscript/ja/` | 日本語原稿の正本。章ごとに Markdown math 形式の `.md` を置く。 |
-| `manuscript/en/` | 英訳版原稿。日本語版と同じ章番号で管理する。 |
-| `exports/pdf/` | 全章を結合してPDF化した成果物を置く。 |
-| `exports/note/` | note.com投稿用に変換したMarkdownを置く。 |
-| `galleys/` | 校正用ゲラ、入稿確認用PDF、外部確認版を置く。 |
-| `references/pdfs/` | 論文・書籍PDFのローカル置き場。PDF本体は原則Git管理外。 |
-| `references/ocr-md/` | 必要に応じてPDFからOCRしたMarkdownを置く。 |
-| `tools/` | 結合、PDF化、note変換、OCR補助などのスクリプトを置く。 |
-| `docs/` | プロジェクト運用、構成、執筆ルールを置く。 |
+```
+manuscript/
+  ja/           日本語原稿（全12章 + 序章・付録・参考文献）
+  en/           英訳版原稿
+  README.md
+exports/
+  manuscript.pdf    生成済みPDF
+  manuscript_combined.md  結合済みMarkdown（参照用）
+  README.md
+tools/
+  build_pdf.py      PDF生成スクリプト（Python 3 + XeLaTeX）
+  README.md
+docs/              プロジェクト運用・構成・執筆ルール
+README.md
+```
 
-## Chapter Policy
+## 章構成
 
-- 全体は11章構成とする。
-- 各章の原稿は `.md` とし、数式は Markdown math / LaTeX math を使う。
-- 日本語版と英訳版は章番号を揃える。
-- PDF、note.com形式、ゲラは派生成果物として扱い、原稿正本とは分離する。
+| 章 | 内容 |
+|---|---|
+| 序章（ preface） | はじめに |
+| 第1章 | $dx$ とは何か — 横ベクトルとしての一次形式 |
+| 第2章 | 面積と体積 — $2$-form と $3$-form |
+| 第3章 | 線積分・面積分 — 引き戻し |
+| 第4章 | 外微分 $d$ — 微小ループのズレ |
+| 第5章 | $d^2=0$ — 閉形式と完全形式 |
+| 第6章 | 計量とホッジ・スター $\ast$ |
+| 第7章 | 勾配・発散・回転の $\ast$ 辞書 |
+| 第8章 | ガウスの定理・ストークスの定理 |
+| 第9章 | 曲線座標での $\ast$ |
+| 第10章 | 电磁気学への応用 |
+| 第11章 | 多様体論との接続 |
+| 第12章 | 今後の展望 |
+| 付録 | 本書で語らなかったもの |
+| 参考文献 | と著者からのコメント |
 
-## Reference Policy
+## PDF 生成
 
-- `references/pdfs/` はPDF原本の置き場。
-- `references/ocr-md/` はOCR済みMarkdownの置き場。
-- PDF本体は大容量かつライセンス制約がありうるため、デフォルトでは `.gitignore` で除外する。
-- 引用・参照メモやOCR Markdownは、必要に応じてGit管理する。
+```bash
+python3 tools/build_pdf.py
+```
+
+生成物：`exports/manuscript.pdf`
+
+要環境：Python 3、 XeLaTeX（XeLaTeX 2回コンパイルで目次・相互参照解決）、IPAex フォント
+
+## ライセンス
+
+CC BY-NC 4.0（著作者：yokiikoy）

@@ -14,13 +14,5 @@ __pycache__/
 *.pyo
 .venv/
 
-# Reference PDFs are usually large and may have licensing constraints.
-# Keep bibliographic notes and OCR markdown in git; keep PDF originals local by default.
-references/pdfs/**/*.pdf
-
-# Legacy local OCR corpus kept out of git after the project-structure rebuild.
-reference/
-
-# OCR output can be committed selectively when it is clean and useful.
-# Leave this pattern commented unless the OCR corpus becomes too large.
-# references/ocr-md/**/*.md
+# Build intermediates
+build/

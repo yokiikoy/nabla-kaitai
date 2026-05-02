@@ -1,2 +1,0 @@
-"""Init for tests package."""
-
