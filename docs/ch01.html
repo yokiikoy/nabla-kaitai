@@ -141,14 +141,16 @@ window.MathJax = {
 <div class="math-block">$$\mathbf{v}_i = \begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix}$$</div>
 <p>と書く。添字 $i$ は「第 $i$ 小区間の分」という意味だけで、$\mathbf{v}_i$ もまた変位ベクトルである。今は直線運動を考えているので $y,z$ 成分はゼロだが、それは条件ではなく結果としてゼロになっているだけだ。
 </p>
-<p>\clearpage
-</p>
+<!-- pagebreak -->
 <h4 id="113-の登場--本書最大の特徴としての断言">1.1.3 $dx$ の登場 — 本書最大の特徴としての「断言」</h4>
 <p>さて、本書では $dx$ という記号に次のような意味を与える。<strong>大胆で奇妙に思えるかもしれないが、これが本書最大の特徴でもある——ここでは $dx$ を次の $1\times 3$ 行列だと断言する。</strong>
 </p>
 <p>すなわち、<strong>横ベクトル</strong>（$1\times 3$ <strong>行列</strong>として成分を横に並べて書く）として
-\begin{center}\scalebox{1.8}{$\displaystyle dx = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}$}\end{center}
-と<strong>定義する</strong>。これは、入力された縦ベクトルから $x$ 成分だけを抜き出して返す線形演算子の行列表現である。
+</p>
+<!-- scalebox -->
+<div class="math-block">$$dx = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}$$</div>
+<!-- endscalebox -->
+<p>と<strong>定義する</strong>。これは、入力された縦ベクトルから $x$ 成分だけを抜き出して返す線形演算子の行列表現である。
 </p>
 <blockquote><p>
 **注**（これはトンデモか？）<br>
@@ -176,8 +178,7 @@ window.MathJax = {
 **注**（なぜこんなに必死なのか）<br>
 この種の発見的・構築的な導入は、しばしば「不正確だ」「一般論を矮小化している」と誤解される。したがって、本書の射程をあらかじめ明示しておく。本書の主戦場は、物理数学としての三次元ベクトル解析であり、一般多様体上の微分形式論やド・ラームコホモロジーではない。詳しくは「付録：本書で語らなかったもの」を参照のこと。<br>
 </p></blockquote>
-<p>\clearpage
-</p>
+<!-- pagebreak -->
 <p>変位ベクトル $\mathbf{v}_i$ に左から掛けると
 </p>
 <div class="math-block">$$dx\,\mathbf{v}_i = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix} \begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix} = \Delta x_i$$</div>

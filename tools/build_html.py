@@ -114,6 +114,11 @@ def slugify(text):
     return text or 'section'
 
 def process_markdown(markdown_text):
+    # 0. Clean up PDF-specific markers
+    text = markdown_text.replace('<!-- pagebreak -->', '')
+    text = text.replace('<!-- scalebox -->', '')
+    text = text.replace('<!-- endscalebox -->', '')
+
     # 1. Global replacement of \bm before any protection or processing
     # Alphabet \bm{v} -> \mathbf{v}
     text = re.sub(r'\\bm\{([a-zA-Z0-9]+)\}', r'\\mathbf{\1}', markdown_text)

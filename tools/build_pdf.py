@@ -40,7 +40,12 @@ for f in files:
 
 md_text = '\n'.join(combined)
 
-# --- Process marker tags ---
+with open('exports/manuscript_combined.md', 'w') as f:
+    f.write(md_text)
+
+print(f'Combined {len(files)} chapters → exports/manuscript_combined.md')
+
+# --- Process marker tags for PDF ONLY ---
 md_text = md_text.replace('<!-- pagebreak -->', '\\clearpage')
 md_text = re.sub(
     r'<!-- scalebox -->\s*\n\$\$(.*?)\$\$\s*\n\s*<!-- endscalebox -->',
@@ -49,17 +54,8 @@ md_text = re.sub(
     flags=re.DOTALL
 )
 
-# Convert HTML <strong> tags to Pandoc-native **bold** syntax.
-# Pandoc with format=markdown (raw_html enabled by default) passes raw HTML
-# through to LaTeX output literally, which renders as text, not bold.
-# Stripping raw_html would discard the tags entirely.  Pre-processing to
-# the native syntax ensures Pandoc emits \textbf{...} in LaTeX.
+# Convert HTML <strong> tags to Pandoc-native **bold** syntax for LaTeX
 md_text = re.sub(r'<strong>\s*(.*?)\s*</strong>', r'**\1**', md_text, flags=re.DOTALL)
-
-with open('exports/manuscript_combined.md', 'w') as f:
-    f.write(md_text)
-
-print(f'Combined {len(files)} chapters → exports/manuscript_combined.md')
 
 # Pandoc's markdown parser often requires a blank line before a list or
 # heading when it follows certain constructs (HTML tags, blockquotes, etc.).
