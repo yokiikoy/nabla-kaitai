@@ -193,6 +193,11 @@ def process_markdown(markdown_text):
         
         # Inline formatting (bold, italic, code) - DO THIS BEFORE RESTORING MATH
         processed = line
+        
+        # Automatic replacement of \bm with \mathbf for better MathJax compatibility
+        processed = processed.replace('\\bm{', '\\mathbf{')
+        processed = processed.replace('\\bm ', '\\mathbf ')
+        
         processed = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', processed)
         processed = re.sub(r'\*(.+?)\*', r'<em>\1</em>', processed)
         processed = re.sub(r'`(.+?)`', r'<code>\1</code>', processed)
