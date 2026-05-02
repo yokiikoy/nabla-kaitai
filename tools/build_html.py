@@ -74,10 +74,12 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
 </style>
 {KATEX_CDN}
 </head>
-<body>
   <nav class="sidebar">
     <h2><a href="index.html">ナブラ解体新書</a></h2>
-    <div class="author">著者: yokiikoy</div>
+    <div class="author">
+      著者: yokiikoy<br>
+      <a href="http://covectorspace.xyz/jp/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a>
+    </div>
     <div class="toc">{toc}</div>
   </nav>
   <main class="main-content">
