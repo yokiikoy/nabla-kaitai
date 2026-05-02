@@ -34,6 +34,10 @@
   .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
   .nav-buttons a:hover { background: #f6f8fa; }
   strong { font-weight: 700 !important; }
+  table { border-collapse: collapse; width: 100%; margin: 1.5em 0; font-size: 0.9em; }
+  th, td { border: 1px solid #d0d7de; padding: 6px 13px; }
+  tr:nth-child(even) { background-color: #f6f8fa; }
+  th { font-weight: 600; background-color: #f6f8fa; }
   /* KaTeX responsiveness */
   .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }
 </style>
@@ -435,12 +439,32 @@ $$\iiint_V \Omega$$
 <h4 id="344-線・面・体の統一像">3.4.4 線・面・体の統一像</h4>
 <p>ここまでを俯瞰しよう。
 </p>
-<p>| 対象 | 形式 | 積分の骨格 | 物理的意味の例 |
-|:---:|:---|:---|:---|
-| 曲線 $\gamma$ | $1$-form $\omega$ | $\displaystyle\int \omega(\gamma')\,dt$ | 仕事 |
-| 曲面 $S$ | $2$-form $\eta$ | $\displaystyle\iint \eta(\mathbf{r}_u, \mathbf{r}_v)\,du \wedge dv$ | 流量 |
-| 領域 $V$ | $3$-form $\Omega$ | $\displaystyle\iiint \Omega(\hat{e}_x,\hat{e}_y,\hat{e}_z)$ | 総質量 |
-</p>
+<table>
+<thead><tr>
+<th>対象</th>
+<th>形式</th>
+<th>積分の骨格</th>
+<th>物理的意味の例</th>
+</tr></thead><tbody>
+<tr>
+<td>曲線 $\gamma$</td>
+<td>$1$-form $\omega$</td>
+<td>$\displaystyle\int \omega(\gamma')\,dt$</td>
+<td>仕事</td>
+</tr>
+<tr>
+<td>曲面 $S$</td>
+<td>$2$-form $\eta$</td>
+<td>$\displaystyle\iint \eta(\mathbf{r}_u, \mathbf{r}_v)\,du \wedge dv$</td>
+<td>流量</td>
+</tr>
+<tr>
+<td>領域 $V$</td>
+<td>$3$-form $\Omega$</td>
+<td>$\displaystyle\iiint \Omega(\hat{e}_x,\hat{e}_y,\hat{e}_z)$</td>
+<td>総質量</td>
+</tr>
+</tbody></table>
 <p>いずれも<strong>「$k$-form（はかり）が $k$-vector（図形）を食べてスカラーを返し、それを領域全体で集計する」</strong>という同一の型である。次数が上がるごとに食わせるベクトルの本数が増え、交代性が面積・体積の向きを司る。次数が違うだけで、原理はどこまでも同じだ。
 </p>
 <blockquote><p>

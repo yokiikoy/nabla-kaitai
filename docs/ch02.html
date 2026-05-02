@@ -34,6 +34,10 @@
   .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
   .nav-buttons a:hover { background: #f6f8fa; }
   strong { font-weight: 700 !important; }
+  table { border-collapse: collapse; width: 100%; margin: 1.5em 0; font-size: 0.9em; }
+  th, td { border: 1px solid #d0d7de; padding: 6px 13px; }
+  tr:nth-child(even) { background-color: #f6f8fa; }
+  th { font-weight: 600; background-color: #f6f8fa; }
   /* KaTeX responsiveness */
   .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }
 </style>
@@ -481,15 +485,43 @@ $$V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = \sum_i\sum_j\sum_k v_{1i}\,v_{2j
 </ul>
 <p>$(x, y, z)$ の置換は全部で $3! = 6$ 通り。交代性により、偶置換は $V(\hat{e}_x, \hat{e}_y, \hat{e}_z)$ と同符号、奇置換は反対符号になる。ルール3で $V(\hat{e}_x, \hat{e}_y, \hat{e}_z) = 1$ と決めたから：
 </p>
-<p>| 置換 | 偶/奇 | 値 |
-|------|-------|----|
-| $(x,y,z)$ | 偶（0回交換） | $+1$ |
-| $(y,z,x)$ | 偶（2回交換） | $+1$ |
-| $(z,x,y)$ | 偶（2回交換） | $+1$ |
-| $(y,x,z)$ | 奇（1回交換） | $-1$ |
-| $(x,z,y)$ | 奇（1回交換） | $-1$ |
-| $(z,y,x)$ | 奇（1回交換） | $-1$ |
-</p>
+<table>
+<thead><tr>
+<th>置換</th>
+<th>偶/奇</th>
+<th>値</th>
+</tr></thead><tbody>
+<tr>
+<td>$(x,y,z)$</td>
+<td>偶（0回交換）</td>
+<td>$+1$</td>
+</tr>
+<tr>
+<td>$(y,z,x)$</td>
+<td>偶（2回交換）</td>
+<td>$+1$</td>
+</tr>
+<tr>
+<td>$(z,x,y)$</td>
+<td>偶（2回交換）</td>
+<td>$+1$</td>
+</tr>
+<tr>
+<td>$(y,x,z)$</td>
+<td>奇（1回交換）</td>
+<td>$-1$</td>
+</tr>
+<tr>
+<td>$(x,z,y)$</td>
+<td>奇（1回交換）</td>
+<td>$-1$</td>
+</tr>
+<tr>
+<td>$(z,y,x)$</td>
+<td>奇（1回交換）</td>
+<td>$-1$</td>
+</tr>
+</tbody></table>
 <p>したがって：
 </p>
 $$V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = x_1 y_2 z_3 + y_1 z_2 x_3 + z_1 x_2 y_3 - y_1 x_2 z_3 - x_1 z_2 y_3 - z_1 y_2 x_3$$
@@ -574,12 +606,24 @@ $$
 <p>と定めれば、結果は一つの $3 \times 3$ 行列に落ちる。
 なお、実はこの3つのブロックは、§2.4.4–2.4.5 で構成した<strong>面積測定器の行列そのもの</strong>となり、対応は次のとおりだ：
 </p>
-<p>| 左から $i$ 枚目 | 正体 |
-|:---:|:---:|
-| $i=1$ | $dy \wedge dz$（$yz$ 平面の面積測定器） |
-| $i=2$ | $dz \wedge dx$（$zx$ 平面の面積測定器） |
-| $i=3$ | $dx \wedge dy$（$xy$ 平面の面積測定器） |
-</p>
+<table>
+<thead><tr>
+<th>左から $i$ 枚目</th>
+<th>正体</th>
+</tr></thead><tbody>
+<tr>
+<td>$i=1$</td>
+<td>$dy \wedge dz$（$yz$ 平面の面積測定器）</td>
+</tr>
+<tr>
+<td>$i=2$</td>
+<td>$dz \wedge dx$（$zx$ 平面の面積測定器）</td>
+</tr>
+<tr>
+<td>$i=3$</td>
+<td>$dx \wedge dy$（$xy$ 平面の面積測定器）</td>
+</tr>
+</tbody></table>
 <p><strong>ベクトル3本を食べてスカラーに潰す</strong>
 </p>
 <p>$\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3$ を代入する手順は、<strong>配列の添字とベクトル成分を、合うところどうしで掛けて足す</strong>——と見るのが早い：
@@ -647,13 +691,43 @@ $$\text{向き付き体積} = V\,(\hat{e}_x \wedge \hat{e}_y \wedge \hat{e}_z)$$
 </p>
 <p>§2.4.8 以降、とくに §2.5.8（図形側の三重ベクトル）と §2.5.9（独立成分の個数）までを通じて、<strong>次元 $k$ ごとに「はかり（$k$-form）」と「図形（$k$-ベクトル）」の横と縦の関係</strong>が同じ型で繰り返されることが見えてきた。データの成分の個数と、「スカラー（正の大きさ）」の取り出し方を一枚の表にまとめると、次のとおりだ。
 </p>
-<p>| 次元 ($k$) | はかり（$k$-form） | 図形（$k$-ベクトル） | 値（データ）の出方 | スカラーの取り出し方 |
-| :--- | :--- | :--- | :--- | :--- |
-| <strong>0次元</strong> | $0$-form（スカラー場 $f$） | 点 | 1成分（$f$） | $\sqrt{f^2}$  |
-| <strong>1次元</strong> | $1$-form（$dx, dy, dz$） | ベクトル（$\hat{e}_x$ 等） | 3成分（$x, y, z$） | $\sqrt{x^2 + y^2 + z^2}$ |
-| <strong>2次元</strong> | $2$-form（$dy \wedge dz$ 等） | 二重ベクトル（$\hat{e}_y \wedge \hat{e}_z$ 等） | 係数3つ（$A_{yz}, A_{zx}, A_{xy}$） | $\sqrt{A_{yz}^2 + A_{zx}^2 + A_{xy}^2}$ |
-| <strong>3次元</strong> | $3$-form（$dx \wedge dy \wedge dz$） | 三重ベクトル（$\hat{e}_x \wedge \hat{e}_y \wedge \hat{e}_z$） | 1成分（$V$） | $\sqrt{V^2}$ |
-</p>
+<table>
+<thead><tr>
+<th>次元 ($k$)</th>
+<th>はかり（$k$-form）</th>
+<th>図形（$k$-ベクトル）</th>
+<th>値（データ）の出方</th>
+<th>スカラーの取り出し方</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>0次元</strong></td>
+<td>$0$-form（スカラー場 $f$）</td>
+<td>点</td>
+<td>1成分（$f$）</td>
+<td>$\sqrt{f^2}$</td>
+</tr>
+<tr>
+<td><strong>1次元</strong></td>
+<td>$1$-form（$dx, dy, dz$）</td>
+<td>ベクトル（$\hat{e}_x$ 等）</td>
+<td>3成分（$x, y, z$）</td>
+<td>$\sqrt{x^2 + y^2 + z^2}$</td>
+</tr>
+<tr>
+<td><strong>2次元</strong></td>
+<td>$2$-form（$dy \wedge dz$ 等）</td>
+<td>二重ベクトル（$\hat{e}_y \wedge \hat{e}_z$ 等）</td>
+<td>係数3つ（$A_{yz}, A_{zx}, A_{xy}$）</td>
+<td>$\sqrt{A_{yz}^2 + A_{zx}^2 + A_{xy}^2}$</td>
+</tr>
+<tr>
+<td><strong>3次元</strong></td>
+<td>$3$-form（$dx \wedge dy \wedge dz$）</td>
+<td>三重ベクトル（$\hat{e}_x \wedge \hat{e}_y \wedge \hat{e}_z$）</td>
+<td>1成分（$V$）</td>
+<td>$\sqrt{V^2}$</td>
+</tr>
+</tbody></table>
 <blockquote><p>
 <strong>【ここまでのチェックポイント】</strong><br>
 - 体積測定器 $dx \wedge dy \wedge dz$（$3$-form）は、3つの物差しのウェッジ積であり、その値は $3 \times 3$ 行列式に等しい。<br>

@@ -34,6 +34,10 @@
   .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
   .nav-buttons a:hover { background: #f6f8fa; }
   strong { font-weight: 700 !important; }
+  table { border-collapse: collapse; width: 100%; margin: 1.5em 0; font-size: 0.9em; }
+  th, td { border: 1px solid #d0d7de; padding: 6px 13px; }
+  tr:nth-child(even) { background-color: #f6f8fa; }
+  th { font-weight: 600; background-color: #f6f8fa; }
   /* KaTeX responsiveness */
   .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }
 </style>
@@ -220,19 +224,52 @@ $$\ast: \Omega^k(M) \to \Omega^{n-k}(M)$$
 <h4 id="1118-本書との対応">11.1.8 本書との対応</h4>
 <p>本書の概念が多様体論のどこに対応するかを一覧にしておく。
 </p>
-<p>| 本書 | 多様体論 |
-|------|---------|
-| $dx$ は横ベクトル（第1章） | $dx^i$ は余接空間 $T_p^*M$ の基底 |
-| $dx(v) = v_x$（第1章） | 1-form と接ベクトルの双対ペアリング $\langle\omega, v\rangle$ |
-| ウェッジ積の反対称行列表示（第2章） | 交代多重線形写像としての $k$-form の成分表示 |
-| 引き戻し＝ヤコビ行列（第3章） | 滑らかな写像による $k$-form の引き戻し $f^*\omega$ |
-| $d$ の偏微分＋ウェッジ積（第5章） | 外微分 $d$（多様体上で計量不要） |
-| $\mathbf{g} = J^T J$（第6章） | ユークリッド空間内の座標変換・埋め込みから誘導される計量の具体例 |
-| $\ast$ の辞書（第6章、第9章） | ホッジ・スター $\ast: \Omega^k(M) \to \Omega^{n-k}(M)$（計量依存） |
-| 統一ストークスの定理（第8章） | $\int_M d\omega = \int_{\partial M} \omega$（一般次元） |
-| $dF=0$, $d(\ast F)=\mu_0(\ast\mathcal{J})$（第10章） | 曲がった時空上でも、時空計量から定まる $\ast$ と適切な電流形式を用いれば同じ形で書ける |
-| 付録Eの $4\times4\times4$ スライス | 4次元多様体上の3-form の成分計算 |
-</p>
+<table>
+<thead><tr>
+<th>本書</th>
+<th>多様体論</th>
+</tr></thead><tbody>
+<tr>
+<td>$dx$ は横ベクトル（第1章）</td>
+<td>$dx^i$ は余接空間 $T_p^*M$ の基底</td>
+</tr>
+<tr>
+<td>$dx(v) = v_x$（第1章）</td>
+<td>1-form と接ベクトルの双対ペアリング $\langle\omega, v\rangle$</td>
+</tr>
+<tr>
+<td>ウェッジ積の反対称行列表示（第2章）</td>
+<td>交代多重線形写像としての $k$-form の成分表示</td>
+</tr>
+<tr>
+<td>引き戻し＝ヤコビ行列（第3章）</td>
+<td>滑らかな写像による $k$-form の引き戻し $f^*\omega$</td>
+</tr>
+<tr>
+<td>$d$ の偏微分＋ウェッジ積（第5章）</td>
+<td>外微分 $d$（多様体上で計量不要）</td>
+</tr>
+<tr>
+<td>$\mathbf{g} = J^T J$（第6章）</td>
+<td>ユークリッド空間内の座標変換・埋め込みから誘導される計量の具体例</td>
+</tr>
+<tr>
+<td>$\ast$ の辞書（第6章、第9章）</td>
+<td>ホッジ・スター $\ast: \Omega^k(M) \to \Omega^{n-k}(M)$（計量依存）</td>
+</tr>
+<tr>
+<td>統一ストークスの定理（第8章）</td>
+<td>$\int_M d\omega = \int_{\partial M} \omega$（一般次元）</td>
+</tr>
+<tr>
+<td>$dF=0$, $d(\ast F)=\mu_0(\ast\mathcal{J})$（第10章）</td>
+<td>曲がった時空上でも、時空計量から定まる $\ast$ と適切な電流形式を用いれば同じ形で書ける</td>
+</tr>
+<tr>
+<td>付録Eの $4\times4\times4$ スライス</td>
+<td>4次元多様体上の3-form の成分計算</td>
+</tr>
+</tbody></table>
 <h3 id="112-リーマン幾何学--テンソル解析のスタイル">§11.2 リーマン幾何学 —— テンソル解析のスタイル</h3>
 <p>多様体論が「幾何学的対象を座標に依存せずに定義する」ことを目指すのに対し、古典的なリーマン幾何学——アインシュタインの一般相対性理論で使われるテンソル解析——は「座標を選び、成分の変換則を正面から扱う」スタイルをとる。本書が行列の成分を明示してきた流儀に近いのは、むしろこちらである。
 </p>

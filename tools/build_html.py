@@ -64,6 +64,10 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
   .nav-buttons a {{ padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }}
   .nav-buttons a:hover {{ background: #f6f8fa; }}
   strong {{ font-weight: 700 !important; }}
+  table {{ border-collapse: collapse; width: 100%; margin: 1.5em 0; font-size: 0.9em; }}
+  th, td {{ border: 1px solid #d0d7de; padding: 6px 13px; }}
+  tr:nth-child(even) {{ background-color: #f6f8fa; }}
+  th {{ font-weight: 600; background-color: #f6f8fa; }}
   /* KaTeX responsiveness */
   .katex-display {{ overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }}
 </style>
@@ -124,6 +128,36 @@ def apply_inline_formatting(text):
     text = re.sub(r'`(.+?)`', r'<code>\1</code>', text)
     return text
 
+def render_table(lines, protector):
+    """Render markdown table lines as HTML."""
+    if len(lines) < 2:
+        return "\n".join(lines)
+    
+    html = ['<table>']
+    # Filter out the separator line (| :--- |)
+    content_lines = [l for l in lines if not re.match(r'^\|?[:\-\s|]+\|?$', l)]
+    
+    for i, line in enumerate(content_lines):
+        cells = [c.strip() for c in line.split('|')]
+        if not cells[0]: cells = cells[1:]
+        if cells and not cells[-1]: cells = cells[:-1]
+        
+        if i == 0:
+            html.append('<thead><tr>')
+            for cell in cells:
+                formatted = protector.restore(apply_inline_formatting(cell))
+                html.append(f'<th>{formatted}</th>')
+            html.append('</tr></thead><tbody>')
+        else:
+            html.append('<tr>')
+            for cell in cells:
+                formatted = protector.restore(apply_inline_formatting(cell))
+                html.append(f'<td>{formatted}</td>')
+            html.append('</tr>')
+    
+    html.append('</tbody></table>')
+    return "\n".join(html)
+
 def process_markdown(markdown_text):
     # 0. Clean up PDF-specific markers
     text = markdown_text.replace('<!-- pagebreak -->', '')
@@ -139,10 +173,14 @@ def process_markdown(markdown_text):
     text = protector.protect(text)
     lines = text.split('\n')
     result = []
-    in_code, in_quote, in_list, in_para = False, False, False, False
+    in_code, in_quote, in_list, in_para, in_table = False, False, False, False, False
+    table_lines = []
     
     for line in lines:
         if line.strip().startswith('```'):
+            if in_table:
+                result.append(render_table(table_lines, protector))
+                in_table = False
             if not in_code:
                 result.append('<pre><code>')
                 in_code = True
@@ -154,9 +192,23 @@ def process_markdown(markdown_text):
             result.append(line)
             continue
 
+        # Table detection
+        if line.strip().startswith('|'):
+            if not in_table:
+                if in_para: result.append('</p>'); in_para = False
+                in_table = True
+                table_lines = []
+            table_lines.append(line.strip())
+            continue
+        elif in_table:
+            result.append(render_table(table_lines, protector))
+            in_table = False
+            table_lines = []
+
         h_match = re.match(r'^(#{1,6})\s+(.+)$', line)
         if h_match:
             lv, content = len(h_match.group(1)), h_match.group(2).strip()
+            # Apply inline formatting to headings too
             restored = protector.restore(apply_inline_formatting(content))
             result.append(f'<h{lv} id="{slugify(restored)}">{restored}</h{lv}>')
             in_para = in_list = False
@@ -196,7 +248,6 @@ def process_markdown(markdown_text):
                 if in_list: result.append('</ul>' if in_list == 'ul' else '</ol>')
                 result.append('<ul>')
                 in_list = 'ul'
-
             content = protector.restore(apply_inline_formatting(ul_match.group(1)))
             result.append(f'<li>{content}</li>')
             in_para = False
@@ -209,6 +260,7 @@ def process_markdown(markdown_text):
             if in_para: result.append('</p>'); in_para = False
             continue
         
+        # Inline formatting for normal paragraphs
         processed = apply_inline_formatting(line)
         processed = protector.restore(processed)
         
@@ -228,10 +280,13 @@ def process_markdown(markdown_text):
             if processed.strip():
                 result.append(processed)
     
+    if in_table:
+        result.append(render_table(table_lines, protector))
     if in_para: result.append('</p>')
     if in_quote: result.append('</p></blockquote>')
     if in_list: result.append('</ul>' if in_list == 'ul' else '</ol>')
     return '\n'.join(result)
+
 
 def main():
     md_path = Path('exports/manuscript_combined.md')

@@ -34,6 +34,10 @@
   .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
   .nav-buttons a:hover { background: #f6f8fa; }
   strong { font-weight: 700 !important; }
+  table { border-collapse: collapse; width: 100%; margin: 1.5em 0; font-size: 0.9em; }
+  th, td { border: 1px solid #d0d7de; padding: 6px 13px; }
+  tr:nth-child(even) { background-color: #f6f8fa; }
+  th { font-weight: 600; background-color: #f6f8fa; }
   /* KaTeX responsiveness */
   .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }
 </style>
@@ -357,12 +361,28 @@ $$dt = \begin{pmatrix} 1 \end{pmatrix}$$
 </p></blockquote>
 <p><strong>空間側と時間側の対応を整理する</strong>と、次の表の通りになる。まったく同じ型が、異なる次元で繰り返されているだけだ。
 </p>
-<p>|  | 空間側 | 時間側 |
-|---|---|---|
-| <strong>横ベクトル（測定器）</strong> | $F(x)\,dx$（$1\times 3$） | $dt$（$1\times 1$） |
-| <strong>縦ベクトル（変位）</strong> | $\mathbf{v}_i = \Delta\mathbf{r}$ | $\mathbf{w} = \Delta t$ |
-| <strong>作用の結果</strong> | $(F\,dx)(\mathbf{v}_i) = F\,\Delta x$ | $dt(\mathbf{w}) = \Delta t$ |
-</p>
+<table>
+<thead><tr>
+<th></th>
+<th>空間側</th>
+<th>時間側</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>横ベクトル（測定器）</strong></td>
+<td>$F(x)\,dx$（$1\times 3$）</td>
+<td>$dt$（$1\times 1$）</td>
+</tr>
+<tr>
+<td><strong>縦ベクトル（変位）</strong></td>
+<td>$\mathbf{v}_i = \Delta\mathbf{r}$</td>
+<td>$\mathbf{w} = \Delta t$</td>
+</tr>
+<tr>
+<td><strong>作用の結果</strong></td>
+<td>$(F\,dx)(\mathbf{v}_i) = F\,\Delta x$</td>
+<td>$dt(\mathbf{w}) = \Delta t$</td>
+</tr>
+</tbody></table>
 <p>この $\Delta t$ に対応する<strong>空間での実際の変位</strong>は
 </p>
 $$\Delta \mathbf{r} = \mathbf{r}(t+\Delta t) - \mathbf{r}(t) = \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix}, \qquad \Delta x = x(t+\Delta t)-x(t)$$

@@ -34,6 +34,10 @@
   .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
   .nav-buttons a:hover { background: #f6f8fa; }
   strong { font-weight: 700 !important; }
+  table { border-collapse: collapse; width: 100%; margin: 1.5em 0; font-size: 0.9em; }
+  th, td { border: 1px solid #d0d7de; padding: 6px 13px; }
+  tr:nth-child(even) { background-color: #f6f8fa; }
+  th { font-weight: 600; background-color: #f6f8fa; }
   /* KaTeX responsiveness */
   .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }
 </style>
@@ -547,12 +551,32 @@ $$\mathrm{div}\,\mathbf{F} = \ast\,d\,\ast\,\omega$$
 <h3 id="66-第II部の結び--第III部へ">§6.6 第II部の結び —— 第III部へ</h3>
 <p>我々は第5章で外微分 $d$ を、本章で計量 $g$ とホッジ・スター $\ast$ を手に入れた。この二つの演算子の組み合わせとして：
 </p>
-<p>| 演算 | 分解 | 次数の遷移 | $\ast$ の使用回数 |
-|---|---|---|---|
-| $\mathrm{grad}$ | $d$ | $0 \to 1$ | 0回 |
-| $\mathrm{rot}$ | $\ast\,d$ | $1 \to 2 \to 1$ | 1回 |
-| $\mathrm{div}$ | $\ast\,d\,\ast$ | $1 \to 2 \to 3 \to 0$ | 2回 |
-</p>
+<table>
+<thead><tr>
+<th>演算</th>
+<th>分解</th>
+<th>次数の遷移</th>
+<th>$\ast$ の使用回数</th>
+</tr></thead><tbody>
+<tr>
+<td>$\mathrm{grad}$</td>
+<td>$d$</td>
+<td>$0 \to 1$</td>
+<td>0回</td>
+</tr>
+<tr>
+<td>$\mathrm{rot}$</td>
+<td>$\ast\,d$</td>
+<td>$1 \to 2 \to 1$</td>
+<td>1回</td>
+</tr>
+<tr>
+<td>$\mathrm{div}$</td>
+<td>$\ast\,d\,\ast$</td>
+<td>$1 \to 2 \to 3 \to 0$</td>
+<td>2回</td>
+</tr>
+</tbody></table>
 <p>ナブラ $\nabla$ という一見謎めいた記号の正体は、$d$ と $\ast$ という二つの基本的な演算子の組み合わせに過ぎなかったのである。
 </p>
 <blockquote><p>

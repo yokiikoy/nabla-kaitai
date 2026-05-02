@@ -34,6 +34,10 @@
   .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
   .nav-buttons a:hover { background: #f6f8fa; }
   strong { font-weight: 700 !important; }
+  table { border-collapse: collapse; width: 100%; margin: 1.5em 0; font-size: 0.9em; }
+  th, td { border: 1px solid #d0d7de; padding: 6px 13px; }
+  tr:nth-child(even) { background-color: #f6f8fa; }
+  th { font-weight: 600; background-color: #f6f8fa; }
   /* KaTeX responsiveness */
   .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }
 </style>
@@ -164,12 +168,40 @@ $$
 <p>$\nabla\cdot\mathbf{F}$ は<strong>スカラー場</strong>、$\ast d\ast\omega$ も<strong>$0$-form（スカラー場）</strong>である。発散は「ホッジ・スターで $2$-form に変え、外微分で $3$-form に上げ、再びホッジ・スターでスカラーに落とす」という三段階の操作だ。
 </p>
 <h4 id="824-辞書の表">8.2.4 辞書の表</h4>
-<p>| 演算 | $\nabla$ 表記 | $d,\ast$ 表記 | 入力の次数 | 出力の次数 | $\ast$ の使用回数 |
-|---|---|---|---|---|---|
-| 勾配 | $\nabla f$ | $df$ | $0$ | $1$ | $0$ |
-| 回転 | $\nabla\times\mathbf{F}$ | $\ast d\omega$ | $1$ | $1$ | $1$ |
-| 発散 | $\nabla\cdot\mathbf{F}$ | $\ast d\ast\omega$ | $1$ | $0$ | $2$ |
-</p>
+<table>
+<thead><tr>
+<th>演算</th>
+<th>$\nabla$ 表記</th>
+<th>$d,\ast$ 表記</th>
+<th>入力の次数</th>
+<th>出力の次数</th>
+<th>$\ast$ の使用回数</th>
+</tr></thead><tbody>
+<tr>
+<td>勾配</td>
+<td>$\nabla f$</td>
+<td>$df$</td>
+<td>$0$</td>
+<td>$1$</td>
+<td>$0$</td>
+</tr>
+<tr>
+<td>回転</td>
+<td>$\nabla\times\mathbf{F}$</td>
+<td>$\ast d\omega$</td>
+<td>$1$</td>
+<td>$1$</td>
+<td>$1$</td>
+</tr>
+<tr>
+<td>発散</td>
+<td>$\nabla\cdot\mathbf{F}$</td>
+<td>$\ast d\ast\omega$</td>
+<td>$1$</td>
+<td>$0$</td>
+<td>$2$</td>
+</tr>
+</tbody></table>
 <p>$\ast$ の使用回数が増えるほど、$\nabla$ 表記と $d,\ast$ 表記の間の「翻訳コスト」が上がる。勾配は $\ast$ がゼロ回なので翻訳不要（$df$ と $\nabla f$ は転置の関係）、回転は $1$ 回、発散は $2$ 回である。この $\ast$ の往復が、第7章 §6.7 の注で「微分形式のほうが汚い」と感じた原因だった。
 </p>
 <blockquote><p>
@@ -225,12 +257,32 @@ $$\int_{\partial V} \eta = \int_V d\eta$$
 <h4 id="841-三つの定理一つの式">8.4.1 三つの定理、一つの式</h4>
 <p>第7章で別々の定理として並べた三つの積分定理——グリーン、ストークス、ガウス——は、$\nabla$ の言葉では確かに異なる顔をしていた。しかし $d$ の言葉に翻訳すれば、すべてが $\int_{\partial M}\omega = \int_M d\omega$ の $k$ の値が違うだけの同一の式になる。
 </p>
-<p>| $k$ | $\partial M$ | $M$ | 定理 |
-|---|---|---|---|
-| $0$ | $B-A$（二点） | 曲線 | 微積分学の基本定理 |
-| $1$ | 閉曲線 | 曲面 | ストークス（グリーンを含む） |
-| $2$ | 閉曲面 | 立体 | ガウス |
-</p>
+<table>
+<thead><tr>
+<th>$k$</th>
+<th>$\partial M$</th>
+<th>$M$</th>
+<th>定理</th>
+</tr></thead><tbody>
+<tr>
+<td>$0$</td>
+<td>$B-A$（二点）</td>
+<td>曲線</td>
+<td>微積分学の基本定理</td>
+</tr>
+<tr>
+<td>$1$</td>
+<td>閉曲線</td>
+<td>曲面</td>
+<td>ストークス（グリーンを含む）</td>
+</tr>
+<tr>
+<td>$2$</td>
+<td>閉曲面</td>
+<td>立体</td>
+<td>ガウス</td>
+</tr>
+</tbody></table>
 <p>$k$ が違うだけだ。もはや三つの定理を別々に暗記する理由はない。$\int_{\partial M}\omega = \int_M d\omega$ 一つ覚えれば、あとは $M$ の次元に応じて適用するだけである。
 </p>
 <blockquote><p>
