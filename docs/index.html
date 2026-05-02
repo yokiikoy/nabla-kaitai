@@ -6,28 +6,22 @@
 <title>ナブラ解体新書</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
 <style>
-  :root { --sidebar-width: 300px; }
+  :root { --sidebar-width: 320px; }
   body { margin: 0; display: flex; background: #fff; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
   .sidebar { width: var(--sidebar-width); height: 100vh; position: sticky; top: 0; background: #f8f9fa; border-right: 1px solid #d0d7de; overflow-y: auto; padding: 1.5rem; box-sizing: border-box; }
-  .sidebar h2 { font-size: 1.2rem; margin-bottom: 1.5rem; border: none; color: #24292f; }
-  .sidebar .toc { font-size: 0.85rem; line-height: 1.6; }
+  .sidebar h2 { font-size: 1.2rem; border: none; padding-bottom: 0.5rem; }
+  .sidebar .toc { font-size: 0.85rem; }
   .sidebar .toc ul { list-style: none; padding-left: 1rem; }
   .sidebar a { text-decoration: none; color: #0969da; }
-  .sidebar a:hover { text-decoration: underline; }
-  .main-content { flex: 1; padding: 2rem 3rem; max-width: calc(100vw - var(--sidebar-width)); box-sizing: border-box; overflow-x: hidden; }
+  .main-content { flex: 1; padding: 2rem 3rem; max-width: calc(100vw - var(--sidebar-width)); box-sizing: border-box; }
   .markdown-body { max-width: 850px; margin: 0 auto; font-size: 16px; line-height: 1.8; }
-  @media (max-width: 768px) { body { flex-direction: column; } .sidebar { width: 100%; height: auto; position: relative; border-right: none; } .main-content { max-width: 100%; padding: 1.5rem; } }
-  blockquote { border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }
-  .mjx-container { overflow-x: auto !important; overflow-y: hidden !important; max-width: 100%; padding: 0.5em 0; }
+  @media (max-width: 768px) { body { flex-direction: column; } .sidebar { width: 100%; height: auto; position: relative; } .main-content { max-width: 100%; padding: 1.5rem; } }
+  blockquote { border-left: 4px solid #d0d7de; background: #f6f8fa; padding: 0.5em 1em; }
+  .mjx-container { overflow-x: auto !important; padding: 0.5em 0; }
 </style>
 <script>
 window.MathJax = {
-  tex: {
-    inlineMath: [['$', '$'], ['\\(', '\\)']],
-    displayMath: [['$$', '$$']],
-    processEscapes: true,
-    tags: 'ams'
-  },
+  tex: { inlineMath: [['$', '$']], displayMath: [['$$', '$$']], processEscapes: false },
   options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
 };
 </script>
@@ -39,22 +33,22 @@ window.MathJax = {
     <div class="toc"><div class="toc">
 <ul>
 <li><a href="#sns">はじめに —— かつての私への贈り物、およびSNS時代の予防線</a></li>
-<li><a href="#1mathblock493placeholder">第1章：MATHBLOCK493PLACEHOLDER とは何か —— ベクトルを食べる測定器、あるいは横ベクトル</a><ul>
+<li><a href="#1math493">第1章：===MATH493=== とは何か —— ベクトルを食べる測定器、あるいは横ベクトル</a><ul>
 <li><a href="#10-11">§1.0 数学者の1次元、物理学者の1次元</a></li>
 <li><a href="#11">§1.1 リーマン積分は行列の積である</a><ul>
 <li><a href="#111">1.1.1 リーマン和の標準的構成（復習）</a></li>
 <li><a href="#112">1.1.2 小区間ごとの変位</a></li>
-<li><a href="#113-mathblock543placeholder">1.1.3 MATHBLOCK543PLACEHOLDER の登場 — 本書最大の特徴としての「断言」</a></li>
+<li><a href="#113-math543">1.1.3 ===MATH543=== の登場 — 本書最大の特徴としての「断言」</a></li>
 <li><a href="#114">1.1.4 リーマン和のベクトル再解釈と積分記号</a></li>
 <li><a href="#115">1.1.5 物理的解釈 — 仕事の計算を例に</a></li>
-<li><a href="#116-mathblock596placeholder-form">1.1.6 一次形式（MATHBLOCK596PLACEHOLDER-form）</a></li>
+<li><a href="#116-math596-form">1.1.6 一次形式（===MATH596===-form）</a></li>
 </ul>
 </li>
-<li><a href="#12-mathblock637placeholder">§1.2 全微分 MATHBLOCK637PLACEHOLDER — 変化率を行列にまとめた演算子</a><ul>
+<li><a href="#12-math637">§1.2 全微分 ===MATH637=== — 変化率を行列にまとめた演算子</a><ul>
 <li><a href="#121">1.2.1 微分可能性の行列表現</a></li>
-<li><a href="#122-mathblock650placeholder-mathblock651placeholder">1.2.2 MATHBLOCK650PLACEHOLDER の行列としての定義と MATHBLOCK651PLACEHOLDER</a></li>
-<li><a href="#123-mathblock667placeholder-mathblock668placeholder-mathblock669placeholder-mathblock670placeholder">1.2.3 MATHBLOCK667PLACEHOLDER 方向と MATHBLOCK668PLACEHOLDER 方向の物差し MATHBLOCK669PLACEHOLDER, MATHBLOCK670PLACEHOLDER</a></li>
-<li><a href="#124-mathblock703placeholder">1.2.4 具体例： MATHBLOCK703PLACEHOLDER の場合</a></li>
+<li><a href="#122-math650-math651">1.2.2 ===MATH650=== の行列としての定義と ===MATH651===</a></li>
+<li><a href="#123-math667-math668-math669-math670">1.2.3 ===MATH667=== 方向と ===MATH668=== 方向の物差し ===MATH669===, ===MATH670===</a></li>
+<li><a href="#124-math703">1.2.4 具体例： ===MATH703=== の場合</a></li>
 <li><a href="#125">1.2.5 置換積分の行列解釈</a></li>
 <li><a href="#126">1.2.6 三次元への拡張</a></li>
 <li><a href="#127">1.2.7 線積分の先取り</a></li>
@@ -96,7 +90,7 @@ window.MathJax = {
 <li><a href="#242">2.4.2 欲しい結果からマス目を埋める</a></li>
 <li><a href="#243">2.4.3 テンソル積の導入</a></li>
 <li><a href="#244">2.4.4 ウェッジ積の完成</a></li>
-<li><a href="#245-3mathblock1131placeholder-form">2.4.5 3つの基底MATHBLOCK1131PLACEHOLDER-form</a></li>
+<li><a href="#245-3math1131-form">2.4.5 3つの基底===MATH1131===-form</a></li>
 <li><a href="#246">2.4.6 向き付き面積の正体と「図形側の基底」</a></li>
 <li><a href="#247">2.4.7 小学校のスカラー面積に戻すには</a></li>
 <li><a href="#248-10">2.4.8 1次元の「面積」（長さ）と0次元の「面積」（点）</a></li>
@@ -106,13 +100,13 @@ window.MathJax = {
 <li><a href="#25">§2.5 体積測定器と行列式</a><ul>
 <li><a href="#251">2.5.1 体積測定器が満たすべきルール</a></li>
 <li><a href="#252">2.5.2 ルールから形を決める——基底展開と消去</a></li>
-<li><a href="#253-mathblock1240placeholder-form">2.5.3 MATHBLOCK1240PLACEHOLDER-form の行列式としての再解釈</a></li>
-<li><a href="#254-mathblock1243placeholder">2.5.4 MATHBLOCK1243PLACEHOLDER の定義——行列式パターンの完成</a></li>
-<li><a href="#255-mathblock1252placeholder">2.5.5 体積測定器のテンソル積表現——MATHBLOCK1252PLACEHOLDER ブロックを横に並べた配列</a></li>
+<li><a href="#253-math1240-form">2.5.3 ===MATH1240===-form の行列式としての再解釈</a></li>
+<li><a href="#254-math1243">2.5.4 ===MATH1243=== の定義——行列式パターンの完成</a></li>
+<li><a href="#255-math1252">2.5.5 体積測定器のテンソル積表現——===MATH1252=== ブロックを横に並べた配列</a></li>
 <li><a href="#256">2.5.6 具体例：平行六面体の符号付き体積</a></li>
 <li><a href="#257">2.5.7 スカラー三重積との符合</a></li>
 <li><a href="#258">2.5.8 体積における「図形側の基底」</a></li>
-<li><a href="#259-mathblock1316placeholder-form-1">2.5.9 MATHBLOCK1316PLACEHOLDER-form の「サイズ」——なぜ独立成分は1つだけか</a></li>
+<li><a href="#259-math1316-form-1">2.5.9 ===MATH1316===-form の「サイズ」——なぜ独立成分は1つだけか</a></li>
 <li><a href="#2510-2">2.5.10 測定器の階層——第2章で手に入れた武器の整理</a></li>
 </ul>
 </li>
@@ -135,7 +129,7 @@ window.MathJax = {
 </li>
 <li><a href="#32-21">§3.2 表面積——2次元、係数1</a><ul>
 <li><a href="#321">3.2.1 平行四辺形から曲面へ</a></li>
-<li><a href="#322-mathblock1581placeholder">3.2.2 MATHBLOCK1581PLACEHOLDER が測るもの——球面で試す</a></li>
+<li><a href="#322-math1581">3.2.2 ===MATH1581=== が測るもの——球面で試す</a></li>
 <li><a href="#323">3.2.3 三つの影から本当の面積へ</a></li>
 <li><a href="#324">3.2.4 ここまででわかったこと</a></li>
 </ul>
@@ -143,14 +137,14 @@ window.MathJax = {
 <li><a href="#33-11">§3.3 曲線——1次元、係数1（限界があらわになる）</a><ul>
 <li><a href="#331">3.3.1 直線から曲線へ——リーマン和で定義する</a></li>
 <li><a href="#332">3.3.2 円周で試す——弧長は出ない</a></li>
-<li><a href="#333-mathblock1703placeholder-form">3.3.3 では MATHBLOCK1703PLACEHOLDER-form で何が測れるのか</a></li>
+<li><a href="#333-math1703-form">3.3.3 では ===MATH1703===-form で何が測れるのか</a></li>
 </ul>
 </li>
 <li><a href="#34">§3.4 係数をつける——密度と幾何の積</a><ul>
 <li><a href="#340">3.4.0 なぜ係数なのか——物理が要求する</a></li>
-<li><a href="#341-mathblock1734placeholder-form">3.4.1 一般の MATHBLOCK1734PLACEHOLDER-form の線積分（仕事）</a></li>
-<li><a href="#342-mathblock1767placeholder-form">3.4.2 一般の MATHBLOCK1767PLACEHOLDER-form の面積分（流量）</a></li>
-<li><a href="#343-mathblock1780placeholder-form">3.4.3 一般の MATHBLOCK1780PLACEHOLDER-form の体積分（総質量）</a></li>
+<li><a href="#341-math1734-form">3.4.1 一般の ===MATH1734===-form の線積分（仕事）</a></li>
+<li><a href="#342-math1767-form">3.4.2 一般の ===MATH1767===-form の面積分（流量）</a></li>
+<li><a href="#343-math1780-form">3.4.3 一般の ===MATH1780===-form の体積分（総質量）</a></li>
 <li><a href="#344">3.4.4 線・面・体の統一像</a></li>
 <li><a href="#345">3.4.5 積分の一般形</a></li>
 </ul>
@@ -158,7 +152,7 @@ window.MathJax = {
 <li><a href="#35">§3.5 本章のまとめと次章への展望</a></li>
 </ul>
 </li>
-<li><a href="#4-mathblock1861placeholder">第4章：変数変換とは何か —— 引き戻し MATHBLOCK1861PLACEHOLDER：測定器のつじつま合わせ</a><ul>
+<li><a href="#4-math1861">第4章：変数変換とは何か —— 引き戻し ===MATH1861===：測定器のつじつま合わせ</a><ul>
 <li><a href="#40">§4.0 物理は曲がる、計算は四角</a></li>
 <li><a href="#41-1-form">§4.1 1-form の引き戻し——仕事と運動エネルギー定理</a></li>
 <li><a href="#42-2-form">§4.2 2-form の引き戻し——角運動量保存と面積速度</a></li>
@@ -167,32 +161,32 @@ window.MathJax = {
 <li><a href="#45-5">§4.5 本章のまとめと第5章（外微分）への展望</a></li>
 </ul>
 </li>
-<li><a href="#5-mathblock2184placeholder">第5章：微分するとは何か —— 外微分 MATHBLOCK2184PLACEHOLDER：局所のズレと積分の逆</a><ul>
+<li><a href="#5-math2184">第5章：微分するとは何か —— 外微分 ===MATH2184===：局所のズレと積分の逆</a><ul>
 <li><a href="#50-ii">§5.0 第II部の扉——観測は積分、法則は微分</a></li>
-<li><a href="#51-mathblock2208placeholder">§5.1 MATHBLOCK2208PLACEHOLDER 再訪——微分と積分は逆演算か</a><ul>
-<li><a href="#511-mathblock2209placeholder">5.1.1 MATHBLOCK2209PLACEHOLDER は「次元上げ」をしている</a></li>
+<li><a href="#51-math2208">§5.1 ===MATH2208=== 再訪——微分と積分は逆演算か</a><ul>
+<li><a href="#511-math2209">5.1.1 ===MATH2209=== は「次元上げ」をしている</a></li>
 <li><a href="#512">5.1.2 線積分すると端点の差だけが残る</a></li>
 <li><a href="#513-3">5.1.3 第3章の例で確かめる</a></li>
 </ul>
 </li>
 <li><a href="#52">§5.2 閉ループで姿を現す「ズレ」</a><ul>
-<li><a href="#521-mathblock2260placeholder-form">5.2.1 一般の MATHBLOCK2260PLACEHOLDER-form ではどうか</a></li>
+<li><a href="#521-math2260-form">5.2.1 一般の ===MATH2260===-form ではどうか</a></li>
 <li><a href="#522">5.2.2 局所情報はどこに宿るか</a></li>
 </ul>
 </li>
 <li><a href="#53">§5.3 微小ループの解剖——ズレは面積に比例する</a><ul>
-<li><a href="#531-mathblock2286placeholder">5.3.1 MATHBLOCK2286PLACEHOLDER 平面の微小長方形</a></li>
+<li><a href="#531-math2286">5.3.1 ===MATH2286=== 平面の微小長方形</a></li>
 <li><a href="#532">5.3.2 決定的な事実</a></li>
 </ul>
 </li>
-<li><a href="#54-mathblock2354placeholder">§5.4 MATHBLOCK2354PLACEHOLDER の誕生——面積あたりのズレを測る新しい測定器</a><ul>
+<li><a href="#54-math2354">§5.4 ===MATH2354=== の誕生——面積あたりのズレを測る新しい測定器</a><ul>
 <li><a href="#541">5.4.1 ウェッジ積の再確認</a></li>
-<li><a href="#542-mathblock2364placeholder">5.4.2 MATHBLOCK2364PLACEHOLDER の定義</a></li>
+<li><a href="#542-math2364">5.4.2 ===MATH2364=== の定義</a></li>
 </ul>
 </li>
-<li><a href="#55-mathblock2400placeholder-form-3">§5.5 一般の MATHBLOCK2400PLACEHOLDER-form の外微分——3次元への拡張</a><ul>
-<li><a href="#551-mathblock2401placeholder-mathblock2402placeholder">5.5.1 MATHBLOCK2401PLACEHOLDER 平面と MATHBLOCK2402PLACEHOLDER 平面</a></li>
-<li><a href="#552-mathblock2416placeholder">5.5.2 代数的導出——ライプニッツ則と MATHBLOCK2416PLACEHOLDER</a></li>
+<li><a href="#55-math2400-form-3">§5.5 一般の ===MATH2400===-form の外微分——3次元への拡張</a><ul>
+<li><a href="#551-math2401-math2402">5.5.1 ===MATH2401=== 平面と ===MATH2402=== 平面</a></li>
+<li><a href="#552-math2416">5.5.2 代数的導出——ライプニッツ則と ===MATH2416===</a></li>
 <li><a href="#553">5.5.3 係数のパターン</a></li>
 </ul>
 </li>
@@ -202,21 +196,21 @@ window.MathJax = {
 <li><a href="#563">5.6.3 生き残るのは境界だけ</a></li>
 </ul>
 </li>
-<li><a href="#57-mathblock2510placeholder-form">§5.7 同じことをもう一段——MATHBLOCK2510PLACEHOLDER-form の外微分と発散</a><ul>
-<li><a href="#571-mathblock2511placeholder-form">5.7.1 MATHBLOCK2511PLACEHOLDER-form は面の測定器</a></li>
+<li><a href="#57-math2510-form">§5.7 同じことをもう一段——===MATH2510===-form の外微分と発散</a><ul>
+<li><a href="#571-math2511-form">5.7.1 ===MATH2511===-form は面の測定器</a></li>
 <li><a href="#572">5.7.2 微小直方体の表面で測る</a></li>
-<li><a href="#573-mathblock2539placeholder">5.7.3 MATHBLOCK2539PLACEHOLDER の定義と代数的導出</a></li>
+<li><a href="#573-math2539">5.7.3 ===MATH2539=== の定義と代数的導出</a></li>
 <li><a href="#574">5.7.4 ガウスの定理</a></li>
 </ul>
 </li>
-<li><a href="#58-mathblock2590placeholder">§5.8 MATHBLOCK2590PLACEHOLDER——二度測れば必ずゼロ</a><ul>
-<li><a href="#581-mathblock2591placeholder">5.8.1 MATHBLOCK2591PLACEHOLDER</a></li>
-<li><a href="#582-mathblock2607placeholder">5.8.2 MATHBLOCK2607PLACEHOLDER</a></li>
+<li><a href="#58-math2590">§5.8 ===MATH2590===——二度測れば必ずゼロ</a><ul>
+<li><a href="#581-math2591">5.8.1 ===MATH2591===</a></li>
+<li><a href="#582-math2607">5.8.2 ===MATH2607===</a></li>
 </ul>
 </li>
 <li><a href="#59">§5.9 外微分の統合——一つの式、一つのルール</a><ul>
 <li><a href="#591">5.9.1 ストークスとガウスは同じ式だった</a></li>
-<li><a href="#592-mathblock2648placeholder-form">5.9.2 一般の MATHBLOCK2648PLACEHOLDER-form の外微分</a></li>
+<li><a href="#592-math2648-form">5.9.2 一般の ===MATH2648===-form の外微分</a></li>
 <li><a href="#593">5.9.3 計算ルールまとめ</a></li>
 </ul>
 </li>
@@ -227,61 +221,61 @@ window.MathJax = {
 </li>
 <li><a href="#511-ii">§5.11 第II部への展望——ホッジ・スターへの伏線</a></li>
 <li><a href="#c">付録C：外微分の行列表示</a><ul>
-<li><a href="#c1-mathblock2743placeholder-formmathblock2744placeholder-mathblock2745placeholder">C.1 MATHBLOCK2743PLACEHOLDER-form：MATHBLOCK2744PLACEHOLDER の MATHBLOCK2745PLACEHOLDER 行ベクトル</a></li>
-<li><a href="#c2-mathblock2748placeholder-form-mathblock2749placeholder">C.2 MATHBLOCK2748PLACEHOLDER-form：係数のヤコビ行列 MATHBLOCK2749PLACEHOLDER</a></li>
-<li><a href="#c3-mathblock2755placeholder">C.3 MATHBLOCK2755PLACEHOLDER</a></li>
-<li><a href="#c4-mathblock2762placeholder-formmathblock2763placeholder">C.4 MATHBLOCK2762PLACEHOLDER-form：MATHBLOCK2763PLACEHOLDER とヤコビ行列のトレース</a><ul>
-<li><a href="#c41-mathblock2768placeholder-273">C.4.1 MATHBLOCK2768PLACEHOLDER の27成分——3枚の行列に展開する</a></li>
+<li><a href="#c1-math2743-formmath2744-math2745">C.1 ===MATH2743===-form：===MATH2744=== の ===MATH2745=== 行ベクトル</a></li>
+<li><a href="#c2-math2748-form-math2749">C.2 ===MATH2748===-form：係数のヤコビ行列 ===MATH2749===</a></li>
+<li><a href="#c3-math2755">C.3 ===MATH2755===</a></li>
+<li><a href="#c4-math2762-formmath2763">C.4 ===MATH2762===-form：===MATH2763=== とヤコビ行列のトレース</a><ul>
+<li><a href="#c41-math2768-273">C.4.1 ===MATH2768=== の27成分——3枚の行列に展開する</a></li>
 </ul>
 </li>
-<li><a href="#c5-mathblock2792placeholder">C.5 MATHBLOCK2792PLACEHOLDER とヘッセ行列</a></li>
+<li><a href="#c5-math2792">C.5 ===MATH2792=== とヘッセ行列</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#6-mathblock2807placeholder-mathblock2808placeholder">第6章：計量 MATHBLOCK2807PLACEHOLDER とホッジ・スター MATHBLOCK2808PLACEHOLDER — 内積の召喚と次数の反転</a><ul>
+<li><a href="#6-math2807-math2808">第6章：計量 ===MATH2807=== とホッジ・スター ===MATH2808=== — 内積の召喚と次数の反転</a><ul>
 <li><a href="#60">§6.0 言い訳の終焉——内積を解放する</a></li>
-<li><a href="#61-mathblock2818placeholder">§6.1 パラメータ空間の内積——計量 MATHBLOCK2818PLACEHOLDER の正体</a><ul>
+<li><a href="#61-math2818">§6.1 パラメータ空間の内積——計量 ===MATH2818=== の正体</a><ul>
 <li><a href="#611">6.1.1 実空間の内積</a></li>
 <li><a href="#612">6.1.2 内積を測定器として読み直す</a></li>
 <li><a href="#613">6.1.3 パラメータ空間で内積をとるには</a></li>
 </ul>
 </li>
-<li><a href="#62-mathblock2878placeholder">§6.2 MATHBLOCK2878PLACEHOLDER による縦ベクトルと横ベクトルの変換</a><ul>
-<li><a href="#621-mathblock2879placeholder">6.2.1 MATHBLOCK2879PLACEHOLDER は横ベクトルである</a></li>
-<li><a href="#622-mathblock2907placeholder">6.2.2 計量が与えるもの——平行 MATHBLOCK2907PLACEHOLDER 面体の幾何学的な大きさ</a></li>
+<li><a href="#62-math2878">§6.2 ===MATH2878=== による縦ベクトルと横ベクトルの変換</a><ul>
+<li><a href="#621-math2879">6.2.1 ===MATH2879=== は横ベクトルである</a></li>
+<li><a href="#622-math2907">6.2.2 計量が与えるもの——平行 ===MATH2907=== 面体の幾何学的な大きさ</a></li>
 <li><a href="#623">6.2.3 内積の性質</a></li>
 <li><a href="#624">6.2.4 計量行列の幾何を成分に宿らせる</a></li>
 </ul>
 </li>
-<li><a href="#63-mathblock2978placeholder">§6.3 ホッジ・スター MATHBLOCK2978PLACEHOLDER ——二つの方法を繫ぐ対応</a><ul>
+<li><a href="#63-math2978">§6.3 ホッジ・スター ===MATH2978=== ——二つの方法を繫ぐ対応</a><ul>
 <li><a href="#631">6.3.1 スカラーを得る二つの方法</a></li>
-<li><a href="#632-mathblock3010placeholder">6.3.2 行列から MATHBLOCK3010PLACEHOLDER を構成する</a></li>
-<li><a href="#633-mathblock3043placeholder">6.3.3 実空間での MATHBLOCK3043PLACEHOLDER 辞書</a></li>
-<li><a href="#634-mathblock3072placeholder">6.3.4 MATHBLOCK3072PLACEHOLDER</a></li>
-<li><a href="#635-mathblock3088placeholder">6.3.5 MATHBLOCK3088PLACEHOLDER の性質</a></li>
+<li><a href="#632-math3010">6.3.2 行列から ===MATH3010=== を構成する</a></li>
+<li><a href="#633-math3043">6.3.3 実空間での ===MATH3043=== 辞書</a></li>
+<li><a href="#634-math3072">6.3.4 ===MATH3072===</a></li>
+<li><a href="#635-math3088">6.3.5 ===MATH3088=== の性質</a></li>
 </ul>
 </li>
 <li><a href="#64">§6.4 対応の実例——微分形式とベクトル解析</a><ul>
-<li><a href="#641-mathblock3109placeholder">6.4.1 ジュール熱 MATHBLOCK3109PLACEHOLDER ——二つの経路</a></li>
-<li><a href="#642-mathblock3155placeholder-mathblock3156placeholder">6.4.2 ヘリシティ MATHBLOCK3155PLACEHOLDER ——MATHBLOCK3156PLACEHOLDER の往復</a></li>
+<li><a href="#641-math3109">6.4.1 ジュール熱 ===MATH3109=== ——二つの経路</a></li>
+<li><a href="#642-math3155-math3156">6.4.2 ヘリシティ ===MATH3155=== ——===MATH3156=== の往復</a></li>
 </ul>
 </li>
 <li><a href="#65">§6.5 ナブラの三兄弟を解体する</a><ul>
-<li><a href="#651-mathblock3225placeholder">6.5.1 勾配 MATHBLOCK3225PLACEHOLDER</a></li>
-<li><a href="#652-mathblock3236placeholder">6.5.2 回転 MATHBLOCK3236PLACEHOLDER</a></li>
-<li><a href="#653-mathblock3254placeholder">6.5.3 発散 MATHBLOCK3254PLACEHOLDER</a></li>
-<li><a href="#654-mathblock3282placeholder">6.5.4 MATHBLOCK3282PLACEHOLDER の当然の帰結</a></li>
+<li><a href="#651-math3225">6.5.1 勾配 ===MATH3225===</a></li>
+<li><a href="#652-math3236">6.5.2 回転 ===MATH3236===</a></li>
+<li><a href="#653-math3254">6.5.3 発散 ===MATH3254===</a></li>
+<li><a href="#654-math3282">6.5.4 ===MATH3282=== の当然の帰結</a></li>
 </ul>
 </li>
 <li><a href="#66-ii-iii">§6.6 第II部の結び —— 第III部へ</a></li>
 <li><a href="#d">付録D：フロベニウス積とホッジ・スターの完全な行列表現</a><ul>
 <li><a href="#d1">D.1 行列の内積——フロベニウス積</a></li>
-<li><a href="#d2-mathblock3366placeholder">D.2 MATHBLOCK3366PLACEHOLDER ——行列の縦ベクトル</a></li>
-<li><a href="#d3-mathblock3384placeholder">D.3 MATHBLOCK3384PLACEHOLDER ——フロベニウス積による係数抽出</a></li>
+<li><a href="#d2-math3366">D.2 ===MATH3366=== ——行列の縦ベクトル</a></li>
+<li><a href="#d3-math3384">D.3 ===MATH3384=== ——フロベニウス積による係数抽出</a></li>
 <li><a href="#d4">D.4 転置関係</a></li>
-<li><a href="#d5-mathblock3422placeholder">D.5 MATHBLOCK3422PLACEHOLDER の成分</a></li>
-<li><a href="#d6-mathblock3440placeholder">D.6 MATHBLOCK3440PLACEHOLDER の二回作用</a></li>
+<li><a href="#d5-math3422">D.5 ===MATH3422=== の成分</a></li>
+<li><a href="#d6-math3440">D.6 ===MATH3440=== の二回作用</a></li>
 </ul>
 </li>
 </ul>
@@ -293,8 +287,8 @@ window.MathJax = {
 <li><a href="#712">7.1.2 クロス積</a></li>
 </ul>
 </li>
-<li><a href="#72-mathblock3502placeholder">§7.2 MATHBLOCK3502PLACEHOLDER と勾配</a><ul>
-<li><a href="#721-mathblock3503placeholder">7.2.1 MATHBLOCK3503PLACEHOLDER の定義</a></li>
+<li><a href="#72-math3502">§7.2 ===MATH3502=== と勾配</a><ul>
+<li><a href="#721-math3503">7.2.1 ===MATH3503=== の定義</a></li>
 <li><a href="#722">7.2.2 勾配</a></li>
 </ul>
 </li>
@@ -302,8 +296,8 @@ window.MathJax = {
 <li><a href="#74">§7.4 回転</a></li>
 <li><a href="#75">§7.5 ラプラシアン</a></li>
 <li><a href="#76">§7.6 恒等式</a><ul>
-<li><a href="#761-mathblock3547placeholder">7.6.1 MATHBLOCK3547PLACEHOLDER</a></li>
-<li><a href="#762-mathblock3550placeholder">7.6.2 MATHBLOCK3550PLACEHOLDER</a></li>
+<li><a href="#761-math3547">7.6.1 ===MATH3547===</a></li>
+<li><a href="#762-math3550">7.6.2 ===MATH3550===</a></li>
 </ul>
 </li>
 <li><a href="#77">§7.7 ナブラの公式集</a><ul>
@@ -325,8 +319,8 @@ window.MathJax = {
 <li><a href="#8">第8章：二つの言語 —— 測定器の微分と、場の微分</a><ul>
 <li><a href="#80">§8.0 本書のハイライト</a></li>
 <li><a href="#81">§8.1 二つの微分、二つの世界</a><ul>
-<li><a href="#811-mathblock3652placeholder">8.1.1 測定器に微分を乗せる——MATHBLOCK3652PLACEHOLDER の立場</a></li>
-<li><a href="#812-mathblock3679placeholder">8.1.2 測定器はそのまま、新たな場を考える——MATHBLOCK3679PLACEHOLDER の立場</a></li>
+<li><a href="#811-math3652">8.1.1 測定器に微分を乗せる——===MATH3652=== の立場</a></li>
+<li><a href="#812-math3679">8.1.2 測定器はそのまま、新たな場を考える——===MATH3679=== の立場</a></li>
 </ul>
 </li>
 <li><a href="#82">§8.2 翻訳辞書の完成</a><ul>
@@ -337,7 +331,7 @@ window.MathJax = {
 </ul>
 </li>
 <li><a href="#83">§8.3 ストークスの定理を翻訳する</a><ul>
-<li><a href="#831-mathblock3764placeholder-mathblock3765placeholder">8.3.1 MATHBLOCK3764PLACEHOLDER から MATHBLOCK3765PLACEHOLDER へ</a></li>
+<li><a href="#831-math3764-math3765">8.3.1 ===MATH3764=== から ===MATH3765=== へ</a></li>
 <li><a href="#832">8.3.2 翻訳の往復——どちらからでも行ける</a></li>
 </ul>
 </li>
@@ -362,14 +356,14 @@ window.MathJax = {
 <li><a href="#9">第9章：実戦 —— 辞書を作り、難問を解く</a><ul>
 <li><a href="#90">§9.0 本書の目的はすでに果たされた</a></li>
 <li><a href="#91">§9.1 辞書をその場で作る——機械的手順</a></li>
-<li><a href="#92-mathblock3996placeholder">§9.2 円柱座標 MATHBLOCK3996PLACEHOLDER</a><ul>
+<li><a href="#92-math3996">§9.2 円柱座標 ===MATH3996===</a><ul>
 <li><a href="#921">9.2.1 辞書の導出</a></li>
 <li><a href="#922">9.2.2 勾配</a></li>
 <li><a href="#923">9.2.3 発散</a></li>
 <li><a href="#924">9.2.4 回転</a></li>
 </ul>
 </li>
-<li><a href="#93-mathblock4042placeholder">§9.3 球座標 MATHBLOCK4042PLACEHOLDER</a><ul>
+<li><a href="#93-math4042">§9.3 球座標 ===MATH4042===</a><ul>
 <li><a href="#931">9.3.1 辞書の導出</a></li>
 <li><a href="#932">9.3.2 発散</a></li>
 <li><a href="#933">9.3.3 回転</a></li>
@@ -388,32 +382,32 @@ window.MathJax = {
 <li><a href="#10">第10章：マクスウェル方程式 —— 美しさのその先へ</a><ul>
 <li><a href="#100">§10.0 お約束</a></li>
 <li><a href="#101-2">§10.1 マクスウェル方程式——2本で書く</a></li>
-<li><a href="#102-mathblock4167placeholder">§10.2 MATHBLOCK4167PLACEHOLDER の中身——行列で全部書く</a></li>
-<li><a href="#103-mathblock4195placeholder-4">§10.3 ミンコフスキー計量——MATHBLOCK4195PLACEHOLDER から4次元へ</a></li>
-<li><a href="#104-mathblock4215placeholder">§10.4 MATHBLOCK4215PLACEHOLDER を全部書き下す</a></li>
-<li><a href="#105-mathblock4237placeholder-2">§10.5 MATHBLOCK4237PLACEHOLDER と残りの2本</a></li>
-<li><a href="#106-mathblock4304placeholder">§10.6 ポテンシャル構成——MATHBLOCK4304PLACEHOLDER から始める</a><ul>
-<li><a href="#mathblock4373placeholder-mathblock4374placeholder">MATHBLOCK4373PLACEHOLDER が MATHBLOCK4374PLACEHOLDER を証明する</a></li>
+<li><a href="#102-math4167">§10.2 ===MATH4167=== の中身——行列で全部書く</a></li>
+<li><a href="#103-math4195-4">§10.3 ミンコフスキー計量——===MATH4195=== から4次元へ</a></li>
+<li><a href="#104-math4215">§10.4 ===MATH4215=== を全部書き下す</a></li>
+<li><a href="#105-math4237-2">§10.5 ===MATH4237=== と残りの2本</a></li>
+<li><a href="#106-math4304">§10.6 ポテンシャル構成——===MATH4304=== から始める</a><ul>
+<li><a href="#math4373-math4374">===MATH4373=== が ===MATH4374=== を証明する</a></li>
 <li><a href="#1">もう1本の式——ポテンシャルで書く</a></li>
 </ul>
 </li>
-<li><a href="#emathblock4420placeholder-mathblock4421placeholder-mathblock4422placeholder">付録E：MATHBLOCK4420PLACEHOLDER と MATHBLOCK4421PLACEHOLDER のスライス行列表示 —— MATHBLOCK4422PLACEHOLDER 配列で見るマクスウェル方程式</a><ul>
-<li><a href="#e1-mathblock4428placeholder-form-16">E.1 基底 MATHBLOCK4428PLACEHOLDER-form とそのスライス行列 —— 全16枚</a></li>
-<li><a href="#e2-mathblock4451placeholder">E.2 MATHBLOCK4451PLACEHOLDER をスライス行列で書く</a></li>
+<li><a href="#emath4420-math4421-math4422">付録E：===MATH4420=== と ===MATH4421=== のスライス行列表示 —— ===MATH4422=== 配列で見るマクスウェル方程式</a><ul>
+<li><a href="#e1-math4428-form-16">E.1 基底 ===MATH4428===-form とそのスライス行列 —— 全16枚</a></li>
+<li><a href="#e2-math4451">E.2 ===MATH4451=== をスライス行列で書く</a></li>
 <li><a href="#e3">E.3 フロベニウス積で係数を抜き出す</a></li>
-<li><a href="#e4-mathblock4478placeholder">E.4 MATHBLOCK4478PLACEHOLDER をスライスで読む</a></li>
-<li><a href="#e5-mathblock4494placeholder">E.5 MATHBLOCK4494PLACEHOLDER のスライス表示</a></li>
+<li><a href="#e4-math4478">E.4 ===MATH4478=== をスライスで読む</a></li>
+<li><a href="#e5-math4494">E.5 ===MATH4494=== のスライス表示</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a href="#11_1">第11章：曲がった空間へ —— 本書の先にあるもの</a><ul>
 <li><a href="#110">§11.0 この章の立ち位置 —— さらに先を見たい読者のための道標</a></li>
-<li><a href="#111-mathblock4533placeholder">§11.1 多様体 —— MATHBLOCK4533PLACEHOLDER から始める</a><ul>
+<li><a href="#111-math4533">§11.1 多様体 —— ===MATH4533=== から始める</a><ul>
 <li><a href="#1111">11.1.1 定義 —— チャートとアトラス</a></li>
 <li><a href="#1112">11.1.2 接空間 —— 「曲がった空間での微分」の定義</a></li>
 <li><a href="#1113">11.1.3 微分形式 —— 余接束とテンソル場</a></li>
-<li><a href="#1114-mathblock4665placeholder">11.1.4 外微分 MATHBLOCK4665PLACEHOLDER —— 多様体上で変わらないもの</a></li>
+<li><a href="#1114-math4665">11.1.4 外微分 ===MATH4665=== —— 多様体上で変わらないもの</a></li>
 <li><a href="#1115">11.1.5 計量とホッジ・スター —— 場所ごとに変わるもの</a></li>
 <li><a href="#1116-1">11.1.6 積分 —— 1の分割と向き付け可能性</a></li>
 <li><a href="#1117">11.1.7 接続と曲率 —— 一言だけ</a></li>
@@ -440,13 +434,13 @@ window.MathJax = {
 </ul>
 </li>
 <li><a href="#123">§12.3 ディラック演算子と真のナブラ</a><ul>
-<li><a href="#1231-mathblock4928placeholder">12.3.1 MATHBLOCK4928PLACEHOLDER —— すべてを統合する演算子</a></li>
-<li><a href="#1232-mathblock4970placeholder">12.3.2 MATHBLOCK4970PLACEHOLDER —— ラプラシアン</a></li>
+<li><a href="#1231-math4928">12.3.1 ===MATH4928=== —— すべてを統合する演算子</a></li>
+<li><a href="#1232-math4970">12.3.2 ===MATH4970=== —— ラプラシアン</a></li>
 <li><a href="#1233">12.3.3 マクスウェルを一本に —— 再訪</a></li>
-<li><a href="#1234-mathblock5002placeholder-4">12.3.4 MATHBLOCK5002PLACEHOLDER —— 4次元時空のディラック演算子</a></li>
+<li><a href="#1234-math5002-4">12.3.4 ===MATH5002=== —— 4次元時空のディラック演算子</a></li>
 </ul>
 </li>
-<li><a href="#124-mathblock5023placeholder">§12.4 演算子MATHBLOCK5023PLACEHOLDER</a></li>
+<li><a href="#124-math5023">§12.4 演算子===MATH5023===</a></li>
 </ul>
 </li>
 <li><a href="#_1">おわりに：『ナブラ解体新書』はいかにして生まれたか</a></li>
@@ -460,7 +454,7 @@ window.MathJax = {
 </ul>
 </div>
 </div>
-    <hr style="border:none; border-top:1px solid #d0d7de; margin: 2rem 0;">
+    <hr style="border:none; border-top:1px solid #d0d7de; margin: 1.5rem 0;">
     <p style="font-size:0.8rem; color:#666;">著者: yokiikoy<br>License: CC BY-NC 4.0</p>
   </nav>
   <main class="main-content">
@@ -499,7 +493,7 @@ window.MathJax = {
 </tbody>
 </table>
 <p>\newpage</p>
-<h1 id="1mathblock493placeholder">第1章：$dx$ とは何か —— ベクトルを食べる測定器、あるいは横ベクトル</h1>
+<h1 id="1math493">第1章：$dx$ とは何か —— ベクトルを食べる測定器、あるいは横ベクトル</h1>
 <h3 id="10-11">§1.0 数学者の1次元、物理学者の1次元</h3>
 <p>高校で $\int f(x) dx$ という1次元の積分を習ったとき、教科書の記述では「$x$軸という1本の線」が置かれる。数学の教科書としてはそれで妥当だ。<strong>数学者</strong>は1次元空間 $\mathbb{R}^1$ という自己完結した抽象世界を仮定し、その上で論理を積み上げる。点は実数 $x$、変位は実数 $\Delta x$、積分は「関数×微小幅」の極限として定義される。すべてが完結している。</p>
 <p><strong>しかし、我々は物理学者である。</strong></p>
@@ -549,7 +543,7 @@ $$\mathbf{v} = \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix}$$
 $$\mathbf{v}_i = \begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix}$$
 と書く。添字 $i$ は「第 $i$ 小区間の分」という意味だけで、$\mathbf{v}_i$ もまた変位ベクトルである。今は直線運動を考えているので $y,z$ 成分はゼロだが、それは条件ではなく結果としてゼロになっているだけだ。</p>
 <p>\clearpage</p>
-<h4 id="113-mathblock543placeholder">1.1.3 $dx$ の登場 — 本書最大の特徴としての「断言」</h4>
+<h4 id="113-math543">1.1.3 $dx$ の登場 — 本書最大の特徴としての「断言」</h4>
 <p>さて、本書では $dx$ という記号に次のような意味を与える。<strong>大胆で奇妙に思えるかもしれないが、これが本書最大の特徴でもある——ここでは $dx$ を次の $1\times 3$ 行列だと断言する。</strong></p>
 <p>すなわち、<strong>横ベクトル</strong>（$1\times 3$ <strong>行列</strong>として成分を横に並べて書く）として
 \begin{center}\scalebox{1.8}{$\displaystyle dx = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}$}\end{center}
@@ -610,7 +604,7 @@ $$W = \int_a^b F(x)\,dx$$
 $$W = \lim_{n\to\infty} \sum_{i=1}^n \begin{pmatrix} F(\xi_i) & 0 & 0 \end{pmatrix} \begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix} = \lim_{n\to\infty} \sum_{i=1}^n \bigl(F(\xi_i)\,dx\bigr)(\mathbf{v}_i) = \int_a^b F(x)\,dx$$
 である。左から順に、<strong>成分を明示したリーマン和の極限</strong>、<strong>演算子記法による同じ極限</strong>、<strong>慣用の積分記号</strong>であり、<strong>同じ量</strong>を三通りに表している。ここで $\mathbf{v}_i = \begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix}$ である。</p>
 <p>$F(x)\,dx = \begin{pmatrix} F(x) & 0 & 0 \end{pmatrix}$ は演算子であり、$\bigl(F(x)\,dx\bigr)(\mathbf{v}) = F(x)\,\Delta x$ が一次近似としての微小仕事になる。</p>
-<h4 id="116-mathblock596placeholder-form">1.1.6 一次形式（$1$-form）</h4>
+<h4 id="116-math596-form">1.1.6 一次形式（$1$-form）</h4>
 <p>ここまで、我々は $dx$ を「変位ベクトルに作用して特定の成分を抽出し、スカラー（実数）を返す横ベクトル」として定義してきた。このような、ベクトルを食べてスカラーを吐き出す<strong>線形</strong>な測定器のことを、専門的には<strong>一次形式（$1$-form）</strong>と呼ぶ。本稿で「行列としての $dx$」と呼んできたものは、まさにこの一次形式に他ならない。</p>
 <blockquote>
 <p><strong>注</strong> （余ベクトルという用語）数学者は <strong>一次形式（$1$-form）</strong> の別名として <strong>余ベクトル（covector）</strong>と呼ぶ流儀をとることもよくある。他書を読むときの辞書として、頭の片隅に置いておけばよい。</p>
@@ -638,7 +632,7 @@ $$W = \lim_{n\to\infty} \sum_{i=1}^n \begin{pmatrix} F(\xi_i) & 0 & 0 \end{pmatr
 - 積分記号 $\int_a^b f(x)\,dx$ の末尾の $dx$ は慣用記法であり、変位そのものは $\Delta x$ や $dx(\mathbf{v})$ で書く（§1.1.6 の契約）。</p>
 </blockquote>
 <hr />
-<h3 id="12-mathblock637placeholder">§1.2 全微分 $df$ — 変化率を行列にまとめた演算子</h3>
+<h3 id="12-math637">§1.2 全微分 $df$ — 変化率を行列にまとめた演算子</h3>
 <p>前節では、リーマン積分を「行列 $f(x)\,dx$ の変位ベクトルへの作用の和の極限」として解剖した。この節では、その考え方を関数自体の微分へと拡張し、<strong>全微分 $df$ を横ベクトル（行列）として定義する</strong>。「微分」は、単なる数値の変化率ではなく、<strong>変位ベクトルに掛けて初めて「変化量の一次部分」が出てくる演算子</strong>として扱う。</p>
 <h4 id="121">1.2.1 微分可能性の行列表現</h4>
 <p>関数 $f(x)$ が点 $x$ で微分可能であるとは、次の一次近似が成り立つことである：
@@ -649,7 +643,7 @@ $$\Delta f = f(x + \Delta x) - f(x) = f'(x) \Delta x + o(|\Delta x|) \quad (|\De
 <p>ここで $\Delta x$ はスカラーだが、我々はこれを前節同様、3次元の変位ベクトルとして捉え直す：
 $$\mathbf{v} = \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix}$$</p>
 <p>すると、関数の変化 $\Delta f$ は、この $\mathbf{v}$ によって引き起こされる効果と見なせる。</p>
-<h4 id="122-mathblock650placeholder-mathblock651placeholder">1.2.2 $df$ の行列としての定義と $df(\mathbf{v})$</h4>
+<h4 id="122-math650-math651">1.2.2 $df$ の行列としての定義と $df(\mathbf{v})$</h4>
 <p>点 $x$ における関数 $f$ の<strong>全微分</strong> $df$ を、次の $1 \times 3$ 横ベクトルとして定義する：
 $$df = f'(x) \, dx = \begin{pmatrix} f'(x) & 0 & 0 \end{pmatrix}$$</p>
 <p>この $df$ を変位 $\mathbf{v}$ に作用させた結果を、前節と同様に <strong>$df(\mathbf{v})$</strong> と書く：
@@ -661,7 +655,7 @@ $$df(\mathbf{v}) = \begin{pmatrix} f'(x) & 0 & 0 \end{pmatrix} \begin{pmatrix} \
 <blockquote>
 <p><strong>注</strong> （$df$ は演算子、$df(\mathbf{v})$ が変化量）§1.1.6 の記号契約と同じ区別を、ここでもう一度述べる。くどいと感じるかもしれないが、<strong>ここを誤読すると以降すべてがずれる</strong>ので、繰り返しに価値がある。</p>
 </blockquote>
-<h4 id="123-mathblock667placeholder-mathblock668placeholder-mathblock669placeholder-mathblock670placeholder">1.2.3 $y$ 方向と $z$ 方向の物差し $dy$, $dz$</h4>
+<h4 id="123-math667-math668-math669-math670">1.2.3 $y$ 方向と $z$ 方向の物差し $dy$, $dz$</h4>
 <p>この視点の強みを、§1.1.5 の力学の例に戻せば、<strong>力が $y$ 方向にも成分を持つ一般的な場合に自然に拡張できる</strong>点だ。
 <strong>いま定める $dy$</strong>を使えば、$F_x dx + F_y dy$ という形で2次元の仕事を統一的に扱える。
 $dx$ が $x$ 成分を抜き出すのと同様に、実空間では <strong>$dy$ は $y$ 成分</strong>、<strong>$dz$ は $z$ 成分</strong>を抜き出す横ベクトル（一次形式）と定める。行列表現は
@@ -672,7 +666,7 @@ $$dy = \begin{pmatrix} 0 & 1 & 0 \end{pmatrix}, \qquad dz = \begin{pmatrix} 0 & 
 </blockquote>
 <p>3次元の空間には、<strong>三つの物差し</strong>がそろった。本章では説明の主線として $x$ 方向の断面に寄せてきたが、座標 $y,z$ と測定子 $dy,dz$ は最初からそろっている、と考えてほしい。
 いま、一変数の $df=f'(x)\,dx$ に $dy$, $dz$ を同じ型の物差しとして足しそろえた。以下の具体例と §1.2.6 での三次元への拡張で、この三つがどう効いてくるかを追う。</p>
-<h4 id="124-mathblock703placeholder">1.2.4 具体例： $f(x) = x^2$ の場合</h4>
+<h4 id="124-math703">1.2.4 具体例： $f(x) = x^2$ の場合</h4>
 <p>$f(x) = x^2$ とする。$f'(x) = 2x$ である。</p>
 <p>たとえば <strong>$x=3$ において</strong>全微分を具体的に書き下ろす。横ベクトルと縦ベクトルを並べて、
 $$df = 6\,dx = \begin{pmatrix} 6 & 0 & 0 \end{pmatrix}, \qquad \mathbf{v} = \begin{pmatrix} 0.1 \\ 0 \\ 0 \end{pmatrix}$$
@@ -1083,7 +1077,7 @@ $$</p>
 $$</p>
 <p>見事に、第1章の物差し（$1$-form）の組み合わせから、面積測定器（$2$-form）をシステマティックに構成することができた。
 テンソル積の引き算で構成したことにより、<strong>引数を入れ替えると符号が反転する（交代性）</strong>という §2.2 のルール2が、自動的に「仕込まれている」ことにも注目してほしい。</p>
-<h4 id="245-3mathblock1131placeholder-form">2.4.5 3つの基底$2$-form</h4>
+<h4 id="245-3math1131-form">2.4.5 3つの基底$2$-form</h4>
 <p>同じ方法で、残る2つの「偏った眼鏡」も構成できる。</p>
 <p><strong>$yz$ 平面を見る眼鏡：$dy \wedge dz$</strong></p>
 <p>$$
@@ -1239,13 +1233,13 @@ $$\begin{pmatrix} x_1 & x_2 & x_3 \\ y_1 & y_2 & y_3 \\ z_1 & z_2 & z_3 \end{pma
 <blockquote>
 <p><strong>注</strong> （行列式の6項の順序）教科書によっては、いきなり「行列式の定義はこの6項」と置く。本書の流れでは、<strong>測定器のルール → 6項</strong>の順である。</p>
 </blockquote>
-<h4 id="253-mathblock1240placeholder-form">2.5.3 $2$-form の行列式としての再解釈</h4>
+<h4 id="253-math1240-form">2.5.3 $2$-form の行列式としての再解釈</h4>
 <p>実は、§2.4 で定義した $2$-form のウェッジ積にも、行列式が隠れていた。定義を振り返ろう：
 $$(dx \wedge dy)(\mathbf{v}_1, \mathbf{v}_2) = dx(\mathbf{v}_1)\,dy(\mathbf{v}_2) - dy(\mathbf{v}_1)\,dx(\mathbf{v}_2)$$</p>
 <p>右辺は、次の $2 \times 2$ 行列式に他ならない：
 $$(dx \wedge dy)(\mathbf{v}_1, \mathbf{v}_2) = \det\begin{pmatrix} dx(\mathbf{v}_1) & dx(\mathbf{v}_2) \\ dy(\mathbf{v}_1) & dy(\mathbf{v}_2) \end{pmatrix}$$</p>
 <p>つまり、横に「どの物差しか」、縦に「どのベクトルか」を並べた行列の行列式が、ウェッジ積の値だったのだ。</p>
-<h4 id="254-mathblock1243placeholder">2.5.4 $dx \wedge dy \wedge dz$ の定義——行列式パターンの完成</h4>
+<h4 id="254-math1243">2.5.4 $dx \wedge dy \wedge dz$ の定義——行列式パターンの完成</h4>
 <p>この「行列式パターン」を素直に $3 \times 3$ に拡張すれば、体積測定器が手に入る。</p>
 <p><strong>定義：</strong> 3つのベクトル $\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3$ に対し、
 $$(dx \wedge dy \wedge dz)(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) := \det\begin{pmatrix} dx(\mathbf{v}_1) & dx(\mathbf{v}_2) & dx(\mathbf{v}_3) \\ dy(\mathbf{v}_1) & dy(\mathbf{v}_2) & dy(\mathbf{v}_3) \\ dz(\mathbf{v}_1) & dz(\mathbf{v}_2) & dz(\mathbf{v}_3) \end{pmatrix}$$</p>
@@ -1256,7 +1250,7 @@ $$= \det\begin{pmatrix} x_1 & x_2 & x_3 \\ y_1 & y_2 & y_3 \\ z_1 & z_2 & z_3 \e
 - <strong>多重線形性</strong>：行列式は各列について線形だから、自動的に満たされる。
 - <strong>交代性</strong>：行列式の2つの列を入れ替えると符号が反転する。
 - <strong>規格化</strong>：$\hat{e}_x, \hat{e}_y, \hat{e}_z$ を入れると行列は単位行列になり、$\det(I) = 1$。</p>
-<h4 id="255-mathblock1252placeholder">2.5.5 体積測定器のテンソル積表現——$3 \times 3$ ブロックを横に並べた配列</h4>
+<h4 id="255-math1252">2.5.5 体積測定器のテンソル積表現——$3 \times 3$ ブロックを横に並べた配列</h4>
 <p>§2.4.3–2.4.4 で我々は、面積測定器 $dx \wedge dy$ がテンソル積の引き算 $dx \otimes dy - dy \otimes dx$ で構成でき、その結果が $3 \times 3$ の反対称行列であることを見た。体積測定器 $dx \wedge dy \wedge dz$ にも同じ手が使えるだろうか？</p>
 <p>なぜここで敢えてテンソル配列を持ち出すのか——それは、<strong>ベクトル3本を食べて行列式を返す操作が、実は面積測定器のときとまったく同じ「添字の縮約」という統一的視点で書ける</strong>ことを示すためである。これを理解すれば、$1$-form・$2$-form・$3$-form がすべて同じ原理で動いていることが見えてくる。</p>
 <p>答えはイエスだ。ただし、2つの物差しのテンソル積は $3 \times 3$ 行列に収まったが、3つの物差しでは添字が1つ増えて $3 \times 3 \times 3 = 27$ 成分の<strong>3次元配列</strong>になる。添字を3つ持つこのような多次元配列は数学でも物理学でも<strong>テンソル</strong>（tensor）と呼ばれる。行列（添字2つ）はテンソルの特殊例であり、今回登場するのは添字を3つ持つ<strong>3階のテンソル</strong>だ。</p>
@@ -1350,7 +1344,7 @@ $$\mathbf{v}_1 \cdot (\mathbf{v}_2 \times \mathbf{v}_3) = \det\begin{pmatrix}x_1
 <p>$$\text{向き付き体積} = V\,(\hat{e}_x \wedge \hat{e}_y \wedge \hat{e}_z)$$</p>
 <p>係数となる $V$ は、体積測定器にベクトルを入れて計算した行列式の値（§2.5.6 の例なら $-2$）である。
 そして「小学校の正の体積（スカラー体積）」が欲しければ、成分の二乗和の平方根（$\sqrt{V^2} = |V|$）をとればよい。独立成分が1つしかないので、ただの絶対値になるというわけだ。</p>
-<h4 id="259-mathblock1316placeholder-form-1">2.5.9 $3$-form の「サイズ」——なぜ独立成分は1つだけか</h4>
+<h4 id="259-math1316-form-1">2.5.9 $3$-form の「サイズ」——なぜ独立成分は1つだけか</h4>
 <p>面積測定器（$2$-form）は $3 \times 3$ 反対称行列で表現でき、独立な成分は3つだった（$dy \wedge dz$, $dz \wedge dx$, $dx \wedge dy$ の係数）。</p>
 <p>では体積測定器（$3$-form）の独立成分はいくつか？ 基底 $3$-form として作れる候補を考えてみよう。3つの物差し $dx, dy, dz$ から<strong>重複なく</strong>3つを選ぶ方法は……1通りしかない。$dx \wedge dy \wedge dz$ だけだ（順序を変えると符号が変わるだけで、新しい基底にはならない）。</p>
 <blockquote>
@@ -1549,7 +1543,7 @@ $$- \underbrace{dy \otimes dx \otimes dz}_{(2,1,3)\text{ に }-1} + \underbrace{
 <p>刻みを無限に細かくする極限を</p>
 <p>$$\iint_S dx \wedge dy$$</p>
 <p>と<strong>書くことにする</strong>。これが $2$-form の積分——面積分——の定義である。構成は §3.1 の体積分と同じ型で、食わせるベクトルが2本になっただけだ。</p>
-<h4 id="322-mathblock1581placeholder">3.2.2 $dx \wedge dy$ が測るもの——球面で試す</h4>
+<h4 id="322-math1581">3.2.2 $dx \wedge dy$ が測るもの——球面で試す</h4>
 <p>実際に球面で計算してみよう。半径 $R$ の球面の上半分（$z \ge 0$）を考える。この曲面は、$x, y$ をそのままパラメータとして</p>
 <p>$$z = f(x,y) = \sqrt{R^2 - x^2 - y^2},\qquad x^2 + y^2 \le R^2$$</p>
 <p>と書ける（グラフ表示）。$\mathbf{r}(x,y) = (x,\; y,\; f(x,y))$ とパラメータ表示すれば、偏微分は：</p>
@@ -1646,7 +1640,7 @@ $$- \underbrace{dy \otimes dx \otimes dz}_{(2,1,3)\text{ に }-1} + \underbrace{
 <blockquote>
 <p><strong>注</strong> （計量への伏線）$dx(\mathbf{v})^2 + dy(\mathbf{v})^2$ という「成分の二乗和」の形は、第2章 §2.4.7 で平行四辺形のスカラー面積を $\sqrt{A_{yz}^2 + A_{zx}^2 + A_{xy}^2}$ と出したのと完全に並行である。この「ピタゴラスの組み合わせ方」は、直交デカルト座標における自然な長さの定義に他ならない。任意の座標系への一般化は第6章で計量 $g$ を使って行う。ここでは「$dx, dy, dz$ の作用結果の二乗和の平方根をとれば、向きを捨てた正の大きさ（長さ・面積・体積）が得られる」という事実だけを押さえておけばよい。</p>
 </blockquote>
-<h4 id="333-mathblock1703placeholder-form">3.3.3 では $1$-form で何が測れるのか</h4>
+<h4 id="333-math1703-form">3.3.3 では $1$-form で何が測れるのか</h4>
 <p>弧長は $ds(\mathbf{v}) = \sqrt{dx(\mathbf{v})^2 + dy(\mathbf{v})^2}$ という $1$-form の積分として測れた。この $ds$ は $dx$ と $dy$ の線形結合では書けず、二乗和の平方根を必要とする。この組み合わせ方を任意の座標系へ一般化するのが第6章の計量 $g$ の役割だが、ここではまず、計量を必要としない $1$-form——すなわち $dx, dy, dz$ の線形結合で書ける $1$-form——が、いったい何を測るのかを見ていこう。</p>
 <p>空間の各点に力の場 $\mathbf{F}(x,y,z) = (F_x, F_y, F_z)$ が働いている。曲線に沿って質点を動かすとき、各小区間で力がする微小仕事は、力の変位方向成分と変位の大きさの積——すなわち $F_x\,\Delta x + F_y\,\Delta y + F_z\,\Delta z$——である。これを全区間で足し上げたものが仕事 $W = \int_\gamma \mathbf{F}\cdot d\mathbf{r}$ だ。</p>
 <p>ここで重要なのは、力の成分 $F_x, F_y, F_z$ は<strong>場所ごとに変わる</strong>ことである。体積（§3.1）や表面積（§3.2）では係数1で十分な部分が多かったが、仕事を測るには場所ごとに変わる係数が不可欠だ。これが係数の必然性をもっとも鮮明に示す。</p>
@@ -1668,7 +1662,7 @@ $$- \underbrace{dy \otimes dx \otimes dz}_{(2,1,3)\text{ に }-1} + \underbrace{
 </ul>
 <p>ここに共通する構造は明白だ。<strong>「場所ごとに変わる重み（$0$-form ＝ スカラー場）」</strong>と<strong>「幾何的な測り方（$k$-form）」</strong>の積が、一般の $k$-form を構成する。第2章 §2.4.8 で「$0$-form はベクトルを0本食べる測定器、すなわちスカラー場」と述べたのは、まさにこの布石である。</p>
 <p>以下、1次元・2次元・3次元の順に、係数付き形式の積分を定義していく。</p>
-<h4 id="341-mathblock1734placeholder-form">3.4.1 一般の $1$-form の線積分（仕事）</h4>
+<h4 id="341-math1734-form">3.4.1 一般の $1$-form の線積分（仕事）</h4>
 <p>実空間で、係数が点 $(x,y,z)$ に依存するスカラー場 $\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z}$ をとり、</p>
 <p>$$\omega = \frac{\partial f}{\partial x}(x,y,z)\,dx + \frac{\partial f}{\partial y}(x,y,z)\,dy + \frac{\partial f}{\partial z}(x,y,z)\,dz$$</p>
 <p>を<strong>$1$-form の一般形</strong>と呼ぶ。各 $dx, dy, dz$ は第1章どおり、縦ベクトルから成分を読み取る横ベクトルである。係数 $\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z}$ は場所ごとに変わる重み——$0$-form——である。</p>
@@ -1691,7 +1685,7 @@ $$- \underbrace{dy \otimes dx \otimes dz}_{(2,1,3)\text{ に }-1} + \underbrace{
 <p>したがって：</p>
 <p>$$\int_\gamma \omega = \int_0^{2\pi} \cos 2t\,dt = \Bigl[\frac{1}{2}\sin 2t\Bigr]_0^{2\pi} = 0$$</p>
 <p>仕事がゼロになった。この力場は単位円に沿って正味の仕事をしないのである。</p>
-<h4 id="342-mathblock1767placeholder-form">3.4.2 一般の $2$-form の面積分（流量）</h4>
+<h4 id="342-math1767-form">3.4.2 一般の $2$-form の面積分（流量）</h4>
 <p>同様に、三つのスカラー場 $P, Q, R$ を係数とする一般の $2$-form：</p>
 <p>$$\eta = P\,dy \wedge dz + Q\,dz \wedge dx + R\,dx \wedge dy$$</p>
 <p>曲面 $\mathbf{r}(u,v)$ に沿った積分も、§3.2.1 のリーマン和に係数を乗せるだけだ。各小区画の面素 $(\mathbf{r}_u \Delta u,\; \mathbf{r}_v \Delta v)$ に $\eta$ を食わせる：</p>
@@ -1703,7 +1697,7 @@ $$- \underbrace{dy \otimes dx \otimes dz}_{(2,1,3)\text{ に }-1} + \underbrace{
 <blockquote>
 <p><strong>注</strong> （ここではベクトル解析との対応は補助線）流量との対応は、既にベクトル解析を知っている読者のための橋渡しにすぎない。本書の本線はあくまで「$2$-form を食わせて集計する」という操作であり、ベクトル解析の知識がなくともこの先の議論に支障はない。</p>
 </blockquote>
-<h4 id="343-mathblock1780placeholder-form">3.4.3 一般の $3$-form の体積分（総質量）</h4>
+<h4 id="343-math1780-form">3.4.3 一般の $3$-form の体積分（総質量）</h4>
 <p>$3$-form の一般形は、スカラー場 $\rho(x,y,z)$ を係数として：</p>
 <p>$$\Omega = \rho(x,y,z)\,dx \wedge dy \wedge dz$$</p>
 <p>§3.1.1 のリーマン和に密度 $\rho$ を乗せればよい。各小直方体の体積素に $\Omega$ を食わせる：</p>
@@ -1776,7 +1770,7 @@ $$- \underbrace{dy \otimes dx \otimes dz}_{(2,1,3)\text{ に }-1} + \underbrace{
 <p>次章（第4章）では、これらの積分を「別の変数で計算する」とは何かを掘り下げる。すなわち<strong>引き戻し</strong>——積分値を保つために測定器を作り替える操作——を、三つの保存則を通じて発見する。</p>
 <p>引き戻しを終えた先、ここから先の<strong>第II部</strong>では、いよいよ<strong>外微分 $d$</strong> を導入する。$d$ は形式の次数を1つ上げる線形演算子であり、勾配・回転・発散が<strong>一つの操作のバリエーション</strong>であることが明らかになる。積分側の言葉がそろったいま、微分側の代数を完成させる準備が整ったのである。</p>
 <p>\newpage</p>
-<h1 id="4-mathblock1861placeholder">第4章：変数変換とは何か —— 引き戻し $\Phi^*$：測定器のつじつま合わせ</h1>
+<h1 id="4-math1861">第4章：変数変換とは何か —— 引き戻し $\Phi^*$：測定器のつじつま合わせ</h1>
 <h3 id="40">§4.0 物理は曲がる、計算は四角</h3>
 <p>物理で本当に測りたい量は、座標の名前に依らない。</p>
 <p>質点にした仕事は、軌道を $x$ で書いても、時刻 $t$ で書いても同じでなければならない。惑星が掃く面積は、直交座標で測っても、極座標で測っても同じでなければならない。物体の質量は、直交座標で積分しても、円柱座標で積分しても同じでなければならない。</p>
@@ -1983,7 +1977,7 @@ $$\Phi^*(d\omega) = d(\Phi^*\omega)$$
 <hr />
 <p>ここから先の<strong>第II部</strong>では、いよいよ<strong>外微分 $d$</strong> を導入する。$d$ は形式の次数を1つ上げる線形演算子であり、勾配・回転・発散が<strong>一つの操作のバリエーション</strong>であることが明らかになる。積分側の言葉がそろったいま、微分側の代数を完成させる準備が整ったのである。</p>
 <p>\newpage</p>
-<h1 id="5-mathblock2184placeholder">第5章：微分するとは何か —— 外微分 $d$：局所のズレと積分の逆</h1>
+<h1 id="5-math2184">第5章：微分するとは何か —— 外微分 $d$：局所のズレと積分の逆</h1>
 <h3 id="50-ii">§5.0 第II部の扉——観測は積分、法則は微分</h3>
 <p>第3章で我々は、曲線・曲面・領域上の積分を $k$-form の言葉で定義した。曲線 $\gamma$ に沿った仕事は $\int_\gamma \omega$、曲面 $S$ を貫く流量は $\iint_S \eta$、領域 $V$ の総質量は $\iiint_V \Omega$ である。いずれも「$k$-form（はかり）を $k$-vector（図形）に食わせてスカラーを得、領域全体で集計する」という同一の原理に従っていた。</p>
 <p>ここで我々が手にした積分は、すべて<strong>領域全体にわたる</strong>量である（以下こうした量を<strong>大域的</strong>と呼ぶ）。仕事は曲線全体にわたる総和であり、流量は曲面全体を貫く総量であり、質量は領域全体での総計だ。それらは測定器の当て方と領域の選び方に依存する。</p>
@@ -1998,8 +1992,8 @@ $$\Phi^*(d\omega) = d(\Phi^*\omega)$$
 <p>この問いに答えるのが本章の主題——<strong>外微分 $d$</strong>——である。$d$ は $k$-form に作用して $(k+1)$-form を返す演算子であり、第3章で定義した積分と組み合わせることで「境界で測った大域的な積分」を「内部の局所的な変化の集積」へと翻訳する。いわば、<strong>$d$ は積分法則を微分法則に変換する装置</strong>なのである。</p>
 <p>本章の構成はこうだ。まず第1章で導入した $df$ を思い出し、それが $0$-form → $1$-form の「次元上げ」だったことを確認する（§5.1）。次に一般の $1$-form ではその逆演算が破綻することを見て（§5.2）、微小ループの解剖から $(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y})$ という「面積あたりのズレ」を発見する（§5.3）。この発見を手がかりに $d$ の定義へと至り（§5.4）、3次元への拡張（§5.5）、ストークスの定理（§5.6）へと進む。同じ論法を $2$-form にも適用し（§5.7）、$d^2=0$ の構造的意味を明らかにする（§5.8）。最後に、この $d$ がどのように物理法則を局所化するかを示し（§5.10）、次章のホッジ・スターへとつなぐ（§5.11）。</p>
 <hr />
-<h3 id="51-mathblock2208placeholder">§5.1 $df$ 再訪——微分と積分は逆演算か</h3>
-<h4 id="511-mathblock2209placeholder">5.1.1 $df$ は「次元上げ」をしている</h4>
+<h3 id="51-math2208">§5.1 $df$ 再訪——微分と積分は逆演算か</h3>
+<h4 id="511-math2209">5.1.1 $df$ は「次元上げ」をしている</h4>
 <p>第1章 §1.2 で、我々は関数 $f(x,y,z)$ の全微分を横ベクトルとして定義した：</p>
 <p>$$df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz = \begin{pmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & \frac{\partial f}{\partial z} \end{pmatrix}$$</p>
 <p>これは <strong>$0$-form（スカラー場 $f$）を入力として $1$-form（横ベクトル $df$）を出力する</strong>操作である。次数が 0 から 1 へ上がった。</p>
@@ -2033,7 +2027,7 @@ $$\Phi^*(d\omega) = d(\Phi^*\omega)$$
 </blockquote>
 <hr />
 <h3 id="52">§5.2 閉ループで姿を現す「ズレ」</h3>
-<h4 id="521-mathblock2260placeholder-form">5.2.1 一般の $1$-form ではどうか</h4>
+<h4 id="521-math2260-form">5.2.1 一般の $1$-form ではどうか</h4>
 <p>では、一般の $1$-form</p>
 <p>$$\omega = P(x,y,z)\,dx + Q(x,y,z)\,dy + R(x,y,z)\,dz$$</p>
 <p>ではどうか。ここで $P, Q, R$ は場所ごとに変わる係数（スカラー場）であり、第3章 §3.4.1 で導入した「一般の $1$-form」である。</p>
@@ -2058,7 +2052,7 @@ $$\Phi^*(d\omega) = d(\Phi^*\omega)$$
 <p>次節で実際に、$xy$ 平面に置いた微小長方形でこの問いに答える。</p>
 <hr />
 <h3 id="53">§5.3 微小ループの解剖——ズレは面積に比例する</h3>
-<h4 id="531-mathblock2286placeholder">5.3.1 $xy$ 平面の微小長方形</h4>
+<h4 id="531-math2286">5.3.1 $xy$ 平面の微小長方形</h4>
 <p>空間内の点 $(x, y, z)$ を左下の頂点とし、$xy$ 平面に平行な微小長方形を考える。$x$ 方向の幅を $\Delta x$、$y$ 方向の幅を $\Delta y$ とする。この長方形の四辺を<strong>反時計回り（右手系）</strong>に一周し、$\omega = P\,dx + Q\,dy + R\,dz$ を積分する。</p>
 <p>各辺での積分を、テイラー展開の1次近似（$\Delta x, \Delta y$ が十分小さいとして）で評価しよう。</p>
 <blockquote>
@@ -2093,12 +2087,12 @@ $$P(x, y+\Delta y, z) \approx P(x, y, z) + \frac{\partial P}{\partial y}\Delta y
 <p><strong>注</strong> （なぜ $\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}$ だけが残るか）$\frac{\partial P}{\partial x}$ や $\frac{\partial Q}{\partial y}$ は出てこない。$P$ の $x$ 方向の変化（$\frac{\partial P}{\partial x}$）は下辺と上辺で同じ向きに効くため相殺し、$Q$ の $y$ 方向の変化（$\frac{\partial Q}{\partial y}$）も右辺と左辺で相殺する。生き残るのは「$P$ の $y$ 方向の変化」と「$Q$ の $x$ 方向の変化」——互いに<strong>直交する方向への偏微分の差</strong>だけだ。この交叉性が、次節以降のすべての鍵になる。</p>
 </blockquote>
 <hr />
-<h3 id="54-mathblock2354placeholder">§5.4 $d$ の誕生——面積あたりのズレを測る新しい測定器</h3>
+<h3 id="54-math2354">§5.4 $d$ の誕生——面積あたりのズレを測る新しい測定器</h3>
 <h4 id="541">5.4.1 ウェッジ積の再確認</h4>
 <p>§5.3 で得た $(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,\Delta x\,\Delta y$ を、第2章の言葉で言い直そう。第2章 §2.4.4 で我々は、$dx \wedge dy$ という面積測定器を定義した。これは2本のベクトル $\mathbf{v}_1, \mathbf{v}_2$ を食わせると、それらが $xy$ 平面に落とす影の符号付き面積を返す装置だった：</p>
 <p>$$(dx \wedge dy)(\mathbf{v}_1, \mathbf{v}_2) = \det\begin{pmatrix} dx(\mathbf{v}_1) & dx(\mathbf{v}_2) \\ dy(\mathbf{v}_1) & dy(\mathbf{v}_2) \end{pmatrix}$$</p>
 <p>特に、$x$ 方向の変位 $\Delta x\,\hat{e}_x$ と $y$ 方向の変位 $\Delta y\,\hat{e}_y$ を食わせれば $(dx \wedge dy)(\Delta x\,\hat{e}_x,\; \Delta y\,\hat{e}_y) = \Delta x\,\Delta y$ である。</p>
-<h4 id="542-mathblock2364placeholder">5.4.2 $d\omega$ の定義</h4>
+<h4 id="542-math2364">5.4.2 $d\omega$ の定義</h4>
 <p>§5.3 の結果をこの言葉で書けば、微小長方形の二辺 $\Delta x\,\hat{e}_x,\; \Delta y\,\hat{e}_y$ に対して、ある<strong>新しい $2$-form</strong> が $(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,\Delta x\,\Delta y$ という主項を返したことになる。この $2$-form を $\omega$ の<strong>外微分</strong>と呼び、$d\omega$ と書く：</p>
 <p>$$d\omega := (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,dx \wedge dy$$</p>
 <p>$d\omega$ は $2$-form である——2本のベクトルを食べてスカラーを返す。その値は「食わせた2本が張る微小平行四辺形に対する、単位面積あたりの閉ループのズレ」を表す。</p>
@@ -2118,15 +2112,15 @@ $$P(x, y+\Delta y, z) \approx P(x, y, z) + \frac{\partial P}{\partial y}\Delta y
 - この比例係数を測る $2$-form を $d\omega := (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,dx \wedge dy$ と定義する。$d$ は次数を上げる演算子。</p>
 </blockquote>
 <hr />
-<h3 id="55-mathblock2400placeholder-form-3">§5.5 一般の $1$-form の外微分——3次元への拡張</h3>
-<h4 id="551-mathblock2401placeholder-mathblock2402placeholder">5.5.1 $yz$ 平面と $zx$ 平面</h4>
+<h3 id="55-math2400-form-3">§5.5 一般の $1$-form の外微分——3次元への拡張</h3>
+<h4 id="551-math2401-math2402">5.5.1 $yz$ 平面と $zx$ 平面</h4>
 <p>§5.3–§5.4 では $xy$ 平面のループだけを考えた。しかし 3次元空間には面の向きが3種類ある。$yz$ 平面の微小長方形では同様の計算で $(\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z})\,\Delta y\,\Delta z$ が、$zx$ 平面では $(\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x})\,\Delta z\,\Delta x$ が得られる。それぞれ $dy \wedge dz$ と $dz \wedge dx$ に対応する。</p>
 <p>直感から導かれる完全な式はこうだ：</p>
 <p>$$d\omega = (\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z})\,dy \wedge dz + (\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x})\,dz \wedge dx + (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,dx \wedge dy$$</p>
 <blockquote>
 <p><strong>注</strong> （$2$-form は傾いた平行四辺形を測る）この $d\omega$ は $2$-form——<strong>2本のベクトルを食べる測定器</strong>——である。食わせる2本は、$xy$ 平面に平行とは限らない。3次元空間の中に斜めに浮かぶ微小平行四辺形の二辺 $\mathbf{v}_1, \mathbf{v}_2$ を食わせれば、その面に対する単位面積あたりの閉ループのズレを返す。§5.3 でやったのとまったく同じこと——測定する面が座標平面に平行とは限らなくなっただけだ。2本のベクトルから平行四辺形の面積（と向き）を取り出すしくみは、第2章 §2.4 で $dy \wedge dz$ 等を反対称行列として構成したときにすでに確かめてある。</p>
 </blockquote>
-<h4 id="552-mathblock2416placeholder">5.5.2 代数的導出——ライプニッツ則と $d(dx)=0$</h4>
+<h4 id="552-math2416">5.5.2 代数的導出——ライプニッツ則と $d(dx)=0$</h4>
 <p>上記の式は、各平面で別々にループ計算をしても当然導ける。しかし、$xy$平面の例から得た直感を使って次のような計算ルールを作り上げれば機械的に導ける。やってみよう。</p>
 <blockquote>
 <p><strong>注</strong> （定義と定理——数学者のいじわる）多くの数学書では、ライプニッツ則と $d(dx)=0$ を $d$ の<strong>定義</strong>としてしまう。物理学者である筆者にはそれではわからない——我々は微小ループの解剖から出発した。これから確かめるのは、その幾何的な $d$ と代数的な計算ルールが整合することだ。ルールは計算の便宜、<strong>意味は §5.3 にある</strong>。もっとも、高次元まで見据えたときこの代数的定義の簡潔さに悔しさを覚えることも、認めないわけにはいかない。</p>
@@ -2201,8 +2195,8 @@ dx \wedge dy &\longleftrightarrow \frac{\partial Q}{\partial x} - \frac{\partial
 - 第3章の曲面積分と同じく、面を小さなパッチに分け、各パッチで測定器を作用させて集計している。</p>
 </blockquote>
 <hr />
-<h3 id="57-mathblock2510placeholder-form">§5.7 同じことをもう一段——$2$-form の外微分と発散</h3>
-<h4 id="571-mathblock2511placeholder-form">5.7.1 $2$-form は面の測定器</h4>
+<h3 id="57-math2510-form">§5.7 同じことをもう一段——$2$-form の外微分と発散</h3>
+<h4 id="571-math2511-form">5.7.1 $2$-form は面の測定器</h4>
 <p>第3章 §3.4.2 で、一般の $2$-form を次の形で書いた：</p>
 <p>$$\eta = A\,dy \wedge dz + B\,dz \wedge dx + C\,dx \wedge dy$$</p>
 <p>これは「面に沿って流量を測る測定器」である。第2章 §2.4.5 で見たように、3つの基底 $2$-form がそれぞれ $yz$ 平面、$zx$ 平面、$xy$ 平面への影の面積を測る。</p>
@@ -2217,7 +2211,7 @@ dx \wedge dy &\longleftrightarrow \frac{\partial Q}{\partial x} - \frac{\partial
 <p>全6面の合計は：</p>
 <p>$$\iint_{\partial (\text{直方体})} \eta \approx (\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z})\,\Delta x\,\Delta y\,\Delta z$$</p>
 <p>ここでも同じ構造だ——<strong>表面で測ったズレの主項は、囲んだ体積に比例する</strong>。比例係数 $\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z}$ が「単位体積あたりの湧き出し」を表す。</p>
-<h4 id="573-mathblock2539placeholder">5.7.3 $d\eta$ の定義と代数的導出</h4>
+<h4 id="573-math2539">5.7.3 $d\eta$ の定義と代数的導出</h4>
 <p>直方体の三辺 $\Delta x\,\hat{e}_x,\; \Delta y\,\hat{e}_y,\; \Delta z\,\hat{e}_z$ を食わせる $3$-form として：</p>
 <p>$$d\eta := (\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z})\,dx \wedge dy \wedge dz$$</p>
 <p>この式は、§5.5.2 の代数的ルールからも導ける。その前に、§5.5.2 でやったのと同じく、幾何的な結果がライプニッツ則と整合することを $A\,dy \wedge dz$ の項で確かめておこう。</p>
@@ -2246,8 +2240,8 @@ dx \wedge dy &\longleftrightarrow \frac{\partial Q}{\partial x} - \frac{\partial
 - $\iint_{\partial V} \eta = \iiint_V d\eta$。ストークス（$1$-form→面）とガウス（$2$-form→立体）は次数が違うだけで同じ構造。</p>
 </blockquote>
 <hr />
-<h3 id="58-mathblock2590placeholder">§5.8 $d^2 = 0$——二度測れば必ずゼロ</h3>
-<h4 id="581-mathblock2591placeholder">5.8.1 $d(df) = 0$</h4>
+<h3 id="58-math2590">§5.8 $d^2 = 0$——二度測れば必ずゼロ</h3>
+<h4 id="581-math2591">5.8.1 $d(df) = 0$</h4>
 <p>§5.1 で $df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz$ を定義した。これをさらにもう一度外微分してみる。§5.5 の公式で $P = \frac{\partial f}{\partial x},\; Q = \frac{\partial f}{\partial y},\; R = \frac{\partial f}{\partial z}$ とすれば：</p>
 <p>$$d(df) = \left(\frac{\partial^2 f}{\partial y \partial z} - \frac{\partial^2 f}{\partial z \partial y}\right) dy \wedge dz + \left(\frac{\partial^2 f}{\partial z \partial x} - \frac{\partial^2 f}{\partial x \partial z}\right) dz \wedge dx + \left(\frac{\partial^2 f}{\partial x \partial y} - \frac{\partial^2 f}{\partial y \partial x}\right) dx \wedge dy$$</p>
 <p>混合偏微分の対称性（$f$ が $C^2$ 級（2階連続微分可能）なら $\frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x}$ など。第1章 §1.2 参照）により、すべての係数がゼロになる：</p>
@@ -2255,7 +2249,7 @@ dx \wedge dy &\longleftrightarrow \frac{\partial Q}{\partial x} - \frac{\partial
 <blockquote>
 <p><strong>注</strong> （数学者へのエクスキューズ——$d^2=0$ と $C^2$ 条件）本書では「$f$ が $C^2$ 級（2階連続微分可能）なら混合偏微分が可換、ゆえに $d(df)=0$」という順序で進めた。しかし微分形式の公理的な立場では、<strong>$d^2=0$ こそが $d$ の定義の一部</strong>であり、$d(df)=0$ は定理ではなく要請である。逆に言えば、$d^2=0$ を課すことが「混合偏微分の対称性が成り立つ関数クラス（＝$C^2$ 級の関数）を相手にしている」という宣言に相当する。どちらの順序で学んでも、両者が同値な条件として噛み合うことに変わりはない。</p>
 </blockquote>
-<h4 id="582-mathblock2607placeholder">5.8.2 $d(d\omega) = 0$</h4>
+<h4 id="582-math2607">5.8.2 $d(d\omega) = 0$</h4>
 <p>§5.5 の $d\omega$ に §5.7 の公式を適用する。$A = \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z},\; B = \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x},\; C = \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}$ として：</p>
 <p>$$d(d\omega) = \left(\frac{\partial^2 R}{\partial x \partial y} - \frac{\partial^2 Q}{\partial x \partial z} + \frac{\partial^2 P}{\partial y \partial z} - \frac{\partial^2 R}{\partial y \partial x} + \frac{\partial^2 Q}{\partial z \partial x} - \frac{\partial^2 P}{\partial z \partial y}\right) dx \wedge dy \wedge dz$$</p>
 <p>括弧内を展開：</p>
@@ -2280,7 +2274,7 @@ dx \wedge dy &\longleftrightarrow \frac{\partial Q}{\partial x} - \frac{\partial
 <blockquote>
 <p><strong>注</strong> （3次元までで十分）本書の舞台は 3次元空間だから、$M$ の次元は1・2・3のいずれかであり、$\omega$ は $0$-form・$1$-form・$2$-form のいずれかである。$k=3$（$M$ が4次元）には立ち入らない。しかしこの式が $k$ によらず成立するという事実は、頭の片隅に置いておいて損はない。</p>
 </blockquote>
-<h4 id="592-mathblock2648placeholder-form">5.9.2 一般の $k$-form の外微分</h4>
+<h4 id="592-math2648-form">5.9.2 一般の $k$-form の外微分</h4>
 <p>同様に、$d$ の作用も次数によらず一つのパターンにまとまる。任意の $k$-form $\omega$ が係数 $a_{i_1\cdots i_k}$ と基底 $dx^{i_1}\wedge\cdots\wedge dx^{i_k}$ の和で書かれているとき：</p>
 <p>$$d\omega = \sum \Bigl( \sum_j \frac{\partial a_{i_1\cdots i_k}}{\partial x^j}\,dx^j \Bigr) \wedge dx^{i_1}\wedge\cdots\wedge dx^{i_k}$$</p>
 <p>本書で必要なのは $k=0,1,2$ の三つの場合だけであり、それぞれ §5.1（$df$）、§5.5（$d\omega$）、§5.7（$d\eta$）で具体的に書き下した。上の一般形は「どの次数でも、係数を全微分してウェッジでつなぐ」という単一の原理に従っていることの確認にすぎない。</p>
@@ -2358,13 +2352,13 @@ $$\Phi^*(d\omega) = d(\Phi^*\omega)$$
 <hr />
 <h2 id="c">付録C：外微分の行列表示</h2>
 <p>本章本文は基底 $dx, dy, dz$ とウェッジ積の代数で進めた。ここでは第2章以来の本書の真骨頂——<strong>成分をひとつ残らず行列に並べる</strong>——によって、外微分を行列表示の言葉で書き直す。</p>
-<h3 id="c1-mathblock2743placeholder-formmathblock2744placeholder-mathblock2745placeholder">C.1 $0$-form：$df$ の $1 \times 3$ 行ベクトル</h3>
+<h3 id="c1-math2743-formmath2744-math2745">C.1 $0$-form：$df$ の $1 \times 3$ 行ベクトル</h3>
 <p>$f = f(x,y,z)$ に対し、第1章 §1.2 の定義どおり：</p>
 <p>$$df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz$$</p>
 <p>行ベクトル（$1 \times 3$ 行列）として：</p>
 <p>$$df = \begin{pmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & \frac{\partial f}{\partial z} \end{pmatrix}$$</p>
 <p>である。</p>
-<h3 id="c2-mathblock2748placeholder-form-mathblock2749placeholder">C.2 $1$-form：係数のヤコビ行列 $\mathbf{J}$</h3>
+<h3 id="c2-math2748-form-math2749">C.2 $1$-form：係数のヤコビ行列 $\mathbf{J}$</h3>
 <p>$\omega = P\,dx + Q\,dy + R\,dz$ に対し、係数 $(P,Q,R)$ の偏微分を<strong>すべて</strong>並べた $3 \times 3$ 行列を：</p>
 <p>$$\mathbf{J} := \begin{pmatrix}
 \frac{\partial P}{\partial x} & \frac{\partial P}{\partial y} & \frac{\partial P}{\partial z} \\
@@ -2372,7 +2366,7 @@ $$\Phi^*(d\omega) = d(\Phi^*\omega)$$
 \frac{\partial R}{\partial x} & \frac{\partial R}{\partial y} & \frac{\partial R}{\partial z}
 \end{pmatrix}$$</p>
 <p>とする。これは $(P,Q,R)$ を「縦に積んだ」ベクトル場のヤコビ行列にあたる。§5.1 で「単なる偏微分の行列では足りない」と述べたのは、まさにこの $\mathbf{J}$ が反対称でないからだ。</p>
-<h3 id="c3-mathblock2755placeholder">C.3 $d\omega = \mathbf{J}^T - \mathbf{J}$</h3>
+<h3 id="c3-math2755">C.3 $d\omega = \mathbf{J}^T - \mathbf{J}$</h3>
 <p>§5.5 の結果は：</p>
 <p>$$d\omega = (\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z})\,dy \wedge dz + (\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x})\,dz \wedge dx + (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,dx \wedge dy$$</p>
 <p>第2章 §2.4.4 の流儀に従い、任意の縦ベクトル $\mathbf{v}_1, \mathbf{v}_2$ に対して $(d\omega)(\mathbf{v}_1, \mathbf{v}_2) = \mathbf{v}_1^T \mathbf{M} \mathbf{v}_2$ となる反対称行列 $\mathbf{M}$ を求めよう。</p>
@@ -2385,7 +2379,7 @@ $$\Phi^*(d\omega) = d(\Phi^*\omega)$$
 <p>すなわち、2章で求めた$2$-formの行列表示と照らし合わせて：</p>
 <p>$$d\omega = \mathbf{J}^T - \mathbf{J}$$</p>
 <p>となり、<strong>外微分 $d\omega$ の行列表示は、転置から係数のヤコビ行列を引いた反対称行列である。</strong></p>
-<h3 id="c4-mathblock2762placeholder-formmathblock2763placeholder">C.4 $2$-form：$d\eta$ とヤコビ行列のトレース</h3>
+<h3 id="c4-math2762-formmath2763">C.4 $2$-form：$d\eta$ とヤコビ行列のトレース</h3>
 <p>$\eta = A\,dy \wedge dz + B\,dz \wedge dx + C\,dx \wedge dy$ に対し、係数 $(A,B,C)$ のヤコビ行列を：</p>
 <p>$$\mathbf{J}_\eta := \begin{pmatrix}
 \frac{\partial A}{\partial x} & \frac{\partial A}{\partial y} & \frac{\partial A}{\partial z} \\
@@ -2394,7 +2388,7 @@ $$\Phi^*(d\omega) = d(\Phi^*\omega)$$
 \end{pmatrix}$$</p>
 <p>とすると、§5.7 の結果 $d\eta = (\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z})\,dx \wedge dy \wedge dz$ の係数は $\mathbf{J}_\eta$ の<strong>トレース</strong>（対角成分の和）に一致する：</p>
 <p>$$\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z} = \operatorname{tr}(\mathbf{J}_\eta)$$</p>
-<h4 id="c41-mathblock2768placeholder-273">C.4.1 $d\eta$ の27成分——3枚の行列に展開する</h4>
+<h4 id="c41-math2768-273">C.4.1 $d\eta$ の27成分——3枚の行列に展開する</h4>
 <p>$\eta$ の反対称成分は $\eta_{yz}=A,\; \eta_{zx}=B,\; \eta_{xy}=C$（他は符号反転または $0$）である。$d\eta$ の成分 $d\eta_{abc} = \frac{\partial \eta_{bc}}{\partial x^a}$ は $a,b,c \in \{x,y,z\}$ で $3^3=27$ 個。$a$ を固定した $3 \times 3$ 行列3枚に並べると：</p>
 <p>$$d\eta_{x,\cdot,\cdot} = \begin{pmatrix}
 0 & \frac{\partial C}{\partial x} & -\frac{\partial B}{\partial x} \\
@@ -2415,7 +2409,7 @@ d\eta_{z,\cdot,\cdot} = \begin{pmatrix}
 <p>$$d\eta = \left( \frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z} \right) dx \wedge dy \wedge dz$$</p>
 <p>すなわち $d\eta$ は $27$ 成分のうち $6$ 項が生き残り、ペアで足し合わさって $\mathbf{J}_\eta$ のトレースへ収束する。</p>
 <p>$3$-form は基底が $dx \wedge dy \wedge dz$ の 1 つだけなので、行列としてはスカラー係数に縮退している。</p>
-<h3 id="c5-mathblock2792placeholder">C.5 $d^2 f = 0$ とヘッセ行列</h3>
+<h3 id="c5-math2792">C.5 $d^2 f = 0$ とヘッセ行列</h3>
 <p>$0$-form $f$ のヘッセ行列：</p>
 <p>$$\mathbf{H}_f := \begin{pmatrix}
 \frac{\partial^2 f}{\partial x^2} & \frac{\partial^2 f}{\partial x \partial y} & \frac{\partial^2 f}{\partial x \partial z} \\
@@ -2425,7 +2419,7 @@ d\eta_{z,\cdot,\cdot} = \begin{pmatrix}
 <p>は $f$ の 2 階偏導関数を並べたものだ。$f$ が $C^2$ 級なら $\mathbf{H}_f$ は対称行列（$\frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x}$ など）である。</p>
 <p>$d(df) = 0$ は §5.5 の $d\omega$ 公式で $(P,Q,R) = (\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z})$ とおいたもの。$\mathbf{J} = \mathbf{H}_f$ であり、$\mathbf{H}_f$ が対称だから $\mathbf{J}^T - \mathbf{J} = 0$、したがって $d(df) = 0$。行列の言葉では「ヘッセ行列の反対称成分がゼロ」と言い換えられる。</p>
 <p>\newpage</p>
-<h1 id="6-mathblock2807placeholder-mathblock2808placeholder">第6章：計量 $g$ とホッジ・スター $\ast$ — 内積の召喚と次数の反転</h1>
+<h1 id="6-math2807-math2808">第6章：計量 $g$ とホッジ・スター $\ast$ — 内積の召喚と次数の反転</h1>
 <h3 id="60">§6.0 言い訳の終焉——内積を解放する</h3>
 <p>第2章で球の表面積 $4\pi R^2$ を導出したとき、第3章で弧長を二乗和の平方根として測ったとき——本書ではこれまで長さや面積を計算するたびに「数学者からは計量がないと怒られるだろうが、知らん顔で押し通そう」といったエクスキューズを書き連ねてきた。</p>
 <p>読者もそろそろくどいと感じている頃だろう。正直に言えば、筆者も飽きてきた。</p>
@@ -2442,7 +2436,7 @@ d\eta_{z,\cdot,\cdot} = \begin{pmatrix}
 <p>結論から言えば、<strong>まったく別物</strong>だ。横ベクトル掛ける縦ベクトルは「横と縦という異種のベクトル間」の計算である。対して内積は「横と横」あるいは「縦と縦」という<strong>同種のベクトル間</strong>の計算だ。</p>
 <p>そう、事は読者が思ったよりも深遠だ。実空間という特別な舞台では、この二つがたまたま同じ数値を返すことが多いために混同されてきた——その混同の上に、ベクトル解析という巨大な体系が築かれている。本章の目標は、この区別を明確にした上で、内積の自然な一般化として計量 $g$ を導き、そこからホッジ・スター $\ast$ の正体を暴くことである。</p>
 <hr />
-<h3 id="61-mathblock2818placeholder">§6.1 パラメータ空間の内積——計量 $g$ の正体</h3>
+<h3 id="61-math2818">§6.1 パラメータ空間の内積——計量 $g$ の正体</h3>
 <h4 id="611">6.1.1 実空間の内積</h4>
 <p>実空間 $(x,y,z)$ における二つの縦ベクトルを成分で書こう。</p>
 <p>$$\mathbf{v}_1 = \begin{pmatrix} x_1 \\ y_1 \\ z_1 \end{pmatrix},\qquad \mathbf{v}_2 = \begin{pmatrix} x_2 \\ y_2 \\ z_2 \end{pmatrix}$$</p>
@@ -2536,8 +2530,8 @@ d\eta_{z,\cdot,\cdot} = \begin{pmatrix}
 <p>対角成分に $r^2$ と $r^2\sin^2\theta$ が現れるが、これらもすべて連鎖律だけから機械的に導かれる換算係数である。</p>
 <p>この $g$ を仲立ちにすることで、どの座標系でも一貫して内積（長さ・角度）を計算できる。また、後半で扱うホッジ・スター $\ast$ の仕様も、この内積のルールから自然に読み解ける。</p>
 <hr />
-<h3 id="62-mathblock2878placeholder">§6.2 $g$ による縦ベクトルと横ベクトルの変換</h3>
-<h4 id="621-mathblock2879placeholder">6.2.1 $\mathbf{v}^T \mathbf{g}$ は横ベクトルである</h4>
+<h3 id="62-math2878">§6.2 $g$ による縦ベクトルと横ベクトルの変換</h3>
+<h4 id="621-math2879">6.2.1 $\mathbf{v}^T \mathbf{g}$ は横ベクトルである</h4>
 <p>§6.1 で導いた内積の式 $\mathbf{v}_1^T \mathbf{g} \,\mathbf{v}_2$ を、もう一度見てみよう。行列の積は左から順に実行できるから、この式は「まず $\mathbf{v}_1^T \mathbf{g}$ を計算し、その結果に $\mathbf{v}_2$ を掛ける」と読むことができる。</p>
 <p>$\mathbf{v}_1$ は縦ベクトルだが、転置された $\mathbf{v}_1^T$ は横ベクトルだ。横ベクトルに正方行列を掛けると、結果は再び横ベクトルになる。つまり、$\mathbf{v}_1^T \mathbf{g}$ という部分だけを取り出せば、</p>
 <p>$$\omega = \mathbf{v}^T \mathbf{g}$$</p>
@@ -2548,7 +2542,7 @@ d\eta_{z,\cdot,\cdot} = \begin{pmatrix}
 <p>この変換の意味を考えよう。第1章以来、我々は「測られる図形（縦ベクトル $\mathbf{v}$）」と「測る装置（横ベクトル $\omega$）」を区別してきた。両者は異なる世界の住人だった。しかし $g$ を経由することで、図形の側にいた縦ベクトルが、はかりの側——横ベクトル——へと姿を変える。同じ矢印でも、場所によって「はかりとしての感度」が変わるのは、$\mathbf{g}$ がその場所ごとの目盛りの違いをすべて吸収してくれるからだ。</p>
 <p>実空間（$\mathbf{g}=I$）では $\omega = \mathbf{v}^T$ であり、縦ベクトルの成分がそのまま横ベクトルの成分になる。パラメータ空間では $\mathbf{g} = \begin{pmatrix} 1 & 0 & 0 \\ 0 & r^2 & 0 \\ 0 & 0 & 1 \end{pmatrix}$ なので、$\omega = \begin{pmatrix} \Delta r & r^2\Delta\theta & \Delta z \end{pmatrix}$。$\theta$ 成分だけ $r^2$ 倍されるのは、$\theta$ 方向の目盛りが $r$ 倍に伸びていることの反映だ。</p>
 <p>$g$ がなければ、「測られる図形」と「測る装置」は互いに変換不能である。$g$ は両者を繫ぐ唯一の仲介者なのだ。</p>
-<h4 id="622-mathblock2907placeholder">6.2.2 計量が与えるもの——平行 $k$ 面体の幾何学的な大きさ</h4>
+<h4 id="622-math2907">6.2.2 計量が与えるもの——平行 $k$ 面体の幾何学的な大きさ</h4>
 <p>計量 $g$ の最も基本的な役割は、$k$ 本のベクトルが貼る<strong>平行 $k$ 面体の実際の幾何学的な大きさ</strong>（長さ・面積・体積）を定義することである。</p>
 <p>本書のこれまでの章では、$k$-form に $k$ 本のベクトルを食わせることで「向き付きの数え上げ」を行ってきた。$dx(\mathbf{v})$ は $\mathbf{v}$ の $x$ 成分という数、$dx \wedge dy(\mathbf{v}_1, \mathbf{v}_2)$ は $\mathbf{v}_1, \mathbf{v}_2$ が張る平行四辺形の向き付き面積という数である。しかしこれらはあくまで影の測量であり、ベクトルたちが実際に何メートルの線分を張り、何平方メートルの平行四辺形を張っているか——<strong>幾何学的な本当の大きさ</strong>——は、計量 $g$ が与えられて初めて決まる。</p>
 <p>$k=1$（1本のベクトル $\mathbf{v}$ が張る線分）の場合、その長さの二乗は自分自身との内積で定義される。これは §6.1 ですでに導いた通りだ。</p>
@@ -2590,7 +2584,7 @@ d\eta_{z,\cdot,\cdot} = \begin{pmatrix}
 - 内積の性質（対称性・線形性・正定値性）から $g$ の対称性が導かれる。これは面積測定器 $\wedge$ の反対称性と対をなす。</p>
 </blockquote>
 <hr />
-<h3 id="63-mathblock2978placeholder">§6.3 ホッジ・スター $\ast$ ——二つの方法を繫ぐ対応</h3>
+<h3 id="63-math2978">§6.3 ホッジ・スター $\ast$ ——二つの方法を繫ぐ対応</h3>
 <h4 id="631">6.3.1 スカラーを得る二つの方法</h4>
 <p>ここまでで $g = J^T J$ の正体が明らかになり、内積をどの座標系でも計算できるようになった。ここで、より大きな構図を見ておこう。</p>
 <p>物理の式を眺めると、スカラー量を作るやり方が一つではないことに気づく。ある場を線や面に沿って積分するときは、「測るもの」が「測られるもの」に作用して数を返す、という書き方が自然に現れる。一方で、仕事率やエネルギー密度のような量は、しばしば $\mathbf{E}\cdot\mathbf{J}$ や $\mathbf{A}\cdot(\nabla\times\mathbf{A})$ のように、同じ種類の矢印同士の内積として書かれる。</p>
@@ -2611,7 +2605,7 @@ d\eta_{z,\cdot,\cdot} = \begin{pmatrix}
 <p><strong>注</strong> （二つの方法のあいだで）方法①と方法②のどちらか一方だけを使う必要はない。筆者の理想は、両方を自由に行き来できることだ。本書が方法①（微分形式）から出発したのは、空間の歪みに依存しない強固な土台を築くためである。その上で、必要に応じて方法②の言葉でも同じ量を読めるようにする——その橋渡しをするのが $\ast$ だ。</p>
 <p><strong>注</strong> （ベクトル解析を知っている読者へ）通常のベクトル解析で面の向きや外積として扱われる操作の多くは、この $\ast$ が与える対応として読み直せる。ただし本章では、それらを既知の公式として使うのではなく、$g$ と第2章の基底 $2$-form から作り直す。</p>
 </blockquote>
-<h4 id="632-mathblock3010placeholder">6.3.2 行列から $\ast$ を構成する</h4>
+<h4 id="632-math3010">6.3.2 行列から $\ast$ を構成する</h4>
 <p>付録Aで、我々は $2$-form を行列表示する方法を学んだ。$dy \wedge dz$, $dz \wedge dx$, $dx \wedge dy$ という $3$ つの基底 $2$-form は、それぞれ $3 \times 3$ の反対称行列で表現できるのだった。</p>
 <p>さて、ここで素朴な問いを立てよう。任意の $1$-form $\omega = P\,dx + Q\,dy + R\,dz$ は、本書の流儀により係数の横ベクトル $\begin{pmatrix} P & Q & R \end{pmatrix}$ として書ける。この横ベクトルの各成分を、対応する基底 $2$-form の行列の係数として分配する——つまり、$P$ を $dy \wedge dz$ の行列に、$Q$ を $dz \wedge dx$ の行列に、$R$ を $dx \wedge dy$ の行列に掛けて足し合わせる——操作を考えよう。</p>
 <p>行列で書けば、</p>
@@ -2652,7 +2646,7 @@ $$</p>
 <blockquote>
 <p><strong>注</strong> （$\ast$ の幾何学的意味）$\ast\omega$ が表す $2$-form は、$\omega$ の係数ベクトル $(P, Q, R)$ に直交する平面を測る面積測定器である。$x$ 軸方向の線分（$dx$）に対応するのは $x$ 軸に垂直な面（$dy \wedge dz$）。ベクトル解析で $3$ 成分の矢印として扱われる量は、本書の言葉ではこの面積測定器の情報を読み替えたものだ。</p>
 </blockquote>
-<h4 id="633-mathblock3043placeholder">6.3.3 実空間での $\ast$ 辞書</h4>
+<h4 id="633-math3043">6.3.3 実空間での $\ast$ 辞書</h4>
 <p>§6.3.2 で行ったのは、$1$-form の係数を $dy \wedge dz$, $dz \wedge dx$, $dx \wedge dy$ という三つの面積測定器へ分配することだった。同じ手順を基底 $1$-form に対して繰り返す。すなわち、$dx$ なら第1成分だけを、$dy$ なら第2成分だけを、$dz$ なら第3成分だけを取り出せばよい。</p>
 <p>成分をすべて追いたい読者は付録Dの行列表示を確認してほしい。ここでは結果だけを $dx,dy,dz$ の言葉で書けば、次の簡潔な辞書になる。</p>
 <p>$$\begin{aligned}
@@ -2665,7 +2659,7 @@ $$</p>
 <blockquote>
 <p><strong>注</strong> （なぜこの辞書でよいのか）$\ast dx = dy \wedge dz$ となるのは、$dx,dy,dz$ が正規直交基底（互いに直交し、長さ $1$）であり、かつ空間の向きを $dx \wedge dy \wedge dz$ が正となる右手系にとっているからだ。この条件のもとでは、上の辞書が一意的に定まる。パラメータ空間まで考慮すると、$\ast$ の辞書は計量 $g$ と空間の向きの選び方に依存する——言い換えると、$g$ が $I$ でなければ、辞書の係数はもっと複雑になる。</p>
 </blockquote>
-<h4 id="634-mathblock3072placeholder">6.3.4 $\ast\ast = \mathrm{id}$</h4>
+<h4 id="634-math3072">6.3.4 $\ast\ast = \mathrm{id}$</h4>
 <p>上の辞書から直ちにわかるように、$\ast$ を二度続けて作用させると元に戻る：</p>
 <p>$$\ast(\ast(dx)) = \ast(dy \wedge dz) = dx$$</p>
 <p>一般に、3次元デカルト実空間では $\ast\ast = \mathrm{id}$（恒等演算子）が成り立つ。$\ast$ を $1$ 回適用すれば形式の次数が反転し、$2$ 回適用すれば元に戻る。</p>
@@ -2676,7 +2670,7 @@ $$</p>
 - ホッジ・スター $\ast$ は、$1$-form の係数をそのまま $2$-form の基底行列に分配する演算として構成できる。行列表現は外積行列に一致する。
 - 実空間での $\ast$ 辞書：$\ast dx = dy \wedge dz$ など。$\ast\ast = \mathrm{id}$。</p>
 </blockquote>
-<h4 id="635-mathblock3088placeholder">6.3.5 $\ast$ の性質</h4>
+<h4 id="635-math3088">6.3.5 $\ast$ の性質</h4>
 <p>§6.2.3 で内積の性質を、第5章で外微分 $d$ の性質をまとめたのに倣い、$\ast$ についてもここまでの構成から浮かび上がる性質を整理しておく。</p>
 <ol>
 <li>
@@ -2695,7 +2689,7 @@ $$</p>
 <p>これらの性質は、$\ast$ が単なる「辞書」ではなく、計量と向きを備えた空間における<strong>次数の折り返し構造</strong>そのものであることを示している。</p>
 <hr />
 <h3 id="64">§6.4 対応の実例——微分形式とベクトル解析</h3>
-<h4 id="641-mathblock3109placeholder">6.4.1 ジュール熱 $P=VI$ ——二つの経路</h4>
+<h4 id="641-math3109">6.4.1 ジュール熱 $P=VI$ ——二つの経路</h4>
 <p>$\ast$ が具体的にどのように微分形式と同種ベクトルの内積表示を繫いでいるか、実際の計算で確かめよう。</p>
 <blockquote>
 <p><strong>注</strong> （電磁気学を知らなくてよい）ここから先、説明のために電磁気学の用語を天下り的に使う。まだ物理を学んでいない読者や、ベクトル解析で電磁気学を学んだ読者も、数式の意味を完全に理解する必要はない。$\ast$ が計算の構造の中でどう働くかを見てほしい。</p>
@@ -2716,7 +2710,7 @@ $$</p>
 <p>$$\ast(E \wedge J)$$</p>
 <p>カッコの中身 $E \wedge J$ は、方法①で得た $3$-form と全く同じものだ。外側の $\ast$ は、$3$-form から体積要素 $dx \wedge dy \wedge dz$ を剥ぎ取り、スカラー値を取り出している。スカラー $E \cdot J$ に微小体積 $dV$ を掛け直して積分する書き方は、この $3$-form が持っていた体積要素を後から補っている、と読める。</p>
 <p><strong>つまり、$\ast$ は方法①の $3$-form と方法②のスカラー表示を矛盾なく繫いでいる。</strong> $\ast\ast = \mathrm{id}$ があるからこそ、どちらの経路を通っても同じ結果に至るのだ。</p>
-<h4 id="642-mathblock3155placeholder-mathblock3156placeholder">6.4.2 ヘリシティ $A \cdot (\nabla \times A)$ ——$\ast$ の往復</h4>
+<h4 id="642-math3155-math3156">6.4.2 ヘリシティ $A \cdot (\nabla \times A)$ ——$\ast$ の往復</h4>
 <p>もう一つの例で、$\ast$ の働きをさらに見てみよう。$1$-form $\alpha$ と、その外微分 $d\alpha$ を組み合わせた次の $3$-form を考える：</p>
 <p>$$\alpha \wedge d\alpha$$</p>
 <p>この形は、方法②の言葉で書けば、ベクトル場 $\mathbf{A}$ とその回転の内積として現れる。</p>
@@ -2747,13 +2741,13 @@ $$</p>
 <p><strong>注</strong> （ベクトル解析を知っている読者へ）ここで定義する grad, rot, div は、ベクトル解析で $\nabla f,\; \nabla \times \mathbf{F},\; \nabla \cdot \mathbf{F}$ と書かれるものと同一である。ベクトル解析をまだ学んでいない読者は、単に $d$ と $\ast$ の組み合わせとして理解すれば十分だ。</p>
 </blockquote>
 <p>以降、ベクトル場 $\mathbf{F} = (F_x, F_y, F_z)$ に対応する $1$-form を $\omega = F_x\,dx + F_y\,dy + F_z\,dz$ と書く。</p>
-<h4 id="651-mathblock3225placeholder">6.5.1 勾配 $\mathrm{grad}\,f = df$</h4>
+<h4 id="651-math3225">6.5.1 勾配 $\mathrm{grad}\,f = df$</h4>
 <p>これはすでに知っている。$0$-form（スカラー場）$f$ の外微分 $df$ は $1$-form であり、その係数は偏微分係数である：</p>
 <p>$$df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz$$</p>
 <p>この横ベクトルの成分 $(\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z})$ を<strong>勾配</strong>と呼び、$\mathrm{grad}\,f$ と書く。</p>
 <p>$$\mathrm{grad}\,f = df$$</p>
 <p>$d$ は次数を $0 \to 1$ に上げる。これが勾配の正体である。勾配では、$0$-form から $1$-form への外微分だけが現れる。</p>
-<h4 id="652-mathblock3236placeholder">6.5.2 回転 $\mathrm{rot}\,\mathbf{F} = \ast\,d\,\omega$</h4>
+<h4 id="652-math3236">6.5.2 回転 $\mathrm{rot}\,\mathbf{F} = \ast\,d\,\omega$</h4>
 <p>$1$-form $\omega$ に $d$ を作用させると $2$-form $d\omega$ が得られる。その係数は第5章で導いたとおり：</p>
 <p>$$d\omega = (\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z})\,dy \wedge dz + (\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x})\,dz \wedge dx + (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,dx \wedge dy$$</p>
 <p>ここに $\ast$ を作用させると、$2$-form が $1$-form に変換される。§6.3.3 の辞書を使えば：</p>
@@ -2761,7 +2755,7 @@ $$</p>
 <p>この $1$-form の係数 $(\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z},\; \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x},\; \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})$ を<strong>回転</strong>と呼び、$\mathrm{rot}\,\mathbf{F}$ と書く。</p>
 <p>$$\mathrm{rot}\,\mathbf{F} = \ast\,d\,\omega$$</p>
 <p>$\ast\,d$ は $1$-form $\to$ $2$-form $\to$ $1$-form という、次数を上げてから下げる操作である。この「上げて下げる」が、まさに回転の代数構造だ。</p>
-<h4 id="653-mathblock3254placeholder">6.5.3 発散 $\mathrm{div}\,\mathbf{F} = \ast\,d\,\ast\,\omega$</h4>
+<h4 id="653-math3254">6.5.3 発散 $\mathrm{div}\,\mathbf{F} = \ast\,d\,\ast\,\omega$</h4>
 <p>さらに $\ast\,d\,\ast$ と三つの演算子を連ねる。まず $\ast\,\omega$ で $1$-form を $2$-form に変換し、$d$ で $3$-form に上げ、最後に $\ast$ で $0$-form（スカラー場）に落とす：</p>
 <p>$$\ast(d(\ast\omega)) = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z}$$</p>
 <p>このスカラー場を<strong>発散</strong>と呼び、$\mathrm{div}\,\mathbf{F}$ と書く。</p>
@@ -2770,7 +2764,7 @@ $$</p>
 <blockquote>
 <p><strong>注</strong> （ベクトル解析を知っている読者へ）円柱座標や球座標での rot や div の公式が長くなる理由は、ここで明らかになったはずだ。rot は $\ast$ を $1$ 回、div は $\ast$ を $2$ 回使っている。$\ast$ の辞書は計量 $g$ に依存し、$g$ は $g = J^T J$ という場所の関数である。公式の複雑さは、裏で $\ast$ と $g$ が繰り返し適用されていることの結果に過ぎない。</p>
 </blockquote>
-<h4 id="654-mathblock3282placeholder">6.5.4 $d^2 = 0$ の当然の帰結</h4>
+<h4 id="654-math3282">6.5.4 $d^2 = 0$ の当然の帰結</h4>
 <p>第5章で学んだ $d^2 = 0$ を思い出そう。この一つの事実から、二つの恒等式が自動的に導かれる。</p>
 <p>$\mathrm{rot}(\mathrm{grad}\,f) = 0$ は、$\ast\,d\,(df) = \ast\,(d^2 f) = 0$ に他ならない。</p>
 <p>$\mathrm{div}(\mathrm{rot}\,\mathbf{F}) = 0$ も同様に、$\ast\,d\,\ast(\ast\,d\,\omega) = \ast\,d\,(d\,\omega) = \ast\,(d^2 \omega) = 0$ である。</p>
@@ -2841,7 +2835,7 @@ $$</p>
 <p><strong>注</strong> （係数 $1/2$ について）フロベニウス積には $\operatorname{tr}(A^T B)$（$1/2$ なし）を採用する流儀もある。しかし反対称行列では $M_{23}$ と $M_{32} = -M_{23}$ のようなペア成分の両方を拾ってしまい、内積が $2$ 倍される。本書では $1/2$ を定義に織り込む。これにより、$2$-form $M$ の自分自身との内積 $M \cdot M = M_{23}^2 + M_{31}^2 + M_{12}^2$ がそのまま §6.2.2 の「平行四辺形の符号なし面積の二乗」に一致する。</p>
 <p><strong>注</strong> （抽象化の引力）§6.2.3 で「数学者はすぐに抽象化したがる」とぼやいたが、こうして実際に手を動かしてみると彼らの言い分も分からなくもない。縦ベクトルの内積には $\mathbf{v}_1^T \mathbf{v}_2$ を、行列の内積には $\frac{1}{2}\operatorname{tr}(A^T B)$ を——表示が変わるたびに内積を一から定義し直すのは、考えてみれば相当に大変だ。これらをまとめて「内積とは、ある公理を満たす演算である」と一言で済ませたい欲求に飲まれそうな自分に気付く。それでも本書は最後まで表示を明示する方針を崩さない。ここまで来ると意地である。</p>
 </blockquote>
-<h3 id="d2-mathblock3366placeholder">D.2 $\ast_{1\to2}$ ——行列の縦ベクトル</h3>
+<h3 id="d2-math3366">D.2 $\ast_{1\to2}$ ——行列の縦ベクトル</h3>
 <p>基底 $2$-form に対応する3枚の反対称行列を $E_1, E_2, E_3$ と名付ける。添字 $1,2,3$ は $dx,dy,dz$ の順である。</p>
 <p>$$
 E_1 = \begin{pmatrix}
@@ -2881,7 +2875,7 @@ $$</p>
 <blockquote>
 <p><strong>注</strong> （第2章の $\widehat{\epsilon}$ との関係）この $E_1, E_2, E_3$ は、付録Aで $\epsilon_{1,\cdot,\cdot}, \epsilon_{2,\cdot,\cdot}, \epsilon_{3,\cdot,\cdot}$ として書き下した行列と同一である。$\ast_{1\to2}$ の本質は、エディントンのイプシロン $\epsilon_{ijk}$ の第一添字を縦ベクトルの成分方向に、残りの二添字を $3\times 3$ 行列の方向に配置したものだ。第2章で体積測定器 $\widehat{\epsilon}$ として導入したあの3枚組が、ここでホッジ・スターとして再登場している。</p>
 </blockquote>
-<h3 id="d3-mathblock3384placeholder">D.3 $\ast_{2\to1}$ ——フロベニウス積による係数抽出</h3>
+<h3 id="d3-math3384">D.3 $\ast_{2\to1}$ ——フロベニウス積による係数抽出</h3>
 <p>逆向きの変換 $\ast_{2\to1}$ は、$E_1, E_2, E_3$ とのフロベニウス積で構成する。$M$ を任意の $3\times 3$ 行列（反対称とは限らない）とする。</p>
 <p>$$\ast_{2\to1}(M) = \begin{pmatrix} E_1 \cdot M & E_2 \cdot M & E_3 \cdot M \end{pmatrix}$$</p>
 <p>$E_k \cdot M = \operatorname{tr}(E_k^T M)$ は C.1 のフロベニウス積である。</p>
@@ -2916,7 +2910,7 @@ $$</p>
 \end{pmatrix}
 $$</p>
 <p>$\ast_{1\to2}$ では縦に積まれていた $E_1, E_2, E_3$ が、ここでは横に並んでいる。作用の仕方も対称的だ。$\ast_{1\to2}(\omega) = \omega \,\ast_{1\to2}$ は横ベクトル $\omega$ と縦ベクトル $\ast_{1\to2}$ の積であり、各 $E_k$ を係数倍して足し合わせる。一方 $\ast_{2\to1}$ は横ベクトルであるから、$M$ に作用させるときは各成分 $E_k$ と $M$ のフロベニウス積をとる——これが C.3 の定義 $\ast_{2\to1}(M) = \begin{pmatrix} E_1 \cdot M & E_2 \cdot M & E_3 \cdot M \end{pmatrix}$ に他ならない。縦と横、加重和と内積抽出——この対称性が $\ast$ のすべてを支配している。</p>
-<h3 id="d5-mathblock3422placeholder">D.5 $E_k \cdot M$ の成分</h3>
+<h3 id="d5-math3422">D.5 $E_k \cdot M$ の成分</h3>
 <p>C.3 の定義が実際に $M$ から何を取り出すかは、$E_k$ の非ゼロ成分を数えればわかる。フロベニウス積は成分ごとの積の総和に $1/2$ を掛けたものだから、非ゼロ成分だけ見れば十分だ。</p>
 <p>$E_1$ の非ゼロ成分は $(2,3)=1$ と $(3,2)=-1$ のみ。したがって</p>
 <p>$$E_1 \cdot M = \frac{1}{2}\bigl(1 \cdot M_{23} + (-1) \cdot M_{32}\bigr) = \frac{1}{2}(M_{23} - M_{32})$$</p>
@@ -2930,7 +2924,7 @@ $$</p>
 <p>$M$ が<strong>反対称行列</strong>（$2$-form）ならば $M_{21} = -M_{12},\; M_{31} = -M_{13},\; M_{32} = -M_{23}$ だから、</p>
 <p>$$\ast_{2\to1}(M) = \begin{pmatrix} M_{23} & M_{31} & M_{12} \end{pmatrix}$$</p>
 <p>$1/2$ が反対称ペアの二重拾いを打ち消し、ちょうど係数そのものが抜き出される。これは §6.3.3 の簡略版辞書 $\ast(dy \wedge dz) = dx$ 等と完全に一致する。</p>
-<h3 id="d6-mathblock3440placeholder">D.6 $\ast$ の二回作用</h3>
+<h3 id="d6-math3440">D.6 $\ast$ の二回作用</h3>
 <p>C.2 と C.3 の定義のもとで $\ast$ を二回作用させるとどうなるか。$\ast_{1\to2}(\omega) = P E_1 + Q E_2 + R E_3$ に $\ast_{2\to1}$ を作用させると、</p>
 <p>$$
 \ast_{2\to1}(\ast_{1\to2}(\omega))
@@ -3021,8 +3015,8 @@ a_x b_y - a_y b_x
 - クロス積は反可換、自分自身とはゼロ、結果は二つのベクトルに直交する。</p>
 </blockquote>
 <hr />
-<h3 id="72-mathblock3502placeholder">§7.2 $\nabla$ と勾配</h3>
-<h4 id="721-mathblock3503placeholder">7.2.1 $\nabla$ の定義</h4>
+<h3 id="72-math3502">§7.2 $\nabla$ と勾配</h3>
+<h4 id="721-math3503">7.2.1 $\nabla$ の定義</h4>
 <p>ナブラ $\nabla$ を、偏微分演算子を縦に並べた形式的なベクトルとして定義する。</p>
 <p>$$\nabla = \begin{pmatrix}
 \frac{\partial}{\partial x} \\[0.5em]
@@ -3116,7 +3110,7 @@ F_x \\ F_y \\ F_z
 <hr />
 <h3 id="76">§7.6 恒等式</h3>
 <p>ここまでに定義した三つの演算の間には、二つの重要な恒等式が成り立つ。どちらも「二度作用させるとゼロになる」という形をしている。</p>
-<h4 id="761-mathblock3547placeholder">7.6.1 $\mathrm{rot}(\mathrm{grad}\,f) = \mathbf{0}$</h4>
+<h4 id="761-math3547">7.6.1 $\mathrm{rot}(\mathrm{grad}\,f) = \mathbf{0}$</h4>
 <p>勾配でベクトル場を得て、その回転をとると必ずゼロベクトルになる。</p>
 <p>$$\nabla \times (\nabla f) = \begin{pmatrix}
 \frac{\partial}{\partial y}\frac{\partial f}{\partial z} - \frac{\partial}{\partial z}\frac{\partial f}{\partial y} \\[0.5em]
@@ -3125,7 +3119,7 @@ F_x \\ F_y \\ F_z
 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$$</p>
 <p>各成分で、偏微分の順序交換 $\frac{\partial^2 f}{\partial y\partial z} = \frac{\partial^2 f}{\partial z\partial y}$ により打ち消し合う。これは $f$ がなめらか（二階連続微分可能）であれば常に成り立つ。</p>
 <p>物理的意味：「勾配場には渦がない」。重力場や静電場がこれに当たる。</p>
-<h4 id="762-mathblock3550placeholder">7.6.2 $\mathrm{div}(\mathrm{rot}\,\mathbf{F}) = 0$</h4>
+<h4 id="762-math3550">7.6.2 $\mathrm{div}(\mathrm{rot}\,\mathbf{F}) = 0$</h4>
 <p>回転でベクトル場を得て、その発散をとると必ずゼロになる。</p>
 <p>$$\nabla \cdot (\nabla \times \mathbf{F}) = \frac{\partial}{\partial x}\!\left(\frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z}\right) + \frac{\partial}{\partial y}\!\left(\frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x}\right) + \frac{\partial}{\partial z}\!\left(\frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y}\right)$$</p>
 <p>展開すると、$\frac{\partial^2 F_z}{\partial x\partial y}$ と $-\frac{\partial^2 F_z}{\partial y\partial x}$ のように、やはり偏微分の順序交換により項がペアで打ち消し合い、総和は $0$ になる。</p>
@@ -3248,7 +3242,7 @@ F_x \\ F_y \\ F_z
 <p>本章は、この本の<strong>ハイライト</strong>である。しかし、その実あっさりと、これまでのどの章よりも短くなる。そのために第1章から第7章までの入念な準備があった——行列、ウェッジ積、外微分、計量、ホッジ・スター、そしてベクトル解析。これらの道具がすべて揃っているからこそ、本章ではただ「翻訳する」だけで、二つの世界が一つの絵に収まる。我々は二つの言語を手に入れた——測定器の微分（$d$）と、場の微分（$\nabla$）。この二つは、やっていることが根本的に違う。しかし積分を通じて繋がるとき、まったく同じ結果を与える。その仕組みを、これから徹底的に掘り下げる。</p>
 <hr />
 <h3 id="81">§8.1 二つの微分、二つの世界</h3>
-<h4 id="811-mathblock3652placeholder">8.1.1 測定器に微分を乗せる——$d$ の立場</h4>
+<h4 id="811-math3652">8.1.1 測定器に微分を乗せる——$d$ の立場</h4>
 <p>第1章以来、我々は $dx = \begin{pmatrix}1&0&0\end{pmatrix}$, $dy = \begin{pmatrix}0&1&0\end{pmatrix}$, $dz = \begin{pmatrix}0&0&1\end{pmatrix}$ を横ベクトルの測定器として扱ってきた。これらは縦ベクトル（変位）を食わせると、その方向の変位量をスカラーで返す。</p>
 <p>外微分 $d$ は、この測定器に<strong>微分を乗せる</strong>操作である。</p>
 <p>$f(x,y,z)$ がスカラー場のとき、$df$ は $f$ の変化を測る新しい測定器だ。各偏微分係数を成分として持つ横ベクトルになる。</p>
@@ -3258,7 +3252,7 @@ F_x \\ F_y \\ F_z
 <p>$\eta = A\,dy\wedge dz + B\,dz\wedge dx + C\,dx\wedge dy$ が $2$-form のとき、$d\eta$ は $3$-form（三階反対称テンソル）になる。</p>
 <p>$$d\eta = \left(\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z}\right) dx\wedge dy\wedge dz$$</p>
 <p>このように、$d$ が作用するたびに測定器の次数が $0\to1\to2\to3$ と一つずつ上がっていく。核心は<strong>場はそのまま、測定器の側が変化する</strong>ことだ。$f$ はスカラー場のままだが、$d$ が作用するたびに新しい測定器——$df$（$1$-form）、$d\omega$（$2$-form）、$d\eta$（$3$-form）——が生み出される。</p>
-<h4 id="812-mathblock3679placeholder">8.1.2 測定器はそのまま、新たな場を考える——$\nabla$ の立場</h4>
+<h4 id="812-math3679">8.1.2 測定器はそのまま、新たな場を考える——$\nabla$ の立場</h4>
 <p>一方、第7章で導入した $\nabla = \begin{pmatrix} \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \end{pmatrix}^T$ の世界では、<strong>測定器（$\nabla$）は変わらず、作用する相手に応じて新たな場が生まれる</strong>。$\nabla$ はつねに同じ演算子だが、スカラー場 $f$ に作用すればベクトル場 $\nabla f$ を、ベクトル場 $\mathbf{F}$ に作用すればスカラー場 $\nabla\cdot\mathbf{F}$ やベクトル場 $\nabla\times\mathbf{F}$ を返す。</p>
 <p>スカラー場 $f(x,y,z)$ に $\nabla$ を作用させると、各方向の変化率を成分とする縦ベクトル場が得られる。</p>
 <p>$$\nabla f = \begin{pmatrix} \frac{\partial f}{\partial x} \\[0.3em] \frac{\partial f}{\partial y} \\[0.3em] \frac{\partial f}{\partial z} \end{pmatrix}$$</p>
@@ -3349,7 +3343,7 @@ $$</p>
 <hr />
 <h3 id="83">§8.3 ストークスの定理を翻訳する</h3>
 <p>第5章 §4.6 で、我々はすでに $\int_{\partial S}\omega = \int_S d\omega$ という形のストークスの定理を導いた。第7章 §6.8.1 では、同じ定理を $\nabla$ の言葉で $\oint_C \mathbf{F}\cdot d\mathbf{r} = \iint_S (\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS$ と書いた。この二つが同じものであることを、§8.2 の辞書を使って確認する。</p>
-<h4 id="831-mathblock3764placeholder-mathblock3765placeholder">8.3.1 $\nabla$ から $d$ へ</h4>
+<h4 id="831-math3764-math3765">8.3.1 $\nabla$ から $d$ へ</h4>
 <p>$\nabla$ 表記のストークスの定理を出発点とする。</p>
 <p>$$\oint_C \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdot \mathbf{n}\,dS$$</p>
 <p>左辺の $\oint_C \mathbf{F}\cdot d\mathbf{r}$ は、ベクトル場 $\mathbf{F}$ を曲線 $C$ に沿って線積分したものだ。$\mathbf{F}$ に対応する $1$-form を $\omega = F_x\,dx + F_y\,dy + F_z\,dz$ とすれば、第3章の定義によりこれは $\int_C \omega$ に等しい。</p>
@@ -3562,7 +3556,7 @@ d\ast\tilde{\omega} &= \left(\frac{\partial}{\partial r}(r F_r) + \frac{\partial
 </ol>
 <p>以下、この手順を円柱座標と球座標で実演する。</p>
 <hr />
-<h3 id="92-mathblock3996placeholder">§9.2 円柱座標 $(r,\theta,z)$</h3>
+<h3 id="92-math3996">§9.2 円柱座標 $(r,\theta,z)$</h3>
 <h4 id="921">9.2.1 辞書の導出</h4>
 <p>円柱座標への変換は $x = r\cos\theta$, $y = r\sin\theta$, $z = z$。</p>
 <p>$$J = \begin{pmatrix}
@@ -3612,7 +3606,7 @@ d\ast\omega &= \left(\frac{\partial}{\partial r}(rF_r) + \frac{\partial F_\theta
 \end{pmatrix}$$</p>
 <p>$r$ が $\frac{\partial}{\partial r}$ の内側と外側に現れる構造は、§7.6.2 の方法②で扇形の面積要素を数えたときの $\frac{1}{r}$ とまったく同じ起源を持つ。</p>
 <hr />
-<h3 id="93-mathblock4042placeholder">§9.3 球座標 $(\rho,\theta,\phi)$</h3>
+<h3 id="93-math4042">§9.3 球座標 $(\rho,\theta,\phi)$</h3>
 <h4 id="931">9.3.1 辞書の導出</h4>
 <p>球座標への変換は $x = \rho\sin\theta\cos\phi$, $y = \rho\sin\theta\sin\phi$, $z = \rho\cos\theta$（$\theta$ は $z$ 軸からの角度、$\phi$ は $xy$ 平面内の方位角）。</p>
 <p>$$J = \begin{pmatrix}
@@ -3761,7 +3755,7 @@ C_\phi &= \frac{1}{\rho}\frac{\partial}{\partial\rho}(\rho F_\theta) - \frac{1}{
 <p>以上である。4本が2本に——この簡潔さをもって「美しい」と讃えるのが、微分形式の教科書の定番の幕引きだ。</p>
 <p>しかし、本書はここで終わらない。$F$ の中身は何なのか。$dF=0$ を成分で展開すると、本当に $\mathrm{rot}\,\mathbf{E} = -\frac{\partial\mathbf{B}}{\partial t}$ と $\mathrm{div}\,\mathbf{B} = 0$ が出てくるのか。それを、この章で全部書き下す。</p>
 <hr />
-<h3 id="102-mathblock4167placeholder">§10.2 $F$ の中身——行列で全部書く</h3>
+<h3 id="102-math4167">§10.2 $F$ の中身——行列で全部書く</h3>
 <p>電磁場 $F$ は $2$-form である。第2章以来、$2$-form は反対称行列で表示できることを知っている。$F$ も例外ではない——ただし、時間も含めた4次元時空で考えるため、$F$ は $4\times4$ の反対称行列になる。</p>
 <p>時間座標を $t$（ただしこれは §10.1 で変換した $w=ct$ を改名したものであり、元のSI単位系の $t$ ではない）、空間座標を $x,y,z$ とする。§10.1 の変換により、$F$ の成分は次のようになる。</p>
 <p>$$F = \begin{pmatrix}
@@ -3790,7 +3784,7 @@ $$
 である。通常は $\partial_\mu A_\nu-\partial_\nu A_\mu$ と略記されるが、本書では不要な略記法を避ける。符号が逆の流儀もあるが、本章ではこの規約に従う。</p>
 </blockquote>
 <hr />
-<h3 id="103-mathblock4195placeholder-4">§10.3 ミンコフスキー計量——$\mathbb{R}^3$ から4次元へ</h3>
+<h3 id="103-math4195-4">§10.3 ミンコフスキー計量——$\mathbb{R}^3$ から4次元へ</h3>
 <p>本書は一貫して $\mathbb{R}^3$ のデカルト座標 $(x,y,z)$ を舞台にしてきた。しかし $F$ を扱うには、時間 $t$ を加えた4次元時空 $(t,x,y,z)$ が必要になる。</p>
 <p>幸い、ここまでに積み上げた知識があれば、拡張は容易だ。第6章で $\mathbf{g} = J^T J$ を導出し、第9章で $\mathbf{g}$ から $\ast$ の辞書を作る手順を練習した。時空でも同じことをすればよい。計量は次のようになる（時間成分の符号が空間成分と異なる点が唯一の新しい要素だ）。</p>
 <p>$$\mathbf{g} = \begin{pmatrix}
@@ -3804,7 +3798,7 @@ $$
 </blockquote>
 <p>行と列の順は $(t,x,y,z)$。空間部分（右下の$3\times3$）は単位行列であり、これまでの $\mathbb{R}^3$ の計量そのものだ。時間成分の $-1$ が $\ast$ の辞書に符号の変化をもたらすが、それは §10.5 で $\ast F$ の行列表示として結果を受け取れば十分である。</p>
 <hr />
-<h3 id="104-mathblock4215placeholder">§10.4 $dF=0$ を全部書き下す</h3>
+<h3 id="104-math4215">§10.4 $dF=0$ を全部書き下す</h3>
 <p>$F$ は $2$-form だから、$dF$ は $3$-form になる。4次元空間での $3$-form の独立成分は4つ。$F$ の全6項について $d$ を作用させ、同じ基底 $3$-form の係数をまとめる。</p>
 <p>$F$ の6項を形式で書く。</p>
 <p>$$F = E_x\,dt\wedge dx + E_y\,dt\wedge dy + E_z\,dt\wedge dz + B_x\,dy\wedge dz + B_y\,dz\wedge dx + B_z\,dx\wedge dy$$</p>
@@ -3830,7 +3824,7 @@ d(B_z\,dx\wedge dy) &= \frac{\partial B_z}{\partial t}\,dt\wedge dx\wedge dy + \
 \end{cases}$$</p>
 <p>1行目は $\mathrm{div}\,\mathbf{B} = 0$、2〜4行目は $\mathrm{rot}\,\mathbf{E} = -\frac{\partial\mathbf{B}}{\partial t}$ の各成分にほかならない。</p>
 <hr />
-<h3 id="105-mathblock4237placeholder-2">§10.5 $\ast F$ と残りの2本</h3>
+<h3 id="105-math4237-2">§10.5 $\ast F$ と残りの2本</h3>
 <p>もう一つの式 $d(\ast F) = \mu_0(\ast\mathcal{J})$ も、§10.4 と同じ手順で全部書き下す。</p>
 <p>まず $\ast F$ を求める。$\ast$ は4次元時空の計量に依存するが、特殊相対論の平坦な時空（計量は時間成分だけ符号が異なる）では、$\ast F$ は §10.2 の $F$ で $\mathbf{E}$ と $\mathbf{B}$ を入れ替えた形になる。行列表示は次の通りだ。</p>
 <p>$$\ast F = \begin{pmatrix}
@@ -3882,7 +3876,7 @@ d(\ast F) = &\left(\frac{\partial B_x}{\partial y} - \frac{\partial B_y}{\partia
 <p><strong>注</strong> （なぜここで終わるのか）多くの教科書は $dF=0$ を示した時点で「かくしてマクスウェル方程式は幾何学である」と締める。しかし本書の流儀は違う。行列の成分を全部書き下し、$d$ と $\ast$ の辞書を通じてベクトル解析の式を再現する——その往復ができることこそ、第1章から積み上げてきた「測定器」の枠組みの到達点だ。</p>
 </blockquote>
 <hr />
-<h3 id="106-mathblock4304placeholder">§10.6 ポテンシャル構成——$F=-dA$ から始める</h3>
+<h3 id="106-math4304">§10.6 ポテンシャル構成——$F=-dA$ から始める</h3>
 <p>§10.2 では $F$ を「$\mathbf{E}$ と $\mathbf{B}$ の寄せ集め」として天下り的に定義した。しかし実は、$F$ はもっと根源的な量——<strong>4元ポテンシャル $A$</strong>——から機械的に導かれる。こちらが出発点として自然なのは、<strong>$dF=0$ が「$dd=0$」の一言で証明される</strong>からだ。</p>
 <p>4元ポテンシャル $A$ は $1$-form である。電磁気学ではスカラーポテンシャル $\phi$ とベクトルポテンシャル $\mathbf{A} = (A_x, A_y, A_z)$ が組になる。時間成分の符号に注意して（§10.3 の計量の時間成分が $-1$ であることの反映）、</p>
 <p>$$A = -\phi\,dt + A_x\,dx + A_y\,dy + A_z\,dz$$</p>
@@ -3914,7 +3908,7 @@ dA &= \left(\frac{\partial\phi}{\partial x} + \frac{\partial A_x}{\partial t}\ri
 <blockquote>
 <p><strong>注</strong> （$F$ の符号規約）$F = -dA$ という定義は、§10.2 の $F$ の行列表示（$F_{tx}=-E_x$）と整合するように選んだものである。$F = +dA$、$A = +\phi\,dt + \cdots$ など、異なる符号の組み合わせを使う流儀も存在する。本章では、§10.2 の $F$ の行列と $\mathbf{E} = -\nabla\phi - \partial\mathbf{A}/\partial t$ が整合する規約として $F=-dA$ を採用している。</p>
 </blockquote>
-<h4 id="mathblock4373placeholder-mathblock4374placeholder">$dd=0$ が $dF=0$ を証明する</h4>
+<h4 id="math4373-math4374">$dd=0$ が $dF=0$ を証明する</h4>
 <p>§10.4 の主結果——$dF=0$ が $\mathrm{div}\,\mathbf{B}=0$ と $\mathrm{rot}\,\mathbf{E}=-\partial\mathbf{B}/\partial t$ に等しい——の証明は一瞬である。$F=-dA$ だから、</p>
 <p>$$dF = d(-dA) = -d(dA) = 0$$</p>
 <p>$dd=0$ は第5章 §4.4 で証明した外微分の基本性質だ。$F$ が「何かの外微分」（定数倍を除いて）で書ける以上、その外微分は自動的にゼロになる。§10.4 で4つの基底 $3$-form の係数をゼロとおいて得た4本の式は、すべてこの一行に集約されている。</p>
@@ -3935,9 +3929,9 @@ dA &= \left(\frac{\partial\phi}{\partial x} + \frac{\partial A_x}{\partial t}\ri
 - <strong>ポテンシャル構成</strong>：$A = -\phi\,dt + A_x\,dx + A_y\,dy + A_z\,dz$ から $F=-dA$（§10.2 の行列規約と整合）。$dF=0$ は $dd=0$ より自動的。$\mathbf{E}=-\nabla\phi-\partial\mathbf{A}/\partial t$ が自然に出る。</p>
 </blockquote>
 <hr />
-<h2 id="emathblock4420placeholder-mathblock4421placeholder-mathblock4422placeholder">付録E：$dF$ と $d(\ast F)$ のスライス行列表示 —— $4\times4\times4$ 配列で見るマクスウェル方程式</h2>
+<h2 id="emath4420-math4421-math4422">付録E：$dF$ と $d(\ast F)$ のスライス行列表示 —— $4\times4\times4$ 配列で見るマクスウェル方程式</h2>
 <p>§10.4・§10.5 では $dF$ と $d(\ast F)$ を基底 $3$-form の係数として展開した。付録Eでは、同じ計算を <strong>$4\times4$ スライス行列の束</strong>——実質的には $4\times4\times4$ の3階テンソル——で可視化する。付録Aの延長線上にあり、本書の「全部行列に載せる」流儀の到達点でもある。</p>
-<h3 id="e1-mathblock4428placeholder-form-16">E.1 基底 $3$-form とそのスライス行列 —— 全16枚</h3>
+<h3 id="e1-math4428-form-16">E.1 基底 $3$-form とそのスライス行列 —— 全16枚</h3>
 <p>4次元の基底 $3$-form は次の4つである（§10.4 の並びと比べると、$\omega_2$ と $\omega_3$ の符号・順序が異なるが、内容は同じ4つである）。</p>
 <p>$$
 \omega_1 = dt\wedge dx\wedge dy,\qquad
@@ -3975,7 +3969,7 @@ $$</p>
 \mathbf{S}_{z}^{(\omega_4)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&-1&0\\[2pt]0&1&0&0\\[2pt]0&0&0&0\end{pmatrix}
 $$</p>
 <p>16枚のうち、$\mathbf{S}_{z}^{(\omega_1)}, \mathbf{S}_{y}^{(\omega_2)}, \mathbf{S}_{x}^{(\omega_3)}, \mathbf{S}_{t}^{(\omega_4)}$ の4枚はゼロ行列である。残る12枚に $\pm1$ が一つずつ（と反対称のペアが一つずつ）入っている。これが $4\times4\times4$ テンソルの正体だ。</p>
-<h3 id="e2-mathblock4451placeholder">E.2 $dF$ をスライス行列で書く</h3>
+<h3 id="e2-math4451">E.2 $dF$ をスライス行列で書く</h3>
 <p>§10.4 の展開により、$dF$ の各基底係数は次で与えられる（$c$ を含まない正規化された系）。</p>
 <p>$$
 \begin{aligned}
@@ -4045,7 +4039,7 @@ A_{txy} = \mathbf{S}_{t}^{(\omega_1)} \cdot \mathbf{S}_{t}^{(dF)}
 $$</p>
 <p>である。$\mathbf{S}_{t}^{(\omega_1)}$ の非ゼロ成分は $(x,y)=+1, (y,x)=-1$ だけなので、フロベニウス積は $(1 \cdot S_{xy} + (-1) \cdot S_{yx})/2 = (S_{xy} - S_{yx})/2 = S_{xy}$（$\mathbf{S}_{t}^{(dF)}$ が反対称だから $S_{yx}=-S_{xy}$）。一発で係数が抜ける。</p>
 <p>同様に、<strong>すべての係数は対応する基底スライスとのフロベニウス積で得られる</strong>。この構造は、第6章付録D で $\ast_{2\to1}(\mathbf{M}) = (E_1\!\cdot\!\mathbf{M},\;E_2\!\cdot\!\mathbf{M},\;E_3\!\cdot\!\mathbf{M})$ が $2$-form $\mathbf{M}$ の各成分を抽出したのと完全に相似である。次数が $1\to2$ から $2\to3$ に上がり、内積をとる相手が縦ベクトルから $4\times4$ 行列の束に変わっただけだ。</p>
-<h3 id="e4-mathblock4478placeholder">E.4 $dF=0$ をスライスで読む</h3>
+<h3 id="e4-math4478">E.4 $dF=0$ をスライスで読む</h3>
 <p>$dF=0$ とは、4枚のスライス行列すべてがゼロ行列になることである。</p>
 <p>$$
 \mathbf{S}_{t}^{(dF)} = \mathbf{0},\quad
@@ -4058,7 +4052,7 @@ $$</p>
 - $(x,z)$ 成分 $=0$ から $-\mathrm{rot}_y\,\mathbf{E} - \partial B_y/\partial t = 0$
 - $(y,z)$ 成分 $=0$ から $\mathrm{rot}_x\,\mathbf{E} + \partial B_x/\partial t = 0$</p>
 <p>これら3つは $\mathrm{rot}\,\mathbf{E} = -\partial\mathbf{B}/\partial t$ にほかならない。$z$-スライス（$\mathbf{S}_{z}^{(\omega_4)}$ 由来）の非ゼロ成分からは $\mathrm{div}\,\mathbf{B} = 0$ が現れる。見かけは巨大だが、中身は §10.4 の4本の係数比較式の繰り返しにすぎない。</p>
-<h3 id="e5-mathblock4494placeholder">E.5 $d(\ast F) = \mu_0(\ast\mathcal{J})$ のスライス表示</h3>
+<h3 id="e5-math4494">E.5 $d(\ast F) = \mu_0(\ast\mathcal{J})$ のスライス表示</h3>
 <p>有源側も同型の構造を持つ。$\ast F$ と $\ast\mathcal{J}$ は §10.5 で展開済みであり、$d(\ast F)$ は $dF$ と同型のスライス行列になる——$\mathbf{E}$ と $\mathbf{B}$ の係数位置が入れ替わるだけだ。</p>
 <p>$d(\ast F)$ の $\omega_1\sim\omega_4$ 係数を $B_{txy}, B_{txz}, B_{tyz}, B_{xyz}$ と書く。</p>
 <p>$$
@@ -4139,7 +4133,7 @@ $$</p>
 つまり本書は、「微分形式の幾何学的直感」と「テンソル解析の計算力」の両方を手に入れるための、中間的なアプローチだったのだ。
 ——ただし、どちらの伝統から見ても中途半端な側面は否めない。</p>
 </blockquote>
-<h3 id="111-mathblock4533placeholder">§11.1 多様体 —— $\mathbf{g}(x)$ から始める</h3>
+<h3 id="111-math4533">§11.1 多様体 —— $\mathbf{g}(x)$ から始める</h3>
 <p>本書では第6章で計量 $\mathbf{g}$ を導入し、第9章で $\mathbf{g}$ から $\ast$ の辞書を作る手順を練習した。いずれも $\mathbf{g}$ は場所に依存しない定数行列だった。では、計量が場所ごとに異なる行列 $\mathbf{g}(x,y,z)$ になったら何が起きるか。</p>
 <p>$\ast$ の辞書は $\mathbf{g}$ から作られる。$\mathbf{g}$ が場所ごとに変われば、$\ast$ の辞書も場所ごとに変わる。$dx \mapsto \ast(dx) = \cdots\,dy\wedge dz$ という対応表が、空間の各点で異なる係数を持つようになるのだ。</p>
 <p>この「各点で計量 $\mathbf{g}(p)$ を持ち、その計量から各点の $\ast$ を作る」という見方は、リーマン多様体へ進むための最初の模型である。平たい $\mathbb{R}^3$ では $\mathbf{g}$ が単位行列だったから $\ast$ の辞書は至って単純だった。一般の座標表示では、$\mathbf{g}$ はもはや単位行列とは限らず、場所の関数として現れる。それでも $\mathbf{g}$ から $\ast$ の辞書を書き下す手順そのものは、第9章でやったのと同じだ——ただ毎回、各点で辞書を引き直す必要があるだけである。</p>
@@ -4184,7 +4178,7 @@ $$</p>
 <p>で定義される。$df_p: T_p M \to T_{f(p)} N$ は $f$ の微分（接写像）である。本書第3章で座標変換のヤコビアンとして計算した引き戻しは、この一般公式において $f$ をチャート間の座標変換とし、局所座標で成分表示したものに一致する。</p>
 <p>本書が一貫して使ってきた「$dx$ は横ベクトル」という記法は、実は多様体論の標準言語では $dx^i$ たちが余接空間の基底であるという事実にほかならない。$\omega = \sum_i \omega_i\,dx^i$ と書いたとき、係数 $\omega_i$ は本書の言葉では「横ベクトルの第 $i$ 成分」であり、多様体論の言葉では「1-form の局所座標に関する成分」である。$\omega(v) = \sum_i \omega_i\,dx^i(v) = \sum_i \omega_i v^i$ という計算は、本書第1章の行列の積 $\begin{pmatrix}\omega_1&\omega_2&\omega_3\end{pmatrix}\begin{pmatrix}v^1\\v^2\\v^3\end{pmatrix}$ に完全に対応する。</p>
 <p>この双対性は高次の形式にも拡張される。本書第2章で $k$-form を行列（$k=1$ では横ベクトル、$k=2$ では反対称行列、$k=3$ では反対称3階テンソル）で表示したのは、交代多重線形写像としての $k$-form の成分表示にほかならない。付録Eで $4\times4\times4$ のスライス行列を扱ったとき、我々はすでに多様体上の3-form の成分計算を実践していたのだ。</p>
-<h4 id="1114-mathblock4665placeholder">11.1.4 外微分 $d$ —— 多様体上で変わらないもの</h4>
+<h4 id="1114-math4665">11.1.4 外微分 $d$ —— 多様体上で変わらないもの</h4>
 <p>外微分 $d$ は、多様体上で<strong>計量を一切使わずに</strong>定義できる数少ない微分演算子の一つである。$k$-form $\omega$ に対し、$d\omega$ は $(k+1)$-form であり、その定義は本書第5章で偏微分とウェッジ積の組み合わせとして学んだものと完全に一致する。</p>
 <p>外微分 $d$ は、$\Omega^k(M)$ から $\Omega^{k+1}(M)$ への線形作用素であり、関数に対して通常の全微分を与え、次数付きライプニッツ則を満たし、局所座標では偏微分とウェッジ積によって与えられる。この作用素について $d^2 = 0$ が成り立つ。計量はどこにも登場しない。曲がっていようがいまいが、$d$ は本書で慣れ親しんだ計算規則をそのまま使える。</p>
 <p>この普遍性こそが微分形式の最大の武器であり、<strong>ストークスの定理</strong></p>
@@ -4405,7 +4399,7 @@ $$</p>
 </blockquote>
 <hr />
 <h3 id="123">§12.3 ディラック演算子と真のナブラ</h3>
-<h4 id="1231-mathblock4928placeholder">12.3.1 $\bm{\sigma}\!\cdot\!\nabla$ —— すべてを統合する演算子</h4>
+<h4 id="1231-math4928">12.3.1 $\bm{\sigma}\!\cdot\!\nabla$ —— すべてを統合する演算子</h4>
 <p>パウリ行列とナブラ $\nabla = (\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z})$ を組み合わせて、次の演算子を定義する。</p>
 <p>$$D = \sigma_1\frac{\partial}{\partial x} + \sigma_2\frac{\partial}{\partial y} + \sigma_3\frac{\partial}{\partial z} = \bm{\sigma}\!\cdot\!\nabla$$</p>
 <p>$D$ は $2\times2$ 行列の形をした微分演算子である。これをスカラー場 $\varphi$ に作用させてみよう。</p>
@@ -4435,7 +4429,7 @@ $$</p>
 <blockquote>
 <p><strong>注</strong> （$d$ と $\ast$ で書くと）$D$ は本書の言葉でも表現できる。符号規約を別にすれば、$D$ は $d$（次数を上げる）と $\ast d\ast$（次数を下げる）を合わせた演算子として理解できる。$\ast d\ast$ は<strong>余微分（codifferential）</strong> $\delta$ と呼ばれ、$\delta = \pm\ast d\ast$（符号は次元と次数に依存）と定義される。ここでは厳密な符号には立ち入らず、$D \sim d + \delta$ という構造だけを押さえておく。$d$ が次数を上げ、$\delta$ が次数を下げる——この二つを足した $D$ が、grad・rot・div を一つの演算子に束ねているのだ。</p>
 </blockquote>
-<h4 id="1232-mathblock4970placeholder">12.3.2 $D^2$ —— ラプラシアン</h4>
+<h4 id="1232-math4970">12.3.2 $D^2$ —— ラプラシアン</h4>
 <p>さらに $D$ を二度作用させるとどうなるか。</p>
 <p>$$D^2 = (\bm{\sigma}\!\cdot\!\nabla)(\bm{\sigma}\!\cdot\!\nabla) = (\sigma_1\frac{\partial}{\partial x} + \sigma_2\frac{\partial}{\partial y} + \sigma_3\frac{\partial}{\partial z})(\sigma_1\frac{\partial}{\partial x} + \sigma_2\frac{\partial}{\partial y} + \sigma_3\frac{\partial}{\partial z})$$</p>
 <p>9項に展開する。</p>
@@ -4474,7 +4468,7 @@ $$</p>
 <p>これらをゼロとおけば、真空のマクスウェル方程式4本がすべて現れる。電流 $\mathbf{J}$ と電荷 $\rho$ がある場合は、右辺に $\rho + \mathbf{J}\!\cdot\!\bm{\sigma}$ を置けばよい。</p>
 <p>$$(D + \frac{\partial}{\partial t})F = \rho + \mathbf{J}\!\cdot\!\bm{\sigma}$$</p>
 <p>$dF=0$ と $d(\ast F)=\mu_0(\ast\mathcal{J})$ の2本が、$D$ の前ではたった一本の複素方程式に統合された。§12.1 の4次元トリックが特殊な次元に依存していたのに対し、こちらは $D$ という統合された演算子そのものが統合を実現している。</p>
-<h4 id="1234-mathblock5002placeholder-4">12.3.4 $\cancel{\partial} F = J$ —— 4次元時空のディラック演算子</h4>
+<h4 id="1234-math5002-4">12.3.4 $\cancel{\partial} F = J$ —— 4次元時空のディラック演算子</h4>
 <p>§12.3.3 の $(D + \frac{\partial}{\partial t})F = \rho + \mathbf{J}\!\cdot\!\bm{\sigma}$ には、時間と空間が分離して現れている。これは3次元のパウリ行列 $\sigma_1,\sigma_2,\sigma_3$ をベースに組み立てたからだ。4次元時空を最初から扱えば、この分離すら消える。</p>
 <p>パウリ行列を $4\times4$ に拡張したものが<strong>ガンマ行列</strong> $\gamma^0,\gamma^1,\gamma^2,\gamma^3$ である。これらは反可換性 $\gamma^\mu\gamma^\nu + \gamma^\nu\gamma^\mu = 2g^{\mu\nu}I$ を満たす（$g^{\mu\nu}$ はミンコフスキー計量）。このガンマ行列を用いて、4次元のディラック演算子を</p>
 <p>$$\cancel{\partial} = \gamma^0\frac{\partial}{\partial t} + \gamma^1\frac{\partial}{\partial x} + \gamma^2\frac{\partial}{\partial y} + \gamma^3\frac{\partial}{\partial z}$$</p>
@@ -4485,7 +4479,7 @@ $$</p>
 <p><strong>注</strong> （$\cancel{\partial} F$ の積について）ここでの積は通常の行列積ではなく、ガンマ行列が生成する幾何代数の積である。第10章の反対称行列 $F$ は、ここでは $\gamma^\mu\!\wedge\!\gamma^\nu$ で展開された2-vectorとして再解釈される。細部は幾何代数の教科書に譲るが、$\sigma_i\sigma_j = \delta_{ij}I + i\varepsilon_{ijk}\sigma_k$（11.2.1）の4次元版がここでも成り立っていると考えればよい。</p>
 </blockquote>
 <p>§12.1 の $F + i\ast F$ も、§12.3.3 の $(D + \frac{\partial}{\partial t})F$ も、すべてこの一行に吸収される。これが、$\nabla$ の解体から始まった旅の、最も遠くにある風景である。ディラックが1928年に電子の方程式を導くために発見したこの演算子は、時空の幾何と物理法則を一つの代数で記述する<strong>幾何代数（Geometric Algebra）</strong>の核であり、Doran &amp; Lasenby の Geometric Algebra for Physicists に詳しい。</p>
-<h3 id="124-mathblock5023placeholder">§12.4 演算子$\nabla$</h3>
+<h3 id="124-math5023">§12.4 演算子$\nabla$</h3>
 <p>さあ、ここで最初の問いに戻ろう。$\nabla$ とは何だったのか。</p>
 <p>ベクトル解析では、$\nabla$ は「偏微分を並べた形式的なベクトル」として導入され、grad・rot・div の三つの顔を持つ謎めいた記号だった。本書はそれを $d$ と $\ast$ に<strong>解体</strong>することで、各演算の正体を明らかにしてきた。</p>
 <p>そして今、これを逆方向に辿り、$d$ と $\ast$ というバラバラだった部品が、幾何代数の中で3次元のディラック演算子$D = \bm{\sigma}\!\cdot\!\nabla$ として<strong>統合</strong>され、更にその4次元版のディラック演算子$\cancel{\partial}$が究極のマクスウェル方程式$\cancel{\partial} F = J$を与えた。</p>
