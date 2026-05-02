@@ -14,10 +14,23 @@ MATHJAX_CONFIG = '''window.MathJax = {
   tex: {
     inlineMath: [['$', '$']],
     displayMath: [['$$', '$$']],
-    processEscapes: false,
-    packages: { '[+]': ['bm'] }
+    processEscapes: true,
+    packages: {'[+]': ['bm']}
   },
-  options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+  options: {
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  },
+  startup: {
+    ready: () => {
+      console.log('MathJax is loaded and ready');
+      MathJax.startup.defaultReady();
+      MathJax.startup.promise.then(() => {
+        console.log('MathJax initial typesetting complete');
+      });
+    }
+  }
 };
 '''
 
@@ -70,17 +83,17 @@ class MathProtector:
 
     def protect(self, text):
         """Replace math with placeholders and store original content."""
-        counter = [0]
-
         def replace_display(match):
             idx = len(self.math_blocks)
-            self.math_blocks.append(match.group(0))
-            return f'MATH_BLOCK_{idx}_END'
+            content = match.group(0)
+            self.math_blocks.append(content)
+            # Use a unique class to ensure MathJax processes it
+            return f'\n\n<div class="math-block tex2jax_process">MATH_BLOCK_{idx}_END</div>\n\n'
 
         def replace_inline(match):
             idx = len(self.inline_math)
             self.inline_math.append(match.group(0))
-            return f'INLINE_MATH_{idx}_END'
+            return f'<span class="tex2jax_process">INLINE_MATH_{idx}_END</span>'
 
         text = re.sub(r'\$\$[\s\S]+?\$\$', replace_display, text)
         text = re.sub(r'(?<!\\)\$[^$\n]+?(?<!\\)\$', replace_inline, text)
