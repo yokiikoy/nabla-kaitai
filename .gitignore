@@ -14,5 +14,13 @@ __pycache__/
 # Build intermediates
 build/
 
+# LaTeX intermediates
+exports/*.aux
+exports/*.log
+exports/*.toc
+exports/*.fls
+exports/*.fdb_latexmk
+exports/manuscript.html
+
 # Reference materials (large PDFs and OCR markdown)
 reference/
