@@ -9,11 +9,10 @@
   :root { --sidebar-width: 320px; }
   body { margin: 0; display: flex; background: #fff; line-height: 1.7; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
   .sidebar { width: var(--sidebar-width); height: 100vh; position: sticky; top: 0; background: #f8f9fa; border-right: 1px solid #d0d7de; overflow-y: auto; padding: 1.5rem; box-sizing: border-box; flex-shrink: 0; }
-  .sidebar h2 { font-size: 1.2rem; border: none; margin-bottom: 1rem; color: #24292f; }
+  .sidebar h2 { font-size: 1.1rem; border: none; margin-bottom: 1rem; color: #24292f; }
   .sidebar .toc { font-size: 0.85rem; }
   .sidebar .toc ul { list-style: none; padding-left: 1rem; }
   .sidebar a { text-decoration: none; color: #0969da; }
-  .sidebar a:hover { text-decoration: underline; }
   .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; }
   .markdown-body { max-width: 850px; margin: 0 auto; }
   @media (max-width: 900px) { body { flex-direction: column; } .sidebar { width: 100%; height: auto; position: static; } .main-content { padding: 1.5rem; } }
@@ -22,14 +21,14 @@
 </style>
 <script>
 window.MathJax = {
+  loader: { load: ['[tex]/bm'] },
   tex: {
     inlineMath: [['$', '$']],
     displayMath: [['$$', '$$']],
-    processEscapes: false
+    processEscapes: false,
+    packages: { '[+]': ['bm'] }
   },
-  options: {
-    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-  }
+  options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
 };
 </script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -868,6 +867,7 @@ window.MathJax = {
 </blockquote>
 <p>本章では<strong>積分と <strong><em>MATH</em>INLINE_963</strong>_ の具体例</strong>の主線として <strong><em>MATH</em>INLINE_964</strong><em> 方向に寄せ、<strong><em>MATH</em>INLINE_965</strong></em> は多くの場面で「断面」として抑えてきた。とはいえ、実空間での一次形式は <strong><strong><em>MATH</em>INLINE_966</strong><em>, <strong><em>MATH</em>INLINE_967</strong></em>, <strong><em>MATH</em>INLINE_968</strong>_ の三つがそろっている</strong>（§1.2.3）。
 次章では、この三つを組み合わせて<strong>面積計・体積計（<strong><em>MATH</em>INLINE_969</strong><em>-form, <strong><em>MATH</em>INLINE_970</strong></em>-form）</strong>を作る<strong>ウェッジ積（外積 <strong><em>MATH</em>INLINE_971</strong>_）</strong>を導入し、ベクトルに作用してスカラーを返す型にとどまらない<strong>高次の微分形式</strong>へと進む。曲線・曲面・領域に沿った集計（線積分・面積分・体積分）は、それらの測定器を揃えた後の章で扱う。</p>
+<!-- role: roadmap -->
 <p>その後の部では、<strong>微分演算子 <strong><em>MATH</em>INLINE_972</strong>_</strong>、<strong>ホッジスター演算子 <strong><em>MATH</em>INLINE_973</strong>_</strong>、ベクトル解析の <strong><em>MATH</em>INLINE_974</strong><em>（<strong><em>MATH</em>INLINE_975</strong></em>）、<strong><em>MATH</em>INLINE_976</strong><em>（<strong><em>MATH</em>INLINE_977</strong></em>、<strong><em>MATH</em>INLINE_978</strong><em>）、<strong><em>MATH</em>INLINE_979</strong></em>（<strong><em>MATH</em>INLINE_980</strong>_）、ストークスの定理、マクスウェル方程式や流体力学の基礎方程式へと進む。3次元での微分形式とベクトル場の対応は、ホッジスターで整理できる。</p>
 <p>3次元ユークリッド空間の真の姿を解き明かす旅へ、いざ出発しよう。</p>
 <h1 id="2">第2章：面積とは何か —— 平行多面体に潜む、符号のルール</h1>
@@ -1978,10 +1978,9 @@ window.MathJax = {
 <p><strong>【ここまでのチェックポイント】</strong>
 - <strong><em>MATH</em>INLINE_2389</strong><em> は <strong><em>MATH</em>INLINE_2390</strong></em>-form → <strong><em>MATH</em>INLINE_2391</strong><em>-form の外微分だった。<strong><em>MATH</em>INLINE_2392</strong></em>（端点のみに依存）。
 - 一般の <strong><em>MATH</em>INLINE_2393</strong><em> では閉ループで <strong><em>MATH</em>INLINE_2394</strong></em>。このズレを調べるためにループを微小化する。
-- <strong><em>MATH</em>INLINE_2395</strong><em> 平面の微小長方形では <strong><em>MATH</em>INLINE_2396</strong></em> 高次の項。ズレの主項は面積に比例する。</p>
-<ul>
-<li>この比例係数を測る <strong><em>MATH</em>INLINE_2397</strong><em>-form を <strong><em>MATH</em>INLINE_2398</strong></em> と定義する。<strong><em>MATH</em>INLINE_2399</strong>_ は次数を上げる演算子。</li>
-</ul>
+- <strong><em>MATH</em>INLINE_2395</strong><em> 平面の微小長方形では <strong><em>MATH</em>INLINE_2396</strong></em> 高次の項。ズレの主項は面積に比例する。
+<!-- concept-scope: allow(wedge_product) -->
+- この比例係数を測る <strong><em>MATH</em>INLINE_2397</strong><em>-form を <strong><em>MATH</em>INLINE_2398</strong></em> と定義する。<strong><em>MATH</em>INLINE_2399</strong>_ は次数を上げる演算子。</p>
 </blockquote>
 <hr />
 <h3 id="55-mathinline_2400_-form-3">§5.5 一般の <strong><em>MATH</em>INLINE_2400</strong>_-form の外微分——3次元への拡張</h3>
