@@ -214,15 +214,40 @@ def main():
     
     lines = full_text.split('\n')
     ch_count = 0
+    
+    # Define mapping for special sections to filenames
+    special_mapping = {
+        "おわりに": "postscript.html",
+        "参考文献": "refs.html",
+        "付録": "appendix.html"
+    }
+
     for line in lines:
-        if line.startswith('# 第'):
-            if current_chapter["content"]:
-                chapters.append(current_chapter)
-            ch_count += 1
+        if line.startswith('# '):
             title = line.lstrip('#').strip()
-            current_chapter = {"title": title, "content": [line], "filename": f"ch{ch_count:02d}.html"}
-        else:
-            current_chapter["content"].append(line)
+            
+            # Check if this is a new chapter or special section
+            is_new_section = False
+            new_filename = ""
+            
+            if title.startswith('第'):
+                ch_count += 1
+                new_filename = f"ch{ch_count:02d}.html"
+                is_new_section = True
+            else:
+                for key, fname in special_mapping.items():
+                    if key in title:
+                        new_filename = fname
+                        is_new_section = True
+                        break
+            
+            if is_new_section:
+                if current_chapter["content"]:
+                    chapters.append(current_chapter)
+                current_chapter = {"title": title, "content": [line], "filename": new_filename}
+                continue
+
+        current_chapter["content"].append(line)
     chapters.append(current_chapter)
 
     # Build TOC HTML
@@ -230,10 +255,18 @@ def main():
     toc_html_parts.append('<li><a href="index.html" id="link-index.html">まえがき</a></li>')
     for ch in chapters:
         if ch["filename"] == "index.html": continue
-        title_display = ch["title"].split('：')[0] if '：' in ch["title"] else ch["title"]
-        toc_html_parts.append(f'<li class="level-1"><a href="{ch[ "filename"]}" id="link-{ch["filename"]}">{title_display}</a></li>')
+        
+        # Display title: remove subtitle for cleaner sidebar
+        display_title = ch["title"]
+        if '：' in display_title:
+            display_title = display_title.split('：')[0]
+        elif '——' in display_title:
+            display_title = display_title.split('——')[0]
+            
+        toc_html_parts.append(f'<li class="level-1"><a href="{ch["filename"]}" id="link-{ch["filename"]}">{display_title}</a></li>')
     toc_html_parts.append("</ul>")
     toc_html = "\n".join(toc_html_parts)
+
 
     # Generate each page
     for i, ch in enumerate(chapters):
