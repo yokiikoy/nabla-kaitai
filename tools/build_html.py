@@ -10,29 +10,46 @@ from pathlib import Path
 
 
 MATHJAX_CONFIG = '''window.MathJax = {
-  loader: { load: ['[tex]/bm'] },
   tex: {
     inlineMath: [['$', '$']],
     displayMath: [['$$', '$$']],
-    processEscapes: true,
-    packages: {'[+]': ['bm']}
+    processEscapes: true
   },
   options: {
-    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
     ignoreHtmlClass: 'tex2jax_ignore',
     processHtmlClass: 'tex2jax_process'
-  },
-  startup: {
-    ready: () => {
-      console.log('MathJax is loaded and ready');
-      MathJax.startup.defaultReady();
-      MathJax.startup.promise.then(() => {
-        console.log('MathJax initial typesetting complete');
-      });
-    }
   }
 };
 '''
+
+HTML_TEMPLATE = '''<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ナブラ解体新書</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+<style>
+  :root {{ --sidebar-width: 320px; }}
+  body {{ margin: 0; display: flex; background: #fff; line-height: 1.7; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }}
+  .sidebar {{ width: var(--sidebar-width); height: 100vh; position: sticky; top: 0; background: #f8f9fa; border-right: 1px solid #d0d7de; overflow-y: auto; padding: 1.5rem; box-sizing: border-box; flex-shrink: 0; }}
+  .sidebar h2 {{ font-size: 1.2rem; border: none; margin-bottom: 1rem; color: #24292f; }}
+  .sidebar .toc {{ font-size: 0.85rem; }}
+  .sidebar .toc ul {{ list-style: none; padding-left: 1rem; }}
+  .sidebar a {{ text-decoration: none; color: #0969da; }}
+  .main-content {{ flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; }}
+  .markdown-body {{ max-width: 850px; margin: 0 auto; }}
+  @media (max-width: 900px) {{ body {{ flex-direction: column; }} .sidebar {{ width: 100%; height: auto; position: static; }} .main-content {{ padding: 1.5rem; }} }}
+  blockquote {{ border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }}
+  .mjx-container {{ overflow-x: auto !important; padding: 0.8em 0; max-width: 100%; }}
+</style>
+<script>
+{MATHJAX_CONFIG}
+</script>
+<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+'''
+
 
 HTML_TEMPLATE = '''<!DOCTYPE html>
 <html lang="ja">
