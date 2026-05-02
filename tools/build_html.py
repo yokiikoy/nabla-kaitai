@@ -125,10 +125,11 @@ def slugify(text):
     return text or 'section'
 
 def apply_inline_formatting(text):
-    """Apply markdown-style inline formatting (bold, italic, code)."""
+    """Apply markdown-style inline formatting (bold, italic, code, links)."""
     text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
     text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
     text = re.sub(r'`(.+?)`', r'<code>\1</code>', text)
+    text = re.sub(r'\[(.+?)\]\((.+?)\)', r'<a href="\2">\1</a>', text)
     return text
 
 def render_table(lines, protector):
