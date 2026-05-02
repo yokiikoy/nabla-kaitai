@@ -25,7 +25,7 @@
   .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; }
   @media (max-width: 900px) { 
     body { flex-direction: column; } 
-    .sidebar { width: 100%; height: auto; position: static; padding: 1rem; } 
+    .sidebar { width: 100%; height: auto; position: static; padding: 1rem; border-right: none; border-bottom: 1px solid #d0d7de; } 
     .main-content { padding: 1rem; } 
     .markdown-body { padding: 0.5rem; }
   }
@@ -35,7 +35,6 @@
   .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
   .nav-buttons a:hover { background: #f6f8fa; }
 </style>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <script>
 window.MathJax = {
   loader: { load: ['[tex]/bm', '[tex]/ams'] },
@@ -45,18 +44,13 @@ window.MathJax = {
     processEscapes: true,
     packages: {'[+]': ['bm', 'ams']}
   },
-  chtml: {
-    displayAlign: 'center',
-    adaptiveCSS: true
-  },
   options: {
-    ignoreHtmlClass: 'tex2jax_ignore',
-    processHtmlClass: 'tex2jax_process',
     enableMenu: false
   }
 };
 
 </script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
   <nav class="sidebar">
@@ -117,7 +111,7 @@ window.MathJax = {
 </p>
 <p>以降、<span class="tex2jax_process">$\mathbf{B}'$</span> のことを改めて <span class="tex2jax_process">$\mathbf{B}$</span> と呼び、<span class="tex2jax_process">$w$</span> を改めて <span class="tex2jax_process">$t$</span> と書く。つまり、これ以降の <span class="tex2jax_process">$\mathbf{B}$</span> は本来の磁束密度ではなく <span class="tex2jax_process">$c$</span> 倍された「次元を揃えた磁場」であり、<span class="tex2jax_process">$t$</span> は本来の時間ではなく <span class="tex2jax_process">$c$</span> 倍された「長さの次元を持つ時間座標」である。
 </p>
-<p>これで準備が整った。<span class="tex2jax_process">$\mathbf{E}$</span> と <span class="tex2jax_process">$\mathbf{B}$</span> は同じ次元を持ち、同じ行列に並べられる。電磁場をまとめた<span class="tex2jax_process">$2$</span>-form <span class="tex2jax_process">$F$</span> と、電流・電荷をまとめた<span class="tex2jax_process">$1$</span>-form <span class="tex2jax_process">$\mathcal{J}$</span> を用意すれば、4本の式は**2本**になる。
+<p>これで準備が整った。<span class="tex2jax_process">$\mathbf{E}$</span> と <span class="tex2jax_process">$\mathbf{B}$</span> は同じ次元を持ち、同じ行列に並べられる。電磁場をまとめた<span class="tex2jax_process">$2$</span>-form <span class="tex2jax_process">$F$</span> と、電流・電荷をまとめた<span class="tex2jax_process">$1$</span>-form <span class="tex2jax_process">$\mathcal{J}$</span> を用意すれば、4本の式は<strong>2本</strong>になる。
 </p>
 <p>以上である。4本が2本に——この簡潔さをもって「美しい」と讃えるのが、微分形式の教科書の定番の幕引きだ。
 </p>
@@ -204,7 +198,7 @@ window.MathJax = {
 </p></blockquote>
 <hr />
 <h3 id="106-ポテンシャル構成span-classtex2jaxprocessspan-から始める">§10.6 ポテンシャル構成——<span class="tex2jax_process">$F=-dA$</span> から始める</h3>
-<p>§10.2 では <span class="tex2jax_process">$F$</span> を「<span class="tex2jax_process">$\mathbf{E}$</span> と <span class="tex2jax_process">$\mathbf{B}$</span> の寄せ集め」として天下り的に定義した。しかし実は、<span class="tex2jax_process">$F$</span> はもっと根源的な量——**4元ポテンシャル <span class="tex2jax_process">$A$</span>**——から機械的に導かれる。こちらが出発点として自然なのは、**<span class="tex2jax_process">$dF=0$</span> が「<span class="tex2jax_process">$dd=0$</span>」の一言で証明される**からだ。
+<p>§10.2 では <span class="tex2jax_process">$F$</span> を「<span class="tex2jax_process">$\mathbf{E}$</span> と <span class="tex2jax_process">$\mathbf{B}$</span> の寄せ集め」として天下り的に定義した。しかし実は、<span class="tex2jax_process">$F$</span> はもっと根源的な量——<strong>4元ポテンシャル <span class="tex2jax_process">$A$</span></strong>——から機械的に導かれる。こちらが出発点として自然なのは、<strong><span class="tex2jax_process">$dF=0$</span> が「<span class="tex2jax_process">$dd=0$</span>」の一言で証明される</strong>からだ。
 </p>
 <p>4元ポテンシャル <span class="tex2jax_process">$A$</span> は <span class="tex2jax_process">$1$</span>-form である。電磁気学ではスカラーポテンシャル <span class="tex2jax_process">$\phi$</span> とベクトルポテンシャル <span class="tex2jax_process">$\mathbf{A} = (A_x, A_y, A_z)$</span> が組になる。時間成分の符号に注意して（§10.3 の計量の時間成分が <span class="tex2jax_process">$-1$</span> であることの反映）、
 </p>
@@ -244,20 +238,12 @@ window.MathJax = {
 </p></blockquote>
 <hr />
 <h2 id="付録Espan-classtex2jaxprocessspan-と-span-classtex2jaxprocessspan-のスライス行列表示--span-classtex2jaxprocessspan-配列で見るマクスウェル方程式">付録E：<span class="tex2jax_process">$dF$</span> と <span class="tex2jax_process">$d(\ast F)$</span> のスライス行列表示 —— <span class="tex2jax_process">$4\times4\times4$</span> 配列で見るマクスウェル方程式</h2>
-<p>§10.4・§10.5 では <span class="tex2jax_process">$dF$</span> と <span class="tex2jax_process">$d(\ast F)$</span> を基底 <span class="tex2jax_process">$3$</span>-form の係数として展開した。付録Eでは、同じ計算を **<span class="tex2jax_process">$4\times4$</span> スライス行列の束**——実質的には <span class="tex2jax_process">$4\times4\times4$</span> の3階テンソル——で可視化する。付録Aの延長線上にあり、本書の「全部行列に載せる」流儀の到達点でもある。
+<p>§10.4・§10.5 では <span class="tex2jax_process">$dF$</span> と <span class="tex2jax_process">$d(\ast F)$</span> を基底 <span class="tex2jax_process">$3$</span>-form の係数として展開した。付録Eでは、同じ計算を <strong><span class="tex2jax_process">$4\times4$</span> スライス行列の束</strong>——実質的には <span class="tex2jax_process">$4\times4\times4$</span> の3階テンソル——で可視化する。付録Aの延長線上にあり、本書の「全部行列に載せる」流儀の到達点でもある。
 </p>
 <h3 id="E1-基底-span-classtex2jaxprocessspan-form-とそのスライス行列--全16枚">E.1 基底 <span class="tex2jax_process">$3$</span>-form とそのスライス行列 —— 全16枚</h3>
 <p>4次元の基底 <span class="tex2jax_process">$3$</span>-form は次の4つである（§10.4 の並びと比べると、<span class="tex2jax_process">$\omega_2$</span> と <span class="tex2jax_process">$\omega_3$</span> の符号・順序が異なるが、内容は同じ4つである）。
 </p>
-<p>各 <span class="tex2jax_process">$\omega_i$</span> について、座標方向 <span class="tex2jax_process">$t,x,y,z$</span> の**スライス行列** <span class="tex2jax_process">$\mathbf{S}_{t}^{(\omega_i)}, \mathbf{S}_{x}^{(\omega_i)}, \mathbf{S}_{y}^{(\omega_i)}, \mathbf{S}_{z}^{(\omega_i)}$</span> を定義する。スライス行列とは「その方向の座標を除いた残りの <span class="tex2jax_process">$3$</span> 方向が作る <span class="tex2jax_process">$3$</span>-form」を <span class="tex2jax_process">$4\times4$</span> 反対称行列に焼き直したものである。行・列の順は <span class="tex2jax_process">$(t,x,y,z)$</span>。非ゼロ成分には <span class="tex2jax_process">$\pm1$</span> が入る。<span class="tex2jax_process">$4$</span> 基底 <span class="tex2jax_process">$\times 4$</span> スライス <span class="tex2jax_process">$=$</span> 全 <span class="tex2jax_process">$16$</span> 枚。
-</p>
-<p>**（1）** <span class="tex2jax_process">$\omega_1 = dt\wedge dx\wedge dy$</span> のスライス：
-</p>
-<p>**（2）** <span class="tex2jax_process">$\omega_2 = dt\wedge dx\wedge dz$</span> のスライス：
-</p>
-<p>**（3）** <span class="tex2jax_process">$\omega_3 = dt\wedge dy\wedge dz$</span> のスライス：
-</p>
-<p>**（4）** <span class="tex2jax_process">$\omega_4 = dx\wedge dy\wedge dz$</span> のスライス：
+<p>各 <span class="tex2jax_process">$\omega_i$</span> について、座標方向 <span class="tex2jax_process">$t,x,y,z$</span> の<strong>スライス行列</strong> <span class="tex2jax_process">$\mathbf{S}_{t}^{(\omega_i)}, \mathbf{S}_{x}^{(\omega_i)}, \mathbf{S}_{y}^{(\omega_i)}, \mathbf{S}_{z}^{(\omega_i)}$</span> を定義する。スライス行列とは「その方向の座標を除いた残りの <span class="tex2jax_process">$3$</span> 方向が作る <span class="tex2jax_process">$3$</span>-form」を <span class="tex2jax_process">$4\times4$</span> 反対称行列に焼き直したものである。行・列の順は <span class="tex2jax_process">$(t,x,y,z)$</span>。非ゼロ成分には <span class="tex2jax_process">$\pm1$</span> が入る。<span class="tex2jax_process">$4$</span> 基底 <span class="tex2jax_process">$\times 4$</span> スライス <span class="tex2jax_process">$=$</span> 全 <span class="tex2jax_process">$16$</span> 枚。
 </p>
 <p>16枚のうち、<span class="tex2jax_process">$\mathbf{S}_{z}^{(\omega_1)}, \mathbf{S}_{y}^{(\omega_2)}, \mathbf{S}_{x}^{(\omega_3)}, \mathbf{S}_{t}^{(\omega_4)}$</span> の4枚はゼロ行列である。残る12枚に <span class="tex2jax_process">$\pm1$</span> が一つずつ（と反対称のペアが一つずつ）入っている。これが <span class="tex2jax_process">$4\times4\times4$</span> テンソルの正体だ。
 </p>
@@ -266,7 +252,7 @@ window.MathJax = {
 </p>
 <p>となる。各 <span class="tex2jax_process">$A_{\cdots}$</span> を偏微分に展開し、それぞれの基底スライス行列に係数として掛けて並べると次のようになる。
 </p>
-<p>同じ位置の成分を**一枚の行列に足し合わせる**と、<span class="tex2jax_process">$t$</span>-スライスは <span class="tex2jax_process">$16$</span> 成分すべてが明示された単一の <span class="tex2jax_process">$4\times4$</span> 反対称行列にまとまる。
+<p>同じ位置の成分を<strong>一枚の行列に足し合わせる</strong>と、<span class="tex2jax_process">$t$</span>-スライスは <span class="tex2jax_process">$16$</span> 成分すべてが明示された単一の <span class="tex2jax_process">$4\times4$</span> 反対称行列にまとまる。
 </p>
 <h3 id="E3-フロベニウス積で係数を抜き出す">E.3 フロベニウス積で係数を抜き出す</h3>
 <p>第6章付録D で導入したフロベニウス積は、<span class="tex2jax_process">$4\times4$</span> 行列にもそのまま拡張できる。
@@ -274,11 +260,11 @@ window.MathJax = {
 <blockquote><p>
 **注** （計量由来の内積ではない）ここでのフロベニウス積は、ミンコフスキー計量に由来する時空の内積ではない。反対称行列表示から係数を抜き出すための、配列上のペアリングである。基底スライス行列との係数抽出演算として使っており、<span class="tex2jax_process">$\frac{1}{2}\operatorname{tr}(A^T B)$</span> はそのための計算手段だ。<br>
 </p></blockquote>
-<p>この内積を使うと、各スライスから係数を**一行で抽出**できる。たとえば <span class="tex2jax_process">$A_{txy}$</span> は
+<p>この内積を使うと、各スライスから係数を<strong>一行で抽出</strong>できる。たとえば <span class="tex2jax_process">$A_{txy}$</span> は
 </p>
 <p>である。<span class="tex2jax_process">$\mathbf{S}_{t}^{(\omega_1)}$</span> の非ゼロ成分は <span class="tex2jax_process">$(x,y)=+1, (y,x)=-1$</span> だけなので、フロベニウス積は <span class="tex2jax_process">$(1 \cdot S_{xy} + (-1) \cdot S_{yx})/2 = (S_{xy} - S_{yx})/2 = S_{xy}$</span>（<span class="tex2jax_process">$\mathbf{S}_{t}^{(dF)}$</span> が反対称だから <span class="tex2jax_process">$S_{yx}=-S_{xy}$</span>）。一発で係数が抜ける。
 </p>
-<p>同様に、**すべての係数は対応する基底スライスとのフロベニウス積で得られる**。この構造は、第6章付録D で <span class="tex2jax_process">$\ast_{2\to1}(\mathbf{M}) = (E_1\!\cdot\!\mathbf{M},\;E_2\!\cdot\!\mathbf{M},\;E_3\!\cdot\!\mathbf{M})$</span> が <span class="tex2jax_process">$2$</span>-form <span class="tex2jax_process">$\mathbf{M}$</span> の各成分を抽出したのと完全に相似である。次数が <span class="tex2jax_process">$1\to2$</span> から <span class="tex2jax_process">$2\to3$</span> に上がり、内積をとる相手が縦ベクトルから <span class="tex2jax_process">$4\times4$</span> 行列の束に変わっただけだ。
+<p>同様に、<strong>すべての係数は対応する基底スライスとのフロベニウス積で得られる</strong>。この構造は、第6章付録D で <span class="tex2jax_process">$\ast_{2\to1}(\mathbf{M}) = (E_1\!\cdot\!\mathbf{M},\;E_2\!\cdot\!\mathbf{M},\;E_3\!\cdot\!\mathbf{M})$</span> が <span class="tex2jax_process">$2$</span>-form <span class="tex2jax_process">$\mathbf{M}$</span> の各成分を抽出したのと完全に相似である。次数が <span class="tex2jax_process">$1\to2$</span> から <span class="tex2jax_process">$2\to3$</span> に上がり、内積をとる相手が縦ベクトルから <span class="tex2jax_process">$4\times4$</span> 行列の束に変わっただけだ。
 </p>
 <h3 id="E4-span-classtex2jaxprocessspan-をスライスで読む">E.4 <span class="tex2jax_process">$dF=0$</span> をスライスで読む</h3>
 <ul>

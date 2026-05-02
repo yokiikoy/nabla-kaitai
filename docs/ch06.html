@@ -25,7 +25,7 @@
   .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; }
   @media (max-width: 900px) { 
     body { flex-direction: column; } 
-    .sidebar { width: 100%; height: auto; position: static; padding: 1rem; } 
+    .sidebar { width: 100%; height: auto; position: static; padding: 1rem; border-right: none; border-bottom: 1px solid #d0d7de; } 
     .main-content { padding: 1rem; } 
     .markdown-body { padding: 0.5rem; }
   }
@@ -35,7 +35,6 @@
   .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
   .nav-buttons a:hover { background: #f6f8fa; }
 </style>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <script>
 window.MathJax = {
   loader: { load: ['[tex]/bm', '[tex]/ams'] },
@@ -45,18 +44,13 @@ window.MathJax = {
     processEscapes: true,
     packages: {'[+]': ['bm', 'ams']}
   },
-  chtml: {
-    displayAlign: 'center',
-    adaptiveCSS: true
-  },
   options: {
-    ignoreHtmlClass: 'tex2jax_ignore',
-    processHtmlClass: 'tex2jax_process',
     enableMenu: false
   }
 };
 
 </script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
   <nav class="sidebar">
@@ -89,9 +83,9 @@ window.MathJax = {
 </p>
 <p>読者もそろそろくどいと感じている頃だろう。正直に言えば、筆者も飽きてきた。
 </p>
-<p>そもそも我々は、実空間 <span class="tex2jax_process">$(x,y,z)$</span> という直交デカルト座標の上で計算している。この空間ではピタゴラスの定理が成り立つ。そこに誰の許可が必要だと言うのか。そろそろ気兼ねなく、**内積**を使わせてもらおう。
+<p>そもそも我々は、実空間 <span class="tex2jax_process">$(x,y,z)$</span> という直交デカルト座標の上で計算している。この空間ではピタゴラスの定理が成り立つ。そこに誰の許可が必要だと言うのか。そろそろ気兼ねなく、<strong>内積</strong>を使わせてもらおう。
 </p>
-<p>内積とは何か。すでに我々はこれと何度も遭遇している。第2章で向き付き面積を得たとき、3つの影の成分 <span class="tex2jax_process">$A_{yz}, A_{zx}, A_{xy}$</span> の二乗和の平方根をとれば小学校の面積に一致すると言った——あの「二乗和」こそ、自分自身との内積（の平方根）である。より一般に、実空間の <span class="tex2jax_process">$n$</span>-form（横ベクトル）の対応する成分同士を掛けて足し合わせたスカラー量、または <span class="tex2jax_process">$n$</span>-vector（縦ベクトル）の対応する成分同士を掛けて足し合わせたスカラー量のことを、**内積**と呼ぶ。
+<p>内積とは何か。すでに我々はこれと何度も遭遇している。第2章で向き付き面積を得たとき、3つの影の成分 <span class="tex2jax_process">$A_{yz}, A_{zx}, A_{xy}$</span> の二乗和の平方根をとれば小学校の面積に一致すると言った——あの「二乗和」こそ、自分自身との内積（の平方根）である。より一般に、実空間の <span class="tex2jax_process">$n$</span>-form（横ベクトル）の対応する成分同士を掛けて足し合わせたスカラー量、または <span class="tex2jax_process">$n$</span>-vector（縦ベクトル）の対応する成分同士を掛けて足し合わせたスカラー量のことを、<strong>内積</strong>と呼ぶ。
 </p>
 <p>……以上だ。おそらく多くの読者は高校数学で内積を習っているだろうから、「何を当たり前のことを」と思っていることだろう。しかし、本書では居心地が悪い思いをしながらも、今まで内積を正面から定義してこなかった。それには理由がある。
 </p>
@@ -106,7 +100,7 @@ window.MathJax = {
 </p></blockquote>
 <p>第1章以来、我々は横ベクトル×縦ベクトルでスカラーを得る計算を山ほどやってきた。では、それと内積は何が違うのか。
 </p>
-<p>結論から言えば、**まったく別物**だ。横ベクトル掛ける縦ベクトルは「横と縦という異種のベクトル間」の計算である。対して内積は「横と横」あるいは「縦と縦」という**同種のベクトル間**の計算だ。
+<p>結論から言えば、<strong>まったく別物</strong>だ。横ベクトル掛ける縦ベクトルは「横と縦という異種のベクトル間」の計算である。対して内積は「横と横」あるいは「縦と縦」という<strong>同種のベクトル間</strong>の計算だ。
 </p>
 <p>そう、事は読者が思ったよりも深遠だ。実空間という特別な舞台では、この二つがたまたま同じ数値を返すことが多いために混同されてきた——その混同の上に、ベクトル解析という巨大な体系が築かれている。本章の目標は、この区別を明確にした上で、内積の自然な一般化として計量 <span class="tex2jax_process">$g$</span> を導き、そこからホッジ・スター <span class="tex2jax_process">$\ast$</span> の正体を暴くことである。
 </p>
@@ -115,7 +109,7 @@ window.MathJax = {
 <h4 id="611-実空間の内積">6.1.1 実空間の内積</h4>
 <p>実空間 <span class="tex2jax_process">$(x,y,z)$</span> における二つの縦ベクトルを成分で書こう。
 </p>
-<p>同じ添字の成分同士を掛けて総和をとる操作を、本書では**内積**（ドット積）と定義し、記号 <span class="tex2jax_process">$\cdot$</span> で表す。
+<p>同じ添字の成分同士を掛けて総和をとる操作を、本書では<strong>内積</strong>（ドット積）と定義し、記号 <span class="tex2jax_process">$\cdot$</span> で表す。
 </p>
 <h4 id="612-内積を測定器として読み直す">6.1.2 内積を測定器として読み直す</h4>
 <p>ここで、同じ計算を「測定器」の言葉で読み直しておこう。内積は一見すると、これまで扱ってきた測定器とは別系統の演算に見える。しかし実は、内積もまた「あるものを測定器に変え、別のものに作用させてスカラーを得る」操作として読むことができる。
@@ -150,11 +144,9 @@ window.MathJax = {
 </p>
 <p>したがって、
 </p>
-<p>**これで、新しい測定器が出てきた。** パラメータ空間の縦ベクトル <span class="tex2jax_process">$\mathbf{v}_1$</span> から、実空間での内積を正しく測る横ベクトルを作るには、単に転置するのではなく、右側に <span class="tex2jax_process">$J^T J$</span> を掛ければよい。
-</p>
 <p>そしてこの測定器を <span class="tex2jax_process">$\mathbf{v}_2$</span> に作用させれば、実空間での内積と同じ値が得られる。
 </p>
-<p>この <span class="tex2jax_process">$J^T J$</span> を、数学では**計量行列 <span class="tex2jax_process">$\mathbf{g}$</span>**と呼ぶ。
+<p>この <span class="tex2jax_process">$J^T J$</span> を、数学では<strong>計量行列 <span class="tex2jax_process">$\mathbf{g}$</span></strong>と呼ぶ。
 </p>
 <p>念のため、具体的な数値で確認しておこう。<span class="tex2jax_process">$r=2,\; \theta=\pi/3$</span> の地点を考える。このとき <span class="tex2jax_process">$\cos\theta = 1/2,\; \sin\theta = \sqrt{3}/2$</span> だから、
 </p>
@@ -175,7 +167,7 @@ window.MathJax = {
 <h4 id="621-span-classtex2jaxprocessspan-は横ベクトルである">6.2.1 <span class="tex2jax_process">$\mathbf{v}^T \mathbf{g}$</span> は横ベクトルである</h4>
 <p>§6.1 で導いた内積の式 <span class="tex2jax_process">$\mathbf{v}_1^T \mathbf{g} \,\mathbf{v}_2$</span> を、もう一度見てみよう。行列の積は左から順に実行できるから、この式は「まず <span class="tex2jax_process">$\mathbf{v}_1^T \mathbf{g}$</span> を計算し、その結果に <span class="tex2jax_process">$\mathbf{v}_2$</span> を掛ける」と読むことができる。
 </p>
-<p>これは <span class="tex2jax_process">$1 \times 3$</span> の**横ベクトル**である。計量 <span class="tex2jax_process">$g$</span> とは、内積の行列形式から自然に現れた、**縦ベクトルを横ベクトルに変換する装置**なのだ。
+<p>これは <span class="tex2jax_process">$1 \times 3$</span> の<strong>横ベクトル</strong>である。計量 <span class="tex2jax_process">$g$</span> とは、内積の行列形式から自然に現れた、<strong>縦ベクトルを横ベクトルに変換する装置</strong>なのだ。
 </p>
 <blockquote><p>
 **注** （第2章で密輸していたもの）第2章で <span class="tex2jax_process">$2$</span>-form の行列表現を探したとき、我々はすでに <span class="tex2jax_process">$\mathbf{v}_1^T M \mathbf{v}_2$</span> という形を使っていた。あのときは「縦ベクトルを横に寝かせる操作は数学的には行儀が悪い」とだけ断って、深入りせずに押し通した。いま見ている <span class="tex2jax_process">$\mathbf{v}^T\mathbf{g}$</span> は、そのとき密輸していた操作の正体である。実空間では <span class="tex2jax_process">$\mathbf{g}=I$</span> なので、転置だけで縦ベクトルが横ベクトルに見えてしまう。しかしパラメータ空間では、実空間の内積を再現するように縦ベクトルを測定器としての横ベクトルへ変えるには、計量 <span class="tex2jax_process">$\mathbf{g}$</span> を明示的に通す必要がある。<br>
@@ -185,16 +177,16 @@ window.MathJax = {
 <p>実空間（<span class="tex2jax_process">$\mathbf{g}=I$</span>）では <span class="tex2jax_process">$\omega = \mathbf{v}^T$</span> であり、縦ベクトルの成分がそのまま横ベクトルの成分になる。パラメータ空間では <span class="tex2jax_process">$\mathbf{g} = \begin{pmatrix} 1 & 0 & 0 \\ 0 & r^2 & 0 \\ 0 & 0 & 1 \end{pmatrix}$</span> なので、<span class="tex2jax_process">$\omega = \begin{pmatrix} \Delta r & r^2\Delta\theta & \Delta z \end{pmatrix}$</span>。<span class="tex2jax_process">$\theta$</span> 成分だけ <span class="tex2jax_process">$r^2$</span> 倍されるのは、<span class="tex2jax_process">$\theta$</span> 方向の目盛りが <span class="tex2jax_process">$r$</span> 倍に伸びていることの反映だ。
 </p>
 <h4 id="622-計量が与えるもの平行-span-classtex2jaxprocessspan-面体の幾何学的な大きさ">6.2.2 計量が与えるもの——平行 <span class="tex2jax_process">$k$</span> 面体の幾何学的な大きさ</h4>
-<p>計量 <span class="tex2jax_process">$g$</span> の最も基本的な役割は、<span class="tex2jax_process">$k$</span> 本のベクトルが貼る**平行 <span class="tex2jax_process">$k$</span> 面体の実際の幾何学的な大きさ**（長さ・面積・体積）を定義することである。
+<p>計量 <span class="tex2jax_process">$g$</span> の最も基本的な役割は、<span class="tex2jax_process">$k$</span> 本のベクトルが貼る<strong>平行 <span class="tex2jax_process">$k$</span> 面体の実際の幾何学的な大きさ</strong>（長さ・面積・体積）を定義することである。
 </p>
-<p>本書のこれまでの章では、<span class="tex2jax_process">$k$</span>-form に <span class="tex2jax_process">$k$</span> 本のベクトルを食わせることで「向き付きの数え上げ」を行ってきた。<span class="tex2jax_process">$dx(\mathbf{v})$</span> は <span class="tex2jax_process">$\mathbf{v}$</span> の <span class="tex2jax_process">$x$</span> 成分という数、<span class="tex2jax_process">$dx \wedge dy(\mathbf{v}_1, \mathbf{v}_2)$</span> は <span class="tex2jax_process">$\mathbf{v}_1, \mathbf{v}_2$</span> が張る平行四辺形の向き付き面積という数である。しかしこれらはあくまで影の測量であり、ベクトルたちが実際に何メートルの線分を張り、何平方メートルの平行四辺形を張っているか——**幾何学的な本当の大きさ**——は、計量 <span class="tex2jax_process">$g$</span> が与えられて初めて決まる。
+<p>本書のこれまでの章では、<span class="tex2jax_process">$k$</span>-form に <span class="tex2jax_process">$k$</span> 本のベクトルを食わせることで「向き付きの数え上げ」を行ってきた。<span class="tex2jax_process">$dx(\mathbf{v})$</span> は <span class="tex2jax_process">$\mathbf{v}$</span> の <span class="tex2jax_process">$x$</span> 成分という数、<span class="tex2jax_process">$dx \wedge dy(\mathbf{v}_1, \mathbf{v}_2)$</span> は <span class="tex2jax_process">$\mathbf{v}_1, \mathbf{v}_2$</span> が張る平行四辺形の向き付き面積という数である。しかしこれらはあくまで影の測量であり、ベクトルたちが実際に何メートルの線分を張り、何平方メートルの平行四辺形を張っているか——<strong>幾何学的な本当の大きさ</strong>——は、計量 <span class="tex2jax_process">$g$</span> が与えられて初めて決まる。
 </p>
 <p>実空間 <span class="tex2jax_process">$(\mathbf{g}=I)$</span> では <span class="tex2jax_process">$|\mathbf{v}|^2 = \Delta x^2 + \Delta y^2 + \Delta z^2$</span>。円柱座標のパラメータ空間では <span class="tex2jax_process">$|\mathbf{v}|^2 = \Delta r^2 + r^2\Delta\theta^2 + \Delta z^2$</span>。
 </p>
 <blockquote><p>
 **注** （なぜ <span class="tex2jax_process">$k=2$</span> ではベクトル表示しないのか）<span class="tex2jax_process">$k=1$</span> では <span class="tex2jax_process">$\mathbf{v}$</span> という縦ベクトルの内積 <span class="tex2jax_process">$\mathbf{v}^T\mathbf{g}\,\mathbf{v}$</span> として長さを書いた。<span class="tex2jax_process">$k=2$</span> での同様の内積——行列同士の内積（本章付録D のフロベニウス積）——はまだ定義していない。さらに、<span class="tex2jax_process">$2$</span>-form の係数を <span class="tex2jax_process">$3$</span> 成分のベクトルとして表示するには、次数を変換するホッジ・スター <span class="tex2jax_process">$\ast$</span> も必要になる。ここではまだ、面を面のまま、すなわち <span class="tex2jax_process">$2$</span>-form の係数として扱っている。<br>
 </p></blockquote>
-<p>計量 <span class="tex2jax_process">$g$</span> の役割は、この「<span class="tex2jax_process">$xyz$</span> での計算」をパラメータ空間のような目盛りの歪んだ座標系へ一般化することである。いずれの場合も、**<span class="tex2jax_process">$g$</span> が決まれば、あらゆる次数の平行 <span class="tex2jax_process">$k$</span> 面体に一貫した幾何学的な大きさが定義できる**——これが計量の最も根本的な役割である。
+<p>計量 <span class="tex2jax_process">$g$</span> の役割は、この「<span class="tex2jax_process">$xyz$</span> での計算」をパラメータ空間のような目盛りの歪んだ座標系へ一般化することである。いずれの場合も、<strong><span class="tex2jax_process">$g$</span> が決まれば、あらゆる次数の平行 <span class="tex2jax_process">$k$</span> 面体に一貫した幾何学的な大きさが定義できる</strong>——これが計量の最も根本的な役割である。
 </p>
 <h4 id="623-内積の性質">6.2.3 内積の性質</h4>
 <p>第5章で外微分 <span class="tex2jax_process">$d$</span> の性質（線形性・次数を上げる・<span class="tex2jax_process">$d^2=0$</span>・ライプニッツ則）をまとめたのと同じように、内積についても、ここまでの計算から浮かび上がる性質を整理しておこう。これらは特定の座標系に依存しない。
@@ -306,7 +298,7 @@ window.MathJax = {
 <ol>
 <li>**計量 <span class="tex2jax_process">$g$</span> への依存**：<span class="tex2jax_process">$\ast$</span> の辞書は空間の計量 <span class="tex2jax_process">$g$</span> によって決まる。デカルト座標（<span class="tex2jax_process">$g=I$</span>）では §6.3.3 の簡潔な辞書で済むが、一般の座標系では <span class="tex2jax_process">$\ast$</span> の係数は場所の関数になる。この一般の場合については第9章で詳しく扱う。</li>
 </ol>
-<p>これらの性質は、<span class="tex2jax_process">$\ast$</span> が単なる「辞書」ではなく、計量と向きを備えた空間における**次数の折り返し構造**そのものであることを示している。
+<p>これらの性質は、<span class="tex2jax_process">$\ast$</span> が単なる「辞書」ではなく、計量と向きを備えた空間における<strong>次数の折り返し構造</strong>そのものであることを示している。
 </p>
 <hr />
 <h3 id="64-対応の実例微分形式とベクトル解析">§6.4 対応の実例——微分形式とベクトル解析</h3>
@@ -320,17 +312,15 @@ window.MathJax = {
 <li>電圧の起源である**電場 <span class="tex2jax_process">$E$</span>** は、線分に沿って数え上げる **<span class="tex2jax_process">$1$</span>-form** である。</li>
 <li>電流の起源である**電流密度 <span class="tex2jax_process">$J$</span>** は、面を貫く電荷を数え上げる **<span class="tex2jax_process">$2$</span>-form** である。</li>
 </ul>
-<p>まず、**方法①（微分形式）**で計算してみよう。<span class="tex2jax_process">$1$</span>-form <span class="tex2jax_process">$E$</span> と <span class="tex2jax_process">$2$</span>-form <span class="tex2jax_process">$J$</span> のウェッジ積をとる。
+<p>まず、<strong>方法①（微分形式）</strong>で計算してみよう。<span class="tex2jax_process">$1$</span>-form <span class="tex2jax_process">$E$</span> と <span class="tex2jax_process">$2$</span>-form <span class="tex2jax_process">$J$</span> のウェッジ積をとる。
 </p>
-<p>次に、**方法②（同種ベクトルの内積）**で同じ計算をどう行うか見てみよう。<span class="tex2jax_process">$E$</span> と <span class="tex2jax_process">$J$</span> をどちらも <span class="tex2jax_process">$1$</span>-form のように扱って内積をとるには、面を測る <span class="tex2jax_process">$J$</span> を <span class="tex2jax_process">$\ast$</span> で線を測る形式へ変換する：
+<p>次に、<strong>方法②（同種ベクトルの内積）</strong>で同じ計算をどう行うか見てみよう。<span class="tex2jax_process">$E$</span> と <span class="tex2jax_process">$J$</span> をどちらも <span class="tex2jax_process">$1$</span>-form のように扱って内積をとるには、面を測る <span class="tex2jax_process">$J$</span> を <span class="tex2jax_process">$\ast$</span> で線を測る形式へ変換する：
 </p>
 <p>これで <span class="tex2jax_process">$E$</span> と <span class="tex2jax_process">$\ast J$</span> という二つの <span class="tex2jax_process">$1$</span>-form が揃った。これらの内積（ドット積）をとる。微分形式で <span class="tex2jax_process">$1$</span>-form の内積を書くには、一方に <span class="tex2jax_process">$\ast$</span> をかけて <span class="tex2jax_process">$2$</span>-form にし、ウェッジ積で <span class="tex2jax_process">$3$</span>-form にしてから、全体に <span class="tex2jax_process">$\ast$</span> で <span class="tex2jax_process">$0$</span>-form に落とす：
 </p>
 <p>ここで <span class="tex2jax_process">$\ast\ast = \mathrm{id}$</span> により、内側の <span class="tex2jax_process">$\ast(\ast J) = J$</span> となる：
 </p>
 <p>カッコの中身 <span class="tex2jax_process">$E \wedge J$</span> は、方法①で得た <span class="tex2jax_process">$3$</span>-form と全く同じものだ。外側の <span class="tex2jax_process">$\ast$</span> は、<span class="tex2jax_process">$3$</span>-form から体積要素 <span class="tex2jax_process">$dx \wedge dy \wedge dz$</span> を剥ぎ取り、スカラー値を取り出している。スカラー <span class="tex2jax_process">$E \cdot J$</span> に微小体積 <span class="tex2jax_process">$dV$</span> を掛け直して積分する書き方は、この <span class="tex2jax_process">$3$</span>-form が持っていた体積要素を後から補っている、と読める。
-</p>
-<p>**つまり、<span class="tex2jax_process">$\ast$</span> は方法①の <span class="tex2jax_process">$3$</span>-form と方法②のスカラー表示を矛盾なく繫いでいる。** <span class="tex2jax_process">$\ast\ast = \mathrm{id}$</span> があるからこそ、どちらの経路を通っても同じ結果に至るのだ。
 </p>
 <h4 id="642-ヘリシティ-span-classtex2jaxprocessspan-span-classtex2jaxprocessspan-の往復">6.4.2 ヘリシティ <span class="tex2jax_process">$A \cdot (\nabla \times A)$</span> ——<span class="tex2jax_process">$\ast$</span> の往復</h4>
 <p>もう一つの例で、<span class="tex2jax_process">$\ast$</span> の働きをさらに見てみよう。<span class="tex2jax_process">$1$</span>-form <span class="tex2jax_process">$\alpha$</span> と、その外微分 <span class="tex2jax_process">$d\alpha$</span> を組み合わせた次の <span class="tex2jax_process">$3$</span>-form を考える：
@@ -339,15 +329,13 @@ window.MathJax = {
 </p>
 <p>ここで <span class="tex2jax_process">$\mathbf{A}$</span> に対応する <span class="tex2jax_process">$1$</span>-form を <span class="tex2jax_process">$\alpha$</span> と書く。<span class="tex2jax_process">$d\alpha$</span> はまず <span class="tex2jax_process">$2$</span>-form として得られ、方法②の言葉では <span class="tex2jax_process">$\ast d\alpha$</span> という <span class="tex2jax_process">$1$</span>-form と対応する。
 </p>
-<p>まず**方法①**で計算する。<span class="tex2jax_process">$1$</span>-form <span class="tex2jax_process">$\alpha$</span> と <span class="tex2jax_process">$2$</span>-form <span class="tex2jax_process">$d\alpha$</span> のウェッジ積：
+<p>まず<strong>方法①</strong>で計算する。<span class="tex2jax_process">$1$</span>-form <span class="tex2jax_process">$\alpha$</span> と <span class="tex2jax_process">$2$</span>-form <span class="tex2jax_process">$d\alpha$</span> のウェッジ積：
 </p>
-<p>次に**方法②**で同じ計算の内部構造を見る。同種ベクトルの内積として読むには、<span class="tex2jax_process">$2$</span>-form <span class="tex2jax_process">$d\alpha$</span> をそのまま置けないので、<span class="tex2jax_process">$\ast d\alpha$</span> という <span class="tex2jax_process">$1$</span>-form を対応させる：
+<p>次に<strong>方法②</strong>で同じ計算の内部構造を見る。同種ベクトルの内積として読むには、<span class="tex2jax_process">$2$</span>-form <span class="tex2jax_process">$d\alpha$</span> をそのまま置けないので、<span class="tex2jax_process">$\ast d\alpha$</span> という <span class="tex2jax_process">$1$</span>-form を対応させる：
 </p>
 <p>これで <span class="tex2jax_process">$\alpha$</span> と <span class="tex2jax_process">$\ast d\alpha$</span> という二つの <span class="tex2jax_process">$1$</span>-form が揃った。内積をとる：
 </p>
 <p>カッコの中身は、方法①の <span class="tex2jax_process">$3$</span>-form <span class="tex2jax_process">$\alpha \wedge d\alpha$</span> と同じものだ。外側の <span class="tex2jax_process">$\ast$</span> が体積要素を剥ぎ取り、スカラー値を取り出している。
-</p>
-<p>**ここで注目すべきは、<span class="tex2jax_process">$\ast$</span> が <span class="tex2jax_process">$2$</span> 回現れて、<span class="tex2jax_process">$\ast\ast = \mathrm{id}$</span> により打ち消し合っていることだ。** 方法②の内部では、<span class="tex2jax_process">$d\alpha$</span>（<span class="tex2jax_process">$2$</span>-form）に対応する <span class="tex2jax_process">$1$</span>-form として <span class="tex2jax_process">$\ast d\alpha$</span> を使い、内積をとるために再び <span class="tex2jax_process">$\ast$</span> を呼び出している。この往復が、<span class="tex2jax_process">$\ast\ast = \mathrm{id}$</span> によって帳消しになるのである。
 </p>
 <blockquote><p>
 **注** （<span class="tex2jax_process">$\ast$</span> の往復が起きる理由）ベクトル解析は「形式の次数」という概念を持たず、すべてを「<span class="tex2jax_process">$3$</span> 成分の矢印」として統一的に扱う。<span class="tex2jax_process">$2$</span>-form を矢印として読むには <span class="tex2jax_process">$\ast$</span> で対応する <span class="tex2jax_process">$1$</span>-form を作る必要があり、内積計算のためにはまた <span class="tex2jax_process">$\ast$</span> で元の次数へ戻る必要がある。<span class="tex2jax_process">$\ast$</span> とは、この二つの表し方を結ぶ一つの対応なのである。<br>
@@ -370,17 +358,17 @@ window.MathJax = {
 <h4 id="651-勾配-span-classtex2jaxprocessspan">6.5.1 勾配 <span class="tex2jax_process">$\mathrm{grad}\,f = df$</span></h4>
 <p>これはすでに知っている。<span class="tex2jax_process">$0$</span>-form（スカラー場）<span class="tex2jax_process">$f$</span> の外微分 <span class="tex2jax_process">$df$</span> は <span class="tex2jax_process">$1$</span>-form であり、その係数は偏微分係数である：
 </p>
-<p>この横ベクトルの成分 <span class="tex2jax_process">$(\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z})$</span> を**勾配**と呼び、<span class="tex2jax_process">$\mathrm{grad}\,f$</span> と書く。
+<p>この横ベクトルの成分 <span class="tex2jax_process">$(\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z})$</span> を<strong>勾配</strong>と呼び、<span class="tex2jax_process">$\mathrm{grad}\,f$</span> と書く。
 </p>
 <h4 id="652-回転-span-classtex2jaxprocessspan">6.5.2 回転 <span class="tex2jax_process">$\mathrm{rot}\,\mathbf{F} = \ast\,d\,\omega$</span></h4>
 <p>ここに <span class="tex2jax_process">$\ast$</span> を作用させると、<span class="tex2jax_process">$2$</span>-form が <span class="tex2jax_process">$1$</span>-form に変換される。§6.3.3 の辞書を使えば：
 </p>
-<p>この <span class="tex2jax_process">$1$</span>-form の係数 <span class="tex2jax_process">$(\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z},\; \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x},\; \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})$</span> を**回転**と呼び、<span class="tex2jax_process">$\mathrm{rot}\,\mathbf{F}$</span> と書く。
+<p>この <span class="tex2jax_process">$1$</span>-form の係数 <span class="tex2jax_process">$(\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z},\; \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x},\; \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})$</span> を<strong>回転</strong>と呼び、<span class="tex2jax_process">$\mathrm{rot}\,\mathbf{F}$</span> と書く。
 </p>
 <h4 id="653-発散-span-classtex2jaxprocessspan">6.5.3 発散 <span class="tex2jax_process">$\mathrm{div}\,\mathbf{F} = \ast\,d\,\ast\,\omega$</span></h4>
 <p>さらに <span class="tex2jax_process">$\ast\,d\,\ast$</span> と三つの演算子を連ねる。まず <span class="tex2jax_process">$\ast\,\omega$</span> で <span class="tex2jax_process">$1$</span>-form を <span class="tex2jax_process">$2$</span>-form に変換し、<span class="tex2jax_process">$d$</span> で <span class="tex2jax_process">$3$</span>-form に上げ、最後に <span class="tex2jax_process">$\ast$</span> で <span class="tex2jax_process">$0$</span>-form（スカラー場）に落とす：
 </p>
-<p>このスカラー場を**発散**と呼び、<span class="tex2jax_process">$\mathrm{div}\,\mathbf{F}$</span> と書く。
+<p>このスカラー場を<strong>発散</strong>と呼び、<span class="tex2jax_process">$\mathrm{div}\,\mathbf{F}$</span> と書く。
 </p>
 <blockquote><p>
 **注** （ベクトル解析を知っている読者へ）円柱座標や球座標での rot や div の公式が長くなる理由は、ここで明らかになったはずだ。rot は <span class="tex2jax_process">$\ast$</span> を <span class="tex2jax_process">$1$</span> 回、div は <span class="tex2jax_process">$\ast$</span> を <span class="tex2jax_process">$2$</span> 回使っている。<span class="tex2jax_process">$\ast$</span> の辞書は計量 <span class="tex2jax_process">$g$</span> に依存し、<span class="tex2jax_process">$g$</span> は <span class="tex2jax_process">$g = J^T J$</span> という場所の関数である。公式の複雑さは、裏で <span class="tex2jax_process">$\ast$</span> と <span class="tex2jax_process">$g$</span> が繰り返し適用されていることの結果に過ぎない。<br>
@@ -423,13 +411,13 @@ window.MathJax = {
 </p></blockquote>
 <hr />
 <h2 id="付録Dフロベニウス積とホッジ・スターの完全な行列表現">付録D：フロベニウス積とホッジ・スターの完全な行列表現</h2>
-<p>§6.3.2 では <span class="tex2jax_process">$1$</span>-form の係数を「行列の縦ベクトル」に掛ける見方で <span class="tex2jax_process">$\ast_{1\to2}$</span> を導入し、§6.3.3 で簡略版の辞書を与えた。この付録では、縦ベクトルとフロベニウス積だけを使って <span class="tex2jax_process">$\ast_{1\to2}$</span> と <span class="tex2jax_process">$\ast_{2\to1}$</span> を構成し直し、両者が**互いに転置**であることを示す。
+<p>§6.3.2 では <span class="tex2jax_process">$1$</span>-form の係数を「行列の縦ベクトル」に掛ける見方で <span class="tex2jax_process">$\ast_{1\to2}$</span> を導入し、§6.3.3 で簡略版の辞書を与えた。この付録では、縦ベクトルとフロベニウス積だけを使って <span class="tex2jax_process">$\ast_{1\to2}$</span> と <span class="tex2jax_process">$\ast_{2\to1}$</span> を構成し直し、両者が<strong>互いに転置</strong>であることを示す。
 </p>
 <h3 id="D1-行列の内積フロベニウス積">D.1 行列の内積——フロベニウス積</h3>
 <blockquote><p>
 **注** （トレース）<span class="tex2jax_process">$\operatorname{tr}$</span> は行列の**トレース**（対角成分の和）である。第5章付録C で外微分の行列表現を扱った際に登場した。<span class="tex2jax_process">$\operatorname{tr}(A^T B)$</span> は「<span class="tex2jax_process">$A$</span> を転置して <span class="tex2jax_process">$B$</span> を掛け、対角成分を足し合わせる」三手順の操作だ。<span class="tex2jax_process">$\frac{1}{2}\sum A_{ij}B_{ij}$</span> と等価だから、成分で考えたいときは後者の表式を使えばよい。<br>
 </p></blockquote>
-<p>§6.2.3 で縦ベクトル同士の内積を <span class="tex2jax_process">$\mathbf{v}_1 \cdot \mathbf{v}_2$</span> と書いたのと同じ記法である。行列もまた「同じ種類のもの」どうしであり、対応する成分同士を掛けて総和をとる。<span class="tex2jax_process">$i$</span> と <span class="tex2jax_process">$j$</span> の二つの添字にわたって次々と縮約していくことから、これを**フロベニウス積**または**連続縮約**と呼ぶ。
+<p>§6.2.3 で縦ベクトル同士の内積を <span class="tex2jax_process">$\mathbf{v}_1 \cdot \mathbf{v}_2$</span> と書いたのと同じ記法である。行列もまた「同じ種類のもの」どうしであり、対応する成分同士を掛けて総和をとる。<span class="tex2jax_process">$i$</span> と <span class="tex2jax_process">$j$</span> の二つの添字にわたって次々と縮約していくことから、これを<strong>フロベニウス積</strong>または<strong>連続縮約</strong>と呼ぶ。
 </p>
 <blockquote><p>
 **注** （係数 <span class="tex2jax_process">$1/2$</span> について）フロベニウス積には <span class="tex2jax_process">$\operatorname{tr}(A^T B)$</span>（<span class="tex2jax_process">$1/2$</span> なし）を採用する流儀もある。しかし反対称行列では <span class="tex2jax_process">$M_{23}$</span> と <span class="tex2jax_process">$M_{32} = -M_{23}$</span> のようなペア成分の両方を拾ってしまい、内積が <span class="tex2jax_process">$2$</span> 倍される。本書では <span class="tex2jax_process">$1/2$</span> を定義に織り込む。これにより、<span class="tex2jax_process">$2$</span>-form <span class="tex2jax_process">$M$</span> の自分自身との内積 <span class="tex2jax_process">$M \cdot M = M_{23}^2 + M_{31}^2 + M_{12}^2$</span> がそのまま §6.2.2 の「平行四辺形の符号なし面積の二乗」に一致する。<br>
@@ -451,7 +439,7 @@ window.MathJax = {
 <h3 id="D4-転置関係">D.4 転置関係</h3>
 <p>一方、
 </p>
-<p>両辺は等しい。左辺の <span class="tex2jax_process">$\cdot$</span> はフロベニウス積、右辺の <span class="tex2jax_process">$\cdot$</span> はベクトルの内積である。**すなわち、<span class="tex2jax_process">$\ast_{2\to1}$</span> は <span class="tex2jax_process">$\ast_{1\to2}$</span> の転置である。**
+<p>両辺は等しい。左辺の <span class="tex2jax_process">$\cdot$</span> はフロベニウス積、右辺の <span class="tex2jax_process">$\cdot$</span> はベクトルの内積である。<strong>すなわち、<span class="tex2jax_process">$\ast_{2\to1}$</span> は <span class="tex2jax_process">$\ast_{1\to2}$</span> の転置である。</strong>
 </p>
 <blockquote><p>
 **注** （転置／随伴）一般に、二つの線形演算子 <span class="tex2jax_process">$L$</span> と <span class="tex2jax_process">$L^T$</span> が <span class="tex2jax_process">$L(x) \cdot y = x \cdot L^T(y)$</span> を満たすとき、<span class="tex2jax_process">$L^T$</span> を <span class="tex2jax_process">$L$</span> の転置（随伴）と呼ぶ。上で示した等式 <span class="tex2jax_process">$\ast_{1\to2}(\omega) \cdot M = \omega \cdot \ast_{2\to1}(M)$</span> はこの条件そのものだ。<br>

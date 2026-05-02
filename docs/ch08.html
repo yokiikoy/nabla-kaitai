@@ -25,7 +25,7 @@
   .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; }
   @media (max-width: 900px) { 
     body { flex-direction: column; } 
-    .sidebar { width: 100%; height: auto; position: static; padding: 1rem; } 
+    .sidebar { width: 100%; height: auto; position: static; padding: 1rem; border-right: none; border-bottom: 1px solid #d0d7de; } 
     .main-content { padding: 1rem; } 
     .markdown-body { padding: 0.5rem; }
   }
@@ -35,7 +35,6 @@
   .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
   .nav-buttons a:hover { background: #f6f8fa; }
 </style>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <script>
 window.MathJax = {
   loader: { load: ['[tex]/bm', '[tex]/ams'] },
@@ -45,18 +44,13 @@ window.MathJax = {
     processEscapes: true,
     packages: {'[+]': ['bm', 'ams']}
   },
-  chtml: {
-    displayAlign: 'center',
-    adaptiveCSS: true
-  },
   options: {
-    ignoreHtmlClass: 'tex2jax_ignore',
-    processHtmlClass: 'tex2jax_process',
     enableMenu: false
   }
 };
 
 </script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
   <nav class="sidebar">
@@ -89,19 +83,19 @@ window.MathJax = {
 </p>
 <p>ここから先は、もう遠慮しない。<span class="tex2jax_process">$d$</span> も <span class="tex2jax_process">$\ast$</span> も <span class="tex2jax_process">$\nabla$</span> も、すべての道具が揃った。ベクトル解析の用語を引き合いに出すのに、もはや「ベクトル解析を知っている読者へ」と断る必要もない。第7章で <span class="tex2jax_process">$\nabla$</span> は正式に本書の住人になったのだから。
 </p>
-<p>本章は、この本の**ハイライト**である。しかし、その実あっさりと、これまでのどの章よりも短くなる。そのために第1章から第7章までの入念な準備があった——行列、ウェッジ積、外微分、計量、ホッジ・スター、そしてベクトル解析。これらの道具がすべて揃っているからこそ、本章ではただ「翻訳する」だけで、二つの世界が一つの絵に収まる。我々は二つの言語を手に入れた——測定器の微分（<span class="tex2jax_process">$d$</span>）と、場の微分（<span class="tex2jax_process">$\nabla$</span>）。この二つは、やっていることが根本的に違う。しかし積分を通じて繋がるとき、まったく同じ結果を与える。その仕組みを、これから徹底的に掘り下げる。
+<p>本章は、この本の<strong>ハイライト</strong>である。しかし、その実あっさりと、これまでのどの章よりも短くなる。そのために第1章から第7章までの入念な準備があった——行列、ウェッジ積、外微分、計量、ホッジ・スター、そしてベクトル解析。これらの道具がすべて揃っているからこそ、本章ではただ「翻訳する」だけで、二つの世界が一つの絵に収まる。我々は二つの言語を手に入れた——測定器の微分（<span class="tex2jax_process">$d$</span>）と、場の微分（<span class="tex2jax_process">$\nabla$</span>）。この二つは、やっていることが根本的に違う。しかし積分を通じて繋がるとき、まったく同じ結果を与える。その仕組みを、これから徹底的に掘り下げる。
 </p>
 <hr />
 <h3 id="81-二つの微分二つの世界">§8.1 二つの微分、二つの世界</h3>
 <h4 id="811-測定器に微分を乗せるspan-classtex2jaxprocessspan-の立場">8.1.1 測定器に微分を乗せる——<span class="tex2jax_process">$d$</span> の立場</h4>
 <p>第1章以来、我々は <span class="tex2jax_process">$dx = \begin{pmatrix}1&0&0\end{pmatrix}$</span>, <span class="tex2jax_process">$dy = \begin{pmatrix}0&1&0\end{pmatrix}$</span>, <span class="tex2jax_process">$dz = \begin{pmatrix}0&0&1\end{pmatrix}$</span> を横ベクトルの測定器として扱ってきた。これらは縦ベクトル（変位）を食わせると、その方向の変位量をスカラーで返す。
 </p>
-<p>外微分 <span class="tex2jax_process">$d$</span> は、この測定器に**微分を乗せる**操作である。
+<p>外微分 <span class="tex2jax_process">$d$</span> は、この測定器に<strong>微分を乗せる</strong>操作である。
 </p>
-<p>このように、<span class="tex2jax_process">$d$</span> が作用するたびに測定器の次数が <span class="tex2jax_process">$0\to1\to2\to3$</span> と一つずつ上がっていく。核心は**場はそのまま、測定器の側が変化する**ことだ。<span class="tex2jax_process">$f$</span> はスカラー場のままだが、<span class="tex2jax_process">$d$</span> が作用するたびに新しい測定器——<span class="tex2jax_process">$df$</span>（<span class="tex2jax_process">$1$</span>-form）、<span class="tex2jax_process">$d\omega$</span>（<span class="tex2jax_process">$2$</span>-form）、<span class="tex2jax_process">$d\eta$</span>（<span class="tex2jax_process">$3$</span>-form）——が生み出される。
+<p>このように、<span class="tex2jax_process">$d$</span> が作用するたびに測定器の次数が <span class="tex2jax_process">$0\to1\to2\to3$</span> と一つずつ上がっていく。核心は<strong>場はそのまま、測定器の側が変化する</strong>ことだ。<span class="tex2jax_process">$f$</span> はスカラー場のままだが、<span class="tex2jax_process">$d$</span> が作用するたびに新しい測定器——<span class="tex2jax_process">$df$</span>（<span class="tex2jax_process">$1$</span>-form）、<span class="tex2jax_process">$d\omega$</span>（<span class="tex2jax_process">$2$</span>-form）、<span class="tex2jax_process">$d\eta$</span>（<span class="tex2jax_process">$3$</span>-form）——が生み出される。
 </p>
 <h4 id="812-測定器はそのまま新たな場を考えるspan-classtex2jaxprocessspan-の立場">8.1.2 測定器はそのまま、新たな場を考える——<span class="tex2jax_process">$\nabla$</span> の立場</h4>
-<p>一方、第7章で導入した <span class="tex2jax_process">$\nabla = \begin{pmatrix} \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \end{pmatrix}^T$</span> の世界では、**測定器（<span class="tex2jax_process">$\nabla$</span>）は変わらず、作用する相手に応じて新たな場が生まれる**。<span class="tex2jax_process">$\nabla$</span> はつねに同じ演算子だが、スカラー場 <span class="tex2jax_process">$f$</span> に作用すればベクトル場 <span class="tex2jax_process">$\nabla f$</span> を、ベクトル場 <span class="tex2jax_process">$\mathbf{F}$</span> に作用すればスカラー場 <span class="tex2jax_process">$\nabla\cdot\mathbf{F}$</span> やベクトル場 <span class="tex2jax_process">$\nabla\times\mathbf{F}$</span> を返す。
+<p>一方、第7章で導入した <span class="tex2jax_process">$\nabla = \begin{pmatrix} \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \end{pmatrix}^T$</span> の世界では、<strong>測定器（<span class="tex2jax_process">$\nabla$</span>）は変わらず、作用する相手に応じて新たな場が生まれる</strong>。<span class="tex2jax_process">$\nabla$</span> はつねに同じ演算子だが、スカラー場 <span class="tex2jax_process">$f$</span> に作用すればベクトル場 <span class="tex2jax_process">$\nabla f$</span> を、ベクトル場 <span class="tex2jax_process">$\mathbf{F}$</span> に作用すればスカラー場 <span class="tex2jax_process">$\nabla\cdot\mathbf{F}$</span> やベクトル場 <span class="tex2jax_process">$\nabla\times\mathbf{F}$</span> を返す。
 </p>
 <p>スカラー場 <span class="tex2jax_process">$f(x,y,z)$</span> に <span class="tex2jax_process">$\nabla$</span> を作用させると、各方向の変化率を成分とする縦ベクトル場が得られる。
 </p>
@@ -197,7 +191,7 @@ window.MathJax = {
 <p>第6章 §5.3.1 で、スカラーを得る二つの方法を導入した。本章の翻訳作業を経て、この二つの方法論の対比をより深く理解できる段階に来た。ここで改めて、二つの視点を突き合わせる。
 </p>
 <h4 id="851-方法dの方法場はそのまま測定器の側が変化する">8.5.1 方法①（dの方法）——場はそのまま、測定器の側が変化する</h4>
-<p>場そのものには手を触れない。<span class="tex2jax_process">$d$</span> が作用するたびに、**新しい測定器が生み出される**。
+<p>場そのものには手を触れない。<span class="tex2jax_process">$d$</span> が作用するたびに、<strong>新しい測定器が生み出される</strong>。
 </p>
 <ul>
 <li>スカラー場 <span class="tex2jax_process">$f$</span> の変化を測りたい → <span class="tex2jax_process">$df$</span> という <span class="tex2jax_process">$1$</span>-form 測定器を作る</li>
@@ -215,7 +209,7 @@ window.MathJax = {
 <p>この立場では、<span class="tex2jax_process">$\nabla f$</span> も <span class="tex2jax_process">$\nabla\times\mathbf{F}$</span> も画面上では同じ「矢印」である。勾配の矢印と回転の矢印は幾何的意味がまったく異なるのに、表示上は区別がつかない。第7章で指摘した「すべてが同じ矢印に見える」問題がここにある。
 </p>
 <h4 id="853-なぜ一致するのか">8.5.3 なぜ一致するのか</h4>
-<p>方法①と方法②は、やっていることが**根本的に違う**。一方は場をそのままに新しい測定器を生み出し、他方は測定器をそのままに新たな場を考える。操作方法も、出てくる対象の種類も異なる。
+<p>方法①と方法②は、やっていることが<strong>根本的に違う</strong>。一方は場をそのままに新しい測定器を生み出し、他方は測定器をそのままに新たな場を考える。操作方法も、出てくる対象の種類も異なる。
 </p>
 <p>なのに積分すると一致する。たとえばスカラー場 <span class="tex2jax_process">$f$</span> の変化を線積分するとき、<span class="tex2jax_process">$df$</span>（横ベクトルの測定器）を使っても <span class="tex2jax_process">$\nabla f$</span>（縦ベクトルの矢印）を使っても、結果はどちらも <span class="tex2jax_process">$f(B)-f(A)$</span> だ。
 </p>
@@ -253,11 +247,9 @@ window.MathJax = {
 <blockquote><p>
 **注** （二次元で考える）第1章以来、二次元の問題を扱うときは <span class="tex2jax_process">$z=0$</span> と断ってきた。しかし本章まで読み進めた読者に、もはやそのような断りは不要だろう。以下では二次元平面 <span class="tex2jax_process">$(x,y)$</span> とその極座標 <span class="tex2jax_process">$(r,\theta)$</span> だけで話を進める。<br>
 </p></blockquote>
-<p>**方法①——場はそのまま、測定器を変える。**
-</p>
 <p>パラメータ空間 <span class="tex2jax_process">$(r,\theta)$</span> と実空間 <span class="tex2jax_process">$(x,y)$</span>、二枚のデカルト座標を用意する。パラメータ空間の用紙には、どこも同じ大きさの正方形グリッドが敷き詰められている。この正方形グリッドの上で、我々は測定を行う。
 </p>
-<p>ベクトル場 <span class="tex2jax_process">$\mathbf{F} = (F_x, F_y)^T$</span> は実空間に住んでいる。その測定器 <span class="tex2jax_process">$\omega = F_x\,dx + F_y\,dy$</span> を、パラメータ空間の用紙に**引き戻す**。引き戻し（pullback）とは、実空間の測定器をパラメータ空間の言葉に焼き直す操作だ。写像 <span class="tex2jax_process">$\phi: (r,\theta) \to (x,y)$</span> で実空間に送るのと逆向きに、測定器を戻してくる。<span class="tex2jax_process">$dx = \cos\theta\,dr - r\sin\theta\,d\theta$</span>, <span class="tex2jax_process">$dy = \sin\theta\,dr + r\cos\theta\,d\theta$</span> を使って、
+<p>ベクトル場 <span class="tex2jax_process">$\mathbf{F} = (F_x, F_y)^T$</span> は実空間に住んでいる。その測定器 <span class="tex2jax_process">$\omega = F_x\,dx + F_y\,dy$</span> を、パラメータ空間の用紙に<strong>引き戻す</strong>。引き戻し（pullback）とは、実空間の測定器をパラメータ空間の言葉に焼き直す操作だ。写像 <span class="tex2jax_process">$\phi: (r,\theta) \to (x,y)$</span> で実空間に送るのと逆向きに、測定器を戻してくる。<span class="tex2jax_process">$dx = \cos\theta\,dr - r\sin\theta\,d\theta$</span>, <span class="tex2jax_process">$dy = \sin\theta\,dr + r\cos\theta\,d\theta$</span> を使って、
 </p>
 <p>が得られる。
 </p>
@@ -268,15 +260,11 @@ window.MathJax = {
 </p>
 <p>測るのはつねに均一な正方形グリッド。場所ごとの換算係数の違いは pullback が織り込み、<span class="tex2jax_process">$\ast$</span> が整理する。グリッドは有限でよい——極限は最後の一手で十分だ。
 </p>
-<p>**方法②——測定器はそのまま、新たな場を考える。**
-</p>
-<p>今度は実空間に一枚のグラフ用紙を使う。極座標 <span class="tex2jax_process">$(r,\theta)$</span> の上に、点 <span class="tex2jax_process">$(r,\theta)$</span> を中心とする小さな面積要素を直接描く。<span class="tex2jax_process">$r$</span> 方向に <span class="tex2jax_process">$\Delta r$</span>、<span class="tex2jax_process">$\theta$</span> 方向に <span class="tex2jax_process">$\Delta\theta$</span> の幅を持った小片だ。ここでは**<span class="tex2jax_process">$\Delta r, \Delta\theta$</span> は微小でなければならない**——角度があるために、有限の <span class="tex2jax_process">$\Delta\theta$</span> では動径方向の辺が平行にならず、単純な四角形にならないからだ。
+<p>今度は実空間に一枚のグラフ用紙を使う。極座標 <span class="tex2jax_process">$(r,\theta)$</span> の上に、点 <span class="tex2jax_process">$(r,\theta)$</span> を中心とする小さな面積要素を直接描く。<span class="tex2jax_process">$r$</span> 方向に <span class="tex2jax_process">$\Delta r$</span>、<span class="tex2jax_process">$\theta$</span> 方向に <span class="tex2jax_process">$\Delta\theta$</span> の幅を持った小片だ。ここでは<strong><span class="tex2jax_process">$\Delta r, \Delta\theta$</span> は微小でなければならない</strong>——角度があるために、有限の <span class="tex2jax_process">$\Delta\theta$</span> では動径方向の辺が平行にならず、単純な四角形にならないからだ。
 </p>
 <p>この小片は扇形の一部である。<span class="tex2jax_process">$\theta$</span> 方向の内側の辺の長さは <span class="tex2jax_process">$r\Delta\theta$</span>、外側の辺の長さは <span class="tex2jax_process">$(r+\Delta r)\Delta\theta$</span> で、<span class="tex2jax_process">$r$</span> が大きいほど辺が長い。ベクトル場 <span class="tex2jax_process">$\mathbf{F} = (F_r, F_\theta)^T$</span> がこの小片の四辺を通り抜ける流束を、一辺ずつ勘定する。
 </p>
 <p>実空間に直接小片を描き、壁を通る流れを数え上げる——絵は直感的だ。しかし座標系が変わるたびに小片の形が変わり、毎回異なる勘定を強いられる。<span class="tex2jax_process">$\frac{1}{r}\frac{\partial}{\partial r}(rF_r)$</span> の <span class="tex2jax_process">$\frac{1}{r}$</span> は扇形の面積 <span class="tex2jax_process">$r\Delta r\Delta\theta$</span> で割るために出てくるが、デカルト座標で同じ計算をしたときには現れなかった項だ。
-</p>
-<p>**どちらが優れているというわけではない**
 </p>
 <p>方法①は均一な正方形グリッドで測り、方法②は扇形の小片を描いて流れを数える。やっていることはまったく違う。しかし出てくる答えは同じ <span class="tex2jax_process">$\frac{1}{r}\frac{\partial}{\partial r}(rF_r) + \frac{1}{r}\frac{\partial F_\theta}{\partial\theta}$</span> だ。そして、この一致は発散に限らない。勾配も回転もラプラシアンも、すべての微分演算がこの二つの方法で構成できる。単純な座標変換なら方法②のほうが早いこともあるが、座標系が歪んだり場の種類が入り組んだりしたら方法①に切り替えればよい。
 </p>

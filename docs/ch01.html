@@ -25,7 +25,7 @@
   .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; }
   @media (max-width: 900px) { 
     body { flex-direction: column; } 
-    .sidebar { width: 100%; height: auto; position: static; padding: 1rem; } 
+    .sidebar { width: 100%; height: auto; position: static; padding: 1rem; border-right: none; border-bottom: 1px solid #d0d7de; } 
     .main-content { padding: 1rem; } 
     .markdown-body { padding: 0.5rem; }
   }
@@ -35,7 +35,6 @@
   .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
   .nav-buttons a:hover { background: #f6f8fa; }
 </style>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <script>
 window.MathJax = {
   loader: { load: ['[tex]/bm', '[tex]/ams'] },
@@ -45,18 +44,13 @@ window.MathJax = {
     processEscapes: true,
     packages: {'[+]': ['bm', 'ams']}
   },
-  chtml: {
-    displayAlign: 'center',
-    adaptiveCSS: true
-  },
   options: {
-    ignoreHtmlClass: 'tex2jax_ignore',
-    processHtmlClass: 'tex2jax_process',
     enableMenu: false
   }
 };
 
 </script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
   <nav class="sidebar">
@@ -85,29 +79,26 @@ window.MathJax = {
     <article class="markdown-body">
       <h1 id="第1章span-classtex2jaxprocessspan-とは何か--ベクトルを食べる測定器あるいは横ベクトル">第1章：<span class="tex2jax_process">$dx$</span> とは何か —— ベクトルを食べる測定器、あるいは横ベクトル</h1>
 <h3 id="10-数学者の1次元物理学者の1次元">§1.0 数学者の1次元、物理学者の1次元</h3>
-<p>高校で <span class="tex2jax_process">$\int f(x) dx$</span> という1次元の積分を習ったとき、教科書の記述では「<span class="tex2jax_process">$x$</span>軸という1本の線」が置かれる。数学の教科書としてはそれで妥当だ。**数学者**は1次元空間 <span class="tex2jax_process">$\mathbb{R}^1$</span> という自己完結した抽象世界を仮定し、その上で論理を積み上げる。点は実数 <span class="tex2jax_process">$x$</span>、変位は実数 <span class="tex2jax_process">$\Delta x$</span>、積分は「関数×微小幅」の極限として定義される。すべてが完結している。
+<p>高校で <span class="tex2jax_process">$\int f(x) dx$</span> という1次元の積分を習ったとき、教科書の記述では「<span class="tex2jax_process">$x$</span>軸という1本の線」が置かれる。数学の教科書としてはそれで妥当だ。<strong>数学者</strong>は1次元空間 <span class="tex2jax_process">$\mathbb{R}^1$</span> という自己完結した抽象世界を仮定し、その上で論理を積み上げる。点は実数 <span class="tex2jax_process">$x$</span>、変位は実数 <span class="tex2jax_process">$\Delta x$</span>、積分は「関数×微小幅」の極限として定義される。すべてが完結している。
 </p>
-<p>**しかし、我々は物理学者である。**
-</p>
-<p>我々が扱う**現実の物理空間は、常に3次元だ。**質点が直線上を運動しているように見えても、それは「架空の1次元空間」にいるのではなく、「3次元空間 <span class="tex2jax_process">$\mathbb{R}^3$</span> の中で、たまたま <span class="tex2jax_process">$y$</span> 方向と <span class="tex2jax_process">$z$</span> 方向への変位が観測されない（あるいは無視できる）断面」を見ているに過ぎない。
+<p>我々が扱う<strong>現実の物理空間は、常に3次元だ。</strong>質点が直線上を運動しているように見えても、それは「架空の1次元空間」にいるのではなく、「3次元空間 <span class="tex2jax_process">$\mathbb{R}^3$</span> の中で、たまたま <span class="tex2jax_process">$y$</span> 方向と <span class="tex2jax_process">$z$</span> 方向への変位が観測されない（あるいは無視できる）断面」を見ているに過ぎない。
 例えば、摩擦のない直線レール上を滑る台車を考えよう。我々は「これは <span class="tex2jax_process">$x$</span> 軸方向の1次元運動だ」と言うが、実際には：
 <ul>
 <li>レールは3次元空間内に設置されている</li>
 <li>台車は微小に上下に揺れているかもしれない</li>
 <li>空気抵抗による横方向の微小変動もある</li>
 </ul>
-<p>物理学者の「1次元運動」とは、**3次元空間内で特定の方向への変位が支配的であり、他の方向の変位が無視できるほど小さいか、系の対称性によって厳密にゼロに拘束されている状況**を指す。
-したがって、物理学者が「1次元の微小変位」と呼ぶものの真の姿は、単なるスカラー <span class="tex2jax_process">$\Delta x$</span> ではなく、次のような**縦ベクトル（列ベクトル）**で表すのがふさわしい：
+<p>物理学者の「1次元運動」とは、<strong>3次元空間内で特定の方向への変位が支配的であり、他の方向の変位が無視できるほど小さいか、系の対称性によって厳密にゼロに拘束されている状況</strong>を指す。
+したがって、物理学者が「1次元の微小変位」と呼ぶものの真の姿は、単なるスカラー <span class="tex2jax_process">$\Delta x$</span> ではなく、次のような<strong>縦ベクトル（列ベクトル）</strong>で表すのがふさわしい：
 </p>
 <blockquote><p>
 **注** （標準的でない呼び方）本書全体を通して**縦ベクトル・横ベクトル**という言い方をする（縦が列、横が行、と対応させて読んでほしい）。筆者は行と列という語の区別が苦手だからだ。<br>
 </p></blockquote>
-<p>我々はこのように、3次元空間内の一点からの変位を3成分で表したものを**変位ベクトル**と呼ぶ。成分の並びは慣習に従い、**第1成分が <span class="tex2jax_process">$x$</span> 軸方向、第2が <span class="tex2jax_process">$y$</span> 軸方向、第3が <span class="tex2jax_process">$z$</span> 軸方向**の変位に対応するものとする。
+<p>我々はこのように、3次元空間内の一点からの変位を3成分で表したものを<strong>変位ベクトル</strong>と呼ぶ。成分の並びは慣習に従い、<strong>第1成分が <span class="tex2jax_process">$x$</span> 軸方向、第2が <span class="tex2jax_process">$y$</span> 軸方向、第3が <span class="tex2jax_process">$z$</span> 軸方向</strong>の変位に対応するものとする。
 </p>
-<p>この第2成分・第3成分のゼロは、「無視されている」あるいは「存在しない」という消極的な意味ではない。**「我々が今、<span class="tex2jax_process">$x$</span>軸方向の運動だけに注目し、他の成分を測定対象から意図的に除外している」という積極的な選択の結果**なのである。
-この「物理学者としての3次元前提」こそが、積分記号の末尾にへばりついている <span class="tex2jax_process">$dx$</span> という記号の真の姿を暴き出す鍵となる。次節では、この視点から **<span class="tex2jax_process">$dx$</span> を「微小量」から「行列」へと解体していく。**
+<p>この第2成分・第3成分のゼロは、「無視されている」あるいは「存在しない」という消極的な意味ではない。<strong>「我々が今、<span class="tex2jax_process">$x$</span>軸方向の運動だけに注目し、他の成分を測定対象から意図的に除外している」という積極的な選択の結果</strong>なのである。
+この「物理学者としての3次元前提」こそが、積分記号の末尾にへばりついている <span class="tex2jax_process">$dx$</span> という記号の真の姿を暴き出す鍵となる。次節では、この視点から <strong><span class="tex2jax_process">$dx$</span> を「微小量」から「行列」へと解体していく。</strong>
 </p>
-<p>**本書はあくまで初等微分積分学とベクトル解析の教科書であり、一般次元の微分形式を展開しようとするものではない。したがって最後まで3次元デカルト座標 <span class="tex2jax_process">$(x,y,z)$</span> に固定し、線形代数学として最も素直な表現——行列表現——を採用する。**よって、本書で用いる <span class="tex2jax_process">$dx,dy,dz$</span> は、この座標系において成分を取り出す具体的な行列として定義し、まずは「3次元・デカルト・行列」という素直な道具立ての中で、誤魔化しのないベクトル解析を身体に染み込ませることが狙いである。
 <blockquote><p>
 **注**（デカルト座標の呼称について）本書の「デカルト座標」とは、**正規直交座標系**（原点が一致し、各軸が互いに直交し、間隔が等間隔である座標系）を指す。数学や他書籍では「ユークリッド空間上の直交直線座標」「デカルト座標系」などとも呼ばれるが、本書では単に「デカルト座標」と呼ぶ。<br>
 </p></blockquote>
@@ -142,18 +133,18 @@ window.MathJax = {
 <p>この教科書的な説明では、<span class="tex2jax_process">$\Delta x_i$</span> は「微小な幅」という一次元の量だ。しかし、我々はもう一歩踏み込めるはずだ。
 </p>
 <h4 id="112-小区間ごとの変位">1.1.2 小区間ごとの変位</h4>
-<p>第 <span class="tex2jax_process">$i$</span> 小区間 <span class="tex2jax_process">$[x_{i-1}, x_i]$</span> における変位は、§1.0 の**変位ベクトル**を、その区間の幅に合わせて
+<p>第 <span class="tex2jax_process">$i$</span> 小区間 <span class="tex2jax_process">$[x_{i-1}, x_i]$</span> における変位は、§1.0 の<strong>変位ベクトル</strong>を、その区間の幅に合わせて
 </p>
 <p>と書く。添字 <span class="tex2jax_process">$i$</span> は「第 <span class="tex2jax_process">$i$</span> 小区間の分」という意味だけで、<span class="tex2jax_process">$\mathbf{v}_i$</span> もまた変位ベクトルである。今は直線運動を考えているので <span class="tex2jax_process">$y,z$</span> 成分はゼロだが、それは条件ではなく結果としてゼロになっているだけだ。
 </p>
 <p>\clearpage
 </p>
 <h4 id="113-span-classtex2jaxprocessspan-の登場--本書最大の特徴としての断言">1.1.3 <span class="tex2jax_process">$dx$</span> の登場 — 本書最大の特徴としての「断言」</h4>
-<p>さて、本書では <span class="tex2jax_process">$dx$</span> という記号に次のような意味を与える。**大胆で奇妙に思えるかもしれないが、これが本書最大の特徴でもある——ここでは <span class="tex2jax_process">$dx$</span> を次の <span class="tex2jax_process">$1\times 3$</span> 行列だと断言する。**
+<p>さて、本書では <span class="tex2jax_process">$dx$</span> という記号に次のような意味を与える。<strong>大胆で奇妙に思えるかもしれないが、これが本書最大の特徴でもある——ここでは <span class="tex2jax_process">$dx$</span> を次の <span class="tex2jax_process">$1\times 3$</span> 行列だと断言する。</strong>
 </p>
-<p>すなわち、**横ベクトル**（<span class="tex2jax_process">$1\times 3$</span> **行列**として成分を横に並べて書く）として
+<p>すなわち、<strong>横ベクトル</strong>（<span class="tex2jax_process">$1\times 3$</span> <strong>行列</strong>として成分を横に並べて書く）として
 \begin{center}\scalebox{1.8}{<span class="tex2jax_process">$\displaystyle dx = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}$</span>}\end{center}
-と**定義する**。これは、入力された縦ベクトルから <span class="tex2jax_process">$x$</span> 成分だけを抜き出して返す線形演算子の行列表現である。
+と<strong>定義する</strong>。これは、入力された縦ベクトルから <span class="tex2jax_process">$x$</span> 成分だけを抜き出して返す線形演算子の行列表現である。
 </p>
 <blockquote><p>
 **注**（これはトンデモか？）<br>
@@ -179,9 +170,7 @@ window.MathJax = {
 </p>
 <p>変位ベクトル <span class="tex2jax_process">$\mathbf{v}_i$</span> に左から掛けると
 </p>
-<p>となる。ここで「<span class="tex2jax_process">$dx$</span> が変位ベクトル <span class="tex2jax_process">$\mathbf{v}_i$</span> を食べてスカラー <span class="tex2jax_process">$\Delta x_i$</span> を吐く」というイメージを、**関数の値のように書く**ことにする：
-</p>
-<p>**本書では、しばしばこの <span class="tex2jax_process">$dx(\mathbf{v})$</span> の形で「横ベクトル <span class="tex2jax_process">$dx$</span> が縦ベクトル <span class="tex2jax_process">$\mathbf{v}$</span> に作用する」と強調する。何度繰り返しても強調しすぎることはない。**
+<p>となる。ここで「<span class="tex2jax_process">$dx$</span> が変位ベクトル <span class="tex2jax_process">$\mathbf{v}_i$</span> を食べてスカラー <span class="tex2jax_process">$\Delta x_i$</span> を吐く」というイメージを、<strong>関数の値のように書く</strong>ことにする：
 </p>
 <blockquote><p>
 **注** （演算子・作用素・関数・写像の呼び分け）この <span class="tex2jax_process">$dx(\mathbf{v})$</span> を**演算子**と呼ぶか**作用素**と呼ぶか**関数**と呼ぶか**写像**と呼ぶかは、文献によってさまざまな流儀がある。筆者は**演算子**と呼ぶことを好むので、この先も演算子と呼ぶことが多いだろう。<br>
@@ -189,14 +178,13 @@ window.MathJax = {
 <blockquote><p>
 **注**（座標不変な \(dx\) とデカルト表示）上で述べた通り、ここでの \(\begin{pmatrix}1&0&0\end{pmatrix}\) は標準デカルト座標での表示である。§1.4 で、座標を替えるとこの表示がどう変わるかを見る。<br>
 </p></blockquote>
-<p>リーマン和に現れる <span class="tex2jax_process">$\Delta x_i$</span> は、「1次元の謎の微小量」ではない。**3次元空間の中での変位ベクトル <span class="tex2jax_process">$\mathbf{v}_i$</span> に対し、上の行列としての <span class="tex2jax_process">$dx$</span> が <span class="tex2jax_process">$x$</span> 成分だけを抜き出した結果**である。
+<p>リーマン和に現れる <span class="tex2jax_process">$\Delta x_i$</span> は、「1次元の謎の微小量」ではない。<strong>3次元空間の中での変位ベクトル <span class="tex2jax_process">$\mathbf{v}_i$</span> に対し、上の行列としての <span class="tex2jax_process">$dx$</span> が <span class="tex2jax_process">$x$</span> 成分だけを抜き出した結果</strong>である。
 </p>
-<p>**これが決定的な瞬間だ**：
 <ul>
 <li>左辺：<span class="tex2jax_process">$dx(\mathbf{v}_i)$</span> は、行列 <span class="tex2jax_process">$dx$</span> が**変位ベクトル <span class="tex2jax_process">$\mathbf{v}_i$</span> に**作用する代数的操作</li>
 <li>右辺：従来のリーマン和に現れる「小区間の幅 <span class="tex2jax_process">$\Delta x_i$</span>」</li>
 </ul>
-<p>つまり <span class="tex2jax_process">$\Delta x_i$</span> は、**1次元の謎の微小変位ではなく、3次元の微小変位 <span class="tex2jax_process">$\mathbf{v}_i$</span> から <span class="tex2jax_process">$x$</span> 方向の成分だけを取り出した <span class="tex2jax_process">$dx(\mathbf{v}_i)$</span> である**。
+<p>つまり <span class="tex2jax_process">$\Delta x_i$</span> は、<strong>1次元の謎の微小変位ではなく、3次元の微小変位 <span class="tex2jax_process">$\mathbf{v}_i$</span> から <span class="tex2jax_process">$x$</span> 方向の成分だけを取り出した <span class="tex2jax_process">$dx(\mathbf{v}_i)$</span> である</strong>。
 </p>
 <blockquote><p>
 **注** （成分並びの約束）横ベクトル（行）や行成分の略記は **<span class="tex2jax_process">$(1\ 0\ 0)$</span>** のように**コンマを打たず**、成分の間だけを区切って書く。**<span class="tex2jax_process">$(1, 0, 0)$</span>** のように**コンマのあとにスペース**を入れる書き方は**座標**（点の位置など）を強調するときに用い、**行列・横ベクトルの略記には使わない**。<br>
@@ -212,7 +200,7 @@ window.MathJax = {
 </p>
 <p>分割を無限に細かくする極限では（手順5と同じく、幅の最大値が <span class="tex2jax_process">$0$</span> に近づく意味で）、リーマン積分の定義より
 </p>
-<p>左辺の <span class="tex2jax_process">$\int_a^b f(x)\,dx$</span> は、高校以来おなじみの積分記号そのものである——すなわち、上の手順5で書いた <span class="tex2jax_process">$\lim_{n\to\infty} R_n$</span> と同じ量だ。右辺は、**各小区間で「行列 <span class="tex2jax_process">$f(\xi_i)\,dx$</span> を変位ベクトルに作用させた値」を足し上げたものの極限**という、同じ積分の別顔だ。
+<p>左辺の <span class="tex2jax_process">$\int_a^b f(x)\,dx$</span> は、高校以来おなじみの積分記号そのものである——すなわち、上の手順5で書いた <span class="tex2jax_process">$\lim_{n\to\infty} R_n$</span> と同じ量だ。右辺は、<strong>各小区間で「行列 <span class="tex2jax_process">$f(\xi_i)\,dx$</span> を変位ベクトルに作用させた値」を足し上げたものの極限</strong>という、同じ積分の別顔だ。
 </p>
 <h4 id="115-物理的解釈--仕事の計算を例に">1.1.5 物理的解釈 — 仕事の計算を例に</h4>
 <blockquote><p>
@@ -222,10 +210,10 @@ window.MathJax = {
 </p>
 <p>という表現を知っているだろう。本書の流儀で行列表現すると、
 </p>
-<p>である。左から順に、**成分を明示したリーマン和の極限**、**演算子記法による同じ極限**、**慣用の積分記号**であり、**同じ量**を三通りに表している。ここで <span class="tex2jax_process">$\mathbf{v}_i = \begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix}$</span> である。
+<p>である。左から順に、<strong>成分を明示したリーマン和の極限</strong>、<strong>演算子記法による同じ極限</strong>、<strong>慣用の積分記号</strong>であり、<strong>同じ量</strong>を三通りに表している。ここで <span class="tex2jax_process">$\mathbf{v}_i = \begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix}$</span> である。
 </p>
 <h4 id="116-一次形式span-classtex2jaxprocessspan-form">1.1.6 一次形式（<span class="tex2jax_process">$1$</span>-form）</h4>
-<p>ここまで、我々は <span class="tex2jax_process">$dx$</span> を「変位ベクトルに作用して特定の成分を抽出し、スカラー（実数）を返す横ベクトル」として定義してきた。このような、ベクトルを食べてスカラーを吐き出す**線形**な測定器のことを、専門的には**一次形式（<span class="tex2jax_process">$1$</span>-form）**と呼ぶ。本稿で「行列としての <span class="tex2jax_process">$dx$</span>」と呼んできたものは、まさにこの一次形式に他ならない。
+<p>ここまで、我々は <span class="tex2jax_process">$dx$</span> を「変位ベクトルに作用して特定の成分を抽出し、スカラー（実数）を返す横ベクトル」として定義してきた。このような、ベクトルを食べてスカラーを吐き出す<strong>線形</strong>な測定器のことを、専門的には<strong>一次形式（<span class="tex2jax_process">$1$</span>-form）</strong>と呼ぶ。本稿で「行列としての <span class="tex2jax_process">$dx$</span>」と呼んできたものは、まさにこの一次形式に他ならない。
 </p>
 <blockquote><p>
 **注** （余ベクトルという用語）数学者は **一次形式（<span class="tex2jax_process">$1$</span>-form）** の別名として **余ベクトル（covector）**と呼ぶ流儀をとることもよくある。他書を読むときの辞書として、頭の片隅に置いておけばよい。<br>
@@ -238,13 +226,9 @@ window.MathJax = {
 </ul>
 <p>これ以降、この測定器のことを「行列」とも「一次形式（<span class="tex2jax_process">$1$</span>-form）」とも呼ぶことにする。どちらの呼び方も、同じ実体を指している。
 </p>
-<p>**本書の記号契約**
+<p>一方、<strong>単独で現れる <span class="tex2jax_process">$dx$</span></strong> は、<strong><span class="tex2jax_process">$x$</span> 成分を抜き出す横ベクトル（一次形式）としての演算子</strong>を指す。式 <span class="tex2jax_process">$df = f'(x)\,dx$</span> のように並ぶ <span class="tex2jax_process">$dx$</span> も、<strong>常に演算子として読む</strong>。<strong>この区別を徹底することが、以降のすべての理解の土台となる。</strong>
 </p>
-<p>**<span class="tex2jax_process">$dx$</span> を単独で「微小な変位」や「微小変化」の意味には用いない**——変位の幅と測定器（横ベクトル）を混同しないために、次のように約束する。<span class="tex2jax_process">$x$</span> 方向の（微小）変位の大きさは **<span class="tex2jax_process">$\Delta x$</span>** を使うか、変位ベクトル <span class="tex2jax_process">$\mathbf{v}$</span> を明示して **<span class="tex2jax_process">$dx(\mathbf{v})$</span>** と書く。
-</p>
-<p>一方、**単独で現れる <span class="tex2jax_process">$dx$</span>** は、**<span class="tex2jax_process">$x$</span> 成分を抜き出す横ベクトル（一次形式）としての演算子**を指す。式 <span class="tex2jax_process">$df = f'(x)\,dx$</span> のように並ぶ <span class="tex2jax_process">$dx$</span> も、**常に演算子として読む**。**この区別を徹底することが、以降のすべての理解の土台となる。**
-</p>
-<p>積分記号 <span class="tex2jax_process">$\int_a^b f(x)\,dx$</span> の末尾の <span class="tex2jax_process">$dx$</span> は、高校以来の**慣用記法**として残す（積分変数 <span class="tex2jax_process">$x$</span> とセットの「ひとかたまり」）。本書ではここを毎回 <span class="tex2jax_process">$dx(\mathbf{v})$</span> まで展開しないことも多いが、**変位や微小幅を語る本文では <span class="tex2jax_process">$\Delta x$</span> か <span class="tex2jax_process">$dx(\mathbf{v})$</span> に揃え、裸の <span class="tex2jax_process">$dx$</span> には幅や変化量のイメージを載せない**。
+<p>積分記号 <span class="tex2jax_process">$\int_a^b f(x)\,dx$</span> の末尾の <span class="tex2jax_process">$dx$</span> は、高校以来の<strong>慣用記法</strong>として残す（積分変数 <span class="tex2jax_process">$x$</span> とセットの「ひとかたまり」）。本書ではここを毎回 <span class="tex2jax_process">$dx(\mathbf{v})$</span> まで展開しないことも多いが、<strong>変位や微小幅を語る本文では <span class="tex2jax_process">$\Delta x$</span> か <span class="tex2jax_process">$dx(\mathbf{v})$</span> に揃え、裸の <span class="tex2jax_process">$dx$</span> には幅や変化量のイメージを載せない</strong>。
 </p>
 <blockquote><p>
 **注** （文献における <span class="tex2jax_process">$dx$</span> の用法）物理学者は変位の成分そのものを <span class="tex2jax_process">$dx$</span> と書く慣習もよく使う。しかし、本書の記法に慣れると、**測定器としての <span class="tex2jax_process">$dx$</span> と変位のスカラーを切り分けた**読みがしやすくなる——より進んだ本では、その区別がそのまま効いてくる。<br>
@@ -261,7 +245,7 @@ window.MathJax = {
 </p></blockquote>
 <hr />
 <h3 id="12-全微分-span-classtex2jaxprocessspan--変化率を行列にまとめた演算子">§1.2 全微分 <span class="tex2jax_process">$df$</span> — 変化率を行列にまとめた演算子</h3>
-<p>前節では、リーマン積分を「行列 <span class="tex2jax_process">$f(x)\,dx$</span> の変位ベクトルへの作用の和の極限」として解剖した。この節では、その考え方を関数自体の微分へと拡張し、**全微分 <span class="tex2jax_process">$df$</span> を横ベクトル（行列）として定義する**。「微分」は、単なる数値の変化率ではなく、**変位ベクトルに掛けて初めて「変化量の一次部分」が出てくる演算子**として扱う。
+<p>前節では、リーマン積分を「行列 <span class="tex2jax_process">$f(x)\,dx$</span> の変位ベクトルへの作用の和の極限」として解剖した。この節では、その考え方を関数自体の微分へと拡張し、<strong>全微分 <span class="tex2jax_process">$df$</span> を横ベクトル（行列）として定義する</strong>。「微分」は、単なる数値の変化率ではなく、<strong>変位ベクトルに掛けて初めて「変化量の一次部分」が出てくる演算子</strong>として扱う。
 <h4 id="121-微分可能性の行列表現">1.2.1 微分可能性の行列表現</h4>
 <p>関数 <span class="tex2jax_process">$f(x)$</span> が点 <span class="tex2jax_process">$x$</span> で微分可能であるとは、次の一次近似が成り立つことである：
 </p>
@@ -273,11 +257,10 @@ window.MathJax = {
 <p>すると、関数の変化 <span class="tex2jax_process">$\Delta f$</span> は、この <span class="tex2jax_process">$\mathbf{v}$</span> によって引き起こされる効果と見なせる。
 </p>
 <h4 id="122-span-classtex2jaxprocessspan-の行列としての定義と-span-classtex2jaxprocessspan">1.2.2 <span class="tex2jax_process">$df$</span> の行列としての定義と <span class="tex2jax_process">$df(\mathbf{v})$</span></h4>
-<p>点 <span class="tex2jax_process">$x$</span> における関数 <span class="tex2jax_process">$f$</span> の**全微分** <span class="tex2jax_process">$df$</span> を、次の <span class="tex2jax_process">$1 \times 3$</span> 横ベクトルとして定義する：
+<p>点 <span class="tex2jax_process">$x$</span> における関数 <span class="tex2jax_process">$f$</span> の<strong>全微分</strong> <span class="tex2jax_process">$df$</span> を、次の <span class="tex2jax_process">$1 \times 3$</span> 横ベクトルとして定義する：
 </p>
-<p>この <span class="tex2jax_process">$df$</span> を変位 <span class="tex2jax_process">$\mathbf{v}$</span> に作用させた結果を、前節と同様に **<span class="tex2jax_process">$df(\mathbf{v})$</span>** と書く：
+<p>この <span class="tex2jax_process">$df$</span> を変位 <span class="tex2jax_process">$\mathbf{v}$</span> に作用させた結果を、前節と同様に <strong><span class="tex2jax_process">$df(\mathbf{v})$</span></strong> と書く：
 </p>
-<p>**重要な認識の転換**（**常に次のように読む**）：
 <ul>
 <li>式 <span class="tex2jax_process">$df = f'(x)\,dx$</span> は、微積分でおなじみの**全微分の記法**だが、本書では **<span class="tex2jax_process">$df$</span> も <span class="tex2jax_process">$dx$</span> も演算子としての横ベクトル**であり、**単体では微小変化量ではない**、と読む。</li>
 <li>**<span class="tex2jax_process">$df(\mathbf{v})$</span>** と書いたときは、**有限の（ただし十分小さい）変位 <span class="tex2jax_process">$\mathbf{v}$</span> に対する一次近似としての変化量**を意味する。</li>
@@ -286,19 +269,18 @@ window.MathJax = {
 **注** （<span class="tex2jax_process">$df$</span> は演算子、<span class="tex2jax_process">$df(\mathbf{v})$</span> が変化量）§1.1.6 の記号契約と同じ区別を、ここでもう一度述べる。くどいと感じるかもしれないが、**ここを誤読すると以降すべてがずれる**ので、繰り返しに価値がある。<br>
 </p></blockquote>
 <h4 id="123-span-classtex2jaxprocessspan-方向と-span-classtex2jaxprocessspan-方向の物差し-span-classtex2jaxprocessspan-span-classtex2jaxprocessspan">1.2.3 <span class="tex2jax_process">$y$</span> 方向と <span class="tex2jax_process">$z$</span> 方向の物差し <span class="tex2jax_process">$dy$</span>, <span class="tex2jax_process">$dz$</span></h4>
-<p>この視点の強みを、§1.1.5 の力学の例に戻せば、**力が <span class="tex2jax_process">$y$</span> 方向にも成分を持つ一般的な場合に自然に拡張できる**点だ。
-**いま定める <span class="tex2jax_process">$dy$</span>**を使えば、<span class="tex2jax_process">$F_x dx + F_y dy$</span> という形で2次元の仕事を統一的に扱える。
+<p>この視点の強みを、§1.1.5 の力学の例に戻せば、<strong>力が <span class="tex2jax_process">$y$</span> 方向にも成分を持つ一般的な場合に自然に拡張できる</strong>点だ。
 </p>
 <p>である。変位 <span class="tex2jax_process">$\mathbf{v} = \begin{pmatrix} \Delta x \\ \Delta y \\ \Delta z \end{pmatrix}$</span> に対して <span class="tex2jax_process">$dy(\mathbf{v}) = \Delta y$</span>, <span class="tex2jax_process">$dz(\mathbf{v}) = \Delta z$</span> となる。
 </p>
 <blockquote><p>
 **注** （<span class="tex2jax_process">$dy$</span>, <span class="tex2jax_process">$dz$</span> の契約）単独の <span class="tex2jax_process">$dy$</span>, <span class="tex2jax_process">$dz$</span> は演算子であり、<span class="tex2jax_process">$y$</span> や <span class="tex2jax_process">$z$</span> の微小幅を語るときは <span class="tex2jax_process">$\Delta y$</span>, <span class="tex2jax_process">$\Delta z$</span> または <span class="tex2jax_process">$dy(\mathbf{v})$</span>, <span class="tex2jax_process">$dz(\mathbf{v})$</span> と書く。積分記号の末尾に並ぶ <span class="tex2jax_process">$dy$</span>, <span class="tex2jax_process">$dz$</span> も、高校以来の慣用記法として **<span class="tex2jax_process">$dx$</span> と同じ仕方で読めばよい**。細部の約束は、§1.1.6 で <span class="tex2jax_process">$dx$</span> についてまとめた**記号契約**と**同じ考え方**を適用する。<br>
 </p></blockquote>
-<p>3次元の空間には、**三つの物差し**がそろった。本章では説明の主線として <span class="tex2jax_process">$x$</span> 方向の断面に寄せてきたが、座標 <span class="tex2jax_process">$y,z$</span> と測定子 <span class="tex2jax_process">$dy,dz$</span> は最初からそろっている、と考えてほしい。
+<p>3次元の空間には、<strong>三つの物差し</strong>がそろった。本章では説明の主線として <span class="tex2jax_process">$x$</span> 方向の断面に寄せてきたが、座標 <span class="tex2jax_process">$y,z$</span> と測定子 <span class="tex2jax_process">$dy,dz$</span> は最初からそろっている、と考えてほしい。
 いま、一変数の <span class="tex2jax_process">$df=f'(x)\,dx$</span> に <span class="tex2jax_process">$dy$</span>, <span class="tex2jax_process">$dz$</span> を同じ型の物差しとして足しそろえた。以下の具体例と §1.2.6 での三次元への拡張で、この三つがどう効いてくるかを追う。
 </p>
 <h4 id="124-具体例-span-classtex2jaxprocessspan-の場合">1.2.4 具体例： <span class="tex2jax_process">$f(x) = x^2$</span> の場合</h4>
-<p>たとえば **<span class="tex2jax_process">$x=3$</span> において**全微分を具体的に書き下ろす。横ベクトルと縦ベクトルを並べて、
+<p>たとえば <strong><span class="tex2jax_process">$x=3$</span> において</strong>全微分を具体的に書き下ろす。横ベクトルと縦ベクトルを並べて、
 </p>
 <p>であるから、行列の積は
 </p>
@@ -308,7 +290,7 @@ window.MathJax = {
 <blockquote><p>
 **注** （読み進め方）本節は §1.1 で整えた「一次形式が変位に作用する」視点の応用例である。§1.2.6 以降の本線（<span class="tex2jax_process">$df$</span> の多次元拡張）に進むうえで必須ではないため、興味がなければ §1.2.6 へ進んでかまわない。<br>
 </p></blockquote>
-<p>置換積分は、積分変数を取り換えて被積分関数を書き換える操作である（高校数学で扱う）。本節の目的はそれ**単体の公式暗記ではない**。§1.1 までに整えた言葉で言えば、**「空間側の一次形式 <span class="tex2jax_process">$F\,dx$</span> が各ステップの変位 <span class="tex2jax_process">$\Delta\mathbf{r}$</span> に作用する」リーマン和**と、**「時間パラメータ <span class="tex2jax_process">$t$</span> 上のステップ幅 <span class="tex2jax_process">$\Delta t$</span>」**を、**同じステップの中で対応づける**と、置換後の積分 <span class="tex2jax_process">$\int F(x(t))\,\frac{dx}{dt}\,dt$</span> の形に自然に落ちる、という骨格を見せることである。
+<p>置換積分は、積分変数を取り換えて被積分関数を書き換える操作である（高校数学で扱う）。本節の目的はそれ<strong>単体の公式暗記ではない</strong>。§1.1 までに整えた言葉で言えば、<strong>「空間側の一次形式 <span class="tex2jax_process">$F\,dx$</span> が各ステップの変位 <span class="tex2jax_process">$\Delta\mathbf{r}$</span> に作用する」リーマン和</strong>と、<strong>「時間パラメータ <span class="tex2jax_process">$t$</span> 上のステップ幅 <span class="tex2jax_process">$\Delta t$</span>」</strong>を、<strong>同じステップの中で対応づける</strong>と、置換後の積分 <span class="tex2jax_process">$\int F(x(t))\,\frac{dx}{dt}\,dt$</span> の形に自然に落ちる、という骨格を見せることである。
 </p>
 <p>仕事を例に取る。仕事は
 </p>
@@ -316,70 +298,66 @@ window.MathJax = {
 </p>
 <p>と書ける。
 </p>
-<p>**時間軸側の1ステップ**を、縦1成分のベクトル
+<p>で表す。<span class="tex2jax_process">$dx=\begin{pmatrix}1&0&0\end{pmatrix}$</span> と<strong>並べて考えるなら</strong>、<span class="tex2jax_process">$t$</span> 成分だけを抜き出す「測定器」を <span class="tex2jax_process">$1\times 1$</span> 行列
 </p>
-<p>で表す。<span class="tex2jax_process">$dx=\begin{pmatrix}1&0&0\end{pmatrix}$</span> と**並べて考えるなら**、<span class="tex2jax_process">$t$</span> 成分だけを抜き出す「測定器」を <span class="tex2jax_process">$1\times 1$</span> 行列
-</p>
-<p>とおき、<span class="tex2jax_process">$dt(\mathbf{w})=\Delta t$</span> と読む。これは §1.1.6 の「横が測定器・縦がステップ・作用でスカラー」という**型**を、時間だけに縮めたものである。
+<p>とおき、<span class="tex2jax_process">$dt(\mathbf{w})=\Delta t$</span> と読む。これは §1.1.6 の「横が測定器・縦がステップ・作用でスカラー」という<strong>型</strong>を、時間だけに縮めたものである。
 </p>
 <blockquote><p>
 **注** （時間軸の <span class="tex2jax_process">$dt$</span> — 空間の<span class="tex2jax_process">$1$</span>-formとの違い）すまない——<span class="tex2jax_process">$dt$</span> は <span class="tex2jax_process">$1\times 1$</span> の横ベクトルであり、空間 <span class="tex2jax_process">$\mathbb{R}^3$</span> 上で定義した <span class="tex2jax_process">$3$</span> 次元の <span class="tex2jax_process">$dx$</span> とは**異なる空間の測定器**である。幾何学的には、<span class="tex2jax_process">$dx$</span> は3次元空間の余接空間に属する<span class="tex2jax_process">$1$</span>-form、<span class="tex2jax_process">$dt$</span> は時間という1次元パラメータ軸の余接空間に属する<span class="tex2jax_process">$1$</span>-formであり、**厳密には本書のここまでの導入だけでは両者の関係をカバーしきれていない**。**しかし物理学者として、時間は空間の3次元の中にすっぽり埋め込めるものではない——空間だけの話に丸めてごまかすわけにもいかなかったのだ。** だから <span class="tex2jax_process">$t$</span> の軸は <span class="tex2jax_process">$1\times1$</span> として切り出して正面から置く。横が測定器、縦が微小ステップ、作用でスカラー——という <span class="tex2jax_process">$dx$</span> と**同じ型**にそろえてあるので、理解は容易であろう。<br>
 </p></blockquote>
-<p>**空間側と時間側の対応を整理する**と、次の表の通りになる。まったく同じ型が、異なる次元で繰り返されているだけだ。
-</p>
 <p>|  | 空間側 | 時間側 |
 |---|---|---|
-| **横ベクトル（測定器）** | <span class="tex2jax_process">$F(x)\,dx$</span>（<span class="tex2jax_process">$1\times 3$</span>） | <span class="tex2jax_process">$dt$</span>（<span class="tex2jax_process">$1\times 1$</span>） |
-| **縦ベクトル（変位）** | <span class="tex2jax_process">$\mathbf{v}_i = \Delta\mathbf{r}$</span> | <span class="tex2jax_process">$\mathbf{w} = \Delta t$</span> |
-| **作用の結果** | <span class="tex2jax_process">$(F\,dx)(\mathbf{v}_i) = F\,\Delta x$</span> | <span class="tex2jax_process">$dt(\mathbf{w}) = \Delta t$</span> |
+| <strong>横ベクトル（測定器）</strong> | <span class="tex2jax_process">$F(x)\,dx$</span>（<span class="tex2jax_process">$1\times 3$</span>） | <span class="tex2jax_process">$dt$</span>（<span class="tex2jax_process">$1\times 1$</span>） |
+| <strong>縦ベクトル（変位）</strong> | <span class="tex2jax_process">$\mathbf{v}_i = \Delta\mathbf{r}$</span> | <span class="tex2jax_process">$\mathbf{w} = \Delta t$</span> |
+| <strong>作用の結果</strong> | <span class="tex2jax_process">$(F\,dx)(\mathbf{v}_i) = F\,\Delta x$</span> | <span class="tex2jax_process">$dt(\mathbf{w}) = \Delta t$</span> |
 </p>
-<p>この <span class="tex2jax_process">$\Delta t$</span> に対応する**空間での実際の変位**は
+<p>この <span class="tex2jax_process">$\Delta t$</span> に対応する<strong>空間での実際の変位</strong>は
 </p>
-<p>である。ここで <span class="tex2jax_process">$\Delta t \neq 0$</span> とする。商 <span class="tex2jax_process">$\Delta x/\Delta t$</span> は**そのステップにおける <span class="tex2jax_process">$x$</span> の平均変化率**であり、中学生でも知っている恒等式
+<p>である。ここで <span class="tex2jax_process">$\Delta t \neq 0$</span> とする。商 <span class="tex2jax_process">$\Delta x/\Delta t$</span> は<strong>そのステップにおける <span class="tex2jax_process">$x$</span> の平均変化率</strong>であり、中学生でも知っている恒等式
 </p>
 <p>が成り立つ。したがって
 </p>
-<p>と書ける。**これは近似でも微積の魔法でもなく、<span class="tex2jax_process">$\Delta x$</span> を <span class="tex2jax_process">$\Delta t$</span> で割った商を途中に挟んだだけの書き換えである。**左の縦ベクトルは「そのステップでの <span class="tex2jax_process">$x$</span> 方向の平均変化率」、右の <span class="tex2jax_process">$dt(\mathbf{w})=\Delta t$</span> は時間ステップの幅である。
+<p>と書ける。<strong>これは近似でも微積の魔法でもなく、<span class="tex2jax_process">$\Delta x$</span> を <span class="tex2jax_process">$\Delta t$</span> で割った商を途中に挟んだだけの書き換えである。</strong>左の縦ベクトルは「そのステップでの <span class="tex2jax_process">$x$</span> 方向の平均変化率」、右の <span class="tex2jax_process">$dt(\mathbf{w})=\Delta t$</span> は時間ステップの幅である。
 </p>
 <p>さて <span class="tex2jax_process">$F\,dx$</span> は横ベクトル（演算子）なので、各ステップで
 </p>
-<p>という**スカラー**が得られる。積分記号 <span class="tex2jax_process">$\int_{t_0}^{t_1} g(t)\,dt$</span> の末尾の <span class="tex2jax_process">$dt$</span> は、§1.1.6 の <span class="tex2jax_process">$\int f(x)\,dx$</span> の <span class="tex2jax_process">$dx$</span> と同じく**積分変数とセットの慣用記法**であり、リーマン和の段階では **<span class="tex2jax_process">$\Delta t$</span> と <span class="tex2jax_process">$dt(\mathbf{w})$</span> が対応する**と読めばよい。
+<p>という<strong>スカラー</strong>が得られる。積分記号 <span class="tex2jax_process">$\int_{t_0}^{t_1} g(t)\,dt$</span> の末尾の <span class="tex2jax_process">$dt$</span> は、§1.1.6 の <span class="tex2jax_process">$\int f(x)\,dx$</span> の <span class="tex2jax_process">$dx$</span> と同じく<strong>積分変数とセットの慣用記法</strong>であり、リーマン和の段階では <strong><span class="tex2jax_process">$\Delta t$</span> と <span class="tex2jax_process">$dt(\mathbf{w})$</span> が対応する</strong>と読めばよい。
 </p>
 <p>分割を細かくし <span class="tex2jax_process">$\Delta t \to 0$</span> の極限をとると、各ステップで平均変化率 <span class="tex2jax_process">$\Delta x/\Delta t$</span> は接線の傾き <span class="tex2jax_process">$\dfrac{dx}{dt}$</span> に近づく。したがって高校数学の置換積分の形
 </p>
-<p>に帰着する（<span class="tex2jax_process">$\dfrac{dx}{dt}$</span> は <span class="tex2jax_process">$\Delta x/\Delta t$</span> の極限）。直前まで平均変化率 <span class="tex2jax_process">$\Delta x/\Delta t$</span> による**恒等**の書き換えだったが、**各ステップの <span class="tex2jax_process">$\Delta t$</span> が十分小さいときの一次近似として**、平均変化率を接線の傾き <span class="tex2jax_process">$\dfrac{dx}{dt}$</span> に置き換えて評価すると、極限の内側の典型的なリーマン項は
+<p>に帰着する（<span class="tex2jax_process">$\dfrac{dx}{dt}$</span> は <span class="tex2jax_process">$\Delta x/\Delta t$</span> の極限）。直前まで平均変化率 <span class="tex2jax_process">$\Delta x/\Delta t$</span> による<strong>恒等</strong>の書き換えだったが、<strong>各ステップの <span class="tex2jax_process">$\Delta t$</span> が十分小さいときの一次近似として</strong>、平均変化率を接線の傾き <span class="tex2jax_process">$\dfrac{dx}{dt}$</span> に置き換えて評価すると、極限の内側の典型的なリーマン項は
 </p>
-<p>と読め、**空間側の一次形式 <span class="tex2jax_process">$F\,dx$</span> が <span class="tex2jax_process">$\Delta\mathbf{r}$</span> に作用した値**と、**時間側のステップ <span class="tex2jax_process">$\Delta t$</span>（すなわち <span class="tex2jax_process">$dt(\mathbf{w})$</span>）を積み上げる構造**が対応している。
+<p>と読め、<strong>空間側の一次形式 <span class="tex2jax_process">$F\,dx$</span> が <span class="tex2jax_process">$\Delta\mathbf{r}$</span> に作用した値</strong>と、<strong>時間側のステップ <span class="tex2jax_process">$\Delta t$</span>（すなわち <span class="tex2jax_process">$dt(\mathbf{w})$</span>）を積み上げる構造</strong>が対応している。
 </p>
 <h4 id="126-三次元への拡張">1.2.6 三次元への拡張</h4>
-<p>空間の各点 <span class="tex2jax_process">$(x,y,z)$</span> にスカラー（実数）を対応させる関数 <span class="tex2jax_process">$f$</span> は、実空間の開集合上の**実数値関数**として扱えばよい。
+<p>空間の各点 <span class="tex2jax_process">$(x,y,z)$</span> にスカラー（実数）を対応させる関数 <span class="tex2jax_process">$f$</span> は、実空間の開集合上の<strong>実数値関数</strong>として扱えばよい。
 </p>
 <blockquote><p>
 **注** （スカラー場）物理学ではこのような関数を**スカラー場**と呼ぶことが多い。<br>
 </p></blockquote>
-<p>その <span class="tex2jax_process">$f(x,y,z)$</span> が点 <span class="tex2jax_process">$(x,y,z)$</span> で**（全）微分可能である**とは、変位 <span class="tex2jax_process">$\mathbf{v}=\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$</span> に対して
+<p>その <span class="tex2jax_process">$f(x,y,z)$</span> が点 <span class="tex2jax_process">$(x,y,z)$</span> で<strong>（全）微分可能である</strong>とは、変位 <span class="tex2jax_process">$\mathbf{v}=\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$</span> に対して
 </p>
 <p>が成り立つことである。§1.2.1 の1変数の定義と形式がそろっている。<span class="tex2jax_process">$o(\|\mathbf{v}\|)$</span> は余り項の略記（<span class="tex2jax_process">$o(|\Delta x|)$</span> と同趣旨）であり、ここでは深追いしないが、理解に支障はないであろう。
 </p>
 <p>§1.2.3 の物差し <span class="tex2jax_process">$dx,dy,dz$</span> を使い、§1.2.2 と同じ型の演算子として
 </p>
-<p>と定義する。いちばん初めの式にあった <span class="tex2jax_process">$o(\|\mathbf{v}\|)$</span> は、ここから数行では省略し、**記号の骨格だけ**を追う。<span class="tex2jax_process">$\mathbf{v}=\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$</span> のとき、微分可能性の定義より <span class="tex2jax_process">$\Delta f = df(\mathbf{v}) + o(\|\mathbf{v}\|)$</span> である——すなわち **<span class="tex2jax_process">$df(\mathbf{v})$</span> は厳密な変化量 <span class="tex2jax_process">$\Delta f$</span> そのものではなく、剰余を除いた一次（主）項**である。以下ではその主項を行列の積で書き下ろす：
+<p>と定義する。いちばん初めの式にあった <span class="tex2jax_process">$o(\|\mathbf{v}\|)$</span> は、ここから数行では省略し、<strong>記号の骨格だけ</strong>を追う。<span class="tex2jax_process">$\mathbf{v}=\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$</span> のとき、微分可能性の定義より <span class="tex2jax_process">$\Delta f = df(\mathbf{v}) + o(\|\mathbf{v}\|)$</span> である——すなわち <strong><span class="tex2jax_process">$df(\mathbf{v})$</span> は厳密な変化量 <span class="tex2jax_process">$\Delta f$</span> そのものではなく、剰余を除いた一次（主）項</strong>である。以下ではその主項を行列の積で書き下ろす：
 </p>
-<p>第一行は、§1.2.3 の物差し <span class="tex2jax_process">$dx,dy,dz$</span> が行ベクトルとして <span class="tex2jax_process">$\mathbf{v}$</span> から <span class="tex2jax_process">$x,y,z$</span> 成分を抜き出し、偏導関数が係数としてかかる様子を**行列の積**で見せたものである。第二行はその評価結果であり、先の <span class="tex2jax_process">$\Delta f$</span> の定義式における**線形主項**と同じ形である。**横ベクトル（演算子）× 縦ベクトル（変位）→ スカラー**という §1.2.2 の読みが、三次元でも変わらない。
+<p>第一行は、§1.2.3 の物差し <span class="tex2jax_process">$dx,dy,dz$</span> が行ベクトルとして <span class="tex2jax_process">$\mathbf{v}$</span> から <span class="tex2jax_process">$x,y,z$</span> 成分を抜き出し、偏導関数が係数としてかかる様子を<strong>行列の積</strong>で見せたものである。第二行はその評価結果であり、先の <span class="tex2jax_process">$\Delta f$</span> の定義式における<strong>線形主項</strong>と同じ形である。<strong>横ベクトル（演算子）× 縦ベクトル（変位）→ スカラー</strong>という §1.2.2 の読みが、三次元でも変わらない。
 </p>
-<p>座標が二つまでしか現れない <span class="tex2jax_process">$f(x,y)$</span> も、<span class="tex2jax_process">$z$</span> に依らなければ <span class="tex2jax_process">$\partial f/\partial z=0$</span> として上の枠に含めればよい——**三次元に載せた枠組みが、そのまま低次元に退化する**。
+<p>座標が二つまでしか現れない <span class="tex2jax_process">$f(x,y)$</span> も、<span class="tex2jax_process">$z$</span> に依らなければ <span class="tex2jax_process">$\partial f/\partial z=0$</span> として上の枠に含めればよい——<strong>三次元に載せた枠組みが、そのまま低次元に退化する</strong>。
 </p>
 <p>見比べてみよう。
 1変数では： <span class="tex2jax_process">$df = f'(x) dx = \begin{pmatrix} f'(x) & 0 & 0 \end{pmatrix}$</span>
 2変数関数 <span class="tex2jax_process">$f(x, y)$</span> では（§1.2.3 の <span class="tex2jax_process">$dy$</span> を用いる）： <span class="tex2jax_process">$df = \frac{\partial f}{\partial x} dx + \frac{\partial f}{\partial y} dy = \begin{pmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & 0 \end{pmatrix}$</span>
 3変数 <span class="tex2jax_process">$f(x,y,z)$</span> では、§1.2.6 の式のとおり、横ベクトルの成分が三つそろうだけである。
 </p>
-<p>このように、**形式は同じで、ただ成分の個数が増える**。これが行列表示の威力である。<span class="tex2jax_process">$df$</span> を行列と見なすことで、微分は「変位に対する線形近似を与える演算子」として統一的に扱える。
+<p>このように、<strong>形式は同じで、ただ成分の個数が増える</strong>。これが行列表示の威力である。<span class="tex2jax_process">$df$</span> を行列と見なすことで、微分は「変位に対する線形近似を与える演算子」として統一的に扱える。
 </p>
 <h4 id="127-線積分の先取り">1.2.7 線積分の先取り</h4>
 <p>空間内の曲線をパラメータ <span class="tex2jax_process">$t$</span> で <span class="tex2jax_process">$\mathbf{r}(t)=\begin{pmatrix}x(t)\\y(t)\\z(t)\end{pmatrix}$</span> と表し、細かいステップの変位を <span class="tex2jax_process">$\Delta\mathbf{r}$</span> と書くとき、各ステップで <span class="tex2jax_process">$\bigl(df\bigr)(\Delta\mathbf{r})$</span> を足し上げる操作の極限を、記号では
 </p>
-<p>の形で表す（<span class="tex2jax_process">$\gamma$</span> は曲線）。§1.2.5 で見た <span class="tex2jax_process">$\int f'(x)\,dx$</span> と同じく、**一次形式 <span class="tex2jax_process">$df$</span> が各ステップの変位に作用するリーマン和の極限**という骨格である。閉曲線・向き・パラメータの取り換えなど、厳密な定式化は**後の章に譲る**。
+<p>の形で表す（<span class="tex2jax_process">$\gamma$</span> は曲線）。§1.2.5 で見た <span class="tex2jax_process">$\int f'(x)\,dx$</span> と同じく、<strong>一次形式 <span class="tex2jax_process">$df$</span> が各ステップの変位に作用するリーマン和の極限</strong>という骨格である。閉曲線・向き・パラメータの取り換えなど、厳密な定式化は<strong>後の章に譲る</strong>。
 </p>
 <blockquote><p>
 **注** （線積分とストークスは後章）線積分・<span class="tex2jax_process">$1$</span>-form の曲線への制限・ストークスの定理の枠組みは、本書では主として第3章以降で改めて置く。第2章ではまず面積・体積の測定器（<span class="tex2jax_process">$2$</span>-form, <span class="tex2jax_process">$3$</span>-form）を構築する。ここは動機と記号の予告にすぎない。<br>
@@ -398,14 +376,12 @@ window.MathJax = {
 <blockquote><p>
 **注** （ライプニッツと記号）**ライプニッツ**（Gottfried Wilhelm Leibniz, 1646–1716）は、<span class="tex2jax_process">$dx$</span>, <span class="tex2jax_process">$dy$</span> など微積分の記号体系を整えた数学者である。以下では歴史の経緯には立ち入らず、記号を導入した人物として名前だけに触れる（記号 <span class="tex2jax_process">$dx$</span> 自体は慣れている読者も多いが、人名に心当たりがなければ、この一行で足りる）。<br>
 </p></blockquote>
-<p>現代の我々は、その直感を**線形代数の言葉**で再配置したと言える。
+<p>現代の我々は、その直感を<strong>線形代数の言葉</strong>で再配置したと言える。
 ライプニッツの記法 <span class="tex2jax_process">$df = f'(x)dx$</span> は、単なる形式的等式ではない：
 <ul>
 <li><span class="tex2jax_process">$dx$</span>：ライプニッツの無限小の直感 → 本書では **演算子**としての <span class="tex2jax_process">$x$</span> 成分抽出（微小変位そのものを語るときは <span class="tex2jax_process">$\Delta x$</span> や <span class="tex2jax_process">$dx(\mathbf{v})$</span>）。<span class="tex2jax_process">$dy$</span>, <span class="tex2jax_process">$dz$</span> も §1.2.3 で <span class="tex2jax_process">$dx$</span> と同様に定義する。</li>
 <li><span class="tex2jax_process">$df$</span>：ライプニッツの無限小変化の直感 → 本書では **演算子**としての全微分（数値の変化量は <span class="tex2jax_process">$df(\mathbf{v})$</span> などで）</li>
 </ul>
-<p>**ライプニッツの天才は、微分・積分が本質的に代数的操作であることを見抜いていた**。我々は、彼の直感に行列という具体的な骨格を与えたに過ぎない。
-</p>
 <p>次節では、この枠組みが依存している暗黙の前提——デカルト座標系の「使いやすさ」——を明らかにし、より一般的な座標への接続を示唆する。
 </p>
 <hr />
@@ -416,16 +392,16 @@ window.MathJax = {
 </p></blockquote>
 <hr />
 <h3 id="14-座標変換物差しの目盛りを書き換える">§1.4 座標変換——「物差し」の目盛りを書き換える</h3>
-<p>本章を通じて、我々は <span class="tex2jax_process">$dx$</span> の**行列表現**を <span class="tex2jax_process">$\begin{pmatrix} 1 & 0 & 0 \end{pmatrix}$</span> と置いて議論してきた。これが場所によらず一定なのは、我々が物理空間を**デカルト座標（直交直線座標）**という最も素直な目盛りで測っているからだ。
+<p>本章を通じて、我々は <span class="tex2jax_process">$dx$</span> の<strong>行列表現</strong>を <span class="tex2jax_process">$\begin{pmatrix} 1 & 0 & 0 \end{pmatrix}$</span> と置いて議論してきた。これが場所によらず一定なのは、我々が物理空間を<strong>デカルト座標（直交直線座標）</strong>という最も素直な目盛りで測っているからだ。
 </p>
-<p>しかし物理学の現実はいつでも四角いとは限らない。円形パイプ内の流れや、直線電流の周りの磁場——こうした問題では、点を <span class="tex2jax_process">$(r,\theta,z)$</span> という数の組で指定する**円柱座標**を使ったほうが格段に扱いやすい。では、「成分を抜き出す物差し」である <span class="tex2jax_process">$dx$</span> は、別の座標系ではどう書けるのだろうか。
+<p>しかし物理学の現実はいつでも四角いとは限らない。円形パイプ内の流れや、直線電流の周りの磁場——こうした問題では、点を <span class="tex2jax_process">$(r,\theta,z)$</span> という数の組で指定する<strong>円柱座標</strong>を使ったほうが格段に扱いやすい。では、「成分を抜き出す物差し」である <span class="tex2jax_process">$dx$</span> は、別の座標系ではどう書けるのだろうか。
 </p>
 <h4 id="141-連鎖律は物差しの成分表示を与える">1.4.1 連鎖律は「物差し」の成分表示を与える</h4>
 <p>座標変換の式を思い出そう。
 </p>
-<p>この変換則を、§1.2.2 で定義した**全微分（演算子としての <span class="tex2jax_process">$d$</span>）**の枠組みに入れる。座標関数 <span class="tex2jax_process">$x(r,\theta,z)=r\cos\theta$</span> の**全微分 <span class="tex2jax_process">$dx$</span>**（あくまで一次形式としての演算子であり、§1.1.6 の「微小変化」ではない）は、連鎖律によって次のように展開される。
+<p>この変換則を、§1.2.2 で定義した<strong>全微分（演算子としての <span class="tex2jax_process">$d$</span>）</strong>の枠組みに入れる。座標関数 <span class="tex2jax_process">$x(r,\theta,z)=r\cos\theta$</span> の<strong>全微分 <span class="tex2jax_process">$dx$</span></strong>（あくまで一次形式としての演算子であり、§1.1.6 の「微小変化」ではない）は、連鎖律によって次のように展開される。
 </p>
-<p>ここで <span class="tex2jax_process">$dx, dr, d\theta, dz$</span> はいずれも**演算子（一次形式）**だ。右辺の式が告げているのは、**「実空間の物差し <span class="tex2jax_process">$dx$</span> を、<span class="tex2jax_process">$(dr,d\theta,dz)$</span> を目盛りとして表現し直すと、場所ごとに変わる係数 <span class="tex2jax_process">$(\cos\theta,\,-r\sin\theta,\,0)$</span> を持つ行列になる」**という事実である。
+<p>ここで <span class="tex2jax_process">$dx, dr, d\theta, dz$</span> はいずれも<strong>演算子（一次形式）</strong>だ。右辺の式が告げているのは、<strong>「実空間の物差し <span class="tex2jax_process">$dx$</span> を、<span class="tex2jax_process">$(dr,d\theta,dz)$</span> を目盛りとして表現し直すと、場所ごとに変わる係数 <span class="tex2jax_process">$(\cos\theta,\,-r\sin\theta,\,0)$</span> を持つ行列になる」</strong>という事実である。
 </p>
 <p>実空間の <span class="tex2jax_process">$(x,y,z)$</span> では定数成分 <span class="tex2jax_process">$\begin{pmatrix} 1 & 0 & 0 \end{pmatrix}$</span> だった <span class="tex2jax_process">$dx$</span> が、目盛りを取り替えた途端、場所 <span class="tex2jax_process">$(r,\theta)$</span> に依存する関数を成分に持つ行列へと姿を変える。対象そのものは不変であっても、「別の座標で書けば、その成分表示も変わる」——これが座標変換の代数的な正体である。
 </p>
@@ -438,10 +414,10 @@ window.MathJax = {
 <h4 id="142-行列の一歩一歩に幾何を宿らせる">1.4.2 行列の一歩一歩に幾何を宿らせる</h4>
 <p>多くの教科書では、実空間に <span class="tex2jax_process">$(r,\theta)$</span> の「曲がったグリッド」を描き込み、「<span class="tex2jax_process">$\theta$</span> 方向の弧の長さは約 <span class="tex2jax_process">$r\Delta\theta$</span>」と幾何学的に説明する。この直感自体は正しい——問題は、その絵を「証明」の土台に据えることだ。座標系が複雑になるほど、曲がった図形を相手にした幾何学的な「見積もり」はすぐに限界を迎える。
 </p>
-<p>本書がやりたいことは、幾何を代数で置き換えることではない。**大きな幾何を、行列の一つひとつの成分という小さい幾何に分割すること**だ。係数 <span class="tex2jax_process">$-r\sin\theta$</span> は「<span class="tex2jax_process">$\theta$</span> 方向の一歩が実空間の <span class="tex2jax_process">$x$</span> 方向にどれだけ効くか」という、それ自体で完結した幾何的情報を一つの数値として担っている。同様に <span class="tex2jax_process">$\cos\theta$</span> は <span class="tex2jax_process">$r$</span> 方向→<span class="tex2jax_process">$x$</span> 方向の効きを、<span class="tex2jax_process">$0$</span> は <span class="tex2jax_process">$z$</span> 方向が <span class="tex2jax_process">$x$</span> に効かないことを示す。つまり <span class="tex2jax_process">$dx = \begin{pmatrix} \cos\theta & -r\sin\theta & 0 \end{pmatrix}$</span> という一行が、<span class="tex2jax_process">$x$</span> 成分の変位に関する幾何を**3つの独立した小問題**に分解した姿なのである。幾何的直感と代数的な見通しの良さは、行列の上で両立する。
+<p>本書がやりたいことは、幾何を代数で置き換えることではない。<strong>大きな幾何を、行列の一つひとつの成分という小さい幾何に分割すること</strong>だ。係数 <span class="tex2jax_process">$-r\sin\theta$</span> は「<span class="tex2jax_process">$\theta$</span> 方向の一歩が実空間の <span class="tex2jax_process">$x$</span> 方向にどれだけ効くか」という、それ自体で完結した幾何的情報を一つの数値として担っている。同様に <span class="tex2jax_process">$\cos\theta$</span> は <span class="tex2jax_process">$r$</span> 方向→<span class="tex2jax_process">$x$</span> 方向の効きを、<span class="tex2jax_process">$0$</span> は <span class="tex2jax_process">$z$</span> 方向が <span class="tex2jax_process">$x$</span> に効かないことを示す。つまり <span class="tex2jax_process">$dx = \begin{pmatrix} \cos\theta & -r\sin\theta & 0 \end{pmatrix}$</span> という一行が、<span class="tex2jax_process">$x$</span> 成分の変位に関する幾何を<strong>3つの独立した小問題</strong>に分解した姿なのである。幾何的直感と代数的な見通しの良さは、行列の上で両立する。
 </p>
 <h4 id="143-二つのデカルト座標">1.4.3 二つのデカルト座標</h4>
-<p>ここで、いま扱っている二つの数の組——実空間の <span class="tex2jax_process">$(x,y,z)$</span> と円柱座標の <span class="tex2jax_process">$(r,\theta,z)$</span>——の関係をはっきりさせておこう。計算用紙の上では、**どちらも互いに直交し等間隔な軸を持つデカルト座標**である。<span class="tex2jax_process">$\theta$</span> 軸は物理的には「角度」だが、数式の上では単なる一つの真っ直ぐな数直線にすぎない。
+<p>ここで、いま扱っている二つの数の組——実空間の <span class="tex2jax_process">$(x,y,z)$</span> と円柱座標の <span class="tex2jax_process">$(r,\theta,z)$</span>——の関係をはっきりさせておこう。計算用紙の上では、<strong>どちらも互いに直交し等間隔な軸を持つデカルト座標</strong>である。<span class="tex2jax_process">$\theta$</span> 軸は物理的には「角度」だが、数式の上では単なる一つの真っ直ぐな数直線にすぎない。
 </p>
 <p>実空間も円柱座標のパラメータ空間も、どちらも「平坦な方眼紙」だ。両者の違いは、そのあいだに <span class="tex2jax_process">$\cos\theta$</span> や <span class="tex2jax_process">$-r\sin\theta$</span> といった偏微分係数（換算係数）が挟まっているかどうか、それだけである。計算のあいだは「実空間の中に曲がった座標軸がある」のではなく「二つの空間のあいだに翻訳規則があるだけ」と割り切って考えると、見通しがよい。
 </p>
@@ -449,7 +425,7 @@ window.MathJax = {
 **注** （<span class="tex2jax_process">$dr$</span>, <span class="tex2jax_process">$d\theta$</span> の行列表現）では <span class="tex2jax_process">$dr$</span> や <span class="tex2jax_process">$d\theta$</span> についても、「数ベクトルとしての行列表現は何か」と気になるだろう。パラメータ空間もまたデカルト座標なのだから、答えは単純だ——<span class="tex2jax_process">$dr$</span> はパラメータ空間の第1成分を抜く <span class="tex2jax_process">$(1\ 0\ 0)$</span> であり、<span class="tex2jax_process">$d\theta$</span> は <span class="tex2jax_process">$(0\ 1\ 0)$</span>、<span class="tex2jax_process">$dz$</span> は <span class="tex2jax_process">$(0\ 0\ 1)$</span> である。デカルトの実空間で書いた <span class="tex2jax_process">$dx=\begin{pmatrix}1&0&0\end{pmatrix}$</span> と同じ見た目をしているが、載っている座標系が違う。数学者ならば「<span class="tex2jax_process">$\omega \in \Omega^1(M)$</span>、局所では <span class="tex2jax_process">$\omega = \omega_i(x)\,dx^i$</span>、座標系の取り替え、<span class="tex2jax_process">$\phi^*\omega$</span>、開集合の重なりでの整合……」と衒学的な呪文を唱えるだろう。**なるほど、頭が痛くなってきた。私も読者も疲れてしまう。深追いはしないでおく。**<br>
 </p></blockquote>
 <h4 id="144-第3章への伏線引き戻し">1.4.4 第3章への伏線——引き戻し</h4>
-<p>このように、元の世界の測定器を別の目盛り用に焼き直す操作を、数学の専門用語で**引き戻し（pullback）**と呼ぶ。いまは「偏微分を使えば行列の成分が機械的に書き換えられる」という感覚さえ掴めれば十分だ。第3章において、面積や体積の物差しを一気に引き戻す際、この代数的アプローチの圧倒的な強さを確信することになるだろう。
+<p>このように、元の世界の測定器を別の目盛り用に焼き直す操作を、数学の専門用語で<strong>引き戻し（pullback）</strong>と呼ぶ。いまは「偏微分を使えば行列の成分が機械的に書き換えられる」という感覚さえ掴めれば十分だ。第3章において、面積や体積の物差しを一気に引き戻す際、この代数的アプローチの圧倒的な強さを確信することになるだろう。
 </p>
 <blockquote><p>
 **注** （計量という言葉はまだ使わない）本書では第6章まで**計量**という概念の形式的な導入を後回しにする。ここで出てきた換算係数 <span class="tex2jax_process">$\cos\theta$</span> や <span class="tex2jax_process">$-r\sin\theta$</span> は、のちに第6章で計量 <span class="tex2jax_process">$g$</span> として体系的に整理されるが、現時点では単に「連鎖律から出てきた偏微分係数」として扱えば十分である。実空間に曲がった図形を描いてその辺の長さを「弧の長さ <span class="tex2jax_process">$r\Delta\theta$</span>」などと幾何学的に見積もる発想に頼るのではなく、パラメータ空間の格子と変換式だけからすべてを導く——この代数優先の構えが、本書の一貫した姿勢である。<br>
@@ -464,39 +440,32 @@ window.MathJax = {
 </p></blockquote>
 <hr />
 <h3 id="15-別の座標で書く演習">§1.5 別の座標で書く——演習</h3>
-<p>本章の終盤で、読者自身の手で「別の座標で書くこと」を一度、計算として体験してもらう。ここではまだ**座標系の取り替えを一般論として定義したわけではない**が、§1.4.3 で見たように、**同じ <span class="tex2jax_process">$dx$</span> でも座標の取り方で行列表現が変わる**ことは既に述べた。この演習は、その感覚を手で確かめるためのものである。**いま座標系の取り替えの厳密な言語を全部そろえるより先に、なぜ計算をしておきたいのか**——それは、後の章で式が一気に忙しくなるときに、「成分が変わるのは当たり前」という腹落ちを持っておくためだ。
+<p>本章の終盤で、読者自身の手で「別の座標で書くこと」を一度、計算として体験してもらう。ここではまだ<strong>座標系の取り替えを一般論として定義したわけではない</strong>が、§1.4.3 で見たように、<strong>同じ <span class="tex2jax_process">$dx$</span> でも座標の取り方で行列表現が変わる</strong>ことは既に述べた。この演習は、その感覚を手で確かめるためのものである。<strong>いま座標系の取り替えの厳密な言語を全部そろえるより先に、なぜ計算をしておきたいのか</strong>——それは、後の章で式が一気に忙しくなるときに、「成分が変わるのは当たり前」という腹落ちを持っておくためだ。
 </p>
 <h4 id="151-演習問題円柱座標での測定">1.5.1 演習問題：円柱座標での測定</h4>
-<p>**問題設定**  
-前節で見た通り、円柱座標 <span class="tex2jax_process">$(r, \theta, z)$</span> における <span class="tex2jax_process">$dx$</span> の行列表示は以下のようになる：
+<p>前節で見た通り、円柱座標 <span class="tex2jax_process">$(r, \theta, z)$</span> における <span class="tex2jax_process">$dx$</span> の行列表示は以下のようになる：
 </p>
-<p>（上の行は §1.4.3 の <span class="tex2jax_process">$(dr,d\theta,dz)$</span> 展開の係数を並べたものであり、§1.1.3 のデカルト表示 <span class="tex2jax_process">$\begin{pmatrix}1&0&0\end{pmatrix}$</span> とは**右に立てる縦ベクトルの意味が違う**。）
+<p>（上の行は §1.4.3 の <span class="tex2jax_process">$(dr,d\theta,dz)$</span> 展開の係数を並べたものであり、§1.1.3 のデカルト表示 <span class="tex2jax_process">$\begin{pmatrix}1&0&0\end{pmatrix}$</span> とは<strong>右に立てる縦ベクトルの意味が違う</strong>。）
 </p>
 <p>このとき、次の問いに答えよ。
 </p>
-<p>**問1**  
-円柱座標空間内の点 <span class="tex2jax_process">$P(r=2, \theta=\pi/6, z=0)$</span> に質点があるとする。この質点が、<span class="tex2jax_process">$r$</span> 方向に <span class="tex2jax_process">$0.1$</span> だけ微小変位した。**この節では記号 <span class="tex2jax_process">$\mathbf{v}$</span> を、<span class="tex2jax_process">$r,\theta,z$</span> のパラメータの変化量を並べた <span class="tex2jax_process">$\begin{pmatrix}\Delta r\\\Delta\theta\\\Delta z\end{pmatrix}$</span> とする**（§1.0–§1.2 のデカルト列 <span class="tex2jax_process">$\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$</span> とは別の並べ方である）。この変位ベクトル <span class="tex2jax_process">$\mathbf{v}$</span> を、その成分で表せ。
+<p>円柱座標空間内の点 <span class="tex2jax_process">$P(r=2, \theta=\pi/6, z=0)$</span> に質点があるとする。この質点が、<span class="tex2jax_process">$r$</span> 方向に <span class="tex2jax_process">$0.1$</span> だけ微小変位した。<strong>この節では記号 <span class="tex2jax_process">$\mathbf{v}$</span> を、<span class="tex2jax_process">$r,\theta,z$</span> のパラメータの変化量を並べた <span class="tex2jax_process">$\begin{pmatrix}\Delta r\\\Delta\theta\\\Delta z\end{pmatrix}$</span> とする</strong>（§1.0–§1.2 のデカルト列 <span class="tex2jax_process">$\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$</span> とは別の並べ方である）。この変位ベクトル <span class="tex2jax_process">$\mathbf{v}$</span> を、その成分で表せ。
 </p>
-<p>**問2**  
-問1の変位ベクトル <span class="tex2jax_process">$\mathbf{v}$</span> に対して、点 <span class="tex2jax_process">$P$</span> における行列 <span class="tex2jax_process">$dx$</span> を作用させよ。（<span class="tex2jax_process">$\cos(\pi/6) = \sqrt{3}/2$</span> を用いよ）
+<p>問1の変位ベクトル <span class="tex2jax_process">$\mathbf{v}$</span> に対して、点 <span class="tex2jax_process">$P$</span> における行列 <span class="tex2jax_process">$dx$</span> を作用させよ。（<span class="tex2jax_process">$\cos(\pi/6) = \sqrt{3}/2$</span> を用いよ）
 </p>
-<p>**問3**  
-問2で計算した結果 <span class="tex2jax_process">$dx(\mathbf{v})$</span> は、物理的に何を意味しているか説明せよ。
+<p>問2で計算した結果 <span class="tex2jax_process">$dx(\mathbf{v})$</span> は、物理的に何を意味しているか説明せよ。
 </p>
 <h4 id="152-解答と解説">1.5.2 解答と解説</h4>
-<p>**問1の解答**  
-変位は <span class="tex2jax_process">$r$</span> 方向に <span class="tex2jax_process">$0.1$</span>、<span class="tex2jax_process">$\theta$</span> 方向と <span class="tex2jax_process">$z$</span> 方向にはゼロなので、**円柱座標のパラメータの変化量**を縦に並べたベクトルとして次のように書ける：
+<p>変位は <span class="tex2jax_process">$r$</span> 方向に <span class="tex2jax_process">$0.1$</span>、<span class="tex2jax_process">$\theta$</span> 方向と <span class="tex2jax_process">$z$</span> 方向にはゼロなので、<strong>円柱座標のパラメータの変化量</strong>を縦に並べたベクトルとして次のように書ける：
 </p>
-<p>**問2の解答**  
-点 <span class="tex2jax_process">$P$</span> における行列 <span class="tex2jax_process">$dx$</span> は、<span class="tex2jax_process">$\theta = \pi/6, r=2$</span> を代入して得られる <span class="tex2jax_process">$1\times 3$</span> 行ベクトルとして
+<p>点 <span class="tex2jax_process">$P$</span> における行列 <span class="tex2jax_process">$dx$</span> は、<span class="tex2jax_process">$\theta = \pi/6, r=2$</span> を代入して得られる <span class="tex2jax_process">$1\times 3$</span> 行ベクトルとして
 </p>
 <p>と書く（円柱座標では <span class="tex2jax_process">$dx$</span> の成分は <span class="tex2jax_process">$r,\theta$</span> に依存するので、ここでは点 <span class="tex2jax_process">$P$</span> の座標で評価したあとを指す。<span class="tex2jax_process">$\mathbf{v}$</span> への作用の記号 <span class="tex2jax_process">$dx(\mathbf{v})$</span> 自体は §1.1.3 以来と同じである）。
 </p>
-<p>重要なのは、第2成分は一般に **<span class="tex2jax_process">$-r\sin\theta$</span>** という係数であり、<span class="tex2jax_process">$r$</span> のおかげで**長さの次元を持つ**ことだ。<span class="tex2jax_process">$r=2,\;\theta=\pi/6$</span> と代入するとその係数の値として <span class="tex2jax_process">$-1$</span> が見えるが、**数値の <span class="tex2jax_process">$-1$</span> そのものに次元が付いているのではない**。行列の成分としての <span class="tex2jax_process">$-r\sin\theta$</span> が長さの次元を運んでいる、と読むのが正確である。これが次元解析の鍵となる。
+<p>重要なのは、第2成分は一般に <strong><span class="tex2jax_process">$-r\sin\theta$</span></strong> という係数であり、<span class="tex2jax_process">$r$</span> のおかげで<strong>長さの次元を持つ</strong>ことだ。<span class="tex2jax_process">$r=2,\;\theta=\pi/6$</span> と代入するとその係数の値として <span class="tex2jax_process">$-1$</span> が見えるが、<strong>数値の <span class="tex2jax_process">$-1$</span> そのものに次元が付いているのではない</strong>。行列の成分としての <span class="tex2jax_process">$-r\sin\theta$</span> が長さの次元を運んでいる、と読むのが正確である。これが次元解析の鍵となる。
 これを変位ベクトル <span class="tex2jax_process">$\mathbf{v}$</span> に作用させると：
 </p>
-<p>**問3の解答（物理的意味）**  
-この結果は、**「円柱座標において外側（<span class="tex2jax_process">$r$</span>方向）へ <span class="tex2jax_process">$0.1$</span> だけ進むという運動は、実空間の <span class="tex2jax_process">$x$</span> 軸方向から見ると約 <span class="tex2jax_process">$0.0866$</span> の前進に相当する」**という物理的事実を表している。
+<p>この結果は、<strong>「円柱座標において外側（<span class="tex2jax_process">$r$</span>方向）へ <span class="tex2jax_process">$0.1$</span> だけ進むという運動は、実空間の <span class="tex2jax_process">$x$</span> 軸方向から見ると約 <span class="tex2jax_process">$0.0866$</span> の前進に相当する」</strong>という物理的事実を表している。
 </p>
 <blockquote><p>
 **注** （「約」と厳密一致）この変位では <span class="tex2jax_process">$\Delta\theta=\Delta z=0$</span> なので、<span class="tex2jax_process">$x=r\cos\theta$</span> より <span class="tex2jax_process">$\Delta x=(\Delta r)\cos\theta$</span> が**厳密に**成り立つ。したがって <span class="tex2jax_process">$dx(\mathbf{v})$</span> の値は、**この変位のもとでは**真の <span class="tex2jax_process">$\Delta x$</span> と誤差なく一致する。「約」は <span class="tex2jax_process">$\sqrt{3}/2$</span> を小数で表した丸めにすぎず、一次近似の誤差ではない。<br>
@@ -505,9 +474,9 @@ window.MathJax = {
 <p>計算結果 <span class="tex2jax_process">$dx(\mathbf{v}) = 0.1 \times \frac{\sqrt{3}}{2}$</span> を見ると、<span class="tex2jax_process">$r$</span>方向成分<span class="tex2jax_process">$0.1$</span>（長さの次元）と、第1成分の係数<span class="tex2jax_process">$\frac{\sqrt{3}}{2}$</span>（無次元）の積となっており、出力は確かに長さの次元を持つ。
 しかし、もし<span class="tex2jax_process">$\theta$</span>方向の変位<span class="tex2jax_process">$\mathbf{v} = \begin{pmatrix} 0 \\ 0.1 \\ 0 \end{pmatrix}$</span>（角度変位<span class="tex2jax_process">$0.1$</span>ラジアン）を入力したとすると（係数はいまも点 <span class="tex2jax_process">$P$</span> で評価した同じ行ベクトル）：
 </p>
-<p>この場合、**入力ベクトルの第2成分** <span class="tex2jax_process">$0.1$</span> は角度（無次元）だが、**行列の第2列に対応する係数** <span class="tex2jax_process">$-r\sin\theta$</span> が長さの次元を運ぶため、積としての出力 <span class="tex2jax_process">$-0.1$</span> は長さの次元を持つ。
+<p>この場合、<strong>入力ベクトルの第2成分</strong> <span class="tex2jax_process">$0.1$</span> は角度（無次元）だが、<strong>行列の第2列に対応する係数</strong> <span class="tex2jax_process">$-r\sin\theta$</span> が長さの次元を運ぶため、積としての出力 <span class="tex2jax_process">$-0.1$</span> は長さの次元を持つ。
 </p>
-<p>ここに**一次形式**の驚くべき性質がある： <span class="tex2jax_process">$dx$</span> の行列成分自体が <span class="tex2jax_process">$r$</span> を含む関数であり、入力が座標成分（次元がバラバラでも）であっても、出力は常に「<span class="tex2jax_process">$x$</span> 方向の長さ」という正しい物理的次元を持つように自動調整される。**一次形式は、座標系の歪みを吸収し、物理的に意味のある測定値を出力する「賢い測定器」**なのである。
+<p>ここに<strong>一次形式</strong>の驚くべき性質がある： <span class="tex2jax_process">$dx$</span> の行列成分自体が <span class="tex2jax_process">$r$</span> を含む関数であり、入力が座標成分（次元がバラバラでも）であっても、出力は常に「<span class="tex2jax_process">$x$</span> 方向の長さ」という正しい物理的次元を持つように自動調整される。<strong>一次形式は、座標系の歪みを吸収し、物理的に意味のある測定値を出力する「賢い測定器」</strong>なのである。
 </p>
 <h3 id="16-本章のまとめと次章への展望">§1.6 本章のまとめと次章への展望</h3>
 <blockquote><p>
@@ -516,9 +485,9 @@ window.MathJax = {
 - <span class="tex2jax_process">$df$</span> も横ベクトルとして統一し、多次元への拡張は成分の増加として素直に繋がる。<br>
 - 次章以降は、これらの物差しの**ウェッジ積**、外微分、ホッジスターへと拡張する。<br>
 </p></blockquote>
-<p>本章では**積分と <span class="tex2jax_process">$df$</span> の具体例**の主線として <span class="tex2jax_process">$x$</span> 方向に寄せ、<span class="tex2jax_process">$y,z$</span> は多くの場面で「断面」として抑えてきた。とはいえ、実空間での一次形式は **<span class="tex2jax_process">$dx$</span>, <span class="tex2jax_process">$dy$</span>, <span class="tex2jax_process">$dz$</span> の三つがそろっている**（§1.2.3）。
-次章では、この三つを組み合わせて**面積計・体積計（<span class="tex2jax_process">$2$</span>-form, <span class="tex2jax_process">$3$</span>-form）**を作る**ウェッジ積（外積 <span class="tex2jax_process">$\wedge$</span>）**を導入し、ベクトルに作用してスカラーを返す型にとどまらない**高次の微分形式**へと進む。曲線・曲面・領域に沿った集計（線積分・面積分・体積分）は、それらの測定器を揃えた後の章で扱う。
-その後の部では、**微分演算子 <span class="tex2jax_process">$\mathrm{d}$</span>**、**ホッジスター演算子 <span class="tex2jax_process">$\ast$</span>**、ベクトル解析の <span class="tex2jax_process">$\mathrm{grad}$</span>（<span class="tex2jax_process">$\nabla$</span>）、<span class="tex2jax_process">$\mathrm{rot}$</span>（<span class="tex2jax_process">$\nabla\times$</span>、<span class="tex2jax_process">$\mathrm{curl}$</span>）、<span class="tex2jax_process">$\mathrm{div}$</span>（<span class="tex2jax_process">$\nabla\cdot$</span>）、ストークスの定理、マクスウェル方程式や流体力学の基礎方程式へと進む。3次元での微分形式とベクトル場の対応は、ホッジスターで整理できる。
+<p>本章では<strong>積分と <span class="tex2jax_process">$df$</span> の具体例</strong>の主線として <span class="tex2jax_process">$x$</span> 方向に寄せ、<span class="tex2jax_process">$y,z$</span> は多くの場面で「断面」として抑えてきた。とはいえ、実空間での一次形式は <strong><span class="tex2jax_process">$dx$</span>, <span class="tex2jax_process">$dy$</span>, <span class="tex2jax_process">$dz$</span> の三つがそろっている</strong>（§1.2.3）。
+次章では、この三つを組み合わせて<strong>面積計・体積計（<span class="tex2jax_process">$2$</span>-form, <span class="tex2jax_process">$3$</span>-form）</strong>を作る<strong>ウェッジ積（外積 <span class="tex2jax_process">$\wedge$</span>）</strong>を導入し、ベクトルに作用してスカラーを返す型にとどまらない<strong>高次の微分形式</strong>へと進む。曲線・曲面・領域に沿った集計（線積分・面積分・体積分）は、それらの測定器を揃えた後の章で扱う。
+その後の部では、<strong>微分演算子 <span class="tex2jax_process">$\mathrm{d}$</span></strong>、<strong>ホッジスター演算子 <span class="tex2jax_process">$\ast$</span></strong>、ベクトル解析の <span class="tex2jax_process">$\mathrm{grad}$</span>（<span class="tex2jax_process">$\nabla$</span>）、<span class="tex2jax_process">$\mathrm{rot}$</span>（<span class="tex2jax_process">$\nabla\times$</span>、<span class="tex2jax_process">$\mathrm{curl}$</span>）、<span class="tex2jax_process">$\mathrm{div}$</span>（<span class="tex2jax_process">$\nabla\cdot$</span>）、ストークスの定理、マクスウェル方程式や流体力学の基礎方程式へと進む。3次元での微分形式とベクトル場の対応は、ホッジスターで整理できる。
 </p>
 <p>3次元ユークリッド空間の真の姿を解き明かす旅へ、いざ出発しよう。
 </p>

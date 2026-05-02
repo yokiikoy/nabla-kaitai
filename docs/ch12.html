@@ -25,7 +25,7 @@
   .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; }
   @media (max-width: 900px) { 
     body { flex-direction: column; } 
-    .sidebar { width: 100%; height: auto; position: static; padding: 1rem; } 
+    .sidebar { width: 100%; height: auto; position: static; padding: 1rem; border-right: none; border-bottom: 1px solid #d0d7de; } 
     .main-content { padding: 1rem; } 
     .markdown-body { padding: 0.5rem; }
   }
@@ -35,7 +35,6 @@
   .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
   .nav-buttons a:hover { background: #f6f8fa; }
 </style>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <script>
 window.MathJax = {
   loader: { load: ['[tex]/bm', '[tex]/ams'] },
@@ -45,18 +44,13 @@ window.MathJax = {
     processEscapes: true,
     packages: {'[+]': ['bm', 'ams']}
   },
-  chtml: {
-    displayAlign: 'center',
-    adaptiveCSS: true
-  },
   options: {
-    ignoreHtmlClass: 'tex2jax_ignore',
-    processHtmlClass: 'tex2jax_process',
     enableMenu: false
   }
 };
 
 </script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
   <nav class="sidebar">
@@ -104,18 +98,18 @@ window.MathJax = {
 </p>
 <p>これだけだ。<span class="tex2jax_process">$dF=0$</span> と <span class="tex2jax_process">$d(\ast F)=\mu_0(\ast\mathcal{J})$</span> の2本が、たった一本の複素方程式に統合された。<span class="tex2jax_process">$F$</span> と <span class="tex2jax_process">$\ast F$</span> という実部と虚部が、それぞれ無源側と有源側のマクスウェル方程式を分担している。
 </p>
-<p>しかし、ここで立ち止まって考えてほしい。このトリックが成り立つのは、**たまたま** 4次元で <span class="tex2jax_process">$\ast$</span> が <span class="tex2jax_process">$2$</span>-form を <span class="tex2jax_process">$2$</span>-form に写すからだ。一般の <span class="tex2jax_process">$n$</span> 次元では <span class="tex2jax_process">$\ast$</span> は <span class="tex2jax_process">$k$</span>-form を <span class="tex2jax_process">$(n-k)$</span>-form に写す。<span class="tex2jax_process">$2$</span>-form と <span class="tex2jax_process">$2$</span>-form を足せるのは <span class="tex2jax_process">$n=4$</span> の特権であり、ましてや <span class="tex2jax_process">$1$</span>-form と <span class="tex2jax_process">$2$</span>-form を直接足すことは、通常の微分形式の枠組みでは許されていない。
+<p>しかし、ここで立ち止まって考えてほしい。このトリックが成り立つのは、<strong>たまたま</strong> 4次元で <span class="tex2jax_process">$\ast$</span> が <span class="tex2jax_process">$2$</span>-form を <span class="tex2jax_process">$2$</span>-form に写すからだ。一般の <span class="tex2jax_process">$n$</span> 次元では <span class="tex2jax_process">$\ast$</span> は <span class="tex2jax_process">$k$</span>-form を <span class="tex2jax_process">$(n-k)$</span>-form に写す。<span class="tex2jax_process">$2$</span>-form と <span class="tex2jax_process">$2$</span>-form を足せるのは <span class="tex2jax_process">$n=4$</span> の特権であり、ましてや <span class="tex2jax_process">$1$</span>-form と <span class="tex2jax_process">$2$</span>-form を直接足すことは、通常の微分形式の枠組みでは許されていない。
 </p>
 <p>異なる次数の形式を足し合わせる——そんな「魔法の箱」はないものだろうか。
 </p>
 <hr />
 <h3 id="122-パウリ行列--異なる次数を足す魔法">§12.2 パウリ行列 —— 異なる次数を足す魔法</h3>
-<p>実はある。物理学者たちが量子力学のために発見した道具が、そのままこの魔法の箱として使える。**パウリ行列**だ。
+<p>実はある。物理学者たちが量子力学のために発見した道具が、そのままこの魔法の箱として使える。<strong>パウリ行列</strong>だ。
 </p>
 <h4 id="1221-パウリ行列の定義と掛け算">12.2.1 パウリ行列の定義と掛け算</h4>
 <p>パウリ行列 <span class="tex2jax_process">$\sigma_1, \sigma_2, \sigma_3$</span> は次の <span class="tex2jax_process">$2\times2$</span> 行列である。
 </p>
-<p>これらの掛け算規則を調べてみよう。単独では <span class="tex2jax_process">$\sigma_1^2 = \sigma_2^2 = \sigma_3^2 = I$</span>（単位行列）であり、異なるもの同士では <span class="tex2jax_process">$\sigma_1\sigma_2 = -\sigma_2\sigma_1$</span> という**反可換性**が成り立つ。積は全部で9通りある。
+<p>これらの掛け算規則を調べてみよう。単独では <span class="tex2jax_process">$\sigma_1^2 = \sigma_2^2 = \sigma_3^2 = I$</span>（単位行列）であり、異なるもの同士では <span class="tex2jax_process">$\sigma_1\sigma_2 = -\sigma_2\sigma_1$</span> という<strong>反可換性</strong>が成り立つ。積は全部で9通りある。
 </p>
 <p>この9通りの積を、対称部分と反対称部分に分解してみよう。第2章でウェッジ積 <span class="tex2jax_process">$\wedge$</span> を反対称化によって導入したのと同じ発想である。
 </p>
@@ -134,9 +128,9 @@ window.MathJax = {
 </p>
 <p>と、これらの添字を逆順にした <span class="tex2jax_process">$\sigma_2\sigma_1 = -i\sigma_3$</span>, <span class="tex2jax_process">$\sigma_3\sigma_2 = -i\sigma_1$</span>, <span class="tex2jax_process">$\sigma_1\sigma_3 = -i\sigma_2$</span> の計9通りである。<span class="tex2jax_process">$I$</span> の係数（対称部分＝内積）と <span class="tex2jax_process">$\sigma_1,\sigma_2,\sigma_3$</span> の係数（反対称部分＝ウェッジ積）をそれぞれ集める。
 </p>
-<p>と、内積 <span class="tex2jax_process">$+$</span> ウェッジ積の形にまとまる。内積と外積が、**一つの積 <span class="tex2jax_process">$VW$</span> から同時に**現れた。
+<p>と、内積 <span class="tex2jax_process">$+$</span> ウェッジ積の形にまとまる。内積と外積が、<strong>一つの積 <span class="tex2jax_process">$VW$</span> から同時に</strong>現れた。
 </p>
-<p>これが「魔法の箱」の正体だ。パウリ行列の積は、内積（<span class="tex2jax_process">$0$</span>-form に相当するスカラー）と外積（<span class="tex2jax_process">$2$</span>-form に相当するウェッジ積）を、**一つの演算で同時に**生み出す。通常の微分形式では別々の次数に属していたものが、パウリ行列の代数の中では一つの <span class="tex2jax_process">$2\times2$</span> 行列として共存している。
+<p>これが「魔法の箱」の正体だ。パウリ行列の積は、内積（<span class="tex2jax_process">$0$</span>-form に相当するスカラー）と外積（<span class="tex2jax_process">$2$</span>-form に相当するウェッジ積）を、<strong>一つの演算で同時に</strong>生み出す。通常の微分形式では別々の次数に属していたものが、パウリ行列の代数の中では一つの <span class="tex2jax_process">$2\times2$</span> 行列として共存している。
 </p>
 <blockquote><p>
 **注** （なぜ <span class="tex2jax_process">$2\times2$</span> なのか）ベクトルを <span class="tex2jax_process">$2\times2$</span> 行列で表すのは奇妙に思えるかもしれない。しかし、内積とウェッジ積の両方を一つの積で表現するには、少なくとも非可換な代数が必要であり、その最小の実現が <span class="tex2jax_process">$2\times2$</span> 複素行列なのである。本書の流儀でいえば、<span class="tex2jax_process">$1$</span>-form（横ベクトル <span class="tex2jax_process">$1\times3$</span>）と <span class="tex2jax_process">$2$</span>-form（反対称 <span class="tex2jax_process">$3\times3$</span> 行列）という次数の異なる二つの対象を、一つの <span class="tex2jax_process">$2\times2$</span> 行列の中に押し込めた——そう考えればよい。<br>
@@ -146,7 +140,7 @@ window.MathJax = {
 </p>
 <p>パウリ行列の線形結合で表される最も一般的な <span class="tex2jax_process">$2\times2$</span> 行列は
 </p>
-<p>の形をしている。<span class="tex2jax_process">$\varphi$</span> はスカラー（<span class="tex2jax_process">$0$</span>-form）、<span class="tex2jax_process">$A_1,A_2,A_3$</span> はベクトルの成分（<span class="tex2jax_process">$1$</span>-form）である。さらに <span class="tex2jax_process">$\psi$</span> に左から <span class="tex2jax_process">$\sigma_i$</span> を掛ければ、<span class="tex2jax_process">$2$</span>-form に相当する <span class="tex2jax_process">$i\sigma_k$</span> の項まで現れる。つまり、パウリ行列の代数は <span class="tex2jax_process">$0,1,2,3$</span>-form の**すべての次数**を一つの枠組みで扱えるのだ。
+<p>の形をしている。<span class="tex2jax_process">$\varphi$</span> はスカラー（<span class="tex2jax_process">$0$</span>-form）、<span class="tex2jax_process">$A_1,A_2,A_3$</span> はベクトルの成分（<span class="tex2jax_process">$1$</span>-form）である。さらに <span class="tex2jax_process">$\psi$</span> に左から <span class="tex2jax_process">$\sigma_i$</span> を掛ければ、<span class="tex2jax_process">$2$</span>-form に相当する <span class="tex2jax_process">$i\sigma_k$</span> の項まで現れる。つまり、パウリ行列の代数は <span class="tex2jax_process">$0,1,2,3$</span>-form の<strong>すべての次数</strong>を一つの枠組みで扱えるのだ。
 </p>
 <blockquote><p>
 **注** （何ができるようになったのか）微分形式でも異なる次数の形式を直和として形式的に並べることはできる。しかし、内積（縮約）と外積（反対称化）を**一つの積として同時に**扱うには、通常のウェッジ積だけでは足りない。パウリ行列の代数では、それらが一つの積 <span class="tex2jax_process">$VW$</span> の中で自然に分離・共存する。これが幾何代数の核心である。<br>
@@ -175,8 +169,6 @@ window.MathJax = {
 <ol>
 <li>2.2 と同じ <span class="tex2jax_process">$\sigma_i\sigma_j$</span> の置き換えを9項に適用し、<span class="tex2jax_process">$I$</span> の係数（内積＝発散）と <span class="tex2jax_process">$\sigma_1,\sigma_2,\sigma_3$</span> の係数（ウェッジ積＝回転）を集める。</li>
 </ol>
-<p>**一つの演算子 <span class="tex2jax_process">$D$</span> が、<span class="tex2jax_process">$\mathrm{grad}$</span>（<span class="tex2jax_process">$D\varphi$</span>）、<span class="tex2jax_process">$\mathrm{div}$</span>（<span class="tex2jax_process">$DA$</span> の実部）、<span class="tex2jax_process">$\mathrm{rot}$</span>（<span class="tex2jax_process">$DA$</span> の虚部）をすべて産み出す。** これこそが、<span class="tex2jax_process">$\nabla$</span> を <span class="tex2jax_process">$d$</span> と <span class="tex2jax_process">$\ast$</span> に解体した旅の、逆方向の結論——統合——にほかならない。
-</p>
 <blockquote><p>
 **注** （<span class="tex2jax_process">$d$</span> と <span class="tex2jax_process">$\ast$</span> で書くと）<span class="tex2jax_process">$D$</span> は本書の言葉でも表現できる。符号規約を別にすれば、<span class="tex2jax_process">$D$</span> は <span class="tex2jax_process">$d$</span>（次数を上げる）と <span class="tex2jax_process">$\ast d\ast$</span>（次数を下げる）を合わせた演算子として理解できる。<span class="tex2jax_process">$\ast d\ast$</span> は**余微分（codifferential）** <span class="tex2jax_process">$\delta$</span> と呼ばれ、<span class="tex2jax_process">$\delta = \pm\ast d\ast$</span>（符号は次元と次数に依存）と定義される。ここでは厳密な符号には立ち入らず、<span class="tex2jax_process">$D \sim d + \delta$</span> という構造だけを押さえておく。<span class="tex2jax_process">$d$</span> が次数を上げ、<span class="tex2jax_process">$\delta$</span> が次数を下げる——この二つを足した <span class="tex2jax_process">$D$</span> が、grad・rot・div を一つの演算子に束ねているのだ。<br>
 </p></blockquote>
@@ -188,7 +180,7 @@ window.MathJax = {
 <h4 id="1233-マクスウェルを一本に--再訪">12.3.3 マクスウェルを一本に —— 再訪</h4>
 <p>§12.1 では <span class="tex2jax_process">$F + i\ast F$</span> によって4次元でマクスウェル方程式を一本化した。<span class="tex2jax_process">$D$</span> を使えば、同じことが3次元の言葉だけで書ける。
 </p>
-<p>電場 <span class="tex2jax_process">$\mathbf{E}$</span> と磁場 <span class="tex2jax_process">$\mathbf{B}$</span> を一つの複素ベクトルに束ねる。これは**リーマン－ジルバーシュタイン・ベクトル**と呼ばれる。
+<p>電場 <span class="tex2jax_process">$\mathbf{E}$</span> と磁場 <span class="tex2jax_process">$\mathbf{B}$</span> を一つの複素ベクトルに束ねる。これは<strong>リーマン－ジルバーシュタイン・ベクトル</strong>と呼ばれる。
 </p>
 <p>パウリ行列で書けば <span class="tex2jax_process">$F = \mathbf{E}\!\cdot\!\bm{\sigma} + i\,\mathbf{B}\!\cdot\!\bm{\sigma}$</span> である。<span class="tex2jax_process">$F$</span> はスカラー部を持たない純粋な複素パウリ・ベクトルだ。時間微分を含めた演算子 <span class="tex2jax_process">$D + \frac{\partial}{\partial t}$</span> を作用させる。
 </p>
@@ -201,7 +193,7 @@ window.MathJax = {
 <h4 id="1234-span-classtex2jaxprocessspan--4次元時空のディラック演算子">12.3.4 <span class="tex2jax_process">$\cancel{\partial} F = J$</span> —— 4次元時空のディラック演算子</h4>
 <p>§12.3.3 の <span class="tex2jax_process">$(D + \frac{\partial}{\partial t})F = \rho + \mathbf{J}\!\cdot\!\bm{\sigma}$</span> には、時間と空間が分離して現れている。これは3次元のパウリ行列 <span class="tex2jax_process">$\sigma_1,\sigma_2,\sigma_3$</span> をベースに組み立てたからだ。4次元時空を最初から扱えば、この分離すら消える。
 </p>
-<p>パウリ行列を <span class="tex2jax_process">$4\times4$</span> に拡張したものが**ガンマ行列** <span class="tex2jax_process">$\gamma^0,\gamma^1,\gamma^2,\gamma^3$</span> である。これらは反可換性 <span class="tex2jax_process">$\gamma^\mu\gamma^\nu + \gamma^\nu\gamma^\mu = 2g^{\mu\nu}I$</span> を満たす（<span class="tex2jax_process">$g^{\mu\nu}$</span> はミンコフスキー計量）。このガンマ行列を用いて、4次元のディラック演算子を
+<p>パウリ行列を <span class="tex2jax_process">$4\times4$</span> に拡張したものが<strong>ガンマ行列</strong> <span class="tex2jax_process">$\gamma^0,\gamma^1,\gamma^2,\gamma^3$</span> である。これらは反可換性 <span class="tex2jax_process">$\gamma^\mu\gamma^\nu + \gamma^\nu\gamma^\mu = 2g^{\mu\nu}I$</span> を満たす（<span class="tex2jax_process">$g^{\mu\nu}$</span> はミンコフスキー計量）。このガンマ行列を用いて、4次元のディラック演算子を
 </p>
 <p>と定義する。第10章の電磁場 <span class="tex2jax_process">$F$</span>（<span class="tex2jax_process">$4\times4$</span> 反対称行列）をガンマ行列のウェッジ積 <span class="tex2jax_process">$\gamma^\mu\!\wedge\!\gamma^\nu$</span> で展開したものと同一視すれば、マクスウェル方程式は
 </p>
@@ -210,14 +202,14 @@ window.MathJax = {
 <blockquote><p>
 **注** （<span class="tex2jax_process">$\cancel{\partial} F$</span> の積について）ここでの積は通常の行列積ではなく、ガンマ行列が生成する幾何代数の積である。第10章の反対称行列 <span class="tex2jax_process">$F$</span> は、ここでは <span class="tex2jax_process">$\gamma^\mu\!\wedge\!\gamma^\nu$</span> で展開された2-vectorとして再解釈される。細部は幾何代数の教科書に譲るが、<span class="tex2jax_process">$\sigma_i\sigma_j = \delta_{ij}I + i\varepsilon_{ijk}\sigma_k$</span>（11.2.1）の4次元版がここでも成り立っていると考えればよい。<br>
 </p></blockquote>
-<p>§12.1 の <span class="tex2jax_process">$F + i\ast F$</span> も、§12.3.3 の <span class="tex2jax_process">$(D + \frac{\partial}{\partial t})F$</span> も、すべてこの一行に吸収される。これが、<span class="tex2jax_process">$\nabla$</span> の解体から始まった旅の、最も遠くにある風景である。ディラックが1928年に電子の方程式を導くために発見したこの演算子は、時空の幾何と物理法則を一つの代数で記述する**幾何代数（Geometric Algebra）**の核であり、Doran & Lasenby の Geometric Algebra for Physicists に詳しい。
+<p>§12.1 の <span class="tex2jax_process">$F + i\ast F$</span> も、§12.3.3 の <span class="tex2jax_process">$(D + \frac{\partial}{\partial t})F$</span> も、すべてこの一行に吸収される。これが、<span class="tex2jax_process">$\nabla$</span> の解体から始まった旅の、最も遠くにある風景である。ディラックが1928年に電子の方程式を導くために発見したこの演算子は、時空の幾何と物理法則を一つの代数で記述する<strong>幾何代数（Geometric Algebra）</strong>の核であり、Doran & Lasenby の Geometric Algebra for Physicists に詳しい。
 </p>
 <h3 id="124-演算子span-classtex2jaxprocessspan">§12.4 演算子<span class="tex2jax_process">$\nabla$</span></h3>
 <p>さあ、ここで最初の問いに戻ろう。<span class="tex2jax_process">$\nabla$</span> とは何だったのか。
 </p>
-<p>ベクトル解析では、<span class="tex2jax_process">$\nabla$</span> は「偏微分を並べた形式的なベクトル」として導入され、grad・rot・div の三つの顔を持つ謎めいた記号だった。本書はそれを <span class="tex2jax_process">$d$</span> と <span class="tex2jax_process">$\ast$</span> に**解体**することで、各演算の正体を明らかにしてきた。
+<p>ベクトル解析では、<span class="tex2jax_process">$\nabla$</span> は「偏微分を並べた形式的なベクトル」として導入され、grad・rot・div の三つの顔を持つ謎めいた記号だった。本書はそれを <span class="tex2jax_process">$d$</span> と <span class="tex2jax_process">$\ast$</span> に<strong>解体</strong>することで、各演算の正体を明らかにしてきた。
 </p>
-<p>そして今、これを逆方向に辿り、<span class="tex2jax_process">$d$</span> と <span class="tex2jax_process">$\ast$</span> というバラバラだった部品が、幾何代数の中で3次元のディラック演算子<span class="tex2jax_process">$D = \bm{\sigma}\!\cdot\!\nabla$</span> として**統合**され、更にその4次元版のディラック演算子<span class="tex2jax_process">$\cancel{\partial}$</span>が究極のマクスウェル方程式<span class="tex2jax_process">$\cancel{\partial} F = J$</span>を与えた。
+<p>そして今、これを逆方向に辿り、<span class="tex2jax_process">$d$</span> と <span class="tex2jax_process">$\ast$</span> というバラバラだった部品が、幾何代数の中で3次元のディラック演算子<span class="tex2jax_process">$D = \bm{\sigma}\!\cdot\!\nabla$</span> として<strong>統合</strong>され、更にその4次元版のディラック演算子<span class="tex2jax_process">$\cancel{\partial}$</span>が究極のマクスウェル方程式<span class="tex2jax_process">$\cancel{\partial} F = J$</span>を与えた。
 </p>
 <p>ところで、幾何代数の文脈では、この演算子を必ずしも<span class="tex2jax_process">$\cancel{\partial}$</span> とは書かない。むしろ、この種のベクトル微分演算子を
 </p>

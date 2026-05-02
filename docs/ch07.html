@@ -25,7 +25,7 @@
   .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; }
   @media (max-width: 900px) { 
     body { flex-direction: column; } 
-    .sidebar { width: 100%; height: auto; position: static; padding: 1rem; } 
+    .sidebar { width: 100%; height: auto; position: static; padding: 1rem; border-right: none; border-bottom: 1px solid #d0d7de; } 
     .main-content { padding: 1rem; } 
     .markdown-body { padding: 0.5rem; }
   }
@@ -35,7 +35,6 @@
   .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
   .nav-buttons a:hover { background: #f6f8fa; }
 </style>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <script>
 window.MathJax = {
   loader: { load: ['[tex]/bm', '[tex]/ams'] },
@@ -45,18 +44,13 @@ window.MathJax = {
     processEscapes: true,
     packages: {'[+]': ['bm', 'ams']}
   },
-  chtml: {
-    displayAlign: 'center',
-    adaptiveCSS: true
-  },
   options: {
-    ignoreHtmlClass: 'tex2jax_ignore',
-    processHtmlClass: 'tex2jax_process',
     enableMenu: false
   }
 };
 
 </script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
   <nav class="sidebar">
@@ -99,18 +93,18 @@ window.MathJax = {
 <hr />
 <h3 id="71-ドット積とクロス積">§7.1 ドット積とクロス積</h3>
 <h4 id="711-ドット積">7.1.1 ドット積</h4>
-<p>二つの縦ベクトル <span class="tex2jax_process">$\mathbf{a} = (a_x, a_y, a_z)^T$</span>, <span class="tex2jax_process">$\mathbf{b} = (b_x, b_y, b_z)^T$</span> の**ドット積**（内積）を次で定義する。
+<p>二つの縦ベクトル <span class="tex2jax_process">$\mathbf{a} = (a_x, a_y, a_z)^T$</span>, <span class="tex2jax_process">$\mathbf{b} = (b_x, b_y, b_z)^T$</span> の<strong>ドット積</strong>（内積）を次で定義する。
 </p>
 <p>§5.2.3 で見たように、これは実空間 <span class="tex2jax_process">$(x,y,z)$</span> で <span class="tex2jax_process">$\mathbf{g} = I$</span> とした場合の内積 <span class="tex2jax_process">$\mathbf{a}^T \mathbf{g} \,\mathbf{b}$</span> に等しい。本書ではすでに縦ベクトルと横ベクトルの積として何度も使ってきた操作だ。
 </p>
 <h4 id="712-クロス積">7.1.2 クロス積</h4>
-<p>二つの縦ベクトル <span class="tex2jax_process">$\mathbf{a}, \mathbf{b}$</span> の**クロス積**（外積）を次で定義する。
+<p>二つの縦ベクトル <span class="tex2jax_process">$\mathbf{a}, \mathbf{b}$</span> の<strong>クロス積</strong>（外積）を次で定義する。
 </p>
 <p>この結果は再び縦ベクトルである。クロス積の成分の並びには規則性があり、次の反対称行列を使うと簡潔に書ける。
 </p>
 <p>この <span class="tex2jax_process">$3\times 3$</span> 行列をベクトル <span class="tex2jax_process">$\mathbf{b}$</span> に左から掛ければ、
 </p>
-<p>となる。この <span class="tex2jax_process">$(\mathbf{a} \times)$</span> を <span class="tex2jax_process">$\mathbf{a}$</span> の**外積行列**と呼ぶ。第2章 §2.4.9 で <span class="tex2jax_process">$2$</span>-form の行列表現として現れ、§5.3.2 では <span class="tex2jax_process">$\ast$</span> の出力として再登場した行列と、まったく同じ形である。本章ではこれを純粋に「ベクトルにベクトルを掛けてベクトルを得る演算」として使う。
+<p>となる。この <span class="tex2jax_process">$(\mathbf{a} \times)$</span> を <span class="tex2jax_process">$\mathbf{a}$</span> の<strong>外積行列</strong>と呼ぶ。第2章 §2.4.9 で <span class="tex2jax_process">$2$</span>-form の行列表現として現れ、§5.3.2 では <span class="tex2jax_process">$\ast$</span> の出力として再登場した行列と、まったく同じ形である。本章ではこれを純粋に「ベクトルにベクトルを掛けてベクトルを得る演算」として使う。
 </p>
 <p>クロス積には次の基本的な性質がある。
 </p>
@@ -133,48 +127,38 @@ window.MathJax = {
 <p>ナブラ <span class="tex2jax_process">$\nabla$</span> を、偏微分演算子を縦に並べた形式的なベクトルとして定義する。
 </p>
 <h4 id="722-勾配">7.2.2 勾配</h4>
-<p>スカラー場 <span class="tex2jax_process">$f(x,y,z)$</span> に <span class="tex2jax_process">$\nabla$</span> を作用させたものを**勾配**と呼び、<span class="tex2jax_process">$\mathrm{grad}\,f$</span> または <span class="tex2jax_process">$\nabla f$</span> と書く。
+<p>スカラー場 <span class="tex2jax_process">$f(x,y,z)$</span> に <span class="tex2jax_process">$\nabla$</span> を作用させたものを<strong>勾配</strong>と呼び、<span class="tex2jax_process">$\mathrm{grad}\,f$</span> または <span class="tex2jax_process">$\nabla f$</span> と書く。
 </p>
 <p>勾配の各成分は、<span class="tex2jax_process">$f$</span> の各座標方向の変化率である。幾何学的には、<span class="tex2jax_process">$\nabla f$</span> は <span class="tex2jax_process">$f$</span> が最も急に増加する方向を指すベクトル場になる。
 </p>
 <blockquote><p>
 **注** （勾配は横ベクトルか縦ベクトルか）§5.5 では <span class="tex2jax_process">$\mathrm{grad}\,f = df$</span> と書き、<span class="tex2jax_process">$df$</span> は係数の横ベクトルだった。本章では <span class="tex2jax_process">$\nabla f$</span> を縦ベクトルとして扱う。これは単なる転置の違いではない。<span class="tex2jax_process">$\nabla f$</span>（縦）は「空間の各点に矢印を立てる」見方——実空間が変化しているとみなす立場——に立ち、<span class="tex2jax_process">$df$</span>（横）は「微分そのもの（form）が変化している」とみなす立場に立つ。出発点の絵は異なるが、線積分で集計すれば同じスカラー量を与える。この一致は偶然ではない。<br>
 </p></blockquote>
-<p>**例**：<span class="tex2jax_process">$f(x,y,z) = x^2 + y^2 + z^2$</span> の勾配。
-</p>
 <p>このベクトル場は原点から放射状に外向きで、原点から離れるほど大きくなる。
 </p>
 <hr />
 <h3 id="73-発散">§7.3 発散</h3>
-<p>ベクトル場 <span class="tex2jax_process">$\mathbf{F}(x,y,z) = (F_x, F_y, F_z)^T$</span> に対して、<span class="tex2jax_process">$\nabla$</span> とのドット積をとったものを**発散**と呼ぶ。
+<p>ベクトル場 <span class="tex2jax_process">$\mathbf{F}(x,y,z) = (F_x, F_y, F_z)^T$</span> に対して、<span class="tex2jax_process">$\nabla$</span> とのドット積をとったものを<strong>発散</strong>と呼ぶ。
 </p>
 <p>形式的には「<span class="tex2jax_process">$\nabla$</span> と <span class="tex2jax_process">$\mathbf{F}$</span> のドット積」だが、<span class="tex2jax_process">$\nabla$</span> の各成分が微分演算子であるため、結果はスカラー場になる。
 </p>
 <p>発散は行列の言葉でも書ける。<span class="tex2jax_process">$\mathbf{F}$</span> のヤコビ行列 <span class="tex2jax_process">$\mathbf{J}_\mathbf{F}$</span> を考える。
 </p>
-<p>この行列の**トレース**（対角成分の和）が発散に一致する。
+<p>この行列の<strong>トレース</strong>（対角成分の和）が発散に一致する。
 </p>
 <p>物理的には、<span class="tex2jax_process">$\mathrm{div}\,\mathbf{F}$</span> はその点での「湧き出し」の強さを表す。正なら湧き出し、負なら吸い込み、ゼロならその点では湧き出しも吸い込みもない。
-</p>
-<p>**例**：<span class="tex2jax_process">$\mathbf{F} = (x, y, z)^T$</span> の発散。
-</p>
-<p>**例**：<span class="tex2jax_process">$\mathbf{F} = (-y, x, 0)^T$</span> の発散。
 </p>
 <p>この場は回転しているが、湧き出してはいない。
 </p>
 <hr />
 <h3 id="74-回転">§7.4 回転</h3>
-<p>ベクトル場 <span class="tex2jax_process">$\mathbf{F}$</span> に対して、<span class="tex2jax_process">$\nabla$</span> とのクロス積をとったものを**回転**（ローテーション）と呼ぶ。
+<p>ベクトル場 <span class="tex2jax_process">$\mathbf{F}$</span> に対して、<span class="tex2jax_process">$\nabla$</span> とのクロス積をとったものを<strong>回転</strong>（ローテーション）と呼ぶ。
 </p>
 <p>外積行列を使えば次のようにも書ける。
 </p>
 <p>物理的には、<span class="tex2jax_process">$\mathrm{rot}\,\mathbf{F}$</span> はその点での「渦」の強さと向きを表す。渦の軸方向を向き、大きさが渦の強さに対応する。
 </p>
-<p>**例**：<span class="tex2jax_process">$\mathbf{F} = (-y, x, 0)^T$</span> の回転。
-</p>
 <p>この場は <span class="tex2jax_process">$z$</span> 軸まわりに一様に回転しており、渦の強さは <span class="tex2jax_process">$2$</span> である。
-</p>
-<p>**例**：<span class="tex2jax_process">$\mathbf{F} = (x, y, z)^T$</span> の回転。
 </p>
 <p>放射状の場には渦がない——直感とも一致する。
 </p>
@@ -187,13 +171,11 @@ window.MathJax = {
 </p></blockquote>
 <hr />
 <h3 id="75-ラプラシアン">§7.5 ラプラシアン</h3>
-<p>勾配（スカラー→ベクトル）と発散（ベクトル→スカラー）を連続して作用させると、スカラー場からスカラー場への演算が得られる。これを**ラプラシアン**と呼ぶ。
+<p>勾配（スカラー→ベクトル）と発散（ベクトル→スカラー）を連続して作用させると、スカラー場からスカラー場への演算が得られる。これを<strong>ラプラシアン</strong>と呼ぶ。
 </p>
 <p>記号 <span class="tex2jax_process">$\nabla^2$</span> は <span class="tex2jax_process">$\nabla \cdot \nabla$</span> の略記であり、<span class="tex2jax_process">$\Delta f$</span> と書く流儀もある。
 </p>
-<p>**例**：<span class="tex2jax_process">$f(x,y,z) = x^2 + y^2 + z^2$</span> のラプラシアン。
-</p>
-<p>ベクトル場 <span class="tex2jax_process">$\mathbf{F}$</span> に対しても、成分ごとにラプラシアンを作用させたものを**ベクトルラプラシアン**と呼ぶ。
+<p>ベクトル場 <span class="tex2jax_process">$\mathbf{F}$</span> に対しても、成分ごとにラプラシアンを作用させたものを<strong>ベクトルラプラシアン</strong>と呼ぶ。
 </p>
 <p>ラプラシアンは物理の至るところに現れる。熱伝導方程式、波動方程式、ポアソン方程式——いずれも <span class="tex2jax_process">$\nabla^2$</span> を中心に据えた方程式である。
 </p>
@@ -227,26 +209,10 @@ window.MathJax = {
 <p>実用的な計算のために、<span class="tex2jax_process">$\nabla$</span> を含む積の微分則と代表的なベクトル恒等式をまとめておく。以下、<span class="tex2jax_process">$f, g$</span> はスカラー場、<span class="tex2jax_process">$\mathbf{F}, \mathbf{G}$</span> はベクトル場とする。
 </p>
 <h4 id="771-積の微分則">7.7.1 積の微分則</h4>
-<p>**勾配の積**：
-</p>
-<p>**発散の積**：
-</p>
-<p>**回転の積**：
-</p>
-<p>**クロス積の発散**：
-</p>
 <h4 id="772-二回作用の恒等式">7.7.2 二回作用の恒等式</h4>
 <p>スカラー場の勾配の回転と、ベクトル場の回転の発散は §7.6 で導いた。公式集として再掲する。
 </p>
-<p>**勾配の回転はゼロ**：
-</p>
-<p>**回転の発散はゼロ**：
-</p>
-<p>**回転の回転**：
-</p>
 <p>これはラプラシアンを発散と回転に分解する式である。導出には BAC-CAB 則（§7.7.4）を使う。
-</p>
-<p>**スカラー場の勾配の発散**（= ラプラシアン）：
 </p>
 <p>§7.5 の定義そのもの。
 </p>
@@ -301,7 +267,7 @@ window.MathJax = {
 </p>
 <p>いずれも「境界で測った量 = 内部の微分量の総和」という形をしている。§7.6 の <span class="tex2jax_process">$\mathrm{div}(\mathrm{rot})=0$</span> は、この枠組みでは「渦場には湧き出しがないから、閉曲面で囲んでも中から出てくるものはない」と読める。
 </p>
-<p>しかし、ここには一つの不満が残る。ストークスとガウスは、grad / rot / div という異なる演算子を使うため、**別々の定理として暗記しなければならない**。第5章で <span class="tex2jax_process">$\int_{\partial M}\omega = \int_M d\omega$</span> という一本の式がこれらすべてを統合していたことを思い出してほしい。第8章では、<span class="tex2jax_process">$\nabla$</span> の世界の積分定理をこの一本の形に読み替える辞書を完成させる。
+<p>しかし、ここには一つの不満が残る。ストークスとガウスは、grad / rot / div という異なる演算子を使うため、<strong>別々の定理として暗記しなければならない</strong>。第5章で <span class="tex2jax_process">$\int_{\partial M}\omega = \int_M d\omega$</span> という一本の式がこれらすべてを統合していたことを思い出してほしい。第8章では、<span class="tex2jax_process">$\nabla$</span> の世界の積分定理をこの一本の形に読み替える辞書を完成させる。
 </p>
 <blockquote><p>
 **【ここまでのチェックポイント — §7.8】**<br>

@@ -18,13 +18,7 @@ MATHJAX_CONFIG = '''window.MathJax = {
     processEscapes: true,
     packages: {'[+]': ['bm', 'ams']}
   },
-  chtml: {
-    displayAlign: 'center',
-    adaptiveCSS: true
-  },
   options: {
-    ignoreHtmlClass: 'tex2jax_ignore',
-    processHtmlClass: 'tex2jax_process',
     enableMenu: false
   }
 };
@@ -57,7 +51,7 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
   .markdown-body {{ max-width: 850px; margin: 0 auto; min-height: 100vh; }}
   @media (max-width: 900px) {{ 
     body {{ flex-direction: column; }} 
-    .sidebar {{ width: 100%; height: auto; position: static; padding: 1rem; }} 
+    .sidebar {{ width: 100%; height: auto; position: static; padding: 1rem; border-right: none; border-bottom: 1px solid #d0d7de; }} 
     .main-content {{ padding: 1rem; }} 
     .markdown-body {{ padding: 0.5rem; }}
   }}
@@ -67,10 +61,10 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
   .nav-buttons a {{ padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }}
   .nav-buttons a:hover {{ background: #f6f8fa; }}
 </style>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <script>
 {MATHJAX_CONFIG}
 </script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
   <nav class="sidebar">
@@ -198,7 +192,13 @@ def process_markdown(markdown_text):
             if in_para: result.append('</p>'); in_para = False
             continue
         
-        processed = protector.restore(line)
+        # Inline formatting (bold, italic, code)
+        processed = line
+        processed = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', processed)
+        processed = re.sub(r'\*(.+?)\*', r'<em>\1</em>', processed)
+        processed = re.sub(r'`(.+?)`', r'<code>\1</code>', processed)
+        
+        processed = protector.restore(processed)
         if not processed.strip().startswith('<') and processed.strip():
             if not in_para:
                 result.append(f'<p>{processed}')

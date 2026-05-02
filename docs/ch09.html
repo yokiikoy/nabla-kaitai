@@ -25,7 +25,7 @@
   .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; }
   @media (max-width: 900px) { 
     body { flex-direction: column; } 
-    .sidebar { width: 100%; height: auto; position: static; padding: 1rem; } 
+    .sidebar { width: 100%; height: auto; position: static; padding: 1rem; border-right: none; border-bottom: 1px solid #d0d7de; } 
     .main-content { padding: 1rem; } 
     .markdown-body { padding: 0.5rem; }
   }
@@ -35,7 +35,6 @@
   .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
   .nav-buttons a:hover { background: #f6f8fa; }
 </style>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <script>
 window.MathJax = {
   loader: { load: ['[tex]/bm', '[tex]/ams'] },
@@ -45,18 +44,13 @@ window.MathJax = {
     processEscapes: true,
     packages: {'[+]': ['bm', 'ams']}
   },
-  chtml: {
-    displayAlign: 'center',
-    adaptiveCSS: true
-  },
   options: {
-    ignoreHtmlClass: 'tex2jax_ignore',
-    processHtmlClass: 'tex2jax_process',
     enableMenu: false
   }
 };
 
 </script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
   <nav class="sidebar">
@@ -87,7 +81,7 @@ window.MathJax = {
 <h3 id="90-本書の目的はすでに果たされた">§9.0 本書の目的はすでに果たされた</h3>
 <p>　第8章 §7.0 で「本章はこの本のハイライトである」と宣言し、実際に二つの言語のあいだを翻訳し、積分定理を一本化し、二つの方法論を対比した。そこで本書の知的な核心は、実はすでに終わっている。
 </p>
-<p>しかし、これだけの道具を揃えて、使わずに終わるのはもったいない。本章では、ここまでに構築した辞書を実際の問題に適用し、ベクトル解析の難問を機械的に解いてみせる。理論は第8章までで十分だ——ここから先は**演習**である。
+<p>しかし、これだけの道具を揃えて、使わずに終わるのはもったいない。本章では、ここまでに構築した辞書を実際の問題に適用し、ベクトル解析の難問を機械的に解いてみせる。理論は第8章までで十分だ——ここから先は<strong>演習</strong>である。
 </p>
 <p>読者は、以下の計算を眺めるだけでよい。あるいは、自分の手で追ってみてもよい。いずれにせよ、ここで見るのは「公式を暗記しなくても、辞書さえあればすべて導出できる」という事実の実演だ。
 </p>

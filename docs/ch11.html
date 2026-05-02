@@ -25,7 +25,7 @@
   .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; }
   @media (max-width: 900px) { 
     body { flex-direction: column; } 
-    .sidebar { width: 100%; height: auto; position: static; padding: 1rem; } 
+    .sidebar { width: 100%; height: auto; position: static; padding: 1rem; border-right: none; border-bottom: 1px solid #d0d7de; } 
     .main-content { padding: 1rem; } 
     .markdown-body { padding: 0.5rem; }
   }
@@ -35,7 +35,6 @@
   .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
   .nav-buttons a:hover { background: #f6f8fa; }
 </style>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <script>
 window.MathJax = {
   loader: { load: ['[tex]/bm', '[tex]/ams'] },
@@ -45,18 +44,13 @@ window.MathJax = {
     processEscapes: true,
     packages: {'[+]': ['bm', 'ams']}
   },
-  chtml: {
-    displayAlign: 'center',
-    adaptiveCSS: true
-  },
   options: {
-    ignoreHtmlClass: 'tex2jax_ignore',
-    processHtmlClass: 'tex2jax_process',
     enableMenu: false
   }
 };
 
 </script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
   <nav class="sidebar">
@@ -87,7 +81,7 @@ window.MathJax = {
 <h3 id="110-この章の立ち位置--さらに先を見たい読者のための道標">§11.0 この章の立ち位置 —— さらに先を見たい読者のための道標</h3>
 <p>　本書『ナブラ解体新書』の目的は、<span class="tex2jax_process">$\nabla$</span> を <span class="tex2jax_process">$d$</span> と <span class="tex2jax_process">$\ast$</span> に解体し、ベクトル解析の公式群を見通しよく再構築することだった。第8章・第9章でその目的は達成されている。第10章は「おまけ」として、この枠組みがマクスウェル方程式をいかに簡潔に記述するかを見た。
 </p>
-<p>本章は、そのさらに先——本書を読み終えて「この <span class="tex2jax_process">$d$</span> と <span class="tex2jax_process">$\ast$</span> という道具は、もっと広い世界でどう使えるのか」と興味を持った読者のための**道標**である。完結した説明はしない。専門書への橋渡しとして、何がどう変わり、何が変わらないかの見取り図だけを示す。それからもう一つ——本章では、これまで筆者が意図的に避けてきた数学書的な言い回しを、特に読者に配慮せず、定義もせずに遠慮なく使う。まだまだ世界は広いのだ、ということを感じてほしい。
+<p>本章は、そのさらに先——本書を読み終えて「この <span class="tex2jax_process">$d$</span> と <span class="tex2jax_process">$\ast$</span> という道具は、もっと広い世界でどう使えるのか」と興味を持った読者のための<strong>道標</strong>である。完結した説明はしない。専門書への橋渡しとして、何がどう変わり、何が変わらないかの見取り図だけを示す。それからもう一つ——本章では、これまで筆者が意図的に避けてきた数学書的な言い回しを、特に読者に配慮せず、定義もせずに遠慮なく使う。まだまだ世界は広いのだ、ということを感じてほしい。
 </p>
 <blockquote><p>
 **注** （建前と本音）<br>
@@ -123,13 +117,13 @@ window.MathJax = {
 <blockquote><p>
 **注** （計量遅延の果てに）本書は第6章まで計量の形式的定義を意図的に後回しにしてきた。これは物理学者 W. L. Burke の "put the metric later and later into the course" という教育哲学に倣ったものである。計量を遅延させたからこそ、<span class="tex2jax_process">$d$</span>（計量不要）と <span class="tex2jax_process">$\ast$</span>（計量依存）の役割分担がくっきりと見える——この章は、その分離の果てに広がる風景を眺める場所だ。<br>
 </p></blockquote>
-<p>この「場所ごとに座標や計量を扱う」世界を数学的に整理する枠組みが**多様体（manifold）**である。多様体そのものは、まず局所的に <span class="tex2jax_process">$\mathbb{R}^n$</span> と見なせる滑らかな空間として定義される。その上に、各点の接空間に非退化な対称双線形形式 <span class="tex2jax_process">$g_p$</span> を滑らかに与えたものが**計量付き多様体**であり、特に <span class="tex2jax_process">$g_p$</span> が正定値なら**リーマン多様体**、ローレンツ符号なら**ローレンツ多様体**になる。
+<p>この「場所ごとに座標や計量を扱う」世界を数学的に整理する枠組みが<strong>多様体（manifold）</strong>である。多様体そのものは、まず局所的に <span class="tex2jax_process">$\mathbb{R}^n$</span> と見なせる滑らかな空間として定義される。その上に、各点の接空間に非退化な対称双線形形式 <span class="tex2jax_process">$g_p$</span> を滑らかに与えたものが<strong>計量付き多様体</strong>であり、特に <span class="tex2jax_process">$g_p$</span> が正定値なら<strong>リーマン多様体</strong>、ローレンツ符号なら<strong>ローレンツ多様体</strong>になる。
 </p>
 <blockquote><p>
 **注** （「曲がった時空」という言葉について）一般相対性理論の解説では「時空が曲がる」と表現される。個人的なこだわりではあるが、筆者はこの言い回しが好きではない。というのも、任意の一点では局所慣性系を選んで計量をミンコフスキー計量にし、接続係数を消すことができるが、曲率は一般には消えず、有限の近傍全体が平坦になるわけではない。曲率は、まさにその局所慣性系を二階以上で貼り合わせるときのずれとして現れるからだ。つまり、単体の「曲がったゴム膜」のようなお絵かきでは不十分で、むしろ「計量と接続を通じて、異なる点の接空間をどう比べるかが問題になる」と捉えたほうが正確だと感じている。とはいえこれは筆者が偏屈なのであり、事実として「曲がっている」と考えたほうが直感的だろう。<br>
 </p></blockquote>
 <h4 id="1111-定義--チャートとアトラス">11.1.1 定義 —— チャートとアトラス</h4>
-<p>が <span class="tex2jax_process">$C^\infty$</span> 級であるとき、これを**滑らかなアトラス**と呼び、<span class="tex2jax_process">$M$</span> は**滑らかな多様体（<span class="tex2jax_process">$C^\infty$</span> 多様体）** になる。座標変換が滑らかであること——この一点が、多様体上で微積分を可能にする根幹である。
+<p>が <span class="tex2jax_process">$C^\infty$</span> 級であるとき、これを<strong>滑らかなアトラス</strong>と呼び、<span class="tex2jax_process">$M$</span> は<strong>滑らかな多様体（<span class="tex2jax_process">$C^\infty$</span> 多様体）</strong> になる。座標変換が滑らかであること——この一点が、多様体上で微積分を可能にする根幹である。
 </p>
 <p>本書がこれまで舞台としてきた <span class="tex2jax_process">$\mathbb{R}^3$</span> は、恒等写像 <span class="tex2jax_process">$\mathrm{id}: \mathbb{R}^3 \to \mathbb{R}^3$</span> という一枚のチャートで全体を覆える、最も自明な多様体の例だ。
 </p>
@@ -138,33 +132,27 @@ window.MathJax = {
 <h4 id="1112-接空間--曲がった空間での微分の定義">11.1.2 接空間 —— 「曲がった空間での微分」の定義</h4>
 <p>接空間の構成には二つの同値な方法がある。
 </p>
-<p>**曲線の同値類による定義。** <span class="tex2jax_process">$p$</span> を通る滑らかな曲線 <span class="tex2jax_process">$\gamma: (-\varepsilon, \varepsilon) \to M$</span>（<span class="tex2jax_process">$\gamma(0)=p$</span>）に対し、チャート <span class="tex2jax_process">$(U, \varphi)$</span> を一つ選び、<span class="tex2jax_process">$\mathbb{R}^n$</span> における速度ベクトル <span class="tex2jax_process">$(\varphi \circ \gamma)'(0)$</span> を計算する。別のチャート <span class="tex2jax_process">$(V, \psi)$</span> を選んでも、<span class="tex2jax_process">$(\psi \circ \gamma)'(0) = D(\psi \circ \varphi^{-1})_{\varphi(p)} \cdot (\varphi \circ \gamma)'(0)$</span> とヤコビ行列で変換されるから、ある一つのチャートで速度ベクトルが一致すれば、座標変換の微分により任意のチャートでも一致する。したがって、この一致関係はチャートの選び方に依存せず、接ベクトルの同値類を定める。この同値類 <span class="tex2jax_process">$[\gamma]$</span> が <span class="tex2jax_process">$p$</span> における**接ベクトル**である。
-</p>
-<p>**方向微分（derivation）による定義。** 接ベクトル <span class="tex2jax_process">$v \in T_p M$</span> を、<span class="tex2jax_process">$p$</span> の近傍の滑らかな関数 <span class="tex2jax_process">$f$</span> に実数 <span class="tex2jax_process">$v(f)$</span> を対応させる線形写像であって、ライプニッツ則 <span class="tex2jax_process">$v(fg) = v(f)\,g(p) + f(p)\,v(g)$</span> を満たすものとして定義する。この定義はチャートに依存しない内在的なものであり、代数幾何などへの一般化にも耐える。チャート <span class="tex2jax_process">$(U, \varphi)$</span> と局所座標 <span class="tex2jax_process">$x^i$</span> が与えられれば、
-</p>
 <p>が <span class="tex2jax_process">$T_p M$</span> の基底をなす。<span class="tex2jax_process">$\dim T_p M = \dim M = n$</span> である。
 </p>
-<p>二つのベクトル場 <span class="tex2jax_process">$X, Y$</span> が与えられたとき、その**リー括弧（Lie bracket）** <span class="tex2jax_process">$[X, Y] = XY - YX$</span> は再びベクトル場になる。<span class="tex2jax_process">$[X,Y]^i = \sum_j (X^j \partial_j Y^i - Y^j \partial_j X^i)$</span> であり、本書では陽に扱わなかったが、フロベニウスの定理（分布の積分可能性）やリー群論の根幹をなす演算である。
+<p>二つのベクトル場 <span class="tex2jax_process">$X, Y$</span> が与えられたとき、その<strong>リー括弧（Lie bracket）</strong> <span class="tex2jax_process">$[X, Y] = XY - YX$</span> は再びベクトル場になる。<span class="tex2jax_process">$[X,Y]^i = \sum_j (X^j \partial_j Y^i - Y^j \partial_j X^i)$</span> であり、本書では陽に扱わなかったが、フロベニウスの定理（分布の積分可能性）やリー群論の根幹をなす演算である。
 </p>
-<p>すべての点における接空間の非交和が**接束** <span class="tex2jax_process">$TM = \bigsqcup_{p \in M} T_p M$</span> である。<span class="tex2jax_process">$TM$</span> 自身も <span class="tex2jax_process">$2n$</span> 次元の多様体になる。<span class="tex2jax_process">$M$</span> 上の**ベクトル場** <span class="tex2jax_process">$X$</span> とは、各点 <span class="tex2jax_process">$p \in M$</span> に接ベクトル <span class="tex2jax_process">$X_p \in T_p M$</span> を滑らかに割り当てる写像、すなわち接束の**切断** <span class="tex2jax_process">$X: M \to TM$</span> にほかならない。
+<p>すべての点における接空間の非交和が<strong>接束</strong> <span class="tex2jax_process">$TM = \bigsqcup_{p \in M} T_p M$</span> である。<span class="tex2jax_process">$TM$</span> 自身も <span class="tex2jax_process">$2n$</span> 次元の多様体になる。<span class="tex2jax_process">$M$</span> 上の<strong>ベクトル場</strong> <span class="tex2jax_process">$X$</span> とは、各点 <span class="tex2jax_process">$p \in M$</span> に接ベクトル <span class="tex2jax_process">$X_p \in T_p M$</span> を滑らかに割り当てる写像、すなわち接束の<strong>切断</strong> <span class="tex2jax_process">$X: M \to TM$</span> にほかならない。
 </p>
 <p>座標変換と基底の変換則にも触れておく。二つのチャート <span class="tex2jax_process">$(U, x^i)$</span> と <span class="tex2jax_process">$(V, y^j)$</span> が重なっているとき、接空間の基底は
 </p>
 <p>と変換される。この変換行列 <span class="tex2jax_process">$\partial x^i/\partial y^j$</span> は、本書第3章で座標変換のヤコビ行列として繰り返し登場したものだ。接ベクトルの成分はこのヤコビ行列の逆行列で変換される（反変ベクトル）。これに対し、1-form の成分はヤコビ行列そのもので変換される（共変ベクトル）。この「反変」と「共変」の区別——本書ではベクトルが「縦」、1-form が「横」として視覚化されてきた——が、多様体論におけるテンソル解析の出発点である。
 </p>
 <h4 id="1113-微分形式--余接束とテンソル場">11.1.3 微分形式 —— 余接束とテンソル場</h4>
-<p>接空間 <span class="tex2jax_process">$T_p M$</span> の双対空間を**余接空間** <span class="tex2jax_process">$T_p^* M$</span> と呼ぶ。<span class="tex2jax_process">$\omega_p \in T_p^* M$</span> は接ベクトルを食べて実数を返す線形写像 <span class="tex2jax_process">$\omega_p: T_p M \to \mathbb{R}$</span>、すなわち**1-form**である。本書第1章で <span class="tex2jax_process">$dx$</span> を「変位ベクトルから <span class="tex2jax_process">$x$</span> 成分を抽出する横ベクトル」と定義したのは、まさにこの双対性の具現化だった。
+<p>接空間 <span class="tex2jax_process">$T_p M$</span> の双対空間を<strong>余接空間</strong> <span class="tex2jax_process">$T_p^* M$</span> と呼ぶ。<span class="tex2jax_process">$\omega_p \in T_p^* M$</span> は接ベクトルを食べて実数を返す線形写像 <span class="tex2jax_process">$\omega_p: T_p M \to \mathbb{R}$</span>、すなわち<strong>1-form</strong>である。本書第1章で <span class="tex2jax_process">$dx$</span> を「変位ベクトルから <span class="tex2jax_process">$x$</span> 成分を抽出する横ベクトル」と定義したのは、まさにこの双対性の具現化だった。
 </p>
 <blockquote><p>
 **注**（本編との対応）  これは、第1章で <span class="tex2jax_process">$dx=\begin{pmatrix}1&0&0\end{pmatrix}$</span> と書いた約束を、標準デカルト座標における余接基底 <span class="tex2jax_process">$dx^1|_p$</span> の成分表示として言い直したものである。第1章では点 <span class="tex2jax_process">$p$</span> への依存を抑えて書いたが、多様体論では各点の余接空間 <span class="tex2jax_process">$T_p^* M$</span> に属する対象として扱う。<br>
 </p></blockquote>
 <p>局所座標 <span class="tex2jax_process">$x^i$</span> に対し、<span class="tex2jax_process">$dx^i|_p \in T_p^* M$</span> を <span class="tex2jax_process">$dx^i|_p(\partial/\partial x^j|_p) = \delta^i_j$</span> で定めると、<span class="tex2jax_process">$\{dx^i|_p\}$</span> は <span class="tex2jax_process">$T_p^* M$</span> の <span class="tex2jax_process">$\{\partial/\partial x^i|_p\}$</span> に対する双対基底になる。任意の1-form <span class="tex2jax_process">$\omega$</span> は局所的に <span class="tex2jax_process">$\omega = \sum_i \omega_i\,dx^i$</span> と展開できる。
 </p>
-<p>これを <span class="tex2jax_process">$k$</span> 重に拡張したものが **<span class="tex2jax_process">$k$</span>-form** である。多様体上の <span class="tex2jax_process">$k$</span>-form とは、各点 <span class="tex2jax_process">$p$</span> に <span class="tex2jax_process">$\Lambda^k T_p^* M$</span> の元を滑らかに割り当てる切断である。つまり、各点では <span class="tex2jax_process">$k$</span> 個の接ベクトルを引数にとる交代多重線形写像
+<p>これを <span class="tex2jax_process">$k$</span> 重に拡張したものが <strong><span class="tex2jax_process">$k$</span>-form</strong> である。多様体上の <span class="tex2jax_process">$k$</span>-form とは、各点 <span class="tex2jax_process">$p$</span> に <span class="tex2jax_process">$\Lambda^k T_p^* M$</span> の元を滑らかに割り当てる切断である。つまり、各点では <span class="tex2jax_process">$k$</span> 個の接ベクトルを引数にとる交代多重線形写像
 </p>
 <p>であり、その成分が局所座標で滑らかに変化するものをいう。ウェッジ積 <span class="tex2jax_process">$\wedge$</span> は、二つの形式の引数を「すべての順列にわたって符号付きで和をとる」操作として定義される。本書第2章で反対称行列の成分計算として導入したウェッジ積が、この抽象的な定義のもとで自然に再現される。
-</p>
-<p>**引き戻し（pullback）**も多様体間の写像へと一般化される。滑らかな写像 <span class="tex2jax_process">$f: M \to N$</span> に対し、<span class="tex2jax_process">$N$</span> 上の <span class="tex2jax_process">$k$</span>-form <span class="tex2jax_process">$\omega$</span> の引き戻し <span class="tex2jax_process">$f^*\omega$</span> は <span class="tex2jax_process">$M$</span> 上の <span class="tex2jax_process">$k$</span>-form であり、
 </p>
 <p>で定義される。<span class="tex2jax_process">$df_p: T_p M \to T_{f(p)} N$</span> は <span class="tex2jax_process">$f$</span> の微分（接写像）である。本書第3章で座標変換のヤコビアンとして計算した引き戻しは、この一般公式において <span class="tex2jax_process">$f$</span> をチャート間の座標変換とし、局所座標で成分表示したものに一致する。
 </p>
@@ -173,34 +161,34 @@ window.MathJax = {
 <p>この双対性は高次の形式にも拡張される。本書第2章で <span class="tex2jax_process">$k$</span>-form を行列（<span class="tex2jax_process">$k=1$</span> では横ベクトル、<span class="tex2jax_process">$k=2$</span> では反対称行列、<span class="tex2jax_process">$k=3$</span> では反対称3階テンソル）で表示したのは、交代多重線形写像としての <span class="tex2jax_process">$k$</span>-form の成分表示にほかならない。付録Eで <span class="tex2jax_process">$4\times4\times4$</span> のスライス行列を扱ったとき、我々はすでに多様体上の3-form の成分計算を実践していたのだ。
 </p>
 <h4 id="1114-外微分-span-classtex2jaxprocessspan--多様体上で変わらないもの">11.1.4 外微分 <span class="tex2jax_process">$d$</span> —— 多様体上で変わらないもの</h4>
-<p>外微分 <span class="tex2jax_process">$d$</span> は、多様体上で**計量を一切使わずに**定義できる数少ない微分演算子の一つである。<span class="tex2jax_process">$k$</span>-form <span class="tex2jax_process">$\omega$</span> に対し、<span class="tex2jax_process">$d\omega$</span> は <span class="tex2jax_process">$(k+1)$</span>-form であり、その定義は本書第5章で偏微分とウェッジ積の組み合わせとして学んだものと完全に一致する。
+<p>外微分 <span class="tex2jax_process">$d$</span> は、多様体上で<strong>計量を一切使わずに</strong>定義できる数少ない微分演算子の一つである。<span class="tex2jax_process">$k$</span>-form <span class="tex2jax_process">$\omega$</span> に対し、<span class="tex2jax_process">$d\omega$</span> は <span class="tex2jax_process">$(k+1)$</span>-form であり、その定義は本書第5章で偏微分とウェッジ積の組み合わせとして学んだものと完全に一致する。
 </p>
 <p>外微分 <span class="tex2jax_process">$d$</span> は、<span class="tex2jax_process">$\Omega^k(M)$</span> から <span class="tex2jax_process">$\Omega^{k+1}(M)$</span> への線形作用素であり、関数に対して通常の全微分を与え、次数付きライプニッツ則を満たし、局所座標では偏微分とウェッジ積によって与えられる。この作用素について <span class="tex2jax_process">$d^2 = 0$</span> が成り立つ。計量はどこにも登場しない。曲がっていようがいまいが、<span class="tex2jax_process">$d$</span> は本書で慣れ親しんだ計算規則をそのまま使える。
 </p>
-<p>この普遍性こそが微分形式の最大の武器であり、**ストークスの定理**
+<p>この普遍性こそが微分形式の最大の武器であり、<strong>ストークスの定理</strong>
 </p>
 <p>が向き付けられた <span class="tex2jax_process">$n$</span> 次元多様体 <span class="tex2jax_process">$M$</span> と、適切な滑らかさ・台条件を満たす <span class="tex2jax_process">$(n-1)$</span>-form に対して成立する根拠でもある。本書第8章で「統一ストークスの定理」として出会ったものは、この一般公式の特別な場合（<span class="tex2jax_process">$M \subset \mathbb{R}^3$</span>, <span class="tex2jax_process">$n \le 3$</span>）だった。
 </p>
 <h4 id="1115-計量とホッジ・スター--場所ごとに変わるもの">11.1.5 計量とホッジ・スター —— 場所ごとに変わるもの</h4>
 <p>と書け、<span class="tex2jax_process">$g_{ij}(x)$</span> は場所の関数である。本書では <span class="tex2jax_process">$g_{ij}$</span> を成分とする行列を <span class="tex2jax_process">$\mathbf{g}$</span> と書いてきた。<span class="tex2jax_process">$\mathbb{R}^3$</span> のデカルト座標では <span class="tex2jax_process">$\mathbf{g}$</span> は単位行列、ミンコフスキー時空では対角成分が <span class="tex2jax_process">$(-1,1,1,1)$</span> の定数行列だが、一般の多様体では <span class="tex2jax_process">$\mathbf{g}(x)$</span> は場所ごとに異なる。
 </p>
-<p>向き付けられたリーマン多様体では、計量から**体積形式** <span class="tex2jax_process">$\mathrm{vol}_g = \sqrt{\det g}\;dx^1 \wedge \cdots \wedge dx^n$</span>（擬リーマン計量では規約に応じて <span class="tex2jax_process">$\sqrt{|\det g|}$</span> が現れる）が定まり、これを用いて**ホッジ・スター作用素**
+<p>向き付けられたリーマン多様体では、計量から<strong>体積形式</strong> <span class="tex2jax_process">$\mathrm{vol}_g = \sqrt{\det g}\;dx^1 \wedge \cdots \wedge dx^n$</span>（擬リーマン計量では規約に応じて <span class="tex2jax_process">$\sqrt{|\det g|}$</span> が現れる）が定まり、これを用いて<strong>ホッジ・スター作用素</strong>
 </p>
 <p>が定義される。<span class="tex2jax_process">$\ast$</span> の定義式 <span class="tex2jax_process">$\omega \wedge \ast\eta = \langle\omega,\eta\rangle_g\,\mathrm{vol}_g$</span> には明示的に <span class="tex2jax_process">$g$</span> が入っている。<span class="tex2jax_process">$\mathbf{g}(x)$</span> が場所の関数なら、<span class="tex2jax_process">$\ast$</span> の辞書も場所ごとに異なる——本書第9章で練習した「<span class="tex2jax_process">$\mathbf{g} \to \ast$</span> 辞書」の手順を、各点で繰り返す必要がある。擬リーマン計量の場合も同様の構成は可能だが、符号規約に注意が必要である。
 </p>
 <p>この <span class="tex2jax_process">$d$</span> と <span class="tex2jax_process">$\ast$</span> の非対称性——<span class="tex2jax_process">$d$</span> は普遍的、<span class="tex2jax_process">$\ast$</span> は計量依存——こそが、Burke の「計量遅延」が最終的に照射する構造である。一般相対性理論では、計量 <span class="tex2jax_process">$g$</span> そのものがアインシュタイン方程式の解として動的に決まる。電磁場の方程式 <span class="tex2jax_process">$dF = 0$</span>, <span class="tex2jax_process">$d(\ast F) = \mu_0(\ast\mathcal{J})$</span> は、時空計量から定まる <span class="tex2jax_process">$\ast$</span> と適切な電流形式を用いれば、曲がった時空上でも同じ形で書ける。
 </p>
 <h4 id="1116-積分--1の分割と向き付け可能性">11.1.6 積分 —— 1の分割と向き付け可能性</h4>
-<p>多様体上の積分もまた、本書のリーマン和の延長線上にある。<span class="tex2jax_process">$\mathbb{R}^n$</span> では、<span class="tex2jax_process">$n$</span>-form <span class="tex2jax_process">$\omega = f\,dx^1 \wedge \cdots \wedge dx^n$</span> の積分を素朴に <span class="tex2jax_process">$\int f\,dx^1 \cdots dx^n$</span> と定義できた。多様体上で <span class="tex2jax_process">$n$</span>-form を積分するには、チャートごとに局所積分を計算し、それらを貼り合わせる必要がある。この貼り合わせを可能にするのが**1の分割（partition of unity）**——多様体を被覆するチャート族に付随する、足して1になる滑らかな関数の族——である。
+<p>多様体上の積分もまた、本書のリーマン和の延長線上にある。<span class="tex2jax_process">$\mathbb{R}^n$</span> では、<span class="tex2jax_process">$n$</span>-form <span class="tex2jax_process">$\omega = f\,dx^1 \wedge \cdots \wedge dx^n$</span> の積分を素朴に <span class="tex2jax_process">$\int f\,dx^1 \cdots dx^n$</span> と定義できた。多様体上で <span class="tex2jax_process">$n$</span>-form を積分するには、チャートごとに局所積分を計算し、それらを貼り合わせる必要がある。この貼り合わせを可能にするのが<strong>1の分割（partition of unity）</strong>——多様体を被覆するチャート族に付随する、足して1になる滑らかな関数の族——である。
 </p>
-<p>また、多様体上で <span class="tex2jax_process">$n$</span>-form の積分が座標の取り方に依存しないためには、多様体が**向き付け可能（orientable）**でなければならない。本書で一貫して右手系 <span class="tex2jax_process">$(x,y,z)$</span> を仮定してきたのは、<span class="tex2jax_process">$\mathbb{R}^3$</span> に向きを固定していたことに相当する。メビウスの帯のように向き付け不能な多様体では、大域的な体積形式が定義できない。
+<p>また、多様体上で <span class="tex2jax_process">$n$</span>-form の積分が座標の取り方に依存しないためには、多様体が<strong>向き付け可能（orientable）</strong>でなければならない。本書で一貫して右手系 <span class="tex2jax_process">$(x,y,z)$</span> を仮定してきたのは、<span class="tex2jax_process">$\mathbb{R}^3$</span> に向きを固定していたことに相当する。メビウスの帯のように向き付け不能な多様体では、大域的な体積形式が定義できない。
 </p>
 <p>こうして多様体上の積分論が整備されると、適切な滑らかさ・台条件のもとで、ストークスの定理 <span class="tex2jax_process">$\int_M d\omega = \int_{\partial M} \omega$</span> は向き付けられた <span class="tex2jax_process">$n$</span> 次元多様体とその上の <span class="tex2jax_process">$(n-1)$</span>-form に対して成立する。本書の旅が到達した統一ストークスの定理は、この一般的枠組みの <span class="tex2jax_process">$n \le 3$</span> への適用だったのだ。
 </p>
 <h4 id="1117-接続と曲率--一言だけ">11.1.7 接続と曲率 —— 一言だけ</h4>
-<p>多様体上でベクトル場を「平行移動」するための追加構造が**接続（connection）**、あるいは**共変微分** <span class="tex2jax_process">$\nabla$</span> である。接続が与えられると、曲がり具合を測る**曲率テンソル** <span class="tex2jax_process">$R$</span> が定義される。一般相対性理論では、レヴィ＝チヴィタ接続（計量と整合的で捩れのない唯一の接続）から得られる曲率が、時空の重力を記述する。
+<p>多様体上でベクトル場を「平行移動」するための追加構造が<strong>接続（connection）</strong>、あるいは<strong>共変微分</strong> <span class="tex2jax_process">$\nabla$</span> である。接続が与えられると、曲がり具合を測る<strong>曲率テンソル</strong> <span class="tex2jax_process">$R$</span> が定義される。一般相対性理論では、レヴィ＝チヴィタ接続（計量と整合的で捩れのない唯一の接続）から得られる曲率が、時空の重力を記述する。
 </p>
-<p>微分形式の言葉では、曲率は**曲率2-form** <span class="tex2jax_process">$\Omega$</span> として表され、ビアンキ恒等式 <span class="tex2jax_process">$D\Omega = 0$</span>（外共変微分で <span class="tex2jax_process">$\Omega$</span> が閉じている）といった構造が現れる。この先は、Flanders や Burke の専門書に譲る。
+<p>微分形式の言葉では、曲率は<strong>曲率2-form</strong> <span class="tex2jax_process">$\Omega$</span> として表され、ビアンキ恒等式 <span class="tex2jax_process">$D\Omega = 0$</span>（外共変微分で <span class="tex2jax_process">$\Omega$</span> が閉じている）といった構造が現れる。この先は、Flanders や Burke の専門書に譲る。
 </p>
 <h4 id="1118-本書との対応">11.1.8 本書との対応</h4>
 <p>本書の概念が多様体論のどこに対応するかを一覧にしておく。
@@ -224,9 +212,6 @@ window.MathJax = {
 <h4 id="1121-テンソル--変換則による定義">11.2.1 テンソル —— 変換則による定義</h4>
 <p>古典的なテンソル解析では、テンソルを「座標変換に対する変換規則」で定義する。座標 <span class="tex2jax_process">$x^i$</span> から <span class="tex2jax_process">$\bar{x}^i$</span> への変換に対して、
 </p>
-<p>**反変ベクトル** <span class="tex2jax_process">$V^i$</span> は <span class="tex2jax_process">$\bar{V}^i = \sum_j \frac{\partial \bar{x}^i}{\partial x^j} V^j$</span> と変換され、
-**共変ベクトル** <span class="tex2jax_process">$\omega_i$</span> は <span class="tex2jax_process">$\bar{\omega}_i = \sum_j \frac{\partial x^j}{\partial \bar{x}^i} \omega_j$</span> と変換される。
-</p>
 <p>この区別は本書第3章で既に出会っている。変位ベクトル <span class="tex2jax_process">$\mathbf{v}$</span> の成分 <span class="tex2jax_process">$v^i$</span> は反変（ヤコビ行列の逆行列で変換）、1-form <span class="tex2jax_process">$\omega$</span> の係数 <span class="tex2jax_process">$\omega_i$</span> は共変（ヤコビ行列で変換）だった。一般の <span class="tex2jax_process">$(r,s)$</span>-テンソル <span class="tex2jax_process">$T^{i_1\cdots i_r}_{j_1\cdots j_s}$</span> は、<span class="tex2jax_process">$r$</span> 個の反変添字と <span class="tex2jax_process">$s$</span> 個の共変添字を持ち、添字ごとに上記の変換則を適用する。
 </p>
 <p>本書で計量を表す行列 <span class="tex2jax_process">$\mathbf{g}$</span> の成分 <span class="tex2jax_process">$g_{ij}$</span> は <span class="tex2jax_process">$(0,2)$</span>-テンソル（二階共変テンソル）である。座標変換に対して <span class="tex2jax_process">$g_{ij}$</span> は
@@ -234,11 +219,11 @@ window.MathJax = {
 <p>と変換される。本書第6章で導出した <span class="tex2jax_process">$\mathbf{g} = J^T J$</span> という関係式は、デカルト座標で <span class="tex2jax_process">$g_{ij} = \delta_{ij}$</span> であるときに曲線座標での <span class="tex2jax_process">$\bar{g}_{ij}$</span> を計算する公式にほかならない。一般のリーマン計量は、必ずしも一つの座標変換のヤコビ行列 <span class="tex2jax_process">$J$</span> から <span class="tex2jax_process">$J^T J$</span> として得られるわけではない。第6章の <span class="tex2jax_process">$J^T J$</span> は、あくまでユークリッド空間内で誘導計量を計算する最も具体的な例である。
 </p>
 <h4 id="1122-クリストッフェル記号--微分がテンソルでなくなる問題">11.2.2 クリストッフェル記号 —— 微分がテンソルでなくなる問題</h4>
-<p>ベクトル場 <span class="tex2jax_process">$V^i$</span> の偏微分 <span class="tex2jax_process">$\partial_j V^i$</span> は、そのままではテンソルとして振る舞わない。座標変換すると余分な項が現れてしまう。計量 <span class="tex2jax_process">$g$</span> と整合的で捩れのないレヴィ＝チヴィタ接続を選ぶと、その接続係数、すなわち**クリストッフェル記号（Christoffel symbols）**は
+<p>ベクトル場 <span class="tex2jax_process">$V^i$</span> の偏微分 <span class="tex2jax_process">$\partial_j V^i$</span> は、そのままではテンソルとして振る舞わない。座標変換すると余分な項が現れてしまう。計量 <span class="tex2jax_process">$g$</span> と整合的で捩れのないレヴィ＝チヴィタ接続を選ぶと、その接続係数、すなわち<strong>クリストッフェル記号（Christoffel symbols）</strong>は
 </p>
 <p>で与えられる。ここで <span class="tex2jax_process">$g^{im}$</span> は <span class="tex2jax_process">$g_{ij}$</span> の逆行列の成分である。本書の用語では、<span class="tex2jax_process">$\Gamma^i_{jk}$</span> は「その座標表示において、基底の変化や計量の変化を補正する係数」であり、一般には <span class="tex2jax_process">$g_{ij}$</span> の一階微分を含む。
 </p>
-<p>クリストッフェル記号を用いて**共変微分**
+<p>クリストッフェル記号を用いて<strong>共変微分</strong>
 </p>
 <p>を定義すると、<span class="tex2jax_process">$\nabla_j V^i$</span> は <span class="tex2jax_process">$(1,1)$</span>-テンソルとして正しく変換される。共変微分こそが、曲がった空間における「まっすぐ」を定義する道具である。接続の概念（§11.1.7）の成分表示が <span class="tex2jax_process">$\Gamma^i_{jk}$</span> にほかならない。
 </p>
@@ -247,7 +232,7 @@ window.MathJax = {
 <h4 id="1123-リーマン曲率テンソル">11.2.3 リーマン曲率テンソル</h4>
 <p>共変微分の非可換性が、空間の曲がり具合を定量化する。ベクトル場 <span class="tex2jax_process">$V^i$</span> に対して
 </p>
-<p>と書いたとき、<span class="tex2jax_process">$R^i_{\,mjk}$</span> が**リーマン曲率テンソル**である。クリストッフェル記号で明示的に書けば
+<p>と書いたとき、<span class="tex2jax_process">$R^i_{\,mjk}$</span> が<strong>リーマン曲率テンソル</strong>である。クリストッフェル記号で明示的に書けば
 </p>
 <p>となる。<span class="tex2jax_process">$\mathbf{g}$</span> が定数行列なら <span class="tex2jax_process">$\Gamma$</span> はすべてゼロであり、<span class="tex2jax_process">$R^i_{\,mjk} = 0$</span> ——空間は平坦である。
 </p>
@@ -268,7 +253,7 @@ window.MathJax = {
 <br>
 この恒等式は、外微分の <span class="tex2jax_process">$d^2=0$</span> と同じ「二度境界を取ると消える」型の構造を思わせるが、厳密には接続を含む外共変微分 <span class="tex2jax_process">$D$</span> に関する恒等式であり、単なる <span class="tex2jax_process">$d^2=0$</span> ではない。<br>
 </p></blockquote>
-<p>リッチテンソルは曲率テンソルの一組の添字を縮約して得られる。縮約の具体的な位置や符号は曲率テンソルの規約に依存する。ここでは詳細な規約の固定には立ち入らない。これと**スカラー曲率** <span class="tex2jax_process">$R = \sum_i\sum_j g^{ij} \mathrm{Ric}_{ij}$</span> が、アインシュタイン方程式の左辺を構成する。方程式は
+<p>リッチテンソルは曲率テンソルの一組の添字を縮約して得られる。縮約の具体的な位置や符号は曲率テンソルの規約に依存する。ここでは詳細な規約の固定には立ち入らない。これと<strong>スカラー曲率</strong> <span class="tex2jax_process">$R = \sum_i\sum_j g^{ij} \mathrm{Ric}_{ij}$</span> が、アインシュタイン方程式の左辺を構成する。方程式は
 </p>
 <p>である。左辺が時空の幾何（曲率）、右辺が物質のエネルギー運動量テンソル <span class="tex2jax_process">$T_{ij}$</span> を表す。
 </p>
@@ -287,7 +272,7 @@ window.MathJax = {
 </p>
 <p>ただ、ここまで来ると趣味の領域だが——別の流派の姿を少しだけ覗いてみよう。
 </p>
-<p>現代数理物理には、我々が苦労して分離した外積（<span class="tex2jax_process">$\wedge$</span>）と内積（計量）を、最初から「幾何積」として一つの代数に統合する**幾何代数（Geometric Algebra）** という世界がある。<span class="tex2jax_process">$d$</span> と <span class="tex2jax_process">$\ast$</span> という二つの道具も、そこではより根源的な演算子に吸収される。分離の苦しみを知った者だけが、統合の凄みを味わえる——それだけを伝えて、本書を閉じることにする。
+<p>現代数理物理には、我々が苦労して分離した外積（<span class="tex2jax_process">$\wedge$</span>）と内積（計量）を、最初から「幾何積」として一つの代数に統合する<strong>幾何代数（Geometric Algebra）</strong> という世界がある。<span class="tex2jax_process">$d$</span> と <span class="tex2jax_process">$\ast$</span> という二つの道具も、そこではより根源的な演算子に吸収される。分離の苦しみを知った者だけが、統合の凄みを味わえる——それだけを伝えて、本書を閉じることにする。
 </p>
 <p>\newpage
 </p>
