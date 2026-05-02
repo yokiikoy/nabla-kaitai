@@ -212,13 +212,16 @@ def main():
 
     # Split into chapters
     chapters = []
-    current_chapter = {"title": "まえがき", "content": [], "filename": "index.html"}
+    # Set the main title for index.html
+    main_title = "ナブラ解体新書 ——行列表示の微分形式によるベクトル解析の抜け道——"
+    current_chapter = {"title": main_title, "content": [], "filename": "index.html"}
     
     lines = full_text.split('\n')
     ch_count = 0
     
     # Define mapping for special sections to filenames
     special_mapping = {
+        "まえがき": "index.html",
         "おわりに": "postscript.html",
         "参考文献": "refs.html",
         "付録": "appendix.html"
@@ -238,7 +241,7 @@ def main():
                 is_new_section = True
             else:
                 for key, fname in special_mapping.items():
-                    if key in title:
+                    if key in title and key != "まえがき":
                         new_filename = fname
                         is_new_section = True
                         break
