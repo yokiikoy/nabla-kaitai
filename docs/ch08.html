@@ -142,7 +142,12 @@ $$\nabla \times \mathbf{F} = \begin{pmatrix} \frac{\partial F_z}{\partial y} - \
 <h3 id="82-翻訳辞書の完成">§8.2 翻訳辞書の完成</h3>
 <p>第6章 §6.5 で $\mathrm{grad}=d$, $\mathrm{rot}=\ast d$, $\mathrm{div}=\ast d\ast$ という対応を導入した。ここで、この辞書を $\nabla$ の言葉と突き合わせて、完全な形で整理する。
 </p>
-<p>以下、ベクトル場 $\mathbf{F} = (F_x, F_y, F_z)^T$ に対応する $1$-form を $\omega = F_x\,dx + F_y\,dy + F_z\,dz$ と書く。
+<p>以下の辞書では、ベクトル場 $\mathbf{F}$ に対応する $1$-form を
+</p>
+$$
+\omega = \mathbf{F}^\flat = F_x\,dx + F_y\,dy + F_z\,dz
+$$
+<p>と書く。記号 $\flat$（フラット）は、計量 $g$ によってベクトル場を「測定器側」の $1$-form として読む操作（音楽同型）を表す。直交デカルト座標では $\mathbf{g} = I$ なので成分は同じに見えるが、これは「同じ対象だ」という意味ではない。逆に、微分形式側で得られた $1$-form を通常の矢印（ベクトル）として読むときは、計量による逆変換 $\sharp$（シャープ）を暗黙に用いている。
 </p>
 <h4 id="821-勾配">8.2.1 勾配</h4>
 $$
@@ -174,38 +179,31 @@ $$
 <table>
 <thead><tr>
 <th>演算</th>
-<th>$\nabla$ 表記</th>
-<th>$d,\ast$ 表記</th>
-<th>入力の次数</th>
-<th>出力の次数</th>
-<th>$\ast$ の使用回数</th>
+<th>ベクトル解析側</th>
+<th>微分形式（測定器）側</th>
+<th>ベクトル場として戻すなら</th>
 </tr></thead><tbody>
 <tr>
 <td>勾配</td>
-<td>$\nabla f$</td>
+<td>$\mathrm{grad}\,f$</td>
 <td>$df$</td>
-<td>$0$</td>
-<td>$1$</td>
-<td>$0$</td>
+<td>$(df)^\sharp$</td>
 </tr>
 <tr>
 <td>回転</td>
-<td>$\nabla\times\mathbf{F}$</td>
-<td>$\ast d\omega$</td>
-<td>$1$</td>
-<td>$1$</td>
-<td>$1$</td>
+<td>$\mathrm{rot}\,\mathbf{F}$</td>
+<td>$\ast d \mathbf{F}^\flat$</td>
+<td>$(\ast d \mathbf{F}^\flat)^\sharp$</td>
 </tr>
 <tr>
 <td>発散</td>
-<td>$\nabla\cdot\mathbf{F}$</td>
-<td>$\ast d\ast\omega$</td>
-<td>$1$</td>
-<td>$0$</td>
-<td>$2$</td>
+<td>$\mathrm{div}\,\mathbf{F}$</td>
+<td>$\ast d \ast \mathbf{F}^\flat$</td>
+<td>そのまま $0$-form</td>
 </tr>
 </tbody></table>
-<p>$\ast$ の使用回数が増えるほど、$\nabla$ 表記と $d,\ast$ 表記の間の「翻訳コスト」が上がる。勾配は $\ast$ がゼロ回なので翻訳不要（$df$ と $\nabla f$ は転置の関係）、回転は $1$ 回、発散は $2$ 回である。この $\ast$ の往復が、第7章 §7.7 の注で「微分形式のほうが汚い」と感じた原因だった。
+<p>$\ast$ の使用回数が増えるほど、$\nabla$ 表記と $d,\ast$ 表記の間の「翻訳コスト」が上がる。
+勾配は $\ast$ がゼロ回なので翻訳不要（$df$ と $\nabla f$ は転置の関係）、回転は $1$ 回、発散は $2$ 回である。この $\ast$ の往復が、第7章 §7.7 の注で「微分形式のほうが汚い」と感じた原因だった。
 </p>
 <blockquote>
 <p><strong>【ここまでのチェックポイント — §8.2】</strong></p>

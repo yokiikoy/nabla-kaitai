@@ -109,8 +109,11 @@
 <li><strong>計量 $\mathbf{g} = J^T J$ を計算する</strong>。これは第6章 §6.1.3 以来の手順だ。$\mathbf{g}$ の対角成分が各軸方向の目盛りの二乗、非対角成分が軸どうしの直交度を表す。</li>
 </ol>
 <ol>
-<li><strong>$\mathbf{g}$ から $\ast$ の辞書を導き、$d$ と組み合わせる</strong>。$\mathrm{grad} = \ast d\ast$？（いや、$\mathrm{grad}=d$）、$\mathrm{rot}=\ast d$、$\mathrm{div}=\ast d\ast$ の各公式に、その座標系での $\ast$ の辞書を代入すれば、求める公式が機械的に得られる。</li>
+<li><strong>$\mathbf{g}$ から $\ast$ の辞書を導き、$d$ と組み合わせる</strong>。$\mathrm{grad} = d$、$\mathrm{rot}=\ast d$、$\mathrm{div}=\ast d\ast$ の各公式に、その座標系での $\ast$ の辞書を代入すれば、求める公式が機械的に得られる。</li>
 </ol>
+<blockquote>
+<p><strong>注</strong> （測定器の略記と $\sharp/\flat$ ）注意してほしいのは、ここでの $\mathrm{grad} = d, \mathrm{rot} = \ast d, \mathrm{div} = \ast d \ast$ は、あくまで「測定器側」の略記だという点である。通常のベクトル解析の $\mathrm{grad}$ や $\mathrm{rot}$ は矢印としてのベクトル場を返すため、微分形式側から結果を戻すには計量 $\mathbf{g}$ による $\sharp$（シャープ）変換が必要になる。直交デカルト座標ではこの変換は成分レベルでは見えないが、曲線座標ではスケール因子やホッジ・スターの辞書にその効果が明確に現れる。</p>
+</blockquote>
 <p>以下、この手順を円柱座標と球座標で実演する。どちらも計量行列 $\mathbf{g}$ が対角になる直交曲線座標である。非直交座標でも微分形式とホッジスターは使えるが、$\ast$ の辞書に非対角成分が入り、本章のような短い公式表にはならない。本章で「任意」と言うときは、ここで扱う直交曲線座標の範囲を指す。
 </p>
 <hr />
