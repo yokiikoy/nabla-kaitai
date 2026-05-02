@@ -37,12 +37,10 @@
 </style>
 <script>
 window.MathJax = {
-  loader: { load: ['[tex]/bm', '[tex]/ams'] },
   tex: {
     inlineMath: [['$', '$']],
     displayMath: [['$$', '$$']],
-    processEscapes: true,
-    packages: {'[+]': ['bm', 'ams']}
+    processEscapes: true
   },
   options: {
     enableMenu: false
@@ -66,7 +64,7 @@ window.MathJax = {
 <li class="level-1"><a href="ch06.html" id="link-ch06.html">第6章</a></li>
 <li class="level-1"><a href="ch07.html" id="link-ch07.html">第7章</a></li>
 <li class="level-1"><a href="ch08.html" id="link-ch08.html">第8章</a></li>
-<li class="level-1"><a href="ch09.html" class="active" id="link-ch09.html">第9章</a><ul class="sub-toc"><li class="level-3"><a href="#90-本書の目的はすでに果たされた">§9.0 本書の目的はすでに果たされた</a></li><li class="level-3"><a href="#91-辞書をその場で作る機械的手順">§9.1 辞書をその場で作る——機械的手順</a></li><li class="level-3"><a href="#92-円柱座標-span-classtex2jaxprocessspan">§9.2 円柱座標 <span class="tex2jax_process">$(r,\theta,z)$</span></a></li><li class="level-3"><a href="#93-球座標-span-classtex2jaxprocessspan">§9.3 球座標 <span class="tex2jax_process">$(\rho,\theta,\phi)$</span></a></li><li class="level-3"><a href="#94-微積分の難問球座標でのベクトルラプラシアン">§9.4 微積分の難問——球座標でのベクトルラプラシアン</a></li><li class="level-3"><a href="#95-電磁気学の難問点電荷の電場と発散">§9.5 電磁気学の難問——点電荷の電場と発散</a></li><li class="level-3"><a href="#96-辞書は終わり旅は続く">§9.6 辞書は終わり、旅は続く</a></li></ul></li>
+<li class="level-1"><a href="ch09.html" class="active" id="link-ch09.html">第9章</a><ul class="sub-toc"><li class="level-3"><a href="#90-本書の目的はすでに果たされた">§9.0 本書の目的はすでに果たされた</a></li><li class="level-3"><a href="#91-辞書をその場で作る機械的手順">§9.1 辞書をその場で作る——機械的手順</a></li><li class="level-3"><a href="#92-円柱座標">§9.2 円柱座標 $(r,\theta,z)$</a></li><li class="level-3"><a href="#93-球座標">§9.3 球座標 $(\rho,\theta,\phi)$</a></li><li class="level-3"><a href="#94-微積分の難問球座標でのベクトルラプラシアン">§9.4 微積分の難問——球座標でのベクトルラプラシアン</a></li><li class="level-3"><a href="#95-電磁気学の難問点電荷の電場と発散">§9.5 電磁気学の難問——点電荷の電場と発散</a></li><li class="level-3"><a href="#96-辞書は終わり旅は続く">§9.6 辞書は終わり、旅は続く</a></li></ul></li>
 <li class="level-1"><a href="ch10.html" id="link-ch10.html">第10章</a></li>
 <li class="level-1"><a href="ch11.html" id="link-ch11.html">第11章</a></li>
 <li class="level-1"><a href="ch12.html" id="link-ch12.html">第12章</a></li>
@@ -86,106 +84,138 @@ window.MathJax = {
 <p>読者は、以下の計算を眺めるだけでよい。あるいは、自分の手で追ってみてもよい。いずれにせよ、ここで見るのは「公式を暗記しなくても、辞書さえあればすべて導出できる」という事実の実演だ。
 </p>
 <blockquote><p>
-**注** （ベクトル解析を学んだことがない読者へ）以下の計算のうち、grad, div, rot の導出はどれも数行で済んでいる。<span class="tex2jax_process">$\ast d\ast$</span> に辞書を代入し、偏微分を展開する——それだけだ。だから簡単そうに見える。しかし、これと同じ結果をベクトル解析の流儀で導出しようとすると、<span class="tex2jax_process">$\nabla$</span> に <span class="tex2jax_process">$\frac{1}{r}\frac{\partial}{\partial r}(r\,\cdot\,)$</span> や <span class="tex2jax_process">$\frac{1}{\rho^2\sin\theta}$</span> といった因子を手作業で管理しながら、数ページにわたる式変形を強いられる。簡単そうに見えるのは、次数の異なる測定器を <span class="tex2jax_process">$\ast$</span> が自動的に整理してくれるからだ。§9.4 のラプラシアンはさすがに手強いが、それでもやっていることは辞書を引いて偏微分を展開するだけ——要領は変わらない。この差こそ、本書が第1章から積み上げてきた「測定器」の枠組みの真価である。<br>
+**注** （ベクトル解析を学んだことがない読者へ）以下の計算のうち、grad, div, rot の導出はどれも数行で済んでいる。$\ast d\ast$ に辞書を代入し、偏微分を展開する——それだけだ。だから簡単そうに見える。しかし、これと同じ結果をベクトル解析の流儀で導出しようとすると、$\nabla$ に $\frac{1}{r}\frac{\partial}{\partial r}(r\,\cdot\,)$ や $\frac{1}{\rho^2\sin\theta}$ といった因子を手作業で管理しながら、数ページにわたる式変形を強いられる。簡単そうに見えるのは、次数の異なる測定器を $\ast$ が自動的に整理してくれるからだ。§9.4 のラプラシアンはさすがに手強いが、それでもやっていることは辞書を引いて偏微分を展開するだけ——要領は変わらない。この差こそ、本書が第1章から積み上げてきた「測定器」の枠組みの真価である。<br>
 </p></blockquote>
 <hr />
 <h3 id="91-辞書をその場で作る機械的手順">§9.1 辞書をその場で作る——機械的手順</h3>
-<p>任意の座標系で <span class="tex2jax_process">$\mathrm{grad}, \mathrm{div}, \mathrm{rot}$</span> の公式を導出する手順は、以下の3ステップに集約される。
+<p>任意の座標系で $\mathrm{grad}, \mathrm{div}, \mathrm{rot}$ の公式を導出する手順は、以下の3ステップに集約される。
 </p>
 <ol>
-<li>**ヤコビ行列 <span class="tex2jax_process">$J$</span> を書く**。座標変換 <span class="tex2jax_process">$x = x(q_1,q_2,q_3)$</span>, <span class="tex2jax_process">$y = y(q_1,q_2,q_3)$</span>, <span class="tex2jax_process">$z = z(q_1,q_2,q_3)$</span> から偏微分を並べる。<span class="tex2jax_process">$J$</span> の各列はパラメータ空間の各軸方向の一歩が実空間でどう動くかを表す。</li>
+<li>**ヤコビ行列 $J$ を書く**。座標変換 $x = x(q_1,q_2,q_3)$, $y = y(q_1,q_2,q_3)$, $z = z(q_1,q_2,q_3)$ から偏微分を並べる。$J$ の各列はパラメータ空間の各軸方向の一歩が実空間でどう動くかを表す。</li>
 </ol>
 <ol>
-<li>**計量 <span class="tex2jax_process">$\mathbf{g} = J^T J$</span> を計算する**。これは第6章 §5.1.3 以来の手順だ。<span class="tex2jax_process">$\mathbf{g}$</span> の対角成分が各軸方向の目盛りの二乗、非対角成分が軸どうしの直交度を表す。</li>
+<li>**計量 $\mathbf{g} = J^T J$ を計算する**。これは第6章 §5.1.3 以来の手順だ。$\mathbf{g}$ の対角成分が各軸方向の目盛りの二乗、非対角成分が軸どうしの直交度を表す。</li>
 </ol>
 <ol>
-<li>**<span class="tex2jax_process">$\mathbf{g}$</span> から <span class="tex2jax_process">$\ast$</span> の辞書を導き、<span class="tex2jax_process">$d$</span> と組み合わせる**。<span class="tex2jax_process">$\mathrm{grad} = \ast d\ast$</span>？（いや、<span class="tex2jax_process">$\mathrm{grad}=d$</span>）、<span class="tex2jax_process">$\mathrm{rot}=\ast d$</span>、<span class="tex2jax_process">$\mathrm{div}=\ast d\ast$</span> の各公式に、その座標系での <span class="tex2jax_process">$\ast$</span> の辞書を代入すれば、求める公式が機械的に得られる。</li>
+<li>**$\mathbf{g}$ から $\ast$ の辞書を導き、$d$ と組み合わせる**。$\mathrm{grad} = \ast d\ast$？（いや、$\mathrm{grad}=d$）、$\mathrm{rot}=\ast d$、$\mathrm{div}=\ast d\ast$ の各公式に、その座標系での $\ast$ の辞書を代入すれば、求める公式が機械的に得られる。</li>
 </ol>
 <p>以下、この手順を円柱座標と球座標で実演する。
 </p>
 <hr />
-<h3 id="92-円柱座標-span-classtex2jaxprocessspan">§9.2 円柱座標 <span class="tex2jax_process">$(r,\theta,z)$</span></h3>
+<h3 id="92-円柱座標">§9.2 円柱座標 $(r,\theta,z)$</h3>
 <h4 id="921-辞書の導出">9.2.1 辞書の導出</h4>
-<p>円柱座標への変換は <span class="tex2jax_process">$x = r\cos\theta$</span>, <span class="tex2jax_process">$y = r\sin\theta$</span>, <span class="tex2jax_process">$z = z$</span>。
+<p>円柱座標への変換は $x = r\cos\theta$, $y = r\sin\theta$, $z = z$。
 </p>
-<p>また <span class="tex2jax_process">$\ast(1) = r\,dr\wedge d\theta\wedge dz$</span>, <span class="tex2jax_process">$\ast(dr\wedge d\theta\wedge dz) = 1/r$</span>。
+<p>$\mathbf{g}$ から $\ast$ の辞書を導く。第6章 §5.3.3 でデカルト座標の $\ast$ 辞書が $\mathbf{g}=I$ から決まったのと同じ原理で、$\mathbf{g}$ の対角成分の平方根が $\ast$ の係数に現れる。
+</p>
+<p>また $\ast(1) = r\,dr\wedge d\theta\wedge dz$, $\ast(dr\wedge d\theta\wedge dz) = 1/r$。
 </p>
 <h4 id="922-勾配">9.2.2 勾配</h4>
+<p>$\mathrm{grad}\,f = df$ は $\ast$ を使わない。単に偏微分係数を基底 $1$-form に載せるだけだ。
+</p>
 <p>ベクトル解析の表記（縦ベクトル）では、
 </p>
+<p>$\theta$ 成分に $\frac{1}{r}$ がつくのは、$\nabla f$ が正規直交基底に対する成分だからだ。$df$ の $d\theta$ の係数 $\frac{\partial f}{\partial\theta}$ は「角度あたりの変化率」だが、$\nabla f$ の $\mathbf{e}_\theta$ 成分は「長さあたりの変化率」であり、$d\theta$ が弧長 $r\,d\theta$ に対応するための換算 $\frac{1}{r}$ が必要になる。
+</p>
 <h4 id="923-発散">9.2.3 発散</h4>
+<p>$\mathbf{F} = (F_r, F_\theta, F_z)^T$ に対応する $1$-form は $\tilde{\omega} = F_r\,dr + rF_\theta\,d\theta + F_z\,dz$ である（§7.6.2 で確認したように、$d\theta$ の係数は $rF_\theta$）。
+</p>
 <blockquote><p>
-**注** （<span class="tex2jax_process">$\tilde{\omega}$</span> のチルダについて）第8章 §7.6.2 で、正規直交成分 <span class="tex2jax_process">$F_\theta$</span> と form 係数 <span class="tex2jax_process">$rF_\theta$</span> を区別するために <span class="tex2jax_process">$\tilde{\omega}$</span> という記法を使った。しかし本来、数学ではこの二つをいちいち区別しないことも多い。文脈からどちらの <span class="tex2jax_process">$\omega$</span> を指しているか明らかだからだ。以下でもチルダを省く。どちらを指しているかは、係数に <span class="tex2jax_process">$r$</span> や <span class="tex2jax_process">$\rho$</span> が現れているかどうかで判断してほしい。<br>
+**注** （$\tilde{\omega}$ のチルダについて）第8章 §7.6.2 で、正規直交成分 $F_\theta$ と form 係数 $rF_\theta$ を区別するために $\tilde{\omega}$ という記法を使った。しかし本来、数学ではこの二つをいちいち区別しないことも多い。文脈からどちらの $\omega$ を指しているか明らかだからだ。以下でもチルダを省く。どちらを指しているかは、係数に $r$ や $\rho$ が現れているかどうかで判断してほしい。<br>
 </p></blockquote>
 <p>これが円柱座標での発散の公式である。
 </p>
 <h4 id="924-回転">9.2.4 回転</h4>
-<p>回転は <span class="tex2jax_process">$\mathrm{rot}\,\mathbf{F} \leftrightarrow \ast d\omega$</span>。
+<p>回転は $\mathrm{rot}\,\mathbf{F} \leftrightarrow \ast d\omega$。
+</p>
+<p>$1$-form の $dr, d\theta, dz$ の係数を読み取り、正規直交成分に焼き直すと $d\theta$ 係数はさらに $\frac{1}{r}$ される。最終的に、
+</p>
+<p>$r$ が $\frac{\partial}{\partial r}$ の内側と外側に現れる構造は、§7.6.2 の方法②で扇形の面積要素を数えたときの $\frac{1}{r}$ とまったく同じ起源を持つ。
 </p>
 <hr />
-<h3 id="93-球座標-span-classtex2jaxprocessspan">§9.3 球座標 <span class="tex2jax_process">$(\rho,\theta,\phi)$</span></h3>
+<h3 id="93-球座標">§9.3 球座標 $(\rho,\theta,\phi)$</h3>
 <h4 id="931-辞書の導出">9.3.1 辞書の導出</h4>
-<p>球座標への変換は <span class="tex2jax_process">$x = \rho\sin\theta\cos\phi$</span>, <span class="tex2jax_process">$y = \rho\sin\theta\sin\phi$</span>, <span class="tex2jax_process">$z = \rho\cos\theta$</span>（<span class="tex2jax_process">$\theta$</span> は <span class="tex2jax_process">$z$</span> 軸からの角度、<span class="tex2jax_process">$\phi$</span> は <span class="tex2jax_process">$xy$</span> 平面内の方位角）。
+<p>球座標への変換は $x = \rho\sin\theta\cos\phi$, $y = \rho\sin\theta\sin\phi$, $z = \rho\cos\theta$（$\theta$ は $z$ 軸からの角度、$\phi$ は $xy$ 平面内の方位角）。
+</p>
+<p>$\ast$ の辞書は対角成分 $\sqrt{1}, \sqrt{\rho^2}, \sqrt{\rho^2\sin^2\theta}$ すなわち $1, \rho, \rho\sin\theta$ から決まる。
 </p>
 <h4 id="932-発散">9.3.2 発散</h4>
+<p>$\mathbf{F} = (F_\rho, F_\theta, F_\phi)^T$ の $1$-form への変換では、$d\rho$ の係数は $F_\rho$（$\rho$ はすでに長さ）、$d\theta$ の係数は $\rho F_\theta$、$d\phi$ の係数は $\rho\sin\theta\,F_\phi$ となる（それぞれ弧長 $\rho\,d\theta$, $\rho\sin\theta\,d\phi$ に対応）。
+</p>
+<p>$\ast d\ast\omega$ を計算する。
+</p>
+<p>$\ast(d\rho\wedge d\theta\wedge d\phi) = 1/(\rho^2\sin\theta)$ より、
+</p>
 <h4 id="933-回転">9.3.3 回転</h4>
-<p>同様に <span class="tex2jax_process">$\ast d\omega$</span> から、
+<p>同様に $\ast d\omega$ から、
 </p>
 <hr />
 <h3 id="94-微積分の難問球座標でのベクトルラプラシアン">§9.4 微積分の難問——球座標でのベクトルラプラシアン</h3>
-<p>ベクトルラプラシアン <span class="tex2jax_process">$\nabla^2\mathbf{F} = \nabla(\nabla\cdot\mathbf{F}) - \nabla\times(\nabla\times\mathbf{F})$</span> は、ベクトル解析の公式集で最も長い式の一つとして知られる。ここでは全成分を辞書から導出する。
+<p>ベクトルラプラシアン $\nabla^2\mathbf{F} = \nabla(\nabla\cdot\mathbf{F}) - \nabla\times(\nabla\times\mathbf{F})$ は、ベクトル解析の公式集で最も長い式の一つとして知られる。ここでは全成分を辞書から導出する。
 </p>
 <p>方針は第8章の辞書をそのまま使うだけだ。
 <ul>
-<li><span class="tex2jax_process">$\nabla(\nabla\cdot\mathbf{F}) \leftrightarrow d(\ast d\ast\omega)$</span></li>
-<li><span class="tex2jax_process">$\nabla\times(\nabla\times\mathbf{F}) \leftrightarrow \ast d(\ast d\omega)$</span></li>
+<li>$\nabla(\nabla\cdot\mathbf{F}) \leftrightarrow d(\ast d\ast\omega)$</li>
+<li>$\nabla\times(\nabla\times\mathbf{F}) \leftrightarrow \ast d(\ast d\omega)$</li>
 </ul>
 <p>したがって、
 </p>
-<p>球座標で <span class="tex2jax_process">$\omega = F_\rho\,d\rho + \rho F_\theta\,d\theta + \rho\sin\theta\,F_\phi\,d\phi$</span> から出発し、<span class="tex2jax_process">$d\ast d\ast\omega$</span> と <span class="tex2jax_process">$\ast d\ast d\omega$</span> を個別に計算して差をとる。
+<p>球座標で $\omega = F_\rho\,d\rho + \rho F_\theta\,d\theta + \rho\sin\theta\,F_\phi\,d\phi$ から出発し、$d\ast d\ast\omega$ と $\ast d\ast d\omega$ を個別に計算して差をとる。
 </p>
 <h4 id="941-第一項勾配の発散">9.4.1 第一項——勾配の発散</h4>
 <p>§9.3.2 より、発散は
 </p>
-<p>これを <span class="tex2jax_process">$S$</span> とおく。<span class="tex2jax_process">$S$</span> はスカラー場だから、その勾配は <span class="tex2jax_process">$dS = \frac{\partial S}{\partial\rho}\,d\rho + \frac{\partial S}{\partial\theta}\,d\theta + \frac{\partial S}{\partial\phi}\,d\phi$</span> である。正規直交成分に焼き直すと、
+<p>これを $S$ とおく。$S$ はスカラー場だから、その勾配は $dS = \frac{\partial S}{\partial\rho}\,d\rho + \frac{\partial S}{\partial\theta}\,d\theta + \frac{\partial S}{\partial\phi}\,d\phi$ である。正規直交成分に焼き直すと、
 </p>
 <h4 id="942-第二項回転の回転">9.4.2 第二項——回転の回転</h4>
-<p>§9.3.3 の回転の結果を <span class="tex2jax_process">$C_\rho, C_\theta, C_\phi$</span> とおく。
+<p>§9.3.3 の回転の結果を $C_\rho, C_\theta, C_\phi$ とおく。
+</p>
+<p>$\mathbf{C} = \nabla\times\mathbf{F}$ に再度 $\nabla\times$ を作用させるには、$C_\rho, C_\theta, C_\phi$ を §9.3.3 の公式の $F_\rho, F_\theta, F_\phi$ の位置に代入すればよい。
 </p>
 <h4 id="943-差をとるベクトルラプラシアン">9.4.3 差をとる——ベクトルラプラシアン</h4>
-<p>ここで <span class="tex2jax_process">$\nabla^2 F_\rho = \frac{1}{\rho^2}\frac{\partial}{\partial\rho}\!\left(\rho^2\frac{\partial F_\rho}{\partial\rho}\right) + \frac{1}{\rho^2\sin\theta}\frac{\partial}{\partial\theta}\!\left(\sin\theta\frac{\partial F_\rho}{\partial\theta}\right) + \frac{1}{\rho^2\sin^2\theta}\frac{\partial^2 F_\rho}{\partial\phi^2}$</span> である。
+<p>$\nabla^2\mathbf{F} = \nabla(\nabla\cdot\mathbf{F}) - \nabla\times(\nabla\times\mathbf{F})$ だから、各成分は第一項から第二項を引けばよい。$\rho$ 成分を展開する。
 </p>
-<p>同様に <span class="tex2jax_process">$\theta$</span> 成分と <span class="tex2jax_process">$\phi$</span> 成分も、
+<p>$S$ と $C_\theta, C_\phi$ の表式を代入し、偏微分を展開して整理すると、
 </p>
-<p>以上で全成分の導出が完了した。ベクトル解析の流儀で一から導出すれば1ページを優に超える計算量だが、辞書を経由すれば各ステップは偏微分と係数の掛け算の繰り返しに過ぎない。暗記する必要はどこにもない——<span class="tex2jax_process">$d\ast d\ast\omega - \ast d\ast d\omega$</span> の一本と、§9.3 の <span class="tex2jax_process">$\ast$</span> 辞書さえあれば、すべてその場で再構成できる。
+<p>ここで $\nabla^2 F_\rho = \frac{1}{\rho^2}\frac{\partial}{\partial\rho}\!\left(\rho^2\frac{\partial F_\rho}{\partial\rho}\right) + \frac{1}{\rho^2\sin\theta}\frac{\partial}{\partial\theta}\!\left(\sin\theta\frac{\partial F_\rho}{\partial\theta}\right) + \frac{1}{\rho^2\sin^2\theta}\frac{\partial^2 F_\rho}{\partial\phi^2}$ である。
+</p>
+<p>同様に $\theta$ 成分と $\phi$ 成分も、
+</p>
+<p>以上で全成分の導出が完了した。ベクトル解析の流儀で一から導出すれば1ページを優に超える計算量だが、辞書を経由すれば各ステップは偏微分と係数の掛け算の繰り返しに過ぎない。暗記する必要はどこにもない——$d\ast d\ast\omega - \ast d\ast d\omega$ の一本と、§9.3 の $\ast$ 辞書さえあれば、すべてその場で再構成できる。
 </p>
 <h3 id="95-電磁気学の難問点電荷の電場と発散">§9.5 電磁気学の難問——点電荷の電場と発散</h3>
 <p>最後に、電磁気学からの例題を一つ。第10章への橋渡しでもある。
 </p>
 <blockquote><p>
-**注** （電磁気学が未習の読者へ）以下に出てくる「電場」や「点電荷」といった用語は、理解できなくても構わない。単に「<span class="tex2jax_process">$\frac{1}{\rho^2}$</span> に比例するベクトル場」の計算だと思って眺めてほしい。第10章でも、電磁気学そのものを深く掘り下げるわけではない。ただ、マクスウェル方程式を微分形式で書くと恐ろしく簡潔になること、そして「みんなここで美しいと言って終わるが、行列まで落とすとどうなるか」を実際に全部書き下す——それだけだ。<br>
+**注** （電磁気学が未習の読者へ）以下に出てくる「電場」や「点電荷」といった用語は、理解できなくても構わない。単に「$\frac{1}{\rho^2}$ に比例するベクトル場」の計算だと思って眺めてほしい。第10章でも、電磁気学そのものを深く掘り下げるわけではない。ただ、マクスウェル方程式を微分形式で書くと恐ろしく簡潔になること、そして「みんなここで美しいと言って終わるが、行列まで落とすとどうなるか」を実際に全部書き下す——それだけだ。<br>
 </p></blockquote>
-<p>点電荷 <span class="tex2jax_process">$q$</span> が原点にあるとき、電場は <span class="tex2jax_process">$\mathbf{E} = \frac{q}{4\pi\varepsilon_0}\frac{\hat{\boldsymbol{\rho}}}{\rho^2}$</span>（<span class="tex2jax_process">$\hat{\boldsymbol{\rho}}$</span> は動径方向の単位ベクトル）。ベクトル解析では <span class="tex2jax_process">$\nabla\cdot\mathbf{E} = 0$</span>（原点以外）を示すために球座標の発散公式に代入するが、電場に対応する <span class="tex2jax_process">$1$</span>-form を直接扱う方が見通しがよい。
+<p>点電荷 $q$ が原点にあるとき、電場は $\mathbf{E} = \frac{q}{4\pi\varepsilon_0}\frac{\hat{\boldsymbol{\rho}}}{\rho^2}$（$\hat{\boldsymbol{\rho}}$ は動径方向の単位ベクトル）。ベクトル解析では $\nabla\cdot\mathbf{E} = 0$（原点以外）を示すために球座標の発散公式に代入するが、電場に対応する $1$-form を直接扱う方が見通しがよい。
 </p>
-<p>第二項は <span class="tex2jax_process">$d\theta\wedge d\theta = 0$</span> で消える。第三項も同様。第一項は <span class="tex2jax_process">$\frac{\partial}{\partial\rho}(k\sin\theta) = 0$</span>（<span class="tex2jax_process">$\rho$</span> に依存しない）。よって
+<p>$\mathbf{E}$ の $\rho$ 成分は $E_\rho = \frac{k}{\rho^2}$（$k = q/4\pi\varepsilon_0$）、$\theta,\phi$ 成分はゼロ。対応する $1$-form は
+</p>
+<p>$d\ast\omega$ を計算する。球座標では $\ast(d\rho) = \rho^2\sin\theta\,d\theta\wedge d\phi$（§9.3.1）だから、
+</p>
+<p>第二項は $d\theta\wedge d\theta = 0$ で消える。第三項も同様。第一項は $\frac{\partial}{\partial\rho}(k\sin\theta) = 0$（$\rho$ に依存しない）。よって
+</p>
+<p>$\ast d\ast\omega = \nabla\cdot\mathbf{E} = 0$ である。$\rho^2$ が $\ast(d\rho)$ の $\rho^2$ と打ち消し合い、残った $\sin\theta\,d\theta\wedge d\phi$ の外微分がゼロ——これだけの計算で、原点以外での発散ゼロが示された。
 </p>
 <blockquote><p>
-**注** （原点では？）<span class="tex2jax_process">$\rho = 0$</span> では <span class="tex2jax_process">$\omega$</span> が定義できない。原点を含む領域での積分には <span class="tex2jax_process">$\int_{\partial V} \ast\omega = \int_V d\ast\omega$</span>（ガウスの定理）を使い、右辺に <span class="tex2jax_process">$\delta$</span> 関数が現れる。これは第10章で <span class="tex2jax_process">$\ast d\ast\omega = \rho/\varepsilon_0$</span> として正式に扱う。<br>
+**注** （原点では？）$\rho = 0$ では $\omega$ が定義できない。原点を含む領域での積分には $\int_{\partial V} \ast\omega = \int_V d\ast\omega$（ガウスの定理）を使い、右辺に $\delta$ 関数が現れる。これは第10章で $\ast d\ast\omega = \rho/\varepsilon_0$ として正式に扱う。<br>
 </p></blockquote>
 <hr />
 <h3 id="96-辞書は終わり旅は続く">§9.6 辞書は終わり、旅は続く</h3>
 <p>本章では、第8章までに構築した辞書を使って、ベクトル解析の公式を機械的に導出し、微積分と電磁気学の難問を解いた。重要なのは、どの計算も「公式を思い出す」ではなく「辞書を引いて手順をなぞる」だけで済んだことだ。
 </p>
-<p>もはや、円柱座標や球座標の発散・回転の公式を暗記する必要はない。<span class="tex2jax_process">$J \to g = J^T J \to \ast$</span> 辞書 <span class="tex2jax_process">$\to \ast d\ast$</span>——この一本道を覚えておけば、どんな座標系でもその場で公式を再構成できる。
+<p>もはや、円柱座標や球座標の発散・回転の公式を暗記する必要はない。$J \to g = J^T J \to \ast$ 辞書 $\to \ast d\ast$——この一本道を覚えておけば、どんな座標系でもその場で公式を再構成できる。
 </p>
 <p>第10章では、この道具をマクスウェル方程式に適用する。ベクトル解析では4本の基礎方程式が、微分形式では2本に集約される。多くの教科書はここで「なんと美しい」と止まってしまうが、我々はさらに進む。微分形式のマクスウェル方程式の微分形式表現を全成分書き下すとどうなるか——それを実際にやってみせる。本章の計算練習を経ていれば、その翻訳はもはや難しくないはずだ。
 </p>
 <blockquote><p>
 **【ここまでのチェックポイント — 第9章全体】**<br>
-- 任意の座標系での公式導出は <span class="tex2jax_process">$J \to g = J^T J \to \ast$</span> 辞書 <span class="tex2jax_process">$\to \ast d\ast$</span> の3ステップ。<br>
-- 円柱座標・球座標での <span class="tex2jax_process">$\ast$</span> 辞書、発散・回転の公式を導出した。<br>
-- ベクトルラプラシアン <span class="tex2jax_process">$\nabla^2\mathbf{F}$</span> のような難問も、辞書と恒等式の組み合わせで機械的に解ける。<br>
-- 点電荷の電場の発散ゼロは、<span class="tex2jax_process">$\ast(d\rho)$</span> と <span class="tex2jax_process">$E_\rho$</span> の <span class="tex2jax_process">$\rho^2$</span> が打ち消し合うだけの単純な計算で示せる。<br>
+- 任意の座標系での公式導出は $J \to g = J^T J \to \ast$ 辞書 $\to \ast d\ast$ の3ステップ。<br>
+- 円柱座標・球座標での $\ast$ 辞書、発散・回転の公式を導出した。<br>
+- ベクトルラプラシアン $\nabla^2\mathbf{F}$ のような難問も、辞書と恒等式の組み合わせで機械的に解ける。<br>
+- 点電荷の電場の発散ゼロは、$\ast(d\rho)$ と $E_\rho$ の $\rho^2$ が打ち消し合うだけの単純な計算で示せる。<br>
 - 公式は暗記しなくてもよい。辞書さえあれば、そしてその辞書すらも、すべてその場で再構成できる。<br>
 </p></blockquote>
 <p>\newpage

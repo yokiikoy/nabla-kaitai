@@ -37,12 +37,10 @@
 </style>
 <script>
 window.MathJax = {
-  loader: { load: ['[tex]/bm', '[tex]/ams'] },
   tex: {
     inlineMath: [['$', '$']],
     displayMath: [['$$', '$$']],
-    processEscapes: true,
-    packages: {'[+]': ['bm', 'ams']}
+    processEscapes: true
   },
   options: {
     enableMenu: false
@@ -62,7 +60,7 @@ window.MathJax = {
 <li class="level-1"><a href="ch02.html" id="link-ch02.html">第2章</a></li>
 <li class="level-1"><a href="ch03.html" id="link-ch03.html">第3章</a></li>
 <li class="level-1"><a href="ch04.html" id="link-ch04.html">第4章</a></li>
-<li class="level-1"><a href="ch05.html" class="active" id="link-ch05.html">第5章</a><ul class="sub-toc"><li class="level-3"><a href="#50-第II部の扉観測は積分法則は微分">§5.0 第II部の扉——観測は積分、法則は微分</a></li><li class="level-3"><a href="#51-span-classtex2jaxprocessspan-再訪微分と積分は逆演算か">§5.1 <span class="tex2jax_process">$df$</span> 再訪——微分と積分は逆演算か</a></li><li class="level-3"><a href="#52-閉ループで姿を現すズレ">§5.2 閉ループで姿を現す「ズレ」</a></li><li class="level-3"><a href="#53-微小ループの解剖ズレは面積に比例する">§5.3 微小ループの解剖——ズレは面積に比例する</a></li><li class="level-3"><a href="#54-span-classtex2jaxprocessspan-の誕生面積あたりのズレを測る新しい測定器">§5.4 <span class="tex2jax_process">$d$</span> の誕生——面積あたりのズレを測る新しい測定器</a></li><li class="level-3"><a href="#55-一般の-span-classtex2jaxprocessspan-form-の外微分3次元への拡張">§5.5 一般の <span class="tex2jax_process">$1$</span>-form の外微分——3次元への拡張</a></li><li class="level-3"><a href="#56-集積すれば境界だけが残るストークスの定理">§5.6 集積すれば境界だけが残る——ストークスの定理</a></li><li class="level-3"><a href="#57-同じことをもう一段span-classtex2jaxprocessspan-form-の外微分と発散">§5.7 同じことをもう一段——<span class="tex2jax_process">$2$</span>-form の外微分と発散</a></li><li class="level-3"><a href="#58-span-classtex2jaxprocessspan二度測れば必ずゼロ">§5.8 <span class="tex2jax_process">$d^2 = 0$</span>——二度測れば必ずゼロ</a></li><li class="level-3"><a href="#59-外微分の統合一つの式一つのルール">§5.9 外微分の統合——一つの式、一つのルール</a></li><li class="level-3"><a href="#510-積分から微分方程式へ物理法則の局所化">§5.10 積分から微分方程式へ——物理法則の局所化</a></li><li class="level-3"><a href="#511-第II部への展望ホッジ・スターへの伏線">§5.11 第II部への展望——ホッジ・スターへの伏線</a></li><li class="level-2"><a href="#付録C外微分の行列表示">付録C：外微分の行列表示</a></li><li class="level-3"><a href="#C1-span-classtex2jaxprocessspan-formspan-classtex2jaxprocessspan-の-span-classtex2jaxprocessspan-行ベクトル">C.1 <span class="tex2jax_process">$0$</span>-form：<span class="tex2jax_process">$df$</span> の <span class="tex2jax_process">$1 \times 3$</span> 行ベクトル</a></li><li class="level-3"><a href="#C2-span-classtex2jaxprocessspan-form係数のヤコビ行列-span-classtex2jaxprocessspan">C.2 <span class="tex2jax_process">$1$</span>-form：係数のヤコビ行列 <span class="tex2jax_process">$\mathbf{J}$</span></a></li><li class="level-3"><a href="#C3-span-classtex2jaxprocessspan">C.3 <span class="tex2jax_process">$d\omega = \mathbf{J}^T - \mathbf{J}$</span></a></li><li class="level-3"><a href="#C4-span-classtex2jaxprocessspan-formspan-classtex2jaxprocessspan-とヤコビ行列のトレース">C.4 <span class="tex2jax_process">$2$</span>-form：<span class="tex2jax_process">$d\eta$</span> とヤコビ行列のトレース</a></li><li class="level-3"><a href="#C5-span-classtex2jaxprocessspan-とヘッセ行列">C.5 <span class="tex2jax_process">$d^2 f = 0$</span> とヘッセ行列</a></li></ul></li>
+<li class="level-1"><a href="ch05.html" class="active" id="link-ch05.html">第5章</a><ul class="sub-toc"><li class="level-3"><a href="#50-第II部の扉観測は積分法則は微分">§5.0 第II部の扉——観測は積分、法則は微分</a></li><li class="level-3"><a href="#51-再訪微分と積分は逆演算か">§5.1 $df$ 再訪——微分と積分は逆演算か</a></li><li class="level-3"><a href="#52-閉ループで姿を現すズレ">§5.2 閉ループで姿を現す「ズレ」</a></li><li class="level-3"><a href="#53-微小ループの解剖ズレは面積に比例する">§5.3 微小ループの解剖——ズレは面積に比例する</a></li><li class="level-3"><a href="#54-の誕生面積あたりのズレを測る新しい測定器">§5.4 $d$ の誕生——面積あたりのズレを測る新しい測定器</a></li><li class="level-3"><a href="#55-一般の--form-の外微分3次元への拡張">§5.5 一般の $1$-form の外微分——3次元への拡張</a></li><li class="level-3"><a href="#56-集積すれば境界だけが残るストークスの定理">§5.6 集積すれば境界だけが残る——ストークスの定理</a></li><li class="level-3"><a href="#57-同じことをもう一段-form-の外微分と発散">§5.7 同じことをもう一段——$2$-form の外微分と発散</a></li><li class="level-3"><a href="#58-二度測れば必ずゼロ">§5.8 $d^2 = 0$——二度測れば必ずゼロ</a></li><li class="level-3"><a href="#59-外微分の統合一つの式一つのルール">§5.9 外微分の統合——一つの式、一つのルール</a></li><li class="level-3"><a href="#510-積分から微分方程式へ物理法則の局所化">§5.10 積分から微分方程式へ——物理法則の局所化</a></li><li class="level-3"><a href="#511-第II部への展望ホッジ・スターへの伏線">§5.11 第II部への展望——ホッジ・スターへの伏線</a></li><li class="level-2"><a href="#付録C外微分の行列表示">付録C：外微分の行列表示</a></li><li class="level-3"><a href="#C1--form-の-行ベクトル">C.1 $0$-form：$df$ の $1 \times 3$ 行ベクトル</a></li><li class="level-3"><a href="#C2--form係数のヤコビ行列">C.2 $1$-form：係数のヤコビ行列 $\mathbf{J}$</a></li><li class="level-3"><a href="#C3">C.3 $d\omega = \mathbf{J}^T - \mathbf{J}$</a></li><li class="level-3"><a href="#C4--form-とヤコビ行列のトレース">C.4 $2$-form：$d\eta$ とヤコビ行列のトレース</a></li><li class="level-3"><a href="#C5-とヘッセ行列">C.5 $d^2 f = 0$ とヘッセ行列</a></li></ul></li>
 <li class="level-1"><a href="ch06.html" id="link-ch06.html">第6章</a></li>
 <li class="level-1"><a href="ch07.html" id="link-ch07.html">第7章</a></li>
 <li class="level-1"><a href="ch08.html" id="link-ch08.html">第8章</a></li>
@@ -77,9 +75,9 @@ window.MathJax = {
   </nav>
   <main class="main-content">
     <article class="markdown-body">
-      <h1 id="第5章微分するとは何か--外微分-span-classtex2jaxprocessspan局所のズレと積分の逆">第5章：微分するとは何か —— 外微分 <span class="tex2jax_process">$d$</span>：局所のズレと積分の逆</h1>
+      <h1 id="第5章微分するとは何か--外微分-局所のズレと積分の逆">第5章：微分するとは何か —— 外微分 $d$：局所のズレと積分の逆</h1>
 <h3 id="50-第II部の扉観測は積分法則は微分">§5.0 第II部の扉——観測は積分、法則は微分</h3>
-<p>　第3章で我々は、曲線・曲面・領域上の積分を <span class="tex2jax_process">$k$</span>-form の言葉で定義した。曲線 <span class="tex2jax_process">$\gamma$</span> に沿った仕事は <span class="tex2jax_process">$\int_\gamma \omega$</span>、曲面 <span class="tex2jax_process">$S$</span> を貫く流量は <span class="tex2jax_process">$\iint_S \eta$</span>、領域 <span class="tex2jax_process">$V$</span> の総質量は <span class="tex2jax_process">$\iiint_V \Omega$</span> である。いずれも「<span class="tex2jax_process">$k$</span>-form（はかり）を <span class="tex2jax_process">$k$</span>-vector（図形）に食わせてスカラーを得、領域全体で集計する」という同一の原理に従っていた。
+<p>　第3章で我々は、曲線・曲面・領域上の積分を $k$-form の言葉で定義した。曲線 $\gamma$ に沿った仕事は $\int_\gamma \omega$、曲面 $S$ を貫く流量は $\iint_S \eta$、領域 $V$ の総質量は $\iiint_V \Omega$ である。いずれも「$k$-form（はかり）を $k$-vector（図形）に食わせてスカラーを得、領域全体で集計する」という同一の原理に従っていた。
 </p>
 <p>ここで我々が手にした積分は、すべて<strong>領域全体にわたる</strong>量である（以下こうした量を<strong>大域的</strong>と呼ぶ）。仕事は曲線全体にわたる総和であり、流量は曲面全体を貫く総量であり、質量は領域全体での総計だ。それらは測定器の当て方と領域の選び方に依存する。
 </p>
@@ -93,63 +91,67 @@ window.MathJax = {
 <blockquote><p>
 **積分された量から、どのようにして局所法則を取り出すのか。**<br>
 </p></blockquote>
-<p>この問いに答えるのが本章の主題——<strong>外微分 <span class="tex2jax_process">$d$</span></strong>——である。<span class="tex2jax_process">$d$</span> は <span class="tex2jax_process">$k$</span>-form に作用して <span class="tex2jax_process">$(k+1)$</span>-form を返す演算子であり、第3章で定義した積分と組み合わせることで「境界で測った大域的な積分」を「内部の局所的な変化の集積」へと翻訳する。いわば、<strong><span class="tex2jax_process">$d$</span> は積分法則を微分法則に変換する装置</strong>なのである。
+<p>この問いに答えるのが本章の主題——<strong>外微分 $d$</strong>——である。$d$ は $k$-form に作用して $(k+1)$-form を返す演算子であり、第3章で定義した積分と組み合わせることで「境界で測った大域的な積分」を「内部の局所的な変化の集積」へと翻訳する。いわば、<strong>$d$ は積分法則を微分法則に変換する装置</strong>なのである。
 </p>
-<p>本章の構成はこうだ。まず第1章で導入した <span class="tex2jax_process">$df$</span> を思い出し、それが <span class="tex2jax_process">$0$</span>-form → <span class="tex2jax_process">$1$</span>-form の「次元上げ」だったことを確認する（§5.1）。次に一般の <span class="tex2jax_process">$1$</span>-form ではその逆演算が破綻することを見て（§5.2）、微小ループの解剖から <span class="tex2jax_process">$(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y})$</span> という「面積あたりのズレ」を発見する（§5.3）。この発見を手がかりに <span class="tex2jax_process">$d$</span> の定義へと至り（§5.4）、3次元への拡張（§5.5）、ストークスの定理（§5.6）へと進む。同じ論法を <span class="tex2jax_process">$2$</span>-form にも適用し（§5.7）、<span class="tex2jax_process">$d^2=0$</span> の構造的意味を明らかにする（§5.8）。最後に、この <span class="tex2jax_process">$d$</span> がどのように物理法則を局所化するかを示し（§5.10）、次章のホッジ・スターへとつなぐ（§5.11）。
+<p>本章の構成はこうだ。まず第1章で導入した $df$ を思い出し、それが $0$-form → $1$-form の「次元上げ」だったことを確認する（§5.1）。次に一般の $1$-form ではその逆演算が破綻することを見て（§5.2）、微小ループの解剖から $(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y})$ という「面積あたりのズレ」を発見する（§5.3）。この発見を手がかりに $d$ の定義へと至り（§5.4）、3次元への拡張（§5.5）、ストークスの定理（§5.6）へと進む。同じ論法を $2$-form にも適用し（§5.7）、$d^2=0$ の構造的意味を明らかにする（§5.8）。最後に、この $d$ がどのように物理法則を局所化するかを示し（§5.10）、次章のホッジ・スターへとつなぐ（§5.11）。
 </p>
 <hr />
-<h3 id="51-span-classtex2jaxprocessspan-再訪微分と積分は逆演算か">§5.1 <span class="tex2jax_process">$df$</span> 再訪——微分と積分は逆演算か</h3>
-<h4 id="511-span-classtex2jaxprocessspan-は次元上げをしている">5.1.1 <span class="tex2jax_process">$df$</span> は「次元上げ」をしている</h4>
-<p>第1章 §1.2 で、我々は関数 <span class="tex2jax_process">$f(x,y,z)$</span> の全微分を横ベクトルとして定義した：
+<h3 id="51-再訪微分と積分は逆演算か">§5.1 $df$ 再訪——微分と積分は逆演算か</h3>
+<h4 id="511-は次元上げをしている">5.1.1 $df$ は「次元上げ」をしている</h4>
+<p>第1章 §1.2 で、我々は関数 $f(x,y,z)$ の全微分を横ベクトルとして定義した：
 </p>
-<p>これは <strong><span class="tex2jax_process">$0$</span>-form（スカラー場 <span class="tex2jax_process">$f$</span>）を入力として <span class="tex2jax_process">$1$</span>-form（横ベクトル <span class="tex2jax_process">$df$</span>）を出力する</strong>操作である。次数が 0 から 1 へ上がった。
+<p>これは <strong>$0$-form（スカラー場 $f$）を入力として $1$-form（横ベクトル $df$）を出力する</strong>操作である。次数が 0 から 1 へ上がった。
 </p>
-<p>ここで思い出してほしいのは、<span class="tex2jax_process">$df(\mathbf{v})$</span> が変位 <span class="tex2jax_process">$\mathbf{v}$</span> に対する <span class="tex2jax_process">$f$</span> の一次変化量を返す、ということだ。<span class="tex2jax_process">$\mathbf{v} = \begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$</span> が十分小さいとき：
+<p>ここで思い出してほしいのは、$df(\mathbf{v})$ が変位 $\mathbf{v}$ に対する $f$ の一次変化量を返す、ということだ。$\mathbf{v} = \begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$ が十分小さいとき：
+</p>
+<p>$df$ 単独では「変化量そのもの」ではない——第1章 §1.1.6 の契約どおり、$df$ は演算子であり、変位ベクトルに作用して初めて数値が得られる。
 </p>
 <h4 id="512-線積分すると端点の差だけが残る">5.1.2 線積分すると端点の差だけが残る</h4>
-<p>この <span class="tex2jax_process">$df$</span> を曲線 <span class="tex2jax_process">$\gamma$</span> に沿って積分する。第3章 §3.3.1 の定義どおり、曲線を小区間に刻み、各ステップの変位 <span class="tex2jax_process">$\Delta\mathbf{r}_i$</span> に <span class="tex2jax_process">$df$</span> を食わせて足し上げる。
+<p>この $df$ を曲線 $\gamma$ に沿って積分する。第3章 §3.3.1 の定義どおり、曲線を小区間に刻み、各ステップの変位 $\Delta\mathbf{r}_i$ に $df$ を食わせて足し上げる。
 </p>
-<p>各区間で <span class="tex2jax_process">$df(\Delta\mathbf{r}_i) \approx f(\mathbf{r}_i) - f(\mathbf{r}_{i-1})$</span> だから、全区間の和は：
+<p>各区間で $df(\Delta\mathbf{r}_i) \approx f(\mathbf{r}_i) - f(\mathbf{r}_{i-1})$ だから、全区間の和は：
 </p>
 <p>この和を展開すると：
 </p>
-<p>隣り合う項 <span class="tex2jax_process">$f(\mathbf{r}_1), f(\mathbf{r}_2), \dots, f(\mathbf{r}_{n-1})$</span> がプラスとマイナスで打ち消し合う——<strong>望遠和（telescoping sum）</strong>だ。生き残るのは最初と最後だけ。刻みを無限に細かくする極限で：
+<p>隣り合う項 $f(\mathbf{r}_1), f(\mathbf{r}_2), \dots, f(\mathbf{r}_{n-1})$ がプラスとマイナスで打ち消し合う——<strong>望遠和（telescoping sum）</strong>だ。生き残るのは最初と最後だけ。刻みを無限に細かくする極限で：
 </p>
-<p>ここで <span class="tex2jax_process">$A$</span> は曲線の始点、<span class="tex2jax_process">$B$</span> は終点である。
+<p>ここで $A$ は曲線の始点、$B$ は終点である。
 </p>
 <blockquote><p>
 **【ここまでのチェックポイント】**<br>
-- <span class="tex2jax_process">$\int_\gamma df = f(B) - f(A)$</span>。積分の結果は経路の形状に一切依存せず、端点の値だけで決まる。<br>
-- これは <span class="tex2jax_process">$df$</span> という特別な <span class="tex2jax_process">$1$</span>-form だからこそ成立する。力学でいえば「保存力の仕事は経路によらない」という事実の数学的根拠だ。<br>
+- $\int_\gamma df = f(B) - f(A)$。積分の結果は経路の形状に一切依存せず、端点の値だけで決まる。<br>
+- これは $df$ という特別な $1$-form だからこそ成立する。力学でいえば「保存力の仕事は経路によらない」という事実の数学的根拠だ。<br>
 </p></blockquote>
 <h4 id="513-第3章の例で確かめる">5.1.3 第3章の例で確かめる</h4>
-<p>第3章 §3.4.1 で我々は、<span class="tex2jax_process">$\omega = y\,dx + x\,dy$</span> を単位円 <span class="tex2jax_process">$\gamma(t) = (\cos t,\; \sin t,\; 0),\; t \in [0,2\pi]$</span> に沿って積分し、結果が <span class="tex2jax_process">$0$</span> になることを計算した。あのときは係数に沿って愚直に積分したが、いまの言葉で見直すと話はもっと単純だ。
+<p>第3章 §3.4.1 で我々は、$\omega = y\,dx + x\,dy$ を単位円 $\gamma(t) = (\cos t,\; \sin t,\; 0),\; t \in [0,2\pi]$ に沿って積分し、結果が $0$ になることを計算した。あのときは係数に沿って愚直に積分したが、いまの言葉で見直すと話はもっと単純だ。
 </p>
-<p>実は <span class="tex2jax_process">$y\,dx + x\,dy$</span> は <span class="tex2jax_process">$d(xy)$</span> にほかならない。なぜなら：
+<p>実は $y\,dx + x\,dy$ は $d(xy)$ にほかならない。なぜなら：
 </p>
-<p>したがって <span class="tex2jax_process">$\omega = df$</span>（<span class="tex2jax_process">$f = xy$</span>）であり、§5.1.2 の望遠和の理屈がそのまま使える。単位円は閉曲線だから <span class="tex2jax_process">$B = A$</span>、よって：
+<p>したがって $\omega = df$（$f = xy$）であり、§5.1.2 の望遠和の理屈がそのまま使える。単位円は閉曲線だから $B = A$、よって：
 </p>
-<p>あのときの <span class="tex2jax_process">$\int_0^{2\pi} \cos 2t\,dt = 0$</span> という計算は、実は <span class="tex2jax_process">$\omega$</span> が <span class="tex2jax_process">$d(xy)$</span> という<strong>完全形式</strong>だったからこそ、機械的にゼロになったのである。
+<p>あのときの $\int_0^{2\pi} \cos 2t\,dt = 0$ という計算は、実は $\omega$ が $d(xy)$ という<strong>完全形式</strong>だったからこそ、機械的にゼロになったのである。
 </p>
 <blockquote><p>
-**注** （完全形式）<span class="tex2jax_process">$\omega = df$</span> と書ける <span class="tex2jax_process">$1$</span>-form を**完全形式**（exact form）と呼ぶ。完全形式の閉曲線に沿った積分は、<span class="tex2jax_process">$f$</span> が一価関数である限り必ずゼロになる。しかし逆は真ではない——閉曲線でゼロになるからといって完全形式とは限らない。この点は §5.2 で詳しく見る。<br>
+**注** （完全形式）$\omega = df$ と書ける $1$-form を**完全形式**（exact form）と呼ぶ。完全形式の閉曲線に沿った積分は、$f$ が一価関数である限り必ずゼロになる。しかし逆は真ではない——閉曲線でゼロになるからといって完全形式とは限らない。この点は §5.2 で詳しく見る。<br>
 </p></blockquote>
 <blockquote><p>
-**注** （<span class="tex2jax_process">$d$</span> と <span class="tex2jax_process">$\int$</span> の逆演算——どちらがどれだけ「完全」か）記号 <span class="tex2jax_process">$\circ$</span> を「続けて作用させる」の意味で使う（<span class="tex2jax_process">$f \circ g$</span> は「<span class="tex2jax_process">$g$</span> をしてから <span class="tex2jax_process">$f$</span>」）。<span class="tex2jax_process">$\int_\gamma df = f(B)-f(A)$</span> は <span class="tex2jax_process">$\int \circ\, d$</span> がつねに境界値へ戻るという意味での逆演算である。いっぽう <span class="tex2jax_process">$d \circ \int$</span>——積分してから外微分——は一般には元に戻らない。これが成り立つ <span class="tex2jax_process">$\omega$</span> が**完全形式**だ。つまり <span class="tex2jax_process">$d$</span> と <span class="tex2jax_process">$\int$</span> は <span class="tex2jax_process">$\int \circ\, d = \text{id}$</span>（片側だけ恒等写像）という非対称な逆関係にある。この非対称性こそが、§5.2 以降で展開される外微分 <span class="tex2jax_process">$d$</span> の真価——「ズレ」を検出する力——の源泉になる。<br>
+**注** （$d$ と $\int$ の逆演算——どちらがどれだけ「完全」か）記号 $\circ$ を「続けて作用させる」の意味で使う（$f \circ g$ は「$g$ をしてから $f$」）。$\int_\gamma df = f(B)-f(A)$ は $\int \circ\, d$ がつねに境界値へ戻るという意味での逆演算である。いっぽう $d \circ \int$——積分してから外微分——は一般には元に戻らない。これが成り立つ $\omega$ が**完全形式**だ。つまり $d$ と $\int$ は $\int \circ\, d = \text{id}$（片側だけ恒等写像）という非対称な逆関係にある。この非対称性こそが、§5.2 以降で展開される外微分 $d$ の真価——「ズレ」を検出する力——の源泉になる。<br>
 </p></blockquote>
 <hr />
 <h3 id="52-閉ループで姿を現すズレ">§5.2 閉ループで姿を現す「ズレ」</h3>
-<h4 id="521-一般の-span-classtex2jaxprocessspan-form-ではどうか">5.2.1 一般の <span class="tex2jax_process">$1$</span>-form ではどうか</h4>
-<p>では、一般の <span class="tex2jax_process">$1$</span>-form
+<h4 id="521-一般の--form-ではどうか">5.2.1 一般の $1$-form ではどうか</h4>
+<p>では、一般の $1$-form
 </p>
-<p>ではどうか。ここで <span class="tex2jax_process">$P, Q, R$</span> は場所ごとに変わる係数（スカラー場）であり、第3章 §3.4.1 で導入した「一般の <span class="tex2jax_process">$1$</span>-form」である。
+<p>ではどうか。ここで $P, Q, R$ は場所ごとに変わる係数（スカラー場）であり、第3章 §3.4.1 で導入した「一般の $1$-form」である。
 </p>
 <blockquote><p>
-**注** （「一般の」とはどういうことか）§5.1 で扱った <span class="tex2jax_process">$df$</span> は、係数が <span class="tex2jax_process">$\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z}$</span> という特別な組み合わせだった——<span class="tex2jax_process">$f$</span> という一つの関数から偏微分で導かれた三つ組である。一方、ここでの「一般の」<span class="tex2jax_process">$\omega$</span> は <span class="tex2jax_process">$P, Q, R$</span> が**互いに無関係な、任意の三つのスカラー場**である。言い換えれば、<span class="tex2jax_process">$\omega = df$</span> と書けるとは限らない <span class="tex2jax_process">$1$</span>-form のことを「一般の <span class="tex2jax_process">$1$</span>-form」と呼んでいる。§5.1.3 の <span class="tex2jax_process">$y\,dx + x\,dy$</span> はたまたま <span class="tex2jax_process">$d(xy)$</span> と書ける完全形式だったが、そうでないもののほうがむしろ普通なのである。<br>
+**注** （「一般の」とはどういうことか）§5.1 で扱った $df$ は、係数が $\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z}$ という特別な組み合わせだった——$f$ という一つの関数から偏微分で導かれた三つ組である。一方、ここでの「一般の」$\omega$ は $P, Q, R$ が**互いに無関係な、任意の三つのスカラー場**である。言い換えれば、$\omega = df$ と書けるとは限らない $1$-form のことを「一般の $1$-form」と呼んでいる。§5.1.3 の $y\,dx + x\,dy$ はたまたま $d(xy)$ と書ける完全形式だったが、そうでないもののほうがむしろ普通なのである。<br>
 </p></blockquote>
-<p>この <span class="tex2jax_process">$\omega$</span> に対して、§5.1 と同じ望遠和が成り立つ保証はない。それを判定する最も簡潔な方法は<strong>閉ループ</strong>——始点と終点が同じ曲線——で積分してみることだ。もし <span class="tex2jax_process">$\int_\gamma \omega$</span> が端点の値の差だけで書けるなら、閉ループでは <span class="tex2jax_process">$f(A)-f(A)=0$</span> とならなければならない。
+<p>$\omega$ は力を表すとは限らず、任意の「線に沿って測る測定器」を表す。
 </p>
-<p>閉ループに沿った線積分を <span class="tex2jax_process">$\oint_\gamma \omega$</span> と書く。一般には：
+<p>この $\omega$ に対して、§5.1 と同じ望遠和が成り立つ保証はない。それを判定する最も簡潔な方法は<strong>閉ループ</strong>——始点と終点が同じ曲線——で積分してみることだ。もし $\int_\gamma \omega$ が端点の値の差だけで書けるなら、閉ループでは $f(A)-f(A)=0$ とならなければならない。
+</p>
+<p>閉ループに沿った線積分を $\oint_\gamma \omega$ と書く。一般には：
 </p>
 <p>である。摩擦力に逆らって物体を一周させれば仕事はゼロにならず、渦巻く水流に沿って一周すれば正味の仕事を受ける。この<strong>「閉じても帳尻が合わない」という事実こそが、循環や渦のような局所構造の証拠</strong>だ。
 </p>
@@ -157,280 +159,300 @@ window.MathJax = {
 **注** （物理を知らなくても大丈夫）摩擦力や水流をまだ物理学で扱っていない読者も、ここで立ち止まる必要はない。いま重要なのは具体的な物理現象ではなく、「閉ループの積分がゼロにならないなら、その場には循環のような局所構造がある」という感覚だけである。物理での詳しい対応は後の章で触れる。<br>
 </p></blockquote>
 <h4 id="522-局所情報はどこに宿るか">5.2.2 局所情報はどこに宿るか</h4>
-<p>では、この「一周して残るズレ」はどこから来るのか。閉ループをいきなり大域的な大きさで考えていては、中のどの点がどれだけズレに寄与したのかわからない。第1章で <span class="tex2jax_process">$f'(x)$</span> を求めたときのことを思い出そう——我々は <span class="tex2jax_process">$\Delta f / \Delta x$</span> の <span class="tex2jax_process">$\Delta x \to 0$</span> の極限をとることで、<strong>一点での</strong>変化率を取り出した。
+<p>では、この「一周して残るズレ」はどこから来るのか。閉ループをいきなり大域的な大きさで考えていては、中のどの点がどれだけズレに寄与したのかわからない。第1章で $f'(x)$ を求めたときのことを思い出そう——我々は $\Delta f / \Delta x$ の $\Delta x \to 0$ の極限をとることで、<strong>一点での</strong>変化率を取り出した。
 </p>
-<p>同じ発想をここでも使う。ループをどんどん小さくしていったとき、一周の積分 <span class="tex2jax_process">$\oint \omega$</span> の値はどうなるか。もし <span class="tex2jax_process">$\oint \omega$</span> の主項がループの<strong>囲む面積</strong>に比例して小さくなるなら、面積あたりのズレ——単位面積あたりどれだけ帳尻が合わないか——という量が、その点に固有の値として決まるはずだ。
+<p>同じ発想をここでも使う。ループをどんどん小さくしていったとき、一周の積分 $\oint \omega$ の値はどうなるか。もし $\oint \omega$ の主項がループの<strong>囲む面積</strong>に比例して小さくなるなら、面積あたりのズレ——単位面積あたりどれだけ帳尻が合わないか——という量が、その点に固有の値として決まるはずだ。
 </p>
 <p>逆に、もし比例しなければ（たとえばループの周の長さに比例するなら）、面積あたりの量としては決まらず、「その点での性質」とは呼べない。つまり問題はこうだ：
 </p>
 <blockquote><p>
-**微小ループを一周したとき、<span class="tex2jax_process">$\oint \omega$</span> の主項は囲んだ面積に比例するのか。比例するなら、その比例係数は何か。**<br>
+**微小ループを一周したとき、$\oint \omega$ の主項は囲んだ面積に比例するのか。比例するなら、その比例係数は何か。**<br>
 </p></blockquote>
-<p>次節で実際に、<span class="tex2jax_process">$xy$</span> 平面に置いた微小長方形でこの問いに答える。
+<p>次節で実際に、$xy$ 平面に置いた微小長方形でこの問いに答える。
 </p>
 <hr />
 <h3 id="53-微小ループの解剖ズレは面積に比例する">§5.3 微小ループの解剖——ズレは面積に比例する</h3>
-<h4 id="531-span-classtex2jaxprocessspan-平面の微小長方形">5.3.1 <span class="tex2jax_process">$xy$</span> 平面の微小長方形</h4>
-<p>空間内の点 <span class="tex2jax_process">$(x, y, z)$</span> を左下の頂点とし、<span class="tex2jax_process">$xy$</span> 平面に平行な微小長方形を考える。<span class="tex2jax_process">$x$</span> 方向の幅を <span class="tex2jax_process">$\Delta x$</span>、<span class="tex2jax_process">$y$</span> 方向の幅を <span class="tex2jax_process">$\Delta y$</span> とする。この長方形の四辺を<strong>反時計回り（右手系）</strong>に一周し、<span class="tex2jax_process">$\omega = P\,dx + Q\,dy + R\,dz$</span> を積分する。
+<h4 id="531-平面の微小長方形">5.3.1 $xy$ 平面の微小長方形</h4>
+<p>空間内の点 $(x, y, z)$ を左下の頂点とし、$xy$ 平面に平行な微小長方形を考える。$x$ 方向の幅を $\Delta x$、$y$ 方向の幅を $\Delta y$ とする。この長方形の四辺を<strong>反時計回り（右手系）</strong>に一周し、$\omega = P\,dx + Q\,dy + R\,dz$ を積分する。
 </p>
-<p>各辺での積分を、テイラー展開の1次近似（<span class="tex2jax_process">$\Delta x, \Delta y$</span> が十分小さいとして）で評価しよう。
+<p>各辺での積分を、テイラー展開の1次近似（$\Delta x, \Delta y$ が十分小さいとして）で評価しよう。
 </p>
 <blockquote><p>
-**注** （テイラー展開について）「テイラー展開」という言葉に身構える必要はない。ここで使うのは多変数関数の1次近似——第1章 §1.2.1 で <span class="tex2jax_process">$\Delta f \approx f'(x)\,\Delta x$</span> とやったのと同じことだ。たとえば <span class="tex2jax_process">$Q(x+\Delta x, y)$</span> を <span class="tex2jax_process">$x$</span> 方向に <span class="tex2jax_process">$\Delta x$</span> だけずらした値は、<span class="tex2jax_process">$Q$</span> の <span class="tex2jax_process">$x$</span> に関する偏微分 <span class="tex2jax_process">$\frac{\partial Q}{\partial x}$</span> を使って <span class="tex2jax_process">$Q + \frac{\partial Q}{\partial x}\,\Delta x$</span> と近似できる。<span class="tex2jax_process">$\Delta x$</span> が十分小さければ、<span class="tex2jax_process">$\Delta x$</span> の2次以上の項（<span class="tex2jax_process">$(\Delta x)^2$</span> やそれ以上）は <span class="tex2jax_process">$\Delta x$</span> に比べて圧倒的に小さいため無視してよい——これが1次近似の意味である。<br>
+**注** （テイラー展開について）「テイラー展開」という言葉に身構える必要はない。ここで使うのは多変数関数の1次近似——第1章 §1.2.1 で $\Delta f \approx f'(x)\,\Delta x$ とやったのと同じことだ。たとえば $Q(x+\Delta x, y)$ を $x$ 方向に $\Delta x$ だけずらした値は、$Q$ の $x$ に関する偏微分 $\frac{\partial Q}{\partial x}$ を使って $Q + \frac{\partial Q}{\partial x}\,\Delta x$ と近似できる。$\Delta x$ が十分小さければ、$\Delta x$ の2次以上の項（$(\Delta x)^2$ やそれ以上）は $\Delta x$ に比べて圧倒的に小さいため無視してよい——これが1次近似の意味である。<br>
 </p></blockquote>
-<p>寄与は <span class="tex2jax_process">$\bigl(Q + \frac{\partial Q}{\partial x}\Delta x\bigr)\,\Delta y$</span>。
+<p>$z$ は一定なので $dz=0$、$R$ の項は寄与しない。
 </p>
-<p>寄与は <span class="tex2jax_process">$-\bigl(P + \frac{\partial P}{\partial y}\Delta y\bigr)\,\Delta x$</span>。
+<p>寄与は $\bigl(Q + \frac{\partial Q}{\partial x}\Delta x\bigr)\,\Delta y$。
+</p>
+<p>寄与は $-\bigl(P + \frac{\partial P}{\partial y}\Delta y\bigr)\,\Delta x$。
 </p>
 <p>四辺の寄与を合計する：
+</p>
+<p>$P\Delta x$ と $Q\Delta y$ の項が美しく相殺し、残ったのは $(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,\Delta x\,\Delta y$ だけだ。
 </p>
 <h4 id="532-決定的な事実">5.3.2 決定的な事実</h4>
 <p>この結果が告げていることはただ一つ：
 </p>
 <blockquote><p>
-**一周して残るズレの主項は、囲んだ面積 <span class="tex2jax_process">$\Delta x\,\Delta y$</span> に比例する。**<br>
+**一周して残るズレの主項は、囲んだ面積 $\Delta x\,\Delta y$ に比例する。**<br>
 </p></blockquote>
-<p>そして比例係数 <span class="tex2jax_process">$\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}$</span> こそが、点 <span class="tex2jax_process">$(x,y,z)$</span> における<strong>単位面積あたりのズレ</strong>——その点での「渦の強さ」を表す局所量——である。より正確には、微小長方形 <span class="tex2jax_process">$R_{\Delta x,\Delta y}$</span> について
+<p>そして比例係数 $\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}$ こそが、点 $(x,y,z)$ における<strong>単位面積あたりのズレ</strong>——その点での「渦の強さ」を表す局所量——である。より正確には、微小長方形 $R_{\Delta x,\Delta y}$ について
 </p>
 <p>という極限で取り出される量である。
 </p>
-<p>これは第1章で <span class="tex2jax_process">$f'(x) = \lim_{\Delta x\to 0} \frac{\Delta f}{\Delta x}$</span> とやったのと同じ発想の「微分」だ。分母が「動いた距離」から「囲んだ面積」に変わっただけで、<strong>変化率を局所的に取り出す</strong>という精神は変わっていない。
+<p>これは第1章で $f'(x) = \lim_{\Delta x\to 0} \frac{\Delta f}{\Delta x}$ とやったのと同じ発想の「微分」だ。分母が「動いた距離」から「囲んだ面積」に変わっただけで、<strong>変化率を局所的に取り出す</strong>という精神は変わっていない。
 </p>
 <blockquote><p>
-**注** （なぜ <span class="tex2jax_process">$\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}$</span> だけが残るか）<span class="tex2jax_process">$\frac{\partial P}{\partial x}$</span> や <span class="tex2jax_process">$\frac{\partial Q}{\partial y}$</span> は出てこない。<span class="tex2jax_process">$P$</span> の <span class="tex2jax_process">$x$</span> 方向の変化（<span class="tex2jax_process">$\frac{\partial P}{\partial x}$</span>）は下辺と上辺で同じ向きに効くため相殺し、<span class="tex2jax_process">$Q$</span> の <span class="tex2jax_process">$y$</span> 方向の変化（<span class="tex2jax_process">$\frac{\partial Q}{\partial y}$</span>）も右辺と左辺で相殺する。生き残るのは「<span class="tex2jax_process">$P$</span> の <span class="tex2jax_process">$y$</span> 方向の変化」と「<span class="tex2jax_process">$Q$</span> の <span class="tex2jax_process">$x$</span> 方向の変化」——互いに**直交する方向への偏微分の差**だけだ。この交叉性が、次節以降のすべての鍵になる。<br>
+**注** （なぜ $\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}$ だけが残るか）$\frac{\partial P}{\partial x}$ や $\frac{\partial Q}{\partial y}$ は出てこない。$P$ の $x$ 方向の変化（$\frac{\partial P}{\partial x}$）は下辺と上辺で同じ向きに効くため相殺し、$Q$ の $y$ 方向の変化（$\frac{\partial Q}{\partial y}$）も右辺と左辺で相殺する。生き残るのは「$P$ の $y$ 方向の変化」と「$Q$ の $x$ 方向の変化」——互いに**直交する方向への偏微分の差**だけだ。この交叉性が、次節以降のすべての鍵になる。<br>
 </p></blockquote>
 <hr />
-<h3 id="54-span-classtex2jaxprocessspan-の誕生面積あたりのズレを測る新しい測定器">§5.4 <span class="tex2jax_process">$d$</span> の誕生——面積あたりのズレを測る新しい測定器</h3>
+<h3 id="54-の誕生面積あたりのズレを測る新しい測定器">§5.4 $d$ の誕生——面積あたりのズレを測る新しい測定器</h3>
 <h4 id="541-ウェッジ積の再確認">5.4.1 ウェッジ積の再確認</h4>
-<p>§5.3 で得た <span class="tex2jax_process">$(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,\Delta x\,\Delta y$</span> を、第2章の言葉で言い直そう。第2章 §2.4.4 で我々は、<span class="tex2jax_process">$dx \wedge dy$</span> という面積測定器を定義した。これは2本のベクトル <span class="tex2jax_process">$\mathbf{v}_1, \mathbf{v}_2$</span> を食わせると、それらが <span class="tex2jax_process">$xy$</span> 平面に落とす影の符号付き面積を返す装置だった：
+<p>§5.3 で得た $(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,\Delta x\,\Delta y$ を、第2章の言葉で言い直そう。第2章 §2.4.4 で我々は、$dx \wedge dy$ という面積測定器を定義した。これは2本のベクトル $\mathbf{v}_1, \mathbf{v}_2$ を食わせると、それらが $xy$ 平面に落とす影の符号付き面積を返す装置だった：
 </p>
-<p>特に、<span class="tex2jax_process">$x$</span> 方向の変位 <span class="tex2jax_process">$\Delta x\,\hat{e}_x$</span> と <span class="tex2jax_process">$y$</span> 方向の変位 <span class="tex2jax_process">$\Delta y\,\hat{e}_y$</span> を食わせれば <span class="tex2jax_process">$(dx \wedge dy)(\Delta x\,\hat{e}_x,\; \Delta y\,\hat{e}_y) = \Delta x\,\Delta y$</span> である。
+<p>特に、$x$ 方向の変位 $\Delta x\,\hat{e}_x$ と $y$ 方向の変位 $\Delta y\,\hat{e}_y$ を食わせれば $(dx \wedge dy)(\Delta x\,\hat{e}_x,\; \Delta y\,\hat{e}_y) = \Delta x\,\Delta y$ である。
 </p>
-<h4 id="542-span-classtex2jaxprocessspan-の定義">5.4.2 <span class="tex2jax_process">$d\omega$</span> の定義</h4>
-<p>§5.3 の結果をこの言葉で書けば、微小長方形の二辺 <span class="tex2jax_process">$\Delta x\,\hat{e}_x,\; \Delta y\,\hat{e}_y$</span> に対して、ある<strong>新しい <span class="tex2jax_process">$2$</span>-form</strong> が <span class="tex2jax_process">$(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,\Delta x\,\Delta y$</span> という主項を返したことになる。この <span class="tex2jax_process">$2$</span>-form を <span class="tex2jax_process">$\omega$</span> の<strong>外微分</strong>と呼び、<span class="tex2jax_process">$d\omega$</span> と書く：
+<h4 id="542-の定義">5.4.2 $d\omega$ の定義</h4>
+<p>§5.3 の結果をこの言葉で書けば、微小長方形の二辺 $\Delta x\,\hat{e}_x,\; \Delta y\,\hat{e}_y$ に対して、ある<strong>新しい $2$-form</strong> が $(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,\Delta x\,\Delta y$ という主項を返したことになる。この $2$-form を $\omega$ の<strong>外微分</strong>と呼び、$d\omega$ と書く：
+</p>
+<p>$d\omega$ は $2$-form である——2本のベクトルを食べてスカラーを返す。その値は「食わせた2本が張る微小平行四辺形に対する、単位面積あたりの閉ループのズレ」を表す。
 </p>
 <p>ここで起きていることを整理しよう：
 </p>
 <ul>
-<li>**入力**：<span class="tex2jax_process">$\omega = P\,dx + Q\,dy + R\,dz$</span>（<span class="tex2jax_process">$1$</span>-form、ベクトル1本を食べる線の測定器）</li>
-<li>**出力**：<span class="tex2jax_process">$d\omega = (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,dx \wedge dy$</span>（<span class="tex2jax_process">$2$</span>-form、ベクトル2本を食べる面の測定器）</li>
-<li>**操作**：<span class="tex2jax_process">$d$</span> は次数を 1 から 2 へ**一つ上げる**</li>
+<li>**入力**：$\omega = P\,dx + Q\,dy + R\,dz$（$1$-form、ベクトル1本を食べる線の測定器）</li>
+<li>**出力**：$d\omega = (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,dx \wedge dy$（$2$-form、ベクトル2本を食べる面の測定器）</li>
+<li>**操作**：$d$ は次数を 1 から 2 へ**一つ上げる**</li>
 </ul>
-<p>これは §5.1 で見た <span class="tex2jax_process">$df$</span> とまったく同じ構造だ。<span class="tex2jax_process">$d$</span> は <span class="tex2jax_process">$0$</span>-form <span class="tex2jax_process">$f$</span> に作用して <span class="tex2jax_process">$1$</span>-form <span class="tex2jax_process">$df$</span> を返し、<span class="tex2jax_process">$1$</span>-form <span class="tex2jax_process">$\omega$</span> に作用して <span class="tex2jax_process">$2$</span>-form <span class="tex2jax_process">$d\omega$</span> を返す。<strong><span class="tex2jax_process">$d$</span> の本質は「次数を1つ上げる」こと</strong>にある。
+<p>これは §5.1 で見た $df$ とまったく同じ構造だ。$d$ は $0$-form $f$ に作用して $1$-form $df$ を返し、$1$-form $\omega$ に作用して $2$-form $d\omega$ を返す。<strong>$d$ の本質は「次数を1つ上げる」こと</strong>にある。
 </p>
 <blockquote><p>
 **【ここまでのチェックポイント】**<br>
-- <span class="tex2jax_process">$df$</span> は <span class="tex2jax_process">$0$</span>-form → <span class="tex2jax_process">$1$</span>-form の外微分だった。<span class="tex2jax_process">$\int_\gamma df = f(B)-f(A)$</span>（端点のみに依存）。<br>
-- 一般の <span class="tex2jax_process">$\omega$</span> では閉ループで <span class="tex2jax_process">$\oint \omega \neq 0$</span>。このズレを調べるためにループを微小化する。<br>
-- <span class="tex2jax_process">$xy$</span> 平面の微小長方形では <span class="tex2jax_process">$\oint \omega = (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,\Delta x\,\Delta y +$</span> 高次の項。ズレの主項は面積に比例する。<br>
+- $df$ は $0$-form → $1$-form の外微分だった。$\int_\gamma df = f(B)-f(A)$（端点のみに依存）。<br>
+- 一般の $\omega$ では閉ループで $\oint \omega \neq 0$。このズレを調べるためにループを微小化する。<br>
+- $xy$ 平面の微小長方形では $\oint \omega = (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,\Delta x\,\Delta y +$ 高次の項。ズレの主項は面積に比例する。<br>
 <!-- concept-scope: allow(wedge_product) --><br>
-- この比例係数を測る <span class="tex2jax_process">$2$</span>-form を <span class="tex2jax_process">$d\omega := (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,dx \wedge dy$</span> と定義する。<span class="tex2jax_process">$d$</span> は次数を上げる演算子。<br>
+- この比例係数を測る $2$-form を $d\omega := (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,dx \wedge dy$ と定義する。$d$ は次数を上げる演算子。<br>
 </p></blockquote>
 <hr />
-<h3 id="55-一般の-span-classtex2jaxprocessspan-form-の外微分3次元への拡張">§5.5 一般の <span class="tex2jax_process">$1$</span>-form の外微分——3次元への拡張</h3>
-<h4 id="551-span-classtex2jaxprocessspan-平面と-span-classtex2jaxprocessspan-平面">5.5.1 <span class="tex2jax_process">$yz$</span> 平面と <span class="tex2jax_process">$zx$</span> 平面</h4>
-<p>§5.3–§5.4 では <span class="tex2jax_process">$xy$</span> 平面のループだけを考えた。しかし 3次元空間には面の向きが3種類ある。<span class="tex2jax_process">$yz$</span> 平面の微小長方形では同様の計算で <span class="tex2jax_process">$(\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z})\,\Delta y\,\Delta z$</span> が、<span class="tex2jax_process">$zx$</span> 平面では <span class="tex2jax_process">$(\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x})\,\Delta z\,\Delta x$</span> が得られる。それぞれ <span class="tex2jax_process">$dy \wedge dz$</span> と <span class="tex2jax_process">$dz \wedge dx$</span> に対応する。
+<h3 id="55-一般の--form-の外微分3次元への拡張">§5.5 一般の $1$-form の外微分——3次元への拡張</h3>
+<h4 id="551-平面と-平面">5.5.1 $yz$ 平面と $zx$ 平面</h4>
+<p>§5.3–§5.4 では $xy$ 平面のループだけを考えた。しかし 3次元空間には面の向きが3種類ある。$yz$ 平面の微小長方形では同様の計算で $(\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z})\,\Delta y\,\Delta z$ が、$zx$ 平面では $(\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x})\,\Delta z\,\Delta x$ が得られる。それぞれ $dy \wedge dz$ と $dz \wedge dx$ に対応する。
 </p>
 <p>直感から導かれる完全な式はこうだ：
 </p>
 <blockquote><p>
-**注** （<span class="tex2jax_process">$2$</span>-form は傾いた平行四辺形を測る）この <span class="tex2jax_process">$d\omega$</span> は <span class="tex2jax_process">$2$</span>-form——**2本のベクトルを食べる測定器**——である。食わせる2本は、<span class="tex2jax_process">$xy$</span> 平面に平行とは限らない。3次元空間の中に斜めに浮かぶ微小平行四辺形の二辺 <span class="tex2jax_process">$\mathbf{v}_1, \mathbf{v}_2$</span> を食わせれば、その面に対する単位面積あたりの閉ループのズレを返す。§5.3 でやったのとまったく同じこと——測定する面が座標平面に平行とは限らなくなっただけだ。2本のベクトルから平行四辺形の面積（と向き）を取り出すしくみは、第2章 §2.4 で <span class="tex2jax_process">$dy \wedge dz$</span> 等を反対称行列として構成したときにすでに確かめてある。<br>
+**注** （$2$-form は傾いた平行四辺形を測る）この $d\omega$ は $2$-form——**2本のベクトルを食べる測定器**——である。食わせる2本は、$xy$ 平面に平行とは限らない。3次元空間の中に斜めに浮かぶ微小平行四辺形の二辺 $\mathbf{v}_1, \mathbf{v}_2$ を食わせれば、その面に対する単位面積あたりの閉ループのズレを返す。§5.3 でやったのとまったく同じこと——測定する面が座標平面に平行とは限らなくなっただけだ。2本のベクトルから平行四辺形の面積（と向き）を取り出すしくみは、第2章 §2.4 で $dy \wedge dz$ 等を反対称行列として構成したときにすでに確かめてある。<br>
 </p></blockquote>
-<h4 id="552-代数的導出ライプニッツ則と-span-classtex2jaxprocessspan">5.5.2 代数的導出——ライプニッツ則と <span class="tex2jax_process">$d(dx)=0$</span></h4>
-<p>上記の式は、各平面で別々にループ計算をしても当然導ける。しかし、<span class="tex2jax_process">$xy$</span>平面の例から得た直感を使って次のような計算ルールを作り上げれば機械的に導ける。やってみよう。
+<h4 id="552-代数的導出ライプニッツ則と">5.5.2 代数的導出——ライプニッツ則と $d(dx)=0$</h4>
+<p>上記の式は、各平面で別々にループ計算をしても当然導ける。しかし、$xy$平面の例から得た直感を使って次のような計算ルールを作り上げれば機械的に導ける。やってみよう。
 </p>
 <blockquote><p>
-**注** （定義と定理——数学者のいじわる）多くの数学書では、ライプニッツ則と <span class="tex2jax_process">$d(dx)=0$</span> を <span class="tex2jax_process">$d$</span> の**定義**としてしまう。物理学者である筆者にはそれではわからない——我々は微小ループの解剖から出発した。これから確かめるのは、その幾何的な <span class="tex2jax_process">$d$</span> と代数的な計算ルールが整合することだ。ルールは計算の便宜、**意味は §5.3 にある**。もっとも、高次元まで見据えたときこの代数的定義の簡潔さに悔しさを覚えることも、認めないわけにはいかない。<br>
+**注** （定義と定理——数学者のいじわる）多くの数学書では、ライプニッツ則と $d(dx)=0$ を $d$ の**定義**としてしまう。物理学者である筆者にはそれではわからない——我々は微小ループの解剖から出発した。これから確かめるのは、その幾何的な $d$ と代数的な計算ルールが整合することだ。ルールは計算の便宜、**意味は §5.3 にある**。もっとも、高次元まで見据えたときこの代数的定義の簡潔さに悔しさを覚えることも、認めないわけにはいかない。<br>
 </p></blockquote>
-<p>まず、<span class="tex2jax_process">$\omega = P\,dx + Q\,dy + R\,dz$</span> に対し、<span class="tex2jax_process">$d\omega$</span> を <span class="tex2jax_process">$d(P\,dx) + d(Q\,dy) + d(R\,dz)$</span> であることは問題ないだろう。これは傾いた平行四辺形のループを考えるということだ。問題は <span class="tex2jax_process">$d(P\,dx)$</span> ——係数 <span class="tex2jax_process">$P$</span> のついた <span class="tex2jax_process">$1$</span>-form に <span class="tex2jax_process">$d$</span> をどう作用させるか——である。
+<p>まず、$\omega = P\,dx + Q\,dy + R\,dz$ に対し、$d\omega$ を $d(P\,dx) + d(Q\,dy) + d(R\,dz)$ であることは問題ないだろう。これは傾いた平行四辺形のループを考えるということだ。問題は $d(P\,dx)$ ——係数 $P$ のついた $1$-form に $d$ をどう作用させるか——である。
 </p>
-<p>ここで、§5.3–§5.4 で得た幾何的な <span class="tex2jax_process">$d$</span> がすでに教えてくれていることがある。<span class="tex2jax_process">$\omega = P\,dx$</span>（<span class="tex2jax_process">$Q=R=0$</span>）の場合、§5.3 の微小ループ計算を <span class="tex2jax_process">$xy$</span> 平面だけでなく <span class="tex2jax_process">$zx$</span> 平面でも行えば、<span class="tex2jax_process">$d(P\,dx)$</span> は <span class="tex2jax_process">$yz$</span> 面に成分を持たず、
+<p>ここで、§5.3–§5.4 で得た幾何的な $d$ がすでに教えてくれていることがある。$\omega = P\,dx$（$Q=R=0$）の場合、§5.3 の微小ループ計算を $xy$ 平面だけでなく $zx$ 平面でも行えば、$d(P\,dx)$ は $yz$ 面に成分を持たず、
 </p>
-<p>となるはずだ（<span class="tex2jax_process">$xy$</span> 面のループでは <span class="tex2jax_process">$(0 - \frac{\partial P}{\partial y}) = -\frac{\partial P}{\partial y}$</span>、<span class="tex2jax_process">$zx$</span> 面では <span class="tex2jax_process">$(\frac{\partial P}{\partial z} - 0) = \frac{\partial P}{\partial z}$</span>）。
+<p>となるはずだ（$xy$ 面のループでは $(0 - \frac{\partial P}{\partial y}) = -\frac{\partial P}{\partial y}$、$zx$ 面では $(\frac{\partial P}{\partial z} - 0) = \frac{\partial P}{\partial z}$）。
 </p>
-<p>さて、ここで <span class="tex2jax_process">$dP = \frac{\partial P}{\partial x}\,dx + \frac{\partial P}{\partial y}\,dy + \frac{\partial P}{\partial z}\,dz$</span> を思い出そう（§5.1）。これと <span class="tex2jax_process">$dx$</span> のウェッジ積をとると：
+<p>さて、ここで $dP = \frac{\partial P}{\partial x}\,dx + \frac{\partial P}{\partial y}\,dy + \frac{\partial P}{\partial z}\,dz$ を思い出そう（§5.1）。これと $dx$ のウェッジ積をとると：
 </p>
-<p>（<span class="tex2jax_process">$dx \wedge dx = 0$</span> により <span class="tex2jax_process">$\frac{\partial P}{\partial x}$</span> の項は消えた）
+<p>（$dx \wedge dx = 0$ により $\frac{\partial P}{\partial x}$ の項は消えた）
 </p>
-<p>幾何的計算と<strong>完全に一致する</strong>！ すなわち、少なくとも <span class="tex2jax_process">$P\,dx$</span> という形の項について：
+<p>幾何的計算と<strong>完全に一致する</strong>！ すなわち、少なくとも $P\,dx$ という形の項について：
 </p>
-<p>が成り立つ。幾何的結果とライプニッツ則 <span class="tex2jax_process">$d(P\,dx) = dP \wedge dx + P\,d(dx)$</span> を見比べれば、余分な項 <span class="tex2jax_process">$P\,d(dx)$</span> はゼロでなければならない。<span class="tex2jax_process">$P$</span> は任意の関数だから、これが常に成り立つためには <span class="tex2jax_process">$d(dx)=0$</span> でなければならない——すなわち <span class="tex2jax_process">$d(dx) = 0$</span> が要請される。
+<p>が成り立つ。幾何的結果とライプニッツ則 $d(P\,dx) = dP \wedge dx + P\,d(dx)$ を見比べれば、余分な項 $P\,d(dx)$ はゼロでなければならない。$P$ は任意の関数だから、これが常に成り立つためには $d(dx)=0$ でなければならない——すなわち $d(dx) = 0$ が要請される。
 </p>
-<p>この観察を一般化すると、次の<strong>次数付きライプニッツ則</strong>に到達する。<span class="tex2jax_process">$P$</span> は <span class="tex2jax_process">$0$</span>-form、<span class="tex2jax_process">$dx$</span> は <span class="tex2jax_process">$1$</span>-form であり、<span class="tex2jax_process">$0$</span>-form と <span class="tex2jax_process">$1$</span>-form の「積」に対する <span class="tex2jax_process">$d$</span> の振る舞いは：
+<p>この観察を一般化すると、次の<strong>次数付きライプニッツ則</strong>に到達する。$P$ は $0$-form、$dx$ は $1$-form であり、$0$-form と $1$-form の「積」に対する $d$ の振る舞いは：
 </p>
-<p>ここで、座標関数 <span class="tex2jax_process">$x$</span> の外微分は <span class="tex2jax_process">$dx$</span> である（<span class="tex2jax_process">$d(x) = dx$</span>）。デカルト座標の <span class="tex2jax_process">$dx$</span> は、場所によって係数が変わらない基準の測定器である。つまり <span class="tex2jax_process">$dx$</span> 自身を微小ループで一周させても、面積あたりのズレは出てこない。同じことが <span class="tex2jax_process">$dy,dz$</span> にも成り立つ。したがって座標基底については次を計算ルールとして置く：
+<p>$dP$ は既知——§5.1 より $dP = \frac{\partial P}{\partial x}\,dx + \frac{\partial P}{\partial y}\,dy + \frac{\partial P}{\partial z}\,dz$。問題は $d(dx)$ の値だ。
+</p>
+<p>ここで、座標関数 $x$ の外微分は $dx$ である（$d(x) = dx$）。デカルト座標の $dx$ は、場所によって係数が変わらない基準の測定器である。つまり $dx$ 自身を微小ループで一周させても、面積あたりのズレは出てこない。同じことが $dy,dz$ にも成り立つ。したがって座標基底については次を計算ルールとして置く：
 </p>
 <p>すると：
 </p>
+<p>$\wedge$ の反対称性（$dx \wedge dx = 0$、$dy \wedge dx = -dx \wedge dy$）を使って：
+</p>
 <p>同様に：
 </p>
-<p>三つを足し合わせ、基底 <span class="tex2jax_process">$dy \wedge dz,\; dz \wedge dx,\; dx \wedge dy$</span> の順に整理する（この巡回順は次章の右手系との整合のための布石である）：
+<p>三つを足し合わせ、基底 $dy \wedge dz,\; dz \wedge dx,\; dx \wedge dy$ の順に整理する（この巡回順は次章の右手系との整合のための布石である）：
 </p>
-<p>これは §5.3 で幾何的に導いた <span class="tex2jax_process">$xy$</span> 成分 <span class="tex2jax_process">$(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y})$</span> を含み、<span class="tex2jax_process">$yz$</span> と <span class="tex2jax_process">$zx$</span> の成分も同じ交叉パターンで揃っている。
+<p>これは §5.3 で幾何的に導いた $xy$ 成分 $(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y})$ を含み、$yz$ と $zx$ の成分も同じ交叉パターンで揃っている。
 </p>
 <h4 id="553-係数のパターン">5.5.3 係数のパターン</h4>
-<p>係数の並び方に注目してほしい。<span class="tex2jax_process">$(\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z},\; \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x},\; \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})$</span> は、<span class="tex2jax_process">$(P, Q, R)$</span> の偏微分を<strong>自分以外の軸方向に関して交叉させ、差をとった</strong>ものである。巡回的な対称性がある：
+<p>係数の並び方に注目してほしい。$(\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z},\; \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x},\; \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})$ は、$(P, Q, R)$ の偏微分を<strong>自分以外の軸方向に関して交叉させ、差をとった</strong>ものである。巡回的な対称性がある：
 </p>
 <blockquote><p>
-**注** （既習者への補助線）ベクトル解析を既習の読者には、この3つの係数の並びに見覚えがあるだろう。本書ではその名前に依存せず、まず <span class="tex2jax_process">$d$</span> という操作そのものを組み立てる。対応関係は後の章で整理する。<br>
+**注** （既習者への補助線）ベクトル解析を既習の読者には、この3つの係数の並びに見覚えがあるだろう。本書ではその名前に依存せず、まず $d$ という操作そのものを組み立てる。対応関係は後の章で整理する。<br>
 </p></blockquote>
 <blockquote><p>
 **【ここまでのチェックポイント】**<br>
-- 一般の <span class="tex2jax_process">$1$</span>-form <span class="tex2jax_process">$\omega$</span> の外微分 <span class="tex2jax_process">$d\omega$</span> は <span class="tex2jax_process">$2$</span>-form であり、係数は偏微分の交叉差 <span class="tex2jax_process">$(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z},\; \frac{\partial P}{\partial z}-\frac{\partial R}{\partial x},\; \frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y})$</span>。<br>
-- 計算ルールは (1) 線形性、(2) ライプニッツ則 <span class="tex2jax_process">$d(P\,dx) = dP \wedge dx + P \wedge d(dx)$</span>、(3) <span class="tex2jax_process">$d(dx)=d(dy)=d(dz)=0$</span> の三つ。<br>
+- 一般の $1$-form $\omega$ の外微分 $d\omega$ は $2$-form であり、係数は偏微分の交叉差 $(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z},\; \frac{\partial P}{\partial z}-\frac{\partial R}{\partial x},\; \frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y})$。<br>
+- 計算ルールは (1) 線形性、(2) ライプニッツ則 $d(P\,dx) = dP \wedge dx + P \wedge d(dx)$、(3) $d(dx)=d(dy)=d(dz)=0$ の三つ。<br>
 - 結果は §5.3 の微小ループ計算と完全に整合する。<br>
 </p></blockquote>
 <hr />
 <h3 id="56-集積すれば境界だけが残るストークスの定理">§5.6 集積すれば境界だけが残る——ストークスの定理</h3>
 <h4 id="561-面をタイル貼りする">5.6.1 面をタイル貼りする</h4>
-<p>§5.3 では<strong>ひとつの</strong>微小長方形の周りで <span class="tex2jax_process">$\oint \omega$</span> を計算し、その主項が <span class="tex2jax_process">$d\omega$</span> と面積の積になることを見た。では、この微小長方形を<strong>面全体に敷き詰めて</strong>、全部足し合わせたらどうなるか。
+<p>§5.3 では<strong>ひとつの</strong>微小長方形の周りで $\oint \omega$ を計算し、その主項が $d\omega$ と面積の積になることを見た。では、この微小長方形を<strong>面全体に敷き詰めて</strong>、全部足し合わせたらどうなるか。
 </p>
-<p>曲面 <span class="tex2jax_process">$S$</span> を小さな座標パッチに分け、それぞれのパラメータ平面上で微小長方形に刻む（第3章 §3.2 の面素の考え方そのものだ）。各微小長方形について、四辺を反時計回りに一周した <span class="tex2jax_process">$\omega$</span> の積分は、面素に <span class="tex2jax_process">$d\omega$</span> を食わせた値を主項として持つ。
+<p>曲面 $S$ を小さな座標パッチに分け、それぞれのパラメータ平面上で微小長方形に刻む（第3章 §3.2 の面素の考え方そのものだ）。各微小長方形について、四辺を反時計回りに一周した $\omega$ の積分は、面素に $d\omega$ を食わせた値を主項として持つ。
 </p>
 <h4 id="562-内部の辺は相殺する">5.6.2 内部の辺は相殺する</h4>
-<p>ここで決定的な幾何学的観察がある。<strong>隣り合う二つの長方形が共有する辺</strong>に注目しよう。左の長方形にとってその辺は「上向き」、右の長方形にとっては「下向き」にたどられる。経路が逆向きだから、<span class="tex2jax_process">$\omega$</span> の線積分はこの辺の上で<strong>完全に打ち消し合う</strong>。
+<p>ここで決定的な幾何学的観察がある。<strong>隣り合う二つの長方形が共有する辺</strong>に注目しよう。左の長方形にとってその辺は「上向き」、右の長方形にとっては「下向き」にたどられる。経路が逆向きだから、$\omega$ の線積分はこの辺の上で<strong>完全に打ち消し合う</strong>。
 </p>
-<p>この相殺は面 <span class="tex2jax_process">$S$</span> の内部の<strong>すべての共有辺</strong>で起こる。いくら細かく分割して足し合わせても、内部の辺の寄与はプラスマイナスで消えるのだ。
+<p>この相殺は面 $S$ の内部の<strong>すべての共有辺</strong>で起こる。いくら細かく分割して足し合わせても、内部の辺の寄与はプラスマイナスで消えるのだ。
 </p>
 <h4 id="563-生き残るのは境界だけ">5.6.3 生き残るのは境界だけ</h4>
-<p>すると、最終的に相殺されずに生き残る辺はどこか——<strong>隣の長方形が存在しない辺</strong>、すなわち面 <span class="tex2jax_process">$S$</span> の<strong>境界 <span class="tex2jax_process">$\partial S$</span></strong> に沿った辺だけである。
+<p>すると、最終的に相殺されずに生き残る辺はどこか——<strong>隣の長方形が存在しない辺</strong>、すなわち面 $S$ の<strong>境界 $\partial S$</strong> に沿った辺だけである。
 </p>
 <p>つまり：
 </p>
-<p>左辺は「面の境界という1次元の閉曲線に沿った <span class="tex2jax_process">$\omega$</span> の線積分」、右辺は「面の内部に敷き詰めた無数の微小ループのズレ密度の総和」である。分割を細かくする極限で、内部辺の相殺だけが残り、両者が一致する。
+<p>左辺は「面の境界という1次元の閉曲線に沿った $\omega$ の線積分」、右辺は「面の内部に敷き詰めた無数の微小ループのズレ密度の総和」である。分割を細かくする極限で、内部辺の相殺だけが残り、両者が一致する。
 </p>
 <p>これが<strong>ケルビン–ストークスの定理</strong>（単にストークスの定理とも呼ばれる）だ。
 </p>
-<p>第2章以来の行列の言葉で書くなら、右辺の <span class="tex2jax_process">$2$</span>-form は反対称行列 <span class="tex2jax_process">$\mathbf{J}^T - \mathbf{J}$</span> で表される。<span class="tex2jax_process">$\mathbf{v}_1, \mathbf{v}_2$</span> を面素の二辺とすれば <span class="tex2jax_process">$(d\omega)(\mathbf{v}_1, \mathbf{v}_2) = \mathbf{v}_1^T(\mathbf{J}^T - \mathbf{J})\mathbf{v}_2$</span>。付録 C.3 に全成分を書き下してあるので、必要に応じて参照されたい。
+<p>$\omega = P\,dx + Q\,dy + R\,dz$ の成分をあらわに書けば：
 </p>
-<p>この定理の構造は驚くほど単純だ。<strong>大域的な境界で測った積分</strong> <span class="tex2jax_process">$=$</span> <strong>内部の局所的なズレ（<span class="tex2jax_process">$d\omega$</span>）の集積</strong>。<span class="tex2jax_process">$d$</span> とは、境界 <span class="tex2jax_process">$\partial S$</span> における <span class="tex2jax_process">$\omega$</span> の情報を、内部 <span class="tex2jax_process">$S$</span> における <span class="tex2jax_process">$d\omega$</span> の情報へと<strong>翻訳</strong>する装置なのである。
+<p>第2章以来の行列の言葉で書くなら、右辺の $2$-form は反対称行列 $\mathbf{J}^T - \mathbf{J}$ で表される。$\mathbf{v}_1, \mathbf{v}_2$ を面素の二辺とすれば $(d\omega)(\mathbf{v}_1, \mathbf{v}_2) = \mathbf{v}_1^T(\mathbf{J}^T - \mathbf{J})\mathbf{v}_2$。付録 C.3 に全成分を書き下してあるので、必要に応じて参照されたい。
+</p>
+<p>この定理の構造は驚くほど単純だ。<strong>大域的な境界で測った積分</strong> $=$ <strong>内部の局所的なズレ（$d\omega$）の集積</strong>。$d$ とは、境界 $\partial S$ における $\omega$ の情報を、内部 $S$ における $d\omega$ の情報へと<strong>翻訳</strong>する装置なのである。
 </p>
 <blockquote><p>
-**注** （第3章との対応）第3章 §3.2.1 で曲面積分を定義したとき、我々は面素 <span class="tex2jax_process">$(\mathbf{r}_u\Delta u,\;\mathbf{r}_v\Delta v)$</span> に <span class="tex2jax_process">$dx \wedge dy$</span> を食わせていた。ここでも同じく、曲面を小さな面素に分け、各面素で測定器を作用させ、内部で相殺する寄与を整理している。<br>
+**注** （第3章との対応）第3章 §3.2.1 で曲面積分を定義したとき、我々は面素 $(\mathbf{r}_u\Delta u,\;\mathbf{r}_v\Delta v)$ に $dx \wedge dy$ を食わせていた。ここでも同じく、曲面を小さな面素に分け、各面素で測定器を作用させ、内部で相殺する寄与を整理している。<br>
 </p></blockquote>
 <blockquote><p>
 **【ここまでのチェックポイント】**<br>
-- 面 <span class="tex2jax_process">$S$</span> を微小ループで敷き詰めると、内部の辺は相殺し、境界 <span class="tex2jax_process">$\partial S$</span> の寄与だけが残る。<br>
-- <span class="tex2jax_process">$\int_{\partial S} \omega = \int_S d\omega$</span>。大域的な境界積分が局所的な外微分の積分に等しい。<br>
+- 面 $S$ を微小ループで敷き詰めると、内部の辺は相殺し、境界 $\partial S$ の寄与だけが残る。<br>
+- $\int_{\partial S} \omega = \int_S d\omega$。大域的な境界積分が局所的な外微分の積分に等しい。<br>
 - 第3章の曲面積分と同じく、面を小さなパッチに分け、各パッチで測定器を作用させて集計している。<br>
 </p></blockquote>
 <hr />
-<h3 id="57-同じことをもう一段span-classtex2jaxprocessspan-form-の外微分と発散">§5.7 同じことをもう一段——<span class="tex2jax_process">$2$</span>-form の外微分と発散</h3>
-<h4 id="571-span-classtex2jaxprocessspan-form-は面の測定器">5.7.1 <span class="tex2jax_process">$2$</span>-form は面の測定器</h4>
-<p>第3章 §3.4.2 で、一般の <span class="tex2jax_process">$2$</span>-form を次の形で書いた：
+<h3 id="57-同じことをもう一段-form-の外微分と発散">§5.7 同じことをもう一段——$2$-form の外微分と発散</h3>
+<h4 id="571--form-は面の測定器">5.7.1 $2$-form は面の測定器</h4>
+<p>第3章 §3.4.2 で、一般の $2$-form を次の形で書いた：
 </p>
-<p>これは「面に沿って流量を測る測定器」である。第2章 §2.4.5 で見たように、3つの基底 <span class="tex2jax_process">$2$</span>-form がそれぞれ <span class="tex2jax_process">$yz$</span> 平面、<span class="tex2jax_process">$zx$</span> 平面、<span class="tex2jax_process">$xy$</span> 平面への影の面積を測る。
+<p>これは「面に沿って流量を測る測定器」である。第2章 §2.4.5 で見たように、3つの基底 $2$-form がそれぞれ $yz$ 平面、$zx$ 平面、$xy$ 平面への影の面積を測る。
 </p>
 <h4 id="572-微小直方体の表面で測る">5.7.2 微小直方体の表面で測る</h4>
-<p>§5.3 と同じ精神で、今度は空間内の微小直方体 <span class="tex2jax_process">$[x, x+\Delta x] \times [y, y+\Delta y] \times [z, z+\Delta z]$</span> の<strong>6つの面すべて</strong>で <span class="tex2jax_process">$\eta$</span> を積分する。向きは外向きに合わせる。
+<p>§5.3 と同じ精神で、今度は空間内の微小直方体 $[x, x+\Delta x] \times [y, y+\Delta y] \times [z, z+\Delta z]$ の<strong>6つの面すべて</strong>で $\eta$ を積分する。向きは外向きに合わせる。
 </p>
-<p>たとえば <span class="tex2jax_process">$C\,dx \wedge dy$</span> の項について、<span class="tex2jax_process">$z$</span> に垂直な底面と上面だけを考える：
+<p>たとえば $C\,dx \wedge dy$ の項について、$z$ に垂直な底面と上面だけを考える：
 </p>
 <ul>
-<li>**底面**（<span class="tex2jax_process">$z$</span>、外向きは <span class="tex2jax_process">$-z$</span> 方向）：<span class="tex2jax_process">$C(x,y,z)$</span> に <span class="tex2jax_process">$-dx \wedge dy$</span> の向きで評価 → およそ <span class="tex2jax_process">$-C(x,y,z)\,\Delta x\,\Delta y$</span></li>
-<li>**上面**（<span class="tex2jax_process">$z+\Delta z$</span>、外向きは <span class="tex2jax_process">$+z$</span> 方向）：<span class="tex2jax_process">$C(x,y,z+\Delta z) \approx C + \frac{\partial C}{\partial z}\Delta z$</span> → およそ <span class="tex2jax_process">$(C + \frac{\partial C}{\partial z}\Delta z)\,\Delta x\,\Delta y$</span></li>
+<li>**底面**（$z$、外向きは $-z$ 方向）：$C(x,y,z)$ に $-dx \wedge dy$ の向きで評価 → およそ $-C(x,y,z)\,\Delta x\,\Delta y$</li>
+<li>**上面**（$z+\Delta z$、外向きは $+z$ 方向）：$C(x,y,z+\Delta z) \approx C + \frac{\partial C}{\partial z}\Delta z$ → およそ $(C + \frac{\partial C}{\partial z}\Delta z)\,\Delta x\,\Delta y$</li>
 </ul>
-<p>和をとると <span class="tex2jax_process">$C\Delta x\Delta y$</span> が相殺し、<span class="tex2jax_process">$\frac{\partial C}{\partial z}\,\Delta x\,\Delta y\,\Delta z$</span> が残る。<span class="tex2jax_process">$A\,dy \wedge dz$</span> の項は <span class="tex2jax_process">$x$</span> に垂直な面から <span class="tex2jax_process">$\frac{\partial A}{\partial x}\,\Delta x\,\Delta y\,\Delta z$</span> を、<span class="tex2jax_process">$B\,dz \wedge dx$</span> の項は <span class="tex2jax_process">$y$</span> に垂直な面から <span class="tex2jax_process">$\frac{\partial B}{\partial y}\,\Delta x\,\Delta y\,\Delta z$</span> を与える。
+<p>和をとると $C\Delta x\Delta y$ が相殺し、$\frac{\partial C}{\partial z}\,\Delta x\,\Delta y\,\Delta z$ が残る。$A\,dy \wedge dz$ の項は $x$ に垂直な面から $\frac{\partial A}{\partial x}\,\Delta x\,\Delta y\,\Delta z$ を、$B\,dz \wedge dx$ の項は $y$ に垂直な面から $\frac{\partial B}{\partial y}\,\Delta x\,\Delta y\,\Delta z$ を与える。
 </p>
 <p>全6面の合計は：
 </p>
-<p>ここでも同じ構造だ——<strong>表面で測ったズレの主項は、囲んだ体積に比例する</strong>。比例係数 <span class="tex2jax_process">$\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z}$</span> が「単位体積あたりの湧き出し」を表す。
+<p>ここでも同じ構造だ——<strong>表面で測ったズレの主項は、囲んだ体積に比例する</strong>。比例係数 $\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z}$ が「単位体積あたりの湧き出し」を表す。
 </p>
-<h4 id="573-span-classtex2jaxprocessspan-の定義と代数的導出">5.7.3 <span class="tex2jax_process">$d\eta$</span> の定義と代数的導出</h4>
-<p>直方体の三辺 <span class="tex2jax_process">$\Delta x\,\hat{e}_x,\; \Delta y\,\hat{e}_y,\; \Delta z\,\hat{e}_z$</span> を食わせる <span class="tex2jax_process">$3$</span>-form として：
+<h4 id="573-の定義と代数的導出">5.7.3 $d\eta$ の定義と代数的導出</h4>
+<p>直方体の三辺 $\Delta x\,\hat{e}_x,\; \Delta y\,\hat{e}_y,\; \Delta z\,\hat{e}_z$ を食わせる $3$-form として：
 </p>
-<p>この式は、§5.5.2 の代数的ルールからも導ける。その前に、§5.5.2 でやったのと同じく、幾何的な結果がライプニッツ則と整合することを <span class="tex2jax_process">$A\,dy \wedge dz$</span> の項で確かめておこう。
+<p>この式は、§5.5.2 の代数的ルールからも導ける。その前に、§5.5.2 でやったのと同じく、幾何的な結果がライプニッツ則と整合することを $A\,dy \wedge dz$ の項で確かめておこう。
 </p>
-<p>§5.7.2 の幾何計算によれば、<span class="tex2jax_process">$A\,dy \wedge dz$</span> の寄与は <span class="tex2jax_process">$\frac{\partial A}{\partial x}\,\Delta x\,\Delta y\,\Delta z$</span> だった。これを <span class="tex2jax_process">$dx \wedge dy \wedge dz$</span> の言葉で書けば <span class="tex2jax_process">$\frac{\partial A}{\partial x}\,dx \wedge dy \wedge dz$</span> である。
+<p>§5.7.2 の幾何計算によれば、$A\,dy \wedge dz$ の寄与は $\frac{\partial A}{\partial x}\,\Delta x\,\Delta y\,\Delta z$ だった。これを $dx \wedge dy \wedge dz$ の言葉で書けば $\frac{\partial A}{\partial x}\,dx \wedge dy \wedge dz$ である。
 </p>
-<p>一方、<span class="tex2jax_process">$d(A\,dy \wedge dz)$</span> にライプニッツ則を適用すると：
+<p>一方、$d(A\,dy \wedge dz)$ にライプニッツ則を適用すると：
 </p>
-<p>ここで <span class="tex2jax_process">$d(dy \wedge dz)$</span> は、§5.5.2 と同じく <span class="tex2jax_process">$d(dy)=d(dz)=0$</span> を使って：
+<p>ここで $d(dy \wedge dz)$ は、§5.5.2 と同じく $d(dy)=d(dz)=0$ を使って：
 </p>
 <p>したがって第2項は消え、第1項だけが残る：
 </p>
-<h4 id="574-ガウスの定理">5.7.4 ガウスの定理</h4>
-<p>§5.6 と同じタイル貼りの論法——今度は立体 <span class="tex2jax_process">$V$</span> を微小直方体で埋め尽くす——により、内部の面は相殺し、外面 <span class="tex2jax_process">$\partial V$</span> だけが残る：
+<p>$\wedge$ の反対称性（$dy \wedge dy = 0$、$dz \wedge dz = 0$）により $\frac{\partial A}{\partial y}$ と $\frac{\partial A}{\partial z}$ の項は消え、$\frac{\partial A}{\partial x}\,dx \wedge dy \wedge dz$ だけが残る。これは §5.7.2 の幾何計算と<strong>完全に一致する</strong>。
 </p>
-<p>これが<strong>ガウスの定理</strong>である。ストークスの定理と、次元が一つずつずれただけで<strong>まったく同じ形</strong>をしている。並べてみれば一目瞭然だ：<span class="tex2jax_process">$\omega$</span>（<span class="tex2jax_process">$1$</span>-form）<span class="tex2jax_process">$\to$</span> <span class="tex2jax_process">$d\omega$</span>（<span class="tex2jax_process">$2$</span>-form）<span class="tex2jax_process">$\to$</span> 面 <span class="tex2jax_process">$S$</span>、<span class="tex2jax_process">$\eta$</span>（<span class="tex2jax_process">$2$</span>-form）<span class="tex2jax_process">$\to$</span> <span class="tex2jax_process">$d\eta$</span>（<span class="tex2jax_process">$3$</span>-form）<span class="tex2jax_process">$\to$</span> 立体 <span class="tex2jax_process">$V$</span>。
+<p>$B\,dz \wedge dx$、$C\,dx \wedge dy$ の項も同様で、三つを足し合わせれば：
+</p>
+<p>$d$ は $2$-form → $3$-form の昇格を果たした。
+</p>
+<h4 id="574-ガウスの定理">5.7.4 ガウスの定理</h4>
+<p>§5.6 と同じタイル貼りの論法——今度は立体 $V$ を微小直方体で埋め尽くす——により、内部の面は相殺し、外面 $\partial V$ だけが残る：
+</p>
+<p>これが<strong>ガウスの定理</strong>である。ストークスの定理と、次元が一つずつずれただけで<strong>まったく同じ形</strong>をしている。並べてみれば一目瞭然だ：$\omega$（$1$-form）$\to$ $d\omega$（$2$-form）$\to$ 面 $S$、$\eta$（$2$-form）$\to$ $d\eta$（$3$-form）$\to$ 立体 $V$。
+</p>
+<p>$\eta = A\,dy \wedge dz + B\,dz \wedge dx + C\,dx \wedge dy$ の成分をあらわに書けば：
 </p>
 <blockquote><p>
-**注** （既習者への補助線）ベクトル解析を既習の読者には、<span class="tex2jax_process">$\frac{\partial A}{\partial x}+\frac{\partial B}{\partial y}+\frac{\partial C}{\partial z}$</span> にも見覚えがあるだろう。本書ではまず <span class="tex2jax_process">$2$</span>-form の外微分としてこの量を得た、という順序を大切にする。名前との対応は後の章で整理する。<br>
+**注** （既習者への補助線）ベクトル解析を既習の読者には、$\frac{\partial A}{\partial x}+\frac{\partial B}{\partial y}+\frac{\partial C}{\partial z}$ にも見覚えがあるだろう。本書ではまず $2$-form の外微分としてこの量を得た、という順序を大切にする。名前との対応は後の章で整理する。<br>
 </p></blockquote>
 <blockquote><p>
 **【ここまでのチェックポイント】**<br>
-- <span class="tex2jax_process">$2$</span>-form <span class="tex2jax_process">$\eta$</span> の外微分 <span class="tex2jax_process">$d\eta$</span> は <span class="tex2jax_process">$3$</span>-form で、係数は <span class="tex2jax_process">$\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z}$</span>。<br>
-- 導出は §5.5 と同じ代数的ルール（ライプニッツ則 <span class="tex2jax_process">$+$</span> <span class="tex2jax_process">$d(dx)=0$</span>）で機械的にできる。<br>
-- <span class="tex2jax_process">$\iint_{\partial V} \eta = \iiint_V d\eta$</span>。ストークス（<span class="tex2jax_process">$1$</span>-form→面）とガウス（<span class="tex2jax_process">$2$</span>-form→立体）は次数が違うだけで同じ構造。<br>
+- $2$-form $\eta$ の外微分 $d\eta$ は $3$-form で、係数は $\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z}$。<br>
+- 導出は §5.5 と同じ代数的ルール（ライプニッツ則 $+$ $d(dx)=0$）で機械的にできる。<br>
+- $\iint_{\partial V} \eta = \iiint_V d\eta$。ストークス（$1$-form→面）とガウス（$2$-form→立体）は次数が違うだけで同じ構造。<br>
 </p></blockquote>
 <hr />
-<h3 id="58-span-classtex2jaxprocessspan二度測れば必ずゼロ">§5.8 <span class="tex2jax_process">$d^2 = 0$</span>——二度測れば必ずゼロ</h3>
-<h4 id="581-span-classtex2jaxprocessspan">5.8.1 <span class="tex2jax_process">$d(df) = 0$</span></h4>
-<p>§5.1 で <span class="tex2jax_process">$df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz$</span> を定義した。これをさらにもう一度外微分してみる。§5.5 の公式で <span class="tex2jax_process">$P = \frac{\partial f}{\partial x},\; Q = \frac{\partial f}{\partial y},\; R = \frac{\partial f}{\partial z}$</span> とすれば：
+<h3 id="58-二度測れば必ずゼロ">§5.8 $d^2 = 0$——二度測れば必ずゼロ</h3>
+<h4 id="581">5.8.1 $d(df) = 0$</h4>
+<p>§5.1 で $df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz$ を定義した。これをさらにもう一度外微分してみる。§5.5 の公式で $P = \frac{\partial f}{\partial x},\; Q = \frac{\partial f}{\partial y},\; R = \frac{\partial f}{\partial z}$ とすれば：
 </p>
-<p>混合偏微分の対称性（<span class="tex2jax_process">$f$</span> が <span class="tex2jax_process">$C^2$</span> 級（2階連続微分可能）なら <span class="tex2jax_process">$\frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x}$</span> など。第1章 §1.2 参照）により、すべての係数がゼロになる：
+<p>混合偏微分の対称性（$f$ が $C^2$ 級（2階連続微分可能）なら $\frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x}$ など。第1章 §1.2 参照）により、すべての係数がゼロになる：
 </p>
 <blockquote><p>
-**注** （数学者へのエクスキューズ——<span class="tex2jax_process">$d^2=0$</span> と <span class="tex2jax_process">$C^2$</span> 条件）本書では「<span class="tex2jax_process">$f$</span> が <span class="tex2jax_process">$C^2$</span> 級（2階連続微分可能）なら混合偏微分が可換、ゆえに <span class="tex2jax_process">$d(df)=0$</span>」という順序で進めた。しかし微分形式の公理的な立場では、**<span class="tex2jax_process">$d^2=0$</span> こそが <span class="tex2jax_process">$d$</span> の定義の一部**であり、<span class="tex2jax_process">$d(df)=0$</span> は定理ではなく要請である。逆に言えば、<span class="tex2jax_process">$d^2=0$</span> を課すことが「混合偏微分の対称性が成り立つ関数クラス（＝<span class="tex2jax_process">$C^2$</span> 級の関数）を相手にしている」という宣言に相当する。どちらの順序で学んでも、両者が同値な条件として噛み合うことに変わりはない。<br>
+**注** （数学者へのエクスキューズ——$d^2=0$ と $C^2$ 条件）本書では「$f$ が $C^2$ 級（2階連続微分可能）なら混合偏微分が可換、ゆえに $d(df)=0$」という順序で進めた。しかし微分形式の公理的な立場では、**$d^2=0$ こそが $d$ の定義の一部**であり、$d(df)=0$ は定理ではなく要請である。逆に言えば、$d^2=0$ を課すことが「混合偏微分の対称性が成り立つ関数クラス（＝$C^2$ 級の関数）を相手にしている」という宣言に相当する。どちらの順序で学んでも、両者が同値な条件として噛み合うことに変わりはない。<br>
 </p></blockquote>
-<h4 id="582-span-classtex2jaxprocessspan">5.8.2 <span class="tex2jax_process">$d(d\omega) = 0$</span></h4>
-<p>§5.5 の <span class="tex2jax_process">$d\omega$</span> に §5.7 の公式を適用する。<span class="tex2jax_process">$A = \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z},\; B = \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x},\; C = \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}$</span> として：
+<h4 id="582">5.8.2 $d(d\omega) = 0$</h4>
+<p>§5.5 の $d\omega$ に §5.7 の公式を適用する。$A = \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z},\; B = \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x},\; C = \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}$ として：
 </p>
 <p>括弧内を展開：
 </p>
-<p>混合偏微分の対称性（<span class="tex2jax_process">$\frac{\partial^2 R}{\partial y \partial x}=\frac{\partial^2 R}{\partial x \partial y}$</span> など）により、6項が3組の相殺を起こし、合計はゼロ：
+<p>混合偏微分の対称性（$\frac{\partial^2 R}{\partial y \partial x}=\frac{\partial^2 R}{\partial x \partial y}$ など）により、6項が3組の相殺を起こし、合計はゼロ：
 </p>
 <blockquote><p>
 **【ここまでのチェックポイント】**<br>
-- <span class="tex2jax_process">$d^2 = 0$</span>：外微分を2回続けると必ずゼロ。混合偏微分の対称性とウェッジの反対称性が相殺を起こす。<br>
-- 既習者が知るいくつかの「二度微分すると消える」恒等式は、この <span class="tex2jax_process">$d^2=0$</span> の別表現として後の章で整理される。<br>
+- $d^2 = 0$：外微分を2回続けると必ずゼロ。混合偏微分の対称性とウェッジの反対称性が相殺を起こす。<br>
+- 既習者が知るいくつかの「二度微分すると消える」恒等式は、この $d^2=0$ の別表現として後の章で整理される。<br>
 </p></blockquote>
 <hr />
 <h3 id="59-外微分の統合一つの式一つのルール">§5.9 外微分の統合——一つの式、一つのルール</h3>
 <h4 id="591-ストークスとガウスは同じ式だった">5.9.1 ストークスとガウスは同じ式だった</h4>
-<p>§5.6 で得たストークスの定理 <span class="tex2jax_process">$\oint_{\partial S}\omega = \iint_S d\omega$</span> と、§5.7 で得たガウスの定理 <span class="tex2jax_process">$\iint_{\partial V}\eta = \iiint_V d\eta$</span>。並べてみると、<span class="tex2jax_process">$\oint$</span>、<span class="tex2jax_process">$\iint$</span>、<span class="tex2jax_process">$\iiint$</span> と積分記号の数が違うだけで、構造は同一だ。<span class="tex2jax_process">$M$</span> が曲線なら <span class="tex2jax_process">$\int$</span>（1次元）、曲面なら <span class="tex2jax_process">$\iint$</span>（2次元）、立体なら <span class="tex2jax_process">$\iiint$</span>（3次元）——つまり積分記号の重なりは <span class="tex2jax_process">$M$</span> の次元で決まるにすぎない。
+<p>§5.6 で得たストークスの定理 $\oint_{\partial S}\omega = \iint_S d\omega$ と、§5.7 で得たガウスの定理 $\iint_{\partial V}\eta = \iiint_V d\eta$。並べてみると、$\oint$、$\iint$、$\iiint$ と積分記号の数が違うだけで、構造は同一だ。$M$ が曲線なら $\int$（1次元）、曲面なら $\iint$（2次元）、立体なら $\iiint$（3次元）——つまり積分記号の重なりは $M$ の次元で決まるにすぎない。
 </p>
 <p>そこで、次元によらず統一的に：
 </p>
-<p>と書く。<span class="tex2jax_process">$\omega$</span> は <span class="tex2jax_process">$k$</span>-form、<span class="tex2jax_process">$M$</span> は <span class="tex2jax_process">$(k+1)$</span> 次元領域、<span class="tex2jax_process">$\partial M$</span> はその <span class="tex2jax_process">$k$</span> 次元の境界である。<span class="tex2jax_process">$k=0$</span> なら <span class="tex2jax_process">$\int_{\partial M} f = f(B)-f(A) = \int_M df$</span> という微積分学の基本定理に、<span class="tex2jax_process">$k=1$</span> ならストークスの定理に、<span class="tex2jax_process">$k=2$</span> ならガウスの定理になる。すべてがこの一本の式に吸収される。
+<p>と書く。$\omega$ は $k$-form、$M$ は $(k+1)$ 次元領域、$\partial M$ はその $k$ 次元の境界である。$k=0$ なら $\int_{\partial M} f = f(B)-f(A) = \int_M df$ という微積分学の基本定理に、$k=1$ ならストークスの定理に、$k=2$ ならガウスの定理になる。すべてがこの一本の式に吸収される。
 </p>
-<p>この統一形の威力は §5.8 の <span class="tex2jax_process">$d^2=0$</span> との組み合わせでさらに際立つ。<span class="tex2jax_process">$\int_{\partial M} \omega = \int_M d\omega$</span> の <span class="tex2jax_process">$\omega$</span> を <span class="tex2jax_process">$d\omega$</span> に置き換えれば：
+<p>この統一形の威力は §5.8 の $d^2=0$ との組み合わせでさらに際立つ。$\int_{\partial M} \omega = \int_M d\omega$ の $\omega$ を $d\omega$ に置き換えれば：
 </p>
-<p>つまり <strong>「境界の境界は常に空」</strong>（<span class="tex2jax_process">$\partial(\partial M) = \emptyset$</span>）という幾何学的事実と、<strong><span class="tex2jax_process">$d^2=0$</span></strong> は互いに呼応している。<span class="tex2jax_process">$d^2=0$</span> はこの位相的な真理の、微分形式による代数的な写し絵なのである。
+<p>つまり <strong>「境界の境界は常に空」</strong>（$\partial(\partial M) = \emptyset$）という幾何学的事実と、<strong>$d^2=0$</strong> は互いに呼応している。$d^2=0$ はこの位相的な真理の、微分形式による代数的な写し絵なのである。
 </p>
 <blockquote><p>
-**注** （3次元までで十分）本書の舞台は 3次元空間だから、<span class="tex2jax_process">$M$</span> の次元は1・2・3のいずれかであり、<span class="tex2jax_process">$\omega$</span> は <span class="tex2jax_process">$0$</span>-form・<span class="tex2jax_process">$1$</span>-form・<span class="tex2jax_process">$2$</span>-form のいずれかである。<span class="tex2jax_process">$k=3$</span>（<span class="tex2jax_process">$M$</span> が4次元）には立ち入らない。しかしこの式が <span class="tex2jax_process">$k$</span> によらず成立するという事実は、頭の片隅に置いておいて損はない。<br>
+**注** （3次元までで十分）本書の舞台は 3次元空間だから、$M$ の次元は1・2・3のいずれかであり、$\omega$ は $0$-form・$1$-form・$2$-form のいずれかである。$k=3$（$M$ が4次元）には立ち入らない。しかしこの式が $k$ によらず成立するという事実は、頭の片隅に置いておいて損はない。<br>
 </p></blockquote>
-<h4 id="592-一般の-span-classtex2jaxprocessspan-form-の外微分">5.9.2 一般の <span class="tex2jax_process">$k$</span>-form の外微分</h4>
-<p>同様に、<span class="tex2jax_process">$d$</span> の作用も次数によらず一つのパターンにまとまる。任意の <span class="tex2jax_process">$k$</span>-form <span class="tex2jax_process">$\omega$</span> が係数 <span class="tex2jax_process">$a_{i_1\cdots i_k}$</span> と基底 <span class="tex2jax_process">$dx^{i_1}\wedge\cdots\wedge dx^{i_k}$</span> の和で書かれているとき：
+<h4 id="592-一般の--form-の外微分">5.9.2 一般の $k$-form の外微分</h4>
+<p>同様に、$d$ の作用も次数によらず一つのパターンにまとまる。任意の $k$-form $\omega$ が係数 $a_{i_1\cdots i_k}$ と基底 $dx^{i_1}\wedge\cdots\wedge dx^{i_k}$ の和で書かれているとき：
 </p>
-<p>本書で必要なのは <span class="tex2jax_process">$k=0,1,2$</span> の三つの場合だけであり、それぞれ §5.1（<span class="tex2jax_process">$df$</span>）、§5.5（<span class="tex2jax_process">$d\omega$</span>）、§5.7（<span class="tex2jax_process">$d\eta$</span>）で具体的に書き下した。上の一般形は「どの次数でも、係数を全微分してウェッジでつなぐ」という単一の原理に従っていることの確認にすぎない。
+<p>本書で必要なのは $k=0,1,2$ の三つの場合だけであり、それぞれ §5.1（$df$）、§5.5（$d\omega$）、§5.7（$d\eta$）で具体的に書き下した。上の一般形は「どの次数でも、係数を全微分してウェッジでつなぐ」という単一の原理に従っていることの確認にすぎない。
 </p>
 <h4 id="593-計算ルールまとめ">5.9.3 計算ルールまとめ</h4>
-<p>本章で構築した外微分 <span class="tex2jax_process">$d$</span> の全計算は、以下の 4 つのルールに集約される：
+<p>本章で構築した外微分 $d$ の全計算は、以下の 4 つのルールに集約される：
 </p>
 <ol>
-<li>**<span class="tex2jax_process">$0$</span>-form への作用**：<span class="tex2jax_process">$df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz$</span>（第1章 §1.2 以来の定義）</li>
-<li>**線形性**：<span class="tex2jax_process">$d(\omega_1 + \omega_2) = d\omega_1 + d\omega_2$</span></li>
-<li>**次数付きライプニッツ則**：<span class="tex2jax_process">$d(f\,\omega) = df \wedge \omega + f\,d\omega$</span></li>
-<li>**座標基底の外微分はゼロ**：<span class="tex2jax_process">$d(dx) = d(dy) = d(dz) = 0$</span></li>
+<li>**$0$-form への作用**：$df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz$（第1章 §1.2 以来の定義）</li>
+<li>**線形性**：$d(\omega_1 + \omega_2) = d\omega_1 + d\omega_2$</li>
+<li>**次数付きライプニッツ則**：$d(f\,\omega) = df \wedge \omega + f\,d\omega$</li>
+<li>**座標基底の外微分はゼロ**：$d(dx) = d(dy) = d(dz) = 0$</li>
 </ol>
-<p>ルール4 は、座標基底 <span class="tex2jax_process">$dx,dy,dz$</span> 自身には位置による係数の変化がなく、微小ループで測っても局所的なズレを生まない、という幾何的事実を反映している。§5.8 の <span class="tex2jax_process">$d^2=0$</span> とも整合する。
+<p>ルール4 は、座標基底 $dx,dy,dz$ 自身には位置による係数の変化がなく、微小ループで測っても局所的なズレを生まない、という幾何的事実を反映している。§5.8 の $d^2=0$ とも整合する。
 </p>
-<p>これら4つのルールさえあれば、<span class="tex2jax_process">$0$</span>-form から <span class="tex2jax_process">$3$</span>-form までの任意の形式の外微分が機械的に計算できる。実際に、本章で扱ったすべての計算はこのルールの組み合わせにすぎない。
+<p>これら4つのルールさえあれば、$0$-form から $3$-form までの任意の形式の外微分が機械的に計算できる。実際に、本章で扱ったすべての計算はこのルールの組み合わせにすぎない。
 </p>
 <blockquote><p>
-**注** （引き戻しとの可換性——§3.5.4 の伏線回収）第3章 §3.5.4 で予告したように、引き戻し <span class="tex2jax_process">$\Phi^*$</span> と外微分 <span class="tex2jax_process">$d$</span> のあいだには<br>
+**注** （引き戻しとの可換性——§3.5.4 の伏線回収）第3章 §3.5.4 で予告したように、引き戻し $\Phi^*$ と外微分 $d$ のあいだには<br>
 <br>
 </p></blockquote>
 <blockquote><p>
-という可換関係が成り立つ。「微分してから引き戻す」のと「引き戻してから微分する」のは同じ結果を与える。この性質は、これまでの4ルールからは直接導けないが、<span class="tex2jax_process">$d$</span> が「局所的なズレを測る」操作であり、<span class="tex2jax_process">$\Phi^*$</span> が「座標を焼き直す」操作であることを思い出せば自然に納得できる——局所的なズレの構造は、座標のとり方に依存しないのだ。この事実は、第11章で一般の多様体上の微分形式を考える際の重要な足場となる。<br>
+という可換関係が成り立つ。「微分してから引き戻す」のと「引き戻してから微分する」のは同じ結果を与える。この性質は、これまでの4ルールからは直接導けないが、$d$ が「局所的なズレを測る」操作であり、$\Phi^*$ が「座標を焼き直す」操作であることを思い出せば自然に納得できる——局所的なズレの構造は、座標のとり方に依存しないのだ。この事実は、第11章で一般の多様体上の微分形式を考える際の重要な足場となる。<br>
 </p></blockquote>
 <blockquote><p>
 **【ここまでのチェックポイント】**<br>
-- <span class="tex2jax_process">$\int_{\partial M} \omega = \int_M d\omega$</span> 一本で、微積分学の基本定理・ストークスの定理・ガウスの定理を統合できる。<br>
-- <span class="tex2jax_process">$d$</span> の計算は 4 ルール（<span class="tex2jax_process">$df$</span>、線形性、ライプニッツ則、<span class="tex2jax_process">$d(dx)=0$</span>）に集約される。<br>
-- <span class="tex2jax_process">$d^2=0$</span> と <span class="tex2jax_process">$\partial(\partial M)=\emptyset$</span> は代数的真理と幾何学的真理の呼応。<br>
+- $\int_{\partial M} \omega = \int_M d\omega$ 一本で、微積分学の基本定理・ストークスの定理・ガウスの定理を統合できる。<br>
+- $d$ の計算は 4 ルール（$df$、線形性、ライプニッツ則、$d(dx)=0$）に集約される。<br>
+- $d^2=0$ と $\partial(\partial M)=\emptyset$ は代数的真理と幾何学的真理の呼応。<br>
 </p></blockquote>
 <hr />
 <h3 id="510-積分から微分方程式へ物理法則の局所化">§5.10 積分から微分方程式へ——物理法則の局所化</h3>
@@ -440,94 +462,110 @@ window.MathJax = {
 <blockquote><p>
 **積分された量から、どのようにして局所法則を取り出すのか。**<br>
 </p></blockquote>
-<p>答えは、これまでに得た二つの道具——<strong>ストークスの定理</strong>と<strong>外微分 <span class="tex2jax_process">$d$</span></strong> ——にある。
+<p>答えは、これまでに得た二つの道具——<strong>ストークスの定理</strong>と<strong>外微分 $d$</strong> ——にある。
 </p>
 <p>物理学の多くの基本法則は、まず<strong>積分の形</strong>で発見される。ある領域の境界で測った量が、内部にある源の総和に等しい、という形だ：
 </p>
-<p>左辺は境界で測った積分（大域的な観測量）、右辺は内部の源の積分（大域的な総量）。<span class="tex2jax_process">$\omega$</span> と <span class="tex2jax_process">$\eta$</span> は、それぞれ適切な次数の微分形式である。
+<p>左辺は境界で測った積分（大域的な観測量）、右辺は内部の源の積分（大域的な総量）。$\omega$ と $\eta$ は、それぞれ適切な次数の微分形式である。
 </p>
-<p>ここにストークスの定理を左辺に適用する。<span class="tex2jax_process">$\int_{\partial M} \omega = \int_M d\omega$</span> だから：
+<p>ここにストークスの定理を左辺に適用する。$\int_{\partial M} \omega = \int_M d\omega$ だから：
 </p>
 <p>移項して：
 </p>
-<p>ここが決定的な瞬間だ。この等式が<strong>任意の領域 <span class="tex2jax_process">$M$</span></strong> について成り立つならば、被積分関数は各点で恒等的にゼロでなければならない。なぜなら、もし <span class="tex2jax_process">$d\omega - \eta \neq 0$</span> となる点があれば、その点の周りの微小領域で積分がゼロでなくなり矛盾するからだ。
+<p>ここが決定的な瞬間だ。この等式が<strong>任意の領域 $M$</strong> について成り立つならば、被積分関数は各点で恒等的にゼロでなければならない。なぜなら、もし $d\omega - \eta \neq 0$ となる点があれば、その点の周りの微小領域で積分がゼロでなくなり矛盾するからだ。
 </p>
 <p>したがって：
 </p>
-<p>これが<strong>積分法則から抽出された局所微分法則</strong>である。<span class="tex2jax_process">$d$</span> はまさに「積分方程式を微分方程式に変換する演算子」として機能したのだ。
+<p>これが<strong>積分法則から抽出された局所微分法則</strong>である。$d$ はまさに「積分方程式を微分方程式に変換する演算子」として機能したのだ。
 </p>
 <h4 id="5102-物理の実例">5.10.2 物理の実例</h4>
 <p>この構図は電磁気学の基本法則にも現れる。たとえば、閉じた曲線に沿って測る量と、その曲線が囲む面を貫く量が関係する法則は、左辺をストークスの定理で面積分に直すことで局所的な関係へ移る。また、閉曲面で測る量と内部の総量が関係する法則は、ガウスの定理を通じて体積の各点での関係へ移る。
 </p>
-<p>ここでは、電場や磁場をどの次数の形式として読むか、時間変化をどう入れるか、単位系をどう扱うかには踏み込まない。重要なのは、物理法則の多くが「境界での積分 <span class="tex2jax_process">$=$</span> 内部の総量」という姿をとり、<span class="tex2jax_process">$d$</span> がその法則を局所化する共通の機構を与える、という点である。
+<p>ここでは、電場や磁場をどの次数の形式として読むか、時間変化をどう入れるか、単位系をどう扱うかには踏み込まない。重要なのは、物理法則の多くが「境界での積分 $=$ 内部の総量」という姿をとり、$d$ がその法則を局所化する共通の機構を与える、という点である。
 </p>
 <blockquote><p>
 **【ここまでのチェックポイント】**<br>
-- 物理法則はしばしば <span class="tex2jax_process">$\int_{\partial M} \omega = \int_M \eta$</span> の形で与えられる。<br>
-- ストークスの定理で <span class="tex2jax_process">$\int_{\partial M} \omega = \int_M d\omega$</span> と書き換え、任意の <span class="tex2jax_process">$M$</span> で成立することから <span class="tex2jax_process">$d\omega = \eta$</span>（局所法則）を得る。<br>
-- <span class="tex2jax_process">$d$</span> は積分法則を微分法則に変換する演算子である。<br>
+- 物理法則はしばしば $\int_{\partial M} \omega = \int_M \eta$ の形で与えられる。<br>
+- ストークスの定理で $\int_{\partial M} \omega = \int_M d\omega$ と書き換え、任意の $M$ で成立することから $d\omega = \eta$（局所法則）を得る。<br>
+- $d$ は積分法則を微分法則に変換する演算子である。<br>
 </p></blockquote>
 <hr />
 <h3 id="511-第II部への展望ホッジ・スターへの伏線">§5.11 第II部への展望——ホッジ・スターへの伏線</h3>
-<p>本章で我々は、外微分 <span class="tex2jax_process">$d$</span> という強力な演算子を手に入れた。<span class="tex2jax_process">$d$</span> は：
+<p>本章で我々は、外微分 $d$ という強力な演算子を手に入れた。$d$ は：
 </p>
 <ul>
-<li><span class="tex2jax_process">$0$</span>-form <span class="tex2jax_process">$\to$</span> <span class="tex2jax_process">$1$</span>-form：<span class="tex2jax_process">$df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz$</span></li>
-<li><span class="tex2jax_process">$1$</span>-form <span class="tex2jax_process">$\to$</span> <span class="tex2jax_process">$2$</span>-form：<span class="tex2jax_process">$d\omega = (\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z})\,dy\wedge dz + (\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x})\,dz\wedge dx + (\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y})\,dx\wedge dy$</span></li>
-<li><span class="tex2jax_process">$2$</span>-form <span class="tex2jax_process">$\to$</span> <span class="tex2jax_process">$3$</span>-form：<span class="tex2jax_process">$d\eta = (\frac{\partial A}{\partial x}+\frac{\partial B}{\partial y}+\frac{\partial C}{\partial z})\,dx\wedge dy\wedge dz$</span></li>
+<li>$0$-form $\to$ $1$-form：$df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz$</li>
+<li>$1$-form $\to$ $2$-form：$d\omega = (\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z})\,dy\wedge dz + (\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x})\,dz\wedge dx + (\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y})\,dx\wedge dy$</li>
+<li>$2$-form $\to$ $3$-form：$d\eta = (\frac{\partial A}{\partial x}+\frac{\partial B}{\partial y}+\frac{\partial C}{\partial z})\,dx\wedge dy\wedge dz$</li>
 </ul>
-<p>次数を一段ずつ上げるたびに、係数は異なるパターンで組み替わる。そして <span class="tex2jax_process">$d^2=0$</span> が、これらの階層の間に矛盾が入り込めないことを保証する。
+<p>次数を一段ずつ上げるたびに、係数は異なるパターンで組み替わる。そして $d^2=0$ が、これらの階層の間に矛盾が入り込めないことを保証する。
 </p>
-<p>しかし、ここで一つの非対称性が目につく。<span class="tex2jax_process">$0$</span>-form と <span class="tex2jax_process">$3$</span>-form は独立成分が 1 つ、<span class="tex2jax_process">$1$</span>-form と <span class="tex2jax_process">$2$</span>-form は独立成分が 3 つ——<span class="tex2jax_process">$1, 3, 3, 1$</span> という対称性がある（第2章 §2.5.9–§2.5.10 で見た）。この対称性は偶然ではない。デカルト座標の 3 次元空間では、長さ・面積・体積を測る規則を加えることで、同じ情報量の形式どうしを結びつける「辞書」が現れる。
+<p>しかし、ここで一つの非対称性が目につく。$0$-form と $3$-form は独立成分が 1 つ、$1$-form と $2$-form は独立成分が 3 つ——$1, 3, 3, 1$ という対称性がある（第2章 §2.5.9–§2.5.10 で見た）。この対称性は偶然ではない。デカルト座標の 3 次元空間では、長さ・面積・体積を測る規則を加えることで、同じ情報量の形式どうしを結びつける「辞書」が現れる。
 </p>
-<p>その辞書が、次章で導入するホッジ・スター <span class="tex2jax_process">$\ast$</span> である。ただし、<span class="tex2jax_process">$\ast$</span> は単なる記号の置き換えではない。どの方向をどの面に対応させるか、面積や体積をどう測るか、向きをどう決めるかに依存する。そのため本章では、具体的な対応式はまだ使わない。
+<p>その辞書が、次章で導入するホッジ・スター $\ast$ である。ただし、$\ast$ は単なる記号の置き換えではない。どの方向をどの面に対応させるか、面積や体積をどう測るか、向きをどう決めるかに依存する。そのため本章では、具体的な対応式はまだ使わない。
 </p>
-<p>ここまでで構築したのは、あくまで <span class="tex2jax_process">$d$</span> である。<span class="tex2jax_process">$d$</span> は次数を一つ上げ、局所的なズレを取り出し、積分法則を局所法則へ変換する。次章では、そこに「測り方」の規則を加えることで、これまで見慣れていたベクトル解析の各演算との対応が見えてくる。
+<p>ここまでで構築したのは、あくまで $d$ である。$d$ は次数を一つ上げ、局所的なズレを取り出し、積分法則を局所法則へ変換する。次章では、そこに「測り方」の規則を加えることで、これまで見慣れていたベクトル解析の各演算との対応が見えてくる。
 </p>
-<p>次章では、この <span class="tex2jax_process">$\ast$</span> を定義し、<span class="tex2jax_process">$d$</span> と <span class="tex2jax_process">$\ast$</span> を両輪として第II部の核心——ナブラの解体——へと進む。
+<p>次章では、この $\ast$ を定義し、$d$ と $\ast$ を両輪として第II部の核心——ナブラの解体——へと進む。
 </p>
 <hr />
 <blockquote><p>
 **【ここまでのチェックポイント — 第5章全体】**<br>
-- 外微分 <span class="tex2jax_process">$d$</span> は <span class="tex2jax_process">$k$</span>-form を <span class="tex2jax_process">$(k+1)$</span>-form に写す演算子。<span class="tex2jax_process">$0$</span>-form <span class="tex2jax_process">$\to$</span> <span class="tex2jax_process">$1$</span>-form（<span class="tex2jax_process">$df$</span>）、<span class="tex2jax_process">$1$</span>-form <span class="tex2jax_process">$\to$</span> <span class="tex2jax_process">$2$</span>-form、<span class="tex2jax_process">$2$</span>-form <span class="tex2jax_process">$\to$</span> <span class="tex2jax_process">$3$</span>-form。<br>
-- 計算ルールは 4 つ：<span class="tex2jax_process">$df$</span> の定義、線形性、ライプニッツ則 <span class="tex2jax_process">$d(f\omega) = df\wedge\omega + f\,d\omega$</span>、<span class="tex2jax_process">$d(dx)=d(dy)=d(dz)=0$</span>。<br>
-- 幾何学的起源は §5.3 の微小ループ解剖：閉ループのズレが面積に比例し、その比例係数が <span class="tex2jax_process">$d\omega$</span>。<br>
-- ストークスの定理 <span class="tex2jax_process">$\int_{\partial M} \omega = \int_M d\omega$</span> は、境界と内部をつなぐ普遍的な橋。<br>
-- <span class="tex2jax_process">$d^2 = 0$</span> は混合偏微分の対称性に由来し、幾何学的には <span class="tex2jax_process">$\partial(\partial M) = \emptyset$</span> に対応。<br>
-- <span class="tex2jax_process">$d$</span> は積分法則を局所微分法則へ変換する演算子——物理学の定式化に不可欠な役割を果たす。<br>
-- 次章では、長さ・面積・体積を測る規則を加え、ホッジ・スター <span class="tex2jax_process">$\ast$</span> を通じて <span class="tex2jax_process">$d$</span> とベクトル解析の演算との対応を整理する。<br>
+- 外微分 $d$ は $k$-form を $(k+1)$-form に写す演算子。$0$-form $\to$ $1$-form（$df$）、$1$-form $\to$ $2$-form、$2$-form $\to$ $3$-form。<br>
+- 計算ルールは 4 つ：$df$ の定義、線形性、ライプニッツ則 $d(f\omega) = df\wedge\omega + f\,d\omega$、$d(dx)=d(dy)=d(dz)=0$。<br>
+- 幾何学的起源は §5.3 の微小ループ解剖：閉ループのズレが面積に比例し、その比例係数が $d\omega$。<br>
+- ストークスの定理 $\int_{\partial M} \omega = \int_M d\omega$ は、境界と内部をつなぐ普遍的な橋。<br>
+- $d^2 = 0$ は混合偏微分の対称性に由来し、幾何学的には $\partial(\partial M) = \emptyset$ に対応。<br>
+- $d$ は積分法則を局所微分法則へ変換する演算子——物理学の定式化に不可欠な役割を果たす。<br>
+- 次章では、長さ・面積・体積を測る規則を加え、ホッジ・スター $\ast$ を通じて $d$ とベクトル解析の演算との対応を整理する。<br>
 </p></blockquote>
 <hr />
 <h2 id="付録C外微分の行列表示">付録C：外微分の行列表示</h2>
-<p>本章本文は基底 <span class="tex2jax_process">$dx, dy, dz$</span> とウェッジ積の代数で進めた。ここでは第2章以来の本書の真骨頂——<strong>成分をひとつ残らず行列に並べる</strong>——によって、外微分を行列表示の言葉で書き直す。
+<p>本章本文は基底 $dx, dy, dz$ とウェッジ積の代数で進めた。ここでは第2章以来の本書の真骨頂——<strong>成分をひとつ残らず行列に並べる</strong>——によって、外微分を行列表示の言葉で書き直す。
 </p>
-<h3 id="C1-span-classtex2jaxprocessspan-formspan-classtex2jaxprocessspan-の-span-classtex2jaxprocessspan-行ベクトル">C.1 <span class="tex2jax_process">$0$</span>-form：<span class="tex2jax_process">$df$</span> の <span class="tex2jax_process">$1 \times 3$</span> 行ベクトル</h3>
-<p>行ベクトル（<span class="tex2jax_process">$1 \times 3$</span> 行列）として：
+<h3 id="C1--form-の-行ベクトル">C.1 $0$-form：$df$ の $1 \times 3$ 行ベクトル</h3>
+<p>$f = f(x,y,z)$ に対し、第1章 §1.2 の定義どおり：
+</p>
+<p>行ベクトル（$1 \times 3$ 行列）として：
 </p>
 <p>である。
 </p>
-<h3 id="C2-span-classtex2jaxprocessspan-form係数のヤコビ行列-span-classtex2jaxprocessspan">C.2 <span class="tex2jax_process">$1$</span>-form：係数のヤコビ行列 <span class="tex2jax_process">$\mathbf{J}$</span></h3>
-<p>とする。これは <span class="tex2jax_process">$(P,Q,R)$</span> を「縦に積んだ」ベクトル場のヤコビ行列にあたる。§5.1 で「単なる偏微分の行列では足りない」と述べたのは、まさにこの <span class="tex2jax_process">$\mathbf{J}$</span> が反対称でないからだ。
+<h3 id="C2--form係数のヤコビ行列">C.2 $1$-form：係数のヤコビ行列 $\mathbf{J}$</h3>
+<p>$\omega = P\,dx + Q\,dy + R\,dz$ に対し、係数 $(P,Q,R)$ の偏微分を<strong>すべて</strong>並べた $3 \times 3$ 行列を：
 </p>
-<h3 id="C3-span-classtex2jaxprocessspan">C.3 <span class="tex2jax_process">$d\omega = \mathbf{J}^T - \mathbf{J}$</span></h3>
+<p>とする。これは $(P,Q,R)$ を「縦に積んだ」ベクトル場のヤコビ行列にあたる。§5.1 で「単なる偏微分の行列では足りない」と述べたのは、まさにこの $\mathbf{J}$ が反対称でないからだ。
+</p>
+<h3 id="C3">C.3 $d\omega = \mathbf{J}^T - \mathbf{J}$</h3>
 <p>§5.5 の結果は：
 </p>
-<p>第2章 §2.4.4 の流儀に従い、任意の縦ベクトル <span class="tex2jax_process">$\mathbf{v}_1, \mathbf{v}_2$</span> に対して <span class="tex2jax_process">$(d\omega)(\mathbf{v}_1, \mathbf{v}_2) = \mathbf{v}_1^T \mathbf{M} \mathbf{v}_2$</span> となる反対称行列 <span class="tex2jax_process">$\mathbf{M}$</span> を求めよう。
+<p>第2章 §2.4.4 の流儀に従い、任意の縦ベクトル $\mathbf{v}_1, \mathbf{v}_2$ に対して $(d\omega)(\mathbf{v}_1, \mathbf{v}_2) = \mathbf{v}_1^T \mathbf{M} \mathbf{v}_2$ となる反対称行列 $\mathbf{M}$ を求めよう。
 </p>
-<p>すなわち、2章で求めた<span class="tex2jax_process">$2$</span>-formの行列表示と照らし合わせて：
+<p>$\mathbf{J}^T - \mathbf{J}$ の成分を書き下す：
 </p>
-<p>となり、<strong>外微分 <span class="tex2jax_process">$d\omega$</span> の行列表示は、転置から係数のヤコビ行列を引いた反対称行列である。</strong>
+<p>すなわち、2章で求めた$2$-formの行列表示と照らし合わせて：
 </p>
-<h3 id="C4-span-classtex2jaxprocessspan-formspan-classtex2jaxprocessspan-とヤコビ行列のトレース">C.4 <span class="tex2jax_process">$2$</span>-form：<span class="tex2jax_process">$d\eta$</span> とヤコビ行列のトレース</h3>
-<p>とすると、§5.7 の結果 <span class="tex2jax_process">$d\eta = (\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z})\,dx \wedge dy \wedge dz$</span> の係数は <span class="tex2jax_process">$\mathbf{J}_\eta$</span> の<strong>トレース</strong>（対角成分の和）に一致する：
+<p>となり、<strong>外微分 $d\omega$ の行列表示は、転置から係数のヤコビ行列を引いた反対称行列である。</strong>
 </p>
-<h4 id="C41-span-classtex2jaxprocessspan-の27成分3枚の行列に展開する">C.4.1 <span class="tex2jax_process">$d\eta$</span> の27成分——3枚の行列に展開する</h4>
-<p>この <span class="tex2jax_process">$27$</span> 成分が <span class="tex2jax_process">$dx^a \wedge dx^b \wedge dx^c$</span> のウェッジ積と縮約するとき、添字の重複がある項（対角成分や <span class="tex2jax_process">$b=c$</span> 等）は <span class="tex2jax_process">$dx \wedge dx = 0$</span> で消え、生き残るのは <span class="tex2jax_process">$a,b,c$</span> がすべて異なる <span class="tex2jax_process">$6$</span> 項（<span class="tex2jax_process">$3!$</span> の順列）だけ。それぞれを符号つきで和をとると、因子 <span class="tex2jax_process">$\frac{1}{2}$</span> の補正も入って
+<h3 id="C4--form-とヤコビ行列のトレース">C.4 $2$-form：$d\eta$ とヤコビ行列のトレース</h3>
+<p>$\eta = A\,dy \wedge dz + B\,dz \wedge dx + C\,dx \wedge dy$ に対し、係数 $(A,B,C)$ のヤコビ行列を：
 </p>
-<p>すなわち <span class="tex2jax_process">$d\eta$</span> は <span class="tex2jax_process">$27$</span> 成分のうち <span class="tex2jax_process">$6$</span> 項が生き残り、ペアで足し合わさって <span class="tex2jax_process">$\mathbf{J}_\eta$</span> のトレースへ収束する。
+<p>とすると、§5.7 の結果 $d\eta = (\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z})\,dx \wedge dy \wedge dz$ の係数は $\mathbf{J}_\eta$ の<strong>トレース</strong>（対角成分の和）に一致する：
 </p>
-<h3 id="C5-span-classtex2jaxprocessspan-とヘッセ行列">C.5 <span class="tex2jax_process">$d^2 f = 0$</span> とヘッセ行列</h3>
-<p>は <span class="tex2jax_process">$f$</span> の 2 階偏導関数を並べたものだ。<span class="tex2jax_process">$f$</span> が <span class="tex2jax_process">$C^2$</span> 級なら <span class="tex2jax_process">$\mathbf{H}_f$</span> は対称行列（<span class="tex2jax_process">$\frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x}$</span> など）である。
+<h4 id="C41-の27成分3枚の行列に展開する">C.4.1 $d\eta$ の27成分——3枚の行列に展開する</h4>
+<p>$\eta$ の反対称成分は $\eta_{yz}=A,\; \eta_{zx}=B,\; \eta_{xy}=C$（他は符号反転または $0$）である。$d\eta$ の成分 $d\eta_{abc} = \frac{\partial \eta_{bc}}{\partial x^a}$ は $a,b,c \in \{x,y,z\}$ で $3^3=27$ 個。$a$ を固定した $3 \times 3$ 行列3枚に並べると：
+</p>
+<p>この $27$ 成分が $dx^a \wedge dx^b \wedge dx^c$ のウェッジ積と縮約するとき、添字の重複がある項（対角成分や $b=c$ 等）は $dx \wedge dx = 0$ で消え、生き残るのは $a,b,c$ がすべて異なる $6$ 項（$3!$ の順列）だけ。それぞれを符号つきで和をとると、因子 $\frac{1}{2}$ の補正も入って
+</p>
+<p>すなわち $d\eta$ は $27$ 成分のうち $6$ 項が生き残り、ペアで足し合わさって $\mathbf{J}_\eta$ のトレースへ収束する。
+</p>
+<p>$3$-form は基底が $dx \wedge dy \wedge dz$ の 1 つだけなので、行列としてはスカラー係数に縮退している。
+</p>
+<h3 id="C5-とヘッセ行列">C.5 $d^2 f = 0$ とヘッセ行列</h3>
+<p>$0$-form $f$ のヘッセ行列：
+</p>
+<p>は $f$ の 2 階偏導関数を並べたものだ。$f$ が $C^2$ 級なら $\mathbf{H}_f$ は対称行列（$\frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x}$ など）である。
+</p>
+<p>$d(df) = 0$ は §5.5 の $d\omega$ 公式で $(P,Q,R) = (\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z})$ とおいたもの。$\mathbf{J} = \mathbf{H}_f$ であり、$\mathbf{H}_f$ が対称だから $\mathbf{J}^T - \mathbf{J} = 0$、したがって $d(df) = 0$。行列の言葉では「ヘッセ行列の反対称成分がゼロ」と言い換えられる。
 </p>
 <p>\newpage
 </p>

@@ -37,12 +37,10 @@
 </style>
 <script>
 window.MathJax = {
-  loader: { load: ['[tex]/bm', '[tex]/ams'] },
   tex: {
     inlineMath: [['$', '$']],
     displayMath: [['$$', '$$']],
-    processEscapes: true,
-    packages: {'[+]': ['bm', 'ams']}
+    processEscapes: true
   },
   options: {
     enableMenu: false
@@ -69,7 +67,7 @@ window.MathJax = {
 <li class="level-1"><a href="ch09.html" id="link-ch09.html">第9章</a></li>
 <li class="level-1"><a href="ch10.html" id="link-ch10.html">第10章</a></li>
 <li class="level-1"><a href="ch11.html" id="link-ch11.html">第11章</a></li>
-<li class="level-1"><a href="ch12.html" class="active" id="link-ch12.html">第12章</a><ul class="sub-toc"><li class="level-3"><a href="#120-2本を1本に">§12.0 2本を1本に</a></li><li class="level-3"><a href="#121-虚数で一本に--マクスウェル方程式の統合">§12.1 虚数で一本に —— マクスウェル方程式の統合</a></li><li class="level-3"><a href="#122-パウリ行列--異なる次数を足す魔法">§12.2 パウリ行列 —— 異なる次数を足す魔法</a></li><li class="level-3"><a href="#123-ディラック演算子と真のナブラ">§12.3 ディラック演算子と真のナブラ</a></li><li class="level-3"><a href="#124-演算子span-classtex2jaxprocessspan">§12.4 演算子<span class="tex2jax_process">$\nabla$</span></a></li></ul></li>
+<li class="level-1"><a href="ch12.html" class="active" id="link-ch12.html">第12章</a><ul class="sub-toc"><li class="level-3"><a href="#120-2本を1本に">§12.0 2本を1本に</a></li><li class="level-3"><a href="#121-虚数で一本に--マクスウェル方程式の統合">§12.1 虚数で一本に —— マクスウェル方程式の統合</a></li><li class="level-3"><a href="#122-パウリ行列--異なる次数を足す魔法">§12.2 パウリ行列 —— 異なる次数を足す魔法</a></li><li class="level-3"><a href="#123-ディラック演算子と真のナブラ">§12.3 ディラック演算子と真のナブラ</a></li><li class="level-3"><a href="#124-演算子">§12.4 演算子$\nabla$</a></li></ul></li>
 <li class="level-1"><a href="postscript.html" id="link-postscript.html">おわりに</a></li>
 <li class="level-1"><a href="refs.html" id="link-refs.html">参考文献（と著者からのコメント）</a></li>
 <li class="level-1"><a href="appendix.html" id="link-appendix.html">付録</a></li>
@@ -79,9 +77,9 @@ window.MathJax = {
     <article class="markdown-body">
       <h1 id="第12章真のナブラ--クリフォード・パウリ・ディラック・ハミルトン">第12章：真のナブラ —— クリフォード・パウリ・ディラック・ハミルトン</h1>
 <h3 id="120-2本を1本に">§12.0 2本を1本に</h3>
-<p>　第10章の注釈内で、実はこんなことを書いていた——「なぜ2本なのか。<span class="tex2jax_process">$dF=0$</span> と <span class="tex2jax_process">$d(\ast F)=\mu_0(\ast\mathcal{J})$</span> を1本にまとめられないのか」と。
+<p>　第10章の注釈内で、実はこんなことを書いていた——「なぜ2本なのか。$dF=0$ と $d(\ast F)=\mu_0(\ast\mathcal{J})$ を1本にまとめられないのか」と。
 </p>
-<p>できるのだ。それも、あっさりと。虚数単位 <span class="tex2jax_process">$i$</span> を持ち出せば、たったの一行で済む。本章ではまずその「トリック」を見てから、その先にあるもっと深い統合——パウリ行列とディラック演算子——へと進む。
+<p>できるのだ。それも、あっさりと。虚数単位 $i$ を持ち出せば、たったの一行で済む。本章ではまずその「トリック」を見てから、その先にあるもっと深い統合——パウリ行列とディラック演算子——へと進む。
 </p>
 <blockquote><p>
 **注** （本章の立ち位置）本章は完全なおまけであり、本書の本線からは外れている。第8章でベクトル解析の書き換えは完了し、第10章でマクスウェル方程式の行列展開も終えた。本章では、厳密な幾何代数（クリフォード代数）の教科書を書くつもりはない。目的は、本書で解体してきた grad・rot・div が、パウリ行列とディラック演算子の中で再び一つの演算へ統合される様子を、計算として見ることである。<br>
@@ -90,15 +88,19 @@ window.MathJax = {
 <h3 id="121-虚数で一本に--マクスウェル方程式の統合">§12.1 虚数で一本に —— マクスウェル方程式の統合</h3>
 <p>第10章で我々は、マクスウェル方程式を
 </p>
-<p>の2本に集約した。ここで <span class="tex2jax_process">$F$</span> も <span class="tex2jax_process">$\ast F$</span> も <span class="tex2jax_process">$2$</span>-form であることに注目しよう。4次元時空では、ホッジ・スター <span class="tex2jax_process">$\ast$</span> は <span class="tex2jax_process">$2$</span>-form を <span class="tex2jax_process">$2$</span>-form に写す。だから <span class="tex2jax_process">$F$</span> と <span class="tex2jax_process">$\ast F$</span> は同じ次数の形式だ。
+<p>の2本に集約した。ここで $F$ も $\ast F$ も $2$-form であることに注目しよう。4次元時空では、ホッジ・スター $\ast$ は $2$-form を $2$-form に写す。だから $F$ と $\ast F$ は同じ次数の形式だ。
 </p>
-<p>同じ次数なら、足し算に支障はない。虚数単位 <span class="tex2jax_process">$i$</span> を使って一つの複素 <span class="tex2jax_process">$2$</span>-form を作る。
+<p>同じ次数なら、足し算に支障はない。虚数単位 $i$ を使って一つの複素 $2$-form を作る。
+</p>
+<p>$G$ に外微分 $d$ を作用させる。$d$ は実数の微分演算子だから、$d(i\ast F) = i\,d(\ast F)$ である。
 </p>
 <p>すなわち
 </p>
-<p>これだけだ。<span class="tex2jax_process">$dF=0$</span> と <span class="tex2jax_process">$d(\ast F)=\mu_0(\ast\mathcal{J})$</span> の2本が、たった一本の複素方程式に統合された。<span class="tex2jax_process">$F$</span> と <span class="tex2jax_process">$\ast F$</span> という実部と虚部が、それぞれ無源側と有源側のマクスウェル方程式を分担している。
+<p>これだけだ。$dF=0$ と $d(\ast F)=\mu_0(\ast\mathcal{J})$ の2本が、たった一本の複素方程式に統合された。$F$ と $\ast F$ という実部と虚部が、それぞれ無源側と有源側のマクスウェル方程式を分担している。
 </p>
-<p>しかし、ここで立ち止まって考えてほしい。このトリックが成り立つのは、<strong>たまたま</strong> 4次元で <span class="tex2jax_process">$\ast$</span> が <span class="tex2jax_process">$2$</span>-form を <span class="tex2jax_process">$2$</span>-form に写すからだ。一般の <span class="tex2jax_process">$n$</span> 次元では <span class="tex2jax_process">$\ast$</span> は <span class="tex2jax_process">$k$</span>-form を <span class="tex2jax_process">$(n-k)$</span>-form に写す。<span class="tex2jax_process">$2$</span>-form と <span class="tex2jax_process">$2$</span>-form を足せるのは <span class="tex2jax_process">$n=4$</span> の特権であり、ましてや <span class="tex2jax_process">$1$</span>-form と <span class="tex2jax_process">$2$</span>-form を直接足すことは、通常の微分形式の枠組みでは許されていない。
+<p>しかし、ここで立ち止まって考えてほしい。このトリックが成り立つのは、<strong>たまたま</strong> 4次元で $\ast$ が $2$-form を $2$-form に写すからだ。一般の $n$ 次元では $\ast$ は $k$-form を $(n-k)$-form に写す。$2$-form と $2$-form を足せるのは $n=4$ の特権であり、ましてや $1$-form と $2$-form を直接足すことは、通常の微分形式の枠組みでは許されていない。
+</p>
+<p>$d$ と $\ast$ を組み合わせたとき、grad（$0\to1$）、rot（$1\to1$）、div（$1\to0$）といった異なる次数の間の変換が現れる。これらの元を一つの代数の中でまとめて扱うことができれば、$\nabla$ の解体ではなく、$\nabla$ の<strong>統合</strong>ができるはずだ。
 </p>
 <p>異なる次数の形式を足し合わせる——そんな「魔法の箱」はないものだろうか。
 </p>
@@ -107,111 +109,123 @@ window.MathJax = {
 <p>実はある。物理学者たちが量子力学のために発見した道具が、そのままこの魔法の箱として使える。<strong>パウリ行列</strong>だ。
 </p>
 <h4 id="1221-パウリ行列の定義と掛け算">12.2.1 パウリ行列の定義と掛け算</h4>
-<p>パウリ行列 <span class="tex2jax_process">$\sigma_1, \sigma_2, \sigma_3$</span> は次の <span class="tex2jax_process">$2\times2$</span> 行列である。
+<p>パウリ行列 $\sigma_1, \sigma_2, \sigma_3$ は次の $2\times2$ 行列である。
 </p>
-<p>これらの掛け算規則を調べてみよう。単独では <span class="tex2jax_process">$\sigma_1^2 = \sigma_2^2 = \sigma_3^2 = I$</span>（単位行列）であり、異なるもの同士では <span class="tex2jax_process">$\sigma_1\sigma_2 = -\sigma_2\sigma_1$</span> という<strong>反可換性</strong>が成り立つ。積は全部で9通りある。
+<p>これらの掛け算規則を調べてみよう。単独では $\sigma_1^2 = \sigma_2^2 = \sigma_3^2 = I$（単位行列）であり、異なるもの同士では $\sigma_1\sigma_2 = -\sigma_2\sigma_1$ という<strong>反可換性</strong>が成り立つ。積は全部で9通りある。
 </p>
-<p>この9通りの積を、対称部分と反対称部分に分解してみよう。第2章でウェッジ積 <span class="tex2jax_process">$\wedge$</span> を反対称化によって導入したのと同じ発想である。
+<p>この9通りの積を、対称部分と反対称部分に分解してみよう。第2章でウェッジ積 $\wedge$ を反対称化によって導入したのと同じ発想である。
 </p>
-<p>同じ添字どうし（<span class="tex2jax_process">$\sigma_1\sigma_1$</span>, <span class="tex2jax_process">$\sigma_2\sigma_2$</span>, <span class="tex2jax_process">$\sigma_3\sigma_3$</span>）の対称部分は <span class="tex2jax_process">$I$</span>、反対称部分は <span class="tex2jax_process">$0$</span> だ。異なる添字の場合は、たとえば <span class="tex2jax_process">$\sigma_1\sigma_2 = i\sigma_3$</span> について、
+<p>同じ添字どうし（$\sigma_1\sigma_1$, $\sigma_2\sigma_2$, $\sigma_3\sigma_3$）の対称部分は $I$、反対称部分は $0$ だ。異なる添字の場合は、たとえば $\sigma_1\sigma_2 = i\sigma_3$ について、
 </p>
-<p>という具合に、異なる添字の積は純粋に反対称である。対称部分は添字が同じときだけ <span class="tex2jax_process">$I$</span>、それ以外は <span class="tex2jax_process">$0$</span>——これは第6章で導入した計量（デカルト座標では単位行列）が、パウリ行列の積の対称部分として姿を現したことにほかならない。反対称部分は添字を入れ替えると符号が反転する——第2章のウェッジ積 <span class="tex2jax_process">$dx\wedge dy = -dy\wedge dx$</span> とまったく同じ構造だ。
+<p>という具合に、異なる添字の積は純粋に反対称である。対称部分は添字が同じときだけ $I$、それ以外は $0$——これは第6章で導入した計量（デカルト座標では単位行列）が、パウリ行列の積の対称部分として姿を現したことにほかならない。反対称部分は添字を入れ替えると符号が反転する——第2章のウェッジ積 $dx\wedge dy = -dy\wedge dx$ とまったく同じ構造だ。
 </p>
-<p>パウリ行列の積は、つねに「内積（対称部分）<span class="tex2jax_process">$+$</span> ウェッジ積（反対称部分）」に分解される。この一点が、パウリ行列のすべての魔法の源である。
+<p>パウリ行列の積は、つねに「内積（対称部分）$+$ ウェッジ積（反対称部分）」に分解される。この一点が、パウリ行列のすべての魔法の源である。
 </p>
 <h4 id="1222-ベクトルをパウリ行列で書く">12.2.2 ベクトルをパウリ行列で書く</h4>
-<p>3次元ベクトル <span class="tex2jax_process">$\mathbf{v} = (v_1, v_2, v_3)$</span> をパウリ行列で表してみよう。
+<p>3次元ベクトル $\mathbf{v} = (v_1, v_2, v_3)$ をパウリ行列で表してみよう。
 </p>
-<p>二つのベクトル <span class="tex2jax_process">$\mathbf{v}, \mathbf{w}$</span> に対応するパウリ行列 <span class="tex2jax_process">$V = \mathbf{v}\!\cdot\!\bm{\sigma}$</span>, <span class="tex2jax_process">$W = \mathbf{w}\!\cdot\!\bm{\sigma}$</span> の積を計算する。
+<p>二つのベクトル $\mathbf{v}, \mathbf{w}$ に対応するパウリ行列 $V = \mathbf{v}\!\cdot\!\bm{\sigma}$, $W = \mathbf{w}\!\cdot\!\bm{\sigma}$ の積を計算する。
 </p>
 <p>上記の9通りの積を各項に適用する。非ゼロの置き換えだけ書けば
 </p>
-<p>と、これらの添字を逆順にした <span class="tex2jax_process">$\sigma_2\sigma_1 = -i\sigma_3$</span>, <span class="tex2jax_process">$\sigma_3\sigma_2 = -i\sigma_1$</span>, <span class="tex2jax_process">$\sigma_1\sigma_3 = -i\sigma_2$</span> の計9通りである。<span class="tex2jax_process">$I$</span> の係数（対称部分＝内積）と <span class="tex2jax_process">$\sigma_1,\sigma_2,\sigma_3$</span> の係数（反対称部分＝ウェッジ積）をそれぞれ集める。
+<p>と、これらの添字を逆順にした $\sigma_2\sigma_1 = -i\sigma_3$, $\sigma_3\sigma_2 = -i\sigma_1$, $\sigma_1\sigma_3 = -i\sigma_2$ の計9通りである。$I$ の係数（対称部分＝内積）と $\sigma_1,\sigma_2,\sigma_3$ の係数（反対称部分＝ウェッジ積）をそれぞれ集める。
 </p>
-<p>と、内積 <span class="tex2jax_process">$+$</span> ウェッジ積の形にまとまる。内積と外積が、<strong>一つの積 <span class="tex2jax_process">$VW$</span> から同時に</strong>現れた。
+<p>$\sigma_1,\sigma_2,\sigma_3$ の係数カッコ内は、第2章で定義したウェッジ積 $\mathbf{v}\wedge\mathbf{w}$ の各成分そのものである。したがって
 </p>
-<p>これが「魔法の箱」の正体だ。パウリ行列の積は、内積（<span class="tex2jax_process">$0$</span>-form に相当するスカラー）と外積（<span class="tex2jax_process">$2$</span>-form に相当するウェッジ積）を、<strong>一つの演算で同時に</strong>生み出す。通常の微分形式では別々の次数に属していたものが、パウリ行列の代数の中では一つの <span class="tex2jax_process">$2\times2$</span> 行列として共存している。
+<p>と、内積 $+$ ウェッジ積の形にまとまる。内積と外積が、<strong>一つの積 $VW$ から同時に</strong>現れた。
+</p>
+<p>これが「魔法の箱」の正体だ。パウリ行列の積は、内積（$0$-form に相当するスカラー）と外積（$2$-form に相当するウェッジ積）を、<strong>一つの演算で同時に</strong>生み出す。通常の微分形式では別々の次数に属していたものが、パウリ行列の代数の中では一つの $2\times2$ 行列として共存している。
 </p>
 <blockquote><p>
-**注** （なぜ <span class="tex2jax_process">$2\times2$</span> なのか）ベクトルを <span class="tex2jax_process">$2\times2$</span> 行列で表すのは奇妙に思えるかもしれない。しかし、内積とウェッジ積の両方を一つの積で表現するには、少なくとも非可換な代数が必要であり、その最小の実現が <span class="tex2jax_process">$2\times2$</span> 複素行列なのである。本書の流儀でいえば、<span class="tex2jax_process">$1$</span>-form（横ベクトル <span class="tex2jax_process">$1\times3$</span>）と <span class="tex2jax_process">$2$</span>-form（反対称 <span class="tex2jax_process">$3\times3$</span> 行列）という次数の異なる二つの対象を、一つの <span class="tex2jax_process">$2\times2$</span> 行列の中に押し込めた——そう考えればよい。<br>
+**注** （なぜ $2\times2$ なのか）ベクトルを $2\times2$ 行列で表すのは奇妙に思えるかもしれない。しかし、内積とウェッジ積の両方を一つの積で表現するには、少なくとも非可換な代数が必要であり、その最小の実現が $2\times2$ 複素行列なのである。本書の流儀でいえば、$1$-form（横ベクトル $1\times3$）と $2$-form（反対称 $3\times3$ 行列）という次数の異なる二つの対象を、一つの $2\times2$ 行列の中に押し込めた——そう考えればよい。<br>
 </p></blockquote>
 <h4 id="1223-スカラーも混ぜて足す">12.2.3 スカラーも混ぜて足す</h4>
-<p>ここまでで、ベクトル（<span class="tex2jax_process">$1$</span>-form）とウェッジ積（<span class="tex2jax_process">$2$</span>-form）が <span class="tex2jax_process">$VW$</span> という一通りの計算で同時に出てくることがわかった。さらに一歩進めて、スカラー（<span class="tex2jax_process">$0$</span>-form）そのものも同じ代数に混ぜよう。
+<p>ここまでで、ベクトル（$1$-form）とウェッジ積（$2$-form）が $VW$ という一通りの計算で同時に出てくることがわかった。さらに一歩進めて、スカラー（$0$-form）そのものも同じ代数に混ぜよう。
 </p>
-<p>パウリ行列の線形結合で表される最も一般的な <span class="tex2jax_process">$2\times2$</span> 行列は
+<p>パウリ行列の線形結合で表される最も一般的な $2\times2$ 行列は
 </p>
-<p>の形をしている。<span class="tex2jax_process">$\varphi$</span> はスカラー（<span class="tex2jax_process">$0$</span>-form）、<span class="tex2jax_process">$A_1,A_2,A_3$</span> はベクトルの成分（<span class="tex2jax_process">$1$</span>-form）である。さらに <span class="tex2jax_process">$\psi$</span> に左から <span class="tex2jax_process">$\sigma_i$</span> を掛ければ、<span class="tex2jax_process">$2$</span>-form に相当する <span class="tex2jax_process">$i\sigma_k$</span> の項まで現れる。つまり、パウリ行列の代数は <span class="tex2jax_process">$0,1,2,3$</span>-form の<strong>すべての次数</strong>を一つの枠組みで扱えるのだ。
+<p>の形をしている。$\varphi$ はスカラー（$0$-form）、$A_1,A_2,A_3$ はベクトルの成分（$1$-form）である。さらに $\psi$ に左から $\sigma_i$ を掛ければ、$2$-form に相当する $i\sigma_k$ の項まで現れる。つまり、パウリ行列の代数は $0,1,2,3$-form の<strong>すべての次数</strong>を一つの枠組みで扱えるのだ。
 </p>
 <blockquote><p>
-**注** （何ができるようになったのか）微分形式でも異なる次数の形式を直和として形式的に並べることはできる。しかし、内積（縮約）と外積（反対称化）を**一つの積として同時に**扱うには、通常のウェッジ積だけでは足りない。パウリ行列の代数では、それらが一つの積 <span class="tex2jax_process">$VW$</span> の中で自然に分離・共存する。これが幾何代数の核心である。<br>
+**注** （何ができるようになったのか）微分形式でも異なる次数の形式を直和として形式的に並べることはできる。しかし、内積（縮約）と外積（反対称化）を**一つの積として同時に**扱うには、通常のウェッジ積だけでは足りない。パウリ行列の代数では、それらが一つの積 $VW$ の中で自然に分離・共存する。これが幾何代数の核心である。<br>
 </p></blockquote>
 <blockquote><p>
-**注** （全次数の対応）パウリ行列の代数における次数対応を整理しておく。<span class="tex2jax_process">$I$</span> が <span class="tex2jax_process">$0$</span>-form（スカラー）、<span class="tex2jax_process">$\sigma_1,\sigma_2,\sigma_3$</span> が <span class="tex2jax_process">$1$</span>-form（ベクトル）、<span class="tex2jax_process">$i\sigma_1,i\sigma_2,i\sigma_3$</span> が <span class="tex2jax_process">$2$</span>-form（バイベクトル）、<span class="tex2jax_process">$iI$</span> が <span class="tex2jax_process">$3$</span>-form（擬スカラー）に対応する。最も一般的な元は <span class="tex2jax_process">$\psi = aI + \mathbf{v}\!\cdot\!\bm{\sigma} + i\,\mathbf{w}\!\cdot\!\bm{\sigma} + ibI$</span> の形で、4つの次数すべてを複素係数で含んでいる。<br>
+**注** （全次数の対応）パウリ行列の代数における次数対応を整理しておく。$I$ が $0$-form（スカラー）、$\sigma_1,\sigma_2,\sigma_3$ が $1$-form（ベクトル）、$i\sigma_1,i\sigma_2,i\sigma_3$ が $2$-form（バイベクトル）、$iI$ が $3$-form（擬スカラー）に対応する。最も一般的な元は $\psi = aI + \mathbf{v}\!\cdot\!\bm{\sigma} + i\,\mathbf{w}\!\cdot\!\bm{\sigma} + ibI$ の形で、4つの次数すべてを複素係数で含んでいる。<br>
 </p></blockquote>
 <blockquote><p>
-**注** （四元数——すでにあった魔法の箱）実はこの「スカラーとベクトルを一つの数に混ぜる」という発想は、パウリ行列よりもずっと古い。行列代数よりも古い。1843年にハミルトンが発見した**四元数（quaternion）** <span class="tex2jax_process">$q = a + bi + cj + dk$</span> がまさにそれだ。マクスウェルは自身の電磁気学を四元数で定式化していた。しかしその後、ギブズとヘヴィサイドが四元数からスカラー部分とベクトル部分を**分離**し、現代のベクトル解析（内積とクロス積）が誕生した。パウリ行列は、ギブズが分離したスカラーとベクトルを、約80年後に量子力学の文脈で再び**統合**したものである。歴史は一周したのだ。<br>
+**注** （四元数——すでにあった魔法の箱）実はこの「スカラーとベクトルを一つの数に混ぜる」という発想は、パウリ行列よりもずっと古い。行列代数よりも古い。1843年にハミルトンが発見した**四元数（quaternion）** $q = a + bi + cj + dk$ がまさにそれだ。マクスウェルは自身の電磁気学を四元数で定式化していた。しかしその後、ギブズとヘヴィサイドが四元数からスカラー部分とベクトル部分を**分離**し、現代のベクトル解析（内積とクロス積）が誕生した。パウリ行列は、ギブズが分離したスカラーとベクトルを、約80年後に量子力学の文脈で再び**統合**したものである。歴史は一周したのだ。<br>
 </p></blockquote>
 <blockquote><p>
-> **注** （行列なき時代のベクトル解析）ギブズとヘヴィサイドがベクトル解析を整備した1880年代には、まだ行列代数が存在しなかった。行列式はあったが、行列そのものの代数——積の非可換性、固有値、線形変換としての統一的理解——は、ケイリーの先駆的研究を経て、20世紀初頭のヒルベルトらによってようやく整備される。ギブズは線形変換を表すために**ダイアド（dyad）** <span class="tex2jax_process">$\mathbf{a}\mathbf{b}$</span> という独自の記法を発明したが、これは現代の行列 <span class="tex2jax_process">$\mathbf{a}\mathbf{b}^T$</span> に相当する。要するに、ベクトル解析は行列代数が存在しない時代に、四元数を切り刻み、ダイアドを継ぎ接ぎして作られた**キメラ**だったのだ。本書が「ナブラ解体新書」と題して <span class="tex2jax_process">$\nabla$</span> を <span class="tex2jax_process">$d$</span> と <span class="tex2jax_process">$\ast$</span> に解体し、最終章でパウリ行列による再統合を見せたことには、この百年越しの負債を清算する意味もある。<br>
+> **注** （行列なき時代のベクトル解析）ギブズとヘヴィサイドがベクトル解析を整備した1880年代には、まだ行列代数が存在しなかった。行列式はあったが、行列そのものの代数——積の非可換性、固有値、線形変換としての統一的理解——は、ケイリーの先駆的研究を経て、20世紀初頭のヒルベルトらによってようやく整備される。ギブズは線形変換を表すために**ダイアド（dyad）** $\mathbf{a}\mathbf{b}$ という独自の記法を発明したが、これは現代の行列 $\mathbf{a}\mathbf{b}^T$ に相当する。要するに、ベクトル解析は行列代数が存在しない時代に、四元数を切り刻み、ダイアドを継ぎ接ぎして作られた**キメラ**だったのだ。本書が「ナブラ解体新書」と題して $\nabla$ を $d$ と $\ast$ に解体し、最終章でパウリ行列による再統合を見せたことには、この百年越しの負債を清算する意味もある。<br>
 </p></blockquote>
 <blockquote><p>
 > **注** （行列代数が物理学者の標準語でなかったこと）なお、行列代数が物理学者の標準語でなかったことは、1925年の行列力学にもよく現れている。ハイゼンベルク自身は当初、自分の計算が行列の非可換積であることを知らず、それを行列として読んだのはボルンだった。<br>
 </p></blockquote>
 <hr />
 <h3 id="123-ディラック演算子と真のナブラ">§12.3 ディラック演算子と真のナブラ</h3>
-<h4 id="1231-span-classtex2jaxprocessspan--すべてを統合する演算子">12.3.1 <span class="tex2jax_process">$\bm{\sigma}\!\cdot\!\nabla$</span> —— すべてを統合する演算子</h4>
-<p>パウリ行列とナブラ <span class="tex2jax_process">$\nabla = (\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z})$</span> を組み合わせて、次の演算子を定義する。
+<h4 id="1231--すべてを統合する演算子">12.3.1 $\bm{\sigma}\!\cdot\!\nabla$ —— すべてを統合する演算子</h4>
+<p>パウリ行列とナブラ $\nabla = (\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z})$ を組み合わせて、次の演算子を定義する。
 </p>
-<p>これは <span class="tex2jax_process">$\mathrm{grad}\,\varphi$</span> をパウリ行列で表したものだ。
+<p>$D$ は $2\times2$ 行列の形をした微分演算子である。これをスカラー場 $\varphi$ に作用させてみよう。
 </p>
-<p>次に、ベクトル場 <span class="tex2jax_process">$\mathbf{A} = (A_1, A_2, A_3)$</span> をパウリ行列で <span class="tex2jax_process">$A = \mathbf{A}\!\cdot\!\bm{\sigma}$</span> と書いて <span class="tex2jax_process">$D$</span> を作用させる。11.2.2 の積の公式を思い出そう。
+<p>これは $\mathrm{grad}\,\varphi$ をパウリ行列で表したものだ。
+</p>
+<p>次に、ベクトル場 $\mathbf{A} = (A_1, A_2, A_3)$ をパウリ行列で $A = \mathbf{A}\!\cdot\!\bm{\sigma}$ と書いて $D$ を作用させる。11.2.2 の積の公式を思い出そう。
 </p>
 <ol>
-<li>2.2 と同じ <span class="tex2jax_process">$\sigma_i\sigma_j$</span> の置き換えを9項に適用し、<span class="tex2jax_process">$I$</span> の係数（内積＝発散）と <span class="tex2jax_process">$\sigma_1,\sigma_2,\sigma_3$</span> の係数（ウェッジ積＝回転）を集める。</li>
+<li>2.2 と同じ $\sigma_i\sigma_j$ の置き換えを9項に適用し、$I$ の係数（内積＝発散）と $\sigma_1,\sigma_2,\sigma_3$ の係数（ウェッジ積＝回転）を集める。</li>
 </ol>
+<p>$\sigma_k$ の係数カッコ内は $\mathrm{rot}\,\mathbf{A}$ の各成分——外微分 $d$ が $1$-form $\mathbf{A}$ から生み出す $2$-form $d\mathbf{A}$ の成分——にほかならない。したがって
+</p>
 <blockquote><p>
-**注** （<span class="tex2jax_process">$d$</span> と <span class="tex2jax_process">$\ast$</span> で書くと）<span class="tex2jax_process">$D$</span> は本書の言葉でも表現できる。符号規約を別にすれば、<span class="tex2jax_process">$D$</span> は <span class="tex2jax_process">$d$</span>（次数を上げる）と <span class="tex2jax_process">$\ast d\ast$</span>（次数を下げる）を合わせた演算子として理解できる。<span class="tex2jax_process">$\ast d\ast$</span> は**余微分（codifferential）** <span class="tex2jax_process">$\delta$</span> と呼ばれ、<span class="tex2jax_process">$\delta = \pm\ast d\ast$</span>（符号は次元と次数に依存）と定義される。ここでは厳密な符号には立ち入らず、<span class="tex2jax_process">$D \sim d + \delta$</span> という構造だけを押さえておく。<span class="tex2jax_process">$d$</span> が次数を上げ、<span class="tex2jax_process">$\delta$</span> が次数を下げる——この二つを足した <span class="tex2jax_process">$D$</span> が、grad・rot・div を一つの演算子に束ねているのだ。<br>
+**注** （$d$ と $\ast$ で書くと）$D$ は本書の言葉でも表現できる。符号規約を別にすれば、$D$ は $d$（次数を上げる）と $\ast d\ast$（次数を下げる）を合わせた演算子として理解できる。$\ast d\ast$ は**余微分（codifferential）** $\delta$ と呼ばれ、$\delta = \pm\ast d\ast$（符号は次元と次数に依存）と定義される。ここでは厳密な符号には立ち入らず、$D \sim d + \delta$ という構造だけを押さえておく。$d$ が次数を上げ、$\delta$ が次数を下げる——この二つを足した $D$ が、grad・rot・div を一つの演算子に束ねているのだ。<br>
 </p></blockquote>
-<h4 id="1232-span-classtex2jaxprocessspan--ラプラシアン">12.3.2 <span class="tex2jax_process">$D^2$</span> —— ラプラシアン</h4>
-<p>さらに <span class="tex2jax_process">$D$</span> を二度作用させるとどうなるか。
+<h4 id="1232--ラプラシアン">12.3.2 $D^2$ —— ラプラシアン</h4>
+<p>さらに $D$ を二度作用させるとどうなるか。
 </p>
 <p>9項に展開する。
 </p>
+<p>$\sigma_i\sigma_j$ の反対称部分（$i\neq j$ の項、すなわち $\sigma_1\sigma_2 = i\sigma_3$ など）を含む項は、偏微分の可換性 $\frac{\partial^2}{\partial x\partial y} = \frac{\partial^2}{\partial y\partial x}$ により、符号が逆のペア同士で打ち消し合う。たとえば $\sigma_1\sigma_2\,\frac{\partial^2}{\partial x\partial y}$ と $\sigma_2\sigma_1\,\frac{\partial^2}{\partial y\partial x}$ は、$\sigma_2\sigma_1 = -\sigma_1\sigma_2$ かつ $\frac{\partial^2}{\partial y\partial x} = \frac{\partial^2}{\partial x\partial y}$ だから、足してゼロ。残るのは $\sigma_i\sigma_i = I$ の対角項だけである。
+</p>
+<p>$D^2$ はラプラシアンそのものである。$D$ はラプラシアンの「平方根」なのだ。この事実——微分演算子の平方根をとる——が、ディラックが相対論的量子力学で電子の方程式を導いたときの核心的な洞察だった。
+</p>
 <h4 id="1233-マクスウェルを一本に--再訪">12.3.3 マクスウェルを一本に —— 再訪</h4>
-<p>§12.1 では <span class="tex2jax_process">$F + i\ast F$</span> によって4次元でマクスウェル方程式を一本化した。<span class="tex2jax_process">$D$</span> を使えば、同じことが3次元の言葉だけで書ける。
+<p>§12.1 では $F + i\ast F$ によって4次元でマクスウェル方程式を一本化した。$D$ を使えば、同じことが3次元の言葉だけで書ける。
 </p>
-<p>電場 <span class="tex2jax_process">$\mathbf{E}$</span> と磁場 <span class="tex2jax_process">$\mathbf{B}$</span> を一つの複素ベクトルに束ねる。これは<strong>リーマン－ジルバーシュタイン・ベクトル</strong>と呼ばれる。
+<p>電場 $\mathbf{E}$ と磁場 $\mathbf{B}$ を一つの複素ベクトルに束ねる。これは<strong>リーマン－ジルバーシュタイン・ベクトル</strong>と呼ばれる。
 </p>
-<p>パウリ行列で書けば <span class="tex2jax_process">$F = \mathbf{E}\!\cdot\!\bm{\sigma} + i\,\mathbf{B}\!\cdot\!\bm{\sigma}$</span> である。<span class="tex2jax_process">$F$</span> はスカラー部を持たない純粋な複素パウリ・ベクトルだ。時間微分を含めた演算子 <span class="tex2jax_process">$D + \frac{\partial}{\partial t}$</span> を作用させる。
+<p>パウリ行列で書けば $F = \mathbf{E}\!\cdot\!\bm{\sigma} + i\,\mathbf{B}\!\cdot\!\bm{\sigma}$ である。$F$ はスカラー部を持たない純粋な複素パウリ・ベクトルだ。時間微分を含めた演算子 $D + \frac{\partial}{\partial t}$ を作用させる。
 </p>
-<p>§12.3.1 の <span class="tex2jax_process">$D(\mathbf{A}\!\cdot\!\bm{\sigma})$</span> の公式を <span class="tex2jax_process">$\mathbf{E}$</span> と <span class="tex2jax_process">$\mathbf{B}$</span> の両方に適用する。
+<p>§12.3.1 の $D(\mathbf{A}\!\cdot\!\bm{\sigma})$ の公式を $\mathbf{E}$ と $\mathbf{B}$ の両方に適用する。
 </p>
-<p>実部と虚部、そして <span class="tex2jax_process">$I$</span>（スカラー）と <span class="tex2jax_process">$\bm{\sigma}$</span>（ベクトル）の各成分に整理する。
+<p>実部と虚部、そして $I$（スカラー）と $\bm{\sigma}$（ベクトル）の各成分に整理する。
 </p>
-<p>これらをゼロとおけば、真空のマクスウェル方程式4本がすべて現れる。電流 <span class="tex2jax_process">$\mathbf{J}$</span> と電荷 <span class="tex2jax_process">$\rho$</span> がある場合は、右辺に <span class="tex2jax_process">$\rho + \mathbf{J}\!\cdot\!\bm{\sigma}$</span> を置けばよい。
+<p>これらをゼロとおけば、真空のマクスウェル方程式4本がすべて現れる。電流 $\mathbf{J}$ と電荷 $\rho$ がある場合は、右辺に $\rho + \mathbf{J}\!\cdot\!\bm{\sigma}$ を置けばよい。
 </p>
-<h4 id="1234-span-classtex2jaxprocessspan--4次元時空のディラック演算子">12.3.4 <span class="tex2jax_process">$\cancel{\partial} F = J$</span> —— 4次元時空のディラック演算子</h4>
-<p>§12.3.3 の <span class="tex2jax_process">$(D + \frac{\partial}{\partial t})F = \rho + \mathbf{J}\!\cdot\!\bm{\sigma}$</span> には、時間と空間が分離して現れている。これは3次元のパウリ行列 <span class="tex2jax_process">$\sigma_1,\sigma_2,\sigma_3$</span> をベースに組み立てたからだ。4次元時空を最初から扱えば、この分離すら消える。
+<p>$dF=0$ と $d(\ast F)=\mu_0(\ast\mathcal{J})$ の2本が、$D$ の前ではたった一本の複素方程式に統合された。§12.1 の4次元トリックが特殊な次元に依存していたのに対し、こちらは $D$ という統合された演算子そのものが統合を実現している。
 </p>
-<p>パウリ行列を <span class="tex2jax_process">$4\times4$</span> に拡張したものが<strong>ガンマ行列</strong> <span class="tex2jax_process">$\gamma^0,\gamma^1,\gamma^2,\gamma^3$</span> である。これらは反可換性 <span class="tex2jax_process">$\gamma^\mu\gamma^\nu + \gamma^\nu\gamma^\mu = 2g^{\mu\nu}I$</span> を満たす（<span class="tex2jax_process">$g^{\mu\nu}$</span> はミンコフスキー計量）。このガンマ行列を用いて、4次元のディラック演算子を
+<h4 id="1234--4次元時空のディラック演算子">12.3.4 $\cancel{\partial} F = J$ —— 4次元時空のディラック演算子</h4>
+<p>§12.3.3 の $(D + \frac{\partial}{\partial t})F = \rho + \mathbf{J}\!\cdot\!\bm{\sigma}$ には、時間と空間が分離して現れている。これは3次元のパウリ行列 $\sigma_1,\sigma_2,\sigma_3$ をベースに組み立てたからだ。4次元時空を最初から扱えば、この分離すら消える。
 </p>
-<p>と定義する。第10章の電磁場 <span class="tex2jax_process">$F$</span>（<span class="tex2jax_process">$4\times4$</span> 反対称行列）をガンマ行列のウェッジ積 <span class="tex2jax_process">$\gamma^\mu\!\wedge\!\gamma^\nu$</span> で展開したものと同一視すれば、マクスウェル方程式は
+<p>パウリ行列を $4\times4$ に拡張したものが<strong>ガンマ行列</strong> $\gamma^0,\gamma^1,\gamma^2,\gamma^3$ である。これらは反可換性 $\gamma^\mu\gamma^\nu + \gamma^\nu\gamma^\mu = 2g^{\mu\nu}I$ を満たす（$g^{\mu\nu}$ はミンコフスキー計量）。このガンマ行列を用いて、4次元のディラック演算子を
 </p>
-<p>の一行になる。<span class="tex2jax_process">$F$</span> は電磁場、<span class="tex2jax_process">$J$</span> は4元電流（<span class="tex2jax_process">$\gamma^\mu$</span> で展開されたもの）。真空では <span class="tex2jax_process">$\cancel{\partial} F = 0$</span>。
+<p>と定義する。第10章の電磁場 $F$（$4\times4$ 反対称行列）をガンマ行列のウェッジ積 $\gamma^\mu\!\wedge\!\gamma^\nu$ で展開したものと同一視すれば、マクスウェル方程式は
+</p>
+<p>の一行になる。$F$ は電磁場、$J$ は4元電流（$\gamma^\mu$ で展開されたもの）。真空では $\cancel{\partial} F = 0$。
 </p>
 <blockquote><p>
-**注** （<span class="tex2jax_process">$\cancel{\partial} F$</span> の積について）ここでの積は通常の行列積ではなく、ガンマ行列が生成する幾何代数の積である。第10章の反対称行列 <span class="tex2jax_process">$F$</span> は、ここでは <span class="tex2jax_process">$\gamma^\mu\!\wedge\!\gamma^\nu$</span> で展開された2-vectorとして再解釈される。細部は幾何代数の教科書に譲るが、<span class="tex2jax_process">$\sigma_i\sigma_j = \delta_{ij}I + i\varepsilon_{ijk}\sigma_k$</span>（11.2.1）の4次元版がここでも成り立っていると考えればよい。<br>
+**注** （$\cancel{\partial} F$ の積について）ここでの積は通常の行列積ではなく、ガンマ行列が生成する幾何代数の積である。第10章の反対称行列 $F$ は、ここでは $\gamma^\mu\!\wedge\!\gamma^\nu$ で展開された2-vectorとして再解釈される。細部は幾何代数の教科書に譲るが、$\sigma_i\sigma_j = \delta_{ij}I + i\varepsilon_{ijk}\sigma_k$（11.2.1）の4次元版がここでも成り立っていると考えればよい。<br>
 </p></blockquote>
-<p>§12.1 の <span class="tex2jax_process">$F + i\ast F$</span> も、§12.3.3 の <span class="tex2jax_process">$(D + \frac{\partial}{\partial t})F$</span> も、すべてこの一行に吸収される。これが、<span class="tex2jax_process">$\nabla$</span> の解体から始まった旅の、最も遠くにある風景である。ディラックが1928年に電子の方程式を導くために発見したこの演算子は、時空の幾何と物理法則を一つの代数で記述する<strong>幾何代数（Geometric Algebra）</strong>の核であり、Doran & Lasenby の Geometric Algebra for Physicists に詳しい。
+<p>§12.1 の $F + i\ast F$ も、§12.3.3 の $(D + \frac{\partial}{\partial t})F$ も、すべてこの一行に吸収される。これが、$\nabla$ の解体から始まった旅の、最も遠くにある風景である。ディラックが1928年に電子の方程式を導くために発見したこの演算子は、時空の幾何と物理法則を一つの代数で記述する<strong>幾何代数（Geometric Algebra）</strong>の核であり、Doran & Lasenby の Geometric Algebra for Physicists に詳しい。
 </p>
-<h3 id="124-演算子span-classtex2jaxprocessspan">§12.4 演算子<span class="tex2jax_process">$\nabla$</span></h3>
-<p>さあ、ここで最初の問いに戻ろう。<span class="tex2jax_process">$\nabla$</span> とは何だったのか。
+<h3 id="124-演算子">§12.4 演算子$\nabla$</h3>
+<p>さあ、ここで最初の問いに戻ろう。$\nabla$ とは何だったのか。
 </p>
-<p>ベクトル解析では、<span class="tex2jax_process">$\nabla$</span> は「偏微分を並べた形式的なベクトル」として導入され、grad・rot・div の三つの顔を持つ謎めいた記号だった。本書はそれを <span class="tex2jax_process">$d$</span> と <span class="tex2jax_process">$\ast$</span> に<strong>解体</strong>することで、各演算の正体を明らかにしてきた。
+<p>ベクトル解析では、$\nabla$ は「偏微分を並べた形式的なベクトル」として導入され、grad・rot・div の三つの顔を持つ謎めいた記号だった。本書はそれを $d$ と $\ast$ に<strong>解体</strong>することで、各演算の正体を明らかにしてきた。
 </p>
-<p>そして今、これを逆方向に辿り、<span class="tex2jax_process">$d$</span> と <span class="tex2jax_process">$\ast$</span> というバラバラだった部品が、幾何代数の中で3次元のディラック演算子<span class="tex2jax_process">$D = \bm{\sigma}\!\cdot\!\nabla$</span> として<strong>統合</strong>され、更にその4次元版のディラック演算子<span class="tex2jax_process">$\cancel{\partial}$</span>が究極のマクスウェル方程式<span class="tex2jax_process">$\cancel{\partial} F = J$</span>を与えた。
+<p>そして今、これを逆方向に辿り、$d$ と $\ast$ というバラバラだった部品が、幾何代数の中で3次元のディラック演算子$D = \bm{\sigma}\!\cdot\!\nabla$ として<strong>統合</strong>され、更にその4次元版のディラック演算子$\cancel{\partial}$が究極のマクスウェル方程式$\cancel{\partial} F = J$を与えた。
 </p>
-<p>ところで、幾何代数の文脈では、この演算子を必ずしも<span class="tex2jax_process">$\cancel{\partial}$</span> とは書かない。むしろ、この種のベクトル微分演算子を
+<p>ところで、幾何代数の文脈では、この演算子を必ずしも$\cancel{\partial}$ とは書かない。むしろ、この種のベクトル微分演算子を
 </p>
 <p>と書く。
 </p>

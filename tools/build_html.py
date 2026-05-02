@@ -10,13 +10,12 @@ from pathlib import Path
 
 # --- Configuration ---
 
+# MathJax 3 configuration MUST be defined BEFORE the script is loaded.
 MATHJAX_CONFIG = '''window.MathJax = {
-  loader: { load: ['[tex]/bm', '[tex]/ams'] },
   tex: {
     inlineMath: [['$', '$']],
     displayMath: [['$$', '$$']],
-    processEscapes: true,
-    packages: {'[+]': ['bm', 'ams']}
+    processEscapes: true
   },
   options: {
     enableMenu: false
@@ -92,11 +91,11 @@ class MathProtector:
         def replace_display(match):
             idx = len(self.math_blocks)
             self.math_blocks.append(match.group(0))
-            return f'\n\n<div class="math-block tex2jax_process">MATH_BLOCK_{idx}_END</div>\n\n'
+            return f'\n\n<div class="math-block">MATH_BLOCK_{idx}_END</div>\n\n'
         def replace_inline(match):
             idx = len(self.inline_math)
             self.inline_math.append(match.group(0))
-            return f'<span class="tex2jax_process">INLINE_MATH_{idx}_END</span>'
+            return f'INLINE_MATH_{idx}_END'
         text = re.sub(r'\$\$[\s\S]+?\$\$', replace_display, text)
         text = re.sub(r'(?<!\\)\$[^$\n]+?(?<!\\)\$', replace_inline, text)
         return text
@@ -192,7 +191,7 @@ def process_markdown(markdown_text):
             if in_para: result.append('</p>'); in_para = False
             continue
         
-        # Inline formatting (bold, italic, code)
+        # Inline formatting (bold, italic, code) - DO THIS BEFORE RESTORING MATH
         processed = line
         processed = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', processed)
         processed = re.sub(r'\*(.+?)\*', r'<em>\1</em>', processed)
@@ -222,14 +221,11 @@ def main():
 
     # Split into chapters
     chapters = []
-    # Set the main title for index.html
     main_title = "ナブラ解体新書 ——行列表示の微分形式によるベクトル解析の抜け道——"
     current_chapter = {"title": main_title, "content": [], "filename": "index.html"}
     
     lines = full_text.split('\n')
     ch_count = 0
-    
-    # Define mapping for special sections to filenames
     special_mapping = {
         "まえがき": "index.html",
         "おわりに": "postscript.html",
@@ -240,11 +236,8 @@ def main():
     for line in lines:
         if line.startswith('# '):
             title = line.lstrip('#').strip()
-            
-            # Check if this is a new chapter or special section
             is_new_section = False
             new_filename = ""
-            
             if title.startswith('第'):
                 ch_count += 1
                 new_filename = f"ch{ch_count:02d}.html"
@@ -255,13 +248,11 @@ def main():
                         new_filename = fname
                         is_new_section = True
                         break
-            
             if is_new_section:
                 if current_chapter["content"]:
                     chapters.append(current_chapter)
                 current_chapter = {"title": title, "content": [line], "filename": new_filename}
                 continue
-
         current_chapter["content"].append(line)
     chapters.append(current_chapter)
 
@@ -270,63 +261,43 @@ def main():
     toc_html_parts.append('<li><a href="index.html" id="link-index.html">まえがき</a></li>')
     for ch in chapters:
         if ch["filename"] == "index.html": continue
-        
-        # Display title: remove subtitle for cleaner sidebar
         display_title = ch["title"]
-        if '：' in display_title:
-            display_title = display_title.split('：')[0]
-        elif '——' in display_title:
-            display_title = display_title.split('——')[0]
-            
+        if '：' in display_title: display_title = display_title.split('：')[0]
+        elif '——' in display_title: display_title = display_title.split('——')[0]
         toc_html_parts.append(f'<li class="level-1"><a href="{ch["filename"]}" id="link-{ch["filename"]}">{display_title}</a></li>')
     toc_html_parts.append("</ul>")
     toc_html = "\n".join(toc_html_parts)
 
-
     # Generate each page
     for i, ch in enumerate(chapters):
         content_md = "\n".join(ch["content"])
-        
-        # Extract sub-headings for THIS chapter to show in sidebar
         sub_headings = []
         for line in ch["content"]:
             h_match = re.match(r'^(#{2,3})\s+(.+)$', line)
             if h_match:
-                level = len(h_match.group(1))
-                text = h_match.group(2).strip()
-                # Protect/Restore math in heading for sidebar
+                lv, text = len(h_match.group(1)), h_match.group(2).strip()
                 temp_protector = MathProtector()
                 protected = temp_protector.protect(text)
                 restored = temp_protector.restore(protected)
-                sub_headings.append((level, restored, slugify(restored)))
+                sub_headings.append((lv, restored, slugify(restored)))
 
         content_html = process_markdown(content_md)
-        
-        # Build local TOC for this chapter
         local_toc = ""
         if sub_headings:
             local_toc = '<ul class="sub-toc">'
             for lv, text, anchor in sub_headings:
-                indent = f"level-{lv}"
-                local_toc += f'<li class="{indent}"><a href="#{anchor}">{text}</a></li>'
+                local_toc += f'<li class="level-{lv}"><a href="#{anchor}">{text}</a></li>'
             local_toc += '</ul>'
 
-        # Navigation
         prev_ch = chapters[i-1] if i > 0 else None
         next_ch = chapters[i+1] if i < len(chapters)-1 else None
-        
         prev_btn = f'<a href="{prev_ch["filename"]}">← {prev_ch["title"][:15]}...</a>' if prev_ch else '<span></span>'
         next_btn = f'<a href="{next_ch["filename"]}">{next_ch["title"][:15]}... →</a>' if next_ch else '<span></span>'
         
-        # Mark active TOC item and insert local TOC
         active_marker = f'id="link-{ch["filename"]}"'
-        active_replacement = f'class="active" {active_marker}'
-        page_toc = toc_html.replace(active_marker, active_replacement)
-        
-        # Insert the sub-headings under the active chapter link
+        page_toc = toc_html.replace(active_marker, f'class="active" {active_marker}')
         if local_toc:
-            insert_point = f'</a></li>'
-            find_str = f'link-{ch["filename"]}">{ch["title"].split("：")[0] if "：" in ch["title"] else ch["title"]}</a></li>'
+            find_str = f'link-{ch["filename"]}">{ch["title"].split("：")[0] if "：" in ch["title"] else ch["title"].split("——")[0]}</a></li>'
             page_toc = page_toc.replace(find_str, find_str.replace('</li>', local_toc + '</li>'))
         
         final_html = HTML_TEMPLATE.format(

@@ -37,12 +37,10 @@
 </style>
 <script>
 window.MathJax = {
-  loader: { load: ['[tex]/bm', '[tex]/ams'] },
   tex: {
     inlineMath: [['$', '$']],
     displayMath: [['$$', '$$']],
-    processEscapes: true,
-    packages: {'[+]': ['bm', 'ams']}
+    processEscapes: true
   },
   options: {
     enableMenu: false
@@ -67,7 +65,7 @@ window.MathJax = {
 <li class="level-1"><a href="ch07.html" id="link-ch07.html">第7章</a></li>
 <li class="level-1"><a href="ch08.html" id="link-ch08.html">第8章</a></li>
 <li class="level-1"><a href="ch09.html" id="link-ch09.html">第9章</a></li>
-<li class="level-1"><a href="ch10.html" class="active" id="link-ch10.html">第10章</a><ul class="sub-toc"><li class="level-3"><a href="#100-お約束">§10.0 お約束</a></li><li class="level-3"><a href="#101-マクスウェル方程式2本で書く">§10.1 マクスウェル方程式——2本で書く</a></li><li class="level-3"><a href="#102-span-classtex2jaxprocessspan-の中身行列で全部書く">§10.2 <span class="tex2jax_process">$F$</span> の中身——行列で全部書く</a></li><li class="level-3"><a href="#103-ミンコフスキー計量span-classtex2jaxprocessspan-から4次元へ">§10.3 ミンコフスキー計量——<span class="tex2jax_process">$\mathbb{R}^3$</span> から4次元へ</a></li><li class="level-3"><a href="#104-span-classtex2jaxprocessspan-を全部書き下す">§10.4 <span class="tex2jax_process">$dF=0$</span> を全部書き下す</a></li><li class="level-3"><a href="#105-span-classtex2jaxprocessspan-と残りの2本">§10.5 <span class="tex2jax_process">$\ast F$</span> と残りの2本</a></li><li class="level-3"><a href="#106-ポテンシャル構成span-classtex2jaxprocessspan-から始める">§10.6 ポテンシャル構成——<span class="tex2jax_process">$F=-dA$</span> から始める</a></li><li class="level-2"><a href="#付録Espan-classtex2jaxprocessspan-と-span-classtex2jaxprocessspan-のスライス行列表示--span-classtex2jaxprocessspan-配列で見るマクスウェル方程式">付録E：<span class="tex2jax_process">$dF$</span> と <span class="tex2jax_process">$d(\ast F)$</span> のスライス行列表示 —— <span class="tex2jax_process">$4\times4\times4$</span> 配列で見るマクスウェル方程式</a></li><li class="level-3"><a href="#E1-基底-span-classtex2jaxprocessspan-form-とそのスライス行列--全16枚">E.1 基底 <span class="tex2jax_process">$3$</span>-form とそのスライス行列 —— 全16枚</a></li><li class="level-3"><a href="#E2-span-classtex2jaxprocessspan-をスライス行列で書く">E.2 <span class="tex2jax_process">$dF$</span> をスライス行列で書く</a></li><li class="level-3"><a href="#E3-フロベニウス積で係数を抜き出す">E.3 フロベニウス積で係数を抜き出す</a></li><li class="level-3"><a href="#E4-span-classtex2jaxprocessspan-をスライスで読む">E.4 <span class="tex2jax_process">$dF=0$</span> をスライスで読む</a></li><li class="level-3"><a href="#E5-span-classtex2jaxprocessspan-のスライス表示">E.5 <span class="tex2jax_process">$d(\ast F) = \mu_0(\ast\mathcal{J})$</span> のスライス表示</a></li></ul></li>
+<li class="level-1"><a href="ch10.html" class="active" id="link-ch10.html">第10章</a><ul class="sub-toc"><li class="level-3"><a href="#100-お約束">§10.0 お約束</a></li><li class="level-3"><a href="#101-マクスウェル方程式2本で書く">§10.1 マクスウェル方程式——2本で書く</a></li><li class="level-3"><a href="#102-の中身行列で全部書く">§10.2 $F$ の中身——行列で全部書く</a></li><li class="level-3"><a href="#103-ミンコフスキー計量-から4次元へ">§10.3 ミンコフスキー計量——$\mathbb{R}^3$ から4次元へ</a></li><li class="level-3"><a href="#104-を全部書き下す">§10.4 $dF=0$ を全部書き下す</a></li><li class="level-3"><a href="#105-と残りの2本">§10.5 $\ast F$ と残りの2本</a></li><li class="level-3"><a href="#106-ポテンシャル構成-から始める">§10.6 ポテンシャル構成——$F=-dA$ から始める</a></li><li class="level-2"><a href="#付録E-と-のスライス行列表示--配列で見るマクスウェル方程式">付録E：$dF$ と $d(\ast F)$ のスライス行列表示 —— $4\times4\times4$ 配列で見るマクスウェル方程式</a></li><li class="level-3"><a href="#E1-基底--form-とそのスライス行列--全16枚">E.1 基底 $3$-form とそのスライス行列 —— 全16枚</a></li><li class="level-3"><a href="#E2-をスライス行列で書く">E.2 $dF$ をスライス行列で書く</a></li><li class="level-3"><a href="#E3-フロベニウス積で係数を抜き出す">E.3 フロベニウス積で係数を抜き出す</a></li><li class="level-3"><a href="#E4-をスライスで読む">E.4 $dF=0$ をスライスで読む</a></li><li class="level-3"><a href="#E5-のスライス表示">E.5 $d(\ast F) = \mu_0(\ast\mathcal{J})$ のスライス表示</a></li></ul></li>
 <li class="level-1"><a href="ch11.html" id="link-ch11.html">第11章</a></li>
 <li class="level-1"><a href="ch12.html" id="link-ch12.html">第12章</a></li>
 <li class="level-1"><a href="postscript.html" id="link-postscript.html">おわりに</a></li>
@@ -81,10 +79,10 @@ window.MathJax = {
 <h3 id="100-お約束">§10.0 お約束</h3>
 <p>さて、いよいよ本書も終わりが近づいてきた。微分形式の物理数学の教科書というのは、最後にマクスウェル方程式を微分形式で書き直して締めるというのが、どうやらお約束らしい。筆者もこの慣習に倣うことにしよう。
 </p>
-<p>ただし、一言断っておく。本書は電磁気学の教科書ではない。以下の内容を理解するのに、電磁気学の予備知識は一切不要だ。電場や磁場が何か知らなくても構わない。ただ、<span class="tex2jax_process">$E_x, E_y, E_z, B_x, B_y, B_z$</span> という6つの関数が登場し、それらがとある反対称行列に収まり、<span class="tex2jax_process">$d$</span> と <span class="tex2jax_process">$\ast$</span> を作用させるとベクトル解析でおなじみの式が現れる——その流れを、純粋に代数的な操作として眺めてほしい。
+<p>ただし、一言断っておく。本書は電磁気学の教科書ではない。以下の内容を理解するのに、電磁気学の予備知識は一切不要だ。電場や磁場が何か知らなくても構わない。ただ、$E_x, E_y, E_z, B_x, B_y, B_z$ という6つの関数が登場し、それらがとある反対称行列に収まり、$d$ と $\ast$ を作用させるとベクトル解析でおなじみの式が現れる——その流れを、純粋に代数的な操作として眺めてほしい。
 </p>
 <blockquote><p>
-**注** （電磁気学が未習の読者へ）本章に出てくる物理用語はすべて読み飛ばしてよい。必要なのは「6つの関数を4×4行列に並べ、<span class="tex2jax_process">$d$</span> と <span class="tex2jax_process">$\ast$</span> を作用させたら何が出るか」を見ることだけだ。電磁気学の知識がなくても、ここまでの章を読み通した読者なら、行列の成分を追うだけで十分に楽しめるはずである。<br>
+**注** （電磁気学が未習の読者へ）本章に出てくる物理用語はすべて読み飛ばしてよい。必要なのは「6つの関数を4×4行列に並べ、$d$ と $\ast$ を作用させたら何が出るか」を見ることだけだ。電磁気学の知識がなくても、ここまでの章を読み通した読者なら、行列の成分を追うだけで十分に楽しめるはずである。<br>
 </p></blockquote>
 <blockquote><p>
 **注** （本章の立ち位置）本書の核心は第8章で完結している。本章は、いわばおまけ、あるいは蛇足に近い。あまり真面目に身構えず、気楽に読んでほしい。<br>
@@ -93,196 +91,239 @@ window.MathJax = {
 <h3 id="101-マクスウェル方程式2本で書く">§10.1 マクスウェル方程式——2本で書く</h3>
 <p>電磁気学の基本法則は、SI単位系で次の4本の式として書かれる。
 </p>
-<p>このままでは、これから <span class="tex2jax_process">$4\times4$</span> 行列に押し込むための「型」が揃っていない。電場 <span class="tex2jax_process">$\mathbf{E}$</span>（次元 <span class="tex2jax_process">$\mathrm{V/m}$</span>）と磁束密度 <span class="tex2jax_process">$\mathbf{B}$</span>（次元 <span class="tex2jax_process">$\mathrm{T}$</span>）は単位が違い、さらに空間の微分（<span class="tex2jax_process">$\mathrm{rot}$</span> や <span class="tex2jax_process">$\mathrm{div}$</span>）と時間 <span class="tex2jax_process">$t$</span> の微分も次元が異なる。
+<p>このままでは、これから $4\times4$ 行列に押し込むための「型」が揃っていない。電場 $\mathbf{E}$（次元 $\mathrm{V/m}$）と磁束密度 $\mathbf{B}$（次元 $\mathrm{T}$）は単位が違い、さらに空間の微分（$\mathrm{rot}$ や $\mathrm{div}$）と時間 $t$ の微分も次元が異なる。
 </p>
 <p>そこで、すべてを「長さ」の次元に変換する。
 </p>
 <ol>
-<li>**時間の変換**：時間 <span class="tex2jax_process">$t$</span> に光速 <span class="tex2jax_process">$c$</span> を掛けて、長さの次元を持つ座標 <span class="tex2jax_process">$w = ct$</span> を導入する。時間微分は <span class="tex2jax_process">$\frac{\partial}{\partial t} = c\frac{\partial}{\partial w}$</span> となる。</li>
+<li>**時間の変換**：時間 $t$ に光速 $c$ を掛けて、長さの次元を持つ座標 $w = ct$ を導入する。時間微分は $\frac{\partial}{\partial t} = c\frac{\partial}{\partial w}$ となる。</li>
 </ol>
 <ol>
-<li>**磁場の変換**：磁束密度 <span class="tex2jax_process">$\mathbf{B}$</span> に <span class="tex2jax_process">$c$</span> を掛けて、電場と同じ <span class="tex2jax_process">$\mathrm{V/m}$</span> の次元を持つ <span class="tex2jax_process">$\mathbf{B}' = c\mathbf{B}$</span> を定義する。</li>
+<li>**磁場の変換**：磁束密度 $\mathbf{B}$ に $c$ を掛けて、電場と同じ $\mathrm{V/m}$ の次元を持つ $\mathbf{B}' = c\mathbf{B}$ を定義する。</li>
 </ol>
 <p>これらを上の4式に代入する。ファラデーの法則は、
 </p>
 <p>アンペールの法則も同様に整理すると、
 </p>
-<p>時間微分が <span class="tex2jax_process">$\frac{\partial}{\partial w}$</span> になり、空間微分（<span class="tex2jax_process">$\mathrm{rot}, \mathrm{div}$</span>）と分母の次元（長さ）が揃った。
+<p>時間微分が $\frac{\partial}{\partial w}$ になり、空間微分（$\mathrm{rot}, \mathrm{div}$）と分母の次元（長さ）が揃った。
 </p>
-<p>以降、<span class="tex2jax_process">$\mathbf{B}'$</span> のことを改めて <span class="tex2jax_process">$\mathbf{B}$</span> と呼び、<span class="tex2jax_process">$w$</span> を改めて <span class="tex2jax_process">$t$</span> と書く。つまり、これ以降の <span class="tex2jax_process">$\mathbf{B}$</span> は本来の磁束密度ではなく <span class="tex2jax_process">$c$</span> 倍された「次元を揃えた磁場」であり、<span class="tex2jax_process">$t$</span> は本来の時間ではなく <span class="tex2jax_process">$c$</span> 倍された「長さの次元を持つ時間座標」である。
+<p>以降、$\mathbf{B}'$ のことを改めて $\mathbf{B}$ と呼び、$w$ を改めて $t$ と書く。つまり、これ以降の $\mathbf{B}$ は本来の磁束密度ではなく $c$ 倍された「次元を揃えた磁場」であり、$t$ は本来の時間ではなく $c$ 倍された「長さの次元を持つ時間座標」である。
 </p>
-<p>これで準備が整った。<span class="tex2jax_process">$\mathbf{E}$</span> と <span class="tex2jax_process">$\mathbf{B}$</span> は同じ次元を持ち、同じ行列に並べられる。電磁場をまとめた<span class="tex2jax_process">$2$</span>-form <span class="tex2jax_process">$F$</span> と、電流・電荷をまとめた<span class="tex2jax_process">$1$</span>-form <span class="tex2jax_process">$\mathcal{J}$</span> を用意すれば、4本の式は<strong>2本</strong>になる。
+<p>これで準備が整った。$\mathbf{E}$ と $\mathbf{B}$ は同じ次元を持ち、同じ行列に並べられる。電磁場をまとめた$2$-form $F$ と、電流・電荷をまとめた$1$-form $\mathcal{J}$ を用意すれば、4本の式は<strong>2本</strong>になる。
 </p>
 <p>以上である。4本が2本に——この簡潔さをもって「美しい」と讃えるのが、微分形式の教科書の定番の幕引きだ。
 </p>
-<p>しかし、本書はここで終わらない。<span class="tex2jax_process">$F$</span> の中身は何なのか。<span class="tex2jax_process">$dF=0$</span> を成分で展開すると、本当に <span class="tex2jax_process">$\mathrm{rot}\,\mathbf{E} = -\frac{\partial\mathbf{B}}{\partial t}$</span> と <span class="tex2jax_process">$\mathrm{div}\,\mathbf{B} = 0$</span> が出てくるのか。それを、この章で全部書き下す。
+<p>しかし、本書はここで終わらない。$F$ の中身は何なのか。$dF=0$ を成分で展開すると、本当に $\mathrm{rot}\,\mathbf{E} = -\frac{\partial\mathbf{B}}{\partial t}$ と $\mathrm{div}\,\mathbf{B} = 0$ が出てくるのか。それを、この章で全部書き下す。
 </p>
 <hr />
-<h3 id="102-span-classtex2jaxprocessspan-の中身行列で全部書く">§10.2 <span class="tex2jax_process">$F$</span> の中身——行列で全部書く</h3>
-<p>電磁場 <span class="tex2jax_process">$F$</span> は <span class="tex2jax_process">$2$</span>-form である。第2章以来、<span class="tex2jax_process">$2$</span>-form は反対称行列で表示できることを知っている。<span class="tex2jax_process">$F$</span> も例外ではない——ただし、時間も含めた4次元時空で考えるため、<span class="tex2jax_process">$F$</span> は <span class="tex2jax_process">$4\times4$</span> の反対称行列になる。
+<h3 id="102-の中身行列で全部書く">§10.2 $F$ の中身——行列で全部書く</h3>
+<p>電磁場 $F$ は $2$-form である。第2章以来、$2$-form は反対称行列で表示できることを知っている。$F$ も例外ではない——ただし、時間も含めた4次元時空で考えるため、$F$ は $4\times4$ の反対称行列になる。
 </p>
-<p>時間座標を <span class="tex2jax_process">$t$</span>（ただしこれは §10.1 で変換した <span class="tex2jax_process">$w=ct$</span> を改名したものであり、元のSI単位系の <span class="tex2jax_process">$t$</span> ではない）、空間座標を <span class="tex2jax_process">$x,y,z$</span> とする。§10.1 の変換により、<span class="tex2jax_process">$F$</span> の成分は次のようになる。
+<p>時間座標を $t$（ただしこれは §10.1 で変換した $w=ct$ を改名したものであり、元のSI単位系の $t$ ではない）、空間座標を $x,y,z$ とする。§10.1 の変換により、$F$ の成分は次のようになる。
 </p>
-<p>行と列の順は <span class="tex2jax_process">$(t,x,y,z)$</span>。<span class="tex2jax_process">$E_x, E_y, E_z$</span> は電場（元のSI単位系の値）、<span class="tex2jax_process">$B_x, B_y, B_z$</span> は <span class="tex2jax_process">$c$</span> 倍された磁場である。両者は §10.1 の正規化により同一の次元 <span class="tex2jax_process">$\mathrm{V/m}$</span> を持ち、行列にそのまま並べられる。<span class="tex2jax_process">$F$</span> は反対称行列（<span class="tex2jax_process">$F^T = -F$</span>）であり、独立な成分はちょうど6個だ。
+<p>行と列の順は $(t,x,y,z)$。$E_x, E_y, E_z$ は電場（元のSI単位系の値）、$B_x, B_y, B_z$ は $c$ 倍された磁場である。両者は §10.1 の正規化により同一の次元 $\mathrm{V/m}$ を持ち、行列にそのまま並べられる。$F$ は反対称行列（$F^T = -F$）であり、独立な成分はちょうど6個だ。
 </p>
-<p>基底 <span class="tex2jax_process">$2$</span>-form で書けば、
+<p>基底 $2$-form で書けば、
+</p>
+<p>$dt\wedge dx$ の係数が $E_x$ そのものなのは、§10.1 で $\mathbf{E}$ と $\mathbf{B}$ の次元を $\mathrm{V/m}$ に揃えたことの直接の帰結である。同一の次元を持つ量は、同じ行列にそのまま並べられる。
 </p>
 <blockquote><p>
-**注** （符号の規約）上の行列表示は、4元ポテンシャル <span class="tex2jax_process">$A$</span> から作る<br>
+**注** （符号の規約）上の行列表示は、4元ポテンシャル $A$ から作る<br>
 <br>
 </p></blockquote>
 <blockquote><p>
-という反対称な成分の並べ方に対応する（§10.6 ではこれを <span class="tex2jax_process">$F=-dA$</span> として扱う）。ここで<br>
+という反対称な成分の並べ方に対応する（§10.6 ではこれを $F=-dA$ として扱う）。ここで<br>
 <br>
 </p></blockquote>
 <blockquote><p>
-である。通常は <span class="tex2jax_process">$\partial_\mu A_\nu-\partial_\nu A_\mu$</span> と略記されるが、本書では不要な略記法を避ける。符号が逆の流儀もあるが、本章ではこの規約に従う。<br>
+である。通常は $\partial_\mu A_\nu-\partial_\nu A_\mu$ と略記されるが、本書では不要な略記法を避ける。符号が逆の流儀もあるが、本章ではこの規約に従う。<br>
 </p></blockquote>
 <hr />
-<h3 id="103-ミンコフスキー計量span-classtex2jaxprocessspan-から4次元へ">§10.3 ミンコフスキー計量——<span class="tex2jax_process">$\mathbb{R}^3$</span> から4次元へ</h3>
-<p>本書は一貫して <span class="tex2jax_process">$\mathbb{R}^3$</span> のデカルト座標 <span class="tex2jax_process">$(x,y,z)$</span> を舞台にしてきた。しかし <span class="tex2jax_process">$F$</span> を扱うには、時間 <span class="tex2jax_process">$t$</span> を加えた4次元時空 <span class="tex2jax_process">$(t,x,y,z)$</span> が必要になる。
+<h3 id="103-ミンコフスキー計量-から4次元へ">§10.3 ミンコフスキー計量——$\mathbb{R}^3$ から4次元へ</h3>
+<p>本書は一貫して $\mathbb{R}^3$ のデカルト座標 $(x,y,z)$ を舞台にしてきた。しかし $F$ を扱うには、時間 $t$ を加えた4次元時空 $(t,x,y,z)$ が必要になる。
 </p>
-<p>幸い、ここまでに積み上げた知識があれば、拡張は容易だ。第6章で <span class="tex2jax_process">$\mathbf{g} = J^T J$</span> を導出し、第9章で <span class="tex2jax_process">$\mathbf{g}$</span> から <span class="tex2jax_process">$\ast$</span> の辞書を作る手順を練習した。時空でも同じことをすればよい。計量は次のようになる（時間成分の符号が空間成分と異なる点が唯一の新しい要素だ）。
+<p>幸い、ここまでに積み上げた知識があれば、拡張は容易だ。第6章で $\mathbf{g} = J^T J$ を導出し、第9章で $\mathbf{g}$ から $\ast$ の辞書を作る手順を練習した。時空でも同じことをすればよい。計量は次のようになる（時間成分の符号が空間成分と異なる点が唯一の新しい要素だ）。
 </p>
 <blockquote><p>
-**注** （正定値性からの離脱）本書の計量はこれまでつねに正定値（<span class="tex2jax_process">$\mathbf{v}^T\mathbf{g}\,\mathbf{v} > 0$</span> for <span class="tex2jax_process">$\mathbf{v}\neq\mathbf{0}$</span>）だった。ミンコフスキー計量は正定値ではなく、これまでの <span class="tex2jax_process">$\mathbf{g}=J^T J$</span> 型の計量とは異なる。ここでは「計量行列から <span class="tex2jax_process">$\ast$</span> の辞書を作る」という手順だけを引き継いでいる。この違いは <span class="tex2jax_process">$\ast$</span> の辞書に符号の変化として現れるが、計算手順そのものは変わらない。第11章でこの点に簡単に触れる。<br>
+**注** （正定値性からの離脱）本書の計量はこれまでつねに正定値（$\mathbf{v}^T\mathbf{g}\,\mathbf{v} > 0$ for $\mathbf{v}\neq\mathbf{0}$）だった。ミンコフスキー計量は正定値ではなく、これまでの $\mathbf{g}=J^T J$ 型の計量とは異なる。ここでは「計量行列から $\ast$ の辞書を作る」という手順だけを引き継いでいる。この違いは $\ast$ の辞書に符号の変化として現れるが、計算手順そのものは変わらない。第11章でこの点に簡単に触れる。<br>
 </p></blockquote>
-<p>行と列の順は <span class="tex2jax_process">$(t,x,y,z)$</span>。空間部分（右下の<span class="tex2jax_process">$3\times3$</span>）は単位行列であり、これまでの <span class="tex2jax_process">$\mathbb{R}^3$</span> の計量そのものだ。時間成分の <span class="tex2jax_process">$-1$</span> が <span class="tex2jax_process">$\ast$</span> の辞書に符号の変化をもたらすが、それは §10.5 で <span class="tex2jax_process">$\ast F$</span> の行列表示として結果を受け取れば十分である。
+<p>行と列の順は $(t,x,y,z)$。空間部分（右下の$3\times3$）は単位行列であり、これまでの $\mathbb{R}^3$ の計量そのものだ。時間成分の $-1$ が $\ast$ の辞書に符号の変化をもたらすが、それは §10.5 で $\ast F$ の行列表示として結果を受け取れば十分である。
 </p>
 <hr />
-<h3 id="104-span-classtex2jaxprocessspan-を全部書き下す">§10.4 <span class="tex2jax_process">$dF=0$</span> を全部書き下す</h3>
-<p>各項に <span class="tex2jax_process">$d$</span> を作用させる。<span class="tex2jax_process">$E_x, E_y, E_z, B_x, B_y, B_z$</span> はすべて <span class="tex2jax_process">$(t,x,y,z)$</span> の関数である。
+<h3 id="104-を全部書き下す">§10.4 $dF=0$ を全部書き下す</h3>
+<p>$F$ は $2$-form だから、$dF$ は $3$-form になる。4次元空間での $3$-form の独立成分は4つ。$F$ の全6項について $d$ を作用させ、同じ基底 $3$-form の係数をまとめる。
 </p>
-<p>これらをすべて足し合わせる。基底 <span class="tex2jax_process">$3$</span>-form の種類は <span class="tex2jax_process">$(dt\wedge dx\wedge dy,\; dt\wedge dy\wedge dz,\; dt\wedge dz\wedge dx,\; dx\wedge dy\wedge dz)$</span> の4つ。ウェッジ積の反対称性を使って項を整理する（たとえば <span class="tex2jax_process">$dy\wedge dt\wedge dx = -dt\wedge dy\wedge dx = dt\wedge dx\wedge dy$</span>）。
+<p>$F$ の6項を形式で書く。
 </p>
-<p>各基底 <span class="tex2jax_process">$3$</span>-form の係数をゼロとおくと、<span class="tex2jax_process">$dF=0$</span> は次と同値になる。
+<p>各項に $d$ を作用させる。$E_x, E_y, E_z, B_x, B_y, B_z$ はすべて $(t,x,y,z)$ の関数である。
 </p>
-<p>1行目は <span class="tex2jax_process">$\mathrm{div}\,\mathbf{B} = 0$</span>、2〜4行目は <span class="tex2jax_process">$\mathrm{rot}\,\mathbf{E} = -\frac{\partial\mathbf{B}}{\partial t}$</span> の各成分にほかならない。
+<p>$B$ の項は $t$ 微分も含む。
+</p>
+<p>これらをすべて足し合わせる。基底 $3$-form の種類は $(dt\wedge dx\wedge dy,\; dt\wedge dy\wedge dz,\; dt\wedge dz\wedge dx,\; dx\wedge dy\wedge dz)$ の4つ。ウェッジ積の反対称性を使って項を整理する（たとえば $dy\wedge dt\wedge dx = -dt\wedge dy\wedge dx = dt\wedge dx\wedge dy$）。
+</p>
+<p>各基底 $3$-form の係数をゼロとおくと、$dF=0$ は次と同値になる。
+</p>
+<p>1行目は $\mathrm{div}\,\mathbf{B} = 0$、2〜4行目は $\mathrm{rot}\,\mathbf{E} = -\frac{\partial\mathbf{B}}{\partial t}$ の各成分にほかならない。
 </p>
 <hr />
-<h3 id="105-span-classtex2jaxprocessspan-と残りの2本">§10.5 <span class="tex2jax_process">$\ast F$</span> と残りの2本</h3>
-<p>もう一つの式 <span class="tex2jax_process">$d(\ast F) = \mu_0(\ast\mathcal{J})$</span> も、§10.4 と同じ手順で全部書き下す。
+<h3 id="105-と残りの2本">§10.5 $\ast F$ と残りの2本</h3>
+<p>もう一つの式 $d(\ast F) = \mu_0(\ast\mathcal{J})$ も、§10.4 と同じ手順で全部書き下す。
 </p>
-<p>まず <span class="tex2jax_process">$\ast F$</span> を求める。<span class="tex2jax_process">$\ast$</span> は4次元時空の計量に依存するが、特殊相対論の平坦な時空（計量は時間成分だけ符号が異なる）では、<span class="tex2jax_process">$\ast F$</span> は §10.2 の <span class="tex2jax_process">$F$</span> で <span class="tex2jax_process">$\mathbf{E}$</span> と <span class="tex2jax_process">$\mathbf{B}$</span> を入れ替えた形になる。行列表示は次の通りだ。
+<p>まず $\ast F$ を求める。$\ast$ は4次元時空の計量に依存するが、特殊相対論の平坦な時空（計量は時間成分だけ符号が異なる）では、$\ast F$ は §10.2 の $F$ で $\mathbf{E}$ と $\mathbf{B}$ を入れ替えた形になる。行列表示は次の通りだ。
 </p>
-<p>基底 <span class="tex2jax_process">$2$</span>-form で書けば、§10.2 の <span class="tex2jax_process">$F$</span> と対応する形になる。
+<p>$F$ と見比べてほしい。$E$ と $B$ の位置が入れ替わっている。この規約と正規化のもとでは、$\ast$ はほとんど「$\mathbf{E}$ と $\mathbf{B}$ を入れ替える装置」として働く。
 </p>
-<p>次に、<span class="tex2jax_process">$d(\ast F)$</span> を展開する。<span class="tex2jax_process">$\ast F$</span> も <span class="tex2jax_process">$2$</span>-form だから、<span class="tex2jax_process">$d(\ast F)$</span> は <span class="tex2jax_process">$3$</span>-form だ。
+<p>基底 $2$-form で書けば、§10.2 の $F$ と対応する形になる。
 </p>
-<p>まず <span class="tex2jax_process">$B$</span> の項（<span class="tex2jax_process">$dt\wedge dx, dt\wedge dy, dt\wedge dz$</span>）に <span class="tex2jax_process">$d$</span> を作用させる。これらの時間微分は <span class="tex2jax_process">$dt\wedge dt = 0$</span> で消え、空間微分だけが残る。§10.4 の <span class="tex2jax_process">$E$</span> の項と同じ構造だ。
+<p>次に、$d(\ast F)$ を展開する。$\ast F$ も $2$-form だから、$d(\ast F)$ は $3$-form だ。
 </p>
-<p>次に <span class="tex2jax_process">$E$</span> の項（<span class="tex2jax_process">$dy\wedge dz, dz\wedge dx, dx\wedge dy$</span>）に <span class="tex2jax_process">$d$</span> を作用させる。こちらは時間微分も含む。§10.4 の <span class="tex2jax_process">$B$</span> の項と同じ構造だ。
+<p>まず $B$ の項（$dt\wedge dx, dt\wedge dy, dt\wedge dz$）に $d$ を作用させる。これらの時間微分は $dt\wedge dt = 0$ で消え、空間微分だけが残る。§10.4 の $E$ の項と同じ構造だ。
 </p>
-<p>これらをすべて足し合わせる。基底 <span class="tex2jax_process">$3$</span>-form の種類は §10.4 と同じ <span class="tex2jax_process">$(dt\wedge dx\wedge dy,\; dt\wedge dy\wedge dz,\; dt\wedge dz\wedge dx,\; dx\wedge dy\wedge dz)$</span> の4つ。ウェッジ積の反対称性を使って項を整理する。
+<p>次に $E$ の項（$dy\wedge dz, dz\wedge dx, dx\wedge dy$）に $d$ を作用させる。こちらは時間微分も含む。§10.4 の $B$ の項と同じ構造だ。
 </p>
-<p>各基底 <span class="tex2jax_process">$3$</span>-form の係数をまとめると、<span class="tex2jax_process">$d(\ast F)$</span> は次になる。
+<p>これらをすべて足し合わせる。基底 $3$-form の種類は §10.4 と同じ $(dt\wedge dx\wedge dy,\; dt\wedge dy\wedge dz,\; dt\wedge dz\wedge dx,\; dx\wedge dy\wedge dz)$ の4つ。ウェッジ積の反対称性を使って項を整理する。
 </p>
-<p>一方、右辺の <span class="tex2jax_process">$\ast\mathcal{J}$</span> は電荷・電流を表す <span class="tex2jax_process">$3$</span>-form である。正規化された系では、次の形をとる。
+<p>各基底 $3$-form の係数をまとめると、$d(\ast F)$ は次になる。
 </p>
-<p>（<span class="tex2jax_process">$\rho$</span> は電荷密度、<span class="tex2jax_process">$J_x,J_y,J_z$</span> は電流密度。<span class="tex2jax_process">$\varepsilon_0\mu_0 = 1/c^2$</span> より、第1項の係数は <span class="tex2jax_process">$c^2\rho$</span> に等しい。）
+<p>$dx\wedge dy\wedge dz$ の係数は $\mathrm{div}\,\mathbf{E}$ にほかならない。$dt\wedge dx\wedge dy$ の係数は $\frac{\partial B_x}{\partial y} - \frac{\partial B_y}{\partial x} + \frac{\partial E_z}{\partial t} = -(\mathrm{rot}\,\mathbf{B})_z + \frac{\partial E_z}{\partial t}$ であり、2〜3行目も同様に $-(\mathrm{rot}\,\mathbf{B})_{x,y} + \frac{\partial E_{x,y}}{\partial t}$ の各成分だ。
+</p>
+<p>一方、右辺の $\ast\mathcal{J}$ は電荷・電流を表す $3$-form である。正規化された系では、次の形をとる。
+</p>
+<p>（$\rho$ は電荷密度、$J_x,J_y,J_z$ は電流密度。$\varepsilon_0\mu_0 = 1/c^2$ より、第1項の係数は $c^2\rho$ に等しい。）
 </p>
 <blockquote><p>
-**注** （<span class="tex2jax_process">$\mathcal{J}$</span> の正規化）ここでの <span class="tex2jax_process">$\mathcal{J}$</span> は、§10.1 の <span class="tex2jax_process">$w=ct$</span> および <span class="tex2jax_process">$\mathbf{B}'=c\mathbf{B}$</span> に合わせて正規化された電流 <span class="tex2jax_process">$1$</span>-form である。標準的な相対論的記法とは係数の置き方が異なる場合がある。本章では、§10.1 の4本のマクスウェル方程式を再現するように係数を選んでいる。<br>
+**注** （$\mathcal{J}$ の正規化）ここでの $\mathcal{J}$ は、§10.1 の $w=ct$ および $\mathbf{B}'=c\mathbf{B}$ に合わせて正規化された電流 $1$-form である。標準的な相対論的記法とは係数の置き方が異なる場合がある。本章では、§10.1 の4本のマクスウェル方程式を再現するように係数を選んでいる。<br>
 </p></blockquote>
-<p>以上で、<span class="tex2jax_process">$d(\ast F) = \mu_0(\ast\mathcal{J})$</span> を成分で完全に展開しきった。§10.4 の <span class="tex2jax_process">$dF=0$</span> と合わせて、マクスウェル方程式の4本が行列と偏微分の計算だけで再現されたことになる。
+<p>$d(\ast F) = \mu_0(\ast\mathcal{J})$ の両辺で基底 $3$-form の係数を比較する。
+</p>
+<p>$dx\wedge dy\wedge dz$ の係数から $\mathrm{div}\,\mathbf{E} = \frac{\rho}{\varepsilon_0}$。$dt\wedge dy\wedge dz$ の係数から $-\frac{\partial B_z}{\partial y} + \frac{\partial B_y}{\partial z} + \frac{\partial E_x}{\partial t} = -c\mu_0J_x$、すなわち $(\mathrm{rot}\,\mathbf{B})_x - \frac{\partial E_x}{\partial t} = c\mu_0J_x$。整理すると $\mathrm{rot}\,\mathbf{B} = c\mu_0\mathbf{J} + \frac{\partial\mathbf{E}}{\partial t}$ を得る。
+</p>
+<p>以上で、$d(\ast F) = \mu_0(\ast\mathcal{J})$ を成分で完全に展開しきった。§10.4 の $dF=0$ と合わせて、マクスウェル方程式の4本が行列と偏微分の計算だけで再現されたことになる。
 </p>
 <p>つまり、マクスウェル方程式の4本は、微分形式では
 </p>
 <p>の2本に集約される。そして、この2本を実際に行列と偏微分で展開すれば、見慣れたベクトル解析の式がすべて再現される。美しさの裏に、ちゃんと泥臭い計算が息づいている——それを見届けたことが、本章の成果である。
 </p>
 <blockquote><p>
-**注** （なぜ2本なのか）鋭い読者ならこう思うかもしれない——「結局2本か。<span class="tex2jax_process">$dF=0$</span> と <span class="tex2jax_process">$d(\ast F)=\mu_0(\ast\mathcal{J})$</span> を、**1行**にまとめられないのか」と。できる。第12章では <span class="tex2jax_process">$\mathbf{E}$</span> と <span class="tex2jax_process">$\mathbf{B}$</span> をひとまとめにした複素ベクトルと、パウリ行列から作られるディラック演算子によって、マクスウェル方程式をたったの一撃に統合する。楽しみにしていてほしい。<br>
+**注** （なぜ2本なのか）鋭い読者ならこう思うかもしれない——「結局2本か。$dF=0$ と $d(\ast F)=\mu_0(\ast\mathcal{J})$ を、**1行**にまとめられないのか」と。できる。第12章では $\mathbf{E}$ と $\mathbf{B}$ をひとまとめにした複素ベクトルと、パウリ行列から作られるディラック演算子によって、マクスウェル方程式をたったの一撃に統合する。楽しみにしていてほしい。<br>
 </p></blockquote>
 <blockquote><p>
-**注** （なぜここで終わるのか）多くの教科書は <span class="tex2jax_process">$dF=0$</span> を示した時点で「かくしてマクスウェル方程式は幾何学である」と締める。しかし本書の流儀は違う。行列の成分を全部書き下し、<span class="tex2jax_process">$d$</span> と <span class="tex2jax_process">$\ast$</span> の辞書を通じてベクトル解析の式を再現する——その往復ができることこそ、第1章から積み上げてきた「測定器」の枠組みの到達点だ。<br>
+**注** （なぜここで終わるのか）多くの教科書は $dF=0$ を示した時点で「かくしてマクスウェル方程式は幾何学である」と締める。しかし本書の流儀は違う。行列の成分を全部書き下し、$d$ と $\ast$ の辞書を通じてベクトル解析の式を再現する——その往復ができることこそ、第1章から積み上げてきた「測定器」の枠組みの到達点だ。<br>
 </p></blockquote>
 <hr />
-<h3 id="106-ポテンシャル構成span-classtex2jaxprocessspan-から始める">§10.6 ポテンシャル構成——<span class="tex2jax_process">$F=-dA$</span> から始める</h3>
-<p>§10.2 では <span class="tex2jax_process">$F$</span> を「<span class="tex2jax_process">$\mathbf{E}$</span> と <span class="tex2jax_process">$\mathbf{B}$</span> の寄せ集め」として天下り的に定義した。しかし実は、<span class="tex2jax_process">$F$</span> はもっと根源的な量——<strong>4元ポテンシャル <span class="tex2jax_process">$A$</span></strong>——から機械的に導かれる。こちらが出発点として自然なのは、<strong><span class="tex2jax_process">$dF=0$</span> が「<span class="tex2jax_process">$dd=0$</span>」の一言で証明される</strong>からだ。
+<h3 id="106-ポテンシャル構成-から始める">§10.6 ポテンシャル構成——$F=-dA$ から始める</h3>
+<p>§10.2 では $F$ を「$\mathbf{E}$ と $\mathbf{B}$ の寄せ集め」として天下り的に定義した。しかし実は、$F$ はもっと根源的な量——<strong>4元ポテンシャル $A$</strong>——から機械的に導かれる。こちらが出発点として自然なのは、<strong>$dF=0$ が「$dd=0$」の一言で証明される</strong>からだ。
 </p>
-<p>4元ポテンシャル <span class="tex2jax_process">$A$</span> は <span class="tex2jax_process">$1$</span>-form である。電磁気学ではスカラーポテンシャル <span class="tex2jax_process">$\phi$</span> とベクトルポテンシャル <span class="tex2jax_process">$\mathbf{A} = (A_x, A_y, A_z)$</span> が組になる。時間成分の符号に注意して（§10.3 の計量の時間成分が <span class="tex2jax_process">$-1$</span> であることの反映）、
+<p>4元ポテンシャル $A$ は $1$-form である。電磁気学ではスカラーポテンシャル $\phi$ とベクトルポテンシャル $\mathbf{A} = (A_x, A_y, A_z)$ が組になる。時間成分の符号に注意して（§10.3 の計量の時間成分が $-1$ であることの反映）、
 </p>
-<p>と書く。<span class="tex2jax_process">$\phi, A_x, A_y, A_z$</span> はいずれも <span class="tex2jax_process">$(t,x,y,z)$</span> の関数である。
+<p>と書く。$\phi, A_x, A_y, A_z$ はいずれも $(t,x,y,z)$ の関数である。
 </p>
-<p>（<span class="tex2jax_process">$\phi$</span> の時間微分は <span class="tex2jax_process">$dt\wedge dt = 0$</span> で消える。<span class="tex2jax_process">$A_x$</span> の <span class="tex2jax_process">$x$</span> 微分も <span class="tex2jax_process">$dx\wedge dx = 0$</span> で消える。以下同様。）
+<p>$dA$ の計算は第5章以来の手順そのものだ。$A$ の4項それぞれに $d$ を作用させる。
 </p>
-<p>これらを足し合わせ、ウェッジ積の反対称性（<span class="tex2jax_process">$dx\wedge dt = -dt\wedge dx$</span> など）で基底 <span class="tex2jax_process">$2$</span>-form ごとに整理する。
+<p>（$\phi$ の時間微分は $dt\wedge dt = 0$ で消える。$A_x$ の $x$ 微分も $dx\wedge dx = 0$ で消える。以下同様。）
 </p>
-<p>全6基底について同様に整理すると、<span class="tex2jax_process">$dA$</span> は次のようになる。
+<p>これらを足し合わせ、ウェッジ積の反対称性（$dx\wedge dt = -dt\wedge dx$ など）で基底 $2$-form ごとに整理する。
 </p>
-<p>ここで <span class="tex2jax_process">$dA$</span> の <span class="tex2jax_process">$dt\wedge dx$</span> 係数は <span class="tex2jax_process">$\frac{\partial\phi}{\partial x} + \frac{\partial A_x}{\partial t}$</span> だが、§10.2 の <span class="tex2jax_process">$F$</span> では同基底の係数は <span class="tex2jax_process">$E_x$</span>。両者の符号を見比べると、<span class="tex2jax_process">$E_x = -\frac{\partial\phi}{\partial x} - \frac{\partial A_x}{\partial t}$</span> とする必要がある。つまり、<span class="tex2jax_process">$F = -dA$</span> と置けばよい。まとめると、
+<p>$dt\wedge dx$ の係数を見よう。$d(-\phi\,dt)$ から $-\frac{\partial\phi}{\partial x}\,dx\wedge dt = \frac{\partial\phi}{\partial x}\,dt\wedge dx$。$d(A_x\,dx)$ から $\frac{\partial A_x}{\partial t}\,dt\wedge dx$。よって $dA$ の $dt\wedge dx$ 係数は $\displaystyle \frac{\partial\phi}{\partial x} + \frac{\partial A_x}{\partial t}$。
 </p>
-<p>である。<span class="tex2jax_process">$\mathbf{E}$</span> の全成分と <span class="tex2jax_process">$\mathbf{B}$</span> の全成分を、ポテンシャルで書き下すと次のとおり。
+<p>$dy\wedge dz$ の係数は、$d(A_y\,dy)$ から $\frac{\partial A_y}{\partial z}\,dz\wedge dy = -\frac{\partial A_y}{\partial z}\,dy\wedge dz$。$d(A_z\,dz)$ から $\frac{\partial A_z}{\partial y}\,dy\wedge dz$。よって $dA$ の $dy\wedge dz$ 係数は $\displaystyle \frac{\partial A_z}{\partial y} - \frac{\partial A_y}{\partial z}$。
+</p>
+<p>全6基底について同様に整理すると、$dA$ は次のようになる。
+</p>
+<p>ここで $dA$ の $dt\wedge dx$ 係数は $\frac{\partial\phi}{\partial x} + \frac{\partial A_x}{\partial t}$ だが、§10.2 の $F$ では同基底の係数は $E_x$。両者の符号を見比べると、$E_x = -\frac{\partial\phi}{\partial x} - \frac{\partial A_x}{\partial t}$ とする必要がある。つまり、$F = -dA$ と置けばよい。まとめると、
+</p>
+<p>である。$\mathbf{E}$ の全成分と $\mathbf{B}$ の全成分を、ポテンシャルで書き下すと次のとおり。
+</p>
+<p>$dt\wedge dx$ の係数 $E_x$ が $-\partial\phi/\partial x - \partial A_x/\partial t$、$dy\wedge dz$ の係数 $B_x$ が $-\frac{\partial A_z}{\partial y} + \frac{\partial A_y}{\partial z}$——電磁気学の教科書では $B_x = \frac{\partial A_z}{\partial y} - \frac{\partial A_y}{\partial z}$ と書かれるが、ここでの負号は本章の規約（$F=-dA$）に由来する。この負号は $\mathbf{A}$ の符号を反転させれば吸収できる、形式的な違いにすぎない。
 </p>
 <blockquote><p>
-**注** （<span class="tex2jax_process">$F$</span> の符号規約）<span class="tex2jax_process">$F = -dA$</span> という定義は、§10.2 の <span class="tex2jax_process">$F$</span> の行列表示（<span class="tex2jax_process">$F_{tx}=-E_x$</span>）と整合するように選んだものである。<span class="tex2jax_process">$F = +dA$</span>、<span class="tex2jax_process">$A = +\phi\,dt + \cdots$</span> など、異なる符号の組み合わせを使う流儀も存在する。本章では、§10.2 の <span class="tex2jax_process">$F$</span> の行列と <span class="tex2jax_process">$\mathbf{E} = -\nabla\phi - \partial\mathbf{A}/\partial t$</span> が整合する規約として <span class="tex2jax_process">$F=-dA$</span> を採用している。<br>
+**注** （$F$ の符号規約）$F = -dA$ という定義は、§10.2 の $F$ の行列表示（$F_{tx}=-E_x$）と整合するように選んだものである。$F = +dA$、$A = +\phi\,dt + \cdots$ など、異なる符号の組み合わせを使う流儀も存在する。本章では、§10.2 の $F$ の行列と $\mathbf{E} = -\nabla\phi - \partial\mathbf{A}/\partial t$ が整合する規約として $F=-dA$ を採用している。<br>
 </p></blockquote>
-<h4 id="span-classtex2jaxprocessspan-が-span-classtex2jaxprocessspan-を証明する"><span class="tex2jax_process">$dd=0$</span> が <span class="tex2jax_process">$dF=0$</span> を証明する</h4>
-<p>§10.4 の主結果——<span class="tex2jax_process">$dF=0$</span> が <span class="tex2jax_process">$\mathrm{div}\,\mathbf{B}=0$</span> と <span class="tex2jax_process">$\mathrm{rot}\,\mathbf{E}=-\partial\mathbf{B}/\partial t$</span> に等しい——の証明は一瞬である。<span class="tex2jax_process">$F=-dA$</span> だから、
+<h4 id="が-を証明する">$dd=0$ が $dF=0$ を証明する</h4>
+<p>§10.4 の主結果——$dF=0$ が $\mathrm{div}\,\mathbf{B}=0$ と $\mathrm{rot}\,\mathbf{E}=-\partial\mathbf{B}/\partial t$ に等しい——の証明は一瞬である。$F=-dA$ だから、
+</p>
+<p>$dd=0$ は第5章 §4.4 で証明した外微分の基本性質だ。$F$ が「何かの外微分」（定数倍を除いて）で書ける以上、その外微分は自動的にゼロになる。§10.4 で4つの基底 $3$-form の係数をゼロとおいて得た4本の式は、すべてこの一行に集約されている。
+</p>
+<p>$dd=0$ が物理法則を導く——この事実こそ、微分形式が電磁気学で「美しい」と言われる最大の理由である。
 </p>
 <blockquote><p>
-**注** （<span class="tex2jax_process">$\mathbf{B}$</span> と <span class="tex2jax_process">$\mathrm{div}\,\mathbf{B}=0$</span>）ベクトル解析でも「<span class="tex2jax_process">$\mathbf{B}$</span> が何かの回転で書けるなら <span class="tex2jax_process">$\mathrm{div}\,\mathbf{B}=0$</span>」は公式として知られている。<span class="tex2jax_process">$\mathrm{div}\,\mathrm{rot} \equiv 0$</span> である。これが <span class="tex2jax_process">$dd=0$</span> の <span class="tex2jax_process">$3$</span> 次元ベクトル解析版だ。<br>
+**注** （$\mathbf{B}$ と $\mathrm{div}\,\mathbf{B}=0$）ベクトル解析でも「$\mathbf{B}$ が何かの回転で書けるなら $\mathrm{div}\,\mathbf{B}=0$」は公式として知られている。$\mathrm{div}\,\mathrm{rot} \equiv 0$ である。これが $dd=0$ の $3$ 次元ベクトル解析版だ。<br>
 </p></blockquote>
 <h4 id="もう1本の式ポテンシャルで書く">もう1本の式——ポテンシャルで書く</h4>
-<p>これを §10.5 と同様に成分展開してもよいが、本書では第12章でディラック演算子を用いた統一的表現を扱うため、ここではこの形を提示するにとどめる。<span class="tex2jax_process">$\ast d\ast dA$</span> を展開すると、ローレンツゲージ <span class="tex2jax_process">$\frac{\partial A^0}{\partial t} + \frac{\partial A^1}{\partial x} + \frac{\partial A^2}{\partial y} + \frac{\partial A^3}{\partial z} = 0$</span> のもとで <span class="tex2jax_process">$\Box A = \mu_0\mathcal{J}$</span>（波動方程式）が現れる——が、その導出は電磁気学の教科書に譲ろう。
+<p>$d(\ast F) = \mu_0(\ast\mathcal{J})$ の側も、$F=-dA$ を代入すればポテンシャル $A$ に対する方程式になる。
+</p>
+<p>これを §10.5 と同様に成分展開してもよいが、本書では第12章でディラック演算子を用いた統一的表現を扱うため、ここではこの形を提示するにとどめる。$\ast d\ast dA$ を展開すると、ローレンツゲージ $\frac{\partial A^0}{\partial t} + \frac{\partial A^1}{\partial x} + \frac{\partial A^2}{\partial y} + \frac{\partial A^3}{\partial z} = 0$ のもとで $\Box A = \mu_0\mathcal{J}$（波動方程式）が現れる——が、その導出は電磁気学の教科書に譲ろう。
 </p>
 <blockquote><p>
-**注** （ゲージ自由度）<span class="tex2jax_process">$A' = A + d\chi$</span>（<span class="tex2jax_process">$\chi$</span> は任意の <span class="tex2jax_process">$0$</span>-form）と変換する。このとき <span class="tex2jax_process">$F' = -dA' = -dA - d(d\chi) = -dA = F$</span> となり、物理的な電磁場 <span class="tex2jax_process">$F$</span> は不変である。これがゲージ変換であり、<span class="tex2jax_process">$dd=0$</span> のもう一つの現れだ。電磁気学ではスカラーポテンシャル <span class="tex2jax_process">$\phi$</span> とベクトルポテンシャル <span class="tex2jax_process">$\mathbf{A}$</span> を同時に調整することで、<span class="tex2jax_process">$F$</span> を変えずに計算に都合のよいゲージを選ぶことができる。<br>
+**注** （ゲージ自由度）$A' = A + d\chi$（$\chi$ は任意の $0$-form）と変換する。このとき $F' = -dA' = -dA - d(d\chi) = -dA = F$ となり、物理的な電磁場 $F$ は不変である。これがゲージ変換であり、$dd=0$ のもう一つの現れだ。電磁気学ではスカラーポテンシャル $\phi$ とベクトルポテンシャル $\mathbf{A}$ を同時に調整することで、$F$ を変えずに計算に都合のよいゲージを選ぶことができる。<br>
 </p></blockquote>
 <blockquote><p>
 **【ここまでのチェックポイント — 第10章全体】**<br>
-- 電磁場 <span class="tex2jax_process">$F$</span> は <span class="tex2jax_process">$4\times4$</span> 反対称行列。6つの独立成分に <span class="tex2jax_process">$E_x,E_y,E_z,B_x,B_y,B_z$</span> が収まる。<br>
-- <span class="tex2jax_process">$dF=0$</span> を成分展開すると <span class="tex2jax_process">$\mathrm{div}\,\mathbf{B}=0$</span> と <span class="tex2jax_process">$\mathrm{rot}\,\mathbf{E}=-\partial\mathbf{B}/\partial t$</span> が現れる。<br>
-- <span class="tex2jax_process">$\ast F$</span> は <span class="tex2jax_process">$E$</span> と <span class="tex2jax_process">$B$</span> を入れ替える。<span class="tex2jax_process">$d(\ast F)=\mu_0(\ast\mathcal{J})$</span> から残りの2本が出る。<br>
-- **ポテンシャル構成**：<span class="tex2jax_process">$A = -\phi\,dt + A_x\,dx + A_y\,dy + A_z\,dz$</span> から <span class="tex2jax_process">$F=-dA$</span>（§10.2 の行列規約と整合）。<span class="tex2jax_process">$dF=0$</span> は <span class="tex2jax_process">$dd=0$</span> より自動的。<span class="tex2jax_process">$\mathbf{E}=-\nabla\phi-\partial\mathbf{A}/\partial t$</span> が自然に出る。<br>
+- 電磁場 $F$ は $4\times4$ 反対称行列。6つの独立成分に $E_x,E_y,E_z,B_x,B_y,B_z$ が収まる。<br>
+- $dF=0$ を成分展開すると $\mathrm{div}\,\mathbf{B}=0$ と $\mathrm{rot}\,\mathbf{E}=-\partial\mathbf{B}/\partial t$ が現れる。<br>
+- $\ast F$ は $E$ と $B$ を入れ替える。$d(\ast F)=\mu_0(\ast\mathcal{J})$ から残りの2本が出る。<br>
+- **ポテンシャル構成**：$A = -\phi\,dt + A_x\,dx + A_y\,dy + A_z\,dz$ から $F=-dA$（§10.2 の行列規約と整合）。$dF=0$ は $dd=0$ より自動的。$\mathbf{E}=-\nabla\phi-\partial\mathbf{A}/\partial t$ が自然に出る。<br>
 </p></blockquote>
 <hr />
-<h2 id="付録Espan-classtex2jaxprocessspan-と-span-classtex2jaxprocessspan-のスライス行列表示--span-classtex2jaxprocessspan-配列で見るマクスウェル方程式">付録E：<span class="tex2jax_process">$dF$</span> と <span class="tex2jax_process">$d(\ast F)$</span> のスライス行列表示 —— <span class="tex2jax_process">$4\times4\times4$</span> 配列で見るマクスウェル方程式</h2>
-<p>§10.4・§10.5 では <span class="tex2jax_process">$dF$</span> と <span class="tex2jax_process">$d(\ast F)$</span> を基底 <span class="tex2jax_process">$3$</span>-form の係数として展開した。付録Eでは、同じ計算を <strong><span class="tex2jax_process">$4\times4$</span> スライス行列の束</strong>——実質的には <span class="tex2jax_process">$4\times4\times4$</span> の3階テンソル——で可視化する。付録Aの延長線上にあり、本書の「全部行列に載せる」流儀の到達点でもある。
+<h2 id="付録E-と-のスライス行列表示--配列で見るマクスウェル方程式">付録E：$dF$ と $d(\ast F)$ のスライス行列表示 —— $4\times4\times4$ 配列で見るマクスウェル方程式</h2>
+<p>§10.4・§10.5 では $dF$ と $d(\ast F)$ を基底 $3$-form の係数として展開した。付録Eでは、同じ計算を <strong>$4\times4$ スライス行列の束</strong>——実質的には $4\times4\times4$ の3階テンソル——で可視化する。付録Aの延長線上にあり、本書の「全部行列に載せる」流儀の到達点でもある。
 </p>
-<h3 id="E1-基底-span-classtex2jaxprocessspan-form-とそのスライス行列--全16枚">E.1 基底 <span class="tex2jax_process">$3$</span>-form とそのスライス行列 —— 全16枚</h3>
-<p>4次元の基底 <span class="tex2jax_process">$3$</span>-form は次の4つである（§10.4 の並びと比べると、<span class="tex2jax_process">$\omega_2$</span> と <span class="tex2jax_process">$\omega_3$</span> の符号・順序が異なるが、内容は同じ4つである）。
+<h3 id="E1-基底--form-とそのスライス行列--全16枚">E.1 基底 $3$-form とそのスライス行列 —— 全16枚</h3>
+<p>4次元の基底 $3$-form は次の4つである（§10.4 の並びと比べると、$\omega_2$ と $\omega_3$ の符号・順序が異なるが、内容は同じ4つである）。
 </p>
-<p>各 <span class="tex2jax_process">$\omega_i$</span> について、座標方向 <span class="tex2jax_process">$t,x,y,z$</span> の<strong>スライス行列</strong> <span class="tex2jax_process">$\mathbf{S}_{t}^{(\omega_i)}, \mathbf{S}_{x}^{(\omega_i)}, \mathbf{S}_{y}^{(\omega_i)}, \mathbf{S}_{z}^{(\omega_i)}$</span> を定義する。スライス行列とは「その方向の座標を除いた残りの <span class="tex2jax_process">$3$</span> 方向が作る <span class="tex2jax_process">$3$</span>-form」を <span class="tex2jax_process">$4\times4$</span> 反対称行列に焼き直したものである。行・列の順は <span class="tex2jax_process">$(t,x,y,z)$</span>。非ゼロ成分には <span class="tex2jax_process">$\pm1$</span> が入る。<span class="tex2jax_process">$4$</span> 基底 <span class="tex2jax_process">$\times 4$</span> スライス <span class="tex2jax_process">$=$</span> 全 <span class="tex2jax_process">$16$</span> 枚。
+<p>各 $\omega_i$ について、座標方向 $t,x,y,z$ の<strong>スライス行列</strong> $\mathbf{S}_{t}^{(\omega_i)}, \mathbf{S}_{x}^{(\omega_i)}, \mathbf{S}_{y}^{(\omega_i)}, \mathbf{S}_{z}^{(\omega_i)}$ を定義する。スライス行列とは「その方向の座標を除いた残りの $3$ 方向が作る $3$-form」を $4\times4$ 反対称行列に焼き直したものである。行・列の順は $(t,x,y,z)$。非ゼロ成分には $\pm1$ が入る。$4$ 基底 $\times 4$ スライス $=$ 全 $16$ 枚。
 </p>
-<p>16枚のうち、<span class="tex2jax_process">$\mathbf{S}_{z}^{(\omega_1)}, \mathbf{S}_{y}^{(\omega_2)}, \mathbf{S}_{x}^{(\omega_3)}, \mathbf{S}_{t}^{(\omega_4)}$</span> の4枚はゼロ行列である。残る12枚に <span class="tex2jax_process">$\pm1$</span> が一つずつ（と反対称のペアが一つずつ）入っている。これが <span class="tex2jax_process">$4\times4\times4$</span> テンソルの正体だ。
+<p>16枚のうち、$\mathbf{S}_{z}^{(\omega_1)}, \mathbf{S}_{y}^{(\omega_2)}, \mathbf{S}_{x}^{(\omega_3)}, \mathbf{S}_{t}^{(\omega_4)}$ の4枚はゼロ行列である。残る12枚に $\pm1$ が一つずつ（と反対称のペアが一つずつ）入っている。これが $4\times4\times4$ テンソルの正体だ。
 </p>
-<h3 id="E2-span-classtex2jaxprocessspan-をスライス行列で書く">E.2 <span class="tex2jax_process">$dF$</span> をスライス行列で書く</h3>
-<p>§10.4 の展開により、<span class="tex2jax_process">$dF$</span> の各基底係数は次で与えられる（<span class="tex2jax_process">$c$</span> を含まない正規化された系）。
+<h3 id="E2-をスライス行列で書く">E.2 $dF$ をスライス行列で書く</h3>
+<p>§10.4 の展開により、$dF$ の各基底係数は次で与えられる（$c$ を含まない正規化された系）。
 </p>
-<p>となる。各 <span class="tex2jax_process">$A_{\cdots}$</span> を偏微分に展開し、それぞれの基底スライス行列に係数として掛けて並べると次のようになる。
+<p>$dF$ の各スライスは、4つの基底スライス行列を係数 $A_{\cdots}$ で線形結合したものである。たとえば $t$-スライスは
 </p>
-<p>同じ位置の成分を<strong>一枚の行列に足し合わせる</strong>と、<span class="tex2jax_process">$t$</span>-スライスは <span class="tex2jax_process">$16$</span> 成分すべてが明示された単一の <span class="tex2jax_process">$4\times4$</span> 反対称行列にまとまる。
+<p>となる。各 $A_{\cdots}$ を偏微分に展開し、それぞれの基底スライス行列に係数として掛けて並べると次のようになる。
+</p>
+<p>同じ位置の成分を<strong>一枚の行列に足し合わせる</strong>と、$t$-スライスは $16$ 成分すべてが明示された単一の $4\times4$ 反対称行列にまとまる。
+</p>
+<p>$x,y,z$ のスライス $\mathbf{S}_{x}^{(dF)}, \mathbf{S}_{y}^{(dF)}, \mathbf{S}_{z}^{(dF)}$ も同様に4項の線形結合から得られる。$dF$ 全体は、これら4枚のスライス行列の束である。
 </p>
 <h3 id="E3-フロベニウス積で係数を抜き出す">E.3 フロベニウス積で係数を抜き出す</h3>
-<p>第6章付録D で導入したフロベニウス積は、<span class="tex2jax_process">$4\times4$</span> 行列にもそのまま拡張できる。
+<p>第6章付録D で導入したフロベニウス積は、$4\times4$ 行列にもそのまま拡張できる。
 </p>
 <blockquote><p>
-**注** （計量由来の内積ではない）ここでのフロベニウス積は、ミンコフスキー計量に由来する時空の内積ではない。反対称行列表示から係数を抜き出すための、配列上のペアリングである。基底スライス行列との係数抽出演算として使っており、<span class="tex2jax_process">$\frac{1}{2}\operatorname{tr}(A^T B)$</span> はそのための計算手段だ。<br>
+**注** （計量由来の内積ではない）ここでのフロベニウス積は、ミンコフスキー計量に由来する時空の内積ではない。反対称行列表示から係数を抜き出すための、配列上のペアリングである。基底スライス行列との係数抽出演算として使っており、$\frac{1}{2}\operatorname{tr}(A^T B)$ はそのための計算手段だ。<br>
 </p></blockquote>
-<p>この内積を使うと、各スライスから係数を<strong>一行で抽出</strong>できる。たとえば <span class="tex2jax_process">$A_{txy}$</span> は
+<p>この内積を使うと、各スライスから係数を<strong>一行で抽出</strong>できる。たとえば $A_{txy}$ は
 </p>
-<p>である。<span class="tex2jax_process">$\mathbf{S}_{t}^{(\omega_1)}$</span> の非ゼロ成分は <span class="tex2jax_process">$(x,y)=+1, (y,x)=-1$</span> だけなので、フロベニウス積は <span class="tex2jax_process">$(1 \cdot S_{xy} + (-1) \cdot S_{yx})/2 = (S_{xy} - S_{yx})/2 = S_{xy}$</span>（<span class="tex2jax_process">$\mathbf{S}_{t}^{(dF)}$</span> が反対称だから <span class="tex2jax_process">$S_{yx}=-S_{xy}$</span>）。一発で係数が抜ける。
+<p>である。$\mathbf{S}_{t}^{(\omega_1)}$ の非ゼロ成分は $(x,y)=+1, (y,x)=-1$ だけなので、フロベニウス積は $(1 \cdot S_{xy} + (-1) \cdot S_{yx})/2 = (S_{xy} - S_{yx})/2 = S_{xy}$（$\mathbf{S}_{t}^{(dF)}$ が反対称だから $S_{yx}=-S_{xy}$）。一発で係数が抜ける。
 </p>
-<p>同様に、<strong>すべての係数は対応する基底スライスとのフロベニウス積で得られる</strong>。この構造は、第6章付録D で <span class="tex2jax_process">$\ast_{2\to1}(\mathbf{M}) = (E_1\!\cdot\!\mathbf{M},\;E_2\!\cdot\!\mathbf{M},\;E_3\!\cdot\!\mathbf{M})$</span> が <span class="tex2jax_process">$2$</span>-form <span class="tex2jax_process">$\mathbf{M}$</span> の各成分を抽出したのと完全に相似である。次数が <span class="tex2jax_process">$1\to2$</span> から <span class="tex2jax_process">$2\to3$</span> に上がり、内積をとる相手が縦ベクトルから <span class="tex2jax_process">$4\times4$</span> 行列の束に変わっただけだ。
+<p>同様に、<strong>すべての係数は対応する基底スライスとのフロベニウス積で得られる</strong>。この構造は、第6章付録D で $\ast_{2\to1}(\mathbf{M}) = (E_1\!\cdot\!\mathbf{M},\;E_2\!\cdot\!\mathbf{M},\;E_3\!\cdot\!\mathbf{M})$ が $2$-form $\mathbf{M}$ の各成分を抽出したのと完全に相似である。次数が $1\to2$ から $2\to3$ に上がり、内積をとる相手が縦ベクトルから $4\times4$ 行列の束に変わっただけだ。
 </p>
-<h3 id="E4-span-classtex2jaxprocessspan-をスライスで読む">E.4 <span class="tex2jax_process">$dF=0$</span> をスライスで読む</h3>
+<h3 id="E4-をスライスで読む">E.4 $dF=0$ をスライスで読む</h3>
+<p>$dF=0$ とは、4枚のスライス行列すべてがゼロ行列になることである。
+</p>
+<p>$t$-スライス（上記）の非ゼロ成分を読めば、
 <ul>
-<li><span class="tex2jax_process">$(x,y)$</span> 成分 <span class="tex2jax_process">$=0$</span> から <span class="tex2jax_process">$\mathrm{rot}_z\,\mathbf{E} + \partial B_z/\partial t = 0$</span></li>
-<li><span class="tex2jax_process">$(x,z)$</span> 成分 <span class="tex2jax_process">$=0$</span> から <span class="tex2jax_process">$-\mathrm{rot}_y\,\mathbf{E} - \partial B_y/\partial t = 0$</span></li>
-<li><span class="tex2jax_process">$(y,z)$</span> 成分 <span class="tex2jax_process">$=0$</span> から <span class="tex2jax_process">$\mathrm{rot}_x\,\mathbf{E} + \partial B_x/\partial t = 0$</span></li>
+<li>$(x,y)$ 成分 $=0$ から $\mathrm{rot}_z\,\mathbf{E} + \partial B_z/\partial t = 0$</li>
+<li>$(x,z)$ 成分 $=0$ から $-\mathrm{rot}_y\,\mathbf{E} - \partial B_y/\partial t = 0$</li>
+<li>$(y,z)$ 成分 $=0$ から $\mathrm{rot}_x\,\mathbf{E} + \partial B_x/\partial t = 0$</li>
 </ul>
-<p>これら3つは <span class="tex2jax_process">$\mathrm{rot}\,\mathbf{E} = -\partial\mathbf{B}/\partial t$</span> にほかならない。<span class="tex2jax_process">$z$</span>-スライス（<span class="tex2jax_process">$\mathbf{S}_{z}^{(\omega_4)}$</span> 由来）の非ゼロ成分からは <span class="tex2jax_process">$\mathrm{div}\,\mathbf{B} = 0$</span> が現れる。見かけは巨大だが、中身は §10.4 の4本の係数比較式の繰り返しにすぎない。
+<p>これら3つは $\mathrm{rot}\,\mathbf{E} = -\partial\mathbf{B}/\partial t$ にほかならない。$z$-スライス（$\mathbf{S}_{z}^{(\omega_4)}$ 由来）の非ゼロ成分からは $\mathrm{div}\,\mathbf{B} = 0$ が現れる。見かけは巨大だが、中身は §10.4 の4本の係数比較式の繰り返しにすぎない。
 </p>
-<h3 id="E5-span-classtex2jaxprocessspan-のスライス表示">E.5 <span class="tex2jax_process">$d(\ast F) = \mu_0(\ast\mathcal{J})$</span> のスライス表示</h3>
-<p>有源側も同型の構造を持つ。<span class="tex2jax_process">$\ast F$</span> と <span class="tex2jax_process">$\ast\mathcal{J}$</span> は §10.5 で展開済みであり、<span class="tex2jax_process">$d(\ast F)$</span> は <span class="tex2jax_process">$dF$</span> と同型のスライス行列になる——<span class="tex2jax_process">$\mathbf{E}$</span> と <span class="tex2jax_process">$\mathbf{B}$</span> の係数位置が入れ替わるだけだ。
+<h3 id="E5-のスライス表示">E.5 $d(\ast F) = \mu_0(\ast\mathcal{J})$ のスライス表示</h3>
+<p>有源側も同型の構造を持つ。$\ast F$ と $\ast\mathcal{J}$ は §10.5 で展開済みであり、$d(\ast F)$ は $dF$ と同型のスライス行列になる——$\mathbf{E}$ と $\mathbf{B}$ の係数位置が入れ替わるだけだ。
 </p>
-<p>同じ位置の成分を一枚の行列に足し合わせる。<span class="tex2jax_process">$dF$</span> の <span class="tex2jax_process">$t$</span>-スライスと見比べてほしい——<span class="tex2jax_process">$\mathbf{E}$</span> と <span class="tex2jax_process">$\mathbf{B}$</span>（および添字の巡回）がきれいに入れ替わっている。
+<p>$d(\ast F)$ の $\omega_1\sim\omega_4$ 係数を $B_{txy}, B_{txz}, B_{tyz}, B_{xyz}$ と書く。
 </p>
-<p>右辺 <span class="tex2jax_process">$\mu_0(\ast\mathcal{J})$</span> も同じ4枚のスライス行列の線形結合で書ける。<span class="tex2jax_process">$\ast\mathcal{J}$</span> を本付録の基底順に展開し直すと（§10.5 参照）、<span class="tex2jax_process">$\omega_1\!\sim\!\omega_4$</span> の係数は順に <span class="tex2jax_process">$-\mu_0 c J_z,\; +\mu_0 c J_y,\; -\mu_0 c J_x,\; \rho/\varepsilon_0$</span> となる。すなわち
+<p>$d(\ast F)$ の各スライスも $dF$ と同様に、4つの係数 $B_{\cdots}$ で基底スライス行列を線形結合すればよい。$t$-スライスを項別に書く。
+</p>
+<p>同じ位置の成分を一枚の行列に足し合わせる。$dF$ の $t$-スライスと見比べてほしい——$\mathbf{E}$ と $\mathbf{B}$（および添字の巡回）がきれいに入れ替わっている。
+</p>
+<p>右辺 $\mu_0(\ast\mathcal{J})$ も同じ4枚のスライス行列の線形結合で書ける。$\ast\mathcal{J}$ を本付録の基底順に展開し直すと（§10.5 参照）、$\omega_1\!\sim\!\omega_4$ の係数は順に $-\mu_0 c J_z,\; +\mu_0 c J_y,\; -\mu_0 c J_x,\; \rho/\varepsilon_0$ となる。すなわち
+</p>
+<p>$t$-スライスの非ゼロ成分を読めば $-\mathrm{rot}\,\mathbf{B} + \partial\mathbf{E}/\partial t = -c\mu_0\mathbf{J}$、すなわち $\mathrm{rot}\,\mathbf{B} = c\mu_0\mathbf{J} + \partial\mathbf{E}/\partial t$ の各成分。$z$-スライスの $(x,y)$ 成分からは $\mathrm{div}\,\mathbf{E} = \rho/\varepsilon_0$ が現れる。
 </p>
 <hr />
-<p>以上で、マクスウェル方程式の全容が <span class="tex2jax_process">$4\times4\times4$</span> のスライス行列の束として可視化された。この「巨大配列」の各マス目に書かれているのは偏微分の組み合わせにすぎず、外微分 <span class="tex2jax_process">$d$</span> とホッジ・スター <span class="tex2jax_process">$\ast$</span> という二つの代数操作が、いかに整然とした行列の文法で物理法則を記述しているか——それを見届けたことが、本付録の成果である。
+<p>以上で、マクスウェル方程式の全容が $4\times4\times4$ のスライス行列の束として可視化された。この「巨大配列」の各マス目に書かれているのは偏微分の組み合わせにすぎず、外微分 $d$ とホッジ・スター $\ast$ という二つの代数操作が、いかに整然とした行列の文法で物理法則を記述しているか——それを見届けたことが、本付録の成果である。
 </p>
 <p>\newpage
 </p>
