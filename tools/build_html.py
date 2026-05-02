@@ -1,19 +1,12 @@
 #!/usr/bin/env python3
 """
 Generate HTML from manuscript_combined.md with proper MathJax support.
-This script replaces the manually-edited docs/index.html approach with
-an automated pipeline that correctly handles math in both body and sidebar TOC.
+Uses regex-based conversion to preserve LaTeX math content intact.
 """
 
 import re
 import sys
 from pathlib import Path
-
-try:
-    import markdown
-except ImportError:
-    print("Error: markdown package not found. Install with: pip install markdown")
-    sys.exit(1)
 
 
 MATHJAX_CONFIG = '''window.MathJax = {
@@ -68,12 +61,46 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
 </html>'''
 
 
+class MathProtector:
+    """Protect math content from markdown processing."""
+
+    def __init__(self):
+        self.math_blocks = []
+        self.inline_math = []
+
+    def protect(self, text):
+        """Replace math with placeholders and store original content."""
+        counter = [0]
+
+        def replace_display(match):
+            idx = len(self.math_blocks)
+            self.math_blocks.append(match.group(0))
+            return f'MATH_BLOCK_{idx}_END'
+
+        def replace_inline(match):
+            idx = len(self.inline_math)
+            self.inline_math.append(match.group(0))
+            return f'INLINE_MATH_{idx}_END'
+
+        text = re.sub(r'\$\$[\s\S]+?\$\$', replace_display, text)
+        text = re.sub(r'(?<!\\)\$[^$\n]+?(?<!\\)\$', replace_inline, text)
+
+        return text
+
+    def restore(self, text):
+        """Restore math content from stored placeholders."""
+        for i, block in enumerate(self.math_blocks):
+            text = text.replace(f'MATH_BLOCK_{i}_END', block)
+        for i, math in enumerate(self.inline_math):
+            text = text.replace(f'INLINE_MATH_{i}_END', math)
+        return text
+
+
 def slugify(text):
     """Convert text to a URL-safe slug for heading IDs."""
-    text = text.replace('$', '')
-    text = re.sub(r'\$[^$]+\$', '', text)
+    text = re.sub(r'\$[^$]*\$', '', text)
     text = re.sub(r'\\[^\\]+', '', text)
-    text = re.sub(r'[{}\\[\\]()（）——–—ー・。、,!?！?]', '', text)
+    text = re.sub(r'[{}\\[\\]()（）——–—ー・。、,!?！？]', '', text)
     text = re.sub(r'\s+', '-', text)
     text = re.sub(r'-+', '-', text)
     text = text.strip('-')
@@ -91,16 +118,10 @@ def extract_toc(markdown_text):
     for match in heading_pattern.finditer(markdown_text):
         level = len(match.group(1))
         heading_text = match.group(2).strip()
-
-        heading_text_clean = re.sub(r'^(\d+(?:\.\d+)*\s*)', '', heading_text)
-        numbered = heading_text != heading_text_clean
-
         anchor = slugify(heading_text)
         if not anchor:
             anchor = 'section'
-
-        indent = '  ' * (level - 1)
-        toc_entries.append((level, heading_text, anchor, numbered))
+        toc_entries.append((level, heading_text, anchor))
 
     return toc_entries
 
@@ -110,7 +131,7 @@ def build_toc_html(toc_entries):
     result = []
     stack = [result]
 
-    for level, text, anchor, numbered in toc_entries:
+    for level, text, anchor in toc_entries:
         if level == 1:
             continue
 
@@ -147,30 +168,149 @@ def build_toc_html(toc_entries):
     return '\n'.join(flat_result)
 
 
-def process_markdown(markdown_text):
-    """Process markdown to HTML with proper handling."""
-    md = markdown.Markdown(extensions=['extra'], extension_configs={
-        'extra': {' BREAK_ON_BLANKLINE': False, 'ENABLE_ATTRIBUTES': True}
-    })
+def process_markdown(markdown_text, heading_anchors):
+    """Convert markdown to HTML using regex-based processing.
+    
+    heading_anchors: dict mapping heading text (original, with math) to anchor slug
+    """
+    protector = MathProtector()
+    text = protector.protect(markdown_text)
 
-    html = md.convert(markdown_text)
+    lines = text.split('\n')
+    result = []
+    in_code_block = False
+    in_blockquote = False
+    in_list = False
+    in_paragraph = False
 
-    html = add_heading_ids(html)
+    i = 0
+    while i < len(lines):
+        line = lines[i]
 
-    return html
+        if line.strip().startswith('```'):
+            if not in_code_block:
+                result.append('<pre><code>')
+                in_code_block = True
+                i += 1
+                continue
+            else:
+                result.append('</code></pre>')
+                in_code_block = False
+                i += 1
+                continue
 
+        if in_code_block:
+            result.append(line)
+            i += 1
+            continue
 
-def add_heading_ids(html):
-    """Add IDs to headings to match TOC anchors."""
-    def replace_heading(match):
-        tag = match.group(1)
-        content = match.group(2)
-        anchor = slugify(content)
-        if not anchor:
-            anchor = 'section'
-        return f'<h{tag} id="{anchor}">{content}</h{tag}>'
+        heading_match = re.match(r'^(#{1,6})\s+(.+)$', line)
+        if heading_match:
+            level = len(heading_match.group(1))
+            content = heading_match.group(2).strip()
+            restored_content = protector.restore(content)
+            anchor = heading_anchors.get(restored_content, slugify(restored_content))
+            if not anchor:
+                anchor = 'section'
+            result.append(f'<h{level} id="{anchor}">{restored_content}</h{level}>')
+            in_paragraph = False
+            in_list = False
+            i += 1
+            continue
 
-    html = re.sub(r'<h([1-6])>(.+?)</h[1-6]>', replace_heading, html)
+        if line.strip() == '---':
+            result.append('<hr />')
+            in_paragraph = False
+            in_list = False
+            i += 1
+            continue
+
+        if line.strip().startswith('>'):
+            content = protector.restore(line[1:].strip())
+            if in_blockquote:
+                result.append(content)
+            else:
+                result.append(f'<blockquote><p>{content}</p>')
+                in_blockquote = True
+            in_paragraph = False
+            i += 1
+            continue
+        elif in_blockquote:
+            result.append('</p></blockquote>')
+            in_blockquote = False
+
+        if line.strip().startswith(('1.', '2.', '3.', '4.', '5.', '6.', '7.', '8.', '9.')) and not in_list:
+            num = re.match(r'^(\d+)\.\s*(.*)', line.strip())
+            if num:
+                if not in_list:
+                    result.append('<ol>')
+                    in_list = True
+                result.append(f'<li>{protector.restore(num.group(2))}</li>')
+                in_paragraph = False
+                i += 1
+                continue
+        elif in_list:
+            result.append('</ol>')
+            in_list = False
+
+        list_match = re.match(r'^[-*]\s+(.*)', line)
+        if list_match:
+            if not in_list:
+                result.append('<ul>')
+                in_list = True
+            result.append(f'<li>{protector.restore(list_match.group(1))}</li>')
+            in_paragraph = False
+            i += 1
+            continue
+        elif in_list:
+            result.append('</ul>')
+            in_list = False
+
+        if line.strip() == '':
+            if in_paragraph:
+                result.append('</p>')
+                in_paragraph = False
+            if in_blockquote:
+                result.append('</p></blockquote>')
+                in_blockquote = False
+            i += 1
+            continue
+
+        inline_patterns = [
+            (r'\*\*(.+?)\*\*', r'<strong>\1</strong>'),
+            (r'\*(.+?)\*', r'<em>\1</em>'),
+            (r'`(.+?)`', r'<code>\1</code>'),
+        ]
+
+        processed = line
+        for pattern, replacement in inline_patterns:
+            processed = re.sub(pattern, replacement, processed)
+
+        restored_processed = protector.restore(processed)
+
+        if not restored_processed.strip().startswith('<') and restored_processed.strip():
+            if not in_paragraph:
+                result.append(f'<p>{restored_processed}')
+                in_paragraph = True
+            else:
+                result.append(restored_processed)
+        else:
+            if in_paragraph:
+                result.append('</p>')
+                in_paragraph = False
+            result.append(restored_processed)
+
+        i += 1
+
+    if in_paragraph:
+        result.append('</p>')
+    if in_blockquote:
+        result.append('</p></blockquote>')
+    if in_list:
+        result.append('</ul>' if not result or '</ol>' not in result[-1] else '</ol>')
+
+    html = '\n'.join(result)
+
     return html
 
 
@@ -190,11 +330,13 @@ def main():
     toc_entries = extract_toc(markdown_text)
     print(f"  Found {len(toc_entries)} headings")
 
+    heading_anchors = {text: anchor for level, text, anchor in toc_entries}
+
     print("Building TOC HTML...")
     toc_html = build_toc_html(toc_entries)
 
     print("Processing markdown to HTML...")
-    content_html = process_markdown(markdown_text)
+    content_html = process_markdown(markdown_text, heading_anchors)
 
     print("Generating final HTML...")
     final_html = HTML_TEMPLATE.format(
