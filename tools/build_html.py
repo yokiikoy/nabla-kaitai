@@ -114,8 +114,16 @@ def slugify(text):
     return text or 'section'
 
 def process_markdown(markdown_text):
+    # 1. Global replacement of \bm before any protection or processing
+    # Alphabet \bm{v} -> \mathbf{v}
+    text = re.sub(r'\\bm\{([a-zA-Z0-9]+)\}', r'\\mathbf{\1}', markdown_text)
+    # Greek or symbols \bm{\sigma} -> \boldsymbol{\sigma}
+    text = re.sub(r'\\bm\{(.+?)\}', r'\\boldsymbol{\1}', text)
+    # Naked \bm \sigma -> \boldsymbol \sigma
+    text = text.replace('\\bm ', '\\boldsymbol ')
+    
     protector = MathProtector()
-    text = protector.protect(markdown_text)
+    text = protector.protect(text)
     lines = text.split('\n')
     result = []
     in_code, in_quote, in_list, in_para = False, False, False, False
@@ -186,8 +194,6 @@ def process_markdown(markdown_text):
             continue
         
         processed = line
-        processed = processed.replace('\\bm{', '\\mathbf{')
-        processed = processed.replace('\\bm ', '\\mathbf ')
         processed = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', processed)
         processed = re.sub(r'\*(.+?)\*', r'<em>\1</em>', processed)
         processed = re.sub(r'`(.+?)`', r'<code>\1</code>', processed)

@@ -145,8 +145,8 @@ $$</div>
 <h4 id="1222-ベクトルをパウリ行列で書く">12.2.2 ベクトルをパウリ行列で書く</h4>
 <p>3次元ベクトル $\mathbf{v} = (v_1, v_2, v_3)$ をパウリ行列で表してみよう。
 </p>
-<div class="math-block">$$V = v_1\sigma_1 + v_2\sigma_2 + v_3\sigma_3 = \mathbf{v}\!\cdot\!\bm{\sigma}$$</div>
-<p>二つのベクトル $\mathbf{v}, \mathbf{w}$ に対応するパウリ行列 $V = \mathbf{v}\!\cdot\!\bm{\sigma}$, $W = \mathbf{w}\!\cdot\!\bm{\sigma}$ の積を計算する。
+<div class="math-block">$$V = v_1\sigma_1 + v_2\sigma_2 + v_3\sigma_3 = \mathbf{v}\!\cdot\!\boldsymbol{\sigma}$$</div>
+<p>二つのベクトル $\mathbf{v}, \mathbf{w}$ に対応するパウリ行列 $V = \mathbf{v}\!\cdot\!\boldsymbol{\sigma}$, $W = \mathbf{w}\!\cdot\!\boldsymbol{\sigma}$ の積を計算する。
 </p>
 <div class="math-block">$$
 \begin{aligned}
@@ -174,7 +174,7 @@ I\text{ の係数（内積）} &: v_1w_1 + v_2w_2 + v_3w_3 \;=\; \mathbf{v}\!\cd
 $$</div>
 <p>$\sigma_1,\sigma_2,\sigma_3$ の係数カッコ内は、第2章で定義したウェッジ積 $\mathbf{v}\wedge\mathbf{w}$ の各成分そのものである。したがって
 </p>
-<div class="math-block">$$VW = (\mathbf{v}\!\cdot\!\mathbf{w})\,I \;+\; i\,(\mathbf{v}\times\mathbf{w})\!\cdot\!\bm{\sigma}$$</div>
+<div class="math-block">$$VW = (\mathbf{v}\!\cdot\!\mathbf{w})\,I \;+\; i\,(\mathbf{v}\times\mathbf{w})\!\cdot\!\boldsymbol{\sigma}$$</div>
 <p>と、内積 $+$ ウェッジ積の形にまとまる。内積と外積が、<strong>一つの積 $VW$ から同時に</strong>現れた。
 </p>
 <p>これが「魔法の箱」の正体だ。パウリ行列の積は、内積（$0$-form に相当するスカラー）と外積（$2$-form に相当するウェッジ積）を、<strong>一つの演算で同時に</strong>生み出す。通常の微分形式では別々の次数に属していたものが、パウリ行列の代数の中では一つの $2\times2$ 行列として共存している。
@@ -194,7 +194,7 @@ $$</div>
 **注** （何ができるようになったのか）微分形式でも異なる次数の形式を直和として形式的に並べることはできる。しかし、内積（縮約）と外積（反対称化）を**一つの積として同時に**扱うには、通常のウェッジ積だけでは足りない。パウリ行列の代数では、それらが一つの積 $VW$ の中で自然に分離・共存する。これが幾何代数の核心である。<br>
 </p></blockquote>
 <blockquote><p>
-**注** （全次数の対応）パウリ行列の代数における次数対応を整理しておく。$I$ が $0$-form（スカラー）、$\sigma_1,\sigma_2,\sigma_3$ が $1$-form（ベクトル）、$i\sigma_1,i\sigma_2,i\sigma_3$ が $2$-form（バイベクトル）、$iI$ が $3$-form（擬スカラー）に対応する。最も一般的な元は $\psi = aI + \mathbf{v}\!\cdot\!\bm{\sigma} + i\,\mathbf{w}\!\cdot\!\bm{\sigma} + ibI$ の形で、4つの次数すべてを複素係数で含んでいる。<br>
+**注** （全次数の対応）パウリ行列の代数における次数対応を整理しておく。$I$ が $0$-form（スカラー）、$\sigma_1,\sigma_2,\sigma_3$ が $1$-form（ベクトル）、$i\sigma_1,i\sigma_2,i\sigma_3$ が $2$-form（バイベクトル）、$iI$ が $3$-form（擬スカラー）に対応する。最も一般的な元は $\psi = aI + \mathbf{v}\!\cdot\!\boldsymbol{\sigma} + i\,\mathbf{w}\!\cdot\!\boldsymbol{\sigma} + ibI$ の形で、4つの次数すべてを複素係数で含んでいる。<br>
 </p></blockquote>
 <blockquote><p>
 **注** （四元数——すでにあった魔法の箱）実はこの「スカラーとベクトルを一つの数に混ぜる」という発想は、パウリ行列よりもずっと古い。行列代数よりも古い。1843年にハミルトンが発見した**四元数（quaternion）** $q = a + bi + cj + dk$ がまさにそれだ。マクスウェルは自身の電磁気学を四元数で定式化していた。しかしその後、ギブズとヘヴィサイドが四元数からスカラー部分とベクトル部分を**分離**し、現代のベクトル解析（内積とクロス積）が誕生した。パウリ行列は、ギブズが分離したスカラーとベクトルを、約80年後に量子力学の文脈で再び**統合**したものである。歴史は一周したのだ。<br>
@@ -207,16 +207,16 @@ $$</div>
 </p></blockquote>
 <hr />
 <h3 id="123-ディラック演算子と真のナブラ">§12.3 ディラック演算子と真のナブラ</h3>
-<h4 id="1231--すべてを統合する演算子">12.3.1 $\bm{\sigma}\!\cdot\!\nabla$ —— すべてを統合する演算子</h4>
+<h4 id="1231--すべてを統合する演算子">12.3.1 $\boldsymbol{\sigma}\!\cdot\!\nabla$ —— すべてを統合する演算子</h4>
 <p>パウリ行列とナブラ $\nabla = (\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z})$ を組み合わせて、次の演算子を定義する。
 </p>
-<div class="math-block">$$D = \sigma_1\frac{\partial}{\partial x} + \sigma_2\frac{\partial}{\partial y} + \sigma_3\frac{\partial}{\partial z} = \bm{\sigma}\!\cdot\!\nabla$$</div>
+<div class="math-block">$$D = \sigma_1\frac{\partial}{\partial x} + \sigma_2\frac{\partial}{\partial y} + \sigma_3\frac{\partial}{\partial z} = \boldsymbol{\sigma}\!\cdot\!\nabla$$</div>
 <p>$D$ は $2\times2$ 行列の形をした微分演算子である。これをスカラー場 $\varphi$ に作用させてみよう。
 </p>
-<div class="math-block">$$D\varphi = \sigma_1\frac{\partial\varphi}{\partial x} + \sigma_2\frac{\partial\varphi}{\partial y} + \sigma_3\frac{\partial\varphi}{\partial z} = (\nabla\varphi)\!\cdot\!\bm{\sigma}$$</div>
+<div class="math-block">$$D\varphi = \sigma_1\frac{\partial\varphi}{\partial x} + \sigma_2\frac{\partial\varphi}{\partial y} + \sigma_3\frac{\partial\varphi}{\partial z} = (\nabla\varphi)\!\cdot\!\boldsymbol{\sigma}$$</div>
 <p>これは $\mathrm{grad}\,\varphi$ をパウリ行列で表したものだ。
 </p>
-<p>次に、ベクトル場 $\mathbf{A} = (A_1, A_2, A_3)$ をパウリ行列で $A = \mathbf{A}\!\cdot\!\bm{\sigma}$ と書いて $D$ を作用させる。11.2.2 の積の公式を思い出そう。
+<p>次に、ベクトル場 $\mathbf{A} = (A_1, A_2, A_3)$ をパウリ行列で $A = \mathbf{A}\!\cdot\!\boldsymbol{\sigma}$ と書いて $D$ を作用させる。11.2.2 の積の公式を思い出そう。
 </p>
 <div class="math-block">$$
 \begin{aligned}
@@ -239,7 +239,7 @@ I\text{ の係数} &: \frac{\partial A_1}{\partial x} + \frac{\partial A_2}{\par
 $$</div>
 <p>$\sigma_k$ の係数カッコ内は $\mathrm{rot}\,\mathbf{A}$ の各成分——外微分 $d$ が $1$-form $\mathbf{A}$ から生み出す $2$-form $d\mathbf{A}$ の成分——にほかならない。したがって
 </p>
-<div class="math-block">$$D(\mathbf{A}\!\cdot\!\bm{\sigma}) = (\mathrm{div}\,\mathbf{A})\,I \;+\; i\,(\mathrm{rot}\,\mathbf{A})\!\cdot\!\bm{\sigma}$$</div>
+<div class="math-block">$$D(\mathbf{A}\!\cdot\!\boldsymbol{\sigma}) = (\mathrm{div}\,\mathbf{A})\,I \;+\; i\,(\mathrm{rot}\,\mathbf{A})\!\cdot\!\boldsymbol{\sigma}$$</div>
 <strong>一つの演算子 $D$ が、$\mathrm{grad}$（$D\varphi$）、$\mathrm{div}$（$DA$ の実部）、$\mathrm{rot}$（$DA$ の虚部）をすべて産み出す。</strong> これこそが、$\nabla$ を $d$ と $\ast$ に解体した旅の、逆方向の結論——統合——にほかならない。
 <blockquote><p>
 **注** （$d$ と $\ast$ で書くと）$D$ は本書の言葉でも表現できる。符号規約を別にすれば、$D$ は $d$（次数を上げる）と $\ast d\ast$（次数を下げる）を合わせた演算子として理解できる。$\ast d\ast$ は**余微分（codifferential）** $\delta$ と呼ばれ、$\delta = \pm\ast d\ast$（符号は次元と次数に依存）と定義される。ここでは厳密な符号には立ち入らず、$D \sim d + \delta$ という構造だけを押さえておく。$d$ が次数を上げ、$\delta$ が次数を下げる——この二つを足した $D$ が、grad・rot・div を一つの演算子に束ねているのだ。<br>
@@ -247,7 +247,7 @@ $$</div>
 <h4 id="1232--ラプラシアン">12.3.2 $D^2$ —— ラプラシアン</h4>
 <p>さらに $D$ を二度作用させるとどうなるか。
 </p>
-<div class="math-block">$$D^2 = (\bm{\sigma}\!\cdot\!\nabla)(\bm{\sigma}\!\cdot\!\nabla) = (\sigma_1\frac{\partial}{\partial x} + \sigma_2\frac{\partial}{\partial y} + \sigma_3\frac{\partial}{\partial z})(\sigma_1\frac{\partial}{\partial x} + \sigma_2\frac{\partial}{\partial y} + \sigma_3\frac{\partial}{\partial z})$$</div>
+<div class="math-block">$$D^2 = (\boldsymbol{\sigma}\!\cdot\!\nabla)(\boldsymbol{\sigma}\!\cdot\!\nabla) = (\sigma_1\frac{\partial}{\partial x} + \sigma_2\frac{\partial}{\partial y} + \sigma_3\frac{\partial}{\partial z})(\sigma_1\frac{\partial}{\partial x} + \sigma_2\frac{\partial}{\partial y} + \sigma_3\frac{\partial}{\partial z})$$</div>
 <p>9項に展開する。
 </p>
 <div class="math-block">$$
@@ -268,34 +268,34 @@ $$</div>
 <p>電場 $\mathbf{E}$ と磁場 $\mathbf{B}$ を一つの複素ベクトルに束ねる。これは<strong>リーマン－ジルバーシュタイン・ベクトル</strong>と呼ばれる。
 </p>
 <div class="math-block">$$\mathbf{F} = \mathbf{E} + i\mathbf{B}$$</div>
-<p>パウリ行列で書けば $F = \mathbf{E}\!\cdot\!\bm{\sigma} + i\,\mathbf{B}\!\cdot\!\bm{\sigma}$ である。$F$ はスカラー部を持たない純粋な複素パウリ・ベクトルだ。時間微分を含めた演算子 $D + \frac{\partial}{\partial t}$ を作用させる。
+<p>パウリ行列で書けば $F = \mathbf{E}\!\cdot\!\boldsymbol{\sigma} + i\,\mathbf{B}\!\cdot\!\boldsymbol{\sigma}$ である。$F$ はスカラー部を持たない純粋な複素パウリ・ベクトルだ。時間微分を含めた演算子 $D + \frac{\partial}{\partial t}$ を作用させる。
 </p>
-<div class="math-block">$$(D + \frac{\partial}{\partial t})F = (\bm{\sigma}\!\cdot\!\nabla + \frac{\partial}{\partial t})(\mathbf{E}\!\cdot\!\bm{\sigma} + i\,\mathbf{B}\!\cdot\!\bm{\sigma})$$</div>
-<p>§12.3.1 の $D(\mathbf{A}\!\cdot\!\bm{\sigma})$ の公式を $\mathbf{E}$ と $\mathbf{B}$ の両方に適用する。
+<div class="math-block">$$(D + \frac{\partial}{\partial t})F = (\boldsymbol{\sigma}\!\cdot\!\nabla + \frac{\partial}{\partial t})(\mathbf{E}\!\cdot\!\boldsymbol{\sigma} + i\,\mathbf{B}\!\cdot\!\boldsymbol{\sigma})$$</div>
+<p>§12.3.1 の $D(\mathbf{A}\!\cdot\!\boldsymbol{\sigma})$ の公式を $\mathbf{E}$ と $\mathbf{B}$ の両方に適用する。
 </p>
 <div class="math-block">$$
 \begin{aligned}
-(D + \frac{\partial}{\partial t})F &= (\mathrm{div}\,\mathbf{E})\,I + i\,(\mathrm{rot}\,\mathbf{E})\!\cdot\!\bm{\sigma} + \frac{\partial}{\partial t}\mathbf{E}\!\cdot\!\bm{\sigma} \\
-&\quad + i\,(\mathrm{div}\,\mathbf{B})\,I - (\mathrm{rot}\,\mathbf{B})\!\cdot\!\bm{\sigma} + i\,\frac{\partial}{\partial t}\mathbf{B}\!\cdot\!\bm{\sigma}
+(D + \frac{\partial}{\partial t})F &= (\mathrm{div}\,\mathbf{E})\,I + i\,(\mathrm{rot}\,\mathbf{E})\!\cdot\!\boldsymbol{\sigma} + \frac{\partial}{\partial t}\mathbf{E}\!\cdot\!\boldsymbol{\sigma} \\
+&\quad + i\,(\mathrm{div}\,\mathbf{B})\,I - (\mathrm{rot}\,\mathbf{B})\!\cdot\!\boldsymbol{\sigma} + i\,\frac{\partial}{\partial t}\mathbf{B}\!\cdot\!\boldsymbol{\sigma}
 \end{aligned}
 $$</div>
-<p>実部と虚部、そして $I$（スカラー）と $\bm{\sigma}$（ベクトル）の各成分に整理する。
+<p>実部と虚部、そして $I$（スカラー）と $\boldsymbol{\sigma}$（ベクトル）の各成分に整理する。
 </p>
 <div class="math-block">$$
 \begin{aligned}
 \text{実部・}I &: \mathrm{div}\,\mathbf{E} - 0 \\
-\text{実部・}\bm{\sigma} &: \frac{\partial}{\partial t}\mathbf{E} - \mathrm{rot}\,\mathbf{B} \\
+\text{実部・}\boldsymbol{\sigma} &: \frac{\partial}{\partial t}\mathbf{E} - \mathrm{rot}\,\mathbf{B} \\
 \text{虚部・}I &: 0 + \mathrm{div}\,\mathbf{B} \\
-\text{虚部・}\bm{\sigma} &: \mathrm{rot}\,\mathbf{E} + \frac{\partial}{\partial t}\mathbf{B}
+\text{虚部・}\boldsymbol{\sigma} &: \mathrm{rot}\,\mathbf{E} + \frac{\partial}{\partial t}\mathbf{B}
 \end{aligned}
 $$</div>
-<p>これらをゼロとおけば、真空のマクスウェル方程式4本がすべて現れる。電流 $\mathbf{J}$ と電荷 $\rho$ がある場合は、右辺に $\rho + \mathbf{J}\!\cdot\!\bm{\sigma}$ を置けばよい。
+<p>これらをゼロとおけば、真空のマクスウェル方程式4本がすべて現れる。電流 $\mathbf{J}$ と電荷 $\rho$ がある場合は、右辺に $\rho + \mathbf{J}\!\cdot\!\boldsymbol{\sigma}$ を置けばよい。
 </p>
-<div class="math-block">$$(D + \frac{\partial}{\partial t})F = \rho + \mathbf{J}\!\cdot\!\bm{\sigma}$$</div>
+<div class="math-block">$$(D + \frac{\partial}{\partial t})F = \rho + \mathbf{J}\!\cdot\!\boldsymbol{\sigma}$$</div>
 <p>$dF=0$ と $d(\ast F)=\mu_0(\ast\mathcal{J})$ の2本が、$D$ の前ではたった一本の複素方程式に統合された。§12.1 の4次元トリックが特殊な次元に依存していたのに対し、こちらは $D$ という統合された演算子そのものが統合を実現している。
 </p>
 <h4 id="1234--4次元時空のディラック演算子">12.3.4 $\cancel{\partial} F = J$ —— 4次元時空のディラック演算子</h4>
-<p>§12.3.3 の $(D + \frac{\partial}{\partial t})F = \rho + \mathbf{J}\!\cdot\!\bm{\sigma}$ には、時間と空間が分離して現れている。これは3次元のパウリ行列 $\sigma_1,\sigma_2,\sigma_3$ をベースに組み立てたからだ。4次元時空を最初から扱えば、この分離すら消える。
+<p>§12.3.3 の $(D + \frac{\partial}{\partial t})F = \rho + \mathbf{J}\!\cdot\!\boldsymbol{\sigma}$ には、時間と空間が分離して現れている。これは3次元のパウリ行列 $\sigma_1,\sigma_2,\sigma_3$ をベースに組み立てたからだ。4次元時空を最初から扱えば、この分離すら消える。
 </p>
 <p>パウリ行列を $4\times4$ に拡張したものが<strong>ガンマ行列</strong> $\gamma^0,\gamma^1,\gamma^2,\gamma^3$ である。これらは反可換性 $\gamma^\mu\gamma^\nu + \gamma^\nu\gamma^\mu = 2g^{\mu\nu}I$ を満たす（$g^{\mu\nu}$ はミンコフスキー計量）。このガンマ行列を用いて、4次元のディラック演算子を
 </p>
@@ -315,7 +315,7 @@ $$</div>
 </p>
 <p>ベクトル解析では、$\nabla$ は「偏微分を並べた形式的なベクトル」として導入され、grad・rot・div の三つの顔を持つ謎めいた記号だった。本書はそれを $d$ と $\ast$ に<strong>解体</strong>することで、各演算の正体を明らかにしてきた。
 </p>
-<p>そして今、これを逆方向に辿り、$d$ と $\ast$ というバラバラだった部品が、幾何代数の中で3次元のディラック演算子$D = \bm{\sigma}\!\cdot\!\nabla$ として<strong>統合</strong>され、更にその4次元版のディラック演算子$\cancel{\partial}$が究極のマクスウェル方程式$\cancel{\partial} F = J$を与えた。
+<p>そして今、これを逆方向に辿り、$d$ と $\ast$ というバラバラだった部品が、幾何代数の中で3次元のディラック演算子$D = \boldsymbol{\sigma}\!\cdot\!\nabla$ として<strong>統合</strong>され、更にその4次元版のディラック演算子$\cancel{\partial}$が究極のマクスウェル方程式$\cancel{\partial} F = J$を与えた。
 </p>
 <p>ところで、幾何代数の文脈では、この演算子を必ずしも$\cancel{\partial}$ とは書かない。むしろ、この種のベクトル微分演算子を
 </p>
