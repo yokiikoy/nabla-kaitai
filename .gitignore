@@ -1,2 +1,26 @@
-# 種本 OCR はページ数に比例して肥大する。再生成前提のためコミットしない（ローカル／ABF のみ）。
-reference/ocr/**/*.md
+# Local editor / agent state
+.codex
+.DS_Store
+
+# Secrets
+.env
+
+# Build intermediates
+build/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+
+# Reference PDFs are usually large and may have licensing constraints.
+# Keep bibliographic notes and OCR markdown in git; keep PDF originals local by default.
+references/pdfs/**/*.pdf
+
+# Legacy local OCR corpus kept out of git after the project-structure rebuild.
+reference/
+
+# OCR output can be committed selectively when it is clean and useful.
+# Leave this pattern commented unless the OCR corpus becomes too large.
+# references/ocr-md/**/*.md

@@ -1,0 +1,279 @@
+# Concept registry for the concept-scope LSP.
+#
+# Stable IDs are the source of truth. Japanese labels, English labels, TeX
+# forms, and common surface variants are aliases.
+
+version: 0.1
+language: ja
+
+levels:
+  mention: "名前だけを出す"
+  intuition: "直感・伏線として説明する"
+  definition: "定義する"
+  formula: "具体式を書く"
+  computation: "計算に使う"
+  theorem_use: "定理・既知事実として使う"
+
+concepts:
+  - id: displacement_vector
+    label: "変位ベクトル"
+    kind: object
+    introduced_in: ch01
+    order: 10
+    aliases:
+      - "変位ベクトル"
+      - "変位"
+      - "\\mathbf{v}"
+    summary: "3次元空間内の微小変位を列ベクトルとして表したもの。"
+
+  - id: dx_as_row_vector
+    label: "行ベクトルとしての dx"
+    kind: notation
+    introduced_in: ch01
+    order: 10
+    aliases:
+      - "dx_as_row"
+      - "横ベクトルとしての dx"
+      - "行ベクトル"
+      - "dx, dy, dz"
+    summary: "dx, dy, dz を変位ベクトルに作用する横ベクトルとして読む本書の基本契約。"
+
+  - id: one_form
+    label: "$1$-form"
+    kind: object
+    introduced_in: ch01
+    order: 10
+    aliases:
+      - "1-form"
+      - "一次形式"
+      - "コベクトル"
+      - "双対ベクトル"
+    summary: "ベクトルを1本食べてスカラーを返す線形測定器。"
+
+  - id: differential
+    label: "全微分 df"
+    kind: operator
+    introduced_in: ch01
+    order: 10
+    aliases:
+      - "df"
+      - "全微分"
+      - "微分"
+    summary: "スカラー関数の一次変化を返す $1$-form。"
+
+  - id: pullback
+    label: "引き戻し"
+    kind: operation
+    introduced_in: ch01
+    order: 15
+    aliases:
+      - "引き戻し"
+      - "引き戻す"
+      - "pullback"
+      - "プルバック"
+      - "座標変換"
+      - "焼き直し"
+    summary: "連鎖律により、測定器をパラメータ側の座標へ移す操作。"
+
+  - id: wedge_product
+    label: "ウェッジ積"
+    kind: operation
+    introduced_in: ch02
+    order: 20
+    aliases:
+      - "\\wedge"
+      - "ウェッジ積"
+      - "ウエッジ積"
+      - "外積"
+      - "反対称積"
+      - "交代積"
+      - "∧"
+    summary: "形式を反対称な高次の測定器へ組み立てる積。"
+
+  - id: two_form
+    label: "$2$-form"
+    kind: object
+    introduced_in: ch02
+    order: 20
+    aliases:
+      - "2-form"
+      - "2-形式"
+      - "面積計"
+    summary: "ベクトルを2本食べ、有向面積的な量を返す反対称双線形形式。"
+
+  - id: three_form
+    label: "$3$-form"
+    kind: object
+    introduced_in: ch02
+    order: 20
+    aliases:
+      - "3-form"
+      - "3-形式"
+      - "体積計"
+    summary: "ベクトルを3本食べ、有向体積的な量を返す反対称三重線形形式。"
+
+  - id: k_form
+    label: "$k$-form"
+    kind: object
+    introduced_in: ch02
+    order: 20
+    aliases:
+      - "k-form"
+      - "k-形式"
+      - "微分形式"
+      - "一般の微分形式"
+    summary: "k本のベクトルを食べてスカラーを返す反対称な測定器。"
+
+  - id: form_integral
+    label: "微分形式の積分"
+    kind: operation
+    introduced_in: ch03
+    order: 30
+    aliases:
+      - "微分形式の積分"
+      - "線積分"
+      - "面積分"
+      - "体積積分"
+    summary: "k-vector を k-form に食わせた値をリーマン和として集計し、極限を取る操作。"
+
+  - id: jacobian
+    label: "ヤコビアン"
+    kind: concept
+    introduced_in: ch03
+    order: 36
+    aliases:
+      - "ヤコビアン"
+      - "Jacobian"
+      - "ヤコビ行列"
+      - "体積の伸び縮み率"
+    summary: "座標変換で小領域の体積がどれだけ伸び縮みするかを表す量。"
+
+  - id: exterior_derivative
+    label: "外微分 d"
+    kind: operator
+    introduced_in: ch04
+    order: 40
+    aliases:
+      - "外微分"
+      - "外微分 d"
+      - "外微分作用素"
+      - "d\\omega"
+      - "d\\eta"
+    summary: "k-form を (k+1)-form に送り、局所的なズレを測る演算子。"
+
+  - id: stokes_theorem
+    label: "ストークスの定理"
+    kind: theorem
+    introduced_in: ch04
+    order: 46
+    aliases:
+      - "ストークスの定理"
+      - "ストークス"
+      - "Stokes"
+      - "\\int_{\\partial M}"
+    summary: "境界上の積分と内部の外微分の積分を結ぶ定理。"
+
+  - id: gauss_theorem
+    label: "ガウスの定理"
+    kind: theorem
+    introduced_in: ch04
+    order: 47
+    aliases:
+      - "ガウスの定理"
+      - "発散定理"
+      - "Gauss"
+    summary: "$2$-form の閉曲面積分と $3$-form の体積積分を結ぶ定理。"
+
+  - id: metric
+    label: "計量"
+    kind: structure
+    introduced_in: ch05
+    order: 50
+    aliases:
+      - "計量"
+      - "計量テンソル"
+      - "metric"
+      - "inner product"
+      - "内積"
+    summary: "長さ・角度・直交性を与える追加構造。"
+
+  - id: hodge_star
+    label: "ホッジ・スター"
+    kind: operator
+    introduced_in: ch05
+    order: 50
+    aliases:
+      - "ホッジ・スター"
+      - "ホッジスター"
+      - "ホッジ双対"
+      - "Hodge star"
+      - "\\ast"
+    summary: "計量と向きに基づき、k-form と (3-k)-form を対応させる演算子。"
+
+  - id: nabla_operators
+    label: "grad / rot / div"
+    kind: dictionary
+    introduced_in: ch05
+    order: 55
+    aliases:
+      - "grad"
+      - "rot"
+      - "curl"
+      - "div"
+      - "勾配"
+      - "回転"
+      - "発散"
+      - "ナブラ"
+      - "\\nabla"
+      - "∇"
+    summary: "外微分とホッジ・スターを通じて再解釈されるベクトル解析の演算。"
+
+  - id: unified_stokes
+    label: "大統一ストークス"
+    kind: theorem
+    introduced_in: ch07
+    order: 70
+    aliases:
+      - "大統一ストークス"
+      - "一般化ストークス"
+      - "Green"
+      - "グリーンの定理"
+    summary: "グリーン・ストークス・ガウスを同一構造として見る統一定理。"
+
+  - id: maxwell_forms
+    label: "微分形式によるマクスウェル方程式"
+    kind: application
+    introduced_in: ch09
+    order: 90
+    aliases:
+      - "マクスウェル方程式"
+      - "マクスウェルの方程式"
+      - "dF = 0"
+      - "dF=0"
+      - "d(\\ast F)"
+    summary: "電磁気学の法則を微分形式で圧縮して表す応用。"
+
+  - id: manifold_overview
+    label: "多様体への展望"
+    kind: overview
+    introduced_in: ch10
+    order: 100
+    aliases:
+      - "多様体"
+      - "一般相対論"
+    summary: "本書の枠組みを曲がった空間へ拡張するための展望。"
+
+  - id: clifford_dirac
+    label: "クリフォード代数とディラック演算子"
+    kind: overview
+    introduced_in: ch11
+    order: 110
+    aliases:
+      - "クリフォード代数"
+      - "パウリ行列"
+      - "ディラック演算子"
+      - "真のナブラ"
+      - "スピノル"
+      - "\\partial\\mkern-9mu/"
+    summary: "異なる次数の形式を混ぜることで現れる、真のナブラへの展望。"
+

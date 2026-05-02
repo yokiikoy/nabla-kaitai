@@ -1,31 +1,33 @@
-# nabla-kaitai（ナブラ解体新書シリーズ）
+# nabla-kaitai
 
-執筆リポジトリ。ABF（`/home/yokii/dev/knowledge/work/abf`）は**ツール**として別管理し、原稿の**正**は本リポで育てる。
+『ナブラ解体新書』（行列表示の微分形式によるベクトル解析の抜け道）の執筆リポジトリ。
 
-## レイアウト（目安）
+原稿の正本は Markdown math 形式の `.md` とし、全11章を日本語版・英訳版・note.com変換版・PDF/ゲラへ展開する。
 
-| パス | 用途 |
-|------|------|
-| `docs/abf-context/` | ABF 参照用メモ（`brief.md`・wishlist など）。Markdown |
-| `reference/ocr/` | 種本のテキスト抽出チャンク（`fleisch/`・`schutz/`・`doran/`・`flanders/` など）。**`.gitignore` で除外**（手元生成・RAG 用） |
-| `volumes/ch03/` | 第3章（vol03）— `main/`・`note/`・`handoff-prompt.md` を `differential-forms-notes` から複写済み |
-| `volumes/` 他 | シリーズ拡張時に同様の慣習で追加 |
+## Directory Layout
 
-## ABF から参照させるには
+| Path | Role |
+| --- | --- |
+| `manuscript/ja/` | 日本語原稿の正本。章ごとに Markdown math 形式の `.md` を置く。 |
+| `manuscript/en/` | 英訳版原稿。日本語版と同じ章番号で管理する。 |
+| `exports/pdf/` | 全章を結合してPDF化した成果物を置く。 |
+| `exports/note/` | note.com投稿用に変換したMarkdownを置く。 |
+| `galleys/` | 校正用ゲラ、入稿確認用PDF、外部確認版を置く。 |
+| `references/pdfs/` | 論文・書籍PDFのローカル置き場。PDF本体は原則Git管理外。 |
+| `references/ocr-md/` | 必要に応じてPDFからOCRしたMarkdownを置く。 |
+| `tools/` | 結合、PDF化、note変換、OCR補助などのスクリプトを置く。 |
+| `docs/` | プロジェクト運用、構成、執筆ルールを置く。 |
 
-`abf/abf.config.json` の `draft.referenceGlobs` に、少なくとも次を含める:
+## Chapter Policy
 
-```json
-"draft": {
-  "referenceGlobs": [
-    "../nabla-kaitai/docs/abf-context/**/*.md",
-    "../nabla-kaitai/reference/ocr/**/*.md"
-  ]
-}
-```
+- 全体は11章構成とする。
+- 各章の原稿は `.md` とし、数式は Markdown math / LaTeX math を使う。
+- 日本語版と英訳版は章番号を揃える。
+- PDF、note.com形式、ゲラは派生成果物として扱い、原稿正本とは分離する。
 
-（他リポの参照コーパスを足す場合は同配列に glob を追加。）
+## Reference Policy
 
-## DevOrchestrator
-
-プロジェクトキー: **`nabla-kaitai`**、チケット接頭辞: **`NKAI`**（`docs/tickets/` を置く場合）。
+- `references/pdfs/` はPDF原本の置き場。
+- `references/ocr-md/` はOCR済みMarkdownの置き場。
+- PDF本体は大容量かつライセンス制約がありうるため、デフォルトでは `.gitignore` で除外する。
+- 引用・参照メモやOCR Markdownは、必要に応じてGit管理する。
