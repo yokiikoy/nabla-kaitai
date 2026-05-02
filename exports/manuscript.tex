@@ -116,13 +116,13 @@ v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline
 \end{tabular}\par\bigskip\bigskip\bigskip
 \begin{tabular}{|p{\textwidth}|}\hline
 \multicolumn{1}{|c|}{\textbf{直近の改定履歴}}\\ \hline
+{\small 8a9da98 (2026-05-03)  tools: bfseries修正をbuild\_pdf.pyに再適用（見出し文字化け対策）}\\ \hline
 {\small b08b881 (2026-05-03)  ch01: 注釈群を整理・再構成（トンデモ/エクスキューズ/契約/矮小化/必死）}\\ \hline
 {\small b5ed77f (2026-05-02)  ch08: §8.3.2 に筆者本音の注を追加（d,* vs ∇ の型の見え方）}\\ \hline
-{\small d8da623 (2026-05-02)  tools: generate\_pdf.py を非推奨化（build\_pdf.py を使うよう警告＋強制終了）}\\ \hline
 \end{tabular}
 \end{minipage}\par
 \vfill
-{\footnotesize 2026-05-03 00:14 JST --- 著者：yokiikoy\par}
+{\footnotesize 2026-05-03 00:21 JST --- 著者：yokiikoy\par}
 \restoregeometry
 \end{titlepage}
 \tableofcontents
@@ -272,7 +272,7 @@ v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline
 
 \begin{quote}
 \textbf{注}（これはトンデモか？）\\
-双対ベクトルを横ベクトルで表すこと自体は、線形代数やテンソル解析で普通に行われる。たとえば標準基底 \(e_1,e_2,e_3\) に対する双対基底 \(e^1,e^2,e^3\) は、行列表現では \begin{center}
+双対ベクトルを横ベクトルで表すこと自体は、テンソル解析で普通に行われる。たとえば標準基底 \(e_1,e_2,e_3\) に対する双対基底 \(e^1,e^2,e^3\) は、行列表現では \begin{center}
 \adjustbox{max width=0.98\linewidth}{\(\displaystyle e^1=\begin{pmatrix}1&0&0\end{pmatrix},\quad
 e^2=\begin{pmatrix}0&1&0\end{pmatrix},\quad
 e^3=\begin{pmatrix}0&0&1\end{pmatrix}\)}
@@ -281,23 +281,21 @@ e^3=\begin{pmatrix}0&0&1\end{pmatrix}\)}
 
 \begin{quote}
 \textbf{注}（数学に長けた読者へ）\\
-同じことであるが、多様体論の立場では、\(dx\) そのものが横ベクトルなのではなく、\(dx\) はあくまでも特定の成分表示に依存しない幾何学的対象である。より正確には、\(dx\) は接ベクトルを受け取り、その \(x\) 成分を返す余接ベクトル、あるいは1形式として理解される。ただし、本書では標準デカルト座標のもとで横ベクトルと同一視する。また、あくまで本書は多様体論や微分形式を駆使してド・ラームコホモロジーに至ることが目的ではなく、物理数学としての三次元のベクトル解析を別の視点から眺める試みである。多様体論についても11章参照のこと。
+多様体論の立場では、\(dx\) そのものは横ベクトルなのではなく、特定の成分表示に依存しない幾何学的対象である。より正確には、\(dx\) は接ベクトルを受け取り、その \(x\) 成分を返す余接ベクトルとして理解される。ただし、本書では上記注の通り横ベクトルと同一視する。また、本書はド・ラームコホモロジーに至ることが目的ではなく、物理数学としての三次元のベクトル解析を取り扱う。多様体論についても11章参照のこと。
 \end{quote}
 
 \begin{quote}
 \textbf{注}（\(=\) と表示の契約）\\
-さらに同じことであるが、数学の流儀では、\(dx\) そのものと横ベクトルそのものを無条件に同一視するのではなく、 \begin{center}
+同じことであるが、書籍によっては、\(dx\) \begin{center}
 \adjustbox{max width=0.98\linewidth}{\(\displaystyle dx \longleftrightarrow \begin{pmatrix}1&0&0\end{pmatrix}\)}
-\end{center} という「表示の対応」として理解する方が正確である。すなわち、\(dx\) という幾何学的対象そのものが横ベクトルなのではなく、デカルト座標・標準基底を固定したときの\textbf{表示}が \begin{center}
-\adjustbox{max width=0.98\linewidth}{\(\displaystyle \begin{pmatrix}1&0&0\end{pmatrix}\)}
-\end{center} である。しかし本文では等号 \(=\) を使う。理由は、とくに日本の高校数学を通ってきた初学者にとって、\(\longleftrightarrow\) や \(\mapsto\) と \(=\) の違いをここで前面に出すことは、主題から外れた認知的負荷になりうるからである。改めて、本書の立場はこうだ：問題は \(=\) か \(\mapsto\) かという\textbf{記号そのもの}ではなく、どの同一視を読者と\textbf{契約}しているかに尽きる。ここでは「\(dx\) は標準基底で \(\begin{pmatrix}1&0&0\end{pmatrix}\) と書く」という契約を結び、それを \begin{center}
+\end{center} という「表示の対応」として理解する方が正確、という立場がある。しかし本文では等号 \(=\) を使う。理由は、とくに日本の高校数学を通ってきた初学者にとって\(\longleftrightarrow\) や \(\mapsto\) と \(=\) の違いをここで前面に出すことは、主題から外れた認知的負荷になると考えるからである。改めて、本書の立場はこうだ：問題は \(=\) か \(\mapsto\) かという\textbf{記号そのもの}ではなく、どの同一視を読者と\textbf{契約}しているかだ。ここでは「\(dx\) は標準基底で \(\begin{pmatrix}1&0&0\end{pmatrix}\) と書く」という契約を結び、それを \begin{center}
 \adjustbox{max width=0.98\linewidth}{\(\displaystyle dx = \begin{pmatrix}1&0&0\end{pmatrix}\)}
 \end{center} と書く。
 \end{quote}
 
 \begin{quote}
 \textbf{注}（なぜこんなに必死なのか）\\
-この種の発見的・構築的な導入は、しばしば「不正確だ」「一般論を矮小化している」と誤解される。本書ではその誤解を避けるため、あえて早い段階で同一視の範囲を明示している。詳しくは「付録：本書で語らなかったもの」を参照のこと。
+この種の発見的・構築的な導入は、しばしば「不正確だ」「一般論を矮小化している」と誤解される。よって、本書ではあえて早い段階で同一視の範囲を明示している。詳しくは「付録：本書で語らなかったもの」を参照のこと。
 \end{quote}
 
 \clearpage
