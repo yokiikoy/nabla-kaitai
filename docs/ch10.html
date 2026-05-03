@@ -78,7 +78,7 @@
 <li class="level-1"><a href="ch07.html" id="link-ch07.html">第7章</a></li>
 <li class="level-1"><a href="ch08.html" id="link-ch08.html">第8章</a></li>
 <li class="level-1"><a href="ch09.html" id="link-ch09.html">第9章</a></li>
-<li class="level-1"><a href="ch10.html" class="active" id="link-ch10.html">第10章</a><ul class="sub-toc"><li class="level-3"><a href="#100-お約束">§10.0 お約束</a></li><li class="level-3"><a href="#101-マクスウェル方程式2本で書く">§10.1 マクスウェル方程式——2本で書く</a></li><li class="level-3"><a href="#102-の中身行列で全部書く">§10.2 $F$ の中身——行列で全部書く</a></li><li class="level-3"><a href="#103-ミンコフスキー計量-から4次元へ">§10.3 ミンコフスキー計量——$\mathbb{R}^3$ から4次元へ</a></li><li class="level-3"><a href="#104-を全部書き下す">§10.4 $dF=0$ を全部書き下す</a></li><li class="level-3"><a href="#105-と残りの2本">§10.5 $\ast F$ と残りの2本</a></li><li class="level-3"><a href="#106-ポテンシャル構成-から始める">§10.6 ポテンシャル構成——$F=-dA$ から始める</a></li><li class="level-2"><a href="#付録E-と-のスライス行列表示--配列で見るマクスウェル方程式">付録E：$dF$ と $d(\ast F)$ のスライス行列表示 —— $4\times4\times4$ 配列で見るマクスウェル方程式</a></li><li class="level-3"><a href="#E1-基底--form-とそのスライス行列--全16枚">E.1 基底 $3$-form とそのスライス行列 —— 全16枚</a></li><li class="level-3"><a href="#E2-をスライス行列で書く">E.2 $dF$ をスライス行列で書く</a></li><li class="level-3"><a href="#E3-フロベニウス積で係数を抜き出す">E.3 フロベニウス積で係数を抜き出す</a></li><li class="level-3"><a href="#E4-をスライスで読む">E.4 $dF=0$ をスライスで読む</a></li><li class="level-3"><a href="#E5-のスライス表示">E.5 $d(\ast F) = \mu_0(\ast\mathcal{J})$ のスライス表示</a></li></ul></li>
+<li class="level-1"><a href="ch10.html" class="active" id="link-ch10.html">第10章</a><ul class="sub-toc"><li class="level-3"><a href="#100-お約束">§10.0 お約束</a></li><li class="level-3"><a href="#101-マクスウェル方程式2本で書く">§10.1 マクスウェル方程式——2本で書く</a></li><li class="level-3"><a href="#102-電磁場-と符号規約の固定">§10.2 電磁場 $F$ と符号規約の固定</a></li><li class="level-3"><a href="#103-ミンコフスキー計量-から4次元へ">§10.3 ミンコフスキー計量——$\mathbb{R}^3$ から4次元へ</a></li><li class="level-3"><a href="#104-を全部書き下す">§10.4 $dF=0$ を全部書き下す</a></li><li class="level-3"><a href="#105-と残りの2本">§10.5 $\ast F$ と残りの2本</a></li><li class="level-3"><a href="#106-ポテンシャル構成-から始める">§10.6 ポテンシャル構成——$F=-dA$ から始める</a></li><li class="level-2"><a href="#付録E-と-のスライス行列表示--配列で見るマクスウェル方程式">付録E：$dF$ と $d(\ast F)$ のスライス行列表示 —— $4\times4\times4$ 配列で見るマクスウェル方程式</a></li><li class="level-3"><a href="#E1-基底--form-とそのスライス行列--全16枚">E.1 基底 $3$-form とそのスライス行列 —— 全16枚</a></li><li class="level-3"><a href="#E2-をスライス行列で書く">E.2 $dF$ をスライス行列で書く</a></li><li class="level-3"><a href="#E3-フロベニウス積で係数を抜き出す">E.3 フロベニウス積で係数を抜き出す</a></li><li class="level-3"><a href="#E4-をスライスで読む">E.4 $dF=0$ をスライスで読む</a></li><li class="level-3"><a href="#E5-のスライス表示">E.5 $d(\ast F) = \mu_0(\ast\mathcal{J})$ のスライス表示</a></li></ul></li>
 <li class="level-1"><a href="ch11.html" id="link-ch11.html">第11章</a></li>
 <li class="level-1"><a href="ch12.html" id="link-ch12.html">第12章</a></li>
 <li class="level-1"><a href="postscript.html" id="link-postscript.html">おわりに</a></li>
@@ -139,44 +139,35 @@ $$dF = 0, \qquad d(\ast F) = \mu_0(\ast\mathcal{J})$$
 <p>しかし、本書はここで終わらない。$F$ の中身は何なのか。$dF=0$ を成分で展開すると、本当に $\mathrm{rot}\,\mathbf{E} = -\frac{\partial\mathbf{B}}{\partial t}$ と $\mathrm{div}\,\mathbf{B} = 0$ が出てくるのか。それを、この章で全部書き下す。
 </p>
 <hr />
-<h3 id="102-の中身行列で全部書く">§10.2 $F$ の中身——行列で全部書く</h3>
-<p>電磁場 $F$ は $2$-form である。第2章以来、$2$-form は反対称行列で表示できることを知っている。$F$ も例外ではない——ただし、時間も含めた4次元時空で考えるため、$F$ は $4\times4$ の反対称行列になる。
+<h3 id="102-電磁場-と符号規約の固定">§10.2 電磁場 $F$ と符号規約の固定</h3>
+<p>電磁場 $F$ を具体的な成分で書き下す前に、本章で用いる時空の符号規約を厳密に固定しておこう。符号の選択には複数の流儀があるが、本書では以下のセットを採用する。
 </p>
-<p>時間座標を $t$（ただしこれは §10.1 で変換した $w=ct$ を改名したものであり、元のSI単位系の $t$ ではない）、空間座標を $x,y,z$ とする。§10.1 の変換により、$F$ の成分は次のようになる。
+<ul>
+<li><strong>座標順序</strong>： $(x^0, x^1, x^2, x^3) = (t, x, y, z)$</li>
+<li><strong>時間座標</strong>： $t = ct_{\text{SI}}$ （長さ次元に正規化済み）</li>
+<li><strong>磁場</strong>： $\mathbf{B} = c\mathbf{B}_{\text{SI}}$ （電場と次元を揃えた量）</li>
+<li><strong>向き（体積要素）</strong>： $dt \wedge dx \wedge dy \wedge dz$</li>
+<li><strong>計量署名</strong>： $(-, +, +, +)$</li>
+<li><strong>2-form の行列表現</strong>： 第2章の規約に従い、基底 $dx^\mu \wedge dx^\nu$ の係数を、行列の $(\mu, \nu)$ 成分に配置する。</li>
+</ul>
+<p>この規約のもとで、電磁場 $2$-form $F$ を次のように定義する。
+</p>
+$$
+F = -E_x\,dt\wedge dx - E_y\,dt\wedge dy - E_z\,dt\wedge dz + B_x\,dy\wedge dz + B_y\,dz\wedge dx + B_z\,dx\wedge dy
+$$
+<p>電場項（$dt$ を含む項）に負号がついているのは、後述するファラデーの法則 $\mathrm{rot}\,\mathbf{E} = -\frac{\partial\mathbf{B}}{\partial t}$ およびポテンシャル構成 $F = -dA$ との整合性を保つための意図的な選択である。
+</p>
+<p>これを $4\times4$ の反対称行列で表示すれば、次のようになる。
 </p>
 $$F = \begin{pmatrix}
-0 & E_x & E_y & E_z \\
--E_x & 0 & B_z & -B_y \\
--E_y & -B_z & 0 & B_x \\
--E_z & B_y & -B_x & 0
+0 & -E_x & -E_y & -E_z \\
+E_x & 0 & B_z & -B_y \\
+E_y & -B_z & 0 & B_x \\
+E_z & B_y & -B_x & 0
 \end{pmatrix}$$
-<p>行と列の順は $(t,x,y,z)$。$E_x, E_y, E_z$ は電場（元のSI単位系の値）、$B_x, B_y, B_z$ は $c$ 倍された磁場である。両者は §10.1 の正規化により同一の次元 $\mathrm{V/m}$ を持ち、行列にそのまま並べられる。$F$ は反対称行列（$F^T = -F$）であり、独立な成分はちょうど6個だ。
-</p>
-<p>基底 $2$-form で書けば、
-</p>
-$$F = E_x\,dt\wedge dx + E_y\,dt\wedge dy + E_z\,dt\wedge dz + B_x\,dy\wedge dz + B_y\,dz\wedge dx + B_z\,dx\wedge dy$$
-<p>$dt\wedge dx$ の係数が $E_x$ そのものなのは、§10.1 で $\mathbf{E}$ と $\mathbf{B}$ の次元を $\mathrm{V/m}$ に揃えたことの直接の帰結である。同一の次元を持つ量は、同じ行列にそのまま並べられる。
-</p>
 <blockquote>
-<p><strong>注</strong> （符号の規約）上の行列表示は、第2章の約束どおり、$dt\wedge dx$ の係数 $E_x$ を行列の $(t,x)$ 成分に置く。したがって $F_{tx}=E_x,\;F_{xt}=-E_x$ である。4元ポテンシャル $A$ から作る</p>
-<p></p>
-</blockquote>
-$$
-> F_{\mu\nu}
-> =
-> \frac{\partial A_\mu}{\partial x^\nu}
-> -
-> \frac{\partial A_\nu}{\partial x^\mu}
-> $$
-<blockquote>
-<p>という反対称な成分の並べ方に対応する（§10.6 ではこれを $F=-dA$ として扱う）。ここで</p>
-<p></p>
-</blockquote>
-$$
-> (x^0,x^1,x^2,x^3)=(t,x,y,z)
-> $$
-<blockquote>
-<p>である。通常の教科書では逆符号の組み合わせを採る流儀も多い。本書では $F=-dA$ と第2章の行列規約を同時に満たすため、この符号規約に従う。</p>
+<p><strong>注</strong> （電場項の符号と行列）</p>
+<p>本書の行列規約では、$dt \wedge dx$ の係数 $-E_x$ を行列の $(t,x)$ 成分に置く。したがって $F_{tx}=-E_x,\;F_{xt}=E_x$ である。多くの教科書では $F_{t x}$ を正の $E_x$ と定義するが、その場合は $F = E_x dx \wedge dt + \dots$ （順序が逆）とするか、あるいはポテンシャルの定義 $F=dA$ の符号を調整する必要がある。本書では $F=-dA$ と $dt \wedge dx$ の順序を優先し、この符号を採る。</p>
 <hr />
 <h3 id="103-ミンコフスキー計量-から4次元へ">§10.3 ミンコフスキー計量——$\mathbb{R}^3$ から4次元へ</h3>
 </blockquote>
@@ -197,42 +188,49 @@ $$\mathbf{g} = \begin{pmatrix}
 <hr />
 <h3 id="104-を全部書き下す">§10.4 $dF=0$ を全部書き下す</h3>
 </blockquote>
-<p>$F$ は $2$-form だから、$dF$ は $3$-form になる。4次元空間での $3$-form の独立成分は4つ。$F$ の全6項について $d$ を作用させ、同じ基底 $3$-form の係数をまとめる。
+<p>$F$ は $2$-form だから、$dF$ は $3$-form になる。4次元空間での $3$-form の独立成分は4つ。§10.2 で再定義した $F$（電場項に負号を含む）について $d$ を作用させ、同じ基底 $3$-form の係数をまとめる。
 </p>
-<p>$F$ の6項を形式で書く。
-</p>
-$$F = E_x\,dt\wedge dx + E_y\,dt\wedge dy + E_z\,dt\wedge dz + B_x\,dy\wedge dz + B_y\,dz\wedge dx + B_z\,dx\wedge dy$$
-<p>各項に $d$ を作用させる。$E_x, E_y, E_z, B_x, B_y, B_z$ はすべて $(t,x,y,z)$ の関数である。
+$$F = -E_x\,dt\wedge dx - E_y\,dt\wedge dy - E_z\,dt\wedge dz + B_x\,dy\wedge dz + B_y\,dz\wedge dx + B_z\,dx\wedge dy$$
+<p>各項に $d$ を作用させる。電場項は次のようになる（符号の変化に注意）：
 </p>
 $$\begin{aligned}
-d\!\left(E_x\,dt\wedge dx\right) &= \frac{\partial E_x}{\partial y}\,dy\wedge dt\wedge dx + \frac{\partial E_x}{\partial z}\,dz\wedge dt\wedge dx \\
-d\!\left(E_y\,dt\wedge dy\right) &= \frac{\partial E_y}{\partial x}\,dx\wedge dt\wedge dy + \frac{\partial E_y}{\partial z}\,dz\wedge dt\wedge dy \\
-d\!\left(E_z\,dt\wedge dz\right) &= \frac{\partial E_z}{\partial x}\,dx\wedge dt\wedge dz + \frac{\partial E_z}{\partial y}\,dy\wedge dt\wedge dz
+d\!\left(-E_x\,dt\wedge dx\right) &= -\frac{\partial E_x}{\partial y}\,dy\wedge dt\wedge dx - \frac{\partial E_x}{\partial z}\,dz\wedge dt\wedge dx \\
+&= \frac{\partial E_x}{\partial y}\,dt\wedge dx\wedge dy - \frac{\partial E_x}{\partial z}\,dt\wedge dz\wedge dx \\
+d\!\left(-E_y\,dt\wedge dy\right) &= \frac{\partial E_y}{\partial z}\,dt\wedge dy\wedge dz - \frac{\partial E_y}{\partial x}\,dt\wedge dx\wedge dy \\
+d\!\left(-E_z\,dt\wedge dz\right) &= \frac{\partial E_z}{\partial x}\,dt\wedge dz\wedge dx - \frac{\partial E_z}{\partial y}\,dt\wedge dy\wedge dz
 \end{aligned}$$
-<p>$B$ の項は $t$ 微分も含む。
+<p>磁場項は時間微分 $t$ も含み、次のようになる：
 </p>
 $$\begin{aligned}
 d(B_x\,dy\wedge dz) &= \frac{\partial B_x}{\partial t}\,dt\wedge dy\wedge dz + \frac{\partial B_x}{\partial x}\,dx\wedge dy\wedge dz \\
 d(B_y\,dz\wedge dx) &= \frac{\partial B_y}{\partial t}\,dt\wedge dz\wedge dx + \frac{\partial B_y}{\partial y}\,dy\wedge dz\wedge dx \\
 d(B_z\,dx\wedge dy) &= \frac{\partial B_z}{\partial t}\,dt\wedge dx\wedge dy + \frac{\partial B_z}{\partial z}\,dz\wedge dx\wedge dy
 \end{aligned}$$
-<p>これらをすべて足し合わせる。基底 $3$-form の種類は $(dt\wedge dx\wedge dy,\; dt\wedge dy\wedge dz,\; dt\wedge dz\wedge dx,\; dx\wedge dy\wedge dz)$ の4つ。ウェッジ積の反対称性を使って項を整理する（たとえば $dy\wedge dt\wedge dx = -dt\wedge dy\wedge dx = dt\wedge dx\wedge dy$）。
+<p>これらをすべて足し合わせ、基底 $3$-form ごとに整理する。たとえば $dt\wedge dy\wedge dz$ の係数は次のようになる：
 </p>
-<p>各基底 $3$-form の係数をゼロとおくと、$dF=0$ は次と同値になる。
+$$
+\left(\frac{\partial B_x}{\partial t} + \frac{\partial E_z}{\partial y} - \frac{\partial E_y}{\partial z}\right) dt\wedge dy\wedge dz = \left(\frac{\partial B_x}{\partial t} + (\mathrm{rot}\,\mathbf{E})_x\right) dt\wedge dy\wedge dz
+$$
+<p>各基底係数をゼロとおくと、$dF=0$ は次の 4 本の式と同値になる。
 </p>
 $$dF = 0 \Longleftrightarrow \begin{cases}
-\displaystyle \frac{\partial B_x}{\partial x} + \frac{\partial B_y}{\partial y} + \frac{\partial B_z}{\partial z} = 0 \\[1em]
-\displaystyle \frac{\partial E_z}{\partial y} - \frac{\partial E_y}{\partial z} + \frac{\partial B_x}{\partial t} = 0 \\[0.5em]
-\displaystyle \frac{\partial E_x}{\partial z} - \frac{\partial E_z}{\partial x} + \frac{\partial B_y}{\partial t} = 0 \\[0.5em]
-\displaystyle \frac{\partial E_y}{\partial x} - \frac{\partial E_x}{\partial y} + \frac{\partial B_z}{\partial t} = 0
+\displaystyle \frac{\partial B_x}{\partial x} + \frac{\partial B_y}{\partial y} + \frac{\partial B_z}{\partial z} = 0 & (\mathrm{div}\,\mathbf{B} = 0) \\[1em]
+\displaystyle (\mathrm{rot}\,\mathbf{E})_x = -\frac{\partial B_x}{\partial t} & \\[0.5em]
+\displaystyle (\mathrm{rot}\,\mathbf{E})_y = -\frac{\partial B_y}{\partial t} & (\mathrm{rot}\,\mathbf{E} = -\frac{\partial\mathbf{B}}{\partial t}) \\[0.5em]
+\displaystyle (\mathrm{rot}\,\mathbf{E})_z = -\frac{\partial B_z}{\partial t} & 
 \end{cases}$$
-<p>1行目は $\mathrm{div}\,\mathbf{B} = 0$、2〜4行目は $\mathrm{rot}\,\mathbf{E} = -\frac{\partial\mathbf{B}}{\partial t}$ の各成分にほかならない。
+<p>1行目は磁場に関するガウスの法則、2〜4行目はファラデーの電磁誘導の法則である。電場項に負号を置いたことにより、微分形式の一本の方程式 $dF=0$ から、ベクトル解析でおなじみの正しい符号の公式が導き出された。
 </p>
 <hr />
 <h3 id="105-と残りの2本">§10.5 $\ast F$ と残りの2本</h3>
-<p>もう一つの式 $d(\ast F) = \mu_0(\ast\mathcal{J})$ も、§10.4 と同じ手順で全部書き下す。
+<p>もう一つの式 $d(\ast F) = \mu_0(\ast\mathcal{J})$ も、§10.4 と同じ手順で全部書き下そう。
 </p>
-<p>まず $\ast F$ を求める。$\ast$ は4次元時空の計量に依存するが、特殊相対論の平坦な時空（計量は時間成分だけ符号が異なる）では、$\ast F$ は §10.2 の $F$ で $\mathbf{E}$ と $\mathbf{B}$ を入れ替えた形になる。行列表示は次の通りだ。
+<p>まず、§10.2 で再定義した $F$ から $\ast F$ を求める。§10.3 のミンコフスキー計量署名 $(-,+,+,+)$ と向き $dt\wedge dx\wedge dy\wedge dz$ のもとでホッジ・スターを作用させると、$\ast F$ は次のようになる。
+</p>
+$$
+\ast F = B_x\,dt\wedge dx + B_y\,dt\wedge dy + B_z\,dt\wedge dz + E_x\,dy\wedge dz + E_y\,dz\wedge dx + E_z\,dx\wedge dy
+$$
+<p>行列表示では次の通りだ。
 </p>
 $$\ast F = \begin{pmatrix}
 0 & B_x & B_y & B_z \\
@@ -240,85 +238,29 @@ $$\ast F = \begin{pmatrix}
 -B_y & -E_z & 0 & E_x \\
 -B_z & E_y & -E_x & 0
 \end{pmatrix}$$
-<p>$F$ と見比べてほしい。$E$ と $B$ の位置が入れ替わっている。この規約と正規化のもとでは、$\ast$ はほとんど「$\mathbf{E}$ と $\mathbf{B}$ を入れ替える装置」として働く。
+<p>電場項の符号を反転させた $F$ を出発点としたことで、$\ast$ 作用後の $\ast F$ では逆に磁場項が $dt$ を含む項になり、電場項が空間のみの項（$2$-form）へ移動している。
 </p>
-<p>基底 $2$-form で書けば、§10.2 の $F$ と対応する形になる。
-</p>
-$$\ast F = B_x\,dt\wedge dx + B_y\,dt\wedge dy + B_z\,dt\wedge dz + E_x\,dy\wedge dz + E_y\,dz\wedge dx + E_z\,dx\wedge dy$$
-<p>次に、$d(\ast F)$ を展開する。$\ast F$ も $2$-form だから、$d(\ast F)$ は $3$-form だ。
-</p>
-<p>まず $B$ の項（$dt\wedge dx, dt\wedge dy, dt\wedge dz$）に $d$ を作用させる。これらの時間微分は $dt\wedge dt = 0$ で消え、空間微分だけが残る。§10.4 の $E$ の項と同じ構造だ。
+<p>次に、$d(\ast F)$ を展開する。基底 $3$-form ごとに整理すると、次のようになる。
 </p>
 $$\begin{aligned}
-d\!\left(B_x\,dt\wedge dx\right) &= \frac{\partial B_x}{\partial y}\,dy\wedge dt\wedge dx + \frac{\partial B_x}{\partial z}\,dz\wedge dt\wedge dx \\
-d\!\left(B_y\,dt\wedge dy\right) &= \frac{\partial B_y}{\partial x}\,dx\wedge dt\wedge dy + \frac{\partial B_y}{\partial z}\,dz\wedge dt\wedge dy \\
-d\!\left(B_z\,dt\wedge dz\right) &= \frac{\partial B_z}{\partial x}\,dx\wedge dt\wedge dz + \frac{\partial B_z}{\partial y}\,dy\wedge dt\wedge dz
+d(\ast F) = &\left(\frac{\partial E_x}{\partial x} + \frac{\partial E_y}{\partial y} + \frac{\partial E_z}{\partial z}\right) dx\wedge dy\wedge dz \\
+{+} &\left(\frac{\partial E_x}{\partial t} - \left(\frac{\partial B_z}{\partial y} - \frac{\partial B_y}{\partial z}\right)\right) dt\wedge dy\wedge dz \\
+{+} &\left(\frac{\partial E_y}{\partial t} - \left(\frac{\partial B_x}{\partial z} - \frac{\partial B_z}{\partial x}\right)\right) dt\wedge dz\wedge dx \\
+{+} &\left(\frac{\partial E_z}{\partial t} - \left(\frac{\partial B_y}{\partial x} - \frac{\partial B_x}{\partial y}\right)\right) dt\wedge dx\wedge dy
 \end{aligned}$$
-<p>次に $E$ の項（$dy\wedge dz, dz\wedge dx, dx\wedge dy$）に $d$ を作用させる。こちらは時間微分も含む。§10.4 の $B$ の項と同じ構造だ。
+<p>1行目の係数は $\mathrm{div}\,\mathbf{E}$ 、2〜4行目のカッコ内は $\mathrm{rot}\,\mathbf{B}$ の各成分である。
 </p>
-$$\begin{aligned}
-d\!\left(E_x\,dy\wedge dz\right) &= \frac{\partial E_x}{\partial t}\,dt\wedge dy\wedge dz + \frac{\partial E_x}{\partial x}\,dx\wedge dy\wedge dz \\
-d\!\left(E_y\,dz\wedge dx\right) &= \frac{\partial E_y}{\partial t}\,dt\wedge dz\wedge dx + \frac{\partial E_y}{\partial y}\,dy\wedge dz\wedge dx \\
-d\!\left(E_z\,dx\wedge dy\right) &= \frac{\partial E_z}{\partial t}\,dt\wedge dx\wedge dy + \frac{\partial E_z}{\partial z}\,dz\wedge dx\wedge dy
-\end{aligned}$$
-<p>これらをすべて足し合わせる。基底 $3$-form の種類は §10.4 と同じ $(dt\wedge dx\wedge dy,\; dt\wedge dy\wedge dz,\; dt\wedge dz\wedge dx,\; dx\wedge dy\wedge dz)$ の4つ。ウェッジ積の反対称性を使って項を整理する。
+<p>右辺の $\mu_0(\ast\mathcal{J})$ は、電荷密度 $\rho$ と電流密度 $\mathbf{J}$ を含む $3$-form である。§10.1 の正規化のもとで次のように書ける。
 </p>
-<p>各基底 $3$-form の係数をまとめると、$d(\ast F)$ は次になる。
+$$
+\mu_0(\ast\mathcal{J}) = \frac{\rho}{\varepsilon_0}\,dx\wedge dy\wedge dz - \mu_0 c J_x\,dt\wedge dy\wedge dz - \mu_0 c J_y\,dt\wedge dz\wedge dx - \mu_0 c J_z\,dt\wedge dx\wedge dy
+$$
+<p>両辺の係数を比較すれば、次のマクスウェル方程式の残り 2 本が得られる。
 </p>
-$$\begin{aligned}
-d(\ast F) = &\left(\frac{\partial B_x}{\partial y} - \frac{\partial B_y}{\partial x} + \frac{\partial E_z}{\partial t}\right) dt\wedge dx\wedge dy \\
-{+} &\left(\frac{\partial B_y}{\partial z} - \frac{\partial B_z}{\partial y} + \frac{\partial E_x}{\partial t}\right) dt\wedge dy\wedge dz \\
-{+} &\left(\frac{\partial B_z}{\partial x} - \frac{\partial B_x}{\partial z} + \frac{\partial E_y}{\partial t}\right) dt\wedge dz\wedge dx \\
-{+} &\left(\frac{\partial E_x}{\partial x} + \frac{\partial E_y}{\partial y} + \frac{\partial E_z}{\partial z}\right) dx\wedge dy\wedge dz
-\end{aligned}$$
-<p>$dx\wedge dy\wedge dz$ の係数は $\mathrm{div}\,\mathbf{E}$ にほかならない。$dt\wedge dx\wedge dy$ の係数は $\frac{\partial B_x}{\partial y} - \frac{\partial B_y}{\partial x} + \frac{\partial E_z}{\partial t} = -(\mathrm{rot}\,\mathbf{B})_z + \frac{\partial E_z}{\partial t}$ であり、2〜3行目も同様に $-(\mathrm{rot}\,\mathbf{B})_{x,y} + \frac{\partial E_{x,y}}{\partial t}$ の各成分だ。
-</p>
-<p>一方、右辺の $\ast\mathcal{J}$ は電荷・電流を表す $3$-form である。正規化された系では、次の形をとる。
-</p>
-$$\ast\mathcal{J} = \frac{\rho}{\varepsilon_0\mu_0}\,dx\wedge dy\wedge dz - cJ_x\,dt\wedge dy\wedge dz - cJ_y\,dt\wedge dz\wedge dx - cJ_z\,dt\wedge dx\wedge dy$$
-<p>（$\rho$ は電荷密度、$J_x,J_y,J_z$ は電流密度。$\varepsilon_0\mu_0 = 1/c^2$ より、第1項の係数は $c^2\rho$ に等しい。）
-</p>
-<blockquote>
-<p><strong>注</strong> （$\mathcal{J}$ の正規化）ここでの $\mathcal{J}$ は、§10.1 の $w=ct$ および $\mathbf{B}'=c\mathbf{B}$ に合わせて正規化された電流 $1$-form である。標準的な相対論的記法とは係数の置き方が異なる場合がある。本章では、§10.1 の4本のマクスウェル方程式を再現するように係数を選んでいる。</p>
-<table>
-<thead><tr>
-<th>記号</th>
-<th>数学的型</th>
-<th>本章での定義・成分</th>
-<th>本章での物理的意味</th>
-</tr></thead><tbody>
-<tr>
-<td>$t$</td>
-<td>$0$-form</td>
-<td>$w = ct$</td>
-<td>長さ次元の時間座標</td>
-</tr>
-<tr>
-<td>$\mathbf{B}$</td>
-<td>3次元ベクトル</td>
-<td>$c\mathbf{B}_{\mathrm{SI}}$</td>
-<td>電場と次元を揃えた磁場</td>
-</tr>
-<tr>
-<td>$\mathcal{J}$</td>
-<td>$1$-form</td>
-<td>$\mathcal{J} = -\rho c^2 dt + cJ_x dx + cJ_y dy + cJ_z dz$</td>
-<td>正規化された 4 元電流密度</td>
-</tr>
-<tr>
-<td>$\ast\mathcal{J}$</td>
-<td>$3$-form</td>
-<td>$\frac{\rho}{\varepsilon_0\mu_0}dx\wedge dy\wedge dz - cJ_x dt\wedge dy\wedge dz - \cdots$</td>
-<td>電荷と流束の源</td>
-</tr>
-</tbody></table>
-</blockquote>
-<p>$d(\ast F) = \mu_0(\ast\mathcal{J})$ の両辺で基底 $3$-form の係数を比較する。
-</p>
-$$\mu_0(\ast\mathcal{J}) = \frac{\rho}{\varepsilon_0}\,dx\wedge dy\wedge dz - c\mu_0J_x\,dt\wedge dy\wedge dz - c\mu_0J_y\,dt\wedge dz\wedge dx - c\mu_0J_z\,dt\wedge dx\wedge dy$$
-<p>$dx\wedge dy\wedge dz$ の係数から $\mathrm{div}\,\mathbf{E} = \frac{\rho}{\varepsilon_0}$。$dt\wedge dy\wedge dz$ の係数から $-\frac{\partial B_z}{\partial y} + \frac{\partial B_y}{\partial z} + \frac{\partial E_x}{\partial t} = -c\mu_0J_x$、すなわち $(\mathrm{rot}\,\mathbf{B})_x - \frac{\partial E_x}{\partial t} = c\mu_0J_x$。整理すると $\mathrm{rot}\,\mathbf{B} = c\mu_0\mathbf{J} + \frac{\partial\mathbf{E}}{\partial t}$ を得る。
-</p>
-<p>以上で、$d(\ast F) = \mu_0(\ast\mathcal{J})$ を成分で完全に展開しきった。§10.4 の $dF=0$ と合わせて、マクスウェル方程式の4本が行列と偏微分の計算だけで再現されたことになる。
+$$
+\mathrm{div}\,\mathbf{E} = \frac{\rho}{\varepsilon_0}, \qquad \mathrm{rot}\,\mathbf{B} = \mu_0 c \mathbf{J} + \frac{\partial \mathbf{E}}{\partial t}
+$$
+<p>これによって、4 本すべてのマクスウェル方程式が、微分形式の 2 本の式から正しい符号と係数で導かれることが完全に確認できた。
 </p>
 <p>つまり、マクスウェル方程式の4本は、微分形式では
 </p>
@@ -360,7 +302,7 @@ $$\begin{aligned}
 dA &= \left(\frac{\partial\phi}{\partial x} + \frac{\partial A_x}{\partial t}\right)dt\wedge dx + \left(\frac{\partial\phi}{\partial y} + \frac{\partial A_y}{\partial t}\right)dt\wedge dy + \left(\frac{\partial\phi}{\partial z} + \frac{\partial A_z}{\partial t}\right)dt\wedge dz \\
 &\quad+ \left(\frac{\partial A_z}{\partial y} - \frac{\partial A_y}{\partial z}\right)dy\wedge dz + \left(\frac{\partial A_x}{\partial z} - \frac{\partial A_z}{\partial x}\right)dz\wedge dx + \left(\frac{\partial A_y}{\partial x} - \frac{\partial A_x}{\partial y}\right)dx\wedge dy
 \end{aligned}$$
-<p>ここで $dA$ の $dt\wedge dx$ 係数は $\frac{\partial\phi}{\partial x} + \frac{\partial A_x}{\partial t}$ だが、§10.2 の $F$ では同基底の係数は $E_x$。両者の符号を見比べると、$E_x = -\frac{\partial\phi}{\partial x} - \frac{\partial A_x}{\partial t}$ とする必要がある。つまり、$F = -dA$ と置けばよい。まとめると、
+<p>ここで $dA$ の $dt\wedge dx$ 係数は $\frac{\partial\phi}{\partial x} + \frac{\partial A_x}{\partial t}$ だが、§10.2 で再定義した $F$ では同基底の係数は $-E_x$。両者の符号を見比べると、$E_x = -\frac{\partial\phi}{\partial x} - \frac{\partial A_x}{\partial t}$ となり、標準的な関係式 $\mathbf{E} = -\nabla\phi - \partial\mathbf{A}/\partial t$ が自然に導かれる。これこそが、電場項に負号を置いた最大の理由である。
 </p>
 $$F = -dA$$
 <p>である。$\mathbf{E}$ の全成分と $\mathbf{B}$ の全成分を、ポテンシャルで書き下すと次のとおり。
@@ -449,44 +391,21 @@ $$
 <p>16枚のうち、$\mathbf{S}_{z}^{(\omega_1)}, \mathbf{S}_{y}^{(\omega_2)}, \mathbf{S}_{x}^{(\omega_3)}, \mathbf{S}_{t}^{(\omega_4)}$ の4枚はゼロ行列である。残る12枚に $\pm1$ が一つずつ（と反対称のペアが一つずつ）入っている。これが $4\times4\times4$ テンソルの正体だ。
 </p>
 <h3 id="E2-をスライス行列で書く">E.2 $dF$ をスライス行列で書く</h3>
-<p>§10.4 の展開により、$dF$ の各基底係数は次で与えられる（$c$ を含まない正規化された系）。
+<p>§10.4 の展開により、$dF$ の各基底係数は次で与えられる。
 </p>
 $$
 \begin{aligned}
-A_{txy} &= \frac{\partial E_y}{\partial x} - \frac{\partial E_x}{\partial y} + \frac{\partial B_z}{\partial t}
+A_{txy} &= \frac{\partial E_x}{\partial y} - \frac{\partial E_y}{\partial x} - \frac{\partial B_z}{\partial t} = -(\mathrm{rot}\,\mathbf{E})_z - \frac{\partial B_z}{\partial t}
 \quad (\omega_1 = dt\wedge dx\wedge dy\text{ の係数}) \\[6pt]
-A_{txz} &= \frac{\partial E_z}{\partial x} - \frac{\partial E_x}{\partial z} - \frac{\partial B_y}{\partial t}
+A_{txz} &= \frac{\partial E_x}{\partial z} - \frac{\partial E_z}{\partial x} + \frac{\partial B_y}{\partial t} = (\mathrm{rot}\,\mathbf{E})_y + \frac{\partial B_y}{\partial t}
 \quad (\omega_2 = dt\wedge dx\wedge dz\text{ の係数}) \\[6pt]
-A_{tyz} &= \frac{\partial E_z}{\partial y} - \frac{\partial E_y}{\partial z} + \frac{\partial B_x}{\partial t}
+A_{tyz} &= \frac{\partial E_y}{\partial z} - \frac{\partial E_z}{\partial y} - \frac{\partial B_x}{\partial t} = -(\mathrm{rot}\,\mathbf{E})_x - \frac{\partial B_x}{\partial t}
 \quad (\omega_3 = dt\wedge dy\wedge dz\text{ の係数}) \\[6pt]
-A_{xyz} &= \frac{\partial B_x}{\partial x} + \frac{\partial B_y}{\partial y} + \frac{\partial B_z}{\partial z}
+A_{xyz} &= \frac{\partial B_x}{\partial x} + \frac{\partial B_y}{\partial y} + \frac{\partial B_z}{\partial z} = \mathrm{div}\,\mathbf{B}
 \quad (\omega_4 = dx\wedge dy\wedge dz\text{ の係数})
 \end{aligned}
 $$
-<p>$dF$ の各スライスは、4つの基底スライス行列を係数 $A_{\cdots}$ で線形結合したものである。たとえば $t$-スライスは
-</p>
-$$
-\mathbf{S}_{t}^{(dF)} = A_{txy}\,\mathbf{S}_{t}^{(\omega_1)}
-{+} A_{txz}\,\mathbf{S}_{t}^{(\omega_2)}
-{+} A_{tyz}\,\mathbf{S}_{t}^{(\omega_3)}
-{+} A_{xyz}\,\mathbf{S}_{t}^{(\omega_4)}
-$$
-<p>となる。各 $A_{\cdots}$ を偏微分に展開し、それぞれの基底スライス行列に係数として掛けて並べると次のようになる。
-</p>
-$$
-\begin{aligned}
-\mathbf{S}_{t}^{(dF)}
-&= \left(\frac{\partial E_y}{\partial x} - \frac{\partial E_x}{\partial y} + \frac{\partial B_z}{\partial t}\right)
-\begin{pmatrix}0&0&0&0\\[2pt]0&0&1&0\\[2pt]0&-1&0&0\\[2pt]0&0&0&0\end{pmatrix} \\[10pt]
-&\quad+ \left(\frac{\partial E_z}{\partial x} - \frac{\partial E_x}{\partial z} - \frac{\partial B_y}{\partial t}\right)
-\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&1\\[2pt]0&0&0&0\\[2pt]0&-1&0&0\end{pmatrix} \\[10pt]
-&\quad+ \left(\frac{\partial E_z}{\partial y} - \frac{\partial E_y}{\partial z} + \frac{\partial B_x}{\partial t}\right)
-\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&1\\[2pt]0&0&-1&0\end{pmatrix}
-{+} A_{xyz}
-\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix}
-\end{aligned}
-$$
-<p>同じ位置の成分を<strong>一枚の行列に足し合わせる</strong>と、$t$-スライスは $16$ 成分すべてが明示された単一の $4\times4$ 反対称行列にまとまる。
+<p>$dF$ の各スライスは、4つの基底スライス行列を係数 $A_{\cdots}$ で線形結合したものである。たとえば $t$-スライス $\mathbf{S}_{t}^{(dF)}$ は、全 $16$ 成分が明示された単一の $4\times4$ 反対称行列にまとまる。
 </p>
 $$
 \mathbf{S}_{t}^{(dF)}
@@ -495,15 +414,15 @@ $$
  & t & x & y & z \\\hline
 t & 0 & 0 & 0 & 0 \\[6pt]
 x & 0 & 0 &
-\displaystyle\frac{\partial E_y}{\partial x} {-} \frac{\partial E_x}{\partial y} {+} \frac{\partial B_z}{\partial t} &
-\displaystyle\frac{\partial E_z}{\partial x} {-} \frac{\partial E_x}{\partial z} {-} \frac{\partial B_y}{\partial t} \\[14pt]
+\displaystyle \frac{\partial E_y}{\partial x} - \frac{\partial E_x}{\partial y} + \frac{\partial B_z}{\partial t} &
+\displaystyle \frac{\partial E_z}{\partial x} - \frac{\partial E_x}{\partial z} - \frac{\partial B_y}{\partial t} \\[14pt]
 y & 0 &
-\displaystyle{-}\frac{\partial E_y}{\partial x} {+} \frac{\partial E_x}{\partial y} {-} \frac{\partial B_z}{\partial t} &
+\displaystyle \frac{\partial E_x}{\partial y} - \frac{\partial E_y}{\partial x} - \frac{\partial B_z}{\partial t} &
 0 &
-\displaystyle\frac{\partial E_z}{\partial y} {-} \frac{\partial E_y}{\partial z} {+} \frac{\partial B_x}{\partial t} \\[14pt]
+\displaystyle \frac{\partial E_z}{\partial y} - \frac{\partial E_y}{\partial z} + \frac{\partial B_x}{\partial t} \\[14pt]
 z & 0 &
-\displaystyle{-}\frac{\partial E_z}{\partial x} {+} \frac{\partial E_x}{\partial z} {+} \frac{\partial B_y}{\partial t} &
-\displaystyle{-}\frac{\partial E_z}{\partial y} {+} \frac{\partial E_y}{\partial z} {-} \frac{\partial B_x}{\partial t} &
+\displaystyle \frac{\partial E_x}{\partial z} - \frac{\partial E_z}{\partial x} + \frac{\partial B_y}{\partial t} &
+\displaystyle \frac{\partial E_y}{\partial z} - \frac{\partial E_z}{\partial y} - \frac{\partial B_x}{\partial t} &
 0
 \end{array}\right)
 $$
