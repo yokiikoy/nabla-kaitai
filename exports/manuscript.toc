@@ -94,9 +94,9 @@
 \contentsline {subsection}{§4.0 物理は曲がる、計算は四角}{67}{section*.93}%
 \contentsline {subsection}{§4.1 1-form の引き戻し——仕事と運動エネルギー定理}{68}{section*.94}%
 \contentsline {subsection}{§4.2 2-form の引き戻し——角運動量保存と面積速度}{70}{section*.95}%
-\contentsline {subsection}{§4.3 3-form の引き戻し——質量保存と体積分}{72}{section*.96}%
+\contentsline {subsection}{§4.3 3-form の引き戻し——質量保存と体積分}{73}{section*.96}%
 \contentsline {subsection}{§4.4 引き戻しの性質 —— ここまでに確立したこと}{75}{section*.97}%
-\contentsline {subsection}{§4.5 本章のまとめと第5章（外微分）への展望}{76}{section*.98}%
+\contentsline {subsection}{§4.5 本章のまとめと第5章（外微分）への展望}{77}{section*.98}%
 \contentsline {chapter}{\numberline {5}第5章：微分するとは何か —— 外微分 \(d\)：局所のズレとStokesの橋}{78}{chapter.5}%
 \contentsline {subsection}{§5.0 第II部の扉——観測は積分、法則は微分}{78}{section*.99}%
 \contentsline {subsection}{§5.1 \(df\) 再訪——微分と積分は逆演算か}{79}{section*.100}%
