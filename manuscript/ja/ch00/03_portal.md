@@ -5,7 +5,7 @@
 ### Project Co-Vector Space
 
 > **注**（名称について）  
-> ちなみに、*covector space* という語はあまり一般的ではありません。数学的には *dual space* などと言う方が普通です。とはいえ、*Co-Vector Space* と書くと *co-working space* っぽくもあり、covector たちがすぐにスカラーへ潰されず、準静的に相互作用している姿が浮かんでしまったので、こうすることにしました。
+> ちなみに、*covector space* という語はあまり一般的ではありません。数学的には *dual space* などと言う方が普通です。ここではサイト名として使っています。
 
 [https://covectorspace.xyz/jp/](https://covectorspace.xyz/jp/)
 
