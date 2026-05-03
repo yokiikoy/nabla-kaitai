@@ -166,17 +166,27 @@ $$\nabla f = \begin{pmatrix} \frac{\partial f}{\partial r} & \frac{1}{r}\frac{\p
 <p>$\theta$ 成分に $\frac{1}{r}$ がつくのは、$\nabla f$ が正規直交基底に対する成分だからだ。$df$ の $d\theta$ の係数 $\frac{\partial f}{\partial\theta}$ は「角度あたりの変化率」だが、$\nabla f$ の $\mathbf{e}_\theta$ 成分は「長さあたりの変化率」であり、$d\theta$ が弧長 $r\,d\theta$ に対応するための換算 $\frac{1}{r}$ が必要になる。
 </p>
 <h4 id="923-発散">9.2.3 発散</h4>
-<p>$\mathbf{F} = (F_r, F_\theta, F_z)^T$ に対応する $1$-form は $\tilde{\omega} = F_r\,dr + rF_\theta\,d\theta + F_z\,dz$ である（§7.6.2 で確認したように、$d\theta$ の係数は $rF_\theta$）。
+<p>$\mathbf{F} = (F_r, F_\theta, F_z)^T$ に対応する $1$-form は、以下に述べる「式に現れるスケール因子によって form 係数を明示する」という約束に基づき、$\omega = F_r\,dr + rF_\theta\,d\theta + F_z\,dz$ である。
 </p>
 <blockquote>
-<p><strong>注</strong> （$\tilde{\omega}$ のチルダについて）第8章 §8.6.2 で、正規直交成分 $F_\theta$ と form 係数 $rF_\theta$ を区別するために $\tilde{\omega}$ という記法を使った。しかし本来、数学ではこの二つをいちいち区別しないことも多い。文脈からどちらの $\omega$ を指しているか明らかだからだ。以下でもチルダを省く。どちらを指しているかは、係数に $r$ や $\rho$ が現れているかどうかで判断してほしい。</p>
-<p><strong>注</strong> （正規直交成分と form 係数）この章で出てくる $F_\theta$ は、物理でよく使う単位ベクトル $\mathbf{e}_\theta$ 方向の成分である。一方、$1$-form の $d\theta$ 係数は角度あたりの係数なので、弧長係数 $r$ が掛かる。</p>
+<p><strong>注</strong> （$\tilde{\omega}$ のチルダについて）</p>
+</blockquote>
+<p>第8章 §8.6.2 では、正規直交成分 $F_\theta$ と form 係数 $rF_\theta$ を区別するために $\tilde{\omega}$ という記法を使った。本章では記号を軽くするため、以下ではチルダを省いて $\omega$ と書く。ただし、$F_r,F_\theta,F_z$ は常に正規直交ベクトル成分を表すものとする。対応する $1$-form は、その都度スケール因子を含めて明示する。円柱座標では
+<blockquote>
 <p></p>
-<p>| 表示 | 円柱座標の $\theta$ 成分 |</p>
-<p>|---|---|</p>
-<p>| 正規直交ベクトル成分 | $F_\theta$ |</p>
-<p>| $1$-form 係数 | $rF_\theta$ |</p>
-<p>| 基底の長さ | $r\,d\theta$ |</p>
+</blockquote>
+$$
+> \omega = F_r\,dr + rF_\theta\,d\theta + F_z\,dz
+> $$
+<blockquote>
+<p>であり、球座標では</p>
+<p></p>
+</blockquote>
+$$
+> \omega = F_\rho\,d\rho + \rho F_\theta\,d\theta + \rho\sin\theta\,F_\phi\,d\phi
+> $$
+<blockquote>
+<p>である。したがって、読者が文脈から推測するのではなく、式に現れるスケール因子によって form 係数を明示する、という約束で読む。</p>
 </blockquote>
 $$\begin{aligned}
 \ast\omega &= F_r(r\,d\theta\wedge dz) + rF_\theta\!\left(\frac{1}{r}\,dz\wedge dr\right) + F_z(r\,dr\wedge d\theta) \\
