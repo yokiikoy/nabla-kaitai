@@ -246,7 +246,7 @@ $$\ast: \Omega^k(M) \to \Omega^{n-k}(M)$$
 <td>交代多重線形写像としての $k$-form の成分表示</td>
 </tr>
 <tr>
-<td>引き戻し＝ヤコビ行列（第3章）</td>
+<td>引き戻し＝測定器の焼き直し（第4章）</td>
 <td>滑らかな写像による $k$-form の引き戻し $f^*\omega$</td>
 </tr>
 <tr>
@@ -307,10 +307,7 @@ $$\nabla_j V^i = \partial_j V^i + \sum_k \Gamma^i_{jk} V^k$$
 <p>共変微分の非可換性が、空間の曲がり具合を定量化する。ベクトル場 $V^i$ に対して
 </p>
 $$(\nabla_j \nabla_k - \nabla_k \nabla_j) V^i = \sum_m R^i_{\,mjk} V^m$$
-<p>と書いたとき、$R^i_{\,mjk}$ が<strong>リーマン曲率テンソル</strong>である。クリストッフェル記号で明示的に書けば
-</p>
-$$R^i_{\,mjk} = \partial_j \Gamma^i_{mk} - \partial_k \Gamma^i_{mj} + \sum_p (\Gamma^i_{jp} \Gamma^p_{mk} - \Gamma^i_{kp} \Gamma^p_{mj})$$
-<p>となる。$\mathbf{g}$ が定数行列なら $\Gamma$ はすべてゼロであり、$R^i_{\,mjk} = 0$ ——空間は平坦である。
+<p>と書いたとき、$R^i_{\,mjk}$ が<strong>リーマン曲率テンソル</strong>である。クリストッフェル記号で明示的に書けば、$R^i_{\,mjk}$ は $\Gamma$ の一階微分と $\Gamma\Gamma$ の組み合わせで表される。具体的な添字順序と符号は文献の規約に依存する。$\mathbf{g}$ が定数行列なら $\Gamma$ はすべてゼロであり、$R^i_{\,mjk} = 0$ ——空間は平坦である。
 </p>
 <blockquote>
 <p><strong>注</strong> （座標依存計量と曲率）$\mathbf{g}(x)$ が場所に依存すること自体は、曲率が非ゼロであることを意味しない。ユークリッド空間を曲線座標（極座標・球座標など）で書けば、$g_{ij}(x)$ は場所に依存しても曲率はゼロである。曲率が非ゼロになるのは、$\Gamma$ とその微分から構成される $R^i_{\,mjk}$ が消えない場合である。</p>
