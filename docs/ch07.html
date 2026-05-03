@@ -30,15 +30,16 @@
     .markdown-body { padding: 0.5rem; }
   }
   blockquote { border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }
+  .table-wrapper { overflow-x: auto; margin: 1.5em 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.9em; }
+  th, td { border: 1px solid #d0d7de; padding: 6px 13px; }
+  tr:nth-child(even) { background-color: #f6f8fa; }
+  th { font-weight: 600; background-color: #f6f8fa; }
   .nav-buttons { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }
   .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
   .nav-buttons a:hover { background: #f6f8fa; }
   strong { font-weight: 800 !important; color: #000; }
   blockquote strong { color: #24292f !important; }
-  table { border-collapse: collapse; width: 100%; margin: 1.5em 0; font-size: 0.9em; }
-  th, td { border: 1px solid #d0d7de; padding: 6px 13px; }
-  tr:nth-child(even) { background-color: #f6f8fa; }
-  th { font-weight: 600; background-color: #f6f8fa; }
   /* KaTeX responsiveness */
   .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }
 </style>
@@ -59,6 +60,7 @@
 </script>
 
 </head>
+<body>
   <nav class="sidebar">
     <h2><a href="index.html">ナブラ解体新書</a></h2>
     <div class="author">
@@ -390,7 +392,7 @@ $$\oiint_S \mathbf{F} \cdot \mathbf{n}\,dS = \iiint_V (\nabla \cdot \mathbf{F})\
 <h4 id="783-三つの定理の共通構造">7.8.3 三つの定理の共通構造</h4>
 <p>ストークスの定理とガウスの発散定理を並べて見ると、共通のパターンが浮かぶ。
 </p>
-<table>
+<div class="table-wrapper"><table>
 <thead><tr>
 <th>定理</th>
 <th>境界での積分</th>
@@ -409,7 +411,7 @@ $$\oiint_S \mathbf{F} \cdot \mathbf{n}\,dS = \iiint_V (\nabla \cdot \mathbf{F})\
 <td>$\displaystyle\iiint_V (\nabla\cdot\mathbf{F})\,dV$</td>
 <td>div</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p>いずれも「境界で測った量 = 内部の微分量の総和」という形をしている。§7.6 の $\mathrm{div}(\mathrm{rot})=0$ は、この枠組みでは「渦場には湧き出しがないから、閉曲面で囲んでも中から出てくるものはない」と読める。
 </p>
 <p>しかし、ここには一つの不満が残る。ストークスとガウスは、grad / rot / div という異なる演算子を使うため、<strong>別々の定理として暗記しなければならない</strong>。第5章で $\int_{\partial M}\omega = \int_M d\omega$ という一本の式がこれらすべてを統合していたことを思い出してほしい。第8章では、$\nabla$ の世界の積分定理をこの一本の形に読み替える辞書を完成させる。

@@ -30,15 +30,16 @@
     .markdown-body { padding: 0.5rem; }
   }
   blockquote { border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }
+  .table-wrapper { overflow-x: auto; margin: 1.5em 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.9em; }
+  th, td { border: 1px solid #d0d7de; padding: 6px 13px; }
+  tr:nth-child(even) { background-color: #f6f8fa; }
+  th { font-weight: 600; background-color: #f6f8fa; }
   .nav-buttons { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }
   .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
   .nav-buttons a:hover { background: #f6f8fa; }
   strong { font-weight: 800 !important; color: #000; }
   blockquote strong { color: #24292f !important; }
-  table { border-collapse: collapse; width: 100%; margin: 1.5em 0; font-size: 0.9em; }
-  th, td { border: 1px solid #d0d7de; padding: 6px 13px; }
-  tr:nth-child(even) { background-color: #f6f8fa; }
-  th { font-weight: 600; background-color: #f6f8fa; }
   /* KaTeX responsiveness */
   .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }
 </style>
@@ -59,6 +60,7 @@
 </script>
 
 </head>
+<body>
   <nav class="sidebar">
     <h2><a href="index.html">ナブラ解体新書</a></h2>
     <div class="author">
@@ -106,14 +108,15 @@
 <p>それでも少し大げさに書いたのは、単に言ってみたかったからである。</p>
 </blockquote>
 <p>我々が扱う<strong>現実の物理空間は、常に3次元だ。</strong>質点が直線上を運動しているように見えても、それは「架空の1次元空間」にいるのではなく、「3次元空間 $\mathbb{R}^3$ の中で、たまたま $y$ 方向と $z$ 方向への変位が観測されない（あるいは無視できる）断面」を見ているに過ぎない。
-例えば、摩擦のない直線レール上を滑る台車を考えよう。我々は「これは $x$ 軸方向の1次元運動だ」と言うが、実際には：
+ 例えば、摩擦のない直線レール上を滑る台車を考えよう。我々は「これは $x$ 軸方向の1次元運動だ」と言うが、実際には：
+</p>
 <ul>
 <li>レールは3次元空間内に設置されている</li>
 <li>台車は微小に上下に揺れているかもしれない</li>
 <li>空気抵抗による横方向の微小変動もある</li>
 </ul>
 <p>物理学者の「1次元運動」とは、<strong>3次元空間内で特定の方向への変位が支配的であり、他の方向の変位が無視できるほど小さいか、系の対称性によって厳密にゼロに拘束されている状況</strong>を指す。
-したがって、物理学者が「1次元の微小変位」と呼ぶものの真の姿は、単なるスカラー $\Delta x$ ではなく、次のような<strong>縦ベクトル（列ベクトル）</strong>で表すのがふさわしい：
+ したがって、物理学者が「1次元の微小変位」と呼ぶものの真の姿は、単なるスカラー $\Delta x$ ではなく、次のような<strong>縦ベクトル（列ベクトル）</strong>で表すのがふさわしい：
 </p>
 $$\mathbf{v} = \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix}$$
 <blockquote>
@@ -122,9 +125,10 @@ $$\mathbf{v} = \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix}$$
 <p>我々はこのように、3次元空間内の一点からの変位を3成分で表したものを<strong>変位ベクトル</strong>と呼ぶ。成分の並びは慣習に従い、<strong>第1成分が $x$ 軸方向、第2が $y$ 軸方向、第3が $z$ 軸方向</strong>の変位に対応するものとする。
 </p>
 <p>この第2成分・第3成分のゼロは、「無視されている」あるいは「存在しない」という消極的な意味ではない。<strong>「我々が今、$x$軸方向の運動だけに注目し、他の成分を測定対象から意図的に除外している」という積極的な選択の結果</strong>なのである。
-この「物理学者としての3次元前提」こそが、積分記号の末尾にへばりついている $dx$ という記号の真の姿を暴き出す鍵となる。次節では、この視点から <strong>$dx$ を「微小量」から「行列」へと解体していく。</strong>
+ この「物理学者としての3次元前提」こそが、積分記号の末尾にへばりついている $dx$ という記号の真の姿を暴き出す鍵となる。次節では、この視点から <strong>$dx$ を「微小量」から「行列」へと解体していく。</strong>
 </p>
 <p><strong>本書はあくまで初等微分積分学とベクトル解析の教科書であり、一般次元の微分形式を展開しようとするものではない。したがって最後まで3次元デカルト座標 $(x,y,z)$ に固定し、線形代数学として最も素直な表現——行列表現——を採用する。</strong>よって、本書で用いる $dx,dy,dz$ は、この座標系において成分を取り出す具体的な行列として定義し、まずは「3次元・デカルト・行列」という素直な道具立ての中で、誤魔化しのないベクトル解析を身体に染み込ませることが狙いである。
+</p>
 <blockquote>
 <p><strong>注</strong>（デカルト座標の呼称について）本書の「デカルト座標」とは、<strong>正規直交座標系</strong>（原点が一致し、各軸が互いに直交し、間隔が等間隔である座標系）を指す。数学や他書籍では「ユークリッド空間上の直交直線座標」「デカルト座標系」などとも呼ばれるが、本書では単に「デカルト座標」と呼ぶ。</p>
 </blockquote>
@@ -212,6 +216,7 @@ $$dx(\mathbf{v}_i) = dx\,\mathbf{v}_i = \Delta x_i$$
 <p>リーマン和に現れる $\Delta x_i$ は、「1次元の謎の微小量」ではない。<strong>3次元空間の中での変位ベクトル $\mathbf{v}_i$ に対し、上の行列としての $dx$ が $x$ 成分だけを抜き出した結果</strong>である。
 </p>
 <p><strong>これが決定的な瞬間だ</strong>：
+</p>
 <ul>
 <li>左辺：$dx(\mathbf{v}_i)$ は、行列 $dx$ が<strong>変位ベクトル $\mathbf{v}_i$ に</strong>作用する代数的操作</li>
 <li>右辺：従来のリーマン和に現れる「小区間の幅 $\Delta x_i$」</li>
@@ -312,6 +317,7 @@ $$df = f'(x) \, dx = \begin{pmatrix} f'(x) & 0 & 0 \end{pmatrix}$$
 </p>
 $$df(\mathbf{v}) = \begin{pmatrix} f'(x) & 0 & 0 \end{pmatrix} \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix} = f'(x)\,\Delta x$$
 <p><strong>重要な認識の転換</strong>（<strong>常に次のように読む</strong>）：
+</p>
 <ul>
 <li>式 $df = f'(x)\,dx$ は、微積分でおなじみの<strong>全微分の記法</strong>だが、本書では <strong>$df$ も $dx$ も演算子としての横ベクトル</strong>であり、<strong>単体では微小変化量ではない</strong>、と読む。</li>
 <li><strong>$df(\mathbf{v})$</strong> と書いたときは、<strong>有限の（ただし十分小さい）変位 $\mathbf{v}$ に対する一次近似としての変化量</strong>を意味する。</li>
@@ -323,8 +329,8 @@ $$df(\mathbf{v}) = \begin{pmatrix} f'(x) & 0 & 0 \end{pmatrix} \begin{pmatrix} \
 </blockquote>
 <h4 id="123-方向と-方向の物差し-">1.2.3 $y$ 方向と $z$ 方向の物差し $dy$, $dz$</h4>
 <p>この視点の強みを、§1.1.5 の力学の例に戻せば、<strong>力が $y$ 方向にも成分を持つ一般的な場合に自然に拡張できる</strong>点だ。
-<strong>いま定める $dy$</strong>を使えば、$F_x dx + F_y dy$ という形で2次元の仕事を統一的に扱える。
-$dx$ が $x$ 成分を抜き出すのと同様に、実空間では <strong>$dy$ は $y$ 成分</strong>、<strong>$dz$ は $z$ 成分</strong>を抜き出す横ベクトル（一次形式）と定める。行列表現は
+ <strong>いま定める $dy$</strong>を使えば、$F_x dx + F_y dy$ という形で2次元の仕事を統一的に扱える。
+ $dx$ が $x$ 成分を抜き出すのと同様に、実空間では <strong>$dy$ は $y$ 成分</strong>、<strong>$dz$ は $z$ 成分</strong>を抜き出す横ベクトル（一次形式）と定める。行列表現は
 </p>
 $$dy = \begin{pmatrix} 0 & 1 & 0 \end{pmatrix}, \qquad dz = \begin{pmatrix} 0 & 0 & 1 \end{pmatrix}$$
 <p>である。変位 $\mathbf{v} = \begin{pmatrix} \Delta x \\ \Delta y \\ \Delta z \end{pmatrix}$ に対して $dy(\mathbf{v}) = \Delta y$, $dz(\mathbf{v}) = \Delta z$ となる。
@@ -333,7 +339,7 @@ $$dy = \begin{pmatrix} 0 & 1 & 0 \end{pmatrix}, \qquad dz = \begin{pmatrix} 0 & 
 <p><strong>注</strong> （$dy$, $dz$ の契約）単独の $dy$, $dz$ は演算子であり、$y$ や $z$ の微小幅を語るときは $\Delta y$, $\Delta z$ または $dy(\mathbf{v})$, $dz(\mathbf{v})$ と書く。積分記号の末尾に並ぶ $dy$, $dz$ も、高校以来の慣用記法として <strong>$dx$ と同じ仕方で読めばよい</strong>。細部の約束は、§1.1.6 で $dx$ についてまとめた<strong>記号契約</strong>と<strong>同じ考え方</strong>を適用する。</p>
 </blockquote>
 <p>3次元の空間には、<strong>三つの物差し</strong>がそろった。本章では説明の主線として $x$ 方向の断面に寄せてきたが、座標 $y,z$ と測定子 $dy,dz$ は最初からそろっている、と考えてほしい。
-いま、一変数の $df=f'(x)\,dx$ に $dy$, $dz$ を同じ型の物差しとして足しそろえた。以下の具体例と §1.2.6 での三次元への拡張で、この三つがどう効いてくるかを追う。
+ いま、一変数の $df=f'(x)\,dx$ に $dy$, $dz$ を同じ型の物差しとして足しそろえた。以下の具体例と §1.2.6 での三次元への拡張で、この三つがどう効いてくるかを追う。
 </p>
 <h4 id="124-具体例-の場合">1.2.4 具体例： $f(x) = x^2$ の場合</h4>
 <p>$f(x) = x^2$ とする。$f'(x) = 2x$ である。
@@ -352,7 +358,7 @@ $$df(\mathbf{v}) = \begin{pmatrix} 6 & 0 & 0 \end{pmatrix} \begin{pmatrix} 0.1 \
 <p>すなわち、$dx$ は単独の微小量ではない。変位ベクトルを食べて、その $x$ 成分を返す横ベクトルである。本書ではこの読み方を基本にする。
 </p>
 <p>一方で、標準的な微積分では、置換積分はしばしば別の入口から説明される。  
-それが、合成関数の微分、つまり連鎖律である。
+ それが、合成関数の微分、つまり連鎖律である。
 </p>
 <p>たとえば、変数 $x$ が別の変数 $t$ によって
 </p>
@@ -424,7 +430,7 @@ $$dx\wedge dy\wedge dz \longmapsto J\,du\wedge dv\wedge dw$$
 <p>の、一番小さな例である。
 </p>
 <p>ここでは、置換積分の標準的な入口として、連鎖律による説明を一度だけ見た。  
-本書の本筋では、これを「測定器のつじつま合わせ」として読み直していく。
+ 本書の本筋では、これを「測定器のつじつま合わせ」として読み直していく。
 </p>
 <h4 id="126-三次元への拡張">1.2.6 三次元への拡張</h4>
 <p>空間の各点 $(x,y,z)$ にスカラー（実数）を対応させる関数 $f$ は、実空間の開集合上の<strong>実数値関数</strong>として扱えばよい。
@@ -449,9 +455,9 @@ $$= \frac{\partial f}{\partial x}\,\Delta x + \frac{\partial f}{\partial y}\,\De
 <p>座標が二つまでしか現れない $f(x,y)$ も、$z$ に依らなければ $\partial f/\partial z=0$ として上の枠に含めればよい——<strong>三次元に載せた枠組みが、そのまま低次元に退化する</strong>。
 </p>
 <p>見比べてみよう。
-1変数では： $df = f'(x) dx = \begin{pmatrix} f'(x) & 0 & 0 \end{pmatrix}$
-2変数関数 $f(x, y)$ では（§1.2.3 の $dy$ を用いる）： $df = \frac{\partial f}{\partial x} dx + \frac{\partial f}{\partial y} dy = \begin{pmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & 0 \end{pmatrix}$
-3変数 $f(x,y,z)$ では、§1.2.6 の式のとおり、横ベクトルの成分が三つそろうだけである。
+ 1変数では： $df = f'(x) dx = \begin{pmatrix} f'(x) & 0 & 0 \end{pmatrix}$
+ 2変数関数 $f(x, y)$ では（§1.2.3 の $dy$ を用いる）： $df = \frac{\partial f}{\partial x} dx + \frac{\partial f}{\partial y} dy = \begin{pmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & 0 \end{pmatrix}$
+ 3変数 $f(x,y,z)$ では、§1.2.6 の式のとおり、横ベクトルの成分が三つそろうだけである。
 </p>
 <p>このように、<strong>形式は同じで、ただ成分の個数が増える</strong>。これが行列表示の威力である。$df$ を行列と見なすことで、微分は「変位に対する線形近似を与える演算子」として統一的に扱える。
 </p>
@@ -479,7 +485,8 @@ $$\int_\gamma df$$
 <p><strong>注</strong> （ライプニッツと記号）<strong>ライプニッツ</strong>（Gottfried Wilhelm Leibniz, 1646–1716）は、$dx$, $dy$ など微積分の記号体系を整えた数学者である。以下では歴史の経緯には立ち入らず、記号を導入した人物として名前だけに触れる（記号 $dx$ 自体は慣れている読者も多いが、人名に心当たりがなければ、この一行で足りる）。</p>
 </blockquote>
 <p>現代の我々は、その直感を<strong>線形代数の言葉</strong>で再配置したと言える。
-ライプニッツの記法 $df = f'(x)dx$ は、単なる形式的等式ではない：
+ ライプニッツの記法 $df = f'(x)dx$ は、単なる形式的等式ではない：
+</p>
 <ul>
 <li>$dx$：ライプニッツの無限小の直感 → 本書では <strong>演算子</strong>としての $x$ 成分抽出（微小変位そのものを語るときは $\Delta x$ や $dx(\mathbf{v})$）。$dy$, $dz$ も §1.2.3 で $dx$ と同様に定義する。</li>
 <li>$df$：ライプニッツの無限小変化の直感 → 本書では <strong>演算子</strong>としての全微分（数値の変化量は $df(\mathbf{v})$ などで）</li>
@@ -551,7 +558,7 @@ $$dx \;\xrightarrow{\text{円柱座標の目盛りで書くと}} \;\begin{pmatri
 </p>
 <h4 id="151-演習問題円柱座標での測定">1.5.1 演習問題：円柱座標での測定</h4>
 <p><strong>問題設定</strong>  
-前節で見た通り、円柱座標 $(r, \theta, z)$ における $dx$ の行列表示は以下のようになる：
+ 前節で見た通り、円柱座標 $(r, \theta, z)$ における $dx$ の行列表示は以下のようになる：
 </p>
 $$
 dx = \begin{pmatrix} \cos\theta & -r\sin\theta & 0 \end{pmatrix}
@@ -561,23 +568,23 @@ $$
 <p>このとき、次の問いに答えよ。
 </p>
 <p><strong>問1</strong>  
-円柱座標空間内の点 $P(r=2, \theta=\pi/6, z=0)$ に質点があるとする。この質点が、$r$ 方向に $0.1$ だけ微小変位した。<strong>この節では記号 $\mathbf{v}$ を、$r,\theta,z$ のパラメータの変化量を並べた $\begin{pmatrix}\Delta r\\\Delta\theta\\\Delta z\end{pmatrix}$ とする</strong>（§1.0–§1.2 のデカルト列 $\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$ とは別の並べ方である）。この変位ベクトル $\mathbf{v}$ を、その成分で表せ。
+ 円柱座標空間内の点 $P(r=2, \theta=\pi/6, z=0)$ に質点があるとする。この質点が、$r$ 方向に $0.1$ だけ微小変位した。<strong>この節では記号 $\mathbf{v}$ を、$r,\theta,z$ のパラメータの変化量を並べた $\begin{pmatrix}\Delta r\\\Delta\theta\\\Delta z\end{pmatrix}$ とする</strong>（§1.0–§1.2 のデカルト列 $\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$ とは別の並べ方である）。この変位ベクトル $\mathbf{v}$ を、その成分で表せ。
 </p>
 <p><strong>問2</strong>  
-問1の変位ベクトル $\mathbf{v}$ に対して、点 $P$ における行列 $dx$ を作用させよ。（$\cos(\pi/6) = \sqrt{3}/2$ を用いよ）
+ 問1の変位ベクトル $\mathbf{v}$ に対して、点 $P$ における行列 $dx$ を作用させよ。（$\cos(\pi/6) = \sqrt{3}/2$ を用いよ）
 </p>
 <p><strong>問3</strong>  
-問2で計算した結果 $dx(\mathbf{v})$ は、物理的に何を意味しているか説明せよ。
+ 問2で計算した結果 $dx(\mathbf{v})$ は、物理的に何を意味しているか説明せよ。
 </p>
 <h4 id="152-解答と解説">1.5.2 解答と解説</h4>
 <p><strong>問1の解答</strong>  
-変位は $r$ 方向に $0.1$、$\theta$ 方向と $z$ 方向にはゼロなので、<strong>円柱座標のパラメータの変化量</strong>を縦に並べたベクトルとして次のように書ける：
+ 変位は $r$ 方向に $0.1$、$\theta$ 方向と $z$ 方向にはゼロなので、<strong>円柱座標のパラメータの変化量</strong>を縦に並べたベクトルとして次のように書ける：
 </p>
 $$
 \mathbf{v} = \begin{pmatrix} 0.1 \\ 0 \\ 0 \end{pmatrix}
 $$
 <p><strong>問2の解答</strong>  
-点 $P$ における行列 $dx$ は、$\theta = \pi/6, r=2$ を代入して得られる $1\times 3$ 行ベクトルとして
+ 点 $P$ における行列 $dx$ は、$\theta = \pi/6, r=2$ を代入して得られる $1\times 3$ 行ベクトルとして
 </p>
 $$
 dx = \begin{pmatrix} \cos(\frac{\pi}{6}) & -2\sin(\frac{\pi}{6}) & 0 \end{pmatrix} = \begin{pmatrix} \frac{\sqrt{3}}{2} & -2 \times \frac{1}{2} & 0 \end{pmatrix} = \begin{pmatrix} \frac{\sqrt{3}}{2} & -1 & 0 \end{pmatrix}
@@ -585,20 +592,20 @@ $$
 <p>と書く（円柱座標では $dx$ の成分は $r,\theta$ に依存するので、ここでは点 $P$ の座標で評価したあとを指す。$\mathbf{v}$ への作用の記号 $dx(\mathbf{v})$ 自体は §1.1.3 以来と同じである）。
 </p>
 <p>重要なのは、第2成分は一般に <strong>$-r\sin\theta$</strong> という係数であり、$r$ のおかげで<strong>長さの次元を持つ</strong>ことだ。$r=2,\;\theta=\pi/6$ と代入するとその係数の値として $-1$ が見えるが、<strong>数値の $-1$ そのものに次元が付いているのではない</strong>。行列の成分としての $-r\sin\theta$ が長さの次元を運んでいる、と読むのが正確である。これが次元解析の鍵となる。
-これを変位ベクトル $\mathbf{v}$ に作用させると：
+ これを変位ベクトル $\mathbf{v}$ に作用させると：
 </p>
 $$
 dx(\mathbf{v}) = \begin{pmatrix} \frac{\sqrt{3}}{2} & -1 & 0 \end{pmatrix} \begin{pmatrix} 0.1 \\ 0 \\ 0 \end{pmatrix} = 0.1 \times \frac{\sqrt{3}}{2} \approx 0.0866
 $$
 <p><strong>問3の解答（物理的意味）</strong>  
-この結果は、<strong>「円柱座標において外側（$r$方向）へ $0.1$ だけ進むという運動は、実空間の $x$ 軸方向から見ると約 $0.0866$ の前進に相当する」</strong>という物理的事実を表している。
+ この結果は、<strong>「円柱座標において外側（$r$方向）へ $0.1$ だけ進むという運動は、実空間の $x$ 軸方向から見ると約 $0.0866$ の前進に相当する」</strong>という物理的事実を表している。
 </p>
 <blockquote>
 <p><strong>注</strong> （「約」と厳密一致）この変位では $\Delta\theta=\Delta z=0$ なので、$x=r\cos\theta$ より $\Delta x=(\Delta r)\cos\theta$ が<strong>厳密に</strong>成り立つ。したがって $dx(\mathbf{v})$ の値は、<strong>この変位のもとでは</strong>真の $\Delta x$ と誤差なく一致する。「約」は $\sqrt{3}/2$ を小数で表した丸めにすぎず、一次近似の誤差ではない。</p>
 </blockquote>
 <h4 id="153-次元解析の深い考察">1.5.3 次元解析の深い考察</h4>
 <p>計算結果 $dx(\mathbf{v}) = 0.1 \times \frac{\sqrt{3}}{2}$ を見ると、$r$方向成分$0.1$（長さの次元）と、第1成分の係数$\frac{\sqrt{3}}{2}$（無次元）の積となっており、出力は確かに長さの次元を持つ。
-しかし、もし$\theta$方向の変位$\mathbf{v} = \begin{pmatrix} 0 \\ 0.1 \\ 0 \end{pmatrix}$（角度変位$0.1$ラジアン）を入力したとすると（係数はいまも点 $P$ で評価した同じ行ベクトル）：
+ しかし、もし$\theta$方向の変位$\mathbf{v} = \begin{pmatrix} 0 \\ 0.1 \\ 0 \end{pmatrix}$（角度変位$0.1$ラジアン）を入力したとすると（係数はいまも点 $P$ で評価した同じ行ベクトル）：
 </p>
 $$dx(\mathbf{v}) = \begin{pmatrix} \frac{\sqrt{3}}{2} & -1 & 0 \end{pmatrix} \begin{pmatrix} 0 \\ 0.1 \\ 0 \end{pmatrix} = -0.1$$
 <p>この場合、<strong>入力ベクトルの第2成分</strong> $0.1$ は角度（無次元）だが、<strong>行列の第2列に対応する係数</strong> $-r\sin\theta$ が長さの次元を運ぶため、積としての出力 $-0.1$ は長さの次元を持つ。
@@ -613,9 +620,9 @@ $$dx(\mathbf{v}) = \begin{pmatrix} \frac{\sqrt{3}}{2} & -1 & 0 \end{pmatrix} \be
 <p>- 次章以降は、これらの物差しの<strong>ウェッジ積</strong>、外微分、ホッジスターへと拡張する。</p>
 </blockquote>
 <p>本章では<strong>積分と $df$ の具体例</strong>の主線として $x$ 方向に寄せ、$y,z$ は多くの場面で「断面」として抑えてきた。とはいえ、実空間での一次形式は <strong>$dx$, $dy$, $dz$ の三つがそろっている</strong>（§1.2.3）。
-次章では、この三つを組み合わせて<strong>面積計・体積計（$2$-form, $3$-form）</strong>を作る<strong>ウェッジ積（外積 $\wedge$）</strong>を導入し、ベクトルに作用してスカラーを返す型にとどまらない<strong>高次の微分形式</strong>へと進む。曲線・曲面・領域に沿った集計（線積分・面積分・体積分）は、それらの測定器を揃えた後の章で扱う。
-<!-- role: roadmap -->
-その後の部では、<strong>微分演算子 $\mathrm{d}$</strong>、<strong>ホッジスター演算子 $\ast$</strong>、ベクトル解析の $\mathrm{grad}$（$\nabla$）、$\mathrm{rot}$（$\nabla\times$、$\mathrm{curl}$）、$\mathrm{div}$（$\nabla\cdot$）、ストークスの定理、マクスウェル方程式や流体力学の基礎方程式へと進む。3次元での微分形式とベクトル場の対応は、ホッジスターで整理できる。
+ 次章では、この三つを組み合わせて<strong>面積計・体積計（$2$-form, $3$-form）</strong>を作る<strong>ウェッジ積（外積 $\wedge$）</strong>を導入し、ベクトルに作用してスカラーを返す型にとどまらない<strong>高次の微分形式</strong>へと進む。曲線・曲面・領域に沿った集計（線積分・面積分・体積分）は、それらの測定器を揃えた後の章で扱う。
+ <!-- role: roadmap -->
+ その後の部では、<strong>微分演算子 $\mathrm{d}$</strong>、<strong>ホッジスター演算子 $\ast$</strong>、ベクトル解析の $\mathrm{grad}$（$\nabla$）、$\mathrm{rot}$（$\nabla\times$、$\mathrm{curl}$）、$\mathrm{div}$（$\nabla\cdot$）、ストークスの定理、マクスウェル方程式や流体力学の基礎方程式へと進む。3次元での微分形式とベクトル場の対応は、ホッジスターで整理できる。
 </p>
 <p>3次元ユークリッド空間の真の姿を解き明かす旅へ、いざ出発しよう。
 </p>

@@ -30,15 +30,16 @@
     .markdown-body { padding: 0.5rem; }
   }
   blockquote { border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }
+  .table-wrapper { overflow-x: auto; margin: 1.5em 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.9em; }
+  th, td { border: 1px solid #d0d7de; padding: 6px 13px; }
+  tr:nth-child(even) { background-color: #f6f8fa; }
+  th { font-weight: 600; background-color: #f6f8fa; }
   .nav-buttons { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }
   .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
   .nav-buttons a:hover { background: #f6f8fa; }
   strong { font-weight: 800 !important; color: #000; }
   blockquote strong { color: #24292f !important; }
-  table { border-collapse: collapse; width: 100%; margin: 1.5em 0; font-size: 0.9em; }
-  th, td { border: 1px solid #d0d7de; padding: 6px 13px; }
-  tr:nth-child(even) { background-color: #f6f8fa; }
-  th { font-weight: 600; background-color: #f6f8fa; }
   /* KaTeX responsiveness */
   .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }
 </style>
@@ -59,6 +60,7 @@
 </script>
 
 </head>
+<body>
   <nav class="sidebar">
     <h2><a href="index.html">ナブラ解体新書</a></h2>
     <div class="author">
@@ -116,6 +118,8 @@ $$\begin{aligned}
 </p>
 <ol>
 <li><strong>時間の変換</strong>：時間 $t$ に光速 $c$ を掛けて、長さの次元を持つ座標 $w = ct$ を導入する。時間微分は $\frac{\partial}{\partial t} = c\frac{\partial}{\partial w}$ となる。</li>
+</ol>
+<ol>
 <li><strong>磁場の変換</strong>：磁束密度 $\mathbf{B}$ に $c$ を掛けて、電場と同じ $\mathrm{V/m}$ の次元を持つ $\mathbf{B}' = c\mathbf{B}$ を定義する。</li>
 </ol>
 <p>これらを上の4式に代入する。ファラデーの法則は、
@@ -492,6 +496,7 @@ $$
 \mathbf{S}_{z}^{(dF)} = \mathbf{0}
 $$
 <p>$t$-スライス（上記）の非ゼロ成分を読めば、
+</p>
 <ul>
 <li>$(x,y)$ 成分 $=0$ から $\mathrm{rot}_z\,\mathbf{E} + \partial B_z/\partial t = 0$</li>
 <li>$(x,z)$ 成分 $=0$ から $-\mathrm{rot}_y\,\mathbf{E} - \partial B_y/\partial t = 0$</li>
