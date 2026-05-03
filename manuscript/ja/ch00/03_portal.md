@@ -4,7 +4,7 @@
 
 ### ポータルサイト
 
-[https://covectorspace.xyz/jp/](https://covectorspace.xyz/jp/)
+[https://covectorspace.xyz/jp/#discord](https://covectorspace.xyz/jp/#discord)
 
 本書の閲覧そのものは無料です。誤植の報告や、より分かりやすい説明への修正案などは GitHub Issues でも受け付けています。
 

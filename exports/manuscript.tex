@@ -17,9 +17,9 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyfoot[L]{\tiny CC BY-NC 4.0 \textcopyright\ yokiikoy}
+\fancyfoot[L]{\tiny Project Co-Vector Space | CC BY-NC 4.0 \textcopyright\ yokiikoy}
 \fancyfoot[C]{\thepage}
-\fancypagestyle{plain}{\fancyhf{}\fancyfoot[L]{\tiny CC BY-NC 4.0 \textcopyright\ yokiikoy}\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0pt}}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[L]{\tiny Project Co-Vector Space | CC BY-NC 4.0 \textcopyright\ yokiikoy}\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0pt}}
 \renewcommand{\headrulewidth}{0pt}
 \usepackage{hyperref}
 \usepackage{bookmark}
@@ -116,13 +116,13 @@ v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline
 \end{tabular}\par\bigskip\bigskip\bigskip
 \begin{tabular}{|p{\textwidth}|}\hline
 \multicolumn{1}{|c|}{\textbf{直近の改定履歴}}\\ \hline
-{\small 3e1dc8f (2026-05-03)  style: replace appendix annotations with more personal and emotional reflections}\\ \hline
-{\small 91f090c (2026-05-03)  refactor: move meta-annotations from Chapter 1 to Appendix and improve terminology}\\ \hline
-{\small c69cbc4 (2026-05-03)  fix: remove LaTeX \textbackslash{}newpage from HTML output by separating clean and formatted markdown generation}\\ \hline
+{\small 2c538e1 (2026-05-03)  Fix appendix Maxwell references}\\ \hline
+{\small f943ead (2026-05-03)  Update portal link to Discord anchor}\\ \hline
+{\small 2ac4a4e (2026-05-03)  Fix chapter 10 Maxwell notation}\\ \hline
 \end{tabular}
 \end{minipage}\par
 \vfill
-{\footnotesize 2026-05-03 08:28 JST --- 著者：yokiikoy\par}
+{\footnotesize 2026-05-03 15:15 JST --- 著者：yokiikoy\par}
 \restoregeometry
 \end{titlepage}
 \tableofcontents
@@ -158,7 +158,7 @@ d,\qquad \ast
 本書は、標準的な数学書の代わりではありません。一般多様体、テンソル解析、リーマン幾何、幾何代数へ進むための完全な教科書でもありません。むしろ本書は、三次元の物理数学を、行列表示という手触りのある言葉で組み直すための作業台です。
 
 この作業台の上で、ナブラを一度ばらしてみましょう。\\
-完全に美しい理論に到達するためではなく、まず自分の手で式を動かせるようになるために。
+一貫した理論に到達するためではなく、まず自分の手で式を動かせるようになるために。
 
 \newpage
 
@@ -187,12 +187,16 @@ d,\qquad \ast
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \textbf{第I部：\(\mathbb{R}^3\) 上の微分形式（第1章〜第5章）} 積分記号の尻尾にある \(dx\) を「行列」として定義し直し、面積や体積を測る仕組みを代数的に組み上げます。さらに「外微分 \(d\)」と「ホッジ・スター \(\ast\)」という二つの強力な武器を手に入れます。
+  \textbf{第I部：\(\mathbb{R}^3\) 上の微分形式（第1章〜第5章）} 積分記号の尻尾にある \(dx\) を「行列」として定義し直し、面積や体積を測る仕組みを代数的に組み上げます。さらに「外微分 \(d\)」と「ホッジ・スター \(\ast\)」という二つの強力な道具を手に入れます。
 \item
-  \textbf{第II部：ベクトル解析（第6章〜第9章）} 本書の核心部です。手に入れた武器を使って、ベクトル解析の grad, rot, div を「解体」し、ストークスの定理や曲線座標（極座標・球座標）を攻略します。
+  \textbf{第II部：ベクトル解析（第6章〜第9章）} 本書の核心部です。手に入れた道具を使って、ベクトル解析の grad, rot, div を「解体」し、ストークスの定理や曲線座標（極座標・球座標）を攻略します。
 \item
   \textbf{第III部：発展と統合（第10章〜第12章）} 電磁気学（マクスウェル方程式）への応用と、さらにその先にある多様体や幾何代数（Geometric Algebra）の世界を展望します。
 \end{enumerate}
+
+\begin{quote}
+\textbf{注} （本書の射程について） 本書の主戦場は、三次元ユークリッド空間における行列表示・座標表示による導入です。これは一般多様体上の微分形式論を置き換えるものではありません。また、第12章で触れるクリフォード代数やディラック作用素についても、完全な理論体系を与えるものではなく、標準理論への入口を計算例として示す発展的補足に留めています。
+\end{quote}
 
 \subsection{本書の記法ルール}\label{ux672cux66f8ux306eux8a18ux6cd5ux30ebux30fcux30eb}
 
@@ -221,11 +225,40 @@ d,\qquad \ast
   \begin{itemize}
   \tightlist
   \item
-    道具を対象に適用し、成分を取り出す操作です。
+    道具を対象に適用し、成分を取り出す操作です。 この「行列の掛け算」という手触りのある言葉を頼りに、抽象的な概念を解き明かしていきます。
   \end{itemize}
 \end{itemize}
 
-この「行列の掛け算」という手触りのある言葉を頼りに、抽象的な概念を解き明かしていきます。
+\newpage
+
+\chapter{ポータルサイトとちょっとした試み}\label{ux30ddux30fcux30bfux30ebux30b5ux30a4ux30c8ux3068ux3061ux3087ux3063ux3068ux3057ux305fux8a66ux307f}
+
+本書の PDF 版のダウンロード、正誤表、改訂履歴、GitHub リポジトリ、およびコミュニティへの入口は、以下のポータルサイトにまとめています。
+
+\subsection{ポータルサイト}\label{ux30ddux30fcux30bfux30ebux30b5ux30a4ux30c8}
+
+\url{https://covectorspace.xyz/jp/\#discord}
+
+本書の閲覧そのものは無料です。誤植の報告や、より分かりやすい説明への修正案などは GitHub Issues でも受け付けています。
+
+\begin{quote}
+\textbf{注}（名称について）\\
+ちなみに、\emph{covector space} という語はあまり一般的ではありません。数学的には \emph{dual space} などと言う方が普通です。
+\end{quote}
+
+\subsection{Discord サーバー}\label{discord-ux30b5ux30fcux30d0ux30fc}
+
+また、本書をきっかけにした小さな Discord サーバーを試験的に準備中です。
+
+これは単なる読者サポート窓口ではありません。理工系に関心のある人たちが、本書の内容に限らず、初歩的すぎて表に出しにくい質問、未完成の怪しいメモ、未整理のアイデアなどを、ほどよい距離感で持ち寄れる場所があってもよいのではないか、という試みです。
+
+単なる雑談や告知は、無料ロール \texttt{Visitor} 向けの「前室」で扱う想定です。込み入った議論、メンバー同士の質問、未整理なメモや下書きの共有などは、\texttt{Member} ロール向けの「奥部屋」で扱う想定です。
+
+筆者自身も、奥部屋に未完成の原稿や作業中の断片を置くことがあります。本書の数学的な瑕疵の指摘や、綱渡りになりすぎて割愛した没原稿なども、必要に応じてそこで扱います。
+
+奥部屋は暫定的に「14日間無料、以降100円/月」の有料ロールとして試験運用します。これは本書の閲覧料ではなく、収益化が目的でもありません。過去の経験から、冷やかしや荒らしを少し減らすため、無料期間中もカード登録をお願いする予定です。インフラ代だけでも、おそらく赤字です。
+
+詳しい参加方法、利用規約、執筆支援まわりの約束事については、上記のポータルサイトを確認してください。
 
 \newpage
 
@@ -4859,9 +4892,11 @@ F_x \\ F_y \\ F_z
 
 \subsection{§8.2 翻訳辞書の完成}\label{ux7ffbux8a33ux8f9eux66f8ux306eux5b8cux6210}
 
-第6章 §6.5 で \(\mathrm{grad}=d\), \(\mathrm{rot}=\ast d\), \(\mathrm{div}=\ast d\ast\) という対応を導入した。ここで、この辞書を \(\nabla\) の言葉と突き合わせて、完全な形で整理する。
+第6章 §6.5 で \(\mathrm{grad}=d\), \(\mathrm{rot}=\ast d\), \(\mathrm{div}=\ast d\ast\) という対応を導入した。ここで、この辞書を \(\nabla\) の言葉と突き合わせて、完全な形で整理する。ここで完成するのは、三次元ユークリッド空間・本書の行列表現の範囲で使う翻訳辞書である。
 
-以下、ベクトル場 \(\mathbf{F} = (F_x, F_y, F_z)^T\) に対応する \(1\)-form を \(\omega = F_x\,dx + F_y\,dy + F_z\,dz\) と書く。
+以下の辞書では、ベクトル場 \(\mathbf{F}\) に対応する \(1\)-form を \[
+\omega = \mathbf{F}^\flat = F_x\,dx + F_y\,dy + F_z\,dz
+\] と書く。記号 \(\flat\)（フラット）は、計量 \(g\) によってベクトル場を「測定器側」の \(1\)-form として読む操作（音楽同型）を表す。直交デカルト座標では \(\mathbf{g} = I\) なので成分は同じに見えるが、これは「同じ対象だ」という意味ではない。逆に、微分形式側で得られた \(1\)-form を通常の矢印（ベクトル）として読むときは、計量による逆変換 \(\sharp\)（シャープ）を暗黙に用いている。
 
 \subsubsection{8.2.1 勾配}\label{ux52feux914d-1}
 
@@ -4899,37 +4934,31 @@ df = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy + \frac{\
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}@{}}
+  >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
 \toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
+\begin{minipage}[b]{\linewidth}\centering
 演算
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-\(\nabla\) 表記
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-\(d,\ast\) 表記
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-入力の次数
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-出力の次数
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-\(\ast\) の使用回数
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+ベクトル解析側
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+微分形式（測定器）側
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+ベクトル場として戻すなら
 \end{minipage} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-勾配 & \(\nabla f\) & \(df\) & \(0\) & \(1\) & \(0\) \\
-回転 & \(\nabla\times\mathbf{F}\) & \(\ast d\omega\) & \(1\) & \(1\) & \(1\) \\
-発散 & \(\nabla\cdot\mathbf{F}\) & \(\ast d\ast\omega\) & \(1\) & \(0\) & \(2\) \\
+勾配 & \(\mathrm{grad}\,f\) & \(df\) & \((df)^\sharp\) \\
+回転 & \(\mathrm{rot}\,\mathbf{F}\) & \(\ast d \mathbf{F}^\flat\) & \((\ast d \mathbf{F}^\flat)^\sharp\) \\
+発散 & \(\mathrm{div}\,\mathbf{F}\) & \(\ast d \ast \mathbf{F}^\flat\) & そのまま \(0\)-form \\
 \end{longtable}
 }
 
-\(\ast\) の使用回数が増えるほど、\(\nabla\) 表記と \(d,\ast\) 表記の間の「翻訳コスト」が上がる。勾配は \(\ast\) がゼロ回なので翻訳不要（\(df\) と \(\nabla f\) は転置の関係）、回転は \(1\) 回、発散は \(2\) 回である。この \(\ast\) の往復が、第7章 §7.7 の注で「微分形式のほうが汚い」と感じた原因だった。
+\(\ast\) の使用回数が増えるほど、\(\nabla\) 表記と \(d,\ast\) 表記の間の「翻訳コスト」が上がる。 勾配は \(\ast\) がゼロ回なので翻訳不要（\(df\) と \(\nabla f\) は転置の関係）、回転は \(1\) 回、発散は \(2\) 回である。この \(\ast\) の往復が、第7章 §7.7 の注で「微分形式のほうが汚い」と感じた原因だった。
 
 \begin{quote}
 \textbf{【ここまでのチェックポイント — §8.2】}
@@ -5223,9 +5252,9 @@ d\ast\tilde{\omega} &= \left(\frac{\partial}{\partial r}(r F_r) + \frac{\partial
 
 \chapter{第9章：実戦 —— 辞書を作り、難問を解く}\label{ux7b2c9ux7ae0ux5b9fux6226-ux8f9eux66f8ux3092ux4f5cux308aux96e3ux554fux3092ux89e3ux304f}
 
-\subsection{§9.0 本書の目的はすでに果たされた}\label{ux672cux66f8ux306eux76eeux7684ux306fux3059ux3067ux306bux679cux305fux3055ux308cux305f}
+\subsection{§9.0 本書の中心的な道具は揃った}\label{ux672cux66f8ux306eux4e2dux5fc3ux7684ux306aux9053ux5177ux306fux63c3ux3063ux305f}
 
-　第8章 §8.0 で「本章はこの本のハイライトである」と宣言し、実際に二つの言語のあいだを翻訳し、積分定理を一本化し、二つの方法論を対比した。そこで本書の知的な核心は、実はすでに終わっている。
+　第8章 §8.0 で「本章はこの本のハイライトである」と述べ、実際に二つの言語のあいだを翻訳し、積分定理を一本化し、二つの方法論を対比した。本書の中心的な道具立ては、ここまででほぼ揃っている。
 
 しかし、これだけの道具を揃えて、使わずに終わるのはもったいない。本章では、ここまでに構築した辞書を実際の問題に適用し、ベクトル解析の難問を機械的に解いてみせる。理論は第8章までで十分だ——ここから先は\textbf{演習}である。
 
@@ -5248,8 +5277,16 @@ d\ast\tilde{\omega} &= \left(\frac{\partial}{\partial r}(r F_r) + \frac{\partial
 \item
   \textbf{計量 \(\mathbf{g} = J^T J\) を計算する}。これは第6章 §6.1.3 以来の手順だ。\(\mathbf{g}\) の対角成分が各軸方向の目盛りの二乗、非対角成分が軸どうしの直交度を表す。
 \item
-  \textbf{\(\mathbf{g}\) から \(\ast\) の辞書を導き、\(d\) と組み合わせる}。\(\mathrm{grad} = \ast d\ast\)？（いや、\(\mathrm{grad}=d\)）、\(\mathrm{rot}=\ast d\)、\(\mathrm{div}=\ast d\ast\) の各公式に、その座標系での \(\ast\) の辞書を代入すれば、求める公式が機械的に得られる。
+  \textbf{\(\mathbf{g}\) から \(\ast\) の辞書を導き、\(d\) と組み合わせる}。\(\mathrm{grad} = d\)、\(\mathrm{rot}=\ast d\)、\(\mathrm{div}=\ast d\ast\) の各公式に、その座標系での \(\ast\) の辞書を代入すれば、求める公式が機械的に得られる。
 \end{enumerate}
+
+\begin{quote}
+\textbf{注} （測定器の略記と \(\sharp/\flat\) ）注意してほしいのは、ここでの \(\mathrm{grad} = d, \mathrm{rot} = \ast d, \mathrm{div} = \ast d \ast\) は、あくまで「測定器側」の略記だという点である。通常のベクトル解析の \(\mathrm{grad}\) や \(\mathrm{rot}\) は矢印としてのベクトル場を返すため、微分形式側から結果を戻すには計量 \(\mathbf{g}\) による \(\sharp\)（シャープ）変換が必要になる。直交デカルト座標ではこの変換は成分レベルでは見えないが、曲線座標ではスケール因子やホッジ・スターの辞書にその効果が明確に現れる。
+\end{quote}
+
+\begin{quote}
+\textbf{注}（座標 coframe と正規直交 coframe） 曲線座標では、座標そのものに対応する \(1\)-form と、実際の長さを1単位として測る \(1\)-form を区別する必要がある。前者を\textbf{座標 coframe}、後者を\textbf{正規直交 coframe} と呼ぶ。ホッジ・スターの辞書は、これら二つの coframe を繫ぐスケール因子の情報をすべて引き受けている。これにより、我々は「歪んだ座標系」の上で「真っ直ぐな計算」を行うことができるのである。
+\end{quote}
 
 以下、この手順を円柱座標と球座標で実演する。どちらも計量行列 \(\mathbf{g}\) が対角になる直交曲線座標である。非直交座標でも微分形式とホッジスターは使えるが、\(\ast\) の辞書に非対角成分が入り、本章のような短い公式表にはならない。本章で「任意」と言うときは、ここで扱う直交曲線座標の範囲を指す。
 
@@ -5260,6 +5297,10 @@ d\ast\tilde{\omega} &= \left(\frac{\partial}{\partial r}(r F_r) + \frac{\partial
 \subsubsection{9.2.1 辞書の導出}\label{ux8f9eux66f8ux306eux5c0eux51fa}
 
 円柱座標への変換は \(x = r\cos\theta\), \(y = r\sin\theta\), \(z = z\)。
+
+\begin{quote}
+\textbf{注}（定義域と特異点） 以下では \(r > 0\) の座標パッチで計算する。\(r = 0\) では \(\theta\) が定まらず、円柱座標そのものが特異になる。また \(\theta\) は \(2\pi\) 周期を持つ角度座標なので、厳密には局所的な座標（例えば \(0 < \theta < 2\pi\)）として扱う。本節の公式は、この特異軸を含まない領域で用いることを前提としている。
+\end{quote}
 
 \begin{center}
 \adjustbox{max width=0.98\linewidth}{\(\displaystyle J = \begin{pmatrix}
@@ -5284,6 +5325,27 @@ d\ast\tilde{\omega} &= \left(\frac{\partial}{\partial r}(r F_r) + \frac{\partial
 
 また \(\ast(1) = r\,dr\wedge d\theta\wedge dz\), \(\ast(dr\wedge d\theta\wedge dz) = 1/r\)。
 
+\begin{quote}
+\textbf{注}（円柱座標の 4 層構造） ベクトル場を正しく微分形式として扱うために、以下の 4 つのレイヤーを区別しよう。
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+名称 & 表示 & 円柱座標での具体例 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{座標 coframe} & \(dq^i\) & \(dr, d\theta, dz\) \\
+\textbf{正規直交 coframe} & \(\theta^i\) & \(dr, r d\theta, dz\) \\
+\textbf{ベクトル物理成分} & \(F_i\) & \(F_r, F_\theta, F_z\) \\
+\textbf{form 係数} & \(\tilde{F}_i\) & \(F_r, rF_\theta, F_z\) \\
+\end{longtable}
+}
+
+物理で使う単位ベクトル方向の成分（物理成分）を \((F_r, F_\theta, F_z)\) と書くなら、対応する \(1\)-form は \(F_r dr + F_\theta (r d\theta) + F_z dz\)、すなわち form 係数は \((F_r, rF_\theta, F_z)\) となる。本章の \(F_\theta\) はつねに「物理成分」を指す。
+\end{quote}
+
 \subsubsection{9.2.2 勾配}\label{ux52feux914d-2}
 
 \(\mathrm{grad}\,f = df\) は \(\ast\) を使わない。単に偏微分係数を基底 \(1\)-form に載せるだけだ。
@@ -5300,28 +5362,14 @@ d\ast\tilde{\omega} &= \left(\frac{\partial}{\partial r}(r F_r) + \frac{\partial
 
 \subsubsection{9.2.3 発散}\label{ux767aux6563-2}
 
-\(\mathbf{F} = (F_r, F_\theta, F_z)^T\) に対応する \(1\)-form は \(\tilde{\omega} = F_r\,dr + rF_\theta\,d\theta + F_z\,dz\) である（§7.6.2 で確認したように、\(d\theta\) の係数は \(rF_\theta\)）。
+\(\mathbf{F} = (F_r, F_\theta, F_z)^T\) に対応する \(1\)-form は、以下に述べる「式に現れるスケール因子によって form 係数を明示する」という約束に基づき、\(\omega = F_r\,dr + rF_\theta\,d\theta + F_z\,dz\) である。
 
 \begin{quote}
-\textbf{注} （\(\tilde{\omega}\) のチルダについて）第8章 §8.6.2 で、正規直交成分 \(F_\theta\) と form 係数 \(rF_\theta\) を区別するために \(\tilde{\omega}\) という記法を使った。しかし本来、数学ではこの二つをいちいち区別しないことも多い。文脈からどちらの \(\omega\) を指しているか明らかだからだ。以下でもチルダを省く。どちらを指しているかは、係数に \(r\) や \(\rho\) が現れているかどうかで判断してほしい。
-\end{quote}
-
-\begin{quote}
-\textbf{注} （正規直交成分と form 係数）この章で出てくる \(F_\theta\) は、物理でよく使う単位ベクトル \(\mathbf{e}_\theta\) 方向の成分である。一方、\(1\)-form の \(d\theta\) 係数は角度あたりの係数なので、弧長係数 \(r\) が掛かる。
-
-{\def\LTcaptype{none} % do not increment counter
-\begin{longtable}[]{@{}ll@{}}
-\toprule\noalign{}
-表示 & 円柱座標の \(\theta\) 成分 \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-正規直交ベクトル成分 & \(F_\theta\) \\
-\(1\)-form 係数 & \(rF_\theta\) \\
-基底の長さ & \(r\,d\theta\) \\
-\end{longtable}
-}
+\textbf{注} （\(\tilde{\omega}\) のチルダについて） 第8章 §8.6.2 では、正規直交成分 \(F_\theta\) と form 係数 \(rF_\theta\) を区別するために \(\tilde{\omega}\) という記法を使った。本章では記号を軽くするため、以下ではチルダを省いて \(\omega\) と書く。ただし、\(F_r,F_\theta,F_z\) は常に正規直交ベクトル成分を表すものとする。対応する \(1\)-form は、その都度スケール因子を含めて明示する。円柱座標では \[
+\omega = F_r\,dr + rF_\theta\,d\theta + F_z\,dz
+\] であり、球座標では \[
+\omega = F_\rho\,d\rho + \rho F_\theta\,d\theta + \rho\sin\theta\,F_\phi\,d\phi
+\] である。したがって、読者が文脈から推測するのではなく、式に現れるスケール因子によって form 係数を明示する、という約束で読む。
 \end{quote}
 
 \[\begin{aligned}
@@ -5381,6 +5429,36 @@ d\ast\omega &= \left(\frac{\partial}{\partial r}(rF_r) + \frac{\partial F_\theta
 \ast(d\theta) &= \sin\theta\; d\phi \wedge d\rho \\
 \ast(d\phi) &= \frac{1}{\sin\theta}\; d\rho \wedge d\theta
 \end{aligned}\]
+
+\begin{quote}
+\textbf{注}（球座標の 4 層構造）
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+名称
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+表示
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+球座標での具体例
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{座標 coframe} & \(dq^i\) & \(d\rho, d\theta, d\phi\) \\
+\textbf{正規直交 coframe} & \(\theta^i\) & \(d\rho, \rho d\theta, \rho\sin\theta d\phi\) \\
+\textbf{ベクトル物理成分} & \(F_i\) & \(F_\rho, F_\theta, F_\phi\) \\
+\textbf{form 係数} & \(\tilde{F}_i\) & \(F_\rho, \rho F_\theta, \rho\sin\theta F_\phi\) \\
+\end{longtable}
+}
+
+正規直交成分 \((F_\rho, F_\theta, F_\phi)\) に対する \(1\)-form は \(\omega = F_\rho d\rho + \rho F_\theta d\theta + \rho\sin\theta F_\phi d\phi\) となる。
+\end{quote}
 
 ここでは \(\rho>0\) かつ \(0<\theta<\pi\) の座標パッチで計算している。原点 \(\rho=0\) と極軸 \(\sin\theta=0\) では球座標そのものが特異になり、\(1/\rho\) や \(1/\sin\theta\) を含む公式をそのまま使うことはできない。特異点をまたぐ問題では、別の座標パッチを使うか、特異点を除いた領域で計算してから境界条件として扱う。
 
@@ -5514,7 +5592,7 @@ C_\phi &= \frac{1}{\rho}\frac{\partial}{\partial\rho}(\rho F_\theta) - \frac{1}{
 \(\ast d\ast\omega = \nabla\cdot\mathbf{E} = 0\) である。\(\rho^2\) が \(\ast(d\rho)\) の \(\rho^2\) と打ち消し合い、残った \(\sin\theta\,d\theta\wedge d\phi\) の外微分がゼロ——これだけの計算で、原点以外での発散ゼロが示された。
 
 \begin{quote}
-\textbf{注} （原点では？）\(\rho = 0\) では \(\omega\) が定義できない。原点を含む領域での積分には \(\int_{\partial V} \ast\omega = \int_V d\ast\omega\)（ガウスの定理）を使い、右辺に \(\delta\) 関数が現れる。これは第10章で \(\ast d\ast\omega = \rho/\varepsilon_0\) として正式に扱う。
+\textbf{注} （原点では？）\(\rho = 0\) では \(\omega\) が定義できない。原点を含む全空間で扱うには、通常の関数としての発散ではなく、分布（\(\delta\) 関数）や積分形式で点電荷を表す必要がある。本書ではそこには立ち入らず、原点を除いた領域での計算に限ることにするが、積分形式（ガウスの定理）を使えば、右辺に \(\rho/\varepsilon_0\) が現れることを第10章で正式に扱う。
 \end{quote}
 
 \par\vspace{0.35em}\par
@@ -5523,16 +5601,16 @@ C_\phi &= \frac{1}{\rho}\frac{\partial}{\partial\rho}(\rho F_\theta) - \frac{1}{
 
 本章では、第8章までに構築した辞書を使って、ベクトル解析の公式を機械的に導出し、微積分と電磁気学の難問を解いた。重要なのは、どの計算も「公式を思い出す」ではなく「辞書を引いて手順をなぞる」だけで済んだことだ。
 
-もはや、円柱座標や球座標の発散・回転の公式を暗記する必要はない。\(J \to g = J^T J \to \ast\) 辞書 \(\to \ast d\ast\)——この一本道を覚えておけば、直交曲線座標の公式をその場で再構成できる。非直交座標では同じ原理を使うが、\(\mathbf{g}\) の非対角成分まで含めた一般の \(\ast\) を扱う必要がある。
+もはや、円柱座標や球座標の発散・回転の公式を暗記する必要はない。\(J \to g = J^T J \to \ast\) 辞書 \(\to\) \(d\) と \(\ast\) の組み合わせ——この一本道を覚えておけば、直交曲線座標の公式をその場で再構成できる。非直交座標でも原理は同じだが、\(\ast\) の辞書には非対角計量に由来する混合項が現れるため、本章のような単純なスケール因子だけの表にはならないことに注意されたい。
 
-第10章では、この道具をマクスウェル方程式に適用する。ベクトル解析では4本の基礎方程式が、微分形式では2本に集約される。多くの教科書はここで「なんと美しい」と止まってしまうが、我々はさらに進む。微分形式のマクスウェル方程式の微分形式表現を全成分書き下すとどうなるか——それを実際にやってみせる。本章の計算練習を経ていれば、その翻訳はもはや難しくないはずだ。
+第10章では、この道具をマクスウェル方程式に適用する。 ベクトル解析では4本の基礎方程式が、微分形式では2本に集約される。多くの教科書はここで「なんと美しい」と止まってしまうが、我々はさらに進む。微分形式のマクスウェル方程式の微分形式表現を全成分書き下すとどうなるか——それを実際にやってみせる。本章の計算練習を経ていれば、その翻訳はもはや難しくないはずだ。
 
 \begin{quote}
 \textbf{【ここまでのチェックポイント — 第9章全体】}
 
 \begin{itemize}
 \item
-  直交曲線座標での公式導出は \(J \to g = J^T J \to \ast\) 辞書 \(\to \ast d\ast\) の3ステップ。
+  直交曲線座標での公式導出は \(J \to g = J^T J \to \ast\) 辞書 \(\to\) \(d\) と \(\ast\) の組み合わせ、という手順で進む。
 \item
   円柱座標・球座標での \(\ast\) 辞書、発散・回転の公式を導出した。
 \item
@@ -5605,49 +5683,56 @@ C_\phi &= \frac{1}{\rho}\frac{\partial}{\partial\rho}(\rho F_\theta) - \frac{1}{
 
 以降、\(\mathbf{B}'\) のことを改めて \(\mathbf{B}\) と呼び、\(w\) を改めて \(t\) と書く。つまり、これ以降の \(\mathbf{B}\) は本来の磁束密度ではなく \(c\) 倍された「次元を揃えた磁場」であり、\(t\) は本来の時間ではなく \(c\) 倍された「長さの次元を持つ時間座標」である。
 
-これで準備が整った。\(\mathbf{E}\) と \(\mathbf{B}\) は同じ次元を持ち、同じ行列に並べられる。電磁場をまとめた\(2\)-form \(F\) と、電流・電荷をまとめた\(1\)-form \(\mathcal{J}\) を用意すれば、4本の式は\textbf{2本}になる。
+これで準備が整った。\(\mathbf{E}\) と \(\mathbf{B}\) は同じ次元を持ち、同じ行列に並べられる。電磁場をまとめた\(2\)-form \(F\) と、電流・電荷をまとめた\(1\)-form \(\mathcal{J}\) を用意すれば、4本の式は本書の正規化・符号規約のもとで\textbf{2本}にまとまる。
 
 \[dF = 0, \qquad d(\ast F) = \mu_0(\ast\mathcal{J})\]
 
-以上である。4本が2本に——この簡潔さをもって「美しい」と讃えるのが、微分形式の教科書の定番の幕引きだ。
+以上である。4本が2本に——この簡潔さは、微分形式の記述能力を象徴するものだ。
 
 しかし、本書はここで終わらない。\(F\) の中身は何なのか。\(dF=0\) を成分で展開すると、本当に \(\mathrm{rot}\,\mathbf{E} = -\frac{\partial\mathbf{B}}{\partial t}\) と \(\mathrm{div}\,\mathbf{B} = 0\) が出てくるのか。それを、この章で全部書き下す。
 
 \par\vspace{0.35em}\par
 
-\subsection{\texorpdfstring{§10.2 \(F\) の中身——行列で全部書く}{§10.2 F の中身——行列で全部書く}}\label{f-ux306eux4e2dux8eabux884cux5217ux3067ux5168ux90e8ux66f8ux304f}
+\subsection{\texorpdfstring{§10.2 電磁場 \(F\) と符号規約の固定}{§10.2 電磁場 F と符号規約の固定}}\label{ux96fbux78c1ux5834-f-ux3068ux7b26ux53f7ux898fux7d04ux306eux56faux5b9a}
 
-電磁場 \(F\) は \(2\)-form である。第2章以来、\(2\)-form は反対称行列で表示できることを知っている。\(F\) も例外ではない——ただし、時間も含めた4次元時空で考えるため、\(F\) は \(4\times4\) の反対称行列になる。
+電磁場 \(F\) を具体的な成分で書き下す前に、本章で用いる時空の符号規約を厳密に固定しておこう。符号の選択には複数の流儀があるが、本書では以下のセットを採用する。
 
-時間座標を \(t\)（ただしこれは §10.1 で変換した \(w=ct\) を改名したものであり、元のSI単位系の \(t\) ではない）、空間座標を \(x,y,z\) とする。§10.1 の変換により、\(F\) の成分は次のようになる。
+\begin{itemize}
+\item
+  \textbf{座標順序}： \((x^0, x^1, x^2, x^3) = (t, x, y, z)\)
+\item
+  \textbf{時間座標}： \(t = ct_{\text{SI}}\) （長さ次元に正規化済み）
+\item
+  \textbf{磁場}： \(\mathbf{B} = c\mathbf{B}_{\text{SI}}\) （電場と次元を揃えた量）
+\item
+  \textbf{向き（体積要素）}： \(dt \wedge dx \wedge dy \wedge dz\)
+\item
+  \textbf{計量署名}： \((-, +, +, +)\)
+\item
+  \textbf{2-form の行列表現}： 第2章の規約に従い、基底 \(dx^\mu \wedge dx^\nu\) の係数を、行列の \((\mu, \nu)\) 成分に配置する。
+\end{itemize}
+
+この規約のもとで、電磁場 \(2\)-form \(F\) を次のように定義する。
+
+\[
+F = -E_x\,dt\wedge dx - E_y\,dt\wedge dy - E_z\,dt\wedge dz + B_x\,dy\wedge dz + B_y\,dz\wedge dx + B_z\,dx\wedge dy
+\]
+
+電場項（\(dt\) を含む項）に負号がついているのは、後述するファラデーの法則 \(\mathrm{rot}\,\mathbf{E} = -\frac{\partial\mathbf{B}}{\partial t}\) およびポテンシャル構成 \(F = -d\mathcal{A}\) との整合性を保つための意図的な選択である。
+
+これを \(4\times4\) の反対称行列で表示すれば、次のようになる。
 
 \begin{center}
 \adjustbox{max width=0.98\linewidth}{\(\displaystyle F = \begin{pmatrix}
-0 & E_x & E_y & E_z \\
--E_x & 0 & B_z & -B_y \\
--E_y & -B_z & 0 & B_x \\
--E_z & B_y & -B_x & 0
+0 & -E_x & -E_y & -E_z \\
+E_x & 0 & B_z & -B_y \\
+E_y & -B_z & 0 & B_x \\
+E_z & B_y & -B_x & 0
 \end{pmatrix}\)}
 \end{center}
 
-行と列の順は \((t,x,y,z)\)。\(E_x, E_y, E_z\) は電場（元のSI単位系の値）、\(B_x, B_y, B_z\) は \(c\) 倍された磁場である。両者は §10.1 の正規化により同一の次元 \(\mathrm{V/m}\) を持ち、行列にそのまま並べられる。\(F\) は反対称行列（\(F^T = -F\)）であり、独立な成分はちょうど6個だ。
-
-基底 \(2\)-form で書けば、
-
-\[F = E_x\,dt\wedge dx + E_y\,dt\wedge dy + E_z\,dt\wedge dz + B_x\,dy\wedge dz + B_y\,dz\wedge dx + B_z\,dx\wedge dy\]
-
-\(dt\wedge dx\) の係数が \(E_x\) そのものなのは、§10.1 で \(\mathbf{E}\) と \(\mathbf{B}\) の次元を \(\mathrm{V/m}\) に揃えたことの直接の帰結である。同一の次元を持つ量は、同じ行列にそのまま並べられる。
-
 \begin{quote}
-\textbf{注} （符号の規約）上の行列表示は、第2章の約束どおり、\(dt\wedge dx\) の係数 \(E_x\) を行列の \((t,x)\) 成分に置く。したがって \(F_{tx}=E_x,\;F_{xt}=-E_x\) である。4元ポテンシャル \(A\) から作る \[
-F_{\mu\nu}
-=
-\frac{\partial A_\mu}{\partial x^\nu}
--
-\frac{\partial A_\nu}{\partial x^\mu}
-\] という反対称な成分の並べ方に対応する（§10.6 ではこれを \(F=-dA\) として扱う）。ここで \[
-(x^0,x^1,x^2,x^3)=(t,x,y,z)
-\] である。通常の教科書では逆符号の組み合わせを採る流儀も多い。本書では \(F=-dA\) と第2章の行列規約を同時に満たすため、この符号規約に従う。
+\textbf{注} （電場項の符号と行列） 本書の行列規約では、\(dt \wedge dx\) の係数 \(-E_x\) を行列の \((t,x)\) 成分に置く。したがって \(F_{tx}=-E_x,\;F_{xt}=E_x\) である。多くの教科書では \(F_{t x}\) を正の \(E_x\) と定義するが、その場合は \(F = E_x dx \wedge dt + \dots\) （順序が逆）とするか、あるいはポテンシャルの定義 \(F=d\mathcal{A}\) の符号を調整する必要がある。本書では \(F=-d\mathcal{A}\) と \(dt \wedge dx\) の順序を優先し、この符号を採る。
 \end{quote}
 
 \par\vspace{0.35em}\par
@@ -5671,27 +5756,28 @@ F_{\mu\nu}
 \textbf{注} （正定値性からの離脱）本書の計量はこれまでつねに正定値（\(\mathbf{v}^T\mathbf{g}\,\mathbf{v} > 0\) for \(\mathbf{v}\neq\mathbf{0}\)）だった。ミンコフスキー計量は正定値ではなく、これまでの \(\mathbf{g}=J^T J\) 型の計量とは異なる。ここでは「計量行列から \(\ast\) の辞書を作る」という手順だけを引き継いでいる。この違いは \(\ast\) の辞書に符号の変化として現れるが、計算手順そのものは変わらない。第11章でこの点に簡単に触れる。
 \end{quote}
 
-行と列の順は \((t,x,y,z)\)。空間部分（右下の\(3\times3\)）は単位行列であり、これまでの \(\mathbb{R}^3\) の計量そのものだ。時間成分の \(-1\) が \(\ast\) の辞書に符号の変化をもたらすが、それは §10.5 で \(\ast F\) の行列表示として結果を受け取れば十分である。
+\begin{quote}
+\textbf{注} （4次元ホッジ・スターの規約） 本章では向き（基底の順序）を \(dt\wedge dx\wedge dy\wedge dz\) とし、時空の計量符号を \((-,+,+,+)\) とする。この規約のもとで、以下の \(\ast F\) や \(\ast\mathcal{J}\) を用いる。異なる署名や向きの規約では、いくつかの符号が反転することに注意されたい。
+\end{quote}
 
 \par\vspace{0.35em}\par
 
 \subsection{\texorpdfstring{§10.4 \(dF=0\) を全部書き下す}{§10.4 dF=0 を全部書き下す}}\label{df0-ux3092ux5168ux90e8ux66f8ux304dux4e0bux3059}
 
-\(F\) は \(2\)-form だから、\(dF\) は \(3\)-form になる。4次元空間での \(3\)-form の独立成分は4つ。\(F\) の全6項について \(d\) を作用させ、同じ基底 \(3\)-form の係数をまとめる。
+\(F\) は \(2\)-form だから、\(dF\) は \(3\)-form になる。4次元空間での \(3\)-form の独立成分は4つ。§10.2 で再定義した \(F\)（電場項に負号を含む）について \(d\) を作用させ、同じ基底 \(3\)-form の係数をまとめる。
 
-\(F\) の6項を形式で書く。
+\[F = -E_x\,dt\wedge dx - E_y\,dt\wedge dy - E_z\,dt\wedge dz + B_x\,dy\wedge dz + B_y\,dz\wedge dx + B_z\,dx\wedge dy\]
 
-\[F = E_x\,dt\wedge dx + E_y\,dt\wedge dy + E_z\,dt\wedge dz + B_x\,dy\wedge dz + B_y\,dz\wedge dx + B_z\,dx\wedge dy\]
-
-各項に \(d\) を作用させる。\(E_x, E_y, E_z, B_x, B_y, B_z\) はすべて \((t,x,y,z)\) の関数である。
+各項に \(d\) を作用させる。電場項は次のようになる（符号の変化に注意）：
 
 \[\begin{aligned}
-d\!\left(E_x\,dt\wedge dx\right) &= \frac{\partial E_x}{\partial y}\,dy\wedge dt\wedge dx + \frac{\partial E_x}{\partial z}\,dz\wedge dt\wedge dx \\
-d\!\left(E_y\,dt\wedge dy\right) &= \frac{\partial E_y}{\partial x}\,dx\wedge dt\wedge dy + \frac{\partial E_y}{\partial z}\,dz\wedge dt\wedge dy \\
-d\!\left(E_z\,dt\wedge dz\right) &= \frac{\partial E_z}{\partial x}\,dx\wedge dt\wedge dz + \frac{\partial E_z}{\partial y}\,dy\wedge dt\wedge dz
+d\!\left(-E_x\,dt\wedge dx\right) &= -\frac{\partial E_x}{\partial y}\,dy\wedge dt\wedge dx - \frac{\partial E_x}{\partial z}\,dz\wedge dt\wedge dx \\
+&= -\frac{\partial E_x}{\partial y}\,dt\wedge dx\wedge dy + \frac{\partial E_x}{\partial z}\,dt\wedge dz\wedge dx \\
+d\!\left(-E_y\,dt\wedge dy\right) &= -\frac{\partial E_y}{\partial z}\,dt\wedge dy\wedge dz + \frac{\partial E_y}{\partial x}\,dt\wedge dx\wedge dy \\
+d\!\left(-E_z\,dt\wedge dz\right) &= -\frac{\partial E_z}{\partial x}\,dt\wedge dz\wedge dx + \frac{\partial E_z}{\partial y}\,dt\wedge dy\wedge dz
 \end{aligned}\]
 
-\(B\) の項は \(t\) 微分も含む。
+磁場項は時間微分 \(t\) も含み、次のようになる：
 
 \[\begin{aligned}
 d(B_x\,dy\wedge dz) &= \frac{\partial B_x}{\partial t}\,dt\wedge dy\wedge dz + \frac{\partial B_x}{\partial x}\,dx\wedge dy\wedge dz \\
@@ -5699,26 +5785,36 @@ d(B_y\,dz\wedge dx) &= \frac{\partial B_y}{\partial t}\,dt\wedge dz\wedge dx + \
 d(B_z\,dx\wedge dy) &= \frac{\partial B_z}{\partial t}\,dt\wedge dx\wedge dy + \frac{\partial B_z}{\partial z}\,dz\wedge dx\wedge dy
 \end{aligned}\]
 
-これらをすべて足し合わせる。基底 \(3\)-form の種類は \((dt\wedge dx\wedge dy,\; dt\wedge dy\wedge dz,\; dt\wedge dz\wedge dx,\; dx\wedge dy\wedge dz)\) の4つ。ウェッジ積の反対称性を使って項を整理する（たとえば \(dy\wedge dt\wedge dx = -dt\wedge dy\wedge dx = dt\wedge dx\wedge dy\)）。
+これらをすべて足し合わせ、基底 \(3\)-form ごとに整理する。たとえば \(dt\wedge dy\wedge dz\) の係数は次のようになる：
 
-各基底 \(3\)-form の係数をゼロとおくと、\(dF=0\) は次と同値になる。
+\[
+\left(\frac{\partial B_x}{\partial t} + \frac{\partial E_z}{\partial y} - \frac{\partial E_y}{\partial z}\right) dt\wedge dy\wedge dz = \left(\frac{\partial B_x}{\partial t} + (\mathrm{rot}\,\mathbf{E})_x\right) dt\wedge dy\wedge dz
+\]
+
+各基底係数をゼロとおくと、\(dF=0\) は次の 4 本の式と同値になる。
 
 \[dF = 0 \Longleftrightarrow \begin{cases}
-\displaystyle \frac{\partial B_x}{\partial x} + \frac{\partial B_y}{\partial y} + \frac{\partial B_z}{\partial z} = 0 \\[1em]
-\displaystyle \frac{\partial E_z}{\partial y} - \frac{\partial E_y}{\partial z} + \frac{\partial B_x}{\partial t} = 0 \\[0.5em]
-\displaystyle \frac{\partial E_x}{\partial z} - \frac{\partial E_z}{\partial x} + \frac{\partial B_y}{\partial t} = 0 \\[0.5em]
-\displaystyle \frac{\partial E_y}{\partial x} - \frac{\partial E_x}{\partial y} + \frac{\partial B_z}{\partial t} = 0
+\displaystyle \frac{\partial B_x}{\partial x} + \frac{\partial B_y}{\partial y} + \frac{\partial B_z}{\partial z} = 0 & (\mathrm{div}\,\mathbf{B} = 0) \\[1em]
+\displaystyle (\mathrm{rot}\,\mathbf{E})_x = -\frac{\partial B_x}{\partial t} & \\[0.5em]
+\displaystyle (\mathrm{rot}\,\mathbf{E})_y = -\frac{\partial B_y}{\partial t} & (\mathrm{rot}\,\mathbf{E} = -\frac{\partial\mathbf{B}}{\partial t}) \\[0.5em]
+\displaystyle (\mathrm{rot}\,\mathbf{E})_z = -\frac{\partial B_z}{\partial t} & 
 \end{cases}\]
 
-1行目は \(\mathrm{div}\,\mathbf{B} = 0\)、2〜4行目は \(\mathrm{rot}\,\mathbf{E} = -\frac{\partial\mathbf{B}}{\partial t}\) の各成分にほかならない。
+1行目は磁場に関するガウスの法則、2〜4行目はファラデーの電磁誘導の法則である。電場項に負号を置いたことにより、微分形式の一本の方程式 \(dF=0\) から、ベクトル解析でおなじみの正しい符号の公式が導き出された。
 
 \par\vspace{0.35em}\par
 
 \subsection{\texorpdfstring{§10.5 \(\ast F\) と残りの2本}{§10.5 \textbackslash ast F と残りの2本}}\label{ast-f-ux3068ux6b8bux308aux306e2ux672c}
 
-もう一つの式 \(d(\ast F) = \mu_0(\ast\mathcal{J})\) も、§10.4 と同じ手順で全部書き下す。
+もう一つの式 \(d(\ast F) = \mu_0(\ast\mathcal{J})\) も、§10.4 と同じ手順で全部書き下そう。
 
-まず \(\ast F\) を求める。\(\ast\) は4次元時空の計量に依存するが、特殊相対論の平坦な時空（計量は時間成分だけ符号が異なる）では、\(\ast F\) は §10.2 の \(F\) で \(\mathbf{E}\) と \(\mathbf{B}\) を入れ替えた形になる。行列表示は次の通りだ。
+まず、§10.2 で再定義した \(F\) から \(\ast F\) を求める。§10.3 のミンコフスキー計量署名 \((-,+,+,+)\) と向き \(dt\wedge dx\wedge dy\wedge dz\) のもとでホッジ・スターを作用させると、\(\ast F\) は次のようになる。
+
+\[
+\ast F = B_x\,dt\wedge dx + B_y\,dt\wedge dy + B_z\,dt\wedge dz + E_x\,dy\wedge dz + E_y\,dz\wedge dx + E_z\,dx\wedge dy
+\]
+
+行列表示では次の通りだ。
 
 \begin{center}
 \adjustbox{max width=0.98\linewidth}{\(\displaystyle \ast F = \begin{pmatrix}
@@ -5729,81 +5825,32 @@ d(B_z\,dx\wedge dy) &= \frac{\partial B_z}{\partial t}\,dt\wedge dx\wedge dy + \
 \end{pmatrix}\)}
 \end{center}
 
-\(F\) と見比べてほしい。\(E\) と \(B\) の位置が入れ替わっている。この規約と正規化のもとでは、\(\ast\) はほとんど「\(\mathbf{E}\) と \(\mathbf{B}\) を入れ替える装置」として働く。
+電場項の符号を反転させた \(F\) を出発点としたことで、\(\ast\) 作用後の \(\ast F\) では逆に磁場項が \(dt\) を含む項になり、電場項が空間のみの項（\(2\)-form）へ移動している。
 
-基底 \(2\)-form で書けば、§10.2 の \(F\) と対応する形になる。
-
-\[\ast F = B_x\,dt\wedge dx + B_y\,dt\wedge dy + B_z\,dt\wedge dz + E_x\,dy\wedge dz + E_y\,dz\wedge dx + E_z\,dx\wedge dy\]
-
-次に、\(d(\ast F)\) を展開する。\(\ast F\) も \(2\)-form だから、\(d(\ast F)\) は \(3\)-form だ。
-
-まず \(B\) の項（\(dt\wedge dx, dt\wedge dy, dt\wedge dz\)）に \(d\) を作用させる。これらの時間微分は \(dt\wedge dt = 0\) で消え、空間微分だけが残る。§10.4 の \(E\) の項と同じ構造だ。
+次に、\(d(\ast F)\) を展開する。基底 \(3\)-form ごとに整理すると、次のようになる。
 
 \[\begin{aligned}
-d\!\left(B_x\,dt\wedge dx\right) &= \frac{\partial B_x}{\partial y}\,dy\wedge dt\wedge dx + \frac{\partial B_x}{\partial z}\,dz\wedge dt\wedge dx \\
-d\!\left(B_y\,dt\wedge dy\right) &= \frac{\partial B_y}{\partial x}\,dx\wedge dt\wedge dy + \frac{\partial B_y}{\partial z}\,dz\wedge dt\wedge dy \\
-d\!\left(B_z\,dt\wedge dz\right) &= \frac{\partial B_z}{\partial x}\,dx\wedge dt\wedge dz + \frac{\partial B_z}{\partial y}\,dy\wedge dt\wedge dz
+d(\ast F) = &\left(\frac{\partial E_x}{\partial x} + \frac{\partial E_y}{\partial y} + \frac{\partial E_z}{\partial z}\right) dx\wedge dy\wedge dz \\
+{+} &\left(\frac{\partial E_x}{\partial t} - \left(\frac{\partial B_z}{\partial y} - \frac{\partial B_y}{\partial z}\right)\right) dt\wedge dy\wedge dz \\
+{+} &\left(\frac{\partial E_y}{\partial t} - \left(\frac{\partial B_x}{\partial z} - \frac{\partial B_z}{\partial x}\right)\right) dt\wedge dz\wedge dx \\
+{+} &\left(\frac{\partial E_z}{\partial t} - \left(\frac{\partial B_y}{\partial x} - \frac{\partial B_x}{\partial y}\right)\right) dt\wedge dx\wedge dy
 \end{aligned}\]
 
-次に \(E\) の項（\(dy\wedge dz, dz\wedge dx, dx\wedge dy\)）に \(d\) を作用させる。こちらは時間微分も含む。§10.4 の \(B\) の項と同じ構造だ。
+1行目の係数は \(\mathrm{div}\,\mathbf{E}\) 、2〜4行目のカッコ内は \(\mathrm{rot}\,\mathbf{B}\) の各成分である。
 
-\[\begin{aligned}
-d\!\left(E_x\,dy\wedge dz\right) &= \frac{\partial E_x}{\partial t}\,dt\wedge dy\wedge dz + \frac{\partial E_x}{\partial x}\,dx\wedge dy\wedge dz \\
-d\!\left(E_y\,dz\wedge dx\right) &= \frac{\partial E_y}{\partial t}\,dt\wedge dz\wedge dx + \frac{\partial E_y}{\partial y}\,dy\wedge dz\wedge dx \\
-d\!\left(E_z\,dx\wedge dy\right) &= \frac{\partial E_z}{\partial t}\,dt\wedge dx\wedge dy + \frac{\partial E_z}{\partial z}\,dz\wedge dx\wedge dy
-\end{aligned}\]
+右辺の \(\mu_0(\ast\mathcal{J})\) は、電荷密度 \(\rho\) と電流密度 \(\mathbf{J}\) を含む \(3\)-form である。§10.1 の正規化のもとで次のように書ける。
 
-これらをすべて足し合わせる。基底 \(3\)-form の種類は §10.4 と同じ \((dt\wedge dx\wedge dy,\; dt\wedge dy\wedge dz,\; dt\wedge dz\wedge dx,\; dx\wedge dy\wedge dz)\) の4つ。ウェッジ積の反対称性を使って項を整理する。
+\[
+\mu_0(\ast\mathcal{J}) = \frac{\rho}{\varepsilon_0}\,dx\wedge dy\wedge dz - \mu_0 c J_x\,dt\wedge dy\wedge dz - \mu_0 c J_y\,dt\wedge dz\wedge dx - \mu_0 c J_z\,dt\wedge dx\wedge dy
+\]
 
-各基底 \(3\)-form の係数をまとめると、\(d(\ast F)\) は次になる。
+両辺の係数を比較すれば、次のマクスウェル方程式の残り 2 本が得られる。
 
-\[\begin{aligned}
-d(\ast F) = &\left(\frac{\partial B_x}{\partial y} - \frac{\partial B_y}{\partial x} + \frac{\partial E_z}{\partial t}\right) dt\wedge dx\wedge dy \\
-{+} &\left(\frac{\partial B_y}{\partial z} - \frac{\partial B_z}{\partial y} + \frac{\partial E_x}{\partial t}\right) dt\wedge dy\wedge dz \\
-{+} &\left(\frac{\partial B_z}{\partial x} - \frac{\partial B_x}{\partial z} + \frac{\partial E_y}{\partial t}\right) dt\wedge dz\wedge dx \\
-{+} &\left(\frac{\partial E_x}{\partial x} + \frac{\partial E_y}{\partial y} + \frac{\partial E_z}{\partial z}\right) dx\wedge dy\wedge dz
-\end{aligned}\]
+\[
+\mathrm{div}\,\mathbf{E} = \frac{\rho}{\varepsilon_0}, \qquad \mathrm{rot}\,\mathbf{B} = \mu_0 c \mathbf{J} + \frac{\partial \mathbf{E}}{\partial t}
+\]
 
-\(dx\wedge dy\wedge dz\) の係数は \(\mathrm{div}\,\mathbf{E}\) にほかならない。\(dt\wedge dx\wedge dy\) の係数は \(\frac{\partial B_x}{\partial y} - \frac{\partial B_y}{\partial x} + \frac{\partial E_z}{\partial t} = -(\mathrm{rot}\,\mathbf{B})_z + \frac{\partial E_z}{\partial t}\) であり、2〜3行目も同様に \(-(\mathrm{rot}\,\mathbf{B})_{x,y} + \frac{\partial E_{x,y}}{\partial t}\) の各成分だ。
-
-一方、右辺の \(\ast\mathcal{J}\) は電荷・電流を表す \(3\)-form である。正規化された系では、次の形をとる。
-
-\[\ast\mathcal{J} = \frac{\rho}{\varepsilon_0\mu_0}\,dx\wedge dy\wedge dz - cJ_x\,dt\wedge dy\wedge dz - cJ_y\,dt\wedge dz\wedge dx - cJ_z\,dt\wedge dx\wedge dy\]
-
-（\(\rho\) は電荷密度、\(J_x,J_y,J_z\) は電流密度。\(\varepsilon_0\mu_0 = 1/c^2\) より、第1項の係数は \(c^2\rho\) に等しい。）
-
-\begin{quote}
-\textbf{注} （\(\mathcal{J}\) の正規化）ここでの \(\mathcal{J}\) は、§10.1 の \(w=ct\) および \(\mathbf{B}'=c\mathbf{B}\) に合わせて正規化された電流 \(1\)-form である。標準的な相対論的記法とは係数の置き方が異なる場合がある。本章では、§10.1 の4本のマクスウェル方程式を再現するように係数を選んでいる。
-\end{quote}
-
-{\def\LTcaptype{none} % do not increment counter
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-記号
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-本章での意味
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-\(t\) & 元の時間ではなく \(w=ct\) を改名した長さ次元の座標 \\
-\(\mathbf{B}\) & 元の磁束密度ではなく \(c\mathbf{B}_{\mathrm{SI}}\) を改名した量 \\
-\(\mathcal{J}\) & 上の正規化に合わせた電流 \(1\)-form \\
-\(\ast\mathcal{J}\) & 電荷密度と電流密度を \(3\)-form として並べたもの \\
-\end{longtable}
-}
-
-\(d(\ast F) = \mu_0(\ast\mathcal{J})\) の両辺で基底 \(3\)-form の係数を比較する。
-
-\[\mu_0(\ast\mathcal{J}) = \frac{\rho}{\varepsilon_0}\,dx\wedge dy\wedge dz - c\mu_0J_x\,dt\wedge dy\wedge dz - c\mu_0J_y\,dt\wedge dz\wedge dx - c\mu_0J_z\,dt\wedge dx\wedge dy\]
-
-\(dx\wedge dy\wedge dz\) の係数から \(\mathrm{div}\,\mathbf{E} = \frac{\rho}{\varepsilon_0}\)。\(dt\wedge dy\wedge dz\) の係数から \(-\frac{\partial B_z}{\partial y} + \frac{\partial B_y}{\partial z} + \frac{\partial E_x}{\partial t} = -c\mu_0J_x\)、すなわち \((\mathrm{rot}\,\mathbf{B})_x - \frac{\partial E_x}{\partial t} = c\mu_0J_x\)。整理すると \(\mathrm{rot}\,\mathbf{B} = c\mu_0\mathbf{J} + \frac{\partial\mathbf{E}}{\partial t}\) を得る。
-
-以上で、\(d(\ast F) = \mu_0(\ast\mathcal{J})\) を成分で完全に展開しきった。§10.4 の \(dF=0\) と合わせて、マクスウェル方程式の4本が行列と偏微分の計算だけで再現されたことになる。
+これによって、4 本すべてのマクスウェル方程式が、微分形式の 2 本の式から正しい符号と係数で導かれることが完全に確認できた。
 
 つまり、マクスウェル方程式の4本は、微分形式では
 
@@ -5821,62 +5868,75 @@ d(\ast F) = &\left(\frac{\partial B_x}{\partial y} - \frac{\partial B_y}{\partia
 
 \par\vspace{0.35em}\par
 
-\subsection{\texorpdfstring{§10.6 ポテンシャル構成——\(F=-dA\) から始める}{§10.6 ポテンシャル構成——F=-dA から始める}}\label{ux30ddux30c6ux30f3ux30b7ux30e3ux30ebux69cbux6210f-da-ux304bux3089ux59cbux3081ux308b}
+\subsection{\texorpdfstring{§10.6 ポテンシャル構成——\(F=-d\mathcal{A}\) から始める}{§10.6 ポテンシャル構成——F=-d\textbackslash mathcal\{A\} から始める}}\label{ux30ddux30c6ux30f3ux30b7ux30e3ux30ebux69cbux6210f-dmathcala-ux304bux3089ux59cbux3081ux308b}
 
-§10.2 では \(F\) を「\(\mathbf{E}\) と \(\mathbf{B}\) の寄せ集め」として天下り的に定義した。しかし実は、\(F\) はもっと根源的な量——\textbf{4元ポテンシャル \(A\)}——から機械的に導かれる。こちらが出発点として自然なのは、\textbf{\(dF=0\) が「\(dd=0\)」の一言で証明される}からだ。
+§10.2 では \(F\) を「\(\mathbf{E}\) と \(\mathbf{B}\) の寄せ集め」として天下り的に定義した。しかし実は、\(F\) はもっと根源的な量——\textbf{4元ポテンシャル \(\mathcal{A}\)}——から機械的に導かれる。こちらが出発点として自然なのは、\textbf{\(dF=0\) が「\(dd=0\)」の一言で証明される}からだ。
 
-4元ポテンシャル \(A\) は \(1\)-form である。電磁気学ではスカラーポテンシャル \(\phi\) とベクトルポテンシャル \(\mathbf{A} = (A_x, A_y, A_z)\) が組になる。時間成分の符号に注意して（§10.3 の計量の時間成分が \(-1\) であることの反映）、
+4元ポテンシャル \(\mathcal{A}\) は \(1\)-form である。電磁気学ではスカラーポテンシャル \(\phi\) とベクトルポテンシャル \(\mathbf{A} = (A_x, A_y, A_z)\) が組になる。本章では §10.2 の \(F\) と標準的な \[
+\mathbf{E}=-\nabla\phi-\frac{\partial\mathbf{A}}{\partial t},\qquad
+\mathbf{B}=\nabla\times\mathbf{A}
+\] を同時に満たすため、ポテンシャル \(1\)-form を次の符号で置く。
 
-\[A = -\phi\,dt + A_x\,dx + A_y\,dy + A_z\,dz\]
+\[\mathcal{A} = \phi\,dt - A_x\,dx - A_y\,dy - A_z\,dz\]
 
 と書く。\(\phi, A_x, A_y, A_z\) はいずれも \((t,x,y,z)\) の関数である。
 
-\(dA\) の計算は第5章以来の手順そのものだ。\(A\) の4項それぞれに \(d\) を作用させる。
+\(d\mathcal{A}\) の計算は第5章以来の手順そのものだ。\(\mathcal{A}\) の4項それぞれに \(d\) を作用させる。
 
 \[\begin{aligned}
-d(-\phi\,dt) &= -\frac{\partial\phi}{\partial x}\,dx\wedge dt - \frac{\partial\phi}{\partial y}\,dy\wedge dt - \frac{\partial\phi}{\partial z}\,dz\wedge dt \\
-d(A_x\,dx) &= \frac{\partial A_x}{\partial t}\,dt\wedge dx + \frac{\partial A_x}{\partial y}\,dy\wedge dx + \frac{\partial A_x}{\partial z}\,dz\wedge dx \\
-d(A_y\,dy) &= \frac{\partial A_y}{\partial t}\,dt\wedge dy + \frac{\partial A_y}{\partial x}\,dx\wedge dy + \frac{\partial A_y}{\partial z}\,dz\wedge dy \\
-d(A_z\,dz) &= \frac{\partial A_z}{\partial t}\,dt\wedge dz + \frac{\partial A_z}{\partial x}\,dx\wedge dz + \frac{\partial A_z}{\partial y}\,dy\wedge dz
+d(\phi\,dt) &= \frac{\partial\phi}{\partial x}\,dx\wedge dt + \frac{\partial\phi}{\partial y}\,dy\wedge dt + \frac{\partial\phi}{\partial z}\,dz\wedge dt \\
+d(-A_x\,dx) &= -\frac{\partial A_x}{\partial t}\,dt\wedge dx - \frac{\partial A_x}{\partial y}\,dy\wedge dx - \frac{\partial A_x}{\partial z}\,dz\wedge dx \\
+d(-A_y\,dy) &= -\frac{\partial A_y}{\partial t}\,dt\wedge dy - \frac{\partial A_y}{\partial x}\,dx\wedge dy - \frac{\partial A_y}{\partial z}\,dz\wedge dy \\
+d(-A_z\,dz) &= -\frac{\partial A_z}{\partial t}\,dt\wedge dz - \frac{\partial A_z}{\partial x}\,dx\wedge dz - \frac{\partial A_z}{\partial y}\,dy\wedge dz
 \end{aligned}\]
 
 （\(\phi\) の時間微分は \(dt\wedge dt = 0\) で消える。\(A_x\) の \(x\) 微分も \(dx\wedge dx = 0\) で消える。以下同様。）
 
 これらを足し合わせ、ウェッジ積の反対称性（\(dx\wedge dt = -dt\wedge dx\) など）で基底 \(2\)-form ごとに整理する。
 
-\(dt\wedge dx\) の係数を見よう。\(d(-\phi\,dt)\) から \(-\frac{\partial\phi}{\partial x}\,dx\wedge dt = \frac{\partial\phi}{\partial x}\,dt\wedge dx\)。\(d(A_x\,dx)\) から \(\frac{\partial A_x}{\partial t}\,dt\wedge dx\)。よって \(dA\) の \(dt\wedge dx\) 係数は \(\displaystyle \frac{\partial\phi}{\partial x} + \frac{\partial A_x}{\partial t}\)。
+\(dt\wedge dx\) の係数を見よう。\(d(\phi\,dt)\) から \(\frac{\partial\phi}{\partial x}\,dx\wedge dt = -\frac{\partial\phi}{\partial x}\,dt\wedge dx\)。\(d(-A_x\,dx)\) から \(-\frac{\partial A_x}{\partial t}\,dt\wedge dx\)。よって \(d\mathcal{A}\) の \(dt\wedge dx\) 係数は \(\displaystyle -\frac{\partial\phi}{\partial x} - \frac{\partial A_x}{\partial t}\)。
 
-\(dy\wedge dz\) の係数は、\(d(A_y\,dy)\) から \(\frac{\partial A_y}{\partial z}\,dz\wedge dy = -\frac{\partial A_y}{\partial z}\,dy\wedge dz\)。\(d(A_z\,dz)\) から \(\frac{\partial A_z}{\partial y}\,dy\wedge dz\)。よって \(dA\) の \(dy\wedge dz\) 係数は \(\displaystyle \frac{\partial A_z}{\partial y} - \frac{\partial A_y}{\partial z}\)。
+\(dy\wedge dz\) の係数は、\(d(-A_y\,dy)\) から \(-\frac{\partial A_y}{\partial z}\,dz\wedge dy = \frac{\partial A_y}{\partial z}\,dy\wedge dz\)。\(d(-A_z\,dz)\) から \(-\frac{\partial A_z}{\partial y}\,dy\wedge dz\)。よって \(d\mathcal{A}\) の \(dy\wedge dz\) 係数は \(\displaystyle -\frac{\partial A_z}{\partial y} + \frac{\partial A_y}{\partial z}\)。
 
-全6基底について同様に整理すると、\(dA\) は次のようになる。
+全6基底について同様に整理すると、\(d\mathcal{A}\) は次のようになる。
 
 \[\begin{aligned}
-dA &= \left(\frac{\partial\phi}{\partial x} + \frac{\partial A_x}{\partial t}\right)dt\wedge dx + \left(\frac{\partial\phi}{\partial y} + \frac{\partial A_y}{\partial t}\right)dt\wedge dy + \left(\frac{\partial\phi}{\partial z} + \frac{\partial A_z}{\partial t}\right)dt\wedge dz \\
-&\quad+ \left(\frac{\partial A_z}{\partial y} - \frac{\partial A_y}{\partial z}\right)dy\wedge dz + \left(\frac{\partial A_x}{\partial z} - \frac{\partial A_z}{\partial x}\right)dz\wedge dx + \left(\frac{\partial A_y}{\partial x} - \frac{\partial A_x}{\partial y}\right)dx\wedge dy
+d\mathcal{A} &= \left(-\frac{\partial\phi}{\partial x} - \frac{\partial A_x}{\partial t}\right)dt\wedge dx + \left(-\frac{\partial\phi}{\partial y} - \frac{\partial A_y}{\partial t}\right)dt\wedge dy + \left(-\frac{\partial\phi}{\partial z} - \frac{\partial A_z}{\partial t}\right)dt\wedge dz \\
+&\quad+ \left(-\frac{\partial A_z}{\partial y} + \frac{\partial A_y}{\partial z}\right)dy\wedge dz + \left(-\frac{\partial A_x}{\partial z} + \frac{\partial A_z}{\partial x}\right)dz\wedge dx + \left(-\frac{\partial A_y}{\partial x} + \frac{\partial A_x}{\partial y}\right)dx\wedge dy
 \end{aligned}\]
 
-ここで \(dA\) の \(dt\wedge dx\) 係数は \(\frac{\partial\phi}{\partial x} + \frac{\partial A_x}{\partial t}\) だが、§10.2 の \(F\) では同基底の係数は \(E_x\)。両者の符号を見比べると、\(E_x = -\frac{\partial\phi}{\partial x} - \frac{\partial A_x}{\partial t}\) とする必要がある。つまり、\(F = -dA\) と置けばよい。まとめると、
+ここで \(d\mathcal{A}\) の \(dt\wedge dx\) 係数は \[
+-\frac{\partial\phi}{\partial x} - \frac{\partial A_x}{\partial t}
+\] である。一方、§10.2 で定義した \(F\) の \(dt\wedge dx\) 係数は \(-E_x\) である。
 
-\[F = -dA\]
+もし \(F=d\mathcal{A}\) と置くなら、 \[
+-E_x = -\frac{\partial\phi}{\partial x} - \frac{\partial A_x}{\partial t}
+\] となるため、 \[
+E_x = \frac{\partial\phi}{\partial x} + \frac{\partial A_x}{\partial t}
+\] を得てしまう。これは標準的な \[
+E_x = -\frac{\partial\phi}{\partial x} - \frac{\partial A_x}{\partial t}
+\] とは逆符号である。そこで本章ではこれを避け、次の規約を採る。
+
+\[F = -d\mathcal{A}\]
 
 である。\(\mathbf{E}\) の全成分と \(\mathbf{B}\) の全成分を、ポテンシャルで書き下すと次のとおり。
 
 \[\begin{aligned}
 \mathbf{E} &= -\nabla\phi - \frac{\partial\mathbf{A}}{\partial t} \\[0.3em]
-\mathbf{B} &= -\left(\nabla\times\mathbf{A}\right)
+\mathbf{B} &= \nabla\times\mathbf{A}
 \end{aligned}\]
 
-\(dt\wedge dx\) の係数 \(E_x\) が \(-\partial\phi/\partial x - \partial A_x/\partial t\)、\(dy\wedge dz\) の係数 \(B_x\) が \(-\frac{\partial A_z}{\partial y} + \frac{\partial A_y}{\partial z}\)——電磁気学の教科書では \(B_x = \frac{\partial A_z}{\partial y} - \frac{\partial A_y}{\partial z}\) と書かれるが、ここでの負号は本章の規約（\(F=-dA\)）に由来する。この負号は \(\mathbf{A}\) の符号を反転させれば吸収できる、形式的な違いにすぎない。
+\(dt\wedge dx\) の係数 \(-E_x\) が \(\frac{\partial\phi}{\partial x} + \frac{\partial A_x}{\partial t}\)、\(dy\wedge dz\) の係数 \(B_x\) が \(\frac{\partial A_z}{\partial y} - \frac{\partial A_y}{\partial z}\) となり、§10.2 の \(F\) の係数表示と標準的なポテンシャル公式が同時に整合する。
 
 \begin{quote}
-\textbf{注} （\(F\) の符号規約）\(F = -dA\) という定義は、§10.2 の \(F\) の \(dt\wedge dx\) 係数が \(E_x\) になるように選んだものである。\(F = +dA\)、\(A = +\phi\,dt + \cdots\) など、異なる符号の組み合わせを使う流儀も存在する。本章では、§10.2 の \(F\) の係数表示と \(\mathbf{E} = -\nabla\phi - \partial\mathbf{A}/\partial t\) が整合する規約として \(F=-dA\) を採用している。
+\textbf{注} （\(F\) とポテンシャルの符号規約）\(F = -d\mathcal{A}\) という定義は、§10.2 の \(F\) の \(dt\wedge dx\) 係数が \(-E_x\) であることと、\(\mathbf{E} = -\nabla\phi - \partial\mathbf{A}/\partial t\)、\(\mathbf{B}=\nabla\times\mathbf{A}\) を同時に満たすために採用している。\(F = +d\mathcal{A}\)、\(\mathcal{A} = -\phi\,dt + \cdots\) など、異なる符号の組み合わせを使う流儀も存在する。
 \end{quote}
 
 \subsubsection{\texorpdfstring{\(dd=0\) が \(dF=0\) を証明する}{dd=0 が dF=0 を証明する}}\label{dd0-ux304c-df0-ux3092ux8a3cux660eux3059ux308b}
 
-§10.4 の主結果——\(dF=0\) が \(\mathrm{div}\,\mathbf{B}=0\) と \(\mathrm{rot}\,\mathbf{E}=-\partial\mathbf{B}/\partial t\) に等しい——の証明は一瞬である。\(F=-dA\) だから、
+§10.4 の主結果——\(dF=0\) が \(\mathrm{div}\,\mathbf{B}=0\) と \(\mathrm{rot}\,\mathbf{E}=-\partial\mathbf{B}/\partial t\) に等しい——の証明は一瞬である。\(F=-d\mathcal{A}\) だから、
 
-\[dF = d(-dA) = -d(dA) = 0\]
+\[dF = d(-d\mathcal{A}) = -d(d\mathcal{A}) = 0\]
 
 \(dd=0\) は第5章 §5.8 で証明した外微分の基本性質だ。\(F\) が「何かの外微分」（定数倍を除いて）で書ける以上、その外微分は自動的にゼロになる。§10.4 で4つの基底 \(3\)-form の係数をゼロとおいて得た4本の式は、すべてこの一行に集約されている。
 
@@ -5888,14 +5948,14 @@ dA &= \left(\frac{\partial\phi}{\partial x} + \frac{\partial A_x}{\partial t}\ri
 
 \subsubsection{もう1本の式——ポテンシャルで書く}\label{ux3082ux30461ux672cux306eux5f0fux30ddux30c6ux30f3ux30b7ux30e3ux30ebux3067ux66f8ux304f}
 
-\(d(\ast F) = \mu_0(\ast\mathcal{J})\) の側も、\(F=-dA\) を代入すればポテンシャル \(A\) に対する方程式になる。
+\(d(\ast F) = \mu_0(\ast\mathcal{J})\) の側も、\(F=-d\mathcal{A}\) を代入すればポテンシャル \(\mathcal{A}\) に対する方程式になる。
 
-\[-d(\ast dA) = \mu_0(\ast\mathcal{J})\]
+\[-d(\ast d\mathcal{A}) = \mu_0(\ast\mathcal{J})\]
 
-これを §10.5 と同様に成分展開してもよいが、本書では第12章でディラック演算子を用いた統一的表現を扱うため、ここではこの形を提示するにとどめる。\(\ast d\ast dA\) を展開すると、ローレンツゲージ \(\frac{\partial A^0}{\partial t} + \frac{\partial A^1}{\partial x} + \frac{\partial A^2}{\partial y} + \frac{\partial A^3}{\partial z} = 0\) のもとで \(\Box A = \mu_0\mathcal{J}\)（波動方程式）が現れる——が、その導出は電磁気学の教科書に譲ろう。
+これを §10.5 と同様に成分展開してもよいが、本書では第12章でディラック演算子を用いた統一的表現を扱うため、ここではこの形を提示するにとどめる。\(\ast d\ast d\mathcal{A}\) を展開すると、ローレンツゲージ \(\frac{\partial \mathcal{A}^0}{\partial t} + \frac{\partial \mathcal{A}^1}{\partial x} + \frac{\partial \mathcal{A}^2}{\partial y} + \frac{\partial \mathcal{A}^3}{\partial z} = 0\) のもとで \(\Box \mathcal{A} = \mu_0\mathcal{J}\)（波動方程式）が現れる——が、その導出は電磁気学の教科書に譲ろう。
 
 \begin{quote}
-\textbf{注} （ゲージ自由度）\(A' = A + d\chi\)（\(\chi\) は任意の \(0\)-form）と変換する。このとき \(F' = -dA' = -dA - d(d\chi) = -dA = F\) となり、物理的な電磁場 \(F\) は不変である。これがゲージ変換であり、\(dd=0\) のもう一つの現れだ。電磁気学ではスカラーポテンシャル \(\phi\) とベクトルポテンシャル \(\mathbf{A}\) を同時に調整することで、\(F\) を変えずに計算に都合のよいゲージを選ぶことができる。
+\textbf{注} （ゲージ自由度）\(\mathcal{A}' = \mathcal{A} + d\chi\)（\(\chi\) は任意の \(0\)-form）と変換する。このとき \(F' = -d\mathcal{A}' = -d\mathcal{A} - d(d\chi) = -d\mathcal{A} = F\) となり、物理的な電磁場 \(F\) は不変である。これがゲージ変換であり、\(dd=0\) のもう一つの現れだ。電磁気学ではスカラーポテンシャル \(\phi\) とベクトルポテンシャル \(\mathbf{A}\) を同時に調整することで、\(F\) を変えずに計算に都合のよいゲージを選ぶことができる。
 \end{quote}
 
 \begin{quote}
@@ -5907,9 +5967,9 @@ dA &= \left(\frac{\partial\phi}{\partial x} + \frac{\partial A_x}{\partial t}\ri
 \item
   \(dF=0\) を成分展開すると \(\mathrm{div}\,\mathbf{B}=0\) と \(\mathrm{rot}\,\mathbf{E}=-\partial\mathbf{B}/\partial t\) が現れる。
 \item
-  \(\ast F\) は \(E\) と \(B\) を入れ替える。\(d(\ast F)=\mu_0(\ast\mathcal{J})\) から残りの2本が出る。
+  この章の署名・向きの規約のもとでは、\(\ast F\) は \(E\) と \(B\) を入れ替える形に見える。\(d(\ast F)=\mu_0(\ast\mathcal{J})\) から残りの2本が出る。
 \item
-  \textbf{ポテンシャル構成}：\(A = -\phi\,dt + A_x\,dx + A_y\,dy + A_z\,dz\) から \(F=-dA\)（§10.2 の行列規約と整合）。\(dF=0\) は \(dd=0\) より自動的。\(\mathbf{E}=-\nabla\phi-\partial\mathbf{A}/\partial t\) が自然に出る。
+  \textbf{ポテンシャル構成}：\(\mathcal{A} = \phi\,dt - A_x\,dx - A_y\,dy - A_z\,dz\) から \(F=-d\mathcal{A}\)（§10.2 の行列規約と整合）。\(dF=0\) は \(dd=0\) より自動的。\(\mathbf{E}=-\nabla\phi-\partial\mathbf{A}/\partial t\) と \(\mathbf{B}=\nabla\times\mathbf{A}\) が自然に出る。
 \end{itemize}
 \end{quote}
 
@@ -5972,47 +6032,22 @@ dA &= \left(\frac{\partial\phi}{\partial x} + \frac{\partial A_x}{\partial t}\ri
 
 \subsection*{\texorpdfstring{E.2 \(dF\) をスライス行列で書く}{E.2 dF をスライス行列で書く}}\label{e.2-df-ux3092ux30b9ux30e9ux30a4ux30b9ux884cux5217ux3067ux66f8ux304f}
 
-§10.4 の展開により、\(dF\) の各基底係数は次で与えられる（\(c\) を含まない正規化された系）。
+§10.4 の展開により、\(dF\) の各基底係数は次で与えられる。
 
 \[
 \begin{aligned}
-A_{txy} &= \frac{\partial E_y}{\partial x} - \frac{\partial E_x}{\partial y} + \frac{\partial B_z}{\partial t}
+A_{txy} &= \frac{\partial E_y}{\partial x} - \frac{\partial E_x}{\partial y} + \frac{\partial B_z}{\partial t} = (\mathrm{rot}\,\mathbf{E})_z + \frac{\partial B_z}{\partial t}
 \quad (\omega_1 = dt\wedge dx\wedge dy\text{ の係数}) \\[6pt]
-A_{txz} &= \frac{\partial E_z}{\partial x} - \frac{\partial E_x}{\partial z} - \frac{\partial B_y}{\partial t}
+A_{txz} &= \frac{\partial E_z}{\partial x} - \frac{\partial E_x}{\partial z} - \frac{\partial B_y}{\partial t} = -(\mathrm{rot}\,\mathbf{E})_y - \frac{\partial B_y}{\partial t}
 \quad (\omega_2 = dt\wedge dx\wedge dz\text{ の係数}) \\[6pt]
-A_{tyz} &= \frac{\partial E_z}{\partial y} - \frac{\partial E_y}{\partial z} + \frac{\partial B_x}{\partial t}
+A_{tyz} &= \frac{\partial E_z}{\partial y} - \frac{\partial E_y}{\partial z} + \frac{\partial B_x}{\partial t} = (\mathrm{rot}\,\mathbf{E})_x + \frac{\partial B_x}{\partial t}
 \quad (\omega_3 = dt\wedge dy\wedge dz\text{ の係数}) \\[6pt]
-A_{xyz} &= \frac{\partial B_x}{\partial x} + \frac{\partial B_y}{\partial y} + \frac{\partial B_z}{\partial z}
+A_{xyz} &= \frac{\partial B_x}{\partial x} + \frac{\partial B_y}{\partial y} + \frac{\partial B_z}{\partial z} = \mathrm{div}\,\mathbf{B}
 \quad (\omega_4 = dx\wedge dy\wedge dz\text{ の係数})
 \end{aligned}
 \]
 
-\(dF\) の各スライスは、4つの基底スライス行列を係数 \(A_{\cdots}\) で線形結合したものである。たとえば \(t\)-スライスは
-
-\[
-\mathbf{S}_{t}^{(dF)} = A_{txy}\,\mathbf{S}_{t}^{(\omega_1)}
-{+} A_{txz}\,\mathbf{S}_{t}^{(\omega_2)}
-{+} A_{tyz}\,\mathbf{S}_{t}^{(\omega_3)}
-{+} A_{xyz}\,\mathbf{S}_{t}^{(\omega_4)}
-\]
-
-となる。各 \(A_{\cdots}\) を偏微分に展開し、それぞれの基底スライス行列に係数として掛けて並べると次のようになる。
-
-\begin{center}
-\adjustbox{max width=0.98\linewidth}{\(\displaystyle \begin{aligned}
-\mathbf{S}_{t}^{(dF)}
-&= \left(\frac{\partial E_y}{\partial x} - \frac{\partial E_x}{\partial y} + \frac{\partial B_z}{\partial t}\right)
-\begin{pmatrix}0&0&0&0\\[2pt]0&0&1&0\\[2pt]0&-1&0&0\\[2pt]0&0&0&0\end{pmatrix} \\[10pt]
-&\quad+ \left(\frac{\partial E_z}{\partial x} - \frac{\partial E_x}{\partial z} - \frac{\partial B_y}{\partial t}\right)
-\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&1\\[2pt]0&0&0&0\\[2pt]0&-1&0&0\end{pmatrix} \\[10pt]
-&\quad+ \left(\frac{\partial E_z}{\partial y} - \frac{\partial E_y}{\partial z} + \frac{\partial B_x}{\partial t}\right)
-\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&1\\[2pt]0&0&-1&0\end{pmatrix}
-{+} A_{xyz}
-\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix}
-\end{aligned}\)}
-\end{center}
-
-同じ位置の成分を\textbf{一枚の行列に足し合わせる}と、\(t\)-スライスは \(16\) 成分すべてが明示された単一の \(4\times4\) 反対称行列にまとまる。
+\(dF\) の各スライスは、4つの基底スライス行列を係数 \(A_{\cdots}\) で線形結合したものである。たとえば \(t\)-スライス \(\mathbf{S}_{t}^{(dF)}\) は、全 \(16\) 成分が明示された単一の \(4\times4\) 反対称行列にまとまる。
 
 \[
 \mathbf{S}_{t}^{(dF)}
@@ -6021,15 +6056,15 @@ A_{xyz} &= \frac{\partial B_x}{\partial x} + \frac{\partial B_y}{\partial y} + \
  & t & x & y & z \\\hline
 t & 0 & 0 & 0 & 0 \\[6pt]
 x & 0 & 0 &
-\displaystyle\frac{\partial E_y}{\partial x} {-} \frac{\partial E_x}{\partial y} {+} \frac{\partial B_z}{\partial t} &
-\displaystyle\frac{\partial E_z}{\partial x} {-} \frac{\partial E_x}{\partial z} {-} \frac{\partial B_y}{\partial t} \\[14pt]
+\displaystyle \frac{\partial E_y}{\partial x} - \frac{\partial E_x}{\partial y} + \frac{\partial B_z}{\partial t} &
+\displaystyle \frac{\partial E_z}{\partial x} - \frac{\partial E_x}{\partial z} - \frac{\partial B_y}{\partial t} \\[14pt]
 y & 0 &
-\displaystyle{-}\frac{\partial E_y}{\partial x} {+} \frac{\partial E_x}{\partial y} {-} \frac{\partial B_z}{\partial t} &
+\displaystyle \frac{\partial E_x}{\partial y} - \frac{\partial E_y}{\partial x} - \frac{\partial B_z}{\partial t} &
 0 &
-\displaystyle\frac{\partial E_z}{\partial y} {-} \frac{\partial E_y}{\partial z} {+} \frac{\partial B_x}{\partial t} \\[14pt]
+\displaystyle \frac{\partial E_z}{\partial y} - \frac{\partial E_y}{\partial z} + \frac{\partial B_x}{\partial t} \\[14pt]
 z & 0 &
-\displaystyle{-}\frac{\partial E_z}{\partial x} {+} \frac{\partial E_x}{\partial z} {+} \frac{\partial B_y}{\partial t} &
-\displaystyle{-}\frac{\partial E_z}{\partial y} {+} \frac{\partial E_y}{\partial z} {-} \frac{\partial B_x}{\partial t} &
+\displaystyle \frac{\partial E_x}{\partial z} - \frac{\partial E_z}{\partial x} + \frac{\partial B_y}{\partial t} &
+\displaystyle \frac{\partial E_y}{\partial z} - \frac{\partial E_z}{\partial y} - \frac{\partial B_x}{\partial t} &
 0
 \end{array}\right)
 \]
@@ -6429,10 +6464,14 @@ z & 0 &
 
 　第10章の注釈内で、実はこんなことを書いていた——「なぜ2本なのか。\(dF=0\) と \(d(\ast F)=\mu_0(\ast\mathcal{J})\) を1本にまとめられないのか」と。
 
-できるのだ。それも、あっさりと。虚数単位 \(i\) を持ち出せば、たったの一行で済む。本章ではまずその「トリック」を見てから、その先にあるもっと深い統合——パウリ行列とディラック演算子——へと進む。
+できるのだ。それも、あっさりと。虚数単位 \(i\) を持ち出せば、一行の複素方程式にまとめられる。本章ではまずその「トリック」を見てから、その先にあるもっと統合的な視点——パウリ行列とディラック演算子——へと進む。
 
 \begin{quote}
-\textbf{注} （本章の立ち位置）本章は完全なおまけであり、本書の本線からは外れている。第8章でベクトル解析の書き換えは完了し、第10章でマクスウェル方程式の行列展開も終えた。本章では、厳密な幾何代数（クリフォード代数）の教科書を書くつもりはない。目的は、本書で解体してきた grad・rot・div が、パウリ行列とディラック演算子の中で再び一つの演算へ統合される様子を、計算の入口として見ることである。
+\textbf{注}（本章の「真のナブラ」について） 本章の「真のナブラ」は、標準数学における唯一正しいナブラを主張するものではない。ここでは、これまで \(d\) と \(\ast\) に分解して眺めてきた grad・rot・div が、パウリ行列やディラック演算子の中で再び一つの演算として現れる、という意味での本書内の比喩的な呼称である。厳密なクリフォード代数・ディラック作用素の理論は本章の射程外であり、本章はその入口を計算例として見るための発展的補足である。
+\end{quote}
+
+\begin{quote}
+\textbf{注} （本章の立ち位置）本章は発展的な補足であり、本書の本線からは外れている。第8章でベクトル解析の書き換えは完了し、第10章でマクスウェル方程式の行列展開も終えた。本章では、厳密な幾何代数（クリフォード代数）の教科書を書くつもりはない。目的は、本書で解体してきた grad・rot・div が、パウリ行列とディラック演算子の中で再び一つの演算へ統合される様子を、計算の入口として見ることである。
 \end{quote}
 
 \par\vspace{0.35em}\par
@@ -6574,7 +6613,7 @@ I\text{ の係数（内積）} &: v_1w_1 + v_2w_2 + v_3w_3 \;=\; \mathbf{v}\!\cd
 \end{quote}
 
 \begin{quote}
-\textbf{注} （行列なき時代のベクトル解析）ギブズとヘヴィサイドがベクトル解析を整備した1880年代には、まだ行列代数が存在しなかった。行列式はあったが、行列そのものの代数——積の非可換性、固有値、線形変換としての統一的理解——は、ケイリーの先駆的研究を経て、20世紀初頭のヒルベルトらによってようやく整備される。ギブズは線形変換を表すために\textbf{ダイアド（dyad）} \(\mathbf{a}\mathbf{b}\) という独自の記法を発明したが、これは現代の行列 \(\mathbf{a}\mathbf{b}^T\) に相当する。要するに、ベクトル解析は行列代数が存在しない時代に、四元数を切り刻み、ダイアドを継ぎ接ぎして作られた\textbf{キメラ}だったのだ。本書が「ナブラ解体新書」と題して \(\nabla\) を \(d\) と \(\ast\) に解体し、最終章でパウリ行列による再統合を見せたことには、この百年越しの負債を清算する意味もある。
+\textbf{注} （行列なき時代のベクトル解析）ギブズとヘヴィサイドがベクトル解析を整備した1880年代には、まだ行列代数が一般的ではなかった。行列式はあったが、行列そのものの代数——積の非可換性、固有値、線形変換としての統一的理解——は、ケイリーの先駆的研究を経て、20世紀初頭のヒルベルトらによってようやく整備される。ギブズは線形変換を表すために\textbf{ダイアド（dyad）} \(\mathbf{a}\mathbf{b}\) という独自の記法を発明したが、これは現代の行列 \(\mathbf{a}\mathbf{b}^T\) に相当する。本書の視点から見ると、ベクトル解析は四元数的な統合から、内積・外積・ダイアド的な道具へと分化していったものとして眺めることができる。本書が「ナブラ解体新書」と題して \(\nabla\) を \(d\) と \(\ast\) に分解し、最終章でパウリ行列による再統合を見せたことには、この分離と統合を繰り返してきた道具立てを、別の角度から見直す意味もある。
 \end{quote}
 
 \begin{quote}
@@ -6583,9 +6622,9 @@ I\text{ の係数（内積）} &: v_1w_1 + v_2w_2 + v_3w_3 \;=\; \mathbf{v}\!\cd
 
 \par\vspace{0.35em}\par
 
-\subsection{§12.3 ディラック演算子と真のナブラ}\label{ux30c7ux30a3ux30e9ux30c3ux30afux6f14ux7b97ux5b50ux3068ux771fux306eux30caux30d6ux30e9}
+\subsection{§12.3 ディラック演算子と「真のナブラ」}\label{ux30c7ux30a3ux30e9ux30c3ux30afux6f14ux7b97ux5b50ux3068ux771fux306eux30caux30d6ux30e9}
 
-\subsubsection{\texorpdfstring{12.3.1 \(\bm{\sigma}\!\cdot\!\nabla\) —— すべてを統合する演算子}{12.3.1 \textbackslash bm\{\textbackslash sigma\}\textbackslash!\textbackslash cdot\textbackslash!\textbackslash nabla —— すべてを統合する演算子}}\label{bmsigmacdotnabla-ux3059ux3079ux3066ux3092ux7d71ux5408ux3059ux308bux6f14ux7b97ux5b50}
+\subsubsection{\texorpdfstring{12.3.1 \(\bm{\sigma}\!\cdot\!\nabla\) —— 統合的な微分演算子}{12.3.1 \textbackslash bm\{\textbackslash sigma\}\textbackslash!\textbackslash cdot\textbackslash!\textbackslash nabla —— 統合的な微分演算子}}\label{bmsigmacdotnabla-ux7d71ux5408ux7684ux306aux5faeux5206ux6f14ux7b97ux5b50}
 
 パウリ行列とナブラ \(\nabla = (\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z})\) を組み合わせて、次の演算子を定義する。
 
@@ -6623,7 +6662,7 @@ I\text{ の係数} &: \frac{\partial A_1}{\partial x} + \frac{\partial A_2}{\par
 
 \[D(\mathbf{A}\!\cdot\!\bm{\sigma}) = (\mathrm{div}\,\mathbf{A})\,I \;+\; i\,(\mathrm{rot}\,\mathbf{A})\!\cdot\!\bm{\sigma}\]
 
-\textbf{一つの演算子 \(D\) が、\(\mathrm{grad}\)（\(D\varphi\)）、\(\mathrm{div}\)（\(DA\) の実部）、\(\mathrm{rot}\)（\(DA\) の虚部）をすべて産み出す。} これこそが、\(\nabla\) を \(d\) と \(\ast\) に解体した旅の、逆方向の結論——統合——にほかならない。
+\textbf{一つの演算子 \(D\) が、\(\mathrm{grad}\)（\(D\varphi\)）、\(\mathrm{div}\)（\(DA\) の実部）、\(\mathrm{rot}\)（\(DA\) の虚部）を同時に導き出す。} これこそが、\(\nabla\) を \(d\) と \(\ast\) に分解して理解を深めてきた旅の、一つの終着点——統合——にほかならない。
 
 \begin{quote}
 \textbf{注} （\(d\) と \(\ast\) で書くと）\(D\) は本書の言葉でも表現できる。符号規約を別にすれば、\(D\) は \(d\)（次数を上げる）と \(\ast d\ast\)（次数を下げる）を合わせた演算子として理解できる。\(\ast d\ast\) は\textbf{余微分（codifferential）} \(\delta\) と呼ばれ、\(\delta = \pm\ast d\ast\)（符号は次元と次数に依存）と定義される。ここでは厳密な符号には立ち入らず、\(D \sim d + \delta\) という構造だけを押さえておく。\(d\) が次数を上げ、\(\delta\) が次数を下げる——この二つを足した \(D\) が、grad・rot・div を一つの演算子に束ねているのだ。
@@ -6683,9 +6722,13 @@ D^2 &= \sigma_1\sigma_1\,\frac{\partial^2}{\partial x^2} + \sigma_1\sigma_2\,\fr
 \end{aligned}
 \]
 
-これらをゼロとおけば、真空のマクスウェル方程式4本がすべて現れる。電流 \(\mathbf{J}\) と電荷 \(\rho\) がある場合は、本章の正規化と符号規約に合わせて右辺を \(\rho + \mathbf{J}\!\cdot\!\bm{\sigma}\) 型に置く、という見取り図になる。
+これらをゼロとおけば、真空のマクスウェル方程式4本がすべて現れる。電流 \(\mathbf{J}\) と電荷 \(\rho\) がある場合は、右辺を \(\rho/\epsilon_0 - \mu_0 c \mathbf{J}\!\cdot\!\bm{\sigma}\) と置けば、源のあるマクスウェル方程式が一行にまとまる。
 
-\[(D + \frac{\partial}{\partial t})F = \rho + \mathbf{J}\!\cdot\!\bm{\sigma}\]
+\[(D + \frac{\partial}{\partial t})F = \frac{\rho}{\varepsilon_0} - \mu_0 c \mathbf{J}\!\cdot\!\bm{\sigma}\]
+
+\begin{quote}
+\textbf{注} （第12章での正規化と符号） ここでの \(t, \mathbf{B}, \rho, \mathbf{J}\) は第10章 §10.1–10.5 と同様に正規化された量である。右辺の源の係数と符号は、第10章の \(d(\ast F) = \mu_0(\ast\mathcal{J})\) の展開結果と整合するように選ばれている。
+\end{quote}
 
 \(dF=0\) と \(d(\ast F)=\mu_0(\ast\mathcal{J})\) の2本が、\(D\) の前ではたった一本の複素方程式に統合された。§12.1 の4次元トリックが特殊な次元に依存していたのに対し、こちらは \(D\) という統合された演算子そのものが統合を実現している。
 
@@ -6715,7 +6758,7 @@ D^2 &= \sigma_1\sigma_1\,\frac{\partial^2}{\partial x^2} + \sigma_1\sigma_2\,\fr
 
 ベクトル解析では、\(\nabla\) は「偏微分を並べた形式的なベクトル」として導入され、grad・rot・div の三つの顔を持つ謎めいた記号だった。本書はそれを \(d\) と \(\ast\) に\textbf{解体}することで、各演算の正体を明らかにしてきた。
 
-そして今、これを逆方向に辿り、\(d\) と \(\ast\) というバラバラだった部品が、幾何代数の中で3次元のディラック演算子\(D = \bm{\sigma}\!\cdot\!\nabla\) として\textbf{統合}され、更にその4次元版のディラック演算子\(\cancel{\partial}\)が究極のマクスウェル方程式\(\cancel{\partial} F = J\)を与えた。
+そして今、これを逆方向に辿り、\(d\) と \(\ast\) というバラバラだった部品が、幾何代数の中で3次元のディラック演算子\(D = \bm{\sigma}\!\cdot\!\nabla\) として\textbf{統合}され、更にその4次元版のディラック演算子\(\cancel{\partial}\)が、マクスウェル方程式のより統合的な表現 \(\cancel{\partial} F = J\) を与えた。
 
 ところで、幾何代数の文脈では、この演算子を必ずしも\(\cancel{\partial}\) とは書かない。むしろ、この種のベクトル微分演算子を
 
@@ -6741,13 +6784,13 @@ D^2 &= \sigma_1\sigma_1\,\frac{\partial^2}{\partial x^2} + \sigma_1\sigma_2\,\fr
 
 第1章から第5章までは、計量という概念を形式的に定義せず、実空間 \((x,y,z)\) における小学校以来の素朴な長さ・面積の定義で押し通した。数学者から見れば「面積には計量が必要だ」と眉をひそめられるだろうが、\(xyz\) のデカルト座標でピタゴラスの定理が成り立つ限り、それで十分なのだ。計量 \(g = J^T J\) が真に必要になるのは、パラメータ空間のような目盛りの歪んだ座標系へ一般化するときである——その事実を、第6章で行列計算を通じて発見的に暴き出した。
 
-そして迎えた第6章の冒頭。「筆者もそろそろ飽きてきた」と、数学者へのエクスキューズを打ち切り、内積を正式に定義した。同時に、計量 \(g = J^T J\) の正体を明らかにし、ホッジ・スター \(\ast\) を「微分形式とベクトル解析を繫ぐ型変換アダプタ」として位置づけた。この発見的構成を通じて、「勾配（ \(d\) ）は計量に依存しないが、回転や発散（ \(\ast d\) や \(\ast d \ast\) ）は計量に依存している」という真理を、読者に骨の髄まで納得してもらうための仕掛けだった。
+そして迎えた第6章の冒頭。「筆者もそろそろ飽きてきた」と、数学者へのエクスキューズを打ち切り、内積を正式に定義した。同時に、計量 \(g = J^T J\) の意味を明らかにし、ホッジ・スター \(\ast\) を「微分形式とベクトル解析を繫ぐ型変換アダプタ」として位置づけた。この発見的構成を通じて、「勾配（ \(d\) ）は計量に依存しないが、回転や発散（ \(\ast d\) や \(\ast d \ast\) ）は計量に依存している」という構造を、読者に納得してもらうための仕掛けだった。
 
 これらのアイデアのうち、Burke の「計量遅延」哲学や Flanders の微分形式の物理応用は、いずれも既存の英語文献に書かれている。本書の内容に数学的な新規性はない。ただ、\(dx\) を行列として定義し全編を通じて行列計算で押し切るこの構成は、筆者の知る限り洋書にも見当たらない。東アジアの学生が行列計算に異様に訓練されているだけなのだろうか——などと茶化しつつ、いずれにせよ筆者が自分自身のために書いたものを整理したに過ぎない。本書が立っている巨人たちの肩については、巻末の参考文献を見てほしい。
 
 本書は、ベクトル解析に挫折したかつての私自身に向けて書いた「サバイバルガイド」である。「ホッジ・スター \(\ast\) が空間の歪み（計量）に依存する」というツールの限界を知った今のあなたなら、すでに次の世界への扉を開いている。
 
-ここで、本書を読破したあなたに最後に伝えたいことがある。本書は「計量」と「トポロジー」を分離する方針で始まったが、正直なところ、計量は随所でこっそり漏れ出ている。このあたりの徹底ぶりは Burke の原著には遠く及ばない。ほどほどに分離しつつ、行きつ戻りつしながらようやく辿り着いたのが本書の姿だ。しかし、この不完全さには思いがけない効用がある。骨の髄まで分離の苦しみを味わったあなたは、次に出会う「統合」に備えている。C. Doran と A. Lasenby らが提唱する「幾何代数（Geometric Algebra）」——そこでは、我々が引き裂いてきた内積と外積が、最初から「幾何積」として一つに融合している。抽象的な理論としてではなく、長年の煩わしさからの解放として、それは感じられるはずだ。筆者も未だその全容を掴めず、しかしその魅力に惹かれて探求中である。この苦しみを共有した読者の中から、この先、同じように強く惹きつけられる人が少なからず現れるのではないかと思う。
+ここで、本書を読破したあなたに最後に伝えたいことがある。本書は「計量」と「トポロジー」を分離する方針で始まったが、正直なところ、計量は随所でこっそり漏れ出ている。このあたりの徹底ぶりは Burke の原著には及ばない。ほどほどに分離しつつ、行きつ戻りつしながらようやく辿り着いたのが本書の姿だ。しかし、この不完全さには思いがけない効用がある。骨の髄まで分離の苦しみを味わったあなたは、次に出会う「統合」に備えている。C. Doran と A. Lasenby らが提唱する「幾何代数（Geometric Algebra）」——そこでは、我々が引き裂いてきた内積と外積が、最初から「幾何積」として一つに融合している。抽象的な理論としてではなく、長年の煩わしさからの解放として、それは感じられるはずだ。 筆者も未だその全容を掴めず、しかしその魅力に惹かれて探求中である。この苦しみを共有した読者の中から、この先、同じように強く惹きつけられる人が少なからず現れるのではないかと思う。
 
 『ナブラ解体新書』が、あなたの物理学の旅において、より高く、より遠くへ飛ぶための強靭な足場となることを、著者として心から願っている。
 
@@ -6779,9 +6822,9 @@ D^2 &= \sigma_1\sigma_1\,\frac{\partial^2}{\partial x^2} + \sigma_1\sigma_2\,\fr
 
 \par\vspace{0.35em}\par
 
-\textbf{4. William L. Burke, \emph{Applied Differential Geometry}, Cambridge University Press}
+\textbf{4. William L. Burke, \emph{Applied Differential Geometry}, Cambridge University Press; \emph{Div, Grad, Curl are Dead}（草稿）}
 
-【コメント：本書の精神的支柱——「計量遅延」の哲学】本書の構成の骨格を決定づけた最重要文献。``metric-blinded symbol pushing''（計量に盲目化された数式いじり）を痛烈に批判し、「計量をコースのどんどん後の方に遅らせる（put the metric later and later into the course）」という強烈な教育的哲学を提唱した。本書の「第6章までの計量の形式的定義の後回しと、第6章での \(g = J^T J\) としての発見的導入」という構成は、この Burke の思想へのオマージュである。
+【コメント：本書の精神的支柱——「計量遅延」の哲学】本書の構成の骨格を決定づけた最重要文献。Burke のこの流儀は、未刊草稿 \emph{Div, Grad, Curl are Dead} にも通底している。``metric-blinded symbol pushing''（計量に盲目化された数式いじり）を痛烈に批判し、「計量をコースのどんどん後の方に遅らせる（put the metric later and later into the course）」という強烈な教育的哲学を提唱した。本書の「第6章までの計量の形式的定義の後回しと、第6章での \(g = J^T J\) としての発見的導入」という構成は、この Burke の思想へのオマージュである。
 
 \par\vspace{0.35em}\par
 
@@ -6793,7 +6836,7 @@ D^2 &= \sigma_1\sigma_1\,\frac{\partial^2}{\partial x^2} + \sigma_1\sigma_2\,\fr
 
 \textbf{6. Chris Doran \& Anthony Lasenby, \emph{Geometric Algebra for Physicists}, Cambridge University Press}
 
-【コメント：本書の先にある究極の世界——計量と幾何の統合】本書を終えた読者が次に向かうべき、現代物理学の最前線（幾何代数）。本書では Burke の哲学に倣い「計量」と「幾何」を徹底的に分離（ \(d\) と \(\ast\) ）したが、幾何代数では「幾何積」として最初からそれらが不可分に統合されている。分離の苦しみを知った読者こそが、この統合のパラダイムの真の美しさを理解できるはずだ。
+【コメント：本書の先にある一つの展望——計量と幾何の統合】本書を終えた読者が次に向かうべき、現代物理学の最前線（幾何代数）。本書では Burke の哲学に倣い「計量」と「幾何」を徹底的に分離（ \(d\) と \(\ast\) ）したが、幾何代数では「幾何積」として最初からそれらが不可分に統合されている。分離の苦しみを知った読者こそが、この統合のパラダイムの面白さを理解できるはずだ。
 
 \newpage
 
@@ -6806,7 +6849,7 @@ D^2 &= \sigma_1\sigma_1\,\frac{\partial^2}{\partial x^2} + \sigma_1\sigma_2\,\fr
 本書は、一般多様体上の微分形式論を公理的に展開する本ではない。3次元デカルト空間におけるベクトル解析を、行列表示の微分形式を通して再構成するための教育的な本である。したがって、本書で採用した記法や説明順序は、標準的な数学書の記述と一致しない箇所がある。それらは原則として意図的な選択であり、必要に応じて第11章で標準的理論への接続を示した。
 
 \begin{quote}
-\textbf{注}（本音） 「はじめに」ではこのセクションを「本書で語らなかったもの」と穏やかに紹介したが、それは建前である。本音を言えば、これは本書の射程を読まずに投げられる典型的な批判への対応集である。もっと率直に言えば、「クソリプ対策マニュアル」である。
+\textbf{注}（本音） 「はじめに」ではこのセクションを「本書で語らなかったもの」と穏やかに紹介したが、それは建前である。本音を言えば、これは本書の射程を読まずに投げられる典型的な批判への対応集である。
 
 ただし、そう書いてしまえば、本当に応援したい読者が怖がって逃げ出してしまう。だから、表向きは穏やかな名前をつけた。
 \end{quote}
@@ -6857,7 +6900,7 @@ D^2 &= \sigma_1\sigma_1\,\frac{\partial^2}{\partial x^2} + \sigma_1\sigma_2\,\fr
 \item
   \textbf{幾何学的な対象そのものに絶対的な座標表示はないのに成分表示に依存しすぎている} → 意図的な選択である。本書の主題は「微分形式をどう使うか」であり、「座標に依存しない幾何学的主体としての微分形式」の哲学は目的としていない。本書は標準的なベクトル解析の教科書と同様に、実用的な計算手段として成分表示を採用している。座標不変な視点は第11章で接続する。
 \item
-  \textbf{標準的な記法を避けているため、独自流派を主張しているように見える} → 本書の記法は「初学者が行列計算で手を動かせる」ことを最優先に選ばれている。標準的な記法（添字による縮約、\(\partial_\mu\) など）を敢えて使わない理由は第11章 §10.1 で説明している。この方針自体は数値計算の分野などでは広く見られるもので、著者が特に新しいことを主張しているつもりはない。意外と和書がなかったので、筆者が書いたまでである。
+  \textbf{標準的な記法を避けているため、独自流派を主張しているように見える} → 本書の記法は「初学者が行列計算で手を動かせる」ことを最優先に選ばれている。標準的な記法（添字による縮約、\(\partial_\mu\) など）を敢えて使わない理由は第11章で説明している。この方針自体は数値計算の分野などでは広く見られるもので、著者が特に新しいことを主張しているつもりはない。意外と和書がなかったので、筆者が書いたまでである。
 \end{itemize}
 
 \par\vspace{0.35em}\par
@@ -6901,7 +6944,7 @@ D^2 &= \sigma_1\sigma_1\,\frac{\partial^2}{\partial x^2} + \sigma_1\sigma_2\,\fr
 \item
   \textbf{ホッジ・スター \(\ast\) は計量と空間の向きに依存するのに、単なる「次数反転」として扱いすぎではないか} → 第6章 §6.3 で \(\ast\) の定義は計量 \(\mathbf{g}\) に依存することを明示している。デカルト座標（\(\mathbf{g}=I\)）では \(\ast(dx)=dy\wedge dz\) という簡潔な辞書になるが、直交曲線座標では \(\ast\) の係数が場所の関数になることを第8章 §8.6 と第9章で具体的に示している。
 \item
-  \textbf{マクスウェル方程式の微分形式表示において、単位系の正規化・符号規約・計量の符号が曖昧ではないか} → 第10章 §10.1 で \(w=ct\) と \(\mathbf{B}'=c\mathbf{B}\) による次元の正規化を明示し、§10.3 でミンコフスキー計量の符号規約を定義し、§10.2 の注で \(F_{\mu\nu}\) の符号規約を明記し、§10.6 で \(F=-dA\) の規約を宣言している。§10.5 の注では \(\mathcal{J}\) の正規化が標準的な相対論的記法と係数が異なる場合があることも注記している。
+  \textbf{マクスウェル方程式の微分形式表示において、単位系の正規化・符号規約・計量の符号が曖昧ではないか} → 第10章 §10.1 で \(w=ct\) と \(\mathbf{B}'=c\mathbf{B}\) による次元の正規化を明示し、§10.3 でミンコフスキー計量の符号規約を定義し、§10.2 の注で \(F_{\mu\nu}\) の符号規約を明記し、§10.6 で \(F=-d\mathcal{A}\) の規約を宣言している。§10.5 の注では \(\mathcal{J}\) の正規化が標準的な相対論的記法と係数が異なる場合があることも注記している。
 \item
   \textbf{\(dx\) の行列表現 \(\begin{pmatrix}1&0&0\end{pmatrix}\) は座標変換後に同じ行列として残るわけではない} → 第1章 §1.4 で明示的に扱っている。デカルト座標での \(dx = \begin{pmatrix}1&0&0\end{pmatrix}\) は、円柱座標の目盛りでは \(\begin{pmatrix}\cos\theta & -r\sin\theta & 0\end{pmatrix}\) に変わる。これが「引き戻し」の具体化であり、座標変換による行列の成分変化を隠さずに正面から見せている。
 \end{itemize}

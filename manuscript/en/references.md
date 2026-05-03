@@ -29,9 +29,9 @@ Comment: A classical bible connecting pure mathematics and physics. A classic wo
 
 ---
 
-**4. William L. Burke, *Applied Differential Geometry*, Cambridge University Press**
+**4. William L. Burke, *Applied Differential Geometry*, Cambridge University Press; *Div, Grad, Curl are Dead* (draft)**
 
-Comment: The spiritual backbone of this book — the philosophy of "delaying the metric." The most important reference that determined the skeleton of this book's structure. It fiercely criticizes "metric-blinded symbol pushing" and advocates the powerful pedagogical philosophy of "putting the metric later and later into the course." The structure of this book — deferring the formal definition of the metric until Chapter 5, then introducing it discovery-style as $g = J^T J$ — is an homage to Burke's philosophy.
+Comment: The spiritual backbone of this book — the philosophy of "delaying the metric." The most important reference that determined the skeleton of this book's structure. Burke's approach runs through the unfinished draft *Div, Grad, Curl are Dead* as well. It fiercely criticizes "metric-blinded symbol pushing" and advocates the powerful pedagogical philosophy of "putting the metric later and later into the course." The structure of this book — deferring the formal definition of the metric until Chapter 5, then introducing it discovery-style as $g = J^T J$ — is an homage to Burke's philosophy.
 
 ---
 
