@@ -154,7 +154,7 @@ $$\oint_\gamma \omega = \oint_\gamma d(xy) = xy\Big|_A^A = \cos 0\cdot\sin 0 - \
 <p>あのときの $\int_0^{2\pi} \cos 2t\,dt = 0$ という計算は、実は $\omega$ が $d(xy)$ という<strong>完全形式</strong>だったからこそ、機械的にゼロになったのである。
 </p>
 <blockquote>
-<p><strong>注</strong> （完全形式）$\omega = df$ と書ける $1$-form を<strong>完全形式</strong>（exact form）と呼ぶ。完全形式の閉曲線に沿った積分は、$f$ が一価関数である限り必ずゼロになる。しかし逆は真ではない——閉曲線でゼロになるからといって完全形式とは限らない。この点は §5.2 で詳しく見る。</p>
+<p><strong>注</strong> （完全形式）$\omega = df$ と書ける $1$-form を<strong>完全形式</strong>（exact form）と呼ぶ。完全形式を閉曲線に沿って積分すると、$f$ が一価関数である限り必ずゼロになる。一方「ある閉曲線で積分がゼロになったからといって、その形式が完全形式だとは限らない」という点には注意が必要である（すべての閉曲線でゼロになるかどうかは領域の位相とも関係する）。この点は §5.2 で詳しく見る。</p>
 </blockquote>
 <blockquote>
 <p><strong>注</strong> （$d$ と $\int$ の関係——逆写像ではなく境界公式）$\int_\gamma df = f(B)-f(A)$ は、積分が外微分 $d$ の大域的な逆写像である、という意味ではない。積分は曲線 $\gamma$ の選び方に依存する汎関数であり、$df$ から元の関数 $f$ 全体を復元する操作ではない。この式は「完全形式を曲線に沿って積分すると、端点という境界だけが残る」という微積分学の基本定理である。後で見る Stokes 型公式の $0$-form 版だ、と考えるのが安全である。</p>
@@ -474,15 +474,15 @@ $$d(df) = \left(\frac{\partial^2 f}{\partial y \partial z} - \frac{\partial^2 f}
 </p>
 $$d(df) = 0$$
 <blockquote>
-<p><strong>注</strong> （数学者へのエクスキューズ——$d^2=0$ と $C^2$ 条件）本書では「$f$ が $C^2$ 級（2階連続微分可能）なら混合偏微分が可換、ゆえに $d(df)=0$」という順序で進めた。しかし微分形式の公理的な立場では、<strong>$d^2=0$ こそが $d$ の定義の一部</strong>であり、$d(df)=0$ は定理ではなく要請である。逆に言えば、$d^2=0$ を課すことが「混合偏微分の対称性が成り立つ関数クラス（＝$C^2$ 級の関数）を相手にしている」という宣言に相当する。どちらの順序で学んでも、両者が同値な条件として噛み合うことに変わりはない。</p>
+<p><strong>注</strong> （数学者へのエクスキューズ——$d^2=0$ と $C^2$ 条件）座標表示で具体的に計算すると、$d^2=0$ は混合偏微分の対称性とウェッジ積の反対称性によって必然的に現れる性質であることがわかる。微分形式の公理的な立場では、逆に $d^2=0$ を要請（定義の一部）とすることで、暗黙のうちに混合偏微分の対称性が成り立つ（$C^2$ 級の）関数クラスを扱っている、と読むこともできる。本書ではまず具体計算を通じて、物理法則の階層に矛盾が生じないための仕組みとして理解する。</p>
 </blockquote>
 <h4 id="582">5.8.2 $d(d\omega) = 0$</h4>
 <p>§5.5 の $d\omega$ に §5.7 の公式を適用する。$A = \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z},\; B = \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x},\; C = \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}$ として：
 </p>
 $$d(d\omega) = \left(\frac{\partial^2 R}{\partial x \partial y} - \frac{\partial^2 Q}{\partial x \partial z} + \frac{\partial^2 P}{\partial y \partial z} - \frac{\partial^2 R}{\partial y \partial x} + \frac{\partial^2 Q}{\partial z \partial x} - \frac{\partial^2 P}{\partial z \partial y}\right) dx \wedge dy \wedge dz$$
-<p>括弧内を展開：
+<p>括弧内を展開して並べ替えると：
 </p>
-$$\frac{\partial^2 R}{\partial y \partial x} - \frac{\partial^2 Q}{\partial z \partial x} + \frac{\partial^2 P}{\partial z \partial y} - \frac{\partial^2 R}{\partial x \partial y} + \frac{\partial^2 Q}{\partial x \partial z} - \frac{\partial^2 P}{\partial y \partial z}$$
+$$\left(\frac{\partial^2 R}{\partial x \partial y} - \frac{\partial^2 Q}{\partial x \partial z}\right) + \left(\frac{\partial^2 P}{\partial y \partial z} - \frac{\partial^2 R}{\partial y \partial x}\right) + \left(\frac{\partial^2 Q}{\partial z \partial x} - \frac{\partial^2 P}{\partial z \partial y}\right)$$
 <p>混合偏微分の対称性（$\frac{\partial^2 R}{\partial y \partial x}=\frac{\partial^2 R}{\partial x \partial y}$ など）により、6項が3組の相殺を起こし、合計はゼロ：
 </p>
 $$d(d\omega) = 0$$
@@ -607,7 +607,7 @@ $$d\omega = \eta$$
 <p>- 計算ルールは 4 つ：$df$ の定義、線形性、ライプニッツ則 $d(f\omega) = df\wedge\omega + f\,d\omega$、$d(dx)=d(dy)=d(dz)=0$。</p>
 <p>- 幾何学的起源は §5.3 の微小ループ解体：閉ループのズレが面積に比例し、その比例係数が $d\omega$。</p>
 <p>- ストークスの定理 $\int_{\partial M} \omega = \int_M d\omega$ は、境界と内部をつなぐ普遍的な橋。</p>
-<p>- $d^2 = 0$ は混合偏微分の対称性に由来し、幾何学的には $\partial(\partial M) = \emptyset$ に対応。</p>
+<p>- $d^2 = 0$ は混合偏微分の対称性とウェッジ積の反対称性に由来し、幾何学的には「境界の境界は向き付き和としてゼロになる」ことに対応する。</p>
 <p>- $d$ は積分法則を局所微分法則へ変換する演算子——物理学の定式化に不可欠な役割を果たす。</p>
 <p>- 次章では、長さ・面積・体積を測る規則を加え、ホッジ・スター $\ast$ を通じて $d$ とベクトル解析の演算との対応を整理する。</p>
 </blockquote>
@@ -681,7 +681,7 @@ d\eta_{z,\cdot,\cdot} = \begin{pmatrix}
 -\frac{\partial C}{\partial z} & 0 & \frac{\partial A}{\partial z} \\
 \frac{\partial B}{\partial z} & -\frac{\partial A}{\partial z} & 0
 \end{pmatrix}$$
-<p>この $27$ 成分が $dx^a \wedge dx^b \wedge dx^c$ のウェッジ積と縮約するとき、添字の重複がある項（対角成分や $b=c$ 等）は $dx \wedge dx = 0$ で消え、生き残るのは $a,b,c$ がすべて異なる $6$ 項（$3!$ の順列）だけ。それぞれを符号つきで和をとると、因子 $\frac{1}{2}$ の補正も入って
+<p>この $27$ 成分が $dx^a \wedge dx^b \wedge dx^c$ のウェッジ積と縮約するとき、添字の重複がある項（対角成分や $b=c$ 等）は $dx \wedge dx = 0$ で消え、生き残るのは $a,b,c$ がすべて異なる $6$ 項（$3!$ の順列）だけ。それぞれを符号つきで和をとる。ここで各成分を反対称化して行列に並べて二重にカウントしているため、第2章 §2.4.4 や第6章付録Dと同様に因子 $\frac{1}{2}$ の補正が入り：
 </p>
 $$d\eta = \left( \frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z} \right) dx \wedge dy \wedge dz$$
 <p>すなわち $d\eta$ は $27$ 成分のうち $6$ 項が生き残り、ペアで足し合わさって $\mathbf{J}_\eta$ のトレースへ収束する。
