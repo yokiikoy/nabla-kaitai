@@ -138,9 +138,9 @@ $$\nabla \times \mathbf{F} = \begin{pmatrix} \frac{\partial F_z}{\partial y} - \
 <p><strong>【ここまでのチェックポイント — §8.1】</strong></p>
 <p>- $d$ の立場：場はそのまま、測定器の側が変化する。新しい測定器が生まれる。</p>
 <p>- $\nabla$ の立場：測定器（$\nabla$）はそのまま、新たな場が生まれる。</p>
+</blockquote>
 <hr />
 <h3 id="82-翻訳辞書の完成">§8.2 翻訳辞書の完成</h3>
-</blockquote>
 <p>第6章 §6.5 で $\mathrm{grad}=d$, $\mathrm{rot}=\ast d$, $\mathrm{div}=\ast d\ast$ という対応を導入した。ここで、この辞書を $\nabla$ の言葉と突き合わせて、完全な形で整理する。ここで完成するのは、三次元ユークリッド空間・本書の行列表現の範囲で使う翻訳辞書である。
 </p>
 <p>以下の辞書では、ベクトル場 $\mathbf{F}$ に対応する $1$-form を
@@ -210,9 +210,9 @@ $$
 <p><strong>【ここまでのチェックポイント — §8.2】</strong></p>
 <p>- $\nabla f \leftrightarrow df$, $\nabla\times\mathbf{F} \leftrightarrow \ast d\omega$, $\nabla\cdot\mathbf{F} \leftrightarrow \ast d\ast\omega$。</p>
 <p>- $\ast$ の使用回数が勾配 $0$、回転 $1$、発散 $2$。この翻訳コストが「微分形式は汚い」という印象の正体。</p>
+</blockquote>
 <hr />
 <h3 id="83-ストークスの定理を翻訳する">§8.3 ストークスの定理を翻訳する</h3>
-</blockquote>
 <p>第5章 §5.6 で、我々はすでに $\int_{\partial S}\omega = \int_S d\omega$ という形のストークスの定理を導いた。第7章 §7.8.1 では、同じ定理を $\nabla$ の言葉で $\oint_C \mathbf{F}\cdot d\mathbf{r} = \iint_S (\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS$ と書いた。この二つが同じものであることを、§8.2 の辞書を使って確認する。
 </p>
 <h4 id="831-から-へ">8.3.1 $\nabla$ から $d$ へ</h4>
@@ -235,10 +235,12 @@ $$\int_{\partial S} \omega = \int_S d\omega$$
 </p>
 <blockquote>
 <p><strong>注</strong> （どちらの言葉で考えるべきか）結論から言えば、問題による。境界の形状が単純で、場の対称性が高い問題では $\nabla$ 表記の方が見通しがよい。一方、座標系が歪んでいたり、場の「型」を明確に区別したい問題では $d,\ast$ 表記が有利である。重要なのは、両方の言語を使えることだ。</p>
+</blockquote>
+<blockquote>
 <p><strong>注</strong>（筆者の本音）本文では「問題に応じて二つの言語を使い分ける」と書いた。これは読者のための建前である。筆者自身は、可能な限り $d,\ast$ の言葉で考える。なぜなら、$\nabla$ の記法は計算には便利だが、勾配・回転・発散の型の違いを同じ矢印やスカラーの中に押し込めてしまうからである。本書の目的は、ベクトル解析を禁止することではなく、その背後で暗黙に行われている型変換を見える場所に出すことにある。</p>
+</blockquote>
 <hr />
 <h3 id="84-ガウスの定理を翻訳する">§8.4 ガウスの定理を翻訳する</h3>
-</blockquote>
 <p>第7章 §7.8.2 のガウスの発散定理も、同様に翻訳できる。
 </p>
 $$\oiint_{\partial V} \mathbf{F} \cdot \mathbf{n}\,dS = \iiint_V (\nabla \cdot \mathbf{F})\,dV$$
@@ -290,9 +292,9 @@ $$\int_{\partial V} \eta = \int_V d\eta$$
 <p>- $\nabla$ 表記のストークスの定理は、辞書を当てると $\int_{\partial S}\omega = \int_S d\omega$ に還元される。</p>
 <p>- $\nabla$ 表記のガウスの定理は、辞書を当てると $\int_{\partial V}\eta = \int_V d\eta$ に還元される。</p>
 <p>- どちらも $\int_{\partial M}\omega = \int_M d\omega$ の $k$ が違うだけ。三定理は一つの式の異なる現れである。</p>
+</blockquote>
 <hr />
 <h3 id="85-二つの方法論場はそのままか測定器はそのままか">§8.5 二つの方法論——場はそのままか、測定器はそのままか</h3>
-</blockquote>
 <p>第6章 §6.3.1 で、スカラーを得る二つの方法を導入した。本章の翻訳作業を経て、この二つの方法論の対比をより深く理解できる段階に来た。ここで改めて、二つの視点を突き合わせる。
 </p>
 <h4 id="851-方法dの方法場はそのまま測定器の側が変化する">8.5.1 方法①（dの方法）——場はそのまま、測定器の側が変化する</h4>
@@ -329,6 +331,8 @@ $$\int_C df = \int_C \nabla f \cdot d\mathbf{r} = f(B) - f(A)$$
 </p>
 <blockquote>
 <p><strong>注</strong>（二つの方法の使い分け——筆者の立場）筆者は、問題に応じて両方の方法を行き来する。対称性の高い系では $\nabla$ で見通しをつけ、座標系が歪んだり場の種類が入り組んだりする系では $d,\ast$ に翻訳して型の整合性を確認する。どちらか一方に固執する必要はない。重要なのは、翻訳の辞書を頭に入れておくことだ。</p>
+</blockquote>
+<blockquote>
 <p><strong>【ここまでのチェックポイント — §8.5】</strong></p>
 <p></p>
 <p>| | <strong>方法①（dの方法）</strong> | <strong>方法②（∇の方法）</strong> |</p>
@@ -339,9 +343,9 @@ $$\int_C df = \int_C \nabla f \cdot d\mathbf{r} = f(B) - f(A)$$
 <p>| <strong>結果</strong> | 新しい測定器が生まれる | 異なる種類の場が生まれる |</p>
 <p></p>
 <p>積分での一致を保証するのが $\ast$。$\ast\ast=\mathrm{id}$ により往復は自由。</p>
+</blockquote>
 <hr />
 <h3 id="86-曲線座標と二つの方法">§8.6 曲線座標と二つの方法</h3>
-</blockquote>
 <p>§8.2 の辞書はデカルト座標 $(x,y,z)$ で $\mathbf{g}=I$ を前提としていた。一般の座標系では計量 $g = J^T J$ が単位行列ではなくなり、$\ast$ の辞書も変わる。ここでは円柱座標を例に、辞書の変化を確認したあと、§8.5 で語った二つの方法論を目の前で回してみる。
 </p>
 <h4 id="861-辞書は計量で変わる">8.6.1 辞書は計量で変わる</h4>
@@ -421,7 +425,7 @@ $$\nabla \times \mathbf{F} = \begin{pmatrix}
 <p>- $\int_{\partial M}\omega = \int_M d\omega$ 一本で、微積分学の基本定理・ストークス・ガウスのすべてを統合できる。</p>
 <p>- $\ast$ の辞書は計量 $g = J^T J$ に依存し、曲線座標では $r$ や $1/r$ の係数が現れる。</p>
 <p>- 重要なのは、一つの言語に固執せず、問題に応じて二つの言語を使い分けること。そのための辞書は、もう手に入れた。</p>
-</p></blockquote>
+</blockquote>
       <div class="nav-buttons">
         <a href="ch07.html">← 第7章：ベクトル解析 —— ナ...</a>
         <a href="ch09.html">第9章：実戦 —— 辞書を作り... →</a>

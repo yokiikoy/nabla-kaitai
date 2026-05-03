@@ -9,15 +9,18 @@ files = []
 front_matter = glob.glob('manuscript/ja/ch00/*.md')
 front_matter.sort()
 files.extend(front_matter)
+front_matter_count = len(front_matter)
 
 for i in range(1, 13):
     f = f'manuscript/ja/ch{i:02d}/ch{i:02d}.md'
     if os.path.exists(f):
         files.append(f)
+back_matter_count = 0
 for suffix in ['afterword', 'references', 'appendix']:
     f = f'manuscript/ja/{suffix}.md'
     if os.path.exists(f):
         files.append(f)
+        back_matter_count += 1
 
 
 def strip_yaml(content):
@@ -152,11 +155,12 @@ try:
     )
 
     def rewrite_front_back_matter_chapters(text):
-        """Keep preface/toc/afterword/references from incrementing chapter numbers."""
+        """Keep HTML-style front/back matter from incrementing chapter numbers."""
         result = []
         cursor = 0
         chapter_index = 0
-        unnumbered = {0, len(files) - 2, len(files) - 1}
+        unnumbered = set(range(front_matter_count))
+        unnumbered.update(range(len(files) - back_matter_count, len(files)))
         # Identify chapter titles by their text for part insertion
         insert_before = {
             '第1章': r'\part{第I部：$\mathbb{R}^3$ 上の微分形式}' '\n',
@@ -301,9 +305,9 @@ try:
         r'\usepackage{fancyhdr}' '\n'
         r'\pagestyle{fancy}' '\n'
         r'\fancyhf{}' '\n'
-        r'\fancyfoot[L]{\tiny Project Co-Vector Space | CC BY-NC 4.0 \textcopyright\ yokiikoy}' '\n'
+        r'\fancyfoot[L]{\tiny Project Co-Vector Space: \href{https://covectorspace.xyz}{covectorspace.xyz} | CC BY-NC 4.0 \textcopyright\ yokiikoy}' '\n'
         r'\fancyfoot[C]{\thepage}' '\n'
-        r'\fancypagestyle{plain}{\fancyhf{}\fancyfoot[L]{\tiny Project Co-Vector Space | CC BY-NC 4.0 \textcopyright\ yokiikoy}\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0pt}}' '\n'
+        r'\fancypagestyle{plain}{\fancyhf{}\fancyfoot[L]{\tiny Project Co-Vector Space: \href{https://covectorspace.xyz}{covectorspace.xyz} | CC BY-NC 4.0 \textcopyright\ yokiikoy}\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0pt}}' '\n'
         r'\renewcommand{\headrulewidth}{0pt}' '\n'
         r'\usepackage{hyperref}' '\n'
         r'\usepackage{bookmark}' '\n'

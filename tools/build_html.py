@@ -189,20 +189,42 @@ def process_markdown(markdown_text):
     result = []
     in_code, in_quote, in_list, in_para, in_table = False, False, False, False, False
     table_lines = []
+
+    def close_quote():
+        nonlocal in_quote
+        if in_quote:
+            result.append('</blockquote>')
+            in_quote = False
+
+    def close_para():
+        nonlocal in_para
+        if in_para:
+            result.append('</p>')
+            in_para = False
+
+    def close_list():
+        nonlocal in_list
+        if in_list:
+            result.append('</ul>' if in_list == 'ul' else '</ol>')
+            in_list = False
+
+    def flush_table():
+        nonlocal in_table, table_lines
+        if in_table:
+            result.append(render_table(table_lines, protector))
+            in_table = False
+            table_lines = []
     
     for line in lines:
         if not line.strip() and not in_code:
-            if in_para: result.append('</p>'); in_para = False
-            if in_table:
-                result.append(render_table(table_lines, protector))
-                in_table = False
-                table_lines = []
+            close_para()
+            flush_table()
+            close_quote()
             continue
 
         if line.strip().startswith('```'):
-            if in_table:
-                result.append(render_table(table_lines, protector))
-                in_table = False
+            flush_table()
+            close_quote()
             if not in_code:
                 result.append('<pre><code>')
                 in_code = True
@@ -217,30 +239,33 @@ def process_markdown(markdown_text):
         # Table detection
         if line.strip().startswith('|'):
             if not in_table:
-                if in_para: result.append('</p>'); in_para = False
+                close_para()
+                close_quote()
                 in_table = True
                 table_lines = []
             table_lines.append(line.strip())
             continue
         elif in_table:
-            result.append(render_table(table_lines, protector))
-            in_table = False
-            table_lines = []
+            flush_table()
 
         h_match = re.match(r'^(#{1,6})\s+(.+)$', line)
         if h_match:
+            close_para()
+            close_list()
+            close_quote()
             lv, content = len(h_match.group(1)), h_match.group(2).strip()
             # Apply inline formatting to headings too
             restored = protector.restore(apply_inline_formatting(content))
             # Handle footnote markers in headings
             restored = re.sub(r'\[\^(.+?)\]', r'<sup>[\1]</sup>', restored)
             result.append(f'<h{lv} id="{slugify(restored)}">{restored}</h{lv}>')
-            in_para = in_list = False
             continue
 
         if line.strip() == '---':
+            close_para()
+            close_list()
+            close_quote()
             result.append('<hr />')
-            in_para = in_list = False
             continue
 
         if line.strip().startswith('>'):
@@ -254,8 +279,7 @@ def process_markdown(markdown_text):
             in_para = False
             continue
         elif in_quote:
-            result.append('</blockquote>')
-            in_quote = False
+            close_quote()
 
         ol_match = re.match(r'^(\d+)\.\s*(.*)', line.strip())
         ul_match = re.match(r'^[-*]\s+(.*)', line)
@@ -281,8 +305,7 @@ def process_markdown(markdown_text):
             in_para = False
             continue
         elif in_list:
-            result.append('</ul>' if in_list == 'ul' else '</ol>')
-            in_list = False
+            close_list()
 
         if line.strip() == '':
             if in_para: result.append('</p>'); in_para = False
@@ -312,9 +335,9 @@ def process_markdown(markdown_text):
     
     if in_table:
         result.append(render_table(table_lines, protector))
-    if in_para: result.append('</p>')
-    if in_quote: result.append('</p></blockquote>')
-    if in_list: result.append('</ul>' if in_list == 'ul' else '</ol>')
+    close_para()
+    close_quote()
+    close_list()
     
     # Append footnotes if any
     if footnotes:
@@ -353,8 +376,14 @@ def main():
             title = title_match.group(1) if title_match else "まえがき"
             chapters.append({"title": title, "content": content.split('\n'), "filename": target_html})
     
+    def parse_chapter_number(title):
+        match = re.match(r'^第([0-9０-９]+)章', title)
+        if not match:
+            return None
+        digits = match.group(1).translate(str.maketrans('０１２３４５６７８９', '0123456789'))
+        return int(digits)
+
     lines = full_text.split('\n')
-    ch_count = 0
     special_mapping = {"おわりに": "postscript.html", "参考文献": "refs.html", "付録": "appendix.html"}
     current_chapter = None
 
@@ -364,9 +393,10 @@ def main():
             is_new = False
             new_filename = ""
             if title.startswith('第'):
-                ch_count += 1
-                new_filename = f"ch{ch_count:02d}.html"
-                is_new = True
+                chapter_number = parse_chapter_number(title)
+                if chapter_number is not None:
+                    new_filename = f"ch{chapter_number:02d}.html"
+                    is_new = True
             else:
                 for key, fname in special_mapping.items():
                     if key in title:
