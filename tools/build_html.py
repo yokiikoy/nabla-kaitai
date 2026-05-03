@@ -168,6 +168,16 @@ def process_markdown(markdown_text):
     text = text.replace('<!-- scalebox -->', '')
     text = text.replace('<!-- endscalebox -->', '')
 
+    # 0.1 Collect footnotes
+    footnotes = {}
+    def collect_footnotes(match):
+        fn_id = match.group(1)
+        content = match.group(2)
+        footnotes[fn_id] = content
+        return ""
+    
+    text = re.sub(r'^\[\^(.+?)\]:\s*(.+)$', collect_footnotes, text, flags=re.MULTILINE)
+
     # 1. Global replacement of \bm for KaTeX compatibility
     text = re.sub(r'\\bm\{([a-zA-Z0-9]+)\}', r'\\mathbf{\1}', text)
     text = re.sub(r'\\bm\{(.+?)\}', r'\\boldsymbol{\1}', text)
@@ -181,6 +191,14 @@ def process_markdown(markdown_text):
     table_lines = []
     
     for line in lines:
+        if not line.strip() and not in_code:
+            if in_para: result.append('</p>'); in_para = False
+            if in_table:
+                result.append(render_table(table_lines, protector))
+                in_table = False
+                table_lines = []
+            continue
+
         if line.strip().startswith('```'):
             if in_table:
                 result.append(render_table(table_lines, protector))
@@ -214,6 +232,8 @@ def process_markdown(markdown_text):
             lv, content = len(h_match.group(1)), h_match.group(2).strip()
             # Apply inline formatting to headings too
             restored = protector.restore(apply_inline_formatting(content))
+            # Handle footnote markers in headings
+            restored = re.sub(r'\[\^(.+?)\]', r'<sup>[\1]</sup>', restored)
             result.append(f'<h{lv} id="{slugify(restored)}">{restored}</h{lv}>')
             in_para = in_list = False
             continue
@@ -225,6 +245,8 @@ def process_markdown(markdown_text):
 
         if line.strip().startswith('>'):
             content = protector.restore(apply_inline_formatting(line.strip()[1:].strip()))
+            # Handle footnote markers
+            content = re.sub(r'\[\^(.+?)\]', r'<sup>[\1]</sup>', content)
             if not in_quote:
                 result.append('<blockquote>')
                 in_quote = True
@@ -244,6 +266,7 @@ def process_markdown(markdown_text):
                 result.append('<ol>')
                 in_list = 'ol'
             content = protector.restore(apply_inline_formatting(ol_match.group(2)))
+            content = re.sub(r'\[\^(.+?)\]', r'<sup>[\1]</sup>', content)
             result.append(f'<li>{content}</li>')
             in_para = False
             continue
@@ -253,6 +276,7 @@ def process_markdown(markdown_text):
                 result.append('<ul>')
                 in_list = 'ul'
             content = protector.restore(apply_inline_formatting(ul_match.group(1)))
+            content = re.sub(r'\[\^(.+?)\]', r'<sup>[\1]</sup>', content)
             result.append(f'<li>{content}</li>')
             in_para = False
             continue
@@ -267,6 +291,8 @@ def process_markdown(markdown_text):
         # Inline formatting for normal paragraphs
         processed = apply_inline_formatting(line)
         processed = protector.restore(processed)
+        # Handle footnote markers
+        processed = re.sub(r'\[\^(.+?)\]', r'<sup>[\1]</sup>', processed)
         
         is_block = any(processed.strip().startswith(t) for t in ['<h', '<blockquote', '<ul', '<ol', '<pre', '<hr', '<div', '$$'])
         is_inline_tag = any(processed.strip().startswith(t) for t in ['<strong', '<em', '<code', '<a', '<span'])
@@ -289,6 +315,15 @@ def process_markdown(markdown_text):
     if in_para: result.append('</p>')
     if in_quote: result.append('</p></blockquote>')
     if in_list: result.append('</ul>' if in_list == 'ul' else '</ol>')
+    
+    # Append footnotes if any
+    if footnotes:
+        result.append('<hr><section class="footnotes">')
+        for fn_id, content in footnotes.items():
+            formatted_content = apply_inline_formatting(content)
+            result.append(f'<p><small>[{fn_id}]: {formatted_content}</small></p>')
+        result.append('</section>')
+        
     return '\n'.join(result)
 
 
