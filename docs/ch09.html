@@ -115,7 +115,7 @@
 <p>曲線座標では、座標そのものに対応する $1$-form と、実際の長さを1単位として測る $1$-form を区別する必要がある。前者を<strong>座標 coframe</strong>、後者を<strong>正規直交 coframe</strong> と呼ぶ。ホッジ・スターの辞書は、これら二つの coframe を繫ぐスケール因子の情報をすべて引き受けている。これにより、我々は「歪んだ座標系」の上で「真っ直ぐな計算」を行うことができるのである。</p>
 </blockquote>
 </ol>
-<p>以下、この手順を円柱座標と球座標で実演する。どちらも計量行列 $\mathbf{g}$ が対角になる直交曲線座標である。非直交座標でも微分形式とホッジスターは使えるが、$\ast$ の辞書に非対角成分が入り、本章のような短い公式表にはならない。本章で「任意」と言うときは、ここで扱う直交曲線座標の範囲を指す。
+<p>以下、この手順を円柱座標と球座標で実演する。まず形式（form）として計算し、最後に正規直交ベクトル成分へ戻す流れを意識してほしい。
 </p>
 <hr />
 <h3 id="92-円柱座標">§9.2 円柱座標 $(r,\theta,z)$</h3>
@@ -311,7 +311,7 @@ $$\begin{aligned}
 <p>$\nabla^2\mathbf{F} = \nabla(\nabla\cdot\mathbf{F}) - \nabla\times(\nabla\times\mathbf{F})$ だから、各成分は第一項から第二項を引けばよい。$\rho$ 成分を展開する。
 </p>
 $$(\nabla^2\mathbf{F})_\rho = \frac{\partial S}{\partial\rho} - \frac{1}{\rho\sin\theta}\frac{\partial}{\partial\theta}(\sin\theta\,C_\phi) + \frac{1}{\rho\sin\theta}\frac{\partial C_\theta}{\partial\phi}$$
-<p>$S$ と $C_\theta, C_\phi$ の表式を代入し、偏微分を展開して整理すると、
+<p>$S$ と $C_\theta, C_\phi$ の表式を代入し、偏微分を展開して整理すると以下を得る（詳細な展開過程は付録へ譲る）。
 </p>
 $$(\nabla^2\mathbf{F})_\rho = \nabla^2 F_\rho - \frac{2F_\rho}{\rho^2} - \frac{2}{\rho^2\sin\theta}\frac{\partial}{\partial\theta}(\sin\theta\,F_\theta) - \frac{2}{\rho^2\sin\theta}\frac{\partial F_\phi}{\partial\phi}$$
 <p>ここで $\nabla^2 F_\rho = \frac{1}{\rho^2}\frac{\partial}{\partial\rho}\!\left(\rho^2\frac{\partial F_\rho}{\partial\rho}\right) + \frac{1}{\rho^2\sin\theta}\frac{\partial}{\partial\theta}\!\left(\sin\theta\frac{\partial F_\rho}{\partial\theta}\right) + \frac{1}{\rho^2\sin^2\theta}\frac{\partial^2 F_\rho}{\partial\phi^2}$ である。
@@ -360,7 +360,7 @@ $$d\ast\omega = 0 \quad (\rho \neq 0)$$
 <p>- 円柱座標・球座標での $\ast$ 辞書、発散・回転の公式を導出した。</p>
 <p>- ベクトルラプラシアン $\nabla^2\mathbf{F}$ のような難問も、辞書と恒等式の組み合わせで機械的に解ける。</p>
 <p>- 点電荷の電場の発散ゼロは、$\ast(d\rho)$ と $E_\rho$ の $\rho^2$ が打ち消し合うだけの単純な計算で示せる。</p>
-<p>- 公式は暗記しなくてもよい。辞書さえあれば、そしてその辞書すらも、すべてその場で再構成できる。</p>
+<p>- 公式は丸暗記しなくてもよい。辞書さえあれば、そしてその辞書すらも、すべてその場で再構成できる。</p>
 </blockquote>
       <div class="nav-buttons">
         <a href="ch08.html">← 第8章：二つの言語 —— 測定...</a>
