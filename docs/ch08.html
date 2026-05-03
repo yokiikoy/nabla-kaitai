@@ -30,15 +30,16 @@
     .markdown-body { padding: 0.5rem; }
   }
   blockquote { border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }
+  .table-wrapper { overflow-x: auto; margin: 1.5em 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.9em; }
+  th, td { border: 1px solid #d0d7de; padding: 6px 13px; }
+  tr:nth-child(even) { background-color: #f6f8fa; }
+  th { font-weight: 600; background-color: #f6f8fa; }
   .nav-buttons { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }
   .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
   .nav-buttons a:hover { background: #f6f8fa; }
   strong { font-weight: 800 !important; color: #000; }
   blockquote strong { color: #24292f !important; }
-  table { border-collapse: collapse; width: 100%; margin: 1.5em 0; font-size: 0.9em; }
-  th, td { border: 1px solid #d0d7de; padding: 6px 13px; }
-  tr:nth-child(even) { background-color: #f6f8fa; }
-  th { font-weight: 600; background-color: #f6f8fa; }
   /* KaTeX responsiveness */
   .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }
 </style>
@@ -59,6 +60,7 @@
 </script>
 
 </head>
+<body>
   <nav class="sidebar">
     <h2><a href="index.html">ナブラ解体新書</a></h2>
     <div class="author">
@@ -177,7 +179,7 @@ $$
 <p>$\nabla\cdot\mathbf{F}$ は<strong>スカラー場</strong>、$\ast d\ast\omega$ も<strong>$0$-form（スカラー場）</strong>である。発散は「ホッジ・スターで $2$-form に変え、外微分で $3$-form に上げ、再びホッジ・スターでスカラーに落とす」という三段階の操作だ。
 </p>
 <h4 id="824-辞書の表">8.2.4 辞書の表</h4>
-<table>
+<div class="table-wrapper"><table>
 <thead><tr>
 <th>演算</th>
 <th>ベクトル解析側</th>
@@ -202,9 +204,9 @@ $$
 <td>$\ast d \ast \mathbf{F}^\flat$</td>
 <td>そのまま $0$-form</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p>$\ast$ の使用回数が増えるほど、$\nabla$ 表記と $d,\ast$ 表記の間の「翻訳コスト」が上がる。
-勾配は $\ast$ がゼロ回だが、$df$ を通常の勾配ベクトルとして読むには計量による $\sharp$ が入る。回転は $\ast$ が $1$ 回、発散は $2$ 回である。この計量 $g$ と $\ast$ による翻訳辞書が、第7章 §7.7 の注で「微分形式のほうが汚い」と感じた原因だった。
+ 勾配は $\ast$ がゼロ回だが、$df$ を通常の勾配ベクトルとして読むには計量による $\sharp$ が入る。回転は $\ast$ が $1$ 回、発散は $2$ 回である。この計量 $g$ と $\ast$ による翻訳辞書が、第7章 §7.7 の注で「微分形式のほうが汚い」と感じた原因だった。
 </p>
 <blockquote>
 <p><strong>【ここまでのチェックポイント — §8.2】</strong></p>
@@ -222,7 +224,7 @@ $$\oint_C \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdo
 <p>左辺の $\oint_C \mathbf{F}\cdot d\mathbf{r}$ は、ベクトル場 $\mathbf{F}$ を曲線 $C$ に沿って線積分したものだ。$\mathbf{F}$ に対応する $1$-form を $\omega = F_x\,dx + F_y\,dy + F_z\,dz$ とすれば、第3章の定義によりこれは $\int_C \omega$ に等しい。
 </p>
 $$\oint_C \mathbf{F} \cdot d\mathbf{r} = \int_{\partial S} \omega$$
-<p>右辺の $\iint_S (\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS$ は、回転の法線成分の面積分である。辞書 $\nabla\times\mathbf{F} \leftrightarrow \ast d\omega$ を使うと、$(\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS$ は $2$-form $\ast(\ast d\omega) = d\omega$ の面積分に対応する（$\ast\ast = \mathrm{id}$ により $\ast$ が打ち消し合う）。
+<p>右辺の $\iint_S (\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS$ は、回転の法線成分の面積分である。ここでは、ベクトル場の法線成分つき面積分を、対応する $2$-form の面積分として読んでいる。辞書 $\nabla\times\mathbf{F} \leftrightarrow \ast d\omega$ を使うと、$(\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS$ は $2$-form $\ast(\ast d\omega) = d\omega$ の面積分に対応する（$\ast\ast = \mathrm{id}$ により $\ast$ が打ち消し合う）。
 </p>
 $$\iint_S (\nabla \times \mathbf{F}) \cdot \mathbf{n}\,dS = \int_S d\omega$$
 <p>したがって、
@@ -259,7 +261,7 @@ $$\int_{\partial V} \eta = \int_V d\eta$$
 <h4 id="841-三つの定理一つの式">8.4.1 三つの定理、一つの式</h4>
 <p>第7章で別々の定理として並べた三つの積分定理——グリーン、ストークス、ガウス——は、$\nabla$ の言葉では確かに異なる顔をしていた。しかし $d$ の言葉に翻訳すれば、すべてが $\int_{\partial M}\omega = \int_M d\omega$ の $k$ の値が違うだけの同一の式になる。
 </p>
-<table>
+<div class="table-wrapper"><table>
 <thead><tr>
 <th>$k$</th>
 <th>$\partial M$</th>
@@ -284,7 +286,7 @@ $$\int_{\partial V} \eta = \int_V d\eta$$
 <td>立体</td>
 <td>ガウス</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p>$k$ が違うだけだ。もはや三つの定理を別々に暗記する理由はない。$\int_{\partial M}\omega = \int_M d\omega$ 一つ覚えれば、あとは $M$ の次元に応じて適用するだけである。
 </p>
 <blockquote>
@@ -342,7 +344,7 @@ $$\int_C df = \int_C \nabla f \cdot d\mathbf{r} = f(B) - f(A)$$
 <p>| <strong>操作</strong> | 外微分 $d$ | ナブラ $\nabla$ |</p>
 <p>| <strong>結果</strong> | 新しい測定器が生まれる | 異なる種類の場が生まれる |</p>
 <p></p>
-<p>積分での一致を保証するのが $\ast$。$\ast\ast=\mathrm{id}$ により往復は自由。</p>
+<p>積分での一致を支えるのが、計量 $g$ と $\ast$ による翻訳辞書である。$\ast\ast=\mathrm{id}$ により往復は自由。</p>
 </blockquote>
 <hr />
 <h3 id="86-曲線座標と二つの方法">§8.6 曲線座標と二つの方法</h3>

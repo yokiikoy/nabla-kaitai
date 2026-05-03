@@ -30,15 +30,16 @@
     .markdown-body { padding: 0.5rem; }
   }
   blockquote { border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }
+  .table-wrapper { overflow-x: auto; margin: 1.5em 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.9em; }
+  th, td { border: 1px solid #d0d7de; padding: 6px 13px; }
+  tr:nth-child(even) { background-color: #f6f8fa; }
+  th { font-weight: 600; background-color: #f6f8fa; }
   .nav-buttons { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }
   .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
   .nav-buttons a:hover { background: #f6f8fa; }
   strong { font-weight: 800 !important; color: #000; }
   blockquote strong { color: #24292f !important; }
-  table { border-collapse: collapse; width: 100%; margin: 1.5em 0; font-size: 0.9em; }
-  th, td { border: 1px solid #d0d7de; padding: 6px 13px; }
-  tr:nth-child(even) { background-color: #f6f8fa; }
-  th { font-weight: 600; background-color: #f6f8fa; }
   /* KaTeX responsiveness */
   .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }
 </style>
@@ -59,6 +60,7 @@
 </script>
 
 </head>
+<body>
   <nav class="sidebar">
     <h2><a href="index.html">ナブラ解体新書</a></h2>
     <div class="author">
@@ -99,7 +101,7 @@
 </p>
 <p>しかし、これだけではまだ足りなかった。そこで第二のブレイクスルーをもたらしてくれたのが、W. L. Burke が提唱した「計量導入の遅延（put the metric later and later into the course）」という強烈な教育的哲学だった。私は決意した。この高度な哲学を、読者を巻き込む「目次構成のエンターテインメント」にしてやろう、と。
 </p>
-<p>第1章から第5章までは、計量という概念を形式的に定義せず、実空間 $(x,y,z)$ における小学校以来の素朴な長さ・面積の定義で押し通した。数学者から見れば「面積には計量が必要だ」と眉をひそめられるだろうが、$xyz$ のデカルト座標でピタゴラスの定理が成り立つ限り、それで十分なのだ。計量 $g = J^T J$ が真に必要になるのは、パラメータ空間のような目盛りの歪んだ座標系へ一般化するときである——その事実を、第6章で行列計算を通じて発見的に暴き出した。
+<p>第1章から第5章までは、計量という概念を形式的に定義せず、実空間 $(x,y,z)$ における素朴な長さ・面積の直観に基づいた代数で押し通した。数学者向けの数学書から見れば「面積には計量が必要だ」と言いたくなる場面だろうが、本書の序盤では $xyz$ のデカルト座標に固定し、ピタゴラスの定理が成り立つ範囲で、素朴な面積・体積の直観をあえて使った。計量 $g = J^T J$ が真に必要になるのは、パラメータ空間のような目盛りの歪んだ座標系へ一般化するときである——その事実を、第6章で行列計算を通じて発見的に導き出した。
 </p>
 <p>そして迎えた第6章の冒頭。「筆者もそろそろ飽きてきた」と、数学者へのエクスキューズを打ち切り、内積を正式に定義した。同時に、計量 $g = J^T J$ の意味を明らかにし、ホッジ・スター $\ast$ を「微分形式とベクトル解析を繫ぐ型変換アダプタ」として位置づけた。この発見的構成を通じて、「勾配（ $d$ ）は計量に依存しないが、回転や発散（ $\ast d$ や $\ast d \ast$ ）は計量に依存している」という構造を、読者に納得してもらうための仕掛けだった。
 </p>
@@ -108,7 +110,7 @@
 <p>本書は、ベクトル解析に挫折したかつての私自身に向けて書いた「サバイバルガイド」である。「ホッジ・スター $\ast$ が空間の歪み（計量）に依存する」というツールの限界を知った今のあなたなら、すでに次の世界への扉を開いている。
 </p>
 <p>ここで、本書を読破したあなたに最後に伝えたいことがある。本書は「計量」と「トポロジー」を分離する方針で始まったが、正直なところ、計量は随所でこっそり漏れ出ている。このあたりの徹底ぶりは Burke の原著には及ばない。ほどほどに分離しつつ、行きつ戻りつしながらようやく辿り着いたのが本書の姿だ。しかし、この不完全さには思いがけない効用がある。骨の髄まで分離の苦しみを味わったあなたは、次に出会う「統合」に備えている。C. Doran と A. Lasenby らが提唱する「幾何代数（Geometric Algebra）」——そこでは、我々が引き裂いてきた内積と外積が、最初から「幾何積」として一つに融合している。抽象的な理論としてではなく、長年の煩わしさからの解放として、それは感じられるはずだ。
-筆者も未だその全容を掴めず、しかしその魅力に惹かれて探求中である。この苦しみを共有した読者の中から、この先、同じように強く惹きつけられる人が少なからず現れるのではないかと思う。
+ 筆者も未だその全容を掴めず、しかしその魅力に惹かれて探求中である。この苦しみを共有した読者の中から、この先、同じように強く惹きつけられる人が少なからず現れるのではないかと思う。
 </p>
 <p>『ナブラ解体新書』が、あなたの物理学の旅において、より高く、より遠くへ飛ぶための強靭な足場となることを、著者として心から願っている。
 </p>

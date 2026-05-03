@@ -30,15 +30,16 @@
     .markdown-body { padding: 0.5rem; }
   }
   blockquote { border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }
+  .table-wrapper { overflow-x: auto; margin: 1.5em 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.9em; }
+  th, td { border: 1px solid #d0d7de; padding: 6px 13px; }
+  tr:nth-child(even) { background-color: #f6f8fa; }
+  th { font-weight: 600; background-color: #f6f8fa; }
   .nav-buttons { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }
   .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
   .nav-buttons a:hover { background: #f6f8fa; }
   strong { font-weight: 800 !important; color: #000; }
   blockquote strong { color: #24292f !important; }
-  table { border-collapse: collapse; width: 100%; margin: 1.5em 0; font-size: 0.9em; }
-  th, td { border: 1px solid #d0d7de; padding: 6px 13px; }
-  tr:nth-child(even) { background-color: #f6f8fa; }
-  th { font-weight: 600; background-color: #f6f8fa; }
   /* KaTeX responsiveness */
   .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }
 </style>
@@ -59,6 +60,7 @@
 </script>
 
 </head>
+<body>
   <nav class="sidebar">
     <h2><a href="index.html">ナブラ解体新書</a></h2>
     <div class="author">
@@ -89,38 +91,38 @@
   <main class="main-content">
     <article class="markdown-body">
       <h1 id="参考文献と著者からのコメント">参考文献（と著者からのコメント）</h1>
-<p>本書の特異な代数的バイパスは、以下の巨人たちの肩の上に立って構築された。それぞれのアプローチの違いを知ることは、物理数学のエコシステムを俯瞰する上で極めて有益である。
+<p>本書の特異な代数的アプローチは、以下の先導者たちの知見を組み合わせて構築されました。
 </p>
 <hr />
-<p><strong>1. Daniel Fleisch, <em>A Student's Guide to Vectors and Tensors</em>, Cambridge University Press</strong>
+<p><strong>1. Daniel Fleisch, <em>A Student's Guide to Vectors and Tensors</em>, Cambridge University Press (2011)</strong>
 </p>
-<p>【コメント：旧体制の泥沼と伝統的アプローチ】物理学徒が最初に直面する伝統的なベクトル解析とテンソル解析の教科書。クリストッフェル記号や複雑な成分計算を正面から扱う。本書『ナブラ解体新書』が読者を救い出そうとした「暗記地獄」の典型例（アンチパターン）として意識しているが、古典的な計算手法を身につける上では避けて通れない名著でもある。
-</p>
-<hr />
-<p><strong>2. David Bachman, <em>A Geometric Approach to Differential Forms</em>, Birkhäuser</strong>
-</p>
-<p>【コメント：微分形式の視覚的・幾何学的アプローチ】微分形式を公理や代数ではなく、「平面への投影」などの幾何学的なイメージで視覚的に捉えようとする意欲作。本書の第1章・第2章で「 $dx$ は測定器である」という直観を形成する上で大きなインスピレーションを受けたが、成分計算への摩擦を減らすため、本書ではこの幾何学的直観を「行列計算」へと変換して採用した。
+<p>【コメント：伝統的アプローチの丁寧なガイド】伝統的なベクトル解析とテンソル解析の成分計算を極めて丁寧に扱う、定評ある入門書。本書が別ルート（微分形式）での回避を図った、クリストッフェル記号や添字操作のジャングルを正面から突破する力を身につけるには最適の一冊。
 </p>
 <hr />
-<p><strong>3. Harley Flanders, <em>Differential Forms with Applications to the Physical Sciences</em>, Dover Publications</strong>
+<p><strong>2. David Bachman, <em>A Geometric Approach to Differential Forms</em>, Birkhäuser (2nd ed. 2011)</strong>
 </p>
-<p>【コメント：純粋数学と物理学を繋ぐ古典的バイブル】微分形式を物理学へ応用する際の古典的な名著であり、外微分 $d$ やホッジ・スター $\ast$ の厳密な操作ルールはすべてここにある。ただし、双対空間などの純粋数学的な公理的アプローチから入るため、初学者には敷居が高い。本書は、読者をこの Flanders の実戦レベルまで一気に引き上げることを目標とした。
-</p>
-<hr />
-<p><strong>4. William L. Burke, <em>Applied Differential Geometry</em>, Cambridge University Press; <em>Div, Grad, Curl are Dead</em>（草稿）</strong>
-</p>
-<p>【コメント：本書の精神的支柱——「計量遅延」の哲学】本書の構成の骨格を決定づけた最重要文献。Burke のこの流儀は、未刊草稿 <em>Div, Grad, Curl are Dead</em> にも通底している。"metric-blinded symbol pushing"（計量に盲目化された数式いじり）を痛烈に批判し、「計量をコースのどんどん後の方に遅らせる（put the metric later and later into the course）」という強烈な教育的哲学を提唱した。本書の「第6章までの計量の形式的定義の後回しと、第6章での $g = J^T J$ としての発見的導入」という構成は、この Burke の思想へのオマージュである。
+<p>【コメント：微分形式への幾何学的導入】微分形式を公理からではなく「影を測る」といった幾何学的な直観から説明する良書。本書の「 $dx$ は測定器である」という直観の多くは本書から得ていますが、本書では計算としての完結性を優先し、その直観を行列代数へと落とし込んで採用しました。
 </p>
 <hr />
-<p><strong>5. Leonard Susskind & Art Friedman, <em>Quantum Mechanics: The Theoretical Minimum</em>, Basic Books</strong>
-<strong>H. S. Green, <em>Matrix Mechanics</em>, P. Noordhoff LTD</strong>
+<p><strong>3. Harley Flanders, <em>Differential Forms with Applications to the Physical Sciences</em>, Dover Publications (1989/1963)</strong>
 </p>
-<p>【コメント：記法のハック——第一のブレイクスルーの源泉】量子力学におけるディラックの「ブラ・ケット記法」と行列表現を学ぶためのテキスト。抽象的な 1-form（双対ベクトル）を、「タテベクトルをヨコベクトルに寝かせて行列の積をとる」という物理学者の「母語」に翻訳するという本書の根幹アイデアは、これらの量子力学の直観を古典場へと逆輸入（ハック）することで生まれた。
+<p>【コメント：物理数学への応用の古典】微分形式を物理学へ応用する際のバイブル的な名著。外微分 $d$ やホッジ・スター $\ast$ の厳密な操作ルールが凝縮されています。公理的な導入から始まるため初学者の独学にはやや硬派ですが、本書を終えた読者ならその強力な計算を十分に使いこなせるはずです。
 </p>
 <hr />
-<p><strong>6. Chris Doran & Anthony Lasenby, <em>Geometric Algebra for Physicists</em>, Cambridge University Press</strong>
+<p><strong>4. William L. Burke, <em>Applied Differential Geometry</em>, Cambridge University Press (1985)</strong>
+ <strong>William L. Burke, <em>Div, Grad, Curl are Dead</em> (Unfinished Manuscript)</strong>
 </p>
-<p>【コメント：本書の先にある一つの展望——計量と幾何の統合】本書を終えた読者が次に向かうべき、現代物理学の最前線（幾何代数）。本書では Burke の哲学に倣い「計量」と「幾何」を徹底的に分離（ $d$ と $\ast$ ）したが、幾何代数では「幾何積」として最初からそれらが不可分に統合されている。分離の苦しみを知った読者こそが、この統合のパラダイムの面白さを理解できるはずだ。
+<p>【コメント：本書の構成上の支柱——「計量遅延」の哲学】本書の骨格を決定づけた最重要文献。Burke は「計量をコースのどんどん後の方に遅らせる（put the metric later and later into the course）」という教育的哲学を提唱しました。計量なしでも外微分 $d$（トポロジー）で語れる部分があまりに多いことを明示したこの哲学は、本書の第5章までの構成を支えています。
+</p>
+<hr />
+<p><strong>5. Leonard Susskind & Art Friedman, <em>Quantum Mechanics: The Theoretical Minimum</em>, Basic Books (2014)</strong>
+</p>
+<p>【コメント：行列表現の直観】抽象的な $1$-form（双対空間）を「横ベクトルとして寝かせて行列の積をとる」という物理学者の母語に翻訳する直観は、量子力学のブラ・ケット記法の操作感から強く影響を受けています。
+</p>
+<hr />
+<p><strong>6. Chris Doran & Anthony Lasenby, <em>Geometric Algebra for Physicists</em>, Cambridge University Press (2003)</strong>
+</p>
+<p>【コメント：本書の先にある一つの統合】現代物理学の幾何代数（クリフォード代数）への入口。本書では徹底的に分離した「内積」と「外積」を、最初から一つの非可換積として統合した風景が見られます。分離の苦しみを知った読者こそ、この統合がいかに強力な解放感をもたらすかを感じ取れるでしょう。
 </p>
       <div class="nav-buttons">
         <a href="postscript.html">← おわりに：『ナブラ解体新書』は...</a>
