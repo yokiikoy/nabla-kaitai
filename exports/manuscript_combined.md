@@ -5711,9 +5711,9 @@ $$
 
 ---
 
-**4. William L. Burke, *Applied Differential Geometry*, Cambridge University Press**
+**4. William L. Burke, *Applied Differential Geometry*, Cambridge University Press; *Div, Grad, Curl are Dead*（草稿）**
 
-【コメント：本書の精神的支柱——「計量遅延」の哲学】本書の構成の骨格を決定づけた最重要文献。"metric-blinded symbol pushing"（計量に盲目化された数式いじり）を痛烈に批判し、「計量をコースのどんどん後の方に遅らせる（put the metric later and later into the course）」という強烈な教育的哲学を提唱した。本書の「第6章までの計量の形式的定義の後回しと、第6章での $g = J^T J$ としての発見的導入」という構成は、この Burke の思想へのオマージュである。
+【コメント：本書の精神的支柱——「計量遅延」の哲学】本書の構成の骨格を決定づけた最重要文献。Burke のこの流儀は、未刊草稿 *Div, Grad, Curl are Dead* にも通底している。"metric-blinded symbol pushing"（計量に盲目化された数式いじり）を痛烈に批判し、「計量をコースのどんどん後の方に遅らせる（put the metric later and later into the course）」という強烈な教育的哲学を提唱した。本書の「第6章までの計量の形式的定義の後回しと、第6章での $g = J^T J$ としての発見的導入」という構成は、この Burke の思想へのオマージュである。
 
 ---
 
