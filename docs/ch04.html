@@ -66,7 +66,7 @@
       <a href="http://covectorspace.xyz/jp/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a>
     </div>
     <div class="toc"><ul>
-<li class="level-1"><a href="index.html" id="link-index.html">まえがき</a></li>
+<li class="level-1"><a href="index.html" id="link-index.html">著者ノート</a></li>
 <li class="level-1"><a href="intro.html" id="link-intro.html">はじめに</a></li>
 <li class="level-1"><a href="portal.html" id="link-portal.html">ポータルサイトとちょっとした試み</a></li>
 <li class="level-1"><a href="ch01.html" id="link-ch01.html">第1章</a></li>
@@ -208,13 +208,10 @@ $$\gamma_h^\square(dx)\to \gamma^*(dx)=\gamma'(t)\,dt$$
 <p></p>
 <p>本書では、この途中段階に名前を付けているだけである。通常の教科書では、この段階に記号を置かず、すぐに微分係数やヤコビアンへ進むことが多い。本書では、有限セル上で何を測っているのかを見えるようにするために、あえて $\Phi_h^\square$ という仮の記法を使う。</p>
 </blockquote>
-<p><strong>④ 具体例の引き戻しを書く。</strong> 極限を取ったあと、時間軸上での測定器は
-</p>
-$$F\,dx = F\,v(t)\,dt$$
-<p>へ作り替えられる。これを
+<p><strong>④ 具体例の引き戻しを書く。</strong> 極限を取ったあと、時間軸上での測定器（引き戻された結果）は
 </p>
 $$\gamma^*(F\,dx) = F(\gamma(t))\,v(t)\,dt$$
-<p>と書く。
+<p>である。これにより、実空間での仕事の測定器 $F\,dx$ を、時間軸用の測定器へと焼き直すことができた。
 </p>
 <p><strong>⑤ 係数付き $1$-form の引き戻し。</strong> 任意の係数 $F(x)$ に対して、同じ構造が成り立つ。位置が $x = \gamma(t)$ で与えられるとき
 </p>
@@ -231,7 +228,7 @@ $$\gamma^*(F(x)\,dx) = F(\gamma(t))\,\gamma'(t)\,dt$$
 <p><strong>⑦ 物理量へ戻る。</strong> ここで運動方程式 $F = m\,dv/dt$ を使うと、
 </p>
 $$\gamma^*(F\,dx) = m\frac{dv}{dt}\,v\,dt = m v\,dv$$
-<p>と読める（$m\frac{dv}{dt}\,dt$ は速度軸の測定器 $dv$ を時間軸へ引き戻したものだから）。よって
+<p>と読める（$m\frac{dv}{dt}\,dt$ は速度軸の測定器 $dv$ を時間軸へ引き戻した $\gamma^*(dv)$ に対応している）。よって
 </p>
 $$W = \int F\,dx = \int_{\gamma} F\,dx = \int_{t_0}^{t_1} \gamma^*(F\,dx) = \int_{v(t_0)}^{v(t_1)} m v\,dv = \frac{1}{2}mv^2\,\Big|_{t_0}^{t_1}$$
 <p>となる——仕事が運動エネルギーの変化に等しい、という式である。
