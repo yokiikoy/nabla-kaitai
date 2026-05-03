@@ -30,15 +30,16 @@
     .markdown-body { padding: 0.5rem; }
   }
   blockquote { border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }
+  .table-wrapper { overflow-x: auto; margin: 1.5em 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.9em; }
+  th, td { border: 1px solid #d0d7de; padding: 6px 13px; }
+  tr:nth-child(even) { background-color: #f6f8fa; }
+  th { font-weight: 600; background-color: #f6f8fa; }
   .nav-buttons { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }
   .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
   .nav-buttons a:hover { background: #f6f8fa; }
   strong { font-weight: 800 !important; color: #000; }
   blockquote strong { color: #24292f !important; }
-  table { border-collapse: collapse; width: 100%; margin: 1.5em 0; font-size: 0.9em; }
-  th, td { border: 1px solid #d0d7de; padding: 6px 13px; }
-  tr:nth-child(even) { background-color: #f6f8fa; }
-  th { font-weight: 600; background-color: #f6f8fa; }
   /* KaTeX responsiveness */
   .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }
 </style>
@@ -59,6 +60,7 @@
 </script>
 
 </head>
+<body>
   <nav class="sidebar">
     <h2><a href="index.html">ナブラ解体新書</a></h2>
     <div class="author">
@@ -228,7 +230,7 @@ $$\ast: \Omega^k(M) \to \Omega^{n-k}(M)$$
 <h4 id="1118-本書との対応">11.1.8 本書との対応</h4>
 <p>本書の概念が多様体論のどこに対応するかを一覧にしておく。
 </p>
-<table>
+<div class="table-wrapper"><table>
 <thead><tr>
 <th>本書</th>
 <th>多様体論</th>
@@ -273,7 +275,7 @@ $$\ast: \Omega^k(M) \to \Omega^{n-k}(M)$$
 <td>付録Eの $4\times4\times4$ スライス（第10章）</td>
 <td>4次元多様体上の 3-form の成分計算</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <h3 id="112-リーマン幾何学--テンソル解析のスタイル">§11.2 リーマン幾何学 —— テンソル解析のスタイル</h3>
 <p>多様体論が「幾何学的対象を座標に依存せずに定義する」ことを目指すのに対し、古典的なリーマン幾何学——アインシュタインの一般相対性理論で使われるテンソル解析——は「座標を選び、成分の変換則を正面から扱う」スタイルをとる。本書が行列の成分を明示してきた流儀に近いのは、むしろこちらである。
 </p>
@@ -281,7 +283,7 @@ $$\ast: \Omega^k(M) \to \Omega^{n-k}(M)$$
 <p>古典的なテンソル解析では、テンソルを「座標変換に対する変換規則」で定義する。座標 $x^i$ から $\bar{x}^i$ への変換に対して、
 </p>
 <p><strong>反変ベクトル</strong> $V^i$ は $\bar{V}^i = \sum_j \frac{\partial \bar{x}^i}{\partial x^j} V^j$ と変換され、
-<strong>共変ベクトル</strong> $\omega_i$ は $\bar{\omega}_i = \sum_j \frac{\partial x^j}{\partial \bar{x}^i} \omega_j$ と変換される。
+ <strong>共変ベクトル</strong> $\omega_i$ は $\bar{\omega}_i = \sum_j \frac{\partial x^j}{\partial \bar{x}^i} \omega_j$ と変換される。
 </p>
 <p>この区別は本書第3章で既に出会っている。変位ベクトル $\mathbf{v}$ の成分 $v^i$ は反変（ヤコビ行列の逆行列で変換）、1-form $\omega$ の係数 $\omega_i$ は共変（ヤコビ行列で変換）だった。一般の $(r,s)$-テンソル $T^{i_1\cdots i_r}_{j_1\cdots j_s}$ は、$r$ 個の反変添字と $s$ 個の共変添字を持ち、添字ごとに上記の変換則を適用する。
 </p>
