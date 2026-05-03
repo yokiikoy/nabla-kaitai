@@ -60,20 +60,22 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
     .markdown-body {{ padding: 0.5rem; }}
   }}
   blockquote {{ border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }}
+  .table-wrapper {{ overflow-x: auto; margin: 1.5em 0; }}
+  table {{ border-collapse: collapse; width: 100%; font-size: 0.9em; }}
+  th, td {{ border: 1px solid #d0d7de; padding: 6px 13px; }}
+  tr:nth-child(even) {{ background-color: #f6f8fa; }}
+  th {{ font-weight: 600; background-color: #f6f8fa; }}
   .nav-buttons {{ display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }}
   .nav-buttons a {{ padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }}
   .nav-buttons a:hover {{ background: #f6f8fa; }}
   strong {{ font-weight: 800 !important; color: #000; }}
   blockquote strong {{ color: #24292f !important; }}
-  table {{ border-collapse: collapse; width: 100%; margin: 1.5em 0; font-size: 0.9em; }}
-  th, td {{ border: 1px solid #d0d7de; padding: 6px 13px; }}
-  tr:nth-child(even) {{ background-color: #f6f8fa; }}
-  th {{ font-weight: 600; background-color: #f6f8fa; }}
   /* KaTeX responsiveness */
   .katex-display {{ overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }}
 </style>
 {KATEX_CDN}
 </head>
+<body>
   <nav class="sidebar">
     <h2><a href="index.html">ナブラ解体新書</a></h2>
     <div class="author">
@@ -133,19 +135,22 @@ def apply_inline_formatting(text):
     return text
 
 def render_table(lines, protector):
-    """Render markdown table lines as HTML."""
+    """Render markdown table lines as HTML safely."""
     if len(lines) < 2:
         return "\n".join(lines)
     
-    html = ['<table>']
+    html = ['<div class="table-wrapper"><table>']
     # Filter out the separator line (| :--- |)
     content_lines = [l for l in lines if not re.match(r'^\|?[:\-\s|]+\|?$', l)]
     
     for i, line in enumerate(content_lines):
         cells = [c.strip() for c in line.split('|')]
-        if not cells[0]: cells = cells[1:]
+        # Handle leading/trailing pipe markers
+        if cells and not cells[0]: cells = cells[1:]
         if cells and not cells[-1]: cells = cells[:-1]
         
+        if not cells: continue
+
         if i == 0:
             html.append('<thead><tr>')
             for cell in cells:
@@ -159,7 +164,7 @@ def render_table(lines, protector):
                 html.append(f'<td>{formatted}</td>')
             html.append('</tr>')
     
-    html.append('</tbody></table>')
+    html.append('</tbody></table></div>')
     return "\n".join(html)
 
 def process_markdown(markdown_text):
@@ -168,33 +173,32 @@ def process_markdown(markdown_text):
     text = text.replace('<!-- scalebox -->', '')
     text = text.replace('<!-- endscalebox -->', '')
 
-    # 0.1 Collect footnotes
+    # 1. Collect footnotes
     footnotes = {}
     def collect_footnotes(match):
         fn_id = match.group(1)
         content = match.group(2)
         footnotes[fn_id] = content
         return ""
-    
     text = re.sub(r'^\[\^(.+?)\]:\s*(.+)$', collect_footnotes, text, flags=re.MULTILINE)
 
-    # 1. Global replacement of \bm for KaTeX compatibility
+    # 2. Global replacement of \bm for KaTeX compatibility
     text = re.sub(r'\\bm\{([a-zA-Z0-9]+)\}', r'\\mathbf{\1}', text)
     text = re.sub(r'\\bm\{(.+?)\}', r'\\boldsymbol{\1}', text)
     text = text.replace('\\bm ', '\\boldsymbol ')
     
+    # 3. Protection
     protector = MathProtector()
     text = protector.protect(text)
+    
     lines = text.split('\n')
     result = []
-    in_code, in_quote, in_list, in_para, in_table = False, False, False, False, False
+    
+    in_para = False
+    in_quote = False
+    in_list = False # 'ul', 'ol', or False
+    in_table = False
     table_lines = []
-
-    def close_quote():
-        nonlocal in_quote
-        if in_quote:
-            result.append('</blockquote>')
-            in_quote = False
 
     def close_para():
         nonlocal in_para
@@ -202,11 +206,19 @@ def process_markdown(markdown_text):
             result.append('</p>')
             in_para = False
 
+    def close_quote():
+        nonlocal in_quote
+        if in_quote:
+            result.append('</blockquote>')
+            in_quote = False
+
     def close_list():
         nonlocal in_list
-        if in_list:
-            result.append('</ul>' if in_list == 'ul' else '</ol>')
-            in_list = False
+        if in_list == 'ul':
+            result.append('</ul>')
+        elif in_list == 'ol':
+            result.append('</ol>')
+        in_list = False
 
     def flush_table():
         nonlocal in_table, table_lines
@@ -214,33 +226,14 @@ def process_markdown(markdown_text):
             result.append(render_table(table_lines, protector))
             in_table = False
             table_lines = []
-    
-    for line in lines:
-        if not line.strip() and not in_code:
-            close_para()
-            flush_table()
-            close_quote()
-            continue
 
-        if line.strip().startswith('```'):
-            flush_table()
-            close_quote()
-            if not in_code:
-                result.append('<pre><code>')
-                in_code = True
-            else:
-                result.append('</code></pre>')
-                in_code = False
-            continue
-        if in_code:
-            result.append(line)
-            continue
-
+    for i, line in enumerate(lines):
         # Table detection
         if line.strip().startswith('|'):
             if not in_table:
                 close_para()
                 close_quote()
+                close_list()
                 in_table = True
                 table_lines = []
             table_lines.append(line.strip())
@@ -248,19 +241,19 @@ def process_markdown(markdown_text):
         elif in_table:
             flush_table()
 
+        # Heading detection
         h_match = re.match(r'^(#{1,6})\s+(.+)$', line)
         if h_match:
             close_para()
             close_list()
             close_quote()
             lv, content = len(h_match.group(1)), h_match.group(2).strip()
-            # Apply inline formatting to headings too
             restored = protector.restore(apply_inline_formatting(content))
-            # Handle footnote markers in headings
             restored = re.sub(r'\[\^(.+?)\]', r'<sup>[\1]</sup>', restored)
             result.append(f'<h{lv} id="{slugify(restored)}">{restored}</h{lv}>')
             continue
 
+        # Horizontal rule
         if line.strip() == '---':
             close_para()
             close_list()
@@ -268,25 +261,32 @@ def process_markdown(markdown_text):
             result.append('<hr />')
             continue
 
+        # Blockquote handler
         if line.strip().startswith('>'):
-            content = protector.restore(apply_inline_formatting(line.strip()[1:].strip()))
-            # Handle footnote markers
-            content = re.sub(r'\[\^(.+?)\]', r'<sup>[\1]</sup>', content)
+            content = line.strip()[1:].strip()
             if not in_quote:
+                close_para()
+                close_list()
                 result.append('<blockquote>')
                 in_quote = True
-            result.append(f'<p>{content}</p>')
-            in_para = False
+            
+            processed_inner = protector.restore(apply_inline_formatting(content))
+            processed_inner = re.sub(r'\[\^(.+?)\]', r'<sup>[\1]</sup>', processed_inner)
+            result.append(f'<p>{processed_inner}</p>')
             continue
         elif in_quote:
-            close_quote()
+            if line.strip() == '':
+                close_quote()
 
+        # List handler
         ol_match = re.match(r'^(\d+)\.\s*(.*)', line.strip())
         ul_match = re.match(r'^[-*]\s+(.*)', line)
         
         if ol_match:
             if in_list != 'ol':
-                if in_list: result.append('</ul>' if in_list == 'ul' else '</ol>')
+                close_para()
+                close_quote()
+                if in_list == 'ul': result.append('</ul>')
                 result.append('<ol>')
                 in_list = 'ol'
             content = protector.restore(apply_inline_formatting(ol_match.group(2)))
@@ -296,7 +296,9 @@ def process_markdown(markdown_text):
             continue
         elif ul_match:
             if in_list != 'ul':
-                if in_list: result.append('</ul>' if in_list == 'ul' else '</ol>')
+                close_para()
+                close_quote()
+                if in_list == 'ol': result.append('</ol>')
                 result.append('<ul>')
                 in_list = 'ul'
             content = protector.restore(apply_inline_formatting(ul_match.group(1)))
@@ -304,40 +306,37 @@ def process_markdown(markdown_text):
             result.append(f'<li>{content}</li>')
             in_para = False
             continue
-        elif in_list:
-            close_list()
 
+        # Blank line handles paragraph end
         if line.strip() == '':
-            if in_para: result.append('</p>'); in_para = False
+            close_para()
+            close_list()
+            close_quote()
             continue
         
-        # Inline formatting for normal paragraphs
+        # Default: normal paragraph
         processed = apply_inline_formatting(line)
         processed = protector.restore(processed)
-        # Handle footnote markers
         processed = re.sub(r'\[\^(.+?)\]', r'<sup>[\1]</sup>', processed)
         
         is_block = any(processed.strip().startswith(t) for t in ['<h', '<blockquote', '<ul', '<ol', '<pre', '<hr', '<div', '$$'])
-        is_inline_tag = any(processed.strip().startswith(t) for t in ['<strong', '<em', '<code', '<a', '<span'])
+        is_inline_tag = any(processed.strip().startswith(t) for t in ['<strong', '<em', '<code', '<a', '<span', '<img'])
         
         if (not is_block or is_inline_tag) and processed.strip():
             if not in_para:
                 result.append(f'<p>{processed}')
                 in_para = True
             else:
-                result.append(processed)
+                result.append(' ' + processed)
         else:
-            if in_para:
-                result.append('</p>')
-                in_para = False
+            close_para()
             if processed.strip():
                 result.append(processed)
     
-    if in_table:
-        result.append(render_table(table_lines, protector))
     close_para()
     close_quote()
     close_list()
+    flush_table()
     
     # Append footnotes if any
     if footnotes:
