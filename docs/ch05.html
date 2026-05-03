@@ -68,7 +68,7 @@
     <div class="toc"><ul>
 <li class="level-1"><a href="index.html" id="link-index.html">まえがき</a></li>
 <li class="level-1"><a href="intro.html" id="link-intro.html">はじめに</a></li>
-<li class="level-1"><a href="portal.html" id="link-portal.html">サポートページとちょっとした試みのご案内</a></li>
+<li class="level-1"><a href="portal.html" id="link-portal.html">ポータルサイトとちょっとした試みのご案内</a></li>
 <li class="level-1"><a href="ch01.html" id="link-ch01.html">第1章</a></li>
 <li class="level-1"><a href="ch02.html" id="link-ch02.html">第2章</a></li>
 <li class="level-1"><a href="ch03.html" id="link-ch03.html">第3章</a></li>
@@ -139,8 +139,8 @@ $$\int_\gamma df = f(\mathbf{r}_n) - f(\mathbf{r}_0) = f(B) - f(A)$$
 <p><strong>【ここまでのチェックポイント】</strong></p>
 <p>- $\int_\gamma df = f(B) - f(A)$。積分の結果は経路の形状に一切依存せず、端点の値だけで決まる。</p>
 <p>- これは $df$ という特別な $1$-form だからこそ成立する。力学でいえば「保存力の仕事は経路によらない」という事実の数学的根拠だ。</p>
-</blockquote>
 <h4 id="513-第3章の例で確かめる">5.1.3 第3章の例で確かめる</h4>
+</blockquote>
 <p>第3章 §3.4.1 で我々は、$\omega = y\,dx + x\,dy$ を単位円 $\gamma(t) = (\cos t,\; \sin t,\; 0),\; t \in [0,2\pi]$ に沿って積分し、結果が $0$ になることを計算した。あのときは係数に沿って愚直に積分したが、いまの言葉で見直すと話はもっと単純だ。
 </p>
 <p>実は $y\,dx + x\,dy$ は $d(xy)$ にほかならない。なぜなら：
@@ -153,13 +153,11 @@ $$\oint_\gamma \omega = \oint_\gamma d(xy) = xy\Big|_A^A = \cos 0\cdot\sin 0 - \
 </p>
 <blockquote>
 <p><strong>注</strong> （完全形式）$\omega = df$ と書ける $1$-form を<strong>完全形式</strong>（exact form）と呼ぶ。完全形式の閉曲線に沿った積分は、$f$ が一価関数である限り必ずゼロになる。しかし逆は真ではない——閉曲線でゼロになるからといって完全形式とは限らない。この点は §5.2 で詳しく見る。</p>
-</blockquote>
-<blockquote>
 <p><strong>注</strong> （$d$ と $\int$ の関係——逆写像ではなく境界公式）$\int_\gamma df = f(B)-f(A)$ は、積分が外微分 $d$ の大域的な逆写像である、という意味ではない。積分は曲線 $\gamma$ の選び方に依存する汎関数であり、$df$ から元の関数 $f$ 全体を復元する操作ではない。この式は「完全形式を曲線に沿って積分すると、端点という境界だけが残る」という微積分学の基本定理である。後で見る Stokes 型公式の $0$-form 版だ、と考えるのが安全である。</p>
-</blockquote>
 <hr />
 <h3 id="52-閉ループで姿を現すズレ">§5.2 閉ループで姿を現す「ズレ」</h3>
 <h4 id="521-一般の--form-ではどうか">5.2.1 一般の $1$-form ではどうか</h4>
+</blockquote>
 <p>では、一般の $1$-form
 </p>
 $$\omega = P(x,y,z)\,dx + Q(x,y,z)\,dy + R(x,y,z)\,dz$$
@@ -179,8 +177,8 @@ $$\oint_\gamma \omega \neq 0$$
 </p>
 <blockquote>
 <p><strong>注</strong> （物理を知らなくても大丈夫）摩擦力や水流をまだ物理学で扱っていない読者も、ここで立ち止まる必要はない。いま重要なのは具体的な物理現象ではなく、「閉ループの積分がゼロにならないなら、その場には循環のような局所構造がある」という感覚だけである。物理での詳しい対応は後の章で触れる。</p>
-</blockquote>
 <h4 id="522-局所情報はどこに宿るか">5.2.2 局所情報はどこに宿るか</h4>
+</blockquote>
 <p>では、この「一周して残るズレ」はどこから来るのか。閉ループをいきなり大域的な大きさで考えていては、中のどの点がどれだけズレに寄与したのかわからない。第1章で $f'(x)$ を求めたときのことを思い出そう——我々は $\Delta f / \Delta x$ の $\Delta x \to 0$ の極限をとることで、<strong>一点での</strong>変化率を取り出した。
 </p>
 <p>同じ発想をここでも使う。ループをどんどん小さくしていったとき、一周の積分 $\oint \omega$ の値はどうなるか。もし $\oint \omega$ の主項がループの<strong>囲む面積</strong>に比例して小さくなるなら、面積あたりのズレ——単位面積あたりどれだけ帳尻が合わないか——という量が、その点に固有の値として決まるはずだ。
@@ -242,10 +240,10 @@ $$\lim_{\Delta x,\Delta y\to 0}\frac{1}{\Delta x\,\Delta y}\oint_{\partial R_{\D
 </p>
 <blockquote>
 <p><strong>注</strong> （なぜ $\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}$ だけが残るか）$\frac{\partial P}{\partial x}$ や $\frac{\partial Q}{\partial y}$ は出てこない。$P$ の $x$ 方向の変化（$\frac{\partial P}{\partial x}$）は下辺と上辺で同じ向きに効くため相殺し、$Q$ の $y$ 方向の変化（$\frac{\partial Q}{\partial y}$）も右辺と左辺で相殺する。生き残るのは「$P$ の $y$ 方向の変化」と「$Q$ の $x$ 方向の変化」——互いに<strong>直交する方向への偏微分の差</strong>だけだ。この交叉性が、次節以降のすべての鍵になる。</p>
-</blockquote>
 <hr />
 <h3 id="54-の誕生面積あたりのズレを測る新しい測定器">§5.4 $d$ の誕生——面積あたりのズレを測る新しい測定器</h3>
 <h4 id="541-ウェッジ積の再確認">5.4.1 ウェッジ積の再確認</h4>
+</blockquote>
 <p>§5.3 で得た $(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,\Delta x\,\Delta y$ を、第2章の言葉で言い直そう。第2章 §2.4.4 で我々は、$dx \wedge dy$ という面積測定器を定義した。これは2本のベクトル $\mathbf{v}_1, \mathbf{v}_2$ を食わせると、それらが $xy$ 平面に落とす影の符号付き面積を返す装置だった：
 </p>
 $$(dx \wedge dy)(\mathbf{v}_1, \mathbf{v}_2) = \det\begin{pmatrix} dx(\mathbf{v}_1) & dx(\mathbf{v}_2) \\ dy(\mathbf{v}_1) & dy(\mathbf{v}_2) \end{pmatrix}$$
@@ -273,10 +271,10 @@ $$d\omega := (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,dx
 <p>- $xy$ 平面の微小長方形では $\oint \omega = (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,\Delta x\,\Delta y +$ 高次の項。ズレの主項は面積に比例する。</p>
 <p><!-- concept-scope: allow(wedge_product) --></p>
 <p>- この比例係数を測る $2$-form を $d\omega := (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,dx \wedge dy$ と定義する。$d$ は次数を上げる演算子。</p>
-</blockquote>
 <hr />
 <h3 id="55-一般の--form-の外微分3次元への拡張">§5.5 一般の $1$-form の外微分——3次元への拡張</h3>
 <h4 id="551-平面と-平面">5.5.1 $yz$ 平面と $zx$ 平面</h4>
+</blockquote>
 <p>§5.3–§5.4 では $xy$ 平面のループだけを考えた。しかし 3次元空間には面の向きが3種類ある。$yz$ 平面の微小長方形では同様の計算で $(\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z})\,\Delta y\,\Delta z$ が、$zx$ 平面では $(\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x})\,\Delta z\,\Delta x$ が得られる。それぞれ $dy \wedge dz$ と $dz \wedge dx$ に対応する。
 </p>
 <p>直感から導かれる完全な式はこうだ：
@@ -284,8 +282,8 @@ $$d\omega := (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,dx
 $$d\omega = (\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z})\,dy \wedge dz + (\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x})\,dz \wedge dx + (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,dx \wedge dy$$
 <blockquote>
 <p><strong>注</strong> （$2$-form は傾いた平行四辺形を測る）この $d\omega$ は $2$-form——<strong>2本のベクトルを食べる測定器</strong>——である。食わせる2本は、$xy$ 平面に平行とは限らない。3次元空間の中に斜めに浮かぶ微小平行四辺形の二辺 $\mathbf{v}_1, \mathbf{v}_2$ を食わせれば、その面に対する単位面積あたりの閉ループのズレを返す。§5.3 でやったのとまったく同じこと——測定する面が座標平面に平行とは限らなくなっただけだ。2本のベクトルから平行四辺形の面積（と向き）を取り出すしくみは、第2章 §2.4 で $dy \wedge dz$ 等を反対称行列として構成したときにすでに確かめてある。</p>
-</blockquote>
 <h4 id="552-代数的導出ライプニッツ則と">5.5.2 代数的導出——ライプニッツ則と $d(dx)=0$</h4>
+</blockquote>
 <p>上記の式は、各平面で別々にループ計算をしても当然導ける。しかし、$xy$平面の例から得た直感を使って次のような計算ルールを作り上げれば機械的に導ける。やってみよう。
 </p>
 <blockquote>
@@ -346,16 +344,14 @@ dx \wedge dy &\longleftrightarrow \frac{\partial Q}{\partial x} - \frac{\partial
 \end{aligned}$$
 <blockquote>
 <p><strong>注</strong> （既習者への補助線）ベクトル解析を既習の読者には、この3つの係数の並びに見覚えがあるだろう。本書ではその名前に依存せず、まず $d$ という操作そのものを組み立てる。対応関係は後の章で整理する。</p>
-</blockquote>
-<blockquote>
 <p><strong>【ここまでのチェックポイント】</strong></p>
 <p>- 一般の $1$-form $\omega$ の外微分 $d\omega$ は $2$-form であり、係数は偏微分の交叉差 $(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z},\; \frac{\partial P}{\partial z}-\frac{\partial R}{\partial x},\; \frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y})$。</p>
 <p>- 計算ルールは (1) 線形性、(2) ライプニッツ則 $d(P\,dx) = dP \wedge dx + P \wedge d(dx)$、(3) $d(dx)=d(dy)=d(dz)=0$ の三つ。</p>
 <p>- 結果は §5.3 の微小ループ計算と完全に整合する。</p>
-</blockquote>
 <hr />
 <h3 id="56-集積すれば境界だけが残るストークスの定理">§5.6 集積すれば境界だけが残る——ストークスの定理</h3>
 <h4 id="561-面をタイル貼りする">5.6.1 面をタイル貼りする</h4>
+</blockquote>
 <p>§5.3 では<strong>ひとつの</strong>微小長方形の周りで $\oint \omega$ を計算し、その主項が $d\omega$ と面積の積になることを見た。では、この微小長方形を<strong>面全体に敷き詰めて</strong>、全部足し合わせたらどうなるか。
 </p>
 <p>曲面 $S$ を小さな座標パッチに分け、それぞれのパラメータ平面上で微小長方形に刻む（第3章 §3.2 の面素の考え方そのものだ）。各微小長方形について、面の向きに合う向きで境界を一周した $\omega$ の積分は、面素に $d\omega$ を食わせた値を主項として持つ。
@@ -386,19 +382,15 @@ $$\oint_{\partial S} \bigl(P\,dx + Q\,dy + R\,dz\bigr) = \iint_S \Bigl( (\frac{\
 </p>
 <blockquote>
 <p><strong>注</strong> （局所化に使っている仮定）ここでのタイル貼りの説明は、十分なめらかな曲面と場を、十分細かい座標パッチに分けられる状況を前提にしている。境界の尖り、自己交差、特異点などがある場合には、パッチ分割や向きの扱いを別途整える必要がある。本書では物理で通常使う滑らかな場合を扱う。</p>
-</blockquote>
-<blockquote>
 <p><strong>注</strong> （第3章との対応）第3章 §3.2.1 で曲面積分を定義したとき、我々は面素 $(\mathbf{r}_u\Delta u,\;\mathbf{r}_v\Delta v)$ に $dx \wedge dy$ を食わせていた。ここでも同じく、曲面を小さな面素に分け、各面素で測定器を作用させ、内部で相殺する寄与を整理している。</p>
-</blockquote>
-<blockquote>
 <p><strong>【ここまでのチェックポイント】</strong></p>
 <p>- 面 $S$ を微小ループで敷き詰めると、内部の辺は相殺し、境界 $\partial S$ の寄与だけが残る。</p>
 <p>- $\int_{\partial S} \omega = \int_S d\omega$。大域的な境界積分が局所的な外微分の積分に等しい。</p>
 <p>- 第3章の曲面積分と同じく、面を小さなパッチに分け、各パッチで測定器を作用させて集計している。</p>
-</blockquote>
 <hr />
 <h3 id="57-同じことをもう一段-form-の外微分と発散">§5.7 同じことをもう一段——$2$-form の外微分と発散</h3>
 <h4 id="571--form-は面の測定器">5.7.1 $2$-form は面の測定器</h4>
+</blockquote>
 <p>第3章 §3.4.2 で、一般の $2$-form を次の形で書いた：
 </p>
 $$\eta = A\,dy \wedge dz + B\,dz \wedge dx + C\,dx \wedge dy$$
@@ -455,16 +447,14 @@ $$\iint_{\partial V} \eta = \iiint_V d\eta$$
 $$\iint_{\partial V} \bigl(A\,dy \wedge dz + B\,dz \wedge dx + C\,dx \wedge dy\bigr) = \iiint_V (\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z})\,dx \wedge dy \wedge dz$$
 <blockquote>
 <p><strong>注</strong> （既習者への補助線）ベクトル解析を既習の読者には、$\frac{\partial A}{\partial x}+\frac{\partial B}{\partial y}+\frac{\partial C}{\partial z}$ にも見覚えがあるだろう。本書ではまず $2$-form の外微分としてこの量を得た、という順序を大切にする。名前との対応は後の章で整理する。</p>
-</blockquote>
-<blockquote>
 <p><strong>【ここまでのチェックポイント】</strong></p>
 <p>- $2$-form $\eta$ の外微分 $d\eta$ は $3$-form で、係数は $\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z}$。</p>
 <p>- 導出は §5.5 と同じ代数的ルール（ライプニッツ則 $+$ $d(dx)=0$）で機械的にできる。</p>
 <p>- $\iint_{\partial V} \eta = \iiint_V d\eta$。ストークス（$1$-form→面）とガウス（$2$-form→立体）は次数が違うだけで同じ構造。</p>
-</blockquote>
 <hr />
 <h3 id="58-二度測れば必ずゼロ">§5.8 $d^2 = 0$——二度測れば必ずゼロ</h3>
 <h4 id="581">5.8.1 $d(df) = 0$</h4>
+</blockquote>
 <p>§5.1 で $df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz$ を定義した。これをさらにもう一度外微分してみる。§5.5 の公式で $P = \frac{\partial f}{\partial x},\; Q = \frac{\partial f}{\partial y},\; R = \frac{\partial f}{\partial z}$ とすれば：
 </p>
 $$d(df) = \left(\frac{\partial^2 f}{\partial y \partial z} - \frac{\partial^2 f}{\partial z \partial y}\right) dy \wedge dz + \left(\frac{\partial^2 f}{\partial z \partial x} - \frac{\partial^2 f}{\partial x \partial z}\right) dz \wedge dx + \left(\frac{\partial^2 f}{\partial x \partial y} - \frac{\partial^2 f}{\partial y \partial x}\right) dx \wedge dy$$
@@ -473,8 +463,8 @@ $$d(df) = \left(\frac{\partial^2 f}{\partial y \partial z} - \frac{\partial^2 f}
 $$d(df) = 0$$
 <blockquote>
 <p><strong>注</strong> （数学者へのエクスキューズ——$d^2=0$ と $C^2$ 条件）本書では「$f$ が $C^2$ 級（2階連続微分可能）なら混合偏微分が可換、ゆえに $d(df)=0$」という順序で進めた。しかし微分形式の公理的な立場では、<strong>$d^2=0$ こそが $d$ の定義の一部</strong>であり、$d(df)=0$ は定理ではなく要請である。逆に言えば、$d^2=0$ を課すことが「混合偏微分の対称性が成り立つ関数クラス（＝$C^2$ 級の関数）を相手にしている」という宣言に相当する。どちらの順序で学んでも、両者が同値な条件として噛み合うことに変わりはない。</p>
-</blockquote>
 <h4 id="582">5.8.2 $d(d\omega) = 0$</h4>
+</blockquote>
 <p>§5.5 の $d\omega$ に §5.7 の公式を適用する。$A = \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z},\; B = \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x},\; C = \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}$ として：
 </p>
 $$d(d\omega) = \left(\frac{\partial^2 R}{\partial x \partial y} - \frac{\partial^2 Q}{\partial x \partial z} + \frac{\partial^2 P}{\partial y \partial z} - \frac{\partial^2 R}{\partial y \partial x} + \frac{\partial^2 Q}{\partial z \partial x} - \frac{\partial^2 P}{\partial z \partial y}\right) dx \wedge dy \wedge dz$$
@@ -488,10 +478,10 @@ $$d(d\omega) = 0$$
 <p><strong>【ここまでのチェックポイント】</strong></p>
 <p>- $d^2 = 0$：外微分を2回続けると必ずゼロ。混合偏微分の対称性とウェッジの反対称性が相殺を起こす。</p>
 <p>- 既習者が知るいくつかの「二度微分すると消える」恒等式は、この $d^2=0$ の別表現として後の章で整理される。</p>
-</blockquote>
 <hr />
 <h3 id="59-外微分の統合一つの式一つのルール">§5.9 外微分の統合——一つの式、一つのルール</h3>
 <h4 id="591-ストークスとガウスは同じ式だった">5.9.1 ストークスとガウスは同じ式だった</h4>
+</blockquote>
 <p>§5.6 で得たストークスの定理 $\oint_{\partial S}\omega = \iint_S d\omega$ と、§5.7 で得たガウスの定理 $\iint_{\partial V}\eta = \iiint_V d\eta$。並べてみると、$\oint$、$\iint$、$\iiint$ と積分記号の数が違うだけで、構造は同一だ。$M$ が曲線なら $\int$（1次元）、曲面なら $\iint$（2次元）、立体なら $\iiint$（3次元）——つまり積分記号の重なりは $M$ の次元で決まるにすぎない。
 </p>
 <p>そこで、次元によらず統一的に：
@@ -506,8 +496,8 @@ $$\int_{\partial(\partial M)} \omega = \int_{\partial M} d\omega = \int_M d(d\om
 </p>
 <blockquote>
 <p><strong>注</strong> （3次元までで十分）本書の舞台は 3次元空間だから、$M$ の次元は1・2・3のいずれかであり、$\omega$ は $0$-form・$1$-form・$2$-form のいずれかである。$k=3$（$M$ が4次元）には立ち入らない。しかしこの式が $k$ によらず成立するという事実は、頭の片隅に置いておいて損はない。</p>
-</blockquote>
 <h4 id="592-一般の--form-の外微分">5.9.2 一般の $k$-form の外微分</h4>
+</blockquote>
 <p>同様に、$d$ の作用も次数によらず一つのパターンにまとまる。任意の $k$-form $\omega$ が係数 $a_{i_1\cdots i_k}$ と基底 $dx^{i_1}\wedge\cdots\wedge dx^{i_k}$ の和で書かれているとき：
 </p>
 $$d\omega = \sum \Bigl( \sum_j \frac{\partial a_{i_1\cdots i_k}}{\partial x^j}\,dx^j \Bigr) \wedge dx^{i_1}\wedge\cdots\wedge dx^{i_k}$$
@@ -533,16 +523,14 @@ $$d\omega = \sum \Bigl( \sum_j \frac{\partial a_{i_1\cdots i_k}}{\partial x^j}\,
 $$\Phi^*(d\omega) = d(\Phi^*\omega)$$
 <blockquote>
 <p>という可換関係が成り立つ。「微分してから引き戻す」のと「引き戻してから微分する」のは同じ結果を与える。この性質は、これまでの4ルールからは直接導けないが、$d$ が「局所的なズレを測る」操作であり、$\Phi^*$ が「座標を焼き直す」操作であることを思い出せば自然に納得できる——局所的なズレの構造は、座標のとり方に依存しないのだ。この事実は、第11章で一般の多様体上の微分形式を考える際の重要な足場となる。</p>
-</blockquote>
-<blockquote>
 <p><strong>【ここまでのチェックポイント】</strong></p>
 <p>- $\int_{\partial M} \omega = \int_M d\omega$ 一本で、微積分学の基本定理・ストークスの定理・ガウスの定理を統合できる。</p>
 <p>- $d$ の計算は 4 ルール（$df$、線形性、ライプニッツ則、$d(dx)=0$）に集約される。</p>
 <p>- $d^2=0$ と $\partial^2 M=0$ は代数的真理と幾何学的真理の呼応。</p>
-</blockquote>
 <hr />
 <h3 id="510-積分から微分方程式へ物理法則の局所化">§5.10 積分から微分方程式へ——物理法則の局所化</h3>
 <h4 id="5101-積分法則を微分法則に変える">5.10.1 積分法則を微分法則に変える</h4>
+</blockquote>
 <p>本章の冒頭に掲げた問いに戻ろう。
 </p>
 <blockquote>
@@ -578,9 +566,9 @@ $$d\omega = \eta$$
 <p>- 物理法則はしばしば $\int_{\partial M} \omega = \int_M \eta$ の形で与えられる。</p>
 <p>- ストークスの定理で $\int_{\partial M} \omega = \int_M d\omega$ と書き換え、任意の $M$ で成立することから $d\omega = \eta$（局所法則）を得る。</p>
 <p>- $d$ は積分法則を微分法則に変換する演算子である。</p>
-</blockquote>
 <hr />
 <h3 id="511-第II部への展望ホッジ・スターへの伏線">§5.11 第II部への展望——ホッジ・スターへの伏線</h3>
+</blockquote>
 <p>本章で我々は、外微分 $d$ という強力な演算子を手に入れた。$d$ は：
 </p>
 <ul>
@@ -608,9 +596,9 @@ $$d\omega = \eta$$
 <p>- $d^2 = 0$ は混合偏微分の対称性に由来し、幾何学的には $\partial(\partial M) = \emptyset$ に対応。</p>
 <p>- $d$ は積分法則を局所微分法則へ変換する演算子——物理学の定式化に不可欠な役割を果たす。</p>
 <p>- 次章では、長さ・面積・体積を測る規則を加え、ホッジ・スター $\ast$ を通じて $d$ とベクトル解析の演算との対応を整理する。</p>
-</blockquote>
 <hr />
 <h2 id="付録C外微分の行列表示">付録C：外微分の行列表示</h2>
+</blockquote>
 <p>本章本文は基底 $dx, dy, dz$ とウェッジ積の代数で進めた。ここでは第2章以来の本書の真骨頂——<strong>成分をひとつ残らず行列に並べる</strong>——によって、外微分を行列表示の言葉で書き直す。
 </p>
 <h3 id="C1--form-の-行ベクトル">C.1 $0$-form：$df$ の $1 \times 3$ 行ベクトル</h3>

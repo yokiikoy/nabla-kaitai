@@ -68,7 +68,7 @@
     <div class="toc"><ul>
 <li class="level-1"><a href="index.html" id="link-index.html">まえがき</a></li>
 <li class="level-1"><a href="intro.html" id="link-intro.html">はじめに</a></li>
-<li class="level-1"><a href="portal.html" id="link-portal.html">サポートページとちょっとした試みのご案内</a></li>
+<li class="level-1"><a href="portal.html" id="link-portal.html">ポータルサイトとちょっとした試みのご案内</a></li>
 <li class="level-1"><a href="ch01.html" id="link-ch01.html">第1章</a></li>
 <li class="level-1"><a href="ch02.html" id="link-ch02.html">第2章</a></li>
 <li class="level-1"><a href="ch03.html" id="link-ch03.html">第3章</a></li>
@@ -96,12 +96,10 @@
 </p>
 <blockquote>
 <p><strong>注</strong> （電磁気学が未習の読者へ）本章に出てくる物理用語はすべて読み飛ばしてよい。必要なのは「6つの関数を4×4行列に並べ、$d$ と $\ast$ を作用させたら何が出るか」を見ることだけだ。電磁気学の知識がなくても、ここまでの章を読み通した読者なら、行列の成分を追うだけで十分に楽しめるはずである。</p>
-</blockquote>
-<blockquote>
 <p><strong>注</strong> （本章の立ち位置）本書の核心は第8章で完結している。本章は、いわばおまけ、あるいは蛇足に近い。あまり真面目に身構えず、気楽に読んでほしい。</p>
-</blockquote>
 <hr />
 <h3 id="101-マクスウェル方程式2本で書く">§10.1 マクスウェル方程式——2本で書く</h3>
+</blockquote>
 <p>電磁気学の基本法則は、SI単位系で次の4本の式として書かれる。
 </p>
 $$\begin{aligned}
@@ -116,8 +114,6 @@ $$\begin{aligned}
 </p>
 <ol>
 <li><strong>時間の変換</strong>：時間 $t$ に光速 $c$ を掛けて、長さの次元を持つ座標 $w = ct$ を導入する。時間微分は $\frac{\partial}{\partial t} = c\frac{\partial}{\partial w}$ となる。</li>
-</ol>
-<ol>
 <li><strong>磁場の変換</strong>：磁束密度 $\mathbf{B}$ に $c$ を掛けて、電場と同じ $\mathrm{V/m}$ の次元を持つ $\mathbf{B}' = c\mathbf{B}$ を定義する。</li>
 </ol>
 <p>これらを上の4式に代入する。ファラデーの法則は、
@@ -181,9 +177,9 @@ $$
 > $$
 <blockquote>
 <p>である。通常の教科書では逆符号の組み合わせを採る流儀も多い。本書では $F=-dA$ と第2章の行列規約を同時に満たすため、この符号規約に従う。</p>
-</blockquote>
 <hr />
 <h3 id="103-ミンコフスキー計量-から4次元へ">§10.3 ミンコフスキー計量——$\mathbb{R}^3$ から4次元へ</h3>
+</blockquote>
 <p>本書は一貫して $\mathbb{R}^3$ のデカルト座標 $(x,y,z)$ を舞台にしてきた。しかし $F$ を扱うには、時間 $t$ を加えた4次元時空 $(t,x,y,z)$ が必要になる。
 </p>
 <p>幸い、ここまでに積み上げた知識があれば、拡張は容易だ。第6章で $\mathbf{g} = J^T J$ を導出し、第9章で $\mathbf{g}$ から $\ast$ の辞書を作る手順を練習した。時空でも同じことをすればよい。計量は次のようになる（時間成分の符号が空間成分と異なる点が唯一の新しい要素だ）。
@@ -196,13 +192,11 @@ $$\mathbf{g} = \begin{pmatrix}
 \end{pmatrix}$$
 <blockquote>
 <p><strong>注</strong> （正定値性からの離脱）本書の計量はこれまでつねに正定値（$\mathbf{v}^T\mathbf{g}\,\mathbf{v} > 0$ for $\mathbf{v}\neq\mathbf{0}$）だった。ミンコフスキー計量は正定値ではなく、これまでの $\mathbf{g}=J^T J$ 型の計量とは異なる。ここでは「計量行列から $\ast$ の辞書を作る」という手順だけを引き継いでいる。この違いは $\ast$ の辞書に符号の変化として現れるが、計算手順そのものは変わらない。第11章でこの点に簡単に触れる。</p>
-</blockquote>
-<blockquote>
 <p><strong>注</strong> （4次元ホッジ・スターの規約）</p>
 <p>本章では向き（基底の順序）を $dt\wedge dx\wedge dy\wedge dz$ とし、時空の計量符号を $(-,+,+,+)$ とする。この規約のもとで、以下の $\ast F$ や $\ast\mathcal{J}$ を用いる。異なる署名や向きの規約では、いくつかの符号が反転することに注意されたい。</p>
-</blockquote>
 <hr />
 <h3 id="104-を全部書き下す">§10.4 $dF=0$ を全部書き下す</h3>
+</blockquote>
 <p>$F$ は $2$-form だから、$dF$ は $3$-form になる。4次元空間での $3$-form の独立成分は4つ。$F$ の全6項について $d$ を作用させ、同じ基底 $3$-form の係数をまとめる。
 </p>
 <p>$F$ の6項を形式で書く。
@@ -286,7 +280,6 @@ $$\ast\mathcal{J} = \frac{\rho}{\varepsilon_0\mu_0}\,dx\wedge dy\wedge dz - cJ_x
 </p>
 <blockquote>
 <p><strong>注</strong> （$\mathcal{J}$ の正規化）ここでの $\mathcal{J}$ は、§10.1 の $w=ct$ および $\mathbf{B}'=c\mathbf{B}$ に合わせて正規化された電流 $1$-form である。標準的な相対論的記法とは係数の置き方が異なる場合がある。本章では、§10.1 の4本のマクスウェル方程式を再現するように係数を選んでいる。</p>
-</blockquote>
 <table>
 <thead><tr>
 <th>記号</th>
@@ -319,6 +312,7 @@ $$\ast\mathcal{J} = \frac{\rho}{\varepsilon_0\mu_0}\,dx\wedge dy\wedge dz - cJ_x
 <td>電荷と流束の源</td>
 </tr>
 </tbody></table>
+</blockquote>
 <p>$d(\ast F) = \mu_0(\ast\mathcal{J})$ の両辺で基底 $3$-form の係数を比較する。
 </p>
 $$\mu_0(\ast\mathcal{J}) = \frac{\rho}{\varepsilon_0}\,dx\wedge dy\wedge dz - c\mu_0J_x\,dt\wedge dy\wedge dz - c\mu_0J_y\,dt\wedge dz\wedge dx - c\mu_0J_z\,dt\wedge dx\wedge dy$$
@@ -333,12 +327,10 @@ $$dF = 0, \qquad d(\ast F) = \mu_0(\ast\mathcal{J})$$
 </p>
 <blockquote>
 <p><strong>注</strong> （なぜ2本なのか）鋭い読者ならこう思うかもしれない——「結局2本か。$dF=0$ と $d(\ast F)=\mu_0(\ast\mathcal{J})$ を、<strong>1行</strong>にまとめられないのか」と。できる。第12章では $\mathbf{E}$ と $\mathbf{B}$ をひとまとめにした複素ベクトルと、パウリ行列から作られるディラック演算子によって、マクスウェル方程式をたったの一撃に統合する。楽しみにしていてほしい。</p>
-</blockquote>
-<blockquote>
 <p><strong>注</strong> （なぜここで終わるのか）多くの教科書は $dF=0$ を示した時点で「かくしてマクスウェル方程式は幾何学である」と締める。しかし本書の流儀は違う。行列の成分を全部書き下し、$d$ と $\ast$ の辞書を通じてベクトル解析の式を再現する——その往復ができることこそ、第1章から積み上げてきた「測定器」の枠組みの到達点だ。</p>
-</blockquote>
 <hr />
 <h3 id="106-ポテンシャル構成-から始める">§10.6 ポテンシャル構成——$F=-dA$ から始める</h3>
+</blockquote>
 <p>§10.2 では $F$ を「$\mathbf{E}$ と $\mathbf{B}$ の寄せ集め」として天下り的に定義した。しかし実は、$F$ はもっと根源的な量——<strong>4元ポテンシャル $A$</strong>——から機械的に導かれる。こちらが出発点として自然なのは、<strong>$dF=0$ が「$dd=0$」の一言で証明される</strong>からだ。
 </p>
 <p>4元ポテンシャル $A$ は $1$-form である。電磁気学ではスカラーポテンシャル $\phi$ とベクトルポテンシャル $\mathbf{A} = (A_x, A_y, A_z)$ が組になる。時間成分の符号に注意して（§10.3 の計量の時間成分が $-1$ であることの反映）、
@@ -381,8 +373,8 @@ $$\begin{aligned}
 </p>
 <blockquote>
 <p><strong>注</strong> （$F$ の符号規約）$F = -dA$ という定義は、§10.2 の $F$ の $dt\wedge dx$ 係数が $E_x$ になるように選んだものである。$F = +dA$、$A = +\phi\,dt + \cdots$ など、異なる符号の組み合わせを使う流儀も存在する。本章では、§10.2 の $F$ の係数表示と $\mathbf{E} = -\nabla\phi - \partial\mathbf{A}/\partial t$ が整合する規約として $F=-dA$ を採用している。</p>
-</blockquote>
 <h4 id="が-を証明する">$dd=0$ が $dF=0$ を証明する</h4>
+</blockquote>
 <p>§10.4 の主結果——$dF=0$ が $\mathrm{div}\,\mathbf{B}=0$ と $\mathrm{rot}\,\mathbf{E}=-\partial\mathbf{B}/\partial t$ に等しい——の証明は一瞬である。$F=-dA$ だから、
 </p>
 $$dF = d(-dA) = -d(dA) = 0$$
@@ -392,8 +384,8 @@ $$dF = d(-dA) = -d(dA) = 0$$
 </p>
 <blockquote>
 <p><strong>注</strong> （$\mathbf{B}$ と $\mathrm{div}\,\mathbf{B}=0$）ベクトル解析でも「$\mathbf{B}$ が何かの回転で書けるなら $\mathrm{div}\,\mathbf{B}=0$」は公式として知られている。$\mathrm{div}\,\mathrm{rot} \equiv 0$ である。これが $dd=0$ の $3$ 次元ベクトル解析版だ。</p>
-</blockquote>
 <h4 id="もう1本の式ポテンシャルで書く">もう1本の式——ポテンシャルで書く</h4>
+</blockquote>
 <p>$d(\ast F) = \mu_0(\ast\mathcal{J})$ の側も、$F=-dA$ を代入すればポテンシャル $A$ に対する方程式になる。
 </p>
 $$-d(\ast dA) = \mu_0(\ast\mathcal{J})$$
@@ -401,16 +393,14 @@ $$-d(\ast dA) = \mu_0(\ast\mathcal{J})$$
 </p>
 <blockquote>
 <p><strong>注</strong> （ゲージ自由度）$A' = A + d\chi$（$\chi$ は任意の $0$-form）と変換する。このとき $F' = -dA' = -dA - d(d\chi) = -dA = F$ となり、物理的な電磁場 $F$ は不変である。これがゲージ変換であり、$dd=0$ のもう一つの現れだ。電磁気学ではスカラーポテンシャル $\phi$ とベクトルポテンシャル $\mathbf{A}$ を同時に調整することで、$F$ を変えずに計算に都合のよいゲージを選ぶことができる。</p>
-</blockquote>
-<blockquote>
 <p><strong>【ここまでのチェックポイント — 第10章全体】</strong></p>
 <p>- 電磁場 $F$ は $4\times4$ 反対称行列。6つの独立成分に $E_x,E_y,E_z,B_x,B_y,B_z$ が収まる。</p>
 <p>- $dF=0$ を成分展開すると $\mathrm{div}\,\mathbf{B}=0$ と $\mathrm{rot}\,\mathbf{E}=-\partial\mathbf{B}/\partial t$ が現れる。</p>
 <p>- $\ast F$ は $E$ と $B$ を入れ替える。$d(\ast F)=\mu_0(\ast\mathcal{J})$ から残りの2本が出る。</p>
 <p>- <strong>ポテンシャル構成</strong>：$A = -\phi\,dt + A_x\,dx + A_y\,dy + A_z\,dz$ から $F=-dA$（§10.2 の行列規約と整合）。$dF=0$ は $dd=0$ より自動的。$\mathbf{E}=-\nabla\phi-\partial\mathbf{A}/\partial t$ が自然に出る。</p>
-</blockquote>
 <hr />
 <h2 id="付録E-と-のスライス行列表示--配列で見るマクスウェル方程式">付録E：$dF$ と $d(\ast F)$ のスライス行列表示 —— $4\times4\times4$ 配列で見るマクスウェル方程式</h2>
+</blockquote>
 <p>§10.4・§10.5 では $dF$ と $d(\ast F)$ を基底 $3$-form の係数として展開した。付録Eでは、同じ計算を <strong>$4\times4$ スライス行列の束</strong>——実質的には $4\times4\times4$ の3階テンソル——で可視化する。付録Aの延長線上にあり、本書の「全部行列に載せる」流儀の到達点でもある。
 </p>
 <h3 id="E1-基底--form-とそのスライス行列--全16枚">E.1 基底 $3$-form とそのスライス行列 —— 全16枚</h3>

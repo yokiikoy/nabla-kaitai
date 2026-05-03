@@ -68,7 +68,7 @@
     <div class="toc"><ul>
 <li class="level-1"><a href="index.html" id="link-index.html">まえがき</a></li>
 <li class="level-1"><a href="intro.html" id="link-intro.html">はじめに</a></li>
-<li class="level-1"><a href="portal.html" id="link-portal.html">サポートページとちょっとした試みのご案内</a></li>
+<li class="level-1"><a href="portal.html" id="link-portal.html">ポータルサイトとちょっとした試みのご案内</a></li>
 <li class="level-1"><a href="ch01.html" id="link-ch01.html">第1章</a></li>
 <li class="level-1"><a href="ch02.html" id="link-ch02.html">第2章</a></li>
 <li class="level-1"><a href="ch03.html" id="link-ch03.html">第3章</a></li>
@@ -97,12 +97,10 @@
 <blockquote>
 <p><strong>注</strong>（本章の「真のナブラ」について）</p>
 <p>本章の「真のナブラ」は、標準数学における唯一正しいナブラを主張するものではない。ここでは、これまで $d$ と $\ast$ に分解して眺めてきた grad・rot・div が、パウリ行列やディラック演算子の中で再び一つの演算として現れる、という意味での本書内の比喩的な呼称である。厳密なクリフォード代数・ディラック作用素の理論は本章の射程外であり、本章はその入口を計算例として見るための発展的補足である。</p>
-</blockquote>
-<blockquote>
 <p><strong>注</strong> （本章の立ち位置）本章は発展的な補足であり、本書の本線からは外れている。第8章でベクトル解析の書き換えは完了し、第10章でマクスウェル方程式の行列展開も終えた。本章では、厳密な幾何代数（クリフォード代数）の教科書を書くつもりはない。目的は、本書で解体してきた grad・rot・div が、パウリ行列とディラック演算子の中で再び一つの演算へ統合される様子を、計算の入口として見ることである。</p>
-</blockquote>
 <hr />
 <h3 id="121-虚数で一本に--マクスウェル方程式の統合">§12.1 虚数で一本に —— マクスウェル方程式の統合</h3>
+</blockquote>
 <p>第10章で我々は、マクスウェル方程式を
 </p>
 $$dF = 0, \qquad d(\ast F) = \mu_0(\ast\mathcal{J})$$
@@ -197,8 +195,8 @@ $$VW = (\mathbf{v}\!\cdot\!\mathbf{w})\,I \;+\; i\,(\mathbf{v}\times\mathbf{w})\
 </p>
 <blockquote>
 <p><strong>注</strong> （なぜ $2\times2$ なのか）ベクトルを $2\times2$ 行列で表すのは奇妙に思えるかもしれない。しかし、内積とウェッジ積の両方を一つの積で表現するには、少なくとも非可換な代数が必要であり、その最小の実現が $2\times2$ 複素行列なのである。本書の流儀でいえば、$1$-form（横ベクトル $1\times3$）と $2$-form（反対称 $3\times3$ 行列）という次数の異なる二つの対象を、一つの $2\times2$ 行列の中に押し込めた——そう考えればよい。</p>
-</blockquote>
 <h4 id="1223-スカラーも混ぜて足す">12.2.3 スカラーも混ぜて足す</h4>
+</blockquote>
 <p>ここまでで、ベクトル（$1$-form）とウェッジ積（$2$-form）が $VW$ という一通りの計算で同時に出てくることがわかった。さらに一歩進めて、スカラー（$0$-form）そのものも同じ代数に混ぜよう。
 </p>
 <p>パウリ行列の線形結合で表される最も一般的な $2\times2$ 行列は
@@ -208,22 +206,14 @@ $$\psi = \varphi\,I + A_1\sigma_1 + A_2\sigma_2 + A_3\sigma_3$$
 </p>
 <blockquote>
 <p><strong>注</strong> （何ができるようになったのか）微分形式でも異なる次数の形式を直和として形式的に並べることはできる。しかし、内積（縮約）と外積（反対称化）を<strong>一つの積として同時に</strong>扱うには、通常のウェッジ積だけでは足りない。パウリ行列の代数では、それらが一つの積 $VW$ の中で自然に分離・共存する。これが幾何代数の核心である。</p>
-</blockquote>
-<blockquote>
 <p><strong>注</strong> （全次数の対応）パウリ行列の代数における次数対応を整理しておく。$I$ が $0$-form（スカラー）、$\sigma_1,\sigma_2,\sigma_3$ が $1$-form（ベクトル）、$i\sigma_1,i\sigma_2,i\sigma_3$ が $2$-form（バイベクトル）、$iI$ が $3$-form（擬スカラー）に対応する。最も一般的な元は $\psi = aI + \mathbf{v}\!\cdot\!\boldsymbol{\sigma} + i\,\mathbf{w}\!\cdot\!\boldsymbol{\sigma} + ibI$ の形で、4つの次数すべてを複素係数で含んでいる。</p>
-</blockquote>
-<blockquote>
 <p><strong>注</strong> （四元数——すでにあった魔法の箱）実はこの「スカラーとベクトルを一つの数に混ぜる」という発想は、パウリ行列よりもずっと古い。行列代数よりも古い。1843年にハミルトンが発見した<strong>四元数（quaternion）</strong> $q = a + bi + cj + dk$ がまさにそれだ。マクスウェルは自身の電磁気学を四元数で定式化していた。しかしその後、ギブズとヘヴィサイドが四元数からスカラー部分とベクトル部分を<strong>分離</strong>し、現代のベクトル解析（内積とクロス積）が誕生した。パウリ行列は、ギブズが分離したスカラーとベクトルを、約80年後に量子力学の文脈で再び<strong>統合</strong>したものである。歴史は一周したのだ。</p>
-</blockquote>
-<blockquote>
 <p><strong>注</strong> （行列なき時代のベクトル解析）ギブズとヘヴィサイドがベクトル解析を整備した1880年代には、まだ行列代数が一般的ではなかった。行列式はあったが、行列そのものの代数——積の非可換性、固有値、線形変換としての統一的理解——は、ケイリーの先駆的研究を経て、20世紀初頭のヒルベルトらによってようやく整備される。ギブズは線形変換を表すために<strong>ダイアド（dyad）</strong> $\mathbf{a}\mathbf{b}$ という独自の記法を発明したが、これは現代の行列 $\mathbf{a}\mathbf{b}^T$ に相当する。本書の視点から見ると、ベクトル解析は四元数的な統合から、内積・外積・ダイアド的な道具へと分化していったものとして眺めることができる。本書が「ナブラ解体新書」と題して $\nabla$ を $d$ と $\ast$ に分解し、最終章でパウリ行列による再統合を見せたことには、この分離と統合を繰り返してきた道具立てを、別の角度から見直す意味もある。</p>
-</blockquote>
-<blockquote>
 <p><strong>注</strong> （行列代数が物理学者の標準語でなかったこと）なお、行列代数が物理学者の標準語でなかったことは、1925年の行列力学にもよく現れている。ハイゼンベルク自身は当初、自分の計算が行列の非可換積であることを知らず、それを行列として読んだのはボルンだった。</p>
-</blockquote>
 <hr />
 <h3 id="123-ディラック演算子と真のナブラ">§12.3 ディラック演算子と「真のナブラ」</h3>
 <h4 id="1231--統合的な微分演算子">12.3.1 $\boldsymbol{\sigma}\!\cdot\!\nabla$ —— 統合的な微分演算子</h4>
+</blockquote>
 <p>パウリ行列とナブラ $\nabla = (\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z})$ を組み合わせて、次の演算子を定義する。
 </p>
 $$D = \sigma_1\frac{\partial}{\partial x} + \sigma_2\frac{\partial}{\partial y} + \sigma_3\frac{\partial}{\partial z} = \boldsymbol{\sigma}\!\cdot\!\nabla$$
@@ -259,8 +249,8 @@ $$D(\mathbf{A}\!\cdot\!\boldsymbol{\sigma}) = (\mathrm{div}\,\mathbf{A})\,I \;+\
 </p>
 <blockquote>
 <p><strong>注</strong> （$d$ と $\ast$ で書くと）$D$ は本書の言葉でも表現できる。符号規約を別にすれば、$D$ は $d$（次数を上げる）と $\ast d\ast$（次数を下げる）を合わせた演算子として理解できる。$\ast d\ast$ は<strong>余微分（codifferential）</strong> $\delta$ と呼ばれ、$\delta = \pm\ast d\ast$（符号は次元と次数に依存）と定義される。ここでは厳密な符号には立ち入らず、$D \sim d + \delta$ という構造だけを押さえておく。$d$ が次数を上げ、$\delta$ が次数を下げる——この二つを足した $D$ が、grad・rot・div を一つの演算子に束ねているのだ。</p>
-</blockquote>
 <h4 id="1232--ラプラシアン">12.3.2 $D^2$ —— ラプラシアン</h4>
+</blockquote>
 <p>さらに $D$ を二度作用させるとどうなるか。
 </p>
 $$D^2 = (\boldsymbol{\sigma}\!\cdot\!\nabla)(\boldsymbol{\sigma}\!\cdot\!\nabla) = (\sigma_1\frac{\partial}{\partial x} + \sigma_2\frac{\partial}{\partial y} + \sigma_3\frac{\partial}{\partial z})(\sigma_1\frac{\partial}{\partial x} + \sigma_2\frac{\partial}{\partial y} + \sigma_3\frac{\partial}{\partial z})$$

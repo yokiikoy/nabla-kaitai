@@ -68,7 +68,7 @@
     <div class="toc"><ul>
 <li class="level-1"><a href="index.html" id="link-index.html">まえがき</a></li>
 <li class="level-1"><a href="intro.html" id="link-intro.html">はじめに</a></li>
-<li class="level-1"><a href="portal.html" id="link-portal.html">サポートページとちょっとした試みのご案内</a></li>
+<li class="level-1"><a href="portal.html" id="link-portal.html">ポータルサイトとちょっとした試みのご案内</a></li>
 <li class="level-1"><a href="ch01.html" id="link-ch01.html">第1章</a></li>
 <li class="level-1"><a href="ch02.html" id="link-ch02.html">第2章</a></li>
 <li class="level-1"><a href="ch03.html" id="link-ch03.html">第3章</a></li>
@@ -153,10 +153,10 @@ a_x b_y - a_y b_x
 <p>- ドット積 $\mathbf{a}\cdot\mathbf{b} = a_x b_x + a_y b_y + a_z b_z$。実空間では $\mathbf{a}^T \mathbf{b}$ に等しい。</p>
 <p>- クロス積 $\mathbf{a}\times\mathbf{b}$ は外積行列 $(\mathbf{a}\times)$ を使って $(\mathbf{a}\times)\,\mathbf{b}$ と書ける。</p>
 <p>- クロス積は反可換、自分自身とはゼロ、結果は二つのベクトルに直交する。</p>
-</blockquote>
 <hr />
 <h3 id="72-と勾配">§7.2 $\nabla$ と勾配</h3>
 <h4 id="721-の定義">7.2.1 $\nabla$ の定義</h4>
+</blockquote>
 <p>ナブラ $\nabla$ を、偏微分演算子を縦に並べた形式的なベクトルとして定義する。
 </p>
 $$\nabla = \begin{pmatrix}
@@ -257,9 +257,9 @@ $$\nabla \times \mathbf{F} = \begin{pmatrix}
 <p>- $\mathrm{grad}\,f = \nabla f$（勾配）：スカラー場 → ベクトル場。</p>
 <p>- $\mathrm{div}\,\mathbf{F} = \nabla \cdot \mathbf{F}$（発散）：ベクトル場 → スカラー場。ヤコビ行列のトレースに等しい。</p>
 <p>- $\mathrm{rot}\,\mathbf{F} = \nabla \times \mathbf{F}$（回転）：ベクトル場 → ベクトル場。外積行列で書ける。</p>
-</blockquote>
 <hr />
 <h3 id="75-ラプラシアン">§7.5 ラプラシアン</h3>
+</blockquote>
 <p>勾配（スカラー→ベクトル）と発散（ベクトル→スカラー）を連続して作用させると、スカラー場からスカラー場への演算が得られる。これを<strong>ラプラシアン</strong>と呼ぶ。
 </p>
 $$\nabla^2 f = \mathrm{div}(\mathrm{grad}\,f) = \nabla \cdot (\nabla f) = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2}$$
@@ -303,9 +303,9 @@ $$\nabla \cdot (\nabla \times \mathbf{F}) = \frac{\partial}{\partial x}\!\left(\
 <p>- $\mathrm{rot}(\mathrm{grad}\,f) = \mathbf{0}$：勾配場に渦はない。</p>
 <p>- $\mathrm{div}(\mathrm{rot}\,\mathbf{F}) = 0$：渦場に湧き出しはない。</p>
 <p>- いずれも偏微分の順序交換 $\partial_i\partial_j = \partial_j\partial_i$ からの当然の帰結。</p>
-</blockquote>
 <hr />
 <h3 id="77-ナブラの公式集">§7.7 ナブラの公式集</h3>
+</blockquote>
 <p>実用的な計算のために、$\nabla$ を含む積の微分則と代表的なベクトル恒等式をまとめておく。以下、$f, g$ はスカラー場、$\mathbf{F}, \mathbf{G}$ はベクトル場とする。
 </p>
 <h4 id="771-積の微分則">7.7.1 積の微分則</h4>
@@ -355,8 +355,6 @@ $$\mathbf{A} \times (\mathbf{B} \times \mathbf{C}) = \mathbf{B}(\mathbf{A} \cdot
 <p><strong>注</strong> （なぜ公式を列挙したのか）ここに並べた公式は、大学のベクトル解析の試験で暗記を強いられる代表格である。では、$d$ と $\ast$ で書き直せば公式の数が劇的に減るかというと、そうでもない。微分形式の側でも、$d(f\omega) = df\wedge\omega + f d\omega$ のような規則はそれなりにある。</p>
 <p></p>
 <p>ベクトル解析の真の問題は、公式の数ではない。<strong>すべてが同じ「$3$ 成分の矢印」に見えてしまうこと</strong>だ。$\nabla f$ も $\nabla \times \mathbf{F}$ も $\nabla^2\mathbf{F}$ も、どれも画面上ではただの矢印の束である。しかし $\nabla f$ は勾配（ポテンシャルの傾き）、$\nabla \times \mathbf{F}$ は渦の軸——矢印の幾何的意味はまったく異なる。お絵かきと直感に頼っていると、問題が複雑になった瞬間に区別がつかなくなる。微分形式は、$0$-form、$1$-form、$2$-form、$3$-form と測定器の次数を明示することで、この混同を原理的に防ぐ。$d$ は常に次数を $+1$ し、$\ast$ は常に次数を反転させる——少数の規則に型の情報が載っているから、矢印を見なくても式の形だけで何をしているかがわかる。これが、第8章以降で form の言葉に立ち戻る理由である。</p>
-</blockquote>
-<blockquote>
 <p><strong>注</strong> （ここだけの話）$\mathrm{grad}=d$, $\mathrm{rot}=\ast d$, $\mathrm{div}=\ast d\ast$ と対応を書き下すのは、実はベクトル解析を解体するための妥協案という側面がある。</p>
 <p></p>
 <p>多くの微分形式の啓蒙書は、きれいに書ける範囲だけを見せて「微分形式は美しい」と問題をすり替える。だが実態は違うと筆者は考える。たとえば §7.7.4 のベクトル三重積 $\mathbf{A}\times(\mathbf{B}\times\mathbf{C})$ をこの枠組みで書き直すと、$\ast(\alpha \wedge \ast(\beta \wedge \gamma))$ のように $\ast$ の入れ子が発生し、むしろベクトル解析よりも不格好な姿を晒すことになる。</p>
@@ -364,9 +362,9 @@ $$\mathbf{A} \times (\mathbf{B} \times \mathbf{C}) = \mathbf{B}(\mathbf{A} \cdot
 <p>では、なぜ一部の微分形式の啓蒙者たちは美しさを強調するのか。本当のことを言えば、微分形式の世界には本来 $\ast$ などいらないからだ。計量という「ものさし」を召喚する前の、$d$ と $\wedge$ だけで編まれた世界——そこには、誰もまだ「内積」など定義していない純粋な外微分の風景が広がっている。そして、問題なくマクスウェル方程式を構成できる。</p>
 <p></p>
 <p>そして、本書のこの「微分形式によるベクトル解析」の計算を汚い、問題のすり替えだ、と読者が思えたなら、それは正しい。しかしその時、君はもうベクトル解析の初学者を卒業している。</p>
-</blockquote>
 <hr />
 <h3 id="78-積分定理ストークス・ガウス・グリーン">§7.8 積分定理——ストークス・ガウス・グリーン</h3>
+</blockquote>
 <p>ベクトル解析の最も重要な仕事は、微分演算（grad, div, rot）と積分を結びつけることにある。以下に三つの積分定理を、$\nabla$ の言葉で示す。
 </p>
 <h4 id="781-ストークスの定理">7.8.1 ストークスの定理</h4>
@@ -420,9 +418,9 @@ $$\oiint_S \mathbf{F} \cdot \mathbf{n}\,dS = \iiint_V (\nabla \cdot \mathbf{F})\
 <p>- ガウスの発散定理：$\oiint_S \mathbf{F}\cdot\mathbf{n}\,dS = \iiint_V (\nabla\cdot\mathbf{F})\,dV$</p>
 <p>- グリーンの定理はストークスの定理の平面版。</p>
 <p>- 三定理は「境界の積分 = 内部の微分の積分」という共通構造を持つが、$\nabla$ の言葉では別々の定理として扱わざるを得ない。</p>
-</blockquote>
 <hr />
 <h3 id="79-第III部へ--矢印を見るな測定器を見ろ">§7.9 第III部へ —— 矢印を見るな、測定器を見ろ</h3>
+</blockquote>
 <p>第5章と第6章で、我々は二つの演算子を手に入れた。外微分 $d$ ——次数を一つ上げ、局所的なズレを測る。ホッジ・スター $\ast$ ——計量に基づいて次数を反転させる。§5.5 では、この二つの組み合わせだけで $\mathrm{grad} = d$, $\mathrm{rot} = \ast d$, $\mathrm{div} = \ast d \ast$ と書けることを見た。
 </p>
 <p>一方、本章では $\nabla$ とドット積・クロス積だけを使って同じ対象を記述した。$\nabla f$ も $\nabla\times\mathbf{F}$ も $\nabla\cdot\mathbf{F}$ も、画面上ではすべて矢印（かスカラー）だ。しかし、それぞれが担う幾何的意味はまったく異なる。そして問題が複雑になるほど、矢印だけを見て区別するのは難しくなる。
@@ -436,7 +434,7 @@ $$\oiint_S \mathbf{F} \cdot \mathbf{n}\,dS = \iiint_V (\nabla \cdot \mathbf{F})\
 <p>- $\nabla^2 = \mathrm{div}\,\mathrm{grad}$, $\mathrm{rot}(\mathrm{grad}) = 0$, $\mathrm{div}(\mathrm{rot}) = 0$</p>
 <p>- クロス積の外積行列表示と BAC-CAB 則。</p>
 <p>- ベクトル解析の難しさは公式の数もさることながら、すべてが同じ矢印に見えることにある。微分形式は測定器（$n$-form）の次数で区別する。第III部でこの二つの言語を繫ぐ。</p>
-</blockquote>
+</p></blockquote>
       <div class="nav-buttons">
         <a href="ch06.html">← 第6章：計量 $g$ とホッジ...</a>
         <a href="ch08.html">第8章：二つの言語 —— 測定... →</a>
