@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.4.30)  3 MAY 2026 08:28
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.4.30)  3 MAY 2026 14:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -916,60 +916,72 @@ Overfull \hbox (12.79999pt too wide) in paragraph at lines 117--123
 Chapter 1.
 [8
 
-] [9]
+]
+Package mdframed Info: mdframed works in twoside mode on input line 197.
+Package mdframed Info: Not enough space on this page on input line 199.
+ [9]
+Chapter 2.
+Package mdframed Info: mdframed works in twoside mode on input line 244.
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 232.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 232.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 232.
+LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/it' undefined
+(Font)              using `TU/IPAexMincho(0)/m/n' instead on input line 246.
 
 [10
 
 ]
-Chapter 2.
-Package mdframed Info: mdframed works in twoside mode on input line 256.
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 265.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 265.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 265.
+
 [11
 
 ]
-Package mdframed Info: mdframed works in twoside mode on input line 266.
-Package mdframed Info: mdframed works in twoside mode on input line 270.
-Package mdframed Info: mdframed works in twoside mode on input line 282.
- [12]
-Package mdframed Info: mdframed works in twoside mode on input line 290.
- [13]
-Package mdframed Info: mdframed works in twoside mode on input line 329.
- [14
+Chapter 3.
+Package mdframed Info: mdframed works in twoside mode on input line 289.
+[12
 
 ]
-Package mdframed Info: mdframed works in twoside mode on input line 349.
-Package mdframed Info: Not enough space on this page on input line 351.
-Package mdframed Info: mdframed works in twoside mode on input line 353.
-Package mdframed Info: mdframed works in twoside mode on input line 370.
- [15]
-Package mdframed Info: mdframed works in twoside mode on input line 386.
-Package mdframed Info: mdframed works in twoside mode on input line 400.
- [16]
-Package mdframed Info: mdframed works in twoside mode on input line 423.
-Package mdframed Info: mdframed works in twoside mode on input line 431.
-Package mdframed Info: mdframed works in twoside mode on input line 456.
- [17]
-Package mdframed Info: mdframed works in twoside mode on input line 487.
- [18]
-Package mdframed Info: mdframed works in twoside mode on input line 497.
-Package mdframed Info: Not enough space on this page on input line 499.
-Package mdframed Info: mdframed works in twoside mode on input line 517.
- [19]
-Package mdframed Info: mdframed works in twoside mode on input line 533.
- [20]
-Package mdframed Info: mdframed works in twoside mode on input line 578.
+Package mdframed Info: mdframed works in twoside mode on input line 299.
+Package mdframed Info: mdframed works in twoside mode on input line 303.
+Package mdframed Info: mdframed works in twoside mode on input line 315.
+ [13]
+Package mdframed Info: mdframed works in twoside mode on input line 323.
+ [14]
+Package mdframed Info: mdframed works in twoside mode on input line 362.
+ [15
 
-Overfull \hbox (3.02141pt too wide) detected at line 582
+]
+Package mdframed Info: mdframed works in twoside mode on input line 382.
+Package mdframed Info: Not enough space on this page on input line 384.
+Package mdframed Info: mdframed works in twoside mode on input line 386.
+Package mdframed Info: mdframed works in twoside mode on input line 403.
+ [16]
+Package mdframed Info: mdframed works in twoside mode on input line 419.
+Package mdframed Info: mdframed works in twoside mode on input line 433.
+ [17]
+Package mdframed Info: mdframed works in twoside mode on input line 456.
+Package mdframed Info: mdframed works in twoside mode on input line 464.
+Package mdframed Info: mdframed works in twoside mode on input line 489.
+ [18]
+Package mdframed Info: mdframed works in twoside mode on input line 520.
+ [19]
+Package mdframed Info: mdframed works in twoside mode on input line 530.
+Package mdframed Info: Not enough space on this page on input line 532.
+Package mdframed Info: mdframed works in twoside mode on input line 550.
+ [20]
+Package mdframed Info: mdframed works in twoside mode on input line 566.
+ [21]
+Package mdframed Info: mdframed works in twoside mode on input line 611.
+
+Overfull \hbox (3.02141pt too wide) detected at line 615
 \OT1/cmr/m/n/12 ^^A\OML/cmm/m/it/12 f \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 f\OT1/
 cmr/m/n/12 (\OML/cmm/m/it/12 x \OT1/cmr/m/n/12 + ^^A\OML/cmm/m/it/12 x;  y \OT1
 /cmr/m/n/12 + ^^A\OML/cmm/m/it/12 y;  z \OT1/cmr/m/n/12 + ^^A\OML/cmm/m/it/12 z
@@ -981,397 +993,403 @@ cmm/m/it/12 x; y; z\OT1/cmr/m/n/12 ) = [] ^^A\OML/cmm/m/it/12 x \OT1/cmr/m/n/12
 /cmsy/m/n/12 k ! \OT1/cmr/m/n/12 0)
  []
 
-[21]
-Package mdframed Info: mdframed works in twoside mode on input line 600.
- [22]
-Package mdframed Info: mdframed works in twoside mode on input line 606.
-Package mdframed Info: Not enough space on this page on input line 617.
-Package mdframed Info: mdframed works in twoside mode on input line 625.
-Package mdframed Info: mdframed works in twoside mode on input line 644.
+[22]
+Package mdframed Info: mdframed works in twoside mode on input line 633.
  [23]
-Package mdframed Info: mdframed works in twoside mode on input line 681.
-Package mdframed Info: mdframed works in twoside mode on input line 685.
+Package mdframed Info: mdframed works in twoside mode on input line 639.
+Package mdframed Info: Not enough space on this page on input line 650.
+Package mdframed Info: mdframed works in twoside mode on input line 658.
+Package mdframed Info: mdframed works in twoside mode on input line 677.
  [24]
-Package mdframed Info: mdframed works in twoside mode on input line 701.
+Package mdframed Info: mdframed works in twoside mode on input line 714.
+Package mdframed Info: mdframed works in twoside mode on input line 718.
  [25]
-Package mdframed Info: mdframed works in twoside mode on input line 709.
-Package mdframed Info: mdframed works in twoside mode on input line 715.
- [26] [27]
-Package mdframed Info: mdframed works in twoside mode on input line 773.
-Package mdframed Info: Not enough space on this page on input line 775.
-Package mdframed Info: mdframed works in twoside mode on input line 787.
- [28] [29]
-Chapter 3.
-[30
+Package mdframed Info: mdframed works in twoside mode on input line 734.
+ [26]
+Package mdframed Info: mdframed works in twoside mode on input line 742.
+Package mdframed Info: mdframed works in twoside mode on input line 748.
+ [27] [28]
+Package mdframed Info: mdframed works in twoside mode on input line 806.
+Package mdframed Info: Not enough space on this page on input line 808.
+Package mdframed Info: mdframed works in twoside mode on input line 820.
+ [29] [30]
+Chapter 4.
+[31
 
 ]
-Package mdframed Info: mdframed works in twoside mode on input line 834.
-Package mdframed Info: Not enough space on this page on input line 836.
-Package mdframed Info: mdframed works in twoside mode on input line 846.
- [31]
-Package mdframed Info: mdframed works in twoside mode on input line 876.
-Package mdframed Info: mdframed works in twoside mode on input line 880.
+Package mdframed Info: mdframed works in twoside mode on input line 867.
+Package mdframed Info: Not enough space on this page on input line 869.
+Package mdframed Info: mdframed works in twoside mode on input line 879.
  [32]
-Package mdframed Info: mdframed works in twoside mode on input line 892.
-Package mdframed Info: Not enough space on this page on input line 894.
-Package mdframed Info: mdframed works in twoside mode on input line 896.
+Package mdframed Info: mdframed works in twoside mode on input line 909.
+Package mdframed Info: mdframed works in twoside mode on input line 913.
  [33]
-Package mdframed Info: mdframed works in twoside mode on input line 952.
-Package mdframed Info: Not enough space on this page on input line 954.
-Package mdframed Info: mdframed works in twoside mode on input line 972.
+Package mdframed Info: mdframed works in twoside mode on input line 925.
+Package mdframed Info: Not enough space on this page on input line 927.
+Package mdframed Info: mdframed works in twoside mode on input line 929.
  [34]
-Package mdframed Info: mdframed works in twoside mode on input line 982.
- [35] [36]
-Package mdframed Info: mdframed works in twoside mode on input line 1070.
-Package mdframed Info: Not enough space on this page on input line 1072.
- [37]
-Package mdframed Info: mdframed works in twoside mode on input line 1148.
- [38] [39]
-Package mdframed Info: mdframed works in twoside mode on input line 1199.
-Package mdframed Info: mdframed works in twoside mode on input line 1203.
-Package mdframed Info: mdframed works in twoside mode on input line 1209.
- [40] [41]
-Package mdframed Info: mdframed works in twoside mode on input line 1288.
- [42] [43]
-Package mdframed Info: mdframed works in twoside mode on input line 1337.
-Package mdframed Info: Not enough space on this page on input line 1339.
-Package mdframed Info: mdframed works in twoside mode on input line 1341.
- [44]
-Package mdframed Info: mdframed works in twoside mode on input line 1399.
-Package mdframed Info: mdframed works in twoside mode on input line 1419.
+Package mdframed Info: mdframed works in twoside mode on input line 985.
+Package mdframed Info: Not enough space on this page on input line 987.
+Package mdframed Info: mdframed works in twoside mode on input line 1005.
+ [35]
+Package mdframed Info: mdframed works in twoside mode on input line 1015.
+ [36] [37]
+Package mdframed Info: mdframed works in twoside mode on input line 1103.
+Package mdframed Info: Not enough space on this page on input line 1105.
+ [38]
+Package mdframed Info: mdframed works in twoside mode on input line 1181.
+ [39] [40]
+Package mdframed Info: mdframed works in twoside mode on input line 1232.
+Package mdframed Info: mdframed works in twoside mode on input line 1236.
+Package mdframed Info: mdframed works in twoside mode on input line 1242.
+ [41] [42]
+Package mdframed Info: mdframed works in twoside mode on input line 1321.
+ [43] [44]
+Package mdframed Info: mdframed works in twoside mode on input line 1370.
+Package mdframed Info: Not enough space on this page on input line 1372.
+Package mdframed Info: mdframed works in twoside mode on input line 1374.
+ [45]
+Package mdframed Info: mdframed works in twoside mode on input line 1432.
+Package mdframed Info: mdframed works in twoside mode on input line 1452.
 
-[45]
-Package mdframed Info: mdframed works in twoside mode on input line 1433.
- [46]
-Package mdframed Info: mdframed works in twoside mode on input line 1455.
-Package mdframed Info: Not enough space on this page on input line 1457.
+[46]
+Package mdframed Info: mdframed works in twoside mode on input line 1466.
+ [47]
+Package mdframed Info: mdframed works in twoside mode on input line 1488.
+Package mdframed Info: Not enough space on this page on input line 1490.
 
-Overfull \hbox (8.13475pt too wide) in paragraph at lines 1490--1490
+Overfull \hbox (8.13475pt too wide) in paragraph at lines 1523--1523
 \TU/IPAexMincho(0)/m/n/12 （$\OML/cmm/m/it/12 A[]; A[]; A[]$\TU/IPAexMincho(0)/m
 /n/12 ）|  
  []
 
 
-Overfull \hbox (14.55122pt too wide) in paragraph at lines 1490--1491
+Overfull \hbox (14.55122pt too wide) in paragraph at lines 1523--1524
 []|$[]$|  
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 1495.
-[47]
-Package mdframed Info: mdframed works in twoside mode on input line 1510.
- [48]
-Package mdframed Info: mdframed works in twoside mode on input line 1545.
- [49] [50]
-Chapter 4.
-[51
+Package mdframed Info: mdframed works in twoside mode on input line 1528.
+[48]
+Package mdframed Info: mdframed works in twoside mode on input line 1543.
+ [49]
+Package mdframed Info: mdframed works in twoside mode on input line 1578.
+ [50] [51]
+Chapter 5.
+[52
 
 ]
-Package mdframed Info: mdframed works in twoside mode on input line 1657.
-Package mdframed Info: mdframed works in twoside mode on input line 1671.
- [52] [53]
-Package mdframed Info: mdframed works in twoside mode on input line 1717.
-Package mdframed Info: mdframed works in twoside mode on input line 1723.
- [54]
-Package mdframed Info: mdframed works in twoside mode on input line 1758.
-Package mdframed Info: mdframed works in twoside mode on input line 1772.
- [55] [56]
-Package mdframed Info: mdframed works in twoside mode on input line 1868.
+Package mdframed Info: mdframed works in twoside mode on input line 1690.
+Package mdframed Info: mdframed works in twoside mode on input line 1704.
+ [53] [54]
+Package mdframed Info: mdframed works in twoside mode on input line 1750.
+Package mdframed Info: mdframed works in twoside mode on input line 1756.
+ [55]
+Package mdframed Info: mdframed works in twoside mode on input line 1791.
+Package mdframed Info: mdframed works in twoside mode on input line 1805.
+ [56] [57]
+Package mdframed Info: mdframed works in twoside mode on input line 1901.
 Package mdframed Info: Box was splittet wrong
  starting loop to iterate the splitting point
-(mdframed)              on input line 1881.
- [57]
-Package mdframed Info: mdframed works in twoside mode on input line 1915.
+(mdframed)              on input line 1914.
  [58]
-Package mdframed Info: mdframed works in twoside mode on input line 1958.
+Package mdframed Info: mdframed works in twoside mode on input line 1948.
  [59]
-Package mdframed Info: mdframed works in twoside mode on input line 1964.
-Package mdframed Info: Not enough space on this page on input line 1966.
-Package mdframed Info: mdframed works in twoside mode on input line 1978.
- [60] [61]
-Package mdframed Info: mdframed works in twoside mode on input line 2040.
-Package mdframed Info: Not enough space on this page on input line 2042.
-Package mdframed Info: mdframed works in twoside mode on input line 2074.
- [62]
-Package mdframed Info: mdframed works in twoside mode on input line 2126.
+Package mdframed Info: mdframed works in twoside mode on input line 1991.
+ [60]
+Package mdframed Info: mdframed works in twoside mode on input line 1997.
+Package mdframed Info: Not enough space on this page on input line 1999.
+Package mdframed Info: mdframed works in twoside mode on input line 2011.
+ [61] [62]
+Package mdframed Info: mdframed works in twoside mode on input line 2073.
+Package mdframed Info: Not enough space on this page on input line 2075.
+Package mdframed Info: mdframed works in twoside mode on input line 2107.
  [63]
-Package mdframed Info: mdframed works in twoside mode on input line 2170.
+Package mdframed Info: mdframed works in twoside mode on input line 2159.
  [64]
-Chapter 5.
-Package mdframed Info: mdframed works in twoside mode on input line 2219.
-[65
-
-] [66]
-Package mdframed Info: mdframed works in twoside mode on input line 2300.
-Package mdframed Info: mdframed works in twoside mode on input line 2304.
- [67]
-Package mdframed Info: mdframed works in twoside mode on input line 2320.
- [68]
-Package mdframed Info: mdframed works in twoside mode on input line 2361.
- [69] [70]
-Package mdframed Info: mdframed works in twoside mode on input line 2457.
- [71]
-Package mdframed Info: mdframed works in twoside mode on input line 2501.
-Package mdframed Info: mdframed works in twoside mode on input line 2512.
- [72]
-Package mdframed Info: mdframed works in twoside mode on input line 2518.
-Package mdframed Info: Not enough space on this page on input line 2520.
-Package mdframed Info: mdframed works in twoside mode on input line 2547.
- [73] [74]
+Package mdframed Info: mdframed works in twoside mode on input line 2203.
+ [65]
 Chapter 6.
+Package mdframed Info: mdframed works in twoside mode on input line 2252.
+[66
+
+] [67]
+Package mdframed Info: mdframed works in twoside mode on input line 2333.
+Package mdframed Info: mdframed works in twoside mode on input line 2337.
+ [68]
+Package mdframed Info: mdframed works in twoside mode on input line 2353.
+ [69]
+Package mdframed Info: mdframed works in twoside mode on input line 2394.
+ [70] [71]
+Package mdframed Info: mdframed works in twoside mode on input line 2490.
+ [72]
+Package mdframed Info: mdframed works in twoside mode on input line 2534.
+Package mdframed Info: mdframed works in twoside mode on input line 2545.
+ [73]
+Package mdframed Info: mdframed works in twoside mode on input line 2551.
+Package mdframed Info: Not enough space on this page on input line 2553.
 Package mdframed Info: mdframed works in twoside mode on input line 2580.
-Package mdframed Info: mdframed works in twoside mode on input line 2586.
-[75
-
-]
-Package mdframed Info: mdframed works in twoside mode on input line 2632.
- [76]
-Package mdframed Info: mdframed works in twoside mode on input line 2657.
-Package mdframed Info: mdframed works in twoside mode on input line 2661.
-Package mdframed Info: mdframed works in twoside mode on input line 2677.
- [77]
-Package mdframed Info: mdframed works in twoside mode on input line 2691.
-Package mdframed Info: mdframed works in twoside mode on input line 2703.
- [78]
-Package mdframed Info: mdframed works in twoside mode on input line 2719.
- [79]
-Package mdframed Info: mdframed works in twoside mode on input line 2747.
-Package mdframed Info: mdframed works in twoside mode on input line 2759.
- [80]
-Package mdframed Info: mdframed works in twoside mode on input line 2798.
-Package mdframed Info: mdframed works in twoside mode on input line 2825.
- [81]
-Package mdframed Info: mdframed works in twoside mode on input line 2833.
- [82] [83]
-Package mdframed Info: mdframed works in twoside mode on input line 2901.
-Package mdframed Info: Not enough space on this page on input line 2903.
-Package mdframed Info: mdframed works in twoside mode on input line 2905.
- [84]
-Package mdframed Info: mdframed works in twoside mode on input line 2956.
-Package mdframed Info: mdframed works in twoside mode on input line 2960.
-Package mdframed Info: mdframed works in twoside mode on input line 2964.
- [85] [86]
-Package mdframed Info: mdframed works in twoside mode on input line 3052.
-Package mdframed Info: mdframed works in twoside mode on input line 3056.
- [87]
-Package mdframed Info: mdframed works in twoside mode on input line 3083.
- [88]
-Package mdframed Info: mdframed works in twoside mode on input line 3101.
-Package mdframed Info: Not enough space on this page on input line 3110.
-Package mdframed Info: mdframed works in twoside mode on input line 3132.
- [89]
-Package mdframed Info: mdframed works in twoside mode on input line 3165.
-Package mdframed Info: mdframed works in twoside mode on input line 3169.
-
-[90]
-Package mdframed Info: mdframed works in twoside mode on input line 3190.
- [91]
-Package mdframed Info: mdframed works in twoside mode on input line 3224.
-Package mdframed Info: Not enough space on this page on input line 3235.
-Package mdframed Info: mdframed works in twoside mode on input line 3264.
- [92] [93] [94] [95] [96
-
-]
+ [74] [75]
 Chapter 7.
-[97
+Package mdframed Info: mdframed works in twoside mode on input line 2613.
+Package mdframed Info: mdframed works in twoside mode on input line 2619.
+[76
 
 ]
-Package mdframed Info: mdframed works in twoside mode on input line 3428.
-Package mdframed Info: Not enough space on this page on input line 3430.
- [98]
-Package mdframed Info: mdframed works in twoside mode on input line 3477.
- [99] [100]
-Package mdframed Info: mdframed works in twoside mode on input line 3622.
- [101]
-Package mdframed Info: mdframed works in twoside mode on input line 3648.
- [102]
-Package mdframed Info: mdframed works in twoside mode on input line 3668.
-Package mdframed Info: mdframed works in twoside mode on input line 3676.
- [103]
-Package mdframed Info: mdframed works in twoside mode on input line 3680.
-Package mdframed Info: Not enough space on this page on input line 3693.
-Package mdframed Info: mdframed works in twoside mode on input line 3714.
- [104]
-Package mdframed Info: mdframed works in twoside mode on input line 3728.
-Package mdframed Info: mdframed works in twoside mode on input line 3732.
- [105]
-Package mdframed Info: mdframed works in twoside mode on input line 3783.
-Package mdframed Info: mdframed works in twoside mode on input line 3802.
- [106]
-Package mdframed Info: mdframed works in twoside mode on input line 3814.
- [107]
-Package mdframed Info: mdframed works in twoside mode on input line 3855.
- [108]
-Package mdframed Info: mdframed works in twoside mode on input line 3924.
- [109]
-Package mdframed Info: mdframed works in twoside mode on input line 3928.
-Package mdframed Info: Not enough space on this page on input line 3939.
-Package mdframed Info: mdframed works in twoside mode on input line 3947.
+Package mdframed Info: mdframed works in twoside mode on input line 2665.
+ [77]
+Package mdframed Info: mdframed works in twoside mode on input line 2690.
+Package mdframed Info: mdframed works in twoside mode on input line 2694.
+Package mdframed Info: mdframed works in twoside mode on input line 2710.
+ [78]
+Package mdframed Info: mdframed works in twoside mode on input line 2724.
+Package mdframed Info: mdframed works in twoside mode on input line 2736.
+ [79]
+Package mdframed Info: mdframed works in twoside mode on input line 2752.
+ [80]
+Package mdframed Info: mdframed works in twoside mode on input line 2780.
+Package mdframed Info: mdframed works in twoside mode on input line 2792.
+ [81]
+Package mdframed Info: mdframed works in twoside mode on input line 2831.
+Package mdframed Info: mdframed works in twoside mode on input line 2858.
+ [82]
+Package mdframed Info: mdframed works in twoside mode on input line 2866.
+ [83] [84]
+Package mdframed Info: mdframed works in twoside mode on input line 2934.
+Package mdframed Info: Not enough space on this page on input line 2936.
+Package mdframed Info: mdframed works in twoside mode on input line 2938.
+ [85]
+Package mdframed Info: mdframed works in twoside mode on input line 2989.
+Package mdframed Info: mdframed works in twoside mode on input line 2993.
+Package mdframed Info: mdframed works in twoside mode on input line 2997.
+ [86] [87]
+Package mdframed Info: mdframed works in twoside mode on input line 3085.
+Package mdframed Info: mdframed works in twoside mode on input line 3089.
+ [88]
+Package mdframed Info: mdframed works in twoside mode on input line 3116.
+ [89]
+Package mdframed Info: mdframed works in twoside mode on input line 3134.
+Package mdframed Info: Not enough space on this page on input line 3143.
+Package mdframed Info: mdframed works in twoside mode on input line 3165.
+ [90]
+Package mdframed Info: mdframed works in twoside mode on input line 3198.
+Package mdframed Info: mdframed works in twoside mode on input line 3202.
 
-[110]
-Package mdframed Info: mdframed works in twoside mode on input line 3993.
- [111]
-Package mdframed Info: mdframed works in twoside mode on input line 4041.
-Package mdframed Info: mdframed works in twoside mode on input line 4047.
- [112]
-Package mdframed Info: mdframed works in twoside mode on input line 4053.
-Package mdframed Info: Not enough space on this page on input line 4072.
-Package mdframed Info: mdframed works in twoside mode on input line 4086.
- [113]
-Package mdframed Info: mdframed works in twoside mode on input line 4092.
-Package mdframed Info: Not enough space on this page on input line 4094.
-Package mdframed Info: mdframed works in twoside mode on input line 4096.
- [114]
-Package mdframed Info: mdframed works in twoside mode on input line 4144.
-Package mdframed Info: Not enough space on this page on input line 4146.
-Package mdframed Info: mdframed works in twoside mode on input line 4183.
- [115] [116]
-Package mdframed Info: mdframed works in twoside mode on input line 4265.
-Package mdframed Info: Not enough space on this page on input line 4280.
- [117]
+[91]
+Package mdframed Info: mdframed works in twoside mode on input line 3223.
+ [92]
+Package mdframed Info: mdframed works in twoside mode on input line 3257.
+Package mdframed Info: Not enough space on this page on input line 3268.
+Package mdframed Info: mdframed works in twoside mode on input line 3297.
+ [93] [94] [95] [96] [97
+
+]
 Chapter 8.
-Package mdframed Info: mdframed works in twoside mode on input line 4294.
-[118
+[98
 
 ]
-Package mdframed Info: mdframed works in twoside mode on input line 4367.
- [119]
-Package mdframed Info: mdframed works in twoside mode on input line 4412.
- [120] [121]
-Package mdframed Info: mdframed works in twoside mode on input line 4514.
- [122]
-Package mdframed Info: mdframed works in twoside mode on input line 4583.
- [123] [124]
-Package mdframed Info: mdframed works in twoside mode on input line 4662.
-Package mdframed Info: mdframed works in twoside mode on input line 4668.
- [125]
-Package mdframed Info: mdframed works in twoside mode on input line 4692.
- [126]
-Package mdframed Info: mdframed works in twoside mode on input line 4739.
-Package mdframed Info: mdframed works in twoside mode on input line 4764.
- [127]
+Package mdframed Info: mdframed works in twoside mode on input line 3461.
+Package mdframed Info: Not enough space on this page on input line 3463.
+ [99]
+Package mdframed Info: mdframed works in twoside mode on input line 3510.
+ [100] [101]
+Package mdframed Info: mdframed works in twoside mode on input line 3655.
+ [102]
+Package mdframed Info: mdframed works in twoside mode on input line 3681.
+ [103]
+Package mdframed Info: mdframed works in twoside mode on input line 3701.
+Package mdframed Info: mdframed works in twoside mode on input line 3709.
+ [104]
+Package mdframed Info: mdframed works in twoside mode on input line 3713.
+Package mdframed Info: Not enough space on this page on input line 3726.
+Package mdframed Info: mdframed works in twoside mode on input line 3747.
+ [105]
+Package mdframed Info: mdframed works in twoside mode on input line 3761.
+Package mdframed Info: mdframed works in twoside mode on input line 3765.
+ [106]
+Package mdframed Info: mdframed works in twoside mode on input line 3816.
+Package mdframed Info: mdframed works in twoside mode on input line 3835.
+ [107]
+Package mdframed Info: mdframed works in twoside mode on input line 3847.
+ [108]
+Package mdframed Info: mdframed works in twoside mode on input line 3888.
+ [109]
+Package mdframed Info: mdframed works in twoside mode on input line 3957.
+ [110]
+Package mdframed Info: mdframed works in twoside mode on input line 3961.
+Package mdframed Info: Not enough space on this page on input line 3972.
+Package mdframed Info: mdframed works in twoside mode on input line 3980.
+
+[111]
+Package mdframed Info: mdframed works in twoside mode on input line 4026.
+ [112]
+Package mdframed Info: mdframed works in twoside mode on input line 4074.
+Package mdframed Info: mdframed works in twoside mode on input line 4080.
+ [113]
+Package mdframed Info: mdframed works in twoside mode on input line 4086.
+Package mdframed Info: Not enough space on this page on input line 4105.
+Package mdframed Info: mdframed works in twoside mode on input line 4119.
+ [114]
+Package mdframed Info: mdframed works in twoside mode on input line 4125.
+Package mdframed Info: Not enough space on this page on input line 4127.
+Package mdframed Info: mdframed works in twoside mode on input line 4129.
+ [115]
+Package mdframed Info: mdframed works in twoside mode on input line 4177.
+Package mdframed Info: Not enough space on this page on input line 4179.
+Package mdframed Info: mdframed works in twoside mode on input line 4216.
+ [116] [117]
+Package mdframed Info: mdframed works in twoside mode on input line 4298.
+Package mdframed Info: Not enough space on this page on input line 4313.
+ [118]
 Chapter 9.
-[128
+Package mdframed Info: mdframed works in twoside mode on input line 4327.
+[119
 
 ]
-Package mdframed Info: mdframed works in twoside mode on input line 4847.
- [129] [130]
-Package mdframed Info: mdframed works in twoside mode on input line 4934.
-Package mdframed Info: Not enough space on this page on input line 4943.
- [131]
-Package mdframed Info: mdframed works in twoside mode on input line 4975.
-Package mdframed Info: mdframed works in twoside mode on input line 4979.
- [132]
-Package mdframed Info: mdframed works in twoside mode on input line 5025.
- [133]
-Package mdframed Info: mdframed works in twoside mode on input line 5088.
-Package mdframed Info: mdframed works in twoside mode on input line 5092.
- [134]
-Package mdframed Info: mdframed works in twoside mode on input line 5141.
- [135]
-Package mdframed Info: mdframed works in twoside mode on input line 5155.
-Package mdframed Info: Not enough space on this page on input line 5157.
- [136]
-Package mdframed Info: mdframed works in twoside mode on input line 5205.
- [137]
+Package mdframed Info: mdframed works in twoside mode on input line 4400.
+ [120]
+Package mdframed Info: mdframed works in twoside mode on input line 4445.
+ [121] [122]
+Package mdframed Info: mdframed works in twoside mode on input line 4547.
+ [123]
+Package mdframed Info: mdframed works in twoside mode on input line 4616.
+ [124] [125]
+Package mdframed Info: mdframed works in twoside mode on input line 4695.
+Package mdframed Info: mdframed works in twoside mode on input line 4701.
+ [126]
+Package mdframed Info: mdframed works in twoside mode on input line 4725.
+ [127]
+Package mdframed Info: mdframed works in twoside mode on input line 4772.
+Package mdframed Info: mdframed works in twoside mode on input line 4797.
+ [128]
 Chapter 10.
+[129
+
+]
+Package mdframed Info: mdframed works in twoside mode on input line 4880.
+ [130] [131]
+Package mdframed Info: mdframed works in twoside mode on input line 4963.
+ [132]
+Package mdframed Info: mdframed works in twoside mode on input line 5004.
+Package mdframed Info: mdframed works in twoside mode on input line 5008.
+ [133]
+Package mdframed Info: mdframed works in twoside mode on input line 5054.
+ [134]
+Package mdframed Info: mdframed works in twoside mode on input line 5117.
+Package mdframed Info: mdframed works in twoside mode on input line 5121.
+ [135]
+Package mdframed Info: mdframed works in twoside mode on input line 5170.
+ [136]
+Package mdframed Info: mdframed works in twoside mode on input line 5184.
+Package mdframed Info: Not enough space on this page on input line 5186.
+ [137]
 Package mdframed Info: mdframed works in twoside mode on input line 5234.
-[138
-
-] [139]
-Package mdframed Info: mdframed works in twoside mode on input line 5305.
-Package mdframed Info: mdframed works in twoside mode on input line 5309.
- [140] [141] [142] [143]
-Package mdframed Info: mdframed works in twoside mode on input line 5494.
-Package mdframed Info: mdframed works in twoside mode on input line 5516.
- [144]
-Package mdframed Info: mdframed works in twoside mode on input line 5530.
- [145] [146
-
-]
+ [138]
 Chapter 11.
-Package mdframed Info: mdframed works in twoside mode on input line 5558.
-Package mdframed Info: mdframed works in twoside mode on input line 5562.
-[147
-
-] [148]
-Package mdframed Info: mdframed works in twoside mode on input line 5641.
-Package mdframed Info: mdframed works in twoside mode on input line 5670.
- [149] [150] [151]
-Package mdframed Info: mdframed works in twoside mode on input line 5775.
- [152]
-Package mdframed Info: mdframed works in twoside mode on input line 5814.
-Package mdframed Info: Not enough space on this page on input line 5816.
-Package mdframed Info: mdframed works in twoside mode on input line 5818.
- [153]
-Package mdframed Info: mdframed works in twoside mode on input line 5871.
- [154]
-Package mdframed Info: mdframed works in twoside mode on input line 5885.
-Package mdframed Info: Not enough space on this page on input line 5887.
-Package mdframed Info: mdframed works in twoside mode on input line 5897.
-Package mdframed Info: mdframed works in twoside mode on input line 5901.
- [155] [156] [157]
-Package mdframed Info: mdframed works in twoside mode on input line 6043.
- [158]
-[159] [160]
-Chapter 12.
-Package mdframed Info: mdframed works in twoside mode on input line 6165.
-Package mdframed Info: mdframed works in twoside mode on input line 6169.
-Package mdframed Info: mdframed works in twoside mode on input line 6173.
-[161
+Package mdframed Info: mdframed works in twoside mode on input line 5263.
+[139
 
 ]
-Package mdframed Info: mdframed works in twoside mode on input line 6185.
-Package mdframed Info: mdframed works in twoside mode on input line 6189.
-Package mdframed Info: mdframed works in twoside mode on input line 6195.
- [162] [163]
-Package mdframed Info: mdframed works in twoside mode on input line 6241.
- [164] [165] [166] [167] [168]
-Package mdframed Info: mdframed works in twoside mode on input line 6382.
-Package mdframed Info: Not enough space on this page on input line 6384.
-Package mdframed Info: mdframed works in twoside mode on input line 6388.
-Package mdframed Info: mdframed works in twoside mode on input line 6404.
- [169] [170]
+Package mdframed Info: mdframed works in twoside mode on input line 5283.
+Package mdframed Info: Not enough space on this page on input line 5285.
+Package mdframed Info: mdframed works in twoside mode on input line 5287.
+Package mdframed Info: mdframed works in twoside mode on input line 5301.
+ [140]
+Package mdframed Info: mdframed works in twoside mode on input line 5328.
+Package mdframed Info: Not enough space on this page on input line 5347.
+Package mdframed Info: mdframed works in twoside mode on input line 5367.
+ [141] [142]
+Package mdframed Info: mdframed works in twoside mode on input line 5433.
+Package mdframed Info: Not enough space on this page on input line 5461.
+ [143] [144]
+Package mdframed Info: mdframed works in twoside mode on input line 5572.
+ [145]
+Package mdframed Info: mdframed works in twoside mode on input line 5594.
+Package mdframed Info: mdframed works in twoside mode on input line 5608.
+ [146] [147
+
+]
+Chapter 12.
+Package mdframed Info: mdframed works in twoside mode on input line 5636.
+Package mdframed Info: mdframed works in twoside mode on input line 5640.
+[148
+
+] [149]
+Package mdframed Info: mdframed works in twoside mode on input line 5734.
+Package mdframed Info: mdframed works in twoside mode on input line 5755.
+ [150]
+Package mdframed Info: mdframed works in twoside mode on input line 5759.
+Package mdframed Info: Not enough space on this page on input line 5761.
+ [151] [152]
+Package mdframed Info: mdframed works in twoside mode on input line 5861.
+Package mdframed Info: mdframed works in twoside mode on input line 5865.
+ [153]
+Package mdframed Info: mdframed works in twoside mode on input line 5931.
+ [154]
+Package mdframed Info: mdframed works in twoside mode on input line 5945.
+Package mdframed Info: mdframed works in twoside mode on input line 5957.
+Package mdframed Info: mdframed works in twoside mode on input line 5961.
+ [155] [156]
+Package mdframed Info: mdframed works in twoside mode on input line 6078.
+ [157] [158] [159]
 Chapter 13.
-Package mdframed Info: mdframed works in twoside mode on input line 6434.
-[171
+Package mdframed Info: mdframed works in twoside mode on input line 6200.
+Package mdframed Info: mdframed works in twoside mode on input line 6204.
+Package mdframed Info: mdframed works in twoside mode on input line 6208.
+[160
 
-] [172]
-Package mdframed Info: mdframed works in twoside mode on input line 6550.
- [173]
-Package mdframed Info: mdframed works in twoside mode on input line 6564.
-Package mdframed Info: mdframed works in twoside mode on input line 6568.
-Package mdframed Info: mdframed works in twoside mode on input line 6572.
-Package mdframed Info: mdframed works in twoside mode on input line 6576.
- [174]
-Package mdframed Info: mdframed works in twoside mode on input line 6580.
-Package mdframed Info: Not enough space on this page on input line 6582.
- [175]
-Package mdframed Info: mdframed works in twoside mode on input line 6628.
-Package mdframed Info: Not enough space on this page on input line 6630.
- [176] [177]
-Package mdframed Info: mdframed works in twoside mode on input line 6706.
-Package mdframed Info: Not enough space on this page on input line 6708.
- [178]
+]
+Package mdframed Info: mdframed works in twoside mode on input line 6220.
+Package mdframed Info: mdframed works in twoside mode on input line 6224.
+Package mdframed Info: mdframed works in twoside mode on input line 6230.
+ [161] [162]
+Package mdframed Info: mdframed works in twoside mode on input line 6276.
+ [163] [164] [165] [166] [167]
+Package mdframed Info: mdframed works in twoside mode on input line 6417.
+Package mdframed Info: Not enough space on this page on input line 6419.
+Package mdframed Info: mdframed works in twoside mode on input line 6423.
+Package mdframed Info: mdframed works in twoside mode on input line 6439.
+ [168] [169]
 Chapter 14.
-[179
+Package mdframed Info: mdframed works in twoside mode on input line 6469.
+Package mdframed Info: mdframed works in twoside mode on input line 6473.
+[170
 
-] [180]
+] [171] [172]
+Package mdframed Info: mdframed works in twoside mode on input line 6589.
+Package mdframed Info: Not enough space on this page on input line 6591.
+Package mdframed Info: mdframed works in twoside mode on input line 6603.
+Package mdframed Info: mdframed works in twoside mode on input line 6607.
+Package mdframed Info: mdframed works in twoside mode on input line 6611.
+Package mdframed Info: mdframed works in twoside mode on input line 6615.
+ [173]
+Package mdframed Info: mdframed works in twoside mode on input line 6619.
+ [174]
+Package mdframed Info: mdframed works in twoside mode on input line 6667.
+ [175]
+Package mdframed Info: mdframed works in twoside mode on input line 6729.
+ [176]
+Package mdframed Info: mdframed works in twoside mode on input line 6749.
+ [177]
+Chapter 15.
+[178
+
+] [179]
 
 LaTeX Font Warning: Font shape `TU/IPAexGothic(2)/m/it' undefined
-(Font)              using `TU/IPAexGothic(2)/m/n' instead on input line 6764.
+(Font)              using `TU/IPAexGothic(2)/m/n' instead on input line 6807.
 
-[181
+[180
 
-] [182]
-Package mdframed Info: mdframed works in twoside mode on input line 6808.
-Package mdframed Info: mdframed works in twoside mode on input line 6814.
- [183
+] [181]
+Package mdframed Info: mdframed works in twoside mode on input line 6851.
+Package mdframed Info: mdframed works in twoside mode on input line 6857.
+ [182
 
 ]
-Package mdframed Info: mdframed works in twoside mode on input line 6826.
-Package mdframed Info: Not enough space on this page on input line 6834.
-Package mdframed Info: mdframed works in twoside mode on input line 6836.
- [184] [185] [186] [187] (exports/manuscript.aux)
+Package mdframed Info: mdframed works in twoside mode on input line 6869.
+Package mdframed Info: Not enough space on this page on input line 6877.
+Package mdframed Info: mdframed works in twoside mode on input line 6879.
+ [183] [184] [185] [186] (exports/manuscript.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1382,12 +1400,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 16831 strings out of 476878
- 331524 string characters out of 5805249
- 1960627 words of memory out of 5000000
- 38447 multiletter control sequences out of 15000+600000
- 583568 words of font info for 162 fonts, out of 8000000 for 9000
+ 16852 strings out of 476878
+ 332064 string characters out of 5805249
+ 1964627 words of memory out of 5000000
+ 38467 multiletter control sequences out of 15000+600000
+ 583576 words of font info for 163 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  79i,16n,93p,688b,505s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on exports/manuscript.pdf (187 pages).
+Output written on exports/manuscript.pdf (186 pages).
