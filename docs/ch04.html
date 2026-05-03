@@ -30,15 +30,16 @@
     .markdown-body { padding: 0.5rem; }
   }
   blockquote { border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }
+  .table-wrapper { overflow-x: auto; margin: 1.5em 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.9em; }
+  th, td { border: 1px solid #d0d7de; padding: 6px 13px; }
+  tr:nth-child(even) { background-color: #f6f8fa; }
+  th { font-weight: 600; background-color: #f6f8fa; }
   .nav-buttons { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }
   .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
   .nav-buttons a:hover { background: #f6f8fa; }
   strong { font-weight: 800 !important; color: #000; }
   blockquote strong { color: #24292f !important; }
-  table { border-collapse: collapse; width: 100%; margin: 1.5em 0; font-size: 0.9em; }
-  th, td { border: 1px solid #d0d7de; padding: 6px 13px; }
-  tr:nth-child(even) { background-color: #f6f8fa; }
-  th { font-weight: 600; background-color: #f6f8fa; }
   /* KaTeX responsiveness */
   .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }
 </style>
@@ -59,6 +60,7 @@
 </script>
 
 </head>
+<body>
   <nav class="sidebar">
     <h2><a href="index.html">ナブラ解体新書</a></h2>
     <div class="author">
@@ -95,28 +97,28 @@
 <p>質点にした仕事は、軌道を $x$ で書いても、時刻 $t$ で書いても同じでなければならない。惑星が掃く面積は、直交座標で測っても、極座標で測っても同じでなければならない。物体の質量は、直交座標で積分しても、円柱座標で積分しても同じでなければならない。
 </p>
 <p>ところで、物理はたいてい曲がっている。
-軌道は曲がり、面は曲がり、領域の境界も曲がる。
+ 軌道は曲がり、面は曲がり、領域の境界も曲がる。
 </p>
 <p>一方、計算は四角い。
-区間に刻み、マス目に分け、箱に切る。積分とは、曲がった物理量を四角い計算の上で集計する技術である。
+ 区間に刻み、マス目に分け、箱に切る。積分とは、曲がった物理量を四角い計算の上で集計する技術である。
 </p>
 <p>ここで問題が起こる。
-計算に使う変数を変えると、測定器をそのままでは使えなくなる。
+ 計算に使う変数を変えると、測定器をそのままでは使えなくなる。
 </p>
 <p>$dx$ は $x$ 方向の変位を測る測定器であり、$dt$ に差し替えただけでは仕事は正しく測れない。
-$dx \wedge dy$ は $xy$ 平面の面積測定器であり、$dr \wedge d\theta$ に差し替えただけでは面積は正しく測れない。
-$dx \wedge dy \wedge dz$ もまた、$dr \wedge d\theta \wedge dz$ に差し替えただけでは体積は正しく測れない。
+ $dx \wedge dy$ は $xy$ 平面の面積測定器であり、$dr \wedge d\theta$ に差し替えただけでは面積は正しく測れない。
+ $dx \wedge dy \wedge dz$ もまた、$dr \wedge d\theta \wedge dz$ に差し替えただけでは体積は正しく測れない。
 </p>
 <p>物理量は変わってはいけない。
-しかし、計算に使う四角は変わる。
+ しかし、計算に使う四角は変わる。
 </p>
 <p>そのとき、測定器をどう作り替えればよいか。
 </p>
 <p>本章でやることは、この問いを一つずつ解くことである。
-最初から「引き戻し」という完成品の定義を覚える必要はない。むしろ、まだその言葉を知らないつもりで読んでほしい。
+ 最初から「引き戻し」という完成品の定義を覚える必要はない。むしろ、まだその言葉を知らないつもりで読んでほしい。
 </p>
 <p>出発点は単純だ。
-実空間では正しく測れている量がある。ところが、計算したい変数は別にある。そこで、計算側の小区間・小マス・小箱に対して、実空間側と同じ値を返すように測定器を作り替える。この作り替えを、有限の区間やマス目の上でまず発見する。
+ 実空間では正しく測れている量がある。ところが、計算したい変数は別にある。そこで、計算側の小区間・小マス・小箱に対して、実空間側と同じ値を返すように測定器を作り替える。この作り替えを、有限の区間やマス目の上でまず発見する。
 </p>
 <p>そのあと、分割を細かくしていく。有限の比は微分係数になり、有限の行列式は偏微分でできた行列式になる。この極限で得られる標準的な測定器の作り替えを、数学では <strong>引き戻し</strong> と呼び、$\Phi^*$ と書く。
 </p>
@@ -129,7 +131,7 @@ $dx \wedge dy \wedge dz$ もまた、$dr \wedge d\theta \wedge dz$ に差し替�
 <p>最後に、$h\to0$ の極限として $\Phi^*$ が見える。</p>
 </blockquote>
 <p>本章では、公式を覚えるのではなく、つじつまを合わせる。
-仕事、面積、体積という三つの物理量を通じて、$dx$、$dx \wedge dy$、$dx \wedge dy \wedge dz$ が、それぞれどのように作り替えられるかを見る。
+ 仕事、面積、体積という三つの物理量を通じて、$dx$、$dx \wedge dy$、$dx \wedge dy \wedge dz$ が、それぞれどのように作り替えられるかを見る。
 </p>
 <h3 id="41-1-form-の引き戻し仕事と運動エネルギー定理">§4.1 1-form の引き戻し——仕事と運動エネルギー定理</h3>
 <blockquote>

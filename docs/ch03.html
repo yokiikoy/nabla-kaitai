@@ -30,15 +30,16 @@
     .markdown-body { padding: 0.5rem; }
   }
   blockquote { border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }
+  .table-wrapper { overflow-x: auto; margin: 1.5em 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.9em; }
+  th, td { border: 1px solid #d0d7de; padding: 6px 13px; }
+  tr:nth-child(even) { background-color: #f6f8fa; }
+  th { font-weight: 600; background-color: #f6f8fa; }
   .nav-buttons { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }
   .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
   .nav-buttons a:hover { background: #f6f8fa; }
   strong { font-weight: 800 !important; color: #000; }
   blockquote strong { color: #24292f !important; }
-  table { border-collapse: collapse; width: 100%; margin: 1.5em 0; font-size: 0.9em; }
-  th, td { border: 1px solid #d0d7de; padding: 6px 13px; }
-  tr:nth-child(even) { background-color: #f6f8fa; }
-  th { font-weight: 600; background-color: #f6f8fa; }
   /* KaTeX responsiveness */
   .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }
 </style>
@@ -59,6 +60,7 @@
 </script>
 
 </head>
+<body>
   <nav class="sidebar">
     <h2><a href="index.html">ナブラ解体新書</a></h2>
     <div class="author">
@@ -264,7 +266,7 @@ $$\int_{-a}^{a} \frac{dy}{\sqrt{a^2 - y^2}} = \int_{-\pi/2}^{\pi/2} \frac{a\cos 
 <p>積分結果は $a$ に依らず $\pi$ ！ したがって：
 </p>
 $$R\int_{-R}^{R} \pi\,dx = R \cdot \pi \cdot 2R = 2\pi R^2$$
-<p>これが上半球面の面積。下半球面でも符号は一部反転するが二乗和は同じなので、同じく $2\pi R^2$。よって球面全体の面積は：
+<p>これが上半球面の面積。これが上半球面の面積。下半球面でも（原点から見て「外向き」を正にとれば）符号は一部反転するが、二乗和は同じなので、同じく $2\pi R^2$。よって球面全体の面積は：
 </p>
 $$2\pi R^2 + 2\pi R^2 = 4\pi R^2$$
 <p>見事に $4\pi R^2$ が出た。第2章 §2.4.7 で平行四辺形の面積を三つの影から復元したのと、<strong>まったく同じパターン</strong>である。
@@ -289,7 +291,7 @@ $$2\pi R^2 + 2\pi R^2 = 4\pi R^2$$
 <p>では曲線に沿ってこれらを適用し、集計すると何が出るか。曲線を時刻 $t$ の関数として
 </p>
 $$\gamma(t) = \bigl(x(t),\, y(t),\, z(t)\bigr),\qquad t \in [t_0, t_1]$$
-<p>と表す。曲線を小区間に刻み、$i$ 番目の小区間での変位ベクトルを $\Delta\mathbf{r}_i = \gamma(t_i + \Delta t) - \gamma(t_i)$ とする。$\Delta\mathbf{r}_i$ は有限の変位であり、近似ではない。成分を明示すれば $\Delta\mathbf{r}_i = (\Delta x_i,\; \Delta y_i,\; \Delta z_i)$ である。
+<p>と表す。曲線を小区間に刻み、$i$ 番目の小区間での変位ベクトルを $\Delta\mathbf{r}_i = \gamma(t_i + \Delta t) - \gamma(t_i)$ とする。$\Delta\mathbf{r}_i$ は有限の変位であり、ここでは各小区間の始点を食べさせる測定器の作用として等式（近似ではない）を扱う。成分を明示すれば $\Delta\mathbf{r}_i = (\Delta x_i,\; \Delta y_i,\; \Delta z_i)$ である。
 </p>
 <p>各小区間で<strong>行列 $dx$ を変位ベクトル $\Delta\mathbf{r}_i$ に作用させる</strong>：
 </p>
@@ -415,7 +417,7 @@ $$\int_\gamma \omega = \int_0^{2\pi} \cos 2t\,dt = \Bigl[\frac{1}{2}\sin 2t\Bigr
 <p>同様に、三つのスカラー場 $P, Q, R$ を係数とする一般の $2$-form：
 </p>
 $$\eta = P\,dy \wedge dz + Q\,dz \wedge dx + R\,dx \wedge dy$$
-<p>曲面 $\mathbf{r}(u,v)$ に沿った積分も、§3.2.1 のリーマン和に係数を乗せるだけだ。各小区画の面素 $(\mathbf{r}_u \Delta u,\; \mathbf{r}_v \Delta v)$ に $\eta$ を食わせる：
+<p>曲面 $\mathbf{r}(u,v)$ に沿った積分も、§3.2.1 のリーマン和に係数を乗せるだけだ。各小区画の代表点で係数を評価し、面素 $(\mathbf{r}_u \Delta u,\; \mathbf{r}_v \Delta v)$ に $\eta$ を食わせる：
 </p>
 $$\eta(\mathbf{r}_u \Delta u,\; \mathbf{r}_v \Delta v) = \bigl(P\,(dy \wedge dz) + Q\,(dz \wedge dx) + R\,(dx \wedge dy)\bigr)(\mathbf{r}_u, \mathbf{r}_v)\,\Delta u\,\Delta v$$
 <p>全区画で足し上げて極限をとる。この極限を
@@ -432,7 +434,7 @@ $$\iint_S \eta$$
 <p>$3$-form の一般形は、スカラー場 $\rho(x,y,z)$ を係数として：
 </p>
 $$\Omega = \rho(x,y,z)\,dx \wedge dy \wedge dz$$
-<p>§3.1.1 のリーマン和に密度 $\rho$ を乗せればよい。各小直方体の体積素に $\Omega$ を食わせる：
+<p>§3.1.1 のリーマン和に密度 $\rho$ を乗せればよい。各小直方体の代表点で $\rho$ を評価し、体積素に $\Omega$ を食わせる：
 </p>
 $$\Omega(\Delta x_i\,\hat{e}_x,\; \Delta y_i\,\hat{e}_y,\; \Delta z_i\,\hat{e}_z) = \rho(x_i,y_i,z_i)\,\Delta x_i\,\Delta y_i\,\Delta z_i$$
 <p>全区間で足し上げて極限をとる。この極限を
@@ -443,7 +445,7 @@ $$\iiint_V \Omega$$
 <h4 id="344-線・面・体の統一像">3.4.4 線・面・体の統一像</h4>
 <p>ここまでを俯瞰しよう。
 </p>
-<table>
+<div class="table-wrapper"><table>
 <thead><tr>
 <th>対象</th>
 <th>形式</th>
@@ -468,12 +470,12 @@ $$\iiint_V \Omega$$
 <td>$\displaystyle\iiint \Omega(\hat{e}_x,\hat{e}_y,\hat{e}_z)$</td>
 <td>総質量</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p>いずれも<strong>「$k$-form（はかり）が $k$-vector（図形）を食べてスカラーを返し、それを領域全体で集計する」</strong>という同一の型である。次数が上がるごとに食わせるベクトルの本数が増え、交代性が面積・体積の向きを司る。次数が違うだけで、原理はどこまでも同じだ。
 </p>
 <blockquote>
 <p><strong>【ここまでのチェックポイント】</strong></p>
-<p>- 一般の $k$-form は「場所ごとに変わる重み（$0$-form）」と「幾何的な測り方（基底 $k$-form）」の積。</p>
+<p>- 一般の $k$-form は「場所ごとに変わる重み（$0$-form）」による「基底 $k$-form」の線形結合。</p>
 <p>- 線積分 $\int_\gamma \omega$ は仕事、面積分 $\iint_S \eta$ は流量、体積分 $\iiint_V \Omega$ は総質量に対応する。</p>
 <p>- いずれも「はかりと図形の縮約 → 集計」という同一原理。次節では、これらの積分を別の座標で計算し直す方法——引き戻し——を導入する。</p>
 </blockquote>
