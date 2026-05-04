@@ -106,7 +106,7 @@
 <hr />
 <h3 id="71-ドット積とクロス積">§7.1 ドット積とクロス積</h3>
 <h4 id="711-ドット積">7.1.1 ドット積</h4>
-<p>二つの縦ベクトル $\mathbf{a} = (a_x, a_y, a_z)^T$, $\mathbf{b} = (b_x, b_y, b_z)^T$ の<strong>ドット積</strong>（内積）を次で定義する。
+<p>二つの縦ベクトル $\mathbf{a} = \begin{pmatrix} a_x \\ a_y \\ a_z \end{pmatrix}$, $\mathbf{b} = \begin{pmatrix} b_x \\ b_y \\ b_z \end{pmatrix}$ の<strong>ドット積</strong>（内積）を次で定義する。
 </p>
 $$\mathbf{a} \cdot \mathbf{b} = a_x b_x + a_y b_y + a_z b_z$$
 <p>§5.2.3 で見たように、これは実空間 $(x,y,z)$ で $\mathbf{g} = I$ とした場合の内積 $\mathbf{a}^T \mathbf{g} \,\mathbf{b}$ に等しい。本書ではすでに縦ベクトルと横ベクトルの積として何度も使ってきた操作だ。
@@ -188,7 +188,7 @@ $$\nabla f = \begin{pmatrix} 2x \\ 2y \\ 2z \end{pmatrix}$$
 </p>
 <hr />
 <h3 id="73-発散">§7.3 発散</h3>
-<p>ベクトル場 $\mathbf{F}(x,y,z) = (F_x, F_y, F_z)^T$ に対して、$\nabla$ とのドット積をとったものを<strong>発散</strong>と呼ぶ。
+<p>ベクトル場 $\mathbf{F}(x,y,z) = \begin{pmatrix} F_x \\ F_y \\ F_z \end{pmatrix}$ に対して、$\nabla$ とのドット積をとったものを<strong>発散</strong>と呼ぶ。
 </p>
 $$\mathrm{div}\,\mathbf{F} = \nabla \cdot \mathbf{F} = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z}$$
 <p>形式的には「$\nabla$ と $\mathbf{F}$ のドット積」だが、$\nabla$ の各成分が微分演算子であるため、結果はスカラー場になる。
@@ -205,10 +205,10 @@ $$\mathbf{J}_\mathbf{F} = \begin{pmatrix}
 $$\mathrm{div}\,\mathbf{F} = \operatorname{tr}(\mathbf{J}_\mathbf{F}) = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z}$$
 <p>物理的には、$\mathrm{div}\,\mathbf{F}$ はその点での「湧き出し」の強さを表す。正なら湧き出し、負なら吸い込み、ゼロならその点では湧き出しも吸い込みもない。
 </p>
-<p><strong>例</strong>：$\mathbf{F} = (x, y, z)^T$ の発散。
+<p><strong>例</strong>：$\mathbf{F} = \begin{pmatrix} x \\ y \\ z \end{pmatrix}$ の発散。
 </p>
 $$\nabla \cdot \mathbf{F} = \frac{\partial x}{\partial x} + \frac{\partial y}{\partial y} + \frac{\partial z}{\partial z} = 1 + 1 + 1 = 3$$
-<p><strong>例</strong>：$\mathbf{F} = (-y, x, 0)^T$ の発散。
+<p><strong>例</strong>：$\mathbf{F} = \begin{pmatrix} -y \\ x \\ 0 \end{pmatrix}$ の発散。
 </p>
 $$\nabla \cdot \mathbf{F} = \frac{\partial (-y)}{\partial x} + \frac{\partial x}{\partial y} + \frac{\partial 0}{\partial z} = 0 + 0 + 0 = 0$$
 <p>この場は回転しているが、湧き出してはいない。
@@ -233,7 +233,7 @@ F_x \\ F_y \\ F_z
 \end{pmatrix}$$
 <p>物理的には、$\mathrm{rot}\,\mathbf{F}$ はその点での「渦」の強さと向きを表す。渦の軸方向を向き、大きさが渦の強さに対応する。
 </p>
-<p><strong>例</strong>：$\mathbf{F} = (-y, x, 0)^T$ の回転。
+<p><strong>例</strong>：$\mathbf{F} = \begin{pmatrix} -y \\ x \\ 0 \end{pmatrix}$ の回転。
 </p>
 $$\nabla \times \mathbf{F} = \begin{pmatrix}
 \frac{\partial 0}{\partial y} - \frac{\partial x}{\partial z} \\[0.3em]
@@ -244,7 +244,7 @@ $$\nabla \times \mathbf{F} = \begin{pmatrix}
 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 2 \end{pmatrix}$$
 <p>この場は $z$ 軸まわりに一様に回転しており、渦の強さは $2$ である。
 </p>
-<p><strong>例</strong>：$\mathbf{F} = (x, y, z)^T$ の回転。
+<p><strong>例</strong>：$\mathbf{F} = \begin{pmatrix} x \\ y \\ z \end{pmatrix}$ の回転。
 </p>
 $$\nabla \times \mathbf{F} = \begin{pmatrix}
 \frac{\partial z}{\partial y} - \frac{\partial y}{\partial z} \\[0.3em]
@@ -255,7 +255,7 @@ $$\nabla \times \mathbf{F} = \begin{pmatrix}
 </p>
 <blockquote>
 <p><strong>【ここまでのチェックポイント — §7.2–§7.4】</strong></p>
-<p>- $\nabla = (\partial_x, \partial_y, \partial_z)^T$ は偏微分演算子を縦に並べた形式的ベクトル。</p>
+<p>- $\nabla = \begin{pmatrix} \partial_x \\ \partial_y \\ \partial_z \end{pmatrix}$ は偏微分演算子を縦に並べた形式的ベクトル。</p>
 <p>- $\mathrm{grad}\,f = \nabla f$（勾配）：スカラー場 → ベクトル場。</p>
 <p>- $\mathrm{div}\,\mathbf{F} = \nabla \cdot \mathbf{F}$（発散）：ベクトル場 → スカラー場。ヤコビ行列のトレースに等しい。</p>
 <p>- $\mathrm{rot}\,\mathbf{F} = \nabla \times \mathbf{F}$（回転）：ベクトル場 → ベクトル場。外積行列で書ける。</p>
@@ -378,7 +378,7 @@ $$\oint_C \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdo
 <p>左辺は曲線 $C$ に沿った $\mathbf{F}$ の線積分（循環）、右辺は曲面 $S$ 上の回転の法線成分の面積分である。「境界での循環は、内部の渦の総和に等しい」という意味を持つ。$\mathbf{n}$ は曲面の単位法線ベクトルで、$C$ の向きに対して右ねじの関係で選ぶ。
 </p>
 <blockquote>
-<p><strong>注</strong> （グリーンの定理）$S$ が $xy$ 平面内の領域 $D$ で、$\mathbf{F} = (P, Q, 0)^T$ の場合、ストークスの定理は次の形になる。これはグリーンの定理と呼ばれる。</p>
+<p><strong>注</strong> （グリーンの定理）$S$ が $xy$ 平面内の領域 $D$ で、$\mathbf{F} = \begin{pmatrix} P \\ Q \\ 0 \end{pmatrix}$ の場合、ストークスの定理は次の形になる。これはグリーンの定理と呼ばれる。</p>
 <p></p>
 <p></p>
 </blockquote>
@@ -433,7 +433,7 @@ $$\oiint_S \mathbf{F} \cdot \mathbf{n}\,dS = \iiint_V (\nabla \cdot \mathbf{F})\
 </p>
 <blockquote>
 <p><strong>【ここまでのチェックポイント — 第7章全体】</strong></p>
-<p>- $\nabla = (\partial_x, \partial_y, \partial_z)^T$ を定義し、勾配・発散・回転・ラプラシアンを導入した。</p>
+<p>- $\nabla = \begin{pmatrix} \partial_x \\ \partial_y \\ \partial_z \end{pmatrix}$ を定義し、勾配・発散・回転・ラプラシアンを導入した。</p>
 <p>- $\mathrm{grad}\,f = \nabla f$, $\mathrm{div}\,\mathbf{F} = \nabla \cdot \mathbf{F} = \operatorname{tr}(\mathbf{J}_\mathbf{F})$, $\mathrm{rot}\,\mathbf{F} = \nabla \times \mathbf{F}$</p>
 <p>- $\nabla^2 = \mathrm{div}\,\mathrm{grad}$, $\mathrm{rot}(\mathrm{grad}) = 0$, $\mathrm{div}(\mathrm{rot}) = 0$</p>
 <p>- クロス積の外積行列表示と BAC-CAB 則。</p>

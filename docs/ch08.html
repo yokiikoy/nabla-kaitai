@@ -117,14 +117,14 @@ $$d\eta = \left(\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + 
 <p>このように、$d$ が作用するたびに測定器の次数が $0\to1\to2\to3$ と一つずつ上がっていく。核心は<strong>場はそのまま、測定器の側が変化する</strong>ことだ。$f$ はスカラー場のままだが、$d$ が作用するたびに新しい測定器——$df$（$1$-form）、$d\omega$（$2$-form）、$d\eta$（$3$-form）——が生み出される。
 </p>
 <h4 id="812-測定器はそのまま新たな場を考える-の立場">8.1.2 測定器はそのまま、新たな場を考える——$\nabla$ の立場</h4>
-<p>一方、第7章で導入した $\nabla = \begin{pmatrix} \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \end{pmatrix}^T$ の世界では、<strong>測定器（$\nabla$）は変わらず、作用する相手に応じて新たな場が生まれる</strong>。$\nabla$ はつねに同じ演算子だが、スカラー場 $f$ に作用すればベクトル場 $\nabla f$ を、ベクトル場 $\mathbf{F}$ に作用すればスカラー場 $\nabla\cdot\mathbf{F}$ やベクトル場 $\nabla\times\mathbf{F}$ を返す。
+<p>一方、第7章で導入した $\nabla = \begin{pmatrix} \frac{\partial}{\partial x} \\ \frac{\partial}{\partial y} \\ \frac{\partial}{\partial z} \end{pmatrix}$ の世界では、<strong>測定器（$\nabla$）は変わらず、作用する相手に応じて新たな場が生まれる</strong>。$\nabla$ はつねに同じ演算子だが、スカラー場 $f$ に作用すればベクトル場 $\nabla f$ を、ベクトル場 $\mathbf{F}$ に作用すればスカラー場 $\nabla\cdot\mathbf{F}$ やベクトル場 $\nabla\times\mathbf{F}$ を返す。
 </p>
 <p>スカラー場 $f(x,y,z)$ に $\nabla$ を作用させると、各方向の変化率を成分とする縦ベクトル場が得られる。
 </p>
 $$\nabla f = \begin{pmatrix} \frac{\partial f}{\partial x} \\[0.3em] \frac{\partial f}{\partial y} \\[0.3em] \frac{\partial f}{\partial z} \end{pmatrix}$$
 <p>これは空間の各点に立つ矢印であり、もはや測定器ではない。$f$ が最も急に増加する方向とその強さを表す。
 </p>
-<p>ベクトル場 $\mathbf{F} = (F_x, F_y, F_z)^T$ に $\nabla\cdot$ を作用させると、スカラー場が得られる。
+<p>ベクトル場 $\mathbf{F} = \begin{pmatrix} F_x \\ F_y \\ F_z \end{pmatrix}$ に $\nabla\cdot$ を作用させると、スカラー場が得られる。
 </p>
 $$\nabla \cdot \mathbf{F} = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z}$$
 <p>各方向の変化率の和——湧き出しの強さ——を返す。
@@ -373,7 +373,7 @@ $$\begin{aligned}
 </p>
 <p>パラメータ空間 $(r,\theta)$ と実空間 $(x,y)$、二枚のデカルト座標を用意する。パラメータ空間の用紙には、どこも同じ大きさの正方形グリッドが敷き詰められている。この正方形グリッドの上で、我々は測定を行う。
 </p>
-<p>ベクトル場 $\mathbf{F} = (F_x, F_y)^T$ は実空間に住んでいる。その測定器 $\omega = F_x\,dx + F_y\,dy$ を、パラメータ空間の用紙に<strong>引き戻す</strong>。引き戻し（pullback）とは、実空間の測定器をパラメータ空間の言葉に焼き直す操作だ。写像 $\phi: (r,\theta) \to (x,y)$ で実空間に送るのと逆向きに、測定器を戻してくる。$dx = \cos\theta\,dr - r\sin\theta\,d\theta$, $dy = \sin\theta\,dr + r\cos\theta\,d\theta$ を使って、
+<p>ベクトル場 $\mathbf{F} = \begin{pmatrix} F_x \\ F_y \end{pmatrix}$ は実空間に住んでいる。その測定器 $\omega = F_x\,dx + F_y\,dy$ を、パラメータ空間の用紙に<strong>引き戻す</strong>。引き戻し（pullback）とは、実空間の測定器をパラメータ空間の言葉に焼き直す操作だ。写像 $\phi: (r,\theta) \to (x,y)$ で実空間に送るのと逆向きに、測定器を戻してくる。$dx = \cos\theta\,dr - r\sin\theta\,d\theta$, $dy = \sin\theta\,dr + r\cos\theta\,d\theta$ を使って、
 </p>
 $$\tilde{\omega} = F_r\,dr + (r F_\theta)\,d\theta$$
 <p>が得られる。
