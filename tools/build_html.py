@@ -72,6 +72,14 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
   blockquote strong {{ color: #24292f !important; }}
   /* KaTeX responsiveness */
   .katex-display {{ overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }}
+  .full-toc h2 {{ font-size: 1.1rem; margin: 1.5em 0 0.3em; padding-bottom: 2px; border-bottom: 1px solid #d0d7de; }}
+  .full-toc h2 a {{ color: #24292f; text-decoration: none; }}
+  .full-toc h2 a:hover {{ color: #0969da; }}
+  .full-toc ul {{ list-style: none; padding-left: 1.5rem; margin: 0.3em 0 0; }}
+  .full-toc li {{ margin-bottom: 0.2rem; font-size: 0.9rem; }}
+  .full-toc .level-3 {{ padding-left: 1rem; font-size: 0.8rem; color: #57606a; }}
+  .full-toc a {{ color: #0969da; text-decoration: none; }}
+  .full-toc a:hover {{ text-decoration: underline; }}
 </style>
 {KATEX_CDN}
 </head>
@@ -412,6 +420,7 @@ def main():
 
     # Build TOC HTML
     toc_html_parts = ["<ul>"]
+    toc_html_parts.append('<li class="level-1"><a href="toc.html" id="link-toc.html">目次</a></li>')
     for ch in chapters:
         display_title = ch["title"]
         if '：' in display_title: display_title = display_title.split('：')[0]
@@ -458,6 +467,45 @@ def main():
         with open(docs_dir / ch["filename"], 'w', encoding='utf-8') as f:
             f.write(final_html)
         print(f"Generated {docs_dir / ch['filename']}")
+
+    # Build full toc.html
+    toc_content_parts = []
+    toc_content_parts.append('<h1>目次</h1>')
+    toc_content_parts.append('<p>各見出しはリンクになっており、クリックすると該当章の該当位置にジャンプします。</p>')
+    toc_content_parts.append('<div class="full-toc">')
+
+    for ch in chapters:
+        toc_content_parts.append(f'<h2><a href="{ch["filename"]}">{ch["title"]}</a></h2>')
+
+        sub_items = []
+        for line in ch["content"]:
+            h_match = re.match(r'^(#{2,3})\s+(.+)$', line)
+            if h_match:
+                lv = len(h_match.group(1))
+                txt = h_match.group(2).strip()
+                temp_p = MathProtector()
+                protected = temp_p.protect(txt)
+                restored = temp_p.restore(apply_inline_formatting(protected))
+                anchor = slugify(restored)
+                sub_items.append((lv, restored, anchor))
+
+        if sub_items:
+            toc_content_parts.append('<ul>')
+            for lv, txt, anchor in sub_items:
+                toc_content_parts.append(f'<li class="level-{lv}"><a href="{ch["filename"]}#{anchor}">{txt}</a></li>')
+            toc_content_parts.append('</ul>')
+
+    toc_content_parts.append('</div>')
+    toc_content = '\n'.join(toc_content_parts)
+
+    toc_page_toc = toc_html.replace('id="link-toc.html"', 'class="active" id="link-toc.html"')
+    toc_page_html = HTML_TEMPLATE.format(
+        title='目次', toc=toc_page_toc, KATEX_CDN=KATEX_CDN,
+        content=toc_content, prev_button='<span></span>', next_button='<span></span>'
+    )
+    with open(docs_dir / 'toc.html', 'w', encoding='utf-8') as f:
+        f.write(toc_page_html)
+    print(f"Generated {docs_dir / 'toc.html'}")
 
 if __name__ == '__main__':
     main()
