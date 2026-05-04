@@ -80,6 +80,7 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
   .full-toc .level-3 {{ padding-left: 1rem; font-size: 0.8rem; color: #57606a; }}
   .full-toc a {{ color: #0969da; text-decoration: none; }}
   .full-toc a:hover {{ text-decoration: underline; }}
+  .full-toc .part-header {{ font-size: 1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }}
 </style>
 {KATEX_CDN}
 </head>
@@ -474,7 +475,17 @@ def main():
     toc_content_parts.append('<p>各見出しはリンクになっており、クリックすると該当章の該当位置にジャンプします。</p>')
     toc_content_parts.append('<div class="full-toc">')
 
+    part_boundaries = {
+        "ch01.html": '第I部：\\(\\mathbb{R}^3\\) 上の微分形式（第1章〜第5章）',
+        "ch06.html": '第II部：ベクトル解析（第6章〜第9章）',
+        "ch10.html": '第III部：発展と統合（第10章〜第12章）',
+    }
+
     for ch in chapters:
+        fname = ch["filename"]
+        if fname in part_boundaries:
+            toc_content_parts.append(f'<h3 class="part-header">{part_boundaries[fname]}</h3>')
+
         toc_content_parts.append(f'<h2><a href="{ch["filename"]}">{ch["title"]}</a></h2>')
 
         sub_items = []
