@@ -116,13 +116,13 @@ v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline
 \end{tabular}\par\bigskip\bigskip\bigskip
 \begin{tabular}{|p{\textwidth}|}\hline
 \multicolumn{1}{|c|}{\textbf{直近の改定履歴}}\\ \hline
+{\small 473f21d (2026-05-05)  Fix: merge roadmap ordered list into single <ol>}\\ \hline
+{\small 709569c (2026-05-05)  Apply human corrections to ch00/ch01 with blockquote math fix}\\ \hline
 {\small ed531d1 (2026-05-05)  Fix: Convert blockquote display math to inline to prevent rendering breakage}\\ \hline
-{\small 3ad9652 (2026-05-04)  Docs: Update README to reflect actual chapter structure and build tools}\\ \hline
-{\small 60ec961 (2026-05-04)  Merge pull request \#84 from yokiikoy/re-fix/backmatter-and-ch02-final}\\ \hline
 \end{tabular}
 \end{minipage}\par
 \vfill
-{\footnotesize 2026-05-05 01:40 JST --- 著者：yokiikoy\par}
+{\footnotesize 2026-05-05 01:55 JST --- 著者：yokiikoy\par}
 \restoregeometry
 \end{titlepage}
 \tableofcontents
@@ -149,7 +149,11 @@ v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline
 
 \newpage
 
-\subsection{はじめのはじめに：前提知識}\label{ux306fux3058ux3081ux306eux306fux3058ux3081ux306bux524dux63d0ux77e5ux8b58}
+\chapter*{\texorpdfstring{はじめに：\(dx\) とは何か、ナブラとは何か}{はじめに：dx とは何か、ナブラとは何か}}
+\addcontentsline{toc}{chapter}{\texorpdfstring{はじめに：\(dx\) とは何か、ナブラとは何か}{はじめに：dx とは何か、ナブラとは何か}}
+\label{ux306fux3058ux3081ux306bdx-ux3068ux306fux4f55ux304bux30caux30d6ux30e9ux3068ux306fux4f55ux304b}
+
+\section{はじめのはじめに：前提知識}\label{ux306fux3058ux3081ux306eux306fux3058ux3081ux306bux524dux63d0ux77e5ux8b58}
 
 本書は、以下の基本事項に馴染みがあれば、十分に読み進めることができます。
 
@@ -163,10 +167,6 @@ v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline
 行列式を既に知っている必要はありません。途中で一緒に発見しましょう。
 
 高校生でも読みこなせる、と言うと頑張ってもらう必要がありますが、少なくとも20歳の頃の筆者であれば通読できる、つもりで書きました。
-
-\chapter*{\texorpdfstring{はじめに：\(dx\) とは何か、ナブラとは何か}{はじめに：dx とは何か、ナブラとは何か}}
-\addcontentsline{toc}{chapter}{\texorpdfstring{はじめに：\(dx\) とは何か、ナブラとは何か}{はじめに：dx とは何か、ナブラとは何か}}
-\label{ux306fux3058ux3081ux306bdx-ux3068ux306fux4f55ux304bux30caux30d6ux30e9ux3068ux306fux4f55ux304b}
 
 積分記号の最後には、いつも \(dx\) が付いています。高校数学では、これは「\(x\) で積分する」という印のように扱われます。
 
@@ -226,6 +226,7 @@ v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
   \textbf{第I部：\(\mathbb{R}^3\) 上の微分形式（第1章〜第5章）}\\
   \(dx\) を「行列」として定義し直し、面積や体積を測る仕組みを代数的に組み上げます。「外微分 \(d\)」と「ホッジスター \(\ast\)」という二つの強力な道具を手に入れます。
