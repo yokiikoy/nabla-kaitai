@@ -6,6 +6,11 @@ Public GitHub repository for "ナブラ解体新書" (Nabla Kai-sai) - a mathema
 **Repository**: https://github.com/yokiikoy/nabla-kaitai
 **GitHub Pages**: https://yokiikoy.github.io/nabla-kaitai/
 
+## Commit / PR Author Convention
+- **yokiikoy** (owner): reviews and approves PRs
+- **div-grad-curl** (collaborator): opencode/llm 用。commits は `git -c user.name=llm -c user.email=llm@localhost commit`、gh auth は `div-grad-curl` の PAT
+- PR 作成者が PR 作成者自身を approve できない分支保護に対応するため
+
 ## Publishing Workflow
 
 ### 1. Building PDF
