@@ -80,7 +80,11 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
   .full-toc .level-3 {{ padding-left: 1rem; font-size: 0.8rem; color: #57606a; }}
   .full-toc a {{ color: #0969da; text-decoration: none; }}
   .full-toc a:hover {{ text-decoration: underline; }}
-  .full-toc .part-header {{ font-size: 1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }}
+  .full-toc .part-header {{ font-size: 1.1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }}
+  .full-toc .toc-part-chapters {{ padding-left: 1.5rem; }}
+  .full-toc .toc-part-chapters h3 {{ font-size: 0.95rem; margin: 0.5em 0 0.2em; }}
+  .full-toc .toc-part-chapters h3 a {{ color: #24292f; }}
+  .full-toc .toc-part-chapters ul {{ padding-left: 1.5rem; }}
 </style>
 {KATEX_CDN}
 </head>
@@ -475,18 +479,35 @@ def main():
     toc_content_parts.append('<p>各見出しはリンクになっており、クリックすると該当章の該当位置にジャンプします。</p>')
     toc_content_parts.append('<div class="full-toc">')
 
-    part_boundaries = {
-        "ch01.html": '第I部：\\(\\mathbb{R}^3\\) 上の微分形式（第1章〜第5章）',
-        "ch06.html": '第II部：ベクトル解析（第6章〜第9章）',
-        "ch10.html": '第III部：発展と統合（第10章〜第12章）',
+    part_info = {
+        'I': ('ch01.html', 'ch05.html', '第I部：$\\mathbb{R}^3$ 上の微分形式（第1章〜第5章）'),
+        'II': ('ch06.html', 'ch09.html', '第II部：ベクトル解析（第6章〜第9章）'),
+        'III': ('ch10.html', 'ch12.html', '第III部：発展と統合（第10章〜第12章）'),
     }
+    part_chapters = {}
+    for p, (start, end, label) in part_info.items():
+        for ch in chapters:
+            fname = ch["filename"]
+            if start <= fname <= end:
+                part_chapters[fname] = p
 
+    in_part = None
     for ch in chapters:
         fname = ch["filename"]
-        if fname in part_boundaries:
-            toc_content_parts.append(f'<h3 class="part-header">{part_boundaries[fname]}</h3>')
+        p = part_chapters.get(fname)
 
-        toc_content_parts.append(f'<h2><a href="{ch["filename"]}">{ch["title"]}</a></h2>')
+        if p and p != in_part:
+            _, _, label = part_info[p]
+            if in_part:
+                toc_content_parts.append('</div>')
+            toc_content_parts.append(f'<div class="toc-part"><h2 class="part-header">{label}</h2><div class="toc-part-chapters">')
+            in_part = p
+        elif not p and in_part:
+            toc_content_parts.append('</div></div>')
+            in_part = None
+
+        heading_level = 'h3' if p else 'h2'
+        toc_content_parts.append(f'<{heading_level}><a href="{ch["filename"]}">{ch["title"]}</a></{heading_level}>')
 
         sub_items = []
         for line in ch["content"]:
@@ -505,6 +526,9 @@ def main():
             for lv, txt, anchor in sub_items:
                 toc_content_parts.append(f'<li class="level-{lv}"><a href="{ch["filename"]}#{anchor}">{txt}</a></li>')
             toc_content_parts.append('</ul>')
+
+    if in_part:
+        toc_content_parts.append('</div></div>')
 
     toc_content_parts.append('</div>')
     toc_content = '\n'.join(toc_content_parts)
