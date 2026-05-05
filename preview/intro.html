@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>はじめに：$dx$ とは何か、ナブラとは何か | ナブラ解体新書 (先行公開版)</title>
+<title>はじめに：$dx$ とは何か、ナブラとは何か (先行公開版) | ナブラ解体新書</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
 <style>
   :root { --sidebar-width: 320px; }
@@ -29,11 +29,35 @@
     .main-content { padding: 1rem; } 
     .markdown-body { padding: 0.5rem; }
   }
-  .preview-notice { background: #fff8c5; border: 1px solid #d4a72c; padding: 1rem; border-radius: 6px; margin-bottom: 2rem; font-size: 0.9rem; }
+  blockquote { border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }
+  .table-wrapper { overflow-x: auto; margin: 1.5em 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.9em; }
+  th, td { border: 1px solid #d0d7de; padding: 6px 13px; }
+  tr:nth-child(even) { background-color: #f6f8fa; }
+  th { font-weight: 600; background-color: #f6f8fa; }
   .nav-buttons { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }
   .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
   .nav-buttons a:hover { background: #f6f8fa; }
+  strong { font-weight: 800 !important; color: #000; }
+  blockquote strong { color: #24292f !important; }
+  /* KaTeX responsiveness */
+  .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }
+  .full-toc h2 { font-size: 1.1rem; margin: 1.5em 0 0.3em; padding-bottom: 2px; border-bottom: 1px solid #d0d7de; }
+  .full-toc h2 a { color: #24292f; text-decoration: none; }
+  .full-toc h2 a:hover { color: #0969da; }
+  .full-toc ul { list-style: none; padding-left: 1.5rem; margin: 0.3em 0 0; }
+  .full-toc li { margin-bottom: 0.2rem; font-size: 0.9rem; }
+  .full-toc .level-3 { padding-left: 1rem; font-size: 0.8rem; color: #57606a; }
+  .full-toc a { color: #0969da; text-decoration: none; }
+  .full-toc a:hover { text-decoration: underline; }
+  .full-toc .part-header { font-size: 1.1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }
+  .full-toc .toc-part-chapters { padding-left: 1.5rem; }
+  .full-toc .toc-part-chapters h3 { font-size: 0.95rem; margin: 0.5em 0 0.2em; }
+  .full-toc .toc-part-chapters h3 a { color: #24292f; }
+  .full-toc .toc-part-chapters ul { padding-left: 1.5rem; }
   .site-footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #d0d7de; font-size: 0.8rem; color: #57606a; }
+  .site-footer a { color: #0969da; text-decoration: none; }
+  .site-footer a:hover { text-decoration: underline; }
 </style>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
@@ -55,16 +79,27 @@
 <body>
   <nav class="sidebar">
     <h2><a href="index.html">ナブラ解体新書</a></h2>
-    <p style="font-size: 0.7rem; color: #cf222e; font-weight: bold; margin-bottom: 0.5rem;">先行公開版</p>
-    <div class="author">著者: yokiikoy</div>
-    <div class="toc"><ul><li class="level-1"><a href="index.html" id="link-index.html">著者ノート</a></li><li class="level-1"><a href="intro.html" class="active" id="link-intro.html">はじめに</a></li><li class="level-1"><a href="portal.html" id="link-portal.html">ポータルサイトとちょっとした試み</a></li><li class="level-1"><a href="ch01.html" id="link-ch01.html">第1章</a></li><li class="level-1"><a href="postscript.html" id="link-postscript.html">おわりに</a></li><li class="level-1"><a href="refs.html" id="link-refs.html">参考文献（と著者からのコメント）</a></li><li class="level-1"><a href="appendix.html" id="link-appendix.html">付録</a></li></ul></div>
+    <div class="author">
+      著者: yokiikoy<br>
+      <a href="http://covectorspace.xyz/jp/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a>
+    </div>
+    <div class="toc"><ul>
+<li class="level-1"><a href="toc.html" id="link-toc.html">目次</a></li>
+<li class="level-1"><a href="index.html" id="link-index.html">著者ノート</a></li>
+<li class="level-1"><a href="intro.html" class="active" id="link-intro.html">はじめに</a><ul class="sub-toc"><li class="level-2"><a href="#はじめのはじめに前提知識">はじめのはじめに：前提知識</a></li><li class="level-2"><a href="#ナブラとは何か">ナブラとは何か</a></li><li class="level-3"><a href="#本書のロードマップ">本書のロードマップ</a></li></ul></li>
+<li class="level-1"><a href="portal.html" id="link-portal.html">ポータルサイトとちょっとした試み</a></li>
+<li class="level-1"><a href="ch01.html" id="link-ch01.html">第1章</a></li>
+<li class="level-1"><a href="postscript.html" id="link-postscript.html">おわりに</a></li>
+<li class="level-1"><a href="refs.html" id="link-refs.html">参考文献（と著者からのコメント）</a></li>
+<li class="level-1"><a href="appendix.html" id="link-appendix.html">付録</a></li>
+</ul></div>
   </nav>
   <main class="main-content">
-    <div class="preview-notice">
+    <article class="markdown-body">
+      <div class="preview-notice" style="background: #fff8c5; border: 1px solid #d4a72c; padding: 1rem; border-radius: 6px; margin-bottom: 2rem; font-size: 0.9rem;">
       <strong>先行公開版のお知らせ:</strong> このドキュメントは先行公開用であり、内容（前付け・第1章・後付類のみ）を限定しています。最新の全体版や詳細についてはポータルサイトをご確認ください。
     </div>
-    <article class="markdown-body">
-      <h1 id="はじめに-とは何かナブラとは何か">はじめに：$dx$ とは何か、ナブラとは何か</h1>
+<h1 id="はじめに-とは何かナブラとは何か">はじめに：$dx$ とは何か、ナブラとは何か</h1>
 <h2 id="はじめのはじめに前提知識">はじめのはじめに：前提知識</h2>
 <p>本書は、以下の基本事項に馴染みがあれば、十分に読み進めることができます。
 </p>
@@ -92,10 +127,9 @@
 </p>
 <p>すなわち、本書ではまず、$dx$ を「変位ベクトルから $x$ 成分を取り出す測定器」として読みます。行列表現で、象徴的には、
 </p>
-<p>$$
+$$
 dx=\begin{pmatrix}1&0&0\end{pmatrix}
 $$
-</p>
 <p>です。
 </p>
 <p>知りたいのは、積分記号の尻尾にある $dx$ が、実際に何をしているのかです。本書では、その働きをまず見える形にします。
@@ -111,10 +145,9 @@ $$
 </p>
 <p>たとえば、二次元でいえば
 </p>
-<p>$$
+$$
 \frac{\partial F_y}{\partial x}-\frac{\partial F_x}{\partial y}
 $$
-</p>
 <p>が現れます。これのどこが「回転」なのか、明日の中間テストを控えた状態で納得するのはなかなか難しい。
 </p>
 <p>もちろん、この点については物理数学の副読本や、近年の丁寧な書籍でも解説されています。しかし、教科書の体系のなかで、これを発見的に組み立てているものは、筆者の知る限り、和書ではまだ珍しいように思います。
@@ -133,17 +166,17 @@ $$
 <li><strong>第I部：$\mathbb{R}^3$ 上の微分形式（第1章〜第5章）</strong></li>
 <p>   $dx$ を「行列」として定義し直し、面積や体積を測る仕組みを代数的に組み上げます。「外微分 $d$」と「ホッジスター $\ast$」という二つの強力な道具を手に入れます。
 <li><strong>第II部：ベクトル解析（第6章〜第9章）</strong></li>
-    本書の核心部です。ベクトル解析の grad, rot, div を「解体」し、ストークスの定理や曲線座標を攻略します。
+<p>   本書の核心部です。ベクトル解析の grad, rot, div を「解体」し、ストークスの定理や曲線座標を攻略します。
 <li><strong>第III部：発展と統合（第10章〜第12章）</strong></li>
-    電磁気学（マクスウェル方程式）への応用と、多様体や幾何代数（Geometric Algebra）の世界を展望します。
+<p>   電磁気学（マクスウェル方程式）への応用と、多様体や幾何代数（Geometric Algebra）の世界を展望します。
 </p>
 </ol>
       <div class="nav-buttons">
-        <a href="index.html">← 著者ノート：かつての...</a>
-        <a href="portal.html">ポータルサイトとちょ... →</a>
+        <a href="index.html">← 著者ノート：かつての私への贈り...</a>
+        <a href="portal.html">ポータルサイトとちょっとした試... →</a>
       </div>
       <footer class="site-footer">
-        <p>&copy; yokiikoy (CC BY-NC 4.0). 先行公開版。詳細は <a href="https://covectorspace.xyz/jp/">Project Co-Vector Space</a> へ。</p>
+        <p>&copy; yokiikoy (CC BY-NC 4.0). 本書の最新版・PDF・改訂履歴・関連情報・本書以外のコンテンツはポータルサイト <a href="https://covectorspace.xyz/jp/">Project Co-Vector Space</a> をご確認ください。</p>
       </footer>
     </article>
   </main>

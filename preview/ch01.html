@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>第1章：$dx$ とは何か —— ベクトルを食べる測定器、あるいは横ベクトル | ナブラ解体新書 (先行公開版)</title>
+<title>第1章：$dx$ とは何か —— ベクトルを食べる測定器、あるいは横ベクトル (先行公開版) | ナブラ解体新書</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
 <style>
   :root { --sidebar-width: 320px; }
@@ -29,11 +29,35 @@
     .main-content { padding: 1rem; } 
     .markdown-body { padding: 0.5rem; }
   }
-  .preview-notice { background: #fff8c5; border: 1px solid #d4a72c; padding: 1rem; border-radius: 6px; margin-bottom: 2rem; font-size: 0.9rem; }
+  blockquote { border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }
+  .table-wrapper { overflow-x: auto; margin: 1.5em 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.9em; }
+  th, td { border: 1px solid #d0d7de; padding: 6px 13px; }
+  tr:nth-child(even) { background-color: #f6f8fa; }
+  th { font-weight: 600; background-color: #f6f8fa; }
   .nav-buttons { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }
   .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
   .nav-buttons a:hover { background: #f6f8fa; }
+  strong { font-weight: 800 !important; color: #000; }
+  blockquote strong { color: #24292f !important; }
+  /* KaTeX responsiveness */
+  .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }
+  .full-toc h2 { font-size: 1.1rem; margin: 1.5em 0 0.3em; padding-bottom: 2px; border-bottom: 1px solid #d0d7de; }
+  .full-toc h2 a { color: #24292f; text-decoration: none; }
+  .full-toc h2 a:hover { color: #0969da; }
+  .full-toc ul { list-style: none; padding-left: 1.5rem; margin: 0.3em 0 0; }
+  .full-toc li { margin-bottom: 0.2rem; font-size: 0.9rem; }
+  .full-toc .level-3 { padding-left: 1rem; font-size: 0.8rem; color: #57606a; }
+  .full-toc a { color: #0969da; text-decoration: none; }
+  .full-toc a:hover { text-decoration: underline; }
+  .full-toc .part-header { font-size: 1.1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }
+  .full-toc .toc-part-chapters { padding-left: 1.5rem; }
+  .full-toc .toc-part-chapters h3 { font-size: 0.95rem; margin: 0.5em 0 0.2em; }
+  .full-toc .toc-part-chapters h3 a { color: #24292f; }
+  .full-toc .toc-part-chapters ul { padding-left: 1.5rem; }
   .site-footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #d0d7de; font-size: 0.8rem; color: #57606a; }
+  .site-footer a { color: #0969da; text-decoration: none; }
+  .site-footer a:hover { text-decoration: underline; }
 </style>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
@@ -55,16 +79,27 @@
 <body>
   <nav class="sidebar">
     <h2><a href="index.html">ナブラ解体新書</a></h2>
-    <p style="font-size: 0.7rem; color: #cf222e; font-weight: bold; margin-bottom: 0.5rem;">先行公開版</p>
-    <div class="author">著者: yokiikoy</div>
-    <div class="toc"><ul><li class="level-1"><a href="index.html" id="link-index.html">著者ノート</a></li><li class="level-1"><a href="intro.html" id="link-intro.html">はじめに</a></li><li class="level-1"><a href="portal.html" id="link-portal.html">ポータルサイトとちょっとした試み</a></li><li class="level-1"><a href="ch01.html" class="active" id="link-ch01.html">第1章</a></li><li class="level-1"><a href="postscript.html" id="link-postscript.html">おわりに</a></li><li class="level-1"><a href="refs.html" id="link-refs.html">参考文献（と著者からのコメント）</a></li><li class="level-1"><a href="appendix.html" id="link-appendix.html">付録</a></li></ul></div>
+    <div class="author">
+      著者: yokiikoy<br>
+      <a href="http://covectorspace.xyz/jp/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a>
+    </div>
+    <div class="toc"><ul>
+<li class="level-1"><a href="toc.html" id="link-toc.html">目次</a></li>
+<li class="level-1"><a href="index.html" id="link-index.html">著者ノート</a></li>
+<li class="level-1"><a href="intro.html" id="link-intro.html">はじめに</a></li>
+<li class="level-1"><a href="portal.html" id="link-portal.html">ポータルサイトとちょっとした試み</a></li>
+<li class="level-1"><a href="ch01.html" class="active" id="link-ch01.html">第1章</a><ul class="sub-toc"><li class="level-3"><a href="#10-数学者の1次元物理学者の1次元">§1.0 数学者の1次元、物理学者の1次元</a></li><li class="level-3"><a href="#11-リーマン和と行列の積">§1.1 リーマン和と行列の積</a></li><li class="level-3"><a href="#12-全微分--変化率を行列にまとめた演算子">§1.2 全微分 $df$ — 変化率を行列にまとめた演算子</a></li><li class="level-3"><a href="#13-ライプニッツの記法と代数的直感">§1.3 ライプニッツの記法と代数的直感</a></li><li class="level-3"><a href="#14-座標変換測定器を別の目盛りに作り替える">§1.4 座標変換——測定器を別の目盛りに作り替える</a></li><li class="level-3"><a href="#15-別の座標で書く演習">§1.5 別の座標で書く——演習</a></li><li class="level-3"><a href="#16-本章のまとめと次章への展望">§1.6 本章のまとめと次章への展望</a></li></ul></li>
+<li class="level-1"><a href="postscript.html" id="link-postscript.html">おわりに</a></li>
+<li class="level-1"><a href="refs.html" id="link-refs.html">参考文献（と著者からのコメント）</a></li>
+<li class="level-1"><a href="appendix.html" id="link-appendix.html">付録</a></li>
+</ul></div>
   </nav>
   <main class="main-content">
-    <div class="preview-notice">
+    <article class="markdown-body">
+      <div class="preview-notice" style="background: #fff8c5; border: 1px solid #d4a72c; padding: 1rem; border-radius: 6px; margin-bottom: 2rem; font-size: 0.9rem;">
       <strong>先行公開版のお知らせ:</strong> このドキュメントは先行公開用であり、内容（前付け・第1章・後付類のみ）を限定しています。最新の全体版や詳細についてはポータルサイトをご確認ください。
     </div>
-    <article class="markdown-body">
-      <h1 id="第1章-とは何か--ベクトルを食べる測定器あるいは横ベクトル">第1章：$dx$ とは何か —— ベクトルを食べる測定器、あるいは横ベクトル</h1>
+<h1 id="第1章-とは何か--ベクトルを食べる測定器あるいは横ベクトル">第1章：$dx$ とは何か —— ベクトルを食べる測定器、あるいは横ベクトル</h1>
 <h3 id="10-数学者の1次元物理学者の1次元">§1.0 数学者の1次元、物理学者の1次元</h3>
 <p>高校で $\int f(x) dx$ という1次元の積分を習ったとき、教科書の記述では「$x$ 軸という1本の線」が置かれる。数学の教科書としてはそれで妥当だ。<strong>数学者</strong>は1次元空間 $\mathbb{R}^1$ という自己完結した抽象世界を仮定し、その上で論理を積み上げる。点は実数 $x$、変位は実数 $\Delta x$、積分は「関数×微小幅」の極限として定義される。すべてが完結している。
 </p>
@@ -99,7 +134,7 @@
 </blockquote>
 <p>したがって、物理学者が「1次元の微小変位」と呼ぶものの真の姿は、単なるスカラー $\Delta x$ ではなく、次のような<strong>縦ベクトル（列ベクトル）</strong>で表すのがふさわしい：
 </p>
-<p>$$
+$$
 \mathbf{v} =
 \begin{pmatrix}
 \Delta x \\
@@ -107,7 +142,6 @@
 0
 \end{pmatrix}
 $$
-</p>
 <blockquote>
 <p><strong>注</strong>（標準的でない呼び方）</p>
 <p>本書全体を通して<strong>縦ベクトル・横ベクトル</strong>という言い方をする（縦が列、横が行、と対応させて読んでほしい）。筆者は行と列という語の区別が苦手だからだ。</p>
@@ -136,8 +170,7 @@ $$
 <h3 id="11-リーマン和と行列の積">§1.1 リーマン和と行列の積</h3>
 <p>前節で、物理的な微小変位を縦ベクトル $\mathbf{v}$ として捉え直した。§1.0 と同じく
 </p>
-<p>$$\mathbf{v} = \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix}$$
-</p>
+$$\mathbf{v} = \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix}$$
 <p>である。この視点を持って、今度は高校以来慣れ親しんだリーマン積分のプロセスを書き直し、「行列としての $dx$」がどのような見方を与えるかを見てみよう。
 </p>
 <blockquote>
@@ -162,8 +195,7 @@ $$
 <h4 id="112-小区間ごとの変位">1.1.2 小区間ごとの変位</h4>
 <p>第 $i$ 小区間 $[x_{i-1}, x_i]$ における変位は、§1.0 の<strong>変位ベクトル</strong>を、その区間の幅に合わせて
 </p>
-<p>$$\mathbf{v}_i = \begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix}$$
-</p>
+$$\mathbf{v}_i = \begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix}$$
 <p>と書く。添字 $i$ は「第 $i$ 小区間の分」という意味だけで、$\mathbf{v}_i$ もまた変位ベクトルである。今は直線運動を考えているので $y,z$ 成分はゼロだが、それは条件ではなく結果としてゼロになっているだけだ。
 </p>
 <h4 id="113-の登場--本書最大の特徴としての断言">1.1.3 $dx$ の登場 — 本書最大の特徴としての「断言」</h4>
@@ -171,10 +203,9 @@ $$
 </p>
 <p>すなわち、<strong>横ベクトル</strong>（$1\times 3$ <strong>行列</strong>として成分を横に並べて書く）として
 </p>
-<p>$$
+$$
 dx = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}
 $$
-</p>
 <p>と<strong>定義する</strong>。これは、入力された縦ベクトルから $x$ 成分だけを抜き出して返す線形演算子の行列表現である。
 </p>
 <blockquote>
@@ -198,7 +229,7 @@ $$
 </blockquote>
 <p>変位ベクトル $\mathbf{v}_i$ に左から掛けると
 </p>
-<p>$$
+$$
 dx\,\mathbf{v}_i
 =
 \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}
@@ -206,17 +237,15 @@ dx\,\mathbf{v}_i
 =
 \Delta x_i
 $$
-</p>
 <p>となる。ここで「$dx$ が変位ベクトル $\mathbf{v}_i$ を食べてスカラー $\Delta x_i$ を吐く」というイメージを、<strong>関数の値のように書く</strong>ことにする：
 </p>
-<p>$$
+$$
 dx(\mathbf{v}_i)
 =
 dx\,\mathbf{v}_i
 =
 \Delta x_i
 $$
-</p>
 <p><strong>本書では、しばしばこの $dx(\mathbf{v})$ の形で「横ベクトル $dx$ が縦ベクトル $\mathbf{v}$ に作用する」と強調する。何度繰り返しても強調しすぎることはない。</strong>
 </p>
 <blockquote>
@@ -231,10 +260,9 @@ $$
 </p>
 <p>つまり
 </p>
-<p>$$
+$$
 \Delta x_i = dx(\mathbf{v}_i)
 $$
-</p>
 <p>である。
 </p>
 <p><strong>これが決定的な瞬間だ</strong>：
@@ -254,64 +282,58 @@ $$
 <h4 id="114-リーマン和のベクトル再解釈と積分記号">1.1.4 リーマン和のベクトル再解釈と積分記号</h4>
 <p>この視点でリーマン和を書き直すと、
 </p>
-<p>$$
+$$
 R_n
 =
 \sum_{i=1}^n f(\xi_i)\,dx(\mathbf{v}_i)
 $$
-</p>
 <p>となる。ここで
 </p>
-<p>$$
+$$
 dx(\mathbf{v}_i)=\Delta x_i
 $$
-</p>
 <p>だから、これは通常のリーマン和
 </p>
-<p>$$
+$$
 R_n
 =
 \sum_{i=1}^n f(\xi_i)\,\Delta x_i
 $$
-</p>
 <p>と同じものである。
 </p>
 <p>しかし、この書き方にはもう一つの読み方がある。各小区間で、関数値 $f(\xi_i)$ を測定器 $dx$ に掛けた横ベクトル
 </p>
-<p>$$
+$$
 f(\xi_i)\,dx
 =
 \begin{pmatrix}
 f(\xi_i) & 0 & 0
 \end{pmatrix}
 $$
-</p>
 <p>を考える。この横ベクトルを変位ベクトル $\mathbf{v}_i$ に作用させると、
 </p>
-<p>$$
+$$
 \bigl(f(\xi_i)\,dx\bigr)(\mathbf{v}_i)
 =
 f(\xi_i)\,dx(\mathbf{v}_i)
 =
 f(\xi_i)\,\Delta x_i
 $$
-</p>
 <p>となる。つまり、リーマン和の各項そのものが得られる。
 </p>
 <p>したがって、リーマン和は
 </p>
-<p>$$
+$$
 R_n
 =
 \sum_{i=1}^n
 \bigl(f(\xi_i)\,dx\bigr)(\mathbf{v}_i)
 $$
-</p>
 <p>とも読める。
 </p>
 <p>分割を無限に細かくする極限では、つまり幅の最大値が $0$ に近づく極限では、リーマン積分の定義より
 </p>
-<p>$$
+$$
 \int_a^b f(x)\,dx
 =
 \lim_{n\to\infty} R_n
@@ -320,7 +342,6 @@ $$
 \sum_{i=1}^n
 \bigl(f(\xi_i)\,dx\bigr)(\mathbf{v}_i)
 $$
-</p>
 <p>となる。
 </p>
 <p>左辺の $\int_a^b f(x)\,dx$ は、高校以来おなじみの積分記号そのものである。すなわち、上の手順で書いた $\lim_{n\to\infty}R_n$ と同じ量だ。
@@ -380,26 +401,22 @@ $$
 <h4 id="121-微分可能性の行列表現">1.2.1 微分可能性の行列表現</h4>
 <p>関数 $f(x)$ が点 $x$ で微分可能であるとは、次の一次近似が成り立つことである：
 </p>
-<p>$$\Delta f = f(x + \Delta x) - f(x) = f'(x) \Delta x + o(|\Delta x|) \quad (|\Delta x| \to 0)$$
-</p>
+$$\Delta f = f(x + \Delta x) - f(x) = f'(x) \Delta x + o(|\Delta x|) \quad (|\Delta x| \to 0)$$
 <blockquote>
 <p><strong>注</strong> （ランダウのオーダー記法）<strong>$o(|\Delta x|)$</strong> は<strong>ランダウのオーダー記法</strong>である。$\Delta x \to 0$ のとき、$o(|\Delta x|)$ でまとめて書いた量は <strong>$|\Delta x|$ よりずっと速くゼロに近づく余り</strong>を意味し、主項 $f'(x)\Delta x$ に比べれば<strong>無視してよいほど小さい</strong>、という約束である。理工系の専門書ではよく出るが、初めて見る読者もいるかもしれない。</p>
 </blockquote>
 <p>ここで $\Delta x$ はスカラーだが、我々はこれを前節同様、3次元の変位ベクトルとして捉え直す：
 </p>
-<p>$$\mathbf{v} = \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix}$$
-</p>
+$$\mathbf{v} = \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix}$$
 <p>すると、関数の変化 $\Delta f$ は、この $\mathbf{v}$ によって引き起こされる効果と見なせる。
 </p>
 <h4 id="122-の行列としての定義と">1.2.2 $df$ の行列としての定義と $df(\mathbf{v})$</h4>
 <p>点 $x$ における関数 $f$ の<strong>全微分</strong> $df$ を、次の $1 \times 3$ 横ベクトルとして定義する：
 </p>
-<p>$$df = f'(x) \, dx = \begin{pmatrix} f'(x) & 0 & 0 \end{pmatrix}$$
-</p>
+$$df = f'(x) \, dx = \begin{pmatrix} f'(x) & 0 & 0 \end{pmatrix}$$
 <p>この $df$ を変位 $\mathbf{v}$ に作用させた結果を、前節と同様に <strong>$df(\mathbf{v})$</strong> と書く：
 </p>
-<p>$$df(\mathbf{v}) = \begin{pmatrix} f'(x) & 0 & 0 \end{pmatrix} \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix} = f'(x)\,\Delta x$$
-</p>
+$$df(\mathbf{v}) = \begin{pmatrix} f'(x) & 0 & 0 \end{pmatrix} \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix} = f'(x)\,\Delta x$$
 <p><strong>重要な認識の転換</strong>（<strong>常に次のように読む</strong>）：
 </p>
 <ul>
@@ -416,8 +433,7 @@ $$
  <strong>いま定める $dy$</strong>を使えば、$F_x dx + F_y dy$ という形で2次元の仕事を統一的に扱える。
  $dx$ が $x$ 成分を抜き出すのと同様に、実空間では <strong>$dy$ は $y$ 成分</strong>、<strong>$dz$ は $z$ 成分</strong>を抜き出す横ベクトル（一次形式）と定める。行列表現は
 </p>
-<p>$$dy = \begin{pmatrix} 0 & 1 & 0 \end{pmatrix}, \qquad dz = \begin{pmatrix} 0 & 0 & 1 \end{pmatrix}$$
-</p>
+$$dy = \begin{pmatrix} 0 & 1 & 0 \end{pmatrix}, \qquad dz = \begin{pmatrix} 0 & 0 & 1 \end{pmatrix}$$
 <p>である。変位 $\mathbf{v} = \begin{pmatrix} \Delta x \\ \Delta y \\ \Delta z \end{pmatrix}$ に対して $dy(\mathbf{v}) = \Delta y$, $dz(\mathbf{v}) = \Delta z$ となる。
 </p>
 <blockquote>
@@ -431,12 +447,10 @@ $$
 </p>
 <p>たとえば <strong>$x=3$ において</strong>全微分を具体的に書き下ろす。横ベクトルと縦ベクトルを並べて、
 </p>
-<p>$$df = 6\,dx = \begin{pmatrix} 6 & 0 & 0 \end{pmatrix}, \qquad \mathbf{v} = \begin{pmatrix} 0.1 \\ 0 \\ 0 \end{pmatrix}$$
-</p>
+$$df = 6\,dx = \begin{pmatrix} 6 & 0 & 0 \end{pmatrix}, \qquad \mathbf{v} = \begin{pmatrix} 0.1 \\ 0 \\ 0 \end{pmatrix}$$
 <p>であるから、行列の積は
 </p>
-<p>$$df(\mathbf{v}) = \begin{pmatrix} 6 & 0 & 0 \end{pmatrix} \begin{pmatrix} 0.1 \\ 0 \\ 0 \end{pmatrix} = 6\cdot 0.1 + 0\cdot 0 + 0\cdot 0 = 0.6$$
-</p>
+$$df(\mathbf{v}) = \begin{pmatrix} 6 & 0 & 0 \end{pmatrix} \begin{pmatrix} 0.1 \\ 0 \\ 0 \end{pmatrix} = 6\cdot 0.1 + 0\cdot 0 + 0\cdot 0 = 0.6$$
 <p>実際、$f(3.1) - f(3) = 9.61 - 9 = 0.61$ であり、一次近似 $0.6$ はよく一致している。
 </p>
 <h4 id="125-置換積分と測定器の作り替え">1.2.5 置換積分と測定器の作り替え</h4>
@@ -448,16 +462,14 @@ $$
 </p>
 <p>変数 $x$ が、別の変数 $t$ によって
 </p>
-<p>$$
+$$
 x=\gamma(t)
 $$
-</p>
 <p>と表されているとする。このとき、置換積分ではしばしば
 </p>
-<p>$$
+$$
 dx=\gamma'(t)\,dt
 $$
-</p>
 <p>のように書く。
 </p>
 <blockquote>
@@ -472,62 +484,55 @@ $$
 </blockquote>
 <p>通常の微積分では、この式は合成関数の微分から説明される。たとえば、$F'(x)=f(x)$ として、$F(\gamma(t))$ を $t$ で微分すると、
 </p>
-<p>$$
+$$
 \frac{d}{dt}F(\gamma(t))
 =
 f(\gamma(t))\gamma'(t)
 $$
-</p>
 <p>となる。したがって、
 </p>
-<p>$$
+$$
 \int_{t_0}^{t_1} f(\gamma(t))\gamma'(t)\,dt
 =
 F(\gamma(t_1))-F(\gamma(t_0))
 $$
-</p>
 <p>である。端点を
 </p>
-<p>$$
+$$
 x_0=\gamma(t_0),\qquad x_1=\gamma(t_1)
 $$
-</p>
 <p>と書けば、右辺は
 </p>
-<p>$$
+$$
 F(x_1)-F(x_0)
 =
 \int_{x_0}^{x_1} f(x)\,dx
 $$
-</p>
 <p>である。よって、
 </p>
-<p>$$
+$$
 \int_{x_0}^{x_1} f(x)\,dx
 =
 \int_{t_0}^{t_1} f(\gamma(t))\gamma'(t)\,dt
 $$
-</p>
 <p>が得られる。
 </p>
 <p>ここまでは、標準的な置換積分の説明である。
 </p>
 <p>しかし本書では、この式を少し違う目で見る。ここで現れた
 </p>
-<p>$$
+$$
 dx=\gamma'(t)\,dt
 $$
-</p>
 <p>は、単なる計算上の記号ではない。$x$ 側の測定器 $dx$ を、$t$ 側の測定器 $dt$ に作り替えた姿として読める。
 </p>
 <p>$t$ が少し変わったとき、$x=\gamma(t)$ はその $\gamma'(t)$ 倍だけ変わる。だから、$t$ 側の小区間を食べたときに、$x$ 側の変位と同じ値を返す測定器を作るには、$dt$ に $\gamma'(t)$ を掛ける必要がある。
 </p>
 <p>つまり、
 </p>
-<p>$$
+$$
 dx = \gamma'(t)\,dt
 $$
-</p>
 <p>である。
 </p>
 <p>この見方を本格的に扱うのが、第4章の引き戻しである。
@@ -544,20 +549,16 @@ $$
 </blockquote>
 <p>その $f(x,y,z)$ が点 $(x,y,z)$ で<strong>（全）微分可能である</strong>とは、変位 $\mathbf{v}=\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$ に対して
 </p>
-<p>$$\Delta f = f(x+\Delta x,\,y+\Delta y,\,z+\Delta z) - f(x,y,z) = \frac{\partial f}{\partial x}\,\Delta x + \frac{\partial f}{\partial y}\,\Delta y + \frac{\partial f}{\partial z}\,\Delta z + o(\|\mathbf{v}\|) \quad (\|\mathbf{v}\|\to 0)$$
-</p>
+$$\Delta f = f(x+\Delta x,\,y+\Delta y,\,z+\Delta z) - f(x,y,z) = \frac{\partial f}{\partial x}\,\Delta x + \frac{\partial f}{\partial y}\,\Delta y + \frac{\partial f}{\partial z}\,\Delta z + o(\|\mathbf{v}\|) \quad (\|\mathbf{v}\|\to 0)$$
 <p>が成り立つことである。§1.2.1 の1変数の定義と形式がそろっている。$o(\|\mathbf{v}\|)$ は余り項の略記（$o(|\Delta x|)$ と同趣旨）であり、ここでは深追いしないが、理解に支障はないであろう。
 </p>
 <p>§1.2.3 の測定器 $dx,dy,dz$ を使い、§1.2.2 と同じ型の演算子として
 </p>
-<p>$$df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz = \begin{pmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & \frac{\partial f}{\partial z} \end{pmatrix}$$
-</p>
+$$df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz = \begin{pmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & \frac{\partial f}{\partial z} \end{pmatrix}$$
 <p>と定義する。いちばん初めの式にあった $o(\|\mathbf{v}\|)$ は、ここから数行では省略し、<strong>記号の骨格だけ</strong>を追う。$\mathbf{v}=\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$ のとき、微分可能性の定義より $\Delta f = df(\mathbf{v}) + o(\|\mathbf{v}\|)$ である——すなわち <strong>$df(\mathbf{v})$ は厳密な変化量 $\Delta f$ そのものではなく、剰余を除いた一次（主）項</strong>である。以下ではその主項を行列の積で書き下ろす：
 </p>
-<p>$$df(\mathbf{v}) = \frac{\partial f}{\partial x}\begin{pmatrix}1&0&0\end{pmatrix}\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix} + \frac{\partial f}{\partial y}\begin{pmatrix}0&1&0\end{pmatrix}\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix} + \frac{\partial f}{\partial z}\begin{pmatrix}0&0&1\end{pmatrix}\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$$
-</p>
-<p>$$= \frac{\partial f}{\partial x}\,\Delta x + \frac{\partial f}{\partial y}\,\Delta y + \frac{\partial f}{\partial z}\,\Delta z.$$
-</p>
+$$df(\mathbf{v}) = \frac{\partial f}{\partial x}\begin{pmatrix}1&0&0\end{pmatrix}\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix} + \frac{\partial f}{\partial y}\begin{pmatrix}0&1&0\end{pmatrix}\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix} + \frac{\partial f}{\partial z}\begin{pmatrix}0&0&1\end{pmatrix}\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$$
+$$= \frac{\partial f}{\partial x}\,\Delta x + \frac{\partial f}{\partial y}\,\Delta y + \frac{\partial f}{\partial z}\,\Delta z.$$
 <p>第一行は、§1.2.3 の測定器 $dx,dy,dz$ が行ベクトルとして $\mathbf{v}$ から $x,y,z$ 成分を抜き出し、偏導関数が係数としてかかる様子を<strong>行列の積</strong>で見せたものである。第二行はその評価結果であり、先の $\Delta f$ の定義式における<strong>線形主項</strong>と同じ形である。<strong>横ベクトル（演算子）× 縦ベクトル（変位）→ スカラー</strong>という §1.2.2 の読みが、三次元でも変わらない。
 </p>
 <p>座標が二つまでしか現れない $f(x,y)$ も、$z$ に依らなければ $\partial f/\partial z=0$ として上の枠に含めればよい——<strong>三次元に載せた枠組みが、素直に埋め込まれる</strong>。
@@ -572,8 +573,7 @@ $$
 <h4 id="127-線積分の先取り">1.2.7 線積分の先取り</h4>
 <p>空間内の曲線をパラメータ $t$ で $\mathbf{r}(t)=\begin{pmatrix}x(t)\\y(t)\\z(t)\end{pmatrix}$ と表し、細かいステップの変位を $\Delta\mathbf{r}$ と書くとき、各ステップで $\bigl(df\bigr)(\Delta\mathbf{r})$ を足し上げる操作の極限を、記号では
 </p>
-<p>$$\int_\gamma df$$
-</p>
+$$\int_\gamma df$$
 <p>の形で表す（$\gamma$ は曲線）。§1.2.5 で見た $\int f'(x)\,dx$ と同じく、<strong>一次形式 $df$ が各ステップの変位に作用するリーマン和の極限</strong>という骨格である。閉曲線・向き・パラメータの取り換えなど、厳密な定式化は<strong>後の章に譲る</strong>。
 </p>
 <blockquote>
@@ -622,10 +622,9 @@ $$
 </blockquote>
 <p>本章を通じて、我々は $dx$ の<strong>行列表現</strong>を
 </p>
-<p>$$
+$$
 dx=\begin{pmatrix}1&0&0\end{pmatrix}
 $$
-</p>
 <p>と置いて議論してきた。これは、実空間をデカルト座標 $(x,y,z)$ で見ている限り、$x$ 成分を抜き出す測定器である。
 </p>
 <p>しかし物理学の現実は、いつでも四角いとは限らない。円形パイプ内の流れや、直線電流の周りの磁場のような問題では、点を $(r,\theta,z)$ という数の組で指定する<strong>円柱座標</strong>を使ったほうが扱いやすい。
@@ -645,7 +644,7 @@ $$
 <h4 id="141-円柱座標から実空間への変換">1.4.1 円柱座標から実空間への変換</h4>
 <p>円柱座標のパラメータ空間から、実空間への変換を
 </p>
-<p>$$
+$$
 \Phi(r,\theta,z)
 =
 \begin{pmatrix}
@@ -654,17 +653,15 @@ r\sin\theta\\
 z
 \end{pmatrix}
 $$
-</p>
 <p>と書く。
 </p>
 <p>これは、パラメータ空間の点 $(r,\theta,z)$ を、実空間の点 $(x,y,z)$ に送る変換である。つまり、
 </p>
-<p>$$
+$$
 x=r\cos\theta,\qquad
 y=r\sin\theta,\qquad
 z=z
 $$
-</p>
 <p>である。
 </p>
 <p>いま知りたいのは、実空間で $x$ 成分を測る測定器 $dx$ が、パラメータ空間側ではどのような測定器として見えるかである。
@@ -672,13 +669,12 @@ $$
 <h4 id="142-小さな一歩を写して-で測る">1.4.2 小さな一歩を写して $dx$ で測る</h4>
 <p>パラメータ空間の点
 </p>
-<p>$$
+$$
 p=(r,\theta,z)
 $$
-</p>
 <p>から、小さな一歩
 </p>
-<p>$$
+$$
 \mathbf{h}
 =
 \begin{pmatrix}
@@ -687,32 +683,29 @@ $$
 \Delta z
 \end{pmatrix}
 $$
-</p>
 <p>だけ動くことを考える。
 </p>
 <p>このとき、移動後の点は
 </p>
-<p>$$
+$$
 p+\mathbf{h}
 =
 (r+\Delta r,\theta+\Delta\theta,z+\Delta z)
 $$
-</p>
 <p>である。
 </p>
 <p>ただし、この $\mathbf h$ は実空間の変位ベクトルではない。これは、円柱座標のパラメータ空間での変化量を並べたものである。
 </p>
 <p>この小さな一歩を、変換 $\Phi$ によって実空間へ送る。実空間での変位は
 </p>
-<p>$$
+$$
 \Phi(p+\mathbf h)-\Phi(p)
 $$
-</p>
 <p>である。
 </p>
 <p>成分で書けば、
 </p>
-<p>$$
+$$
 \Phi(r+\Delta r,\theta+\Delta\theta,z+\Delta z)
 -
 \Phi(r,\theta,z)
@@ -723,19 +716,17 @@ $$
 \Delta z
 \end{pmatrix}
 $$
-</p>
 <p>である。
 </p>
 <p>このベクトルは、実空間における本当の変位である。
 </p>
 <p>実空間の測定器 $dx$ は、実空間の変位ベクトルから $x$ 成分だけを抜き出す。したがって、いまの変位に $dx$ を作用させると、
 </p>
-<p>$$
+$$
 dx\bigl(\Phi(p+\mathbf h)-\Phi(p)\bigr)
 =
 (r+\Delta r)\cos(\theta+\Delta\theta)-r\cos\theta
 $$
-</p>
 <p>となる。
 </p>
 <p>これは、「パラメータ空間で $\mathbf h$ だけ動いたとき、実空間の $x$ 成分がどれだけ変化したか」を測った値である。
@@ -745,27 +736,25 @@ $$
 </p>
 <p>まず、
 </p>
-<p>$$
+$$
 \Delta x
 =
 (r+\Delta r)\cos(\theta+\Delta\theta)-r\cos\theta
 $$
-</p>
 <p>である。
 </p>
 <p>一次近似を使うと、
 </p>
-<p>$$
+$$
 \cos(\theta+\Delta\theta)
 =
 \cos\theta-\sin\theta\,\Delta\theta
 +
 \text{高次の項}
 $$
-</p>
 <p>だから、
 </p>
-<p>$$
+$$
 \begin{aligned}
 \Delta x
 &=
@@ -784,12 +773,11 @@ r\cos\theta
 +\text{高次の項}
 \end{aligned}
 $$
-</p>
 <p>となる。
 </p>
 <p>$\Delta z$ は $x$ 成分には影響しないので、一次の項としては
 </p>
-<p>$$
+$$
 \Delta x
 =
 \cos\theta\,\Delta r
@@ -798,22 +786,20 @@ $$
 +
 \text{高次の項}
 $$
-</p>
 <p>である。
 </p>
 <p>いま得られた一次項は
 </p>
-<p>$$
+$$
 \cos\theta\,\Delta r
 -r\sin\theta\,\Delta\theta
 +0\cdot\Delta z
 $$
-</p>
 <p>である。
 </p>
 <p>これは、パラメータ空間の小さな一歩
 </p>
-<p>$$
+$$
 \mathbf h
 =
 \begin{pmatrix}
@@ -822,10 +808,9 @@ $$
 \Delta z
 \end{pmatrix}
 $$
-</p>
 <p>に対して、次の横ベクトルを作用させた値に等しい。
 </p>
-<p>$$
+$$
 \begin{pmatrix}
 \cos\theta & -r\sin\theta & 0
 \end{pmatrix}
@@ -839,15 +824,13 @@ $$
 -r\sin\theta\,\Delta\theta
 +0\cdot\Delta z
 $$
-</p>
 <p>したがって、実空間の測定器 $dx$ を、円柱座標のパラメータ空間側で同じ一次の値を返す測定器として書き直すと、
 </p>
-<p>$$
+$$
 \begin{pmatrix}
 \cos\theta & -r\sin\theta & 0
 \end{pmatrix}
 $$
-</p>
 <p>になる。
 </p>
 <p>これが、円柱座標の目盛りで見た $dx$ の姿である。
@@ -868,84 +851,76 @@ $$
 </p>
 <p>実空間の測定器 $dx$ は、実空間の変位を食べて $x$ 成分を返す。ところが、円柱座標で計算したいときには、入力されるのは実空間の変位そのものではなく、パラメータ空間の小さな一歩
 </p>
-<p>$$
+$$
 \begin{pmatrix}
 \Delta r\\
 \Delta\theta\\
 \Delta z
 \end{pmatrix}
 $$
-</p>
 <p>である。
 </p>
 <p>そこで、パラメータ空間の小さな一歩を食べたときに、実空間で $dx$ が測った値と同じ一次の値を返す測定器を作る。
 </p>
 <p>その測定器が
 </p>
-<p>$$
+$$
 \begin{pmatrix}
 \cos\theta & -r\sin\theta & 0
 \end{pmatrix}
 $$
-</p>
 <p>であった。
 </p>
 <p>測定器の数学では、この操作を<strong>引き戻し</strong>と呼ぶ。記号で書けば、
 </p>
-<p>$$
+$$
 \Phi^*(dx)
 =
 \cos\theta\,dr-r\sin\theta\,d\theta
 $$
-</p>
 <p>である。
 </p>
 <p>ここで $dr,d\theta,dz$ は、パラメータ空間の変位
 </p>
-<p>$$
+$$
 \begin{pmatrix}
 \Delta r\\
 \Delta\theta\\
 \Delta z
 \end{pmatrix}
 $$
-</p>
 <p>から、それぞれ第1成分、第2成分、第3成分を取り出す測定器である。したがって、
 </p>
-<p>$$
+$$
 \cos\theta\,dr-r\sin\theta\,d\theta
 $$
-</p>
 <p>は、パラメータ空間側の横ベクトル
 </p>
-<p>$$
+$$
 \begin{pmatrix}
 \cos\theta & -r\sin\theta & 0
 \end{pmatrix}
 $$
-</p>
 <p>を、測定器の記法で書いたものである。
 </p>
 <p>つまり、
 </p>
-<p>$$
+$$
 \Phi^*(dx)
 =
 \begin{pmatrix}
 \cos\theta & -r\sin\theta & 0
 \end{pmatrix}
 $$
-</p>
 <p>と読んでよい。ただし右辺は、円柱座標のパラメータ空間の変位
 </p>
-<p>$$
+$$
 \begin{pmatrix}
 \Delta r\\
 \Delta\theta\\
 \Delta z
 \end{pmatrix}
 $$
-</p>
 <p>を食べる横ベクトルである。
 </p>
 <blockquote>
@@ -986,40 +961,35 @@ $$
 </p>
 <p>そこでは、
 </p>
-<p>$$
+$$
 dx\wedge dy
 $$
-</p>
 <p>のような面積測定器や、
 </p>
-<p>$$
+$$
 dx\wedge dy\wedge dz
 $$
-</p>
 <p>のような体積測定器を、別の変数の世界へ引き戻す。
 </p>
 <p>そのとき現れる係数が、円柱座標でおなじみの $r$ や、一般の変数変換で現れるヤコビアン $J$ である。
 </p>
 <p>つまり、第4章で出てくる
 </p>
-<p>$$
+$$
 \Phi^*(dx\wedge dy)=r\,dr\wedge d\theta
 $$
-</p>
 <p>や
 </p>
-<p>$$
+$$
 \Phi^*(dx\wedge dy\wedge dz)=J\,du\wedge dv\wedge dw
 $$
-</p>
 <p>は、いま見た
 </p>
-<p>$$
+$$
 \Phi^*(dx)
 =
 \cos\theta\,dr-r\sin\theta\,d\theta
 $$
-</p>
 <p>と同じ構造を持っている。
 </p>
 <blockquote>
@@ -1047,10 +1017,9 @@ $$
 <p><strong>問題設定</strong>  
  前節で見た通り、円柱座標 $(r, \theta, z)$ における $dx$ の行列表示は以下のようになる：
 </p>
-<p>$$
+$$
 dx = \begin{pmatrix} \cos\theta & -r\sin\theta & 0 \end{pmatrix}
 $$
-</p>
 <p>（上の行は §1.4.3 で作った、パラメータ空間の変位に作用する横ベクトルであり、§1.1.3 のデカルト表示 $\begin{pmatrix}1&0&0\end{pmatrix}$ とは<strong>右に立てる縦ベクトルの意味が違う</strong>。）
 </p>
 <p>このとき、次の問いに答えよ。
@@ -1068,14 +1037,13 @@ $$
 <p><strong>問1の解答</strong>  
  変位は $r$ 方向に $0.1$、$\theta$ 方向と $z$ 方向にはゼロなので、<strong>円柱座標のパラメータの変化量</strong>を縦に並べたベクトルとして次のように書ける：
 </p>
-<p>$$
+$$
 \mathbf{v} = \begin{pmatrix} 0.1 \\ 0 \\ 0 \end{pmatrix}
 $$
-</p>
 <p><strong>問2の解答</strong>  
  点 $P$ における行列 $dx$ は、$\theta = \pi/6,\ r=2$ を代入して得られる $1\times 3$ 行ベクトルとして
 </p>
-<p>$$
+$$
 dx
 =
 \begin{pmatrix}
@@ -1090,14 +1058,13 @@ dx
 \frac{\sqrt{3}}{2} & -1 & 0
 \end{pmatrix}
 $$
-</p>
 <p>と書く（円柱座標では $dx$ の成分は $r,\theta$ に依存するので、ここでは点 $P$ の座標で評価したあとを指す。$\mathbf{v}$ への作用の記号 $dx(\mathbf{v})$ 自体は §1.1.3 以来と同じである）。
 </p>
 <p>重要なのは、第2成分は一般に <strong>$-r\sin\theta$</strong> という係数であり、$r$ のおかげで<strong>長さの次元を持つ</strong>ことだ。$r=2,\;\theta=\pi/6$ と代入するとその係数の値として $-1$ が見えるが、<strong>数値の $-1$ そのものに次元が付いているのではない</strong>。行列の成分としての $-r\sin\theta$ が長さの次元を運んでいる、と読むのが正確である。これが次元解析の鍵となる。
 </p>
 <p>これを変位ベクトル $\mathbf{v}$ に作用させると：
 </p>
-<p>$$
+$$
 dx(\mathbf{v})
 =
 \begin{pmatrix}
@@ -1112,7 +1079,6 @@ dx(\mathbf{v})
 0.1 \times \frac{\sqrt{3}}{2}
 \approx 0.0866
 $$
-</p>
 <p><strong>問3の解答（物理的意味）</strong>  
  この結果は、<strong>「円柱座標において外側（$r$方向）へ $0.1$ だけ進むという運動は、実空間の $x$ 軸方向から見ると約 $0.0866$ の前進に相当する」</strong>という物理的事実を表している。
 </p>
@@ -1125,7 +1091,7 @@ $$
 </p>
 <p>このとき、円柱座標のパラメータ空間での変位は
 </p>
-<p>$$
+$$
 \mathbf{v}
 =
 \begin{pmatrix}
@@ -1134,20 +1100,18 @@ $$
 0
 \end{pmatrix}
 $$
-</p>
 <p>である。点 $P$ における $dx$ は先ほどと同じく
 </p>
-<p>$$
+$$
 dx
 =
 \begin{pmatrix}
 \frac{\sqrt{3}}{2} & -1 & 0
 \end{pmatrix}
 $$
-</p>
 <p>であるから、
 </p>
-<p>$$
+$$
 dx(\mathbf{v})
 =
 \begin{pmatrix}
@@ -1161,7 +1125,6 @@ dx(\mathbf{v})
 =
 -0.1
 $$
-</p>
 <p>となる。
 </p>
 <p>この場合、<strong>入力ベクトルの第2成分</strong> $0.1$ は角度（無次元）だが、<strong>行列の第2列に対応する係数</strong> $-r\sin\theta$ が長さの次元を運ぶため、積としての出力 $-0.1$ は長さの次元を持つ。
@@ -1183,11 +1146,11 @@ $$
 <p>3次元ユークリッド空間の真の姿を解き明かす旅へ、いざ出発しよう。
 </p>
       <div class="nav-buttons">
-        <a href="portal.html">← ポータルサイトとちょ...</a>
-        <a href="postscript.html">おわりに：『ナブラ解... →</a>
+        <a href="portal.html">← ポータルサイトとちょっとした試...</a>
+        <a href="postscript.html">おわりに：『ナブラ解体新書』は... →</a>
       </div>
       <footer class="site-footer">
-        <p>&copy; yokiikoy (CC BY-NC 4.0). 先行公開版。詳細は <a href="https://covectorspace.xyz/jp/">Project Co-Vector Space</a> へ。</p>
+        <p>&copy; yokiikoy (CC BY-NC 4.0). 本書の最新版・PDF・改訂履歴・関連情報・本書以外のコンテンツはポータルサイト <a href="https://covectorspace.xyz/jp/">Project Co-Vector Space</a> をご確認ください。</p>
       </footer>
     </article>
   </main>
