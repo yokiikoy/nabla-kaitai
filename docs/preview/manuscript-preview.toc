@@ -1,0 +1,44 @@
+\contentsline {chapter}{ごあいさつ：かつての私への贈り物、あるいはSNS時代の予防線}{i}{chapter*.1}%
+\contentsline {chapter}{はじめに：\(dx\)とは何か・ナブラとは何か}{ii}{chapter*.2}%
+\contentsline {section}{\numberline {0.1}はじめのはじめに：前提知識}{ii}{section.0.1}%
+\contentsline {section}{\numberline {0.2}\(dx\)とは何か}{ii}{section.0.2}%
+\contentsline {section}{\numberline {0.3}ナブラとは何か}{iii}{section.0.3}%
+\contentsline {chapter}{ポータルサイトとちょっとした試み}{iv}{chapter*.3}%
+\contentsline {subsection}{\numberline {0.3.1}ポータルサイト}{iv}{subsection.0.3.1}%
+\contentsline {subsection}{\numberline {0.3.2}Discord サーバー}{iv}{subsection.0.3.2}%
+\contentsline {chapter}{\numberline {1}第1章：\(dx\) とは何か —— ベクトルを食べる測定器、あるいは横ベクトル}{1}{chapter.1}%
+\contentsline {subsection}{\numberline {1.0.1}§1.0 数学者の1次元、物理学者の1次元}{1}{subsection.1.0.1}%
+\contentsline {subsection}{\numberline {1.0.2}§1.1 リーマン和と行列の積}{3}{subsection.1.0.2}%
+\contentsline {subsubsection}{1.1.1 リーマン和の標準的構成（復習）}{3}{section*.4}%
+\contentsline {subsubsection}{1.1.2 小区間ごとの変位}{3}{section*.5}%
+\contentsline {subsubsection}{1.1.3 \(dx\) の登場 — 本書最大の特徴としての「断言」}{5}{section*.6}%
+\contentsline {subsubsection}{1.1.4 リーマン和のベクトル再解釈と積分記号}{7}{section*.7}%
+\contentsline {subsubsection}{1.1.5 一次形式（\(1\)-form）}{8}{section*.8}%
+\contentsline {subsubsection}{1.1.6 本書の記号契約}{8}{section*.9}%
+\contentsline {subsection}{\numberline {1.0.3}§1.2 全微分 \(df\) — 変化率を行列にまとめた演算子}{9}{subsection.1.0.3}%
+\contentsline {subsubsection}{1.2.2 \(df\) の行列としての定義と \(df(\mathbf {v})\)}{9}{section*.10}%
+\contentsline {subsubsection}{1.2.3 \(y\) 方向と \(z\) 方向の測定器 \(dy\), \(dz\)}{10}{section*.11}%
+\contentsline {subsubsection}{1.2.4 具体例： \(f(x) = x^2\) の場合}{10}{section*.12}%
+\contentsline {subsubsection}{1.2.5 置換積分と測定器の作り替え}{11}{section*.13}%
+\contentsline {subsubsection}{1.2.6 三次元への拡張}{12}{section*.14}%
+\contentsline {subsubsection}{1.2.7 線積分の先取り}{13}{section*.15}%
+\contentsline {subsection}{\numberline {1.0.4}§1.3 ライプニッツの記法と代数的直感}{14}{subsection.1.0.4}%
+\contentsline {subsection}{\numberline {1.0.5}§1.4 座標変換——測定器を別の目盛りに作り替える}{14}{subsection.1.0.5}%
+\contentsline {subsubsection}{1.4.1 円柱座標から実空間への変換}{15}{section*.16}%
+\contentsline {subsubsection}{1.4.2 小さな一歩を写して \(dx\) で測る}{15}{section*.17}%
+\contentsline {subsubsection}{1.4.3 一次項から測定器を作る}{16}{section*.18}%
+\contentsline {subsubsection}{1.4.4 引き戻された測定器として読む}{17}{section*.19}%
+\contentsline {subsubsection}{1.4.5 二つのデカルト座標}{19}{section*.20}%
+\contentsline {subsubsection}{1.4.6 第4章への伏線}{19}{section*.21}%
+\contentsline {subsection}{\numberline {1.0.6}§1.5 別の座標で書く——演習}{20}{subsection.1.0.6}%
+\contentsline {subsubsection}{1.5.1 演習問題：円柱座標での測定}{21}{section*.22}%
+\contentsline {subsubsection}{1.5.2 解答と解説}{21}{section*.23}%
+\contentsline {subsubsection}{1.5.3 角度方向に動かした場合}{22}{section*.24}%
+\contentsline {subsection}{\numberline {1.0.7}§1.6 本章のまとめと次章への展望}{22}{subsection.1.0.7}%
+\contentsline {chapter}{完結版の収録予定について}{24}{chapter*.25}%
+\contentsline {chapter}{おわりに：『ナブラ解体新書』はいかにして生まれたか}{27}{chapter*.26}%
+\contentsline {chapter}{参考文献（と著者からのコメント）}{29}{chapter*.27}%
+\contentsline {chapter}{付録：本書で語らなかったもの}{31}{chapter*.28}%
+\contentsline {section}{\numberline {1.1}I. 理論的枠組みと厳密性について}{32}{section.1.1}%
+\contentsline {section}{\numberline {1.2}II. 手法の選択と適用限界について}{33}{section.1.2}%
+\contentsline {section}{\numberline {1.3}III. 物理的定義と教育的配慮について}{35}{section.1.3}%
