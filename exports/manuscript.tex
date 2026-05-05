@@ -17,9 +17,9 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyfoot[L]{\tiny Project Co-Vector Space: \href{https://covectorspace.xyz}{covectorspace.xyz} | CC BY-NC 4.0 \textcopyright\ yokiikoy}
+\fancyfoot[L]{\tiny \textcopyright\ yokiikoy (CC BY-NC 4.0). 本書の最新版・PDF・正誤表・改訂履歴・関連情報・本書以外のコンテンツはポータルサイト \href{https://covectorspace.xyz/jp/}{Project Co-Vector Space} をご確認ください。}
 \fancyfoot[C]{\thepage}
-\fancypagestyle{plain}{\fancyhf{}\fancyfoot[L]{\tiny Project Co-Vector Space: \href{https://covectorspace.xyz}{covectorspace.xyz} | CC BY-NC 4.0 \textcopyright\ yokiikoy}\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0pt}}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[L]{\tiny \textcopyright\ yokiikoy (CC BY-NC 4.0). 本書の最新版・PDF・正誤表・改訂履歴・関連情報・本書以外のコンテンツはポータルサイト \href{https://covectorspace.xyz/jp/}{Project Co-Vector Space} をご確認ください。}\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0pt}}
 \renewcommand{\headrulewidth}{0pt}
 \usepackage{hyperref}
 \usepackage{bookmark}
@@ -116,26 +116,26 @@ v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline
 \end{tabular}\par\bigskip\bigskip\bigskip
 \begin{tabular}{|p{\textwidth}|}\hline
 \multicolumn{1}{|c|}{\textbf{直近の改定履歴}}\\ \hline
-{\small 473f21d (2026-05-05)  Fix: merge roadmap ordered list into single <ol>}\\ \hline
-{\small 709569c (2026-05-05)  Apply human corrections to ch00/ch01 with blockquote math fix}\\ \hline
-{\small ed531d1 (2026-05-05)  Fix: Convert blockquote display math to inline to prevent rendering breakage}\\ \hline
+{\small be02256 (2026-05-05)  Merge pull request \#103 from yokiikoy/feature/html-footer}\\ \hline
+{\small 24ce856 (2026-05-05)  Add copyright and portal link footer to all HTML pages}\\ \hline
+{\small cfae1d6 (2026-05-05)  Merge pull request \#101 from yokiikoy/fix/toc-part-hierarchy}\\ \hline
 \end{tabular}
 \end{minipage}\par
 \vfill
-{\footnotesize 2026-05-05 01:55 JST --- 著者：yokiikoy\par}
+{\footnotesize 2026-05-05 15:51 JST --- 著者：yokiikoy\par}
 \restoregeometry
 \end{titlepage}
 \tableofcontents
 \newpage
-\chapter*{著者ノート：かつての私への贈り物、あるいはSNS時代の予防線}
-\addcontentsline{toc}{chapter}{著者ノート：かつての私への贈り物、あるいはSNS時代の予防線}
-\label{ux8457ux8005ux30ceux30fcux30c8ux304bux3064ux3066ux306eux79c1ux3078ux306eux8d08ux308aux7269ux3042ux308bux3044ux306fsnsux6642ux4ee3ux306eux4e88ux9632ux7dda}
+\chapter*{ごあいさつ：かつての私への贈り物、あるいはSNS時代の予防線}
+\addcontentsline{toc}{chapter}{ごあいさつ：かつての私への贈り物、あるいはSNS時代の予防線}
+\label{ux3054ux3042ux3044ux3055ux3064ux304bux3064ux3066ux306eux79c1ux3078ux306eux8d08ux308aux7269ux3042ux308bux3044ux306fsnsux6642ux4ee3ux306eux4e88ux9632ux7dda}
 
-この本は、大学学部生時代の筆者自身の疑問を解決するための本として、かつての筆者の前提知識を想定して書きました。
+この本は、学生時代の筆者へ贈るつもりで、十代の頃の筆者の前提知識を想定して書きました。
 
 同時に、インターネット上に数学めいた文章を公開する以上、いくつかの予防線も必要でした。本書には、より進んだ立場の教科書なら最初に抽象化してしまうところを、あえて行列表示や有限セルの計算から始める箇所があります。
 
-これはそのような教科書を否定するためではありません。むしろ、いずれ進んだ世界に立ち向かう際に恐れることなく頼りにできる具体的な道具、直観、そして「厳密さ」への嗅覚を養うことを目的としています。
+これは、抽象論から始まる教科書を否定するためではありません。むしろ、いずれ進んだ世界に立ち向かう際に、恐れることなく頼りにできる具体的な道具、直観、そして「厳密さ」への嗅覚を養うことを目的としています。
 
 詳しい問題設定は、次の「はじめに」で述べます。
 
@@ -144,7 +144,12 @@ v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline
 みなさんは、\(dx\) とは何かを説明できるでしょうか。
 
 \begin{quote}
-\textbf{注}（歴史順と理解順） 現代の読者は、行列、線型代数、微分形式、ベクトル解析を、すでに整備された道具として学ぶことができます。少なくとも筆者の受けた教育では、行列はまず、高校生時代に手で計算できる代数的な道具として現れました。しかし、実際の歴史では、これらの道具は互いに影響し合いながら、行きつ戻りつ発展してきたように見えます。そのため、教育現場にも歴史的経緯による混乱が残っているように筆者には思えます。本書は物理数学の歴史を再現する本ではありません。むしろ、現代の読者がすでに持っている行列代数の言葉を使って、多変数微積分とベクトル解析を別の順序でほどき直す試みという側面があります。
+\textbf{注}（歴史順と分かる順）\\
+現代の読者は、行列、線型代数、微分形式、ベクトル解析を、すでに整備された道具として学ぶことができます。少なくとも筆者の受けた教育では、行列はまず、高校生時代に手で計算できる代数的な道具として現れました。
+
+しかし実際の歴史では、これらの道具は互いに影響し合いながら、行きつ戻りつ発展してきました。そのため、教育現場にも歴史的経緯による混乱が残っているように筆者には思えます。
+
+本書は、物理数学の歴史を再現する本ではありません。むしろ、現代の読者がすでに持っている行列代数の言葉を使って、多変数微積分とベクトル解析を、あり得たかもしれない発展順序で再発見する試みです。
 \end{quote}
 
 \newpage
