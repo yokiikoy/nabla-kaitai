@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.4.30)  6 MAY 2026 02:58
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.4.30)  6 MAY 2026 03:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -852,14 +852,14 @@ Package hyperref Info: Link coloring ON on input line 76.
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: twoside 
 * h-part:(L,W,R)=(113.81102pt, 369.88583pt, 113.81102pt)
-* v-part:(T,H,B)=(99.58464pt, 660.10394pt, 85.35826pt)
+* v-part:(T,H,B)=(71.13188pt, 717.00946pt, 56.9055pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
 * \textwidth=369.88583pt
-* \textheight=660.10394pt
+* \textheight=717.00946pt
 * \oddsidemargin=41.54103pt
 * \evensidemargin=41.54103pt
-* \topmargin=-4.55914pt
+* \topmargin=-33.0119pt
 * \headheight=12.0pt
 * \headsep=19.8738pt
 * \topskip=12.0pt
@@ -900,21 +900,17 @@ Overfull \hbox (12.79999pt too wide) in paragraph at lines 101--107
  [][] 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [1
+[1
 
 
 
-]
-[2] (exports/manuscript.toc [3
+] (exports/manuscript.toc [2
 
-] [4])
+] [3])
 \tf@toc=\write3
 \openout3 = `manuscript.toc'.
 
- [5]
+ [4]
 Runaway argument?
 {
 ! Paragraph ended before \hypertarget was complete.
@@ -926,9 +922,6 @@ I suspect you've forgotten a `}', causing me to apply this
 control sequence to too much text. How can we recover?
 My plan is to forget the whole thing and hope for the best.
 
-[6
-
-]
 ! Too many }'s.
 l.117 ...snsux6642ux4ee3ux306eux4e88ux9632ux7dda}}
                                                   
@@ -937,6 +930,7 @@ Such booboos are generally harmless, so keep going.
 
 Package mdframed Info: mdframed works in twoside mode on input line 129.
 [1
+
 
 ] [2
 
@@ -1663,10 +1657,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  16901 strings out of 476878
  333673 string characters out of 5805249
- 1962627 words of memory out of 5000000
+ 1963627 words of memory out of 5000000
  38511 multiletter control sequences out of 15000+600000
  583576 words of font info for 163 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  79i,14n,93p,653b,591s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on exports/manuscript.pdf (189 pages).
+Output written on exports/manuscript.pdf (187 pages).
