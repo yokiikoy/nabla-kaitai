@@ -389,9 +389,9 @@ def main():
         toc_stubs.append(r'本書の全12章分の草稿はすでに書き上がっていますが、現在は誤字脱字、全体の整合性、数学的厳密性と教育的な断言のバランスを調整している最中です。GitHub リポジトリや作業中ブランチを探すと、第2章以降の草稿が見えてしまう可能性があります。ただし、それらは正式な公開版ではありません。')
         toc_stubs.append(r'')
         toc_stubs.append(r'どうしても続きを読む場合は、こっそり作業場を覗き見たものとして扱い、現時点では批評・レビュー・拡散の対象にしないでください。正式な完結版は、ポータルサイトで案内します。')
-        toc_stubs.append(r'\vspace{1em}')
+        toc_stubs.append(r'\par\vspace{1em}')
         toc_stubs.append(r'{\small ページ番号は完全版のものです。この先行公開版では対応する本文はありません。}')
-        toc_stubs.append(r'\vspace{2em}')
+        toc_stubs.append(r'\par\vspace{2em}')
 
         # Custom mini-TOC with page numbers from full build
         for ch in model.chapters:
