@@ -1,6 +1,6 @@
 \contentsline {chapter}{ごあいさつ：かつての私への贈り物、あるいはSNS時代の予防線}{i}{chapter*.1}%
 \contentsline {chapter}{はじめに：\(dx\)とは何か・ナブラとは何か}{ii}{chapter*.2}%
-\contentsline {section}{\numberline {0.1}はじめのはじめに：前提知識}{ii}{section.0.1}%
+\contentsline {section}{\numberline {0.1}前提知識}{ii}{section.0.1}%
 \contentsline {section}{\numberline {0.2}\(dx\)とは何か}{ii}{section.0.2}%
 \contentsline {section}{\numberline {0.3}ナブラとは何か}{iii}{section.0.3}%
 \contentsline {chapter}{ポータルサイトとちょっとした試み}{iv}{chapter*.3}%
@@ -31,7 +31,7 @@
 \contentsline {subsubsection}{1.4.5 二つのデカルト座標}{19}{section*.20}%
 \contentsline {subsubsection}{1.4.6 第4章への伏線}{19}{section*.21}%
 \contentsline {subsection}{\numberline {1.0.6}§1.5 別の座標で書く——演習}{20}{subsection.1.0.6}%
-\contentsline {subsubsection}{1.5.1 演習問題：円柱座標での測定}{21}{section*.22}%
+\contentsline {subsubsection}{1.5.1 演習問題：円柱座標での測定}{20}{section*.22}%
 \contentsline {subsubsection}{1.5.2 解答と解説}{21}{section*.23}%
 \contentsline {subsubsection}{1.5.3 角度方向に動かした場合}{22}{section*.24}%
 \contentsline {subsection}{\numberline {1.0.7}§1.6 本章のまとめと次章への展望}{22}{subsection.1.0.7}%
