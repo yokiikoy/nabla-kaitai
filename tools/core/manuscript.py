@@ -43,11 +43,25 @@ class ManuscriptModel:
         if not os.path.exists(filepath):
             return title, lines, toc
 
+        in_yaml = False
+        yaml_done = False
         with open(filepath, 'r', encoding='utf-8') as f:
             for line in f:
-                lines.append(line.rstrip('\n'))
+                stripped = line.rstrip('\n')
+                if not yaml_done and stripped == '---':
+                    if not in_yaml:
+                        in_yaml = True
+                        continue
+                    else:
+                        in_yaml = False
+                        yaml_done = True
+                        continue
+                if in_yaml:
+                    continue
+                    
+                lines.append(stripped)
                 # Extract headers
-                h_match = re.match(r'^(#{1,3})\s+(.+)$', line)
+                h_match = re.match(r'^(#{1,3})\s+(.+)$', stripped)
                 if h_match:
                     level = len(h_match.group(1))
                     text = h_match.group(2).strip()
