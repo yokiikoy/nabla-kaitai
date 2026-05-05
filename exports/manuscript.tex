@@ -69,18 +69,43 @@
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+% Tolerate slight overfull boxes in math-heavy text
+\setlength{\emergencystretch}{2em}
+\tolerance=2000
+\hbadness=5000
 \begin{document}
-
 \begin{titlepage}
-    \centering
-    \vspace*{2cm}
-    {\includegraphics[width=4cm]{exports/icons/nabla_icon_inflate_65.png}\par}
-    \vspace{2cm}
-    {\Huge\bfseries\strongface ナブラ解体新書\par}
-    \vspace{2cm}
-    {\Large yokiikoy\par}
-    \vfill
-    {\large \today\par}
+\newgeometry{top=35mm,bottom=30mm,left=40mm,right=40mm}
+\pagestyle{empty}
+\centering
+\vspace*{35mm}
+{\fontsize{34}{42}\selectfont\bfseries ナブラ解体新書\par}
+\vspace{12mm}
+{\Large 行列表示の微分形式による\par}
+{\Large ベクトル解析の抜け道\par}
+\vspace{4mm}
+{\normalsize v0.1.0-alpha\par}
+\vspace{6mm}
+\begin{minipage}{0.78\textwidth}
+\centering
+\small
+\begin{tabular}{|l|p{0.6\textwidth}|}\hline
+\multicolumn{2}{|c|}{\textbf{Versioning Policy}}\\ \hline
+\textbf{v1.0.0} & 全12章の内容確定・相互参照の整合性完了・手計算による検算完了\\ \hline
+\textbf{v2.0.0} & 図表の作成と配置完了・組版完了・印刷用データの出力\\ \hline
+v0.x.0         & 章の追加・章構成の変更・大幅な書き直し\\ \hline
+v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline
+\end{tabular}\par\bigskip\bigskip\bigskip
+\begin{tabular}{|p{\textwidth}|}\hline
+\multicolumn{1}{|c|}{\textbf{直近の改定履歴}}\\ \hline
+{\small 4ad62e8 (2026-05-06)  fixes for \#112 \#113 \#115 \#116: reorder TOC notice, add cover icon, fix back matter TOC, add full build page numbers}\\ \hline
+{\small 8004ef0 (2026-05-06)  finalize preview build system: restore xelatex returncode check, update notices, rename preface to ごあいさつ}\\ \hline
+{\small 9a3d8da (2026-05-06)  sync human edits to afterword.md and introduction.md, regenerate artifacts}\\ \hline
+\end{tabular}
+\end{minipage}\par
+\vfill
+{\footnotesize 2026-05-06 02:57 JST --- 著者：yokiikoy\par}
+\restoregeometry
 \end{titlepage}
 \tableofcontents
 \newpage
@@ -89,7 +114,7 @@
 \frontmatter
 \chapter{ごあいさつ：かつての私への贈り物、あるいはSNS時代の予防線}\label{ux3054ux3042ux3044ux3055ux3064ux304bux3064ux3066ux306eux79c1ux3078ux306eux8d08ux308aux7269ux3042ux308bux3044ux306fsnsux6642ux4ee3ux306eux4e88ux9632ux7dda}}
 
-この本は、大学学部生時代の筆者自身の疑問を解決するための本として、かつての筆者の前提知識を想定して書きました。
+この本は、大学生時代の筆者自身の疑問を解決するための本として、かつての筆者の前提知識を想定して書きました。
 
 同時に、インターネット上に数学めいた文章を公開する以上、いくつかの予防線も必要でした。本書には、より進んだ立場の教科書なら最初に抽象化してしまうところを、あえて行列表示や有限セルの計算から始める箇所があります。
 
@@ -97,9 +122,7 @@
 
 詳しい問題設定は、次の「はじめに」で述べます。
 
-さて、本題です。
-
-みなさんは、\(dx\) とは何かを説明できるでしょうか。
+さて、本題です。 みなさんは、\(dx\) とは何かを説明できるでしょうか。
 
 \begin{quote}
 \textbf{注}（歴史順と理解順）

@@ -9,6 +9,31 @@ import re
 import sys
 import argparse
 from pathlib import Path
+from datetime import datetime
+
+def git_text(args, default=''):
+    result = subprocess.run(
+        ['git'] + args,
+        capture_output=True, text=True
+    )
+    if result.returncode != 0:
+        return default
+    return result.stdout.strip() or default
+
+def latex_escape(value):
+    replacements = {
+        '\\': r'\textbackslash{}',
+        '&': r'\&',
+        '%': r'\%',
+        '$': r'\$',
+        '#': r'\#',
+        '_': r'\_',
+        '{': r'\{',
+        '}': r'\}',
+        '~': r'\textasciitilde{}',
+        '^': r'\textasciicircum{}',
+    }
+    return ''.join(replacements.get(char, char) for char in value)
 
 # Add tools directory to path so we can import core
 sys.path.append(str(Path(__file__).parent))
@@ -29,6 +54,14 @@ def main():
 
     profile = get_profile(args.profile)
     model = ManuscriptModel(profile)
+
+    # Git metadata for title page
+    build_datetime = datetime.now().strftime('%Y-%m-%d %H:%M JST')
+    author_name = 'yokiikoy'
+    git_log = git_text(['log', '-3', '--format=%h (%ad)  %s', '--date=short'], '未取得')
+    log_lines = [l.strip() for l in git_log.split('\n') if l.strip()]
+    while len(log_lines) < 3:
+        log_lines.append('')
 
     os.makedirs('exports', exist_ok=True)
     os.makedirs('preview', exist_ok=True)
@@ -266,24 +299,51 @@ def main():
         r'\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}' '\n'
         r'\providecommand{\tightlist}{%' '\n'
         r'  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}' '\n'
+        '% Tolerate slight overfull boxes in math-heavy text\n'
+        r'\setlength{\emergencystretch}{2em}' '\n'
+        r'\tolerance=2000' '\n'
+        r'\hbadness=5000' '\n'
         r'\begin{document}' '\n'
     )
 
-    title_page = r'''
-\begin{titlepage}
-    \centering
-    \vspace*{2cm}
-    {\includegraphics[width=4cm]{exports/icons/nabla_icon_inflate_65.png}\par}
-    \vspace{2cm}
-    {\Huge\bfseries\strongface ナブラ解体新書\par}
-    \vspace{2cm}
-    {\Large yokiikoy\par}
-    \vfill
-    {\large \today\par}
-\end{titlepage}
-\tableofcontents
-\newpage
-'''
+    title_page = (
+        r'\begin{titlepage}' '\n'
+        r'\newgeometry{top=35mm,bottom=30mm,left=40mm,right=40mm}' '\n'
+        r'\pagestyle{empty}' '\n'
+        r'\centering' '\n'
+        r'\vspace*{35mm}' '\n'
+        r'{\fontsize{34}{42}\selectfont\bfseries ナブラ解体新書\par}' '\n'
+        r'\vspace{12mm}' '\n'
+        r'{\Large 行列表示の微分形式による\par}' '\n'
+        r'{\Large ベクトル解析の抜け道\par}' '\n'
+        r'\vspace{4mm}' '\n'
+        r'{\normalsize v0.1.0-alpha\par}' '\n'
+        r'\vspace{6mm}' '\n'
+        r'\begin{minipage}{0.78\textwidth}' '\n'
+        r'\centering' '\n'
+        r'\small' '\n'
+        r'\begin{tabular}{|l|p{0.6\textwidth}|}\hline' '\n'
+        r'\multicolumn{2}{|c|}{\textbf{Versioning Policy}}\\ \hline' '\n'
+        r'\textbf{v1.0.0} & 全12章の内容確定・相互参照の整合性完了・手計算による検算完了\\ \hline' '\n'
+        r'\textbf{v2.0.0} & 図表の作成と配置完了・組版完了・印刷用データの出力\\ \hline' '\n'
+        r'v0.x.0         & 章の追加・章構成の変更・大幅な書き直し\\ \hline' '\n'
+        r'v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline' '\n'
+        r'\end{tabular}\par\bigskip\bigskip\bigskip' '\n'
+        r'\begin{tabular}{|p{\textwidth}|}\hline' '\n'
+        r'\multicolumn{1}{|c|}{\textbf{直近の改定履歴}}\\ \hline' '\n'
+        + ''.join(
+            r'{\small ' + latex_escape(line) + r'}\\ \hline' '\n'
+            for line in log_lines if line
+        )
+        + r'\end{tabular}' '\n'
+        r'\end{minipage}\par' '\n'
+        r'\vfill' '\n'
+        r'{\footnotesize ' + latex_escape(build_datetime) + r' --- 著者：' + latex_escape(author_name) + r'\par}' '\n'
+        r'\restoregeometry' '\n'
+        r'\end{titlepage}' '\n'
+        r'\tableofcontents' '\n'
+        r'\newpage' '\n'
+    )
     
     # PDF TOC Scope: Inject virtual TOC entries for chapters that are in toc_scope but not in content_scope
     # This allows the PDF to display the full TOC even in preview mode.
