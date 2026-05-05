@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>参考文献（と著者からのコメント） (先行公開版) | ナブラ解体新書</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+<style>
+  :root { --sidebar-width: 320px; }
+  body { margin: 0; display: flex; background: #fff; line-height: 1.7; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .sidebar { width: var(--sidebar-width); height: 100vh; position: sticky; top: 0; background: #f8f9fa; border-right: 1px solid #d0d7de; overflow-y: auto; padding: 1.5rem; box-sizing: border-box; flex-shrink: 0; }
+  .sidebar h2 { font-size: 1.2rem; border: none; margin-bottom: 0.5rem; color: #24292f; }
+  .sidebar .author { font-size: 0.8rem; color: #666; margin-bottom: 1.5rem; }
+  .sidebar .toc { font-size: 0.85rem; }
+  .sidebar .toc ul { list-style: none; padding-left: 0; margin: 0; }
+  .sidebar .toc li { margin-bottom: 0.4rem; }
+  .sidebar .toc .level-1 { font-weight: bold; margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 2px; }
+  .sidebar .toc .sub-toc { font-size: 0.8rem; margin-top: 0.5rem; padding-left: 0.8rem; border-left: 2px solid #eee; }
+  .sidebar .toc .sub-toc li { margin-bottom: 0.2rem; font-weight: normal; }
+  .sidebar .toc .sub-toc .level-3 { padding-left: 0.8rem; font-size: 0.75rem; color: #666; }
+  .sidebar a { text-decoration: none; color: #0969da; }
+  .sidebar a:hover { text-decoration: underline; }
+  .sidebar .active { color: #cf222e; font-weight: bold; }
+  .sidebar .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
+  .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; }
+  .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; }
+  @media (max-width: 900px) { 
+    body { flex-direction: column; } 
+    .sidebar { width: 100%; height: auto; position: static; padding: 1rem; border-right: none; border-bottom: 1px solid #d0d7de; } 
+    .main-content { padding: 1rem; } 
+    .markdown-body { padding: 0.5rem; }
+  }
+  blockquote { border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }
+  .table-wrapper { overflow-x: auto; margin: 1.5em 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.9em; }
+  th, td { border: 1px solid #d0d7de; padding: 6px 13px; }
+  tr:nth-child(even) { background-color: #f6f8fa; }
+  th { font-weight: 600; background-color: #f6f8fa; }
+  .nav-buttons { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }
+  .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
+  .nav-buttons a:hover { background: #f6f8fa; }
+  strong { font-weight: 800 !important; color: #000; }
+  blockquote strong { color: #24292f !important; }
+  /* KaTeX responsiveness */
+  .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }
+  .full-toc h2 { font-size: 1.1rem; margin: 1.5em 0 0.3em; padding-bottom: 2px; border-bottom: 1px solid #d0d7de; }
+  .full-toc h2 a { color: #24292f; text-decoration: none; }
+  .full-toc h2 a:hover { color: #0969da; }
+  .full-toc h2 .disabled-link { color: #8c959f; cursor: not-allowed; }
+  .full-toc ul { list-style: none; padding-left: 1.5rem; margin: 0.3em 0 0; }
+  .full-toc li { margin-bottom: 0.2rem; font-size: 0.9rem; }
+  .full-toc .level-3 { padding-left: 1rem; font-size: 0.8rem; color: #57606a; }
+  .full-toc a { color: #0969da; text-decoration: none; }
+  .full-toc a:hover { text-decoration: underline; }
+  .full-toc .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
+  .full-toc .part-header { font-size: 1.1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }
+  .full-toc .toc-part-chapters { padding-left: 1.5rem; }
+  .full-toc .toc-part-chapters h3 { font-size: 0.95rem; margin: 0.5em 0 0.2em; }
+  .full-toc .toc-part-chapters h3 a { color: #24292f; }
+  .full-toc .toc-part-chapters ul { padding-left: 1.5rem; }
+  .site-footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #d0d7de; font-size: 0.8rem; color: #57606a; }
+  .site-footer a { color: #0969da; text-decoration: none; }
+  .site-footer a:hover { text-decoration: underline; }
+</style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ],
+            throwOnError : false
+        });
+    });
+</script>
+
+</head>
+<body>
+  <nav class="sidebar">
+    <h2><a href="index.html">ナブラ解体新書</a></h2>
+    <div class="author">
+      著者: yokiikoy<br>
+      <a href="http://covectorspace.xyz/jp/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a>
+    </div>
+    <div class="toc">
+      <ul>
+<li class="level-1"><a href="toc.html" id="link-toc.html">目次</a></li>
+<li class="level-1"><a href="index.html" id="link-index.html">ごあいさつ</a></li>
+<li class="level-1"><a href="intro.html" id="link-intro.html">はじめに</a></li>
+<li class="level-1"><a href="portal.html" id="link-portal.html">ポータルサイトとちょっとした試み</a></li>
+<li class="level-1"><a href="ch01.html" id="link-ch01.html">第1章</a></li>
+<li class="level-1"><a href="#" id="link-ch02.html" class="disabled-link" title="完結版に収録予定">第2章</a></li>
+<li class="level-1"><a href="#" id="link-ch03.html" class="disabled-link" title="完結版に収録予定">第3章</a></li>
+<li class="level-1"><a href="#" id="link-ch04.html" class="disabled-link" title="完結版に収録予定">第4章</a></li>
+<li class="level-1"><a href="#" id="link-ch05.html" class="disabled-link" title="完結版に収録予定">第5章</a></li>
+<li class="level-1"><a href="#" id="link-ch06.html" class="disabled-link" title="完結版に収録予定">第6章</a></li>
+<li class="level-1"><a href="#" id="link-ch07.html" class="disabled-link" title="完結版に収録予定">第7章</a></li>
+<li class="level-1"><a href="#" id="link-ch08.html" class="disabled-link" title="完結版に収録予定">第8章</a></li>
+<li class="level-1"><a href="#" id="link-ch09.html" class="disabled-link" title="完結版に収録予定">第9章</a></li>
+<li class="level-1"><a href="#" id="link-ch10.html" class="disabled-link" title="完結版に収録予定">第10章</a></li>
+<li class="level-1"><a href="#" id="link-ch11.html" class="disabled-link" title="完結版に収録予定">第11章</a></li>
+<li class="level-1"><a href="#" id="link-ch12.html" class="disabled-link" title="完結版に収録予定">第12章</a></li>
+<li class="level-1"><a href="postscript.html" id="link-postscript.html">おわりに</a></li>
+<li class="level-1"><a href="refs.html" class="active" id="link-refs.html">参考文献（と著者からのコメント）</a></li>
+<li class="level-1"><a href="appendix.html" id="link-appendix.html">付録</a></li>
+</ul>
+    </div>
+  </nav>
+  <main class="main-content">
+    <article class="markdown-body">
+<div class="preview-notice" style="background: #fff8c5; border: 1px solid #d4a72c; padding: 1rem; border-radius: 6px; margin-bottom: 2rem; font-size: 0.9rem;">
+      <strong>先行公開版のお知らせ:</strong> このドキュメントは先行公開用であり、正式な公開範囲は前付け・第1章・後付類のみです。第2章以降の本文は、現在、誤字脱字、全体の整合性、数学的厳密性と教育的な断言のバランスを調整している最中です。GitHub リポジトリや作業中ブランチを探すと全12章分の草稿が見えてしまう可能性がありますが、それらは正式な公開版ではありません。どうしても読む場合は、こっそり作業場を覗き見たものとして扱い、現時点では批評・レビュー・拡散の対象にしないでください。最新版や正式な公開情報はポータルサイトをご確認ください。
+    </div>
+<h1 id="参考文献（と著者からのコメント）">参考文献（と著者からのコメント）</h1>
+<p>本書の特異な代数的アプローチは、以下の先導者たちの知見を組み合わせて構築されました。
+</p>
+<hr />
+<p><strong>1. Daniel Fleisch, <em>A Student's Guide to Vectors and Tensors</em>, Cambridge University Press (2011)</strong>
+</p>
+<p>【コメント：伝統的アプローチの丁寧なガイド】伝統的なベクトル解析とテンソル解析の成分計算を極めて丁寧に扱う、定評ある入門書。本書が別ルート（微分形式）での回避を図った、クリストッフェル記号や添字操作のジャングルを正面から突破する力を身につけるには最適の一冊。
+</p>
+<hr />
+<p><strong>2. David Bachman, <em>A Geometric Approach to Differential Forms</em>, Birkhäuser (2nd ed. 2011)</strong>
+</p>
+<p>【コメント：微分形式への幾何学的導入】微分形式を公理からではなく「影を測る」といった幾何学的な直観から説明する良書。本書の「 $dx$ は測定器である」という直観の多くは本書から得ていますが、本書では計算としての完結性を優先し、その直観を行列代数へと落とし込んで採用しました。
+</p>
+<hr />
+<p><strong>3. Harley Flanders, <em>Differential Forms with Applications to the Physical Sciences</em>, Dover Publications (1989/1963)</strong>
+</p>
+<p>【コメント：物理数学への応用の古典】微分形式を物理学へ応用する際のバイブル的な名著。外微分 $d$ やホッジ・スター $\ast$ の厳密な操作ルールが凝縮されています。公理的な導入から始まるため初学者の独学にはやや硬派ですが、本書を終えた読者ならその強力な計算を十分に使いこなせるはずです。
+</p>
+<hr />
+<p><strong>4. William L. Burke, <em>Applied Differential Geometry</em>, Cambridge University Press (1985)</strong>
+ <strong>William L. Burke, <em>Div, Grad, Curl are Dead</em> (Unfinished Manuscript)</strong>
+</p>
+<p>【コメント：本書の構成上の支柱——「計量遅延」の哲学】本書の骨格を決定づけた最重要文献。Burke は「計量をコースのどんどん後の方に遅らせる（put the metric later and later into the course）」という教育的哲学を提唱しました。計量なしでも外微分 $d$（トポロジー）で語れる部分があまりに多いことを明示したこの哲学は、本書の第5章までの構成を支えています。
+</p>
+<hr />
+<p><strong>5. Leonard Susskind & Art Friedman, <em>Quantum Mechanics: The Theoretical Minimum</em>, Basic Books (2014)</strong>
+</p>
+<p>【コメント：行列表現の直観】抽象的な $1$-form（双対空間）を「横ベクトルとして寝かせて行列の積をとる」という物理学者の母語に翻訳する直観は、量子力学のブラ・ケット記法の操作感から強く影響を受けています。
+</p>
+<hr />
+<p><strong>6. Chris Doran & Anthony Lasenby, <em>Geometric Algebra for Physicists</em>, Cambridge University Press (2003)</strong>
+</p>
+<p>【コメント：本書の先にある一つの統合】現代物理学の幾何代数（クリフォード代数）への入口。本書では徹底的に分離した「内積」と「外積」を、最初から一つの非可換積として統合した風景が見られます。分離の苦しみを知った読者こそ、この統合がいかに強力な解放感をもたらすかを感じ取れるでしょう。
+</p>
+      <div class="nav-buttons">
+        <a href="postscript.html">← おわりに...</a>
+        <a href="appendix.html">付録... →</a>
+      </div>
+    </article>
+    <footer class="site-footer">
+      <p>&copy; 2024- yokiikoy. CC BY-NC 4.0.</p>
+    </footer>
+  </main>
+</body>
+</html>

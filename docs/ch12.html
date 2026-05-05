@@ -21,6 +21,7 @@
   .sidebar a { text-decoration: none; color: #0969da; }
   .sidebar a:hover { text-decoration: underline; }
   .sidebar .active { color: #cf222e; font-weight: bold; }
+  .sidebar .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
   .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; }
   .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; }
   @media (max-width: 900px) { 
@@ -45,11 +46,13 @@
   .full-toc h2 { font-size: 1.1rem; margin: 1.5em 0 0.3em; padding-bottom: 2px; border-bottom: 1px solid #d0d7de; }
   .full-toc h2 a { color: #24292f; text-decoration: none; }
   .full-toc h2 a:hover { color: #0969da; }
+  .full-toc h2 .disabled-link { color: #8c959f; cursor: not-allowed; }
   .full-toc ul { list-style: none; padding-left: 1.5rem; margin: 0.3em 0 0; }
   .full-toc li { margin-bottom: 0.2rem; font-size: 0.9rem; }
   .full-toc .level-3 { padding-left: 1rem; font-size: 0.8rem; color: #57606a; }
   .full-toc a { color: #0969da; text-decoration: none; }
   .full-toc a:hover { text-decoration: underline; }
+  .full-toc .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
   .full-toc .part-header { font-size: 1.1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }
   .full-toc .toc-part-chapters { padding-left: 1.5rem; }
   .full-toc .toc-part-chapters h3 { font-size: 0.95rem; margin: 0.5em 0 0.2em; }
@@ -83,9 +86,10 @@
       著者: yokiikoy<br>
       <a href="http://covectorspace.xyz/jp/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a>
     </div>
-    <div class="toc"><ul>
+    <div class="toc">
+      <ul>
 <li class="level-1"><a href="toc.html" id="link-toc.html">目次</a></li>
-<li class="level-1"><a href="index.html" id="link-index.html">著者ノート</a></li>
+<li class="level-1"><a href="index.html" id="link-index.html">ごあいさつ</a></li>
 <li class="level-1"><a href="intro.html" id="link-intro.html">はじめに</a></li>
 <li class="level-1"><a href="portal.html" id="link-portal.html">ポータルサイトとちょっとした試み</a></li>
 <li class="level-1"><a href="ch01.html" id="link-ch01.html">第1章</a></li>
@@ -99,16 +103,17 @@
 <li class="level-1"><a href="ch09.html" id="link-ch09.html">第9章</a></li>
 <li class="level-1"><a href="ch10.html" id="link-ch10.html">第10章</a></li>
 <li class="level-1"><a href="ch11.html" id="link-ch11.html">第11章</a></li>
-<li class="level-1"><a href="ch12.html" class="active" id="link-ch12.html">第12章</a><ul class="sub-toc"><li class="level-3"><a href="#120-2本を1本に">§12.0 2本を1本に</a></li><li class="level-3"><a href="#121-虚数で一本に--マクスウェル方程式の統合">§12.1 虚数で一本に —— マクスウェル方程式の統合</a></li><li class="level-3"><a href="#122-パウリ行列--異なる次数を足す魔法">§12.2 パウリ行列 —— 異なる次数を足す魔法</a></li><li class="level-3"><a href="#123-ディラック演算子と真のナブラ">§12.3 ディラック演算子と「真のナブラ」</a></li><li class="level-3"><a href="#124-演算子">§12.4 演算子$\nabla$</a></li></ul></li>
+<li class="level-1"><a href="ch12.html" class="active" id="link-ch12.html">第12章</a><ul class="sub-toc"><li class="level-3"><a href="#§12.0-2本を1本に">§12.0 2本を1本に</a></li><li class="level-3"><a href="#§12.1-虚数で一本に-——-マクスウェル方程式の統合">§12.1 虚数で一本に —— マクスウェル方程式の統合</a></li><li class="level-3"><a href="#§12.2-パウリ行列-——-異なる次数を足す魔法">§12.2 パウリ行列 —— 異なる次数を足す魔法</a></li><li class="level-3"><a href="#§12.3-ディラック演算子と「真のナブラ」">§12.3 ディラック演算子と「真のナブラ」</a></li><li class="level-3"><a href="#§12.4-演算子$\nabla$">§12.4 演算子$\nabla$</a></li></ul></li>
 <li class="level-1"><a href="postscript.html" id="link-postscript.html">おわりに</a></li>
 <li class="level-1"><a href="refs.html" id="link-refs.html">参考文献（と著者からのコメント）</a></li>
 <li class="level-1"><a href="appendix.html" id="link-appendix.html">付録</a></li>
-</ul></div>
+</ul>
+    </div>
   </nav>
   <main class="main-content">
     <article class="markdown-body">
-      <h1 id="第12章真のナブラ--クリフォード・パウリ・ディラック・ハミルトン">第12章：真のナブラ —— クリフォード・パウリ・ディラック・ハミルトン</h1>
-<h3 id="120-2本を1本に">§12.0 2本を1本に</h3>
+<h1 id="第12章：真のナブラ-——-クリフォード・パウリ・ディラック・ハミルトン">第12章：真のナブラ —— クリフォード・パウリ・ディラック・ハミルトン</h1>
+<h3 id="§12.0-2本を1本に">§12.0 2本を1本に</h3>
 <p>　第10章の注釈内で、実はこんなことを書いていた——「なぜ2本なのか。$dF=0$ と $d(\ast F)=\mu_0(\ast\mathcal{J})$ を1本にまとめられないのか」と。
 </p>
 <p>できるのだ。それも、あっさりと。虚数単位 $i$ を持ち出せば、一行の複素方程式にまとめられる。本章ではまずその「トリック」を見てから、その先にあるもっと統合的な視点——パウリ行列とディラック演算子——へと進む。
@@ -121,7 +126,7 @@
 <p><strong>注</strong> （本章の立ち位置）本章は発展的な補足であり、本書の本線からは外れている。第8章でベクトル解析の書き換えは完了し、第10章でマクスウェル方程式の行列展開も終えた。本章では、厳密な幾何代数（クリフォード代数）の教科書を書くつもりはない。目的は、本書で解体してきた grad・rot・div が、パウリ行列とディラック演算子の中で再び一つの演算へ統合される様子を、計算の入口として見ることである。</p>
 </blockquote>
 <hr />
-<h3 id="121-虚数で一本に--マクスウェル方程式の統合">§12.1 虚数で一本に —— マクスウェル方程式の統合</h3>
+<h3 id="§12.1-虚数で一本に-——-マクスウェル方程式の統合">§12.1 虚数で一本に —— マクスウェル方程式の統合</h3>
 <p>第10章で我々は、マクスウェル方程式を
 </p>
 $$dF = 0, \qquad d(\ast F) = \mu_0(\ast\mathcal{J})$$
@@ -145,10 +150,10 @@ $$d(F + i\ast F) = i\mu_0(\ast\mathcal{J})$$
 <p>異なる次数の形式を足し合わせる——そんな「魔法の箱」はないものだろうか。
 </p>
 <hr />
-<h3 id="122-パウリ行列--異なる次数を足す魔法">§12.2 パウリ行列 —— 異なる次数を足す魔法</h3>
+<h3 id="§12.2-パウリ行列-——-異なる次数を足す魔法">§12.2 パウリ行列 —— 異なる次数を足す魔法</h3>
 <p>実はある。物理学者たちが量子力学のために発見した道具が、そのままこの魔法の箱として使える。パウリ行列だ。より正確には、ここで見ているのは 3次元ユークリッド空間のクリフォード代数を、パウリ行列で表現したものである。微分形式そのものではなく、各次数（0〜3次）の基底をこの代数の中に（本章の規約に沿って）対応させている。
 </p>
-<h4 id="1221-パウリ行列の定義と掛け算">12.2.1 パウリ行列の定義と掛け算</h4>
+<h4 id="12.2.1-パウリ行列の定義と掛け算">12.2.1 パウリ行列の定義と掛け算</h4>
 <p>パウリ行列 $\sigma_1, \sigma_2, \sigma_3$ は次の $2\times2$ 行列である。
 </p>
 $$
@@ -177,11 +182,11 @@ $$
 </p>
 <p>パウリ行列の積は、つねに「内積（対称部分）$+$ ウェッジ積（反対称部分）」に分解される。この一点が、パウリ行列のすべての魔法の源である。
 </p>
-<h4 id="1222-ベクトルをパウリ行列で書く">12.2.2 ベクトルをパウリ行列で書く</h4>
+<h4 id="12.2.2-ベクトルをパウリ行列で書く">12.2.2 ベクトルをパウリ行列で書く</h4>
 <p>3次元ベクトル $\mathbf{v} = (v_1, v_2, v_3)$ をパウリ行列で表してみよう。
 </p>
-$$V = v_1\sigma_1 + v_2\sigma_2 + v_3\sigma_3 = \mathbf{v}\!\cdot\!\boldsymbol{\sigma}$$
-<p>二つのベクトル $\mathbf{v}, \mathbf{w}$ に対応するパウリ行列 $V = \mathbf{v}\!\cdot\!\boldsymbol{\sigma}$, $W = \mathbf{w}\!\cdot\!\boldsymbol{\sigma}$ の積を計算する。
+$$V = v_1\sigma_1 + v_2\sigma_2 + v_3\sigma_3 = \mathbf{v}\!\cdot\!\bm{\sigma}$$
+<p>二つのベクトル $\mathbf{v}, \mathbf{w}$ に対応するパウリ行列 $V = \mathbf{v}\!\cdot\!\bm{\sigma}$, $W = \mathbf{w}\!\cdot\!\bm{\sigma}$ の積を計算する。
 </p>
 $$
 \begin{aligned}
@@ -209,7 +214,7 @@ I\text{ の係数（内積）} &: v_1w_1 + v_2w_2 + v_3w_3 \;=\; \mathbf{v}\!\cd
 $$
 <p>$\sigma_1,\sigma_2,\sigma_3$ の係数カッコ内は、第2章で定義したウェッジ積 $\mathbf{v}\wedge\mathbf{w}$ の各成分そのものである。したがって
 </p>
-$$VW = (\mathbf{v}\!\cdot\!\mathbf{w})\,I \;+\; i\,(\mathbf{v}\times\mathbf{w})\!\cdot\!\boldsymbol{\sigma}$$
+$$VW = (\mathbf{v}\!\cdot\!\mathbf{w})\,I \;+\; i\,(\mathbf{v}\times\mathbf{w})\!\cdot\!\bm{\sigma}$$
 <p>と、内積 $+$ ウェッジ積の形にまとまる。内積と外積が、<strong>一つの積 $VW$ から同時に</strong>現れた。
 </p>
 <p>これが「魔法の箱」の正体だ。より正確には、ここで見ているのは3次元ユークリッド空間のクリフォード代数を、パウリ行列で表現したものである。その積は、内積（$0$-form に相当するスカラー）と外積（$2$-form に相当するウェッジ積）を、<strong>一つの演算で同時に</strong>生み出す。通常の微分形式では別々の次数に属していたものが、この行列表現の中では一つの $2\times2$ 行列として共存している。
@@ -217,7 +222,7 @@ $$VW = (\mathbf{v}\!\cdot\!\mathbf{w})\,I \;+\; i\,(\mathbf{v}\times\mathbf{w})\
 <blockquote>
 <p><strong>注</strong> （なぜ $2\times2$ なのか）ベクトルを $2\times2$ 行列で表すのは奇妙に思えるかもしれない。しかし、内積とウェッジ積の両方を一つの積で表現するには、少なくとも非可換な代数が必要であり、その最小の実現が $2\times2$ 複素行列なのである。本書の流儀でいえば、$1$-form（横ベクトル $1\times3$）と $2$-form（反対称 $3\times3$ 行列）という次数の異なる二つの対象を、一つの $2\times2$ 行列の中に押し込めた——そう考えればよい。</p>
 </blockquote>
-<h4 id="1223-スカラーも混ぜて足す">12.2.3 スカラーも混ぜて足す</h4>
+<h4 id="12.2.3-スカラーも混ぜて足す">12.2.3 スカラーも混ぜて足す</h4>
 <p>ここまでで、ベクトル（$1$-form）とウェッジ積（$2$-form）が $VW$ という一通りの計算で同時に出てくることがわかった。さらに一歩進めて、スカラー（$0$-form）そのものも同じ代数に混ぜよう。
 </p>
 <p>パウリ行列の線形結合で表される最も一般的な $2\times2$ 行列は
@@ -229,7 +234,7 @@ $$\psi = \varphi\,I + A_1\sigma_1 + A_2\sigma_2 + A_3\sigma_3$$
 <p><strong>注</strong> （何ができるようになったのか）微分形式でも異なる次数の形式を直和として形式的に並べることはできる。しかし、内積（縮約）と外積（反対称化）を<strong>一つの積として同時に</strong>扱うには、通常のウェッジ積だけでは足りない。パウリ行列の代数では、それらが一つの積 $VW$ の中で自然に分離・共存する。これが幾何代数の核心である。</p>
 </blockquote>
 <blockquote>
-<p><strong>注</strong> （全次数の対応）本章の規約における次数対応を整理しておく。$I$ が $0$-form（スカラー）、$\sigma_1,\sigma_2,\sigma_3$ が $1$-form（ベクトル）、$i\sigma_1,i\sigma_2,i\sigma_3$ が $2$-form（バイベクトル）、$iI$ が $3$-form（擬スカラー）に対応する。これは微分形式そのものとの同一視ではなく、3次元ユークリッドのクリフォード代数の行列表現の中に、各次数の基底を対応させる約束である。最も一般的な元は $\psi = aI + \mathbf{v}\!\cdot\!\boldsymbol{\sigma} + i\,\mathbf{w}\!\cdot\!\boldsymbol{\sigma} + ibI$ の形で、4つの次数すべてを複素係数で含んでいる。</p>
+<p><strong>注</strong> （全次数の対応）本章の規約における次数対応を整理しておく。$I$ が $0$-form（スカラー）、$\sigma_1,\sigma_2,\sigma_3$ が $1$-form（ベクトル）、$i\sigma_1,i\sigma_2,i\sigma_3$ が $2$-form（バイベクトル）、$iI$ が $3$-form（擬スカラー）に対応する。これは微分形式そのものとの同一視ではなく、3次元ユークリッドのクリフォード代数の行列表現の中に、各次数の基底を対応させる約束である。最も一般的な元は $\psi = aI + \mathbf{v}\!\cdot\!\bm{\sigma} + i\,\mathbf{w}\!\cdot\!\bm{\sigma} + ibI$ の形で、4つの次数すべてを複素係数で含んでいる。</p>
 </blockquote>
 <blockquote>
 <p><strong>注</strong> （四元数——すでにあった魔法の箱）実はこの「スカラーとベクトルを一つの数に混ぜる」という発想は、パウリ行列よりもずっと古い。行列代数よりも古い。1843年にハミルトンが発見した<strong>四元数（quaternion）</strong> $q = a + bi + cj + dk$ がまさにそれだ。マクスウェルは自身の電磁気学を四元数で定式化していた。しかしその後、ギブズとヘヴィサイドが四元数からスカラー部分とベクトル部分を<strong>分離</strong>し、現代のベクトル解析（内積とクロス積）が誕生した。本書の視点からは、パウリ行列は、いったん内積・外積へ分かれた構造を、量子力学の文脈で再び一つの非可換積として眺め直す道具にも見える。</p>
@@ -241,17 +246,17 @@ $$\psi = \varphi\,I + A_1\sigma_1 + A_2\sigma_2 + A_3\sigma_3$$
 <p><strong>注</strong> （行列代数が物理学者の標準語でなかったこと）なお、行列代数が物理学者の標準語でなかったことは、1925年の行列力学にもよく現れている。ハイゼンベルク自身は当初、自分の計算が行列の非可換積であることを知らず、それを行列として読んだのはボルンだった。</p>
 </blockquote>
 <hr />
-<h3 id="123-ディラック演算子と真のナブラ">§12.3 ディラック演算子と「真のナブラ」</h3>
-<h4 id="1231--統合的な微分演算子">12.3.1 $\boldsymbol{\sigma}\!\cdot\!\nabla$ —— 統合的な微分演算子</h4>
+<h3 id="§12.3-ディラック演算子と「真のナブラ」">§12.3 ディラック演算子と「真のナブラ」</h3>
+<h4 id="12.3.1-__MATH_BLOCK_141__-——-統合的な微分演算子">12.3.1 $\bm{\sigma}\!\cdot\!\nabla$ —— 統合的な微分演算子</h4>
 <p>パウリ行列とナブラ $\nabla = (\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z})$ を組み合わせて、次の演算子を定義する。
 </p>
-$$D = \sigma_1\frac{\partial}{\partial x} + \sigma_2\frac{\partial}{\partial y} + \sigma_3\frac{\partial}{\partial z} = \boldsymbol{\sigma}\!\cdot\!\nabla$$
+$$D = \sigma_1\frac{\partial}{\partial x} + \sigma_2\frac{\partial}{\partial y} + \sigma_3\frac{\partial}{\partial z} = \bm{\sigma}\!\cdot\!\nabla$$
 <p>$D$ は $2\times2$ 行列の形をした微分演算子である。これをスカラー場 $\varphi$ に作用させてみよう。
 </p>
-$$D\varphi = \sigma_1\frac{\partial\varphi}{\partial x} + \sigma_2\frac{\partial\varphi}{\partial y} + \sigma_3\frac{\partial\varphi}{\partial z} = (\nabla\varphi)\!\cdot\!\boldsymbol{\sigma}$$
+$$D\varphi = \sigma_1\frac{\partial\varphi}{\partial x} + \sigma_2\frac{\partial\varphi}{\partial y} + \sigma_3\frac{\partial\varphi}{\partial z} = (\nabla\varphi)\!\cdot\!\bm{\sigma}$$
 <p>これは $\mathrm{grad}\,\varphi$ をパウリ行列で表したものだ。
 </p>
-<p>次に、ベクトル場 $\mathbf{A} = (A_1, A_2, A_3)$ をパウリ行列で $A = \mathbf{A}\!\cdot\!\boldsymbol{\sigma}$ と書いて $D$ を作用させる。§12.2.2 の積の公式を思い出そう。
+<p>次に、ベクトル場 $\mathbf{A} = (A_1, A_2, A_3)$ をパウリ行列で $A = \mathbf{A}\!\cdot\!\bm{\sigma}$ と書いて $D$ を作用させる。§12.2.2 の積の公式を思い出そう。
 </p>
 $$
 \begin{aligned}
@@ -273,16 +278,16 @@ I\text{ の係数} &: \frac{\partial A_1}{\partial x} + \frac{\partial A_2}{\par
 $$
 <p>$\sigma_k$ の係数カッコ内は $\mathrm{rot}\,\mathbf{A}$ の各成分——外微分 $d$ が $1$-form $\mathbf{A}$ から生み出す $2$-form $d\mathbf{A}$ の成分——にほかならない。したがって
 </p>
-$$D(\mathbf{A}\!\cdot\!\boldsymbol{\sigma}) = (\mathrm{div}\,\mathbf{A})\,I \;+\; i\,(\mathrm{rot}\,\mathbf{A})\!\cdot\!\boldsymbol{\sigma}$$
+$$D(\mathbf{A}\!\cdot\!\bm{\sigma}) = (\mathrm{div}\,\mathbf{A})\,I \;+\; i\,(\mathrm{rot}\,\mathbf{A})\!\cdot\!\bm{\sigma}$$
 <p><strong>一つの演算子 $D$ が、$\mathrm{grad}$（$D\varphi$）、$\mathrm{div}$（$DA$ の実部）、$\mathrm{rot}$（$DA$ の虚部）を同時に導き出す。</strong> これこそが、$\nabla$ を $d$ と $\ast$ に分解して理解を深めてきた旅の、一つの終着点——統合——にほかならない。
 </p>
 <blockquote>
 <p><strong>注</strong> （$d$ と $\ast$ で書くと）$D$ は本書の言葉でも表現できる。符号規約を別にすれば、$D$ は $d$（次数を上げる）と $\ast d\ast$（次数を下げる）を合わせた演算子として理解できる。$\ast d\ast$ は<strong>余微分（codifferential）</strong> $\delta$ と呼ばれ、$\delta = \pm\ast d\ast$（符号は次元と次数に依存）と定義される。ここでは厳密な符号には立ち入らず、$D \sim d + \delta$ という構造だけを押さえておく。$d$ が次数を上げ、$\delta$ が次数を下げる——この二つを足した $D$ が、grad・rot・div を一つの演算子に束ねているのだ。</p>
 </blockquote>
-<h4 id="1232--ラプラシアン">12.3.2 $D^2$ —— ラプラシアン</h4>
+<h4 id="12.3.2-__MATH_BLOCK_183__-——-ラプラシアン">12.3.2 $D^2$ —— ラプラシアン</h4>
 <p>さらに $D$ を二度作用させるとどうなるか。
 </p>
-$$D^2 = (\boldsymbol{\sigma}\!\cdot\!\nabla)(\boldsymbol{\sigma}\!\cdot\!\nabla) = (\sigma_1\frac{\partial}{\partial x} + \sigma_2\frac{\partial}{\partial y} + \sigma_3\frac{\partial}{\partial z})(\sigma_1\frac{\partial}{\partial x} + \sigma_2\frac{\partial}{\partial y} + \sigma_3\frac{\partial}{\partial z})$$
+$$D^2 = (\bm{\sigma}\!\cdot\!\nabla)(\bm{\sigma}\!\cdot\!\nabla) = (\sigma_1\frac{\partial}{\partial x} + \sigma_2\frac{\partial}{\partial y} + \sigma_3\frac{\partial}{\partial z})(\sigma_1\frac{\partial}{\partial x} + \sigma_2\frac{\partial}{\partial y} + \sigma_3\frac{\partial}{\partial z})$$
 <p>9項に展開する。
 </p>
 $$
@@ -297,44 +302,44 @@ $$
 $$D^2 = \left(\frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} + \frac{\partial^2}{\partial z^2}\right)I = \nabla^2 I$$
 <p>$D^2$ はラプラシアンそのものである。$D$ はラプラシアンの「平方根」なのだ。この事実——微分演算子の平方根をとる——が、ディラックが相対論的量子力学で電子の方程式を導いたときの核心的な洞察だった。
 </p>
-<h4 id="1233-マクスウェルを一本に--再訪">12.3.3 マクスウェルを一本に —— 再訪</h4>
+<h4 id="12.3.3-マクスウェルを一本に-——-再訪">12.3.3 マクスウェルを一本に —— 再訪</h4>
 <p>§12.1 では $F + i\ast F$ によって4次元でマクスウェル方程式を一本化した。$D$ を使えば、同じことが3次元の言葉だけで書ける。
 </p>
 <p>電場 $\mathbf{E}$ と磁場 $\mathbf{B}$ を一つの複素ベクトルに束ねる。これは<strong>リーマン－ジルバーシュタイン・ベクトル</strong>と呼ばれる。
 </p>
 $$\mathbf{F} = \mathbf{E} + i\mathbf{B}$$
-<p>パウリ行列で書けば $F = \mathbf{E}\!\cdot\!\boldsymbol{\sigma} + i\,\mathbf{B}\!\cdot\!\boldsymbol{\sigma}$ である。$F$ はスカラー部を持たない純粋な複素パウリ・ベクトルだ。時間微分を含めた演算子 $D + \frac{\partial}{\partial t}$ を作用させる。
+<p>パウリ行列で書けば $F = \mathbf{E}\!\cdot\!\bm{\sigma} + i\,\mathbf{B}\!\cdot\!\bm{\sigma}$ である。$F$ はスカラー部を持たない純粋な複素パウリ・ベクトルだ。時間微分を含めた演算子 $D + \frac{\partial}{\partial t}$ を作用させる。
 </p>
-$$(D + \frac{\partial}{\partial t})F = (\boldsymbol{\sigma}\!\cdot\!\nabla + \frac{\partial}{\partial t})(\mathbf{E}\!\cdot\!\boldsymbol{\sigma} + i\,\mathbf{B}\!\cdot\!\boldsymbol{\sigma})$$
-<p>§12.3.1 の $D(\mathbf{A}\!\cdot\!\boldsymbol{\sigma})$ の公式を $\mathbf{E}$ と $\mathbf{B}$ の両方に適用する。
+$$(D + \frac{\partial}{\partial t})F = (\bm{\sigma}\!\cdot\!\nabla + \frac{\partial}{\partial t})(\mathbf{E}\!\cdot\!\bm{\sigma} + i\,\mathbf{B}\!\cdot\!\bm{\sigma})$$
+<p>§12.3.1 の $D(\mathbf{A}\!\cdot\!\bm{\sigma})$ の公式を $\mathbf{E}$ と $\mathbf{B}$ の両方に適用する。
 </p>
 $$
 \begin{aligned}
-(D + \frac{\partial}{\partial t})F &= (\mathrm{div}\,\mathbf{E})\,I + i\,(\mathrm{rot}\,\mathbf{E})\!\cdot\!\boldsymbol{\sigma} + \frac{\partial}{\partial t}\mathbf{E}\!\cdot\!\boldsymbol{\sigma} \\
-&\quad + i\,(\mathrm{div}\,\mathbf{B})\,I - (\mathrm{rot}\,\mathbf{B})\!\cdot\!\boldsymbol{\sigma} + i\,\frac{\partial}{\partial t}\mathbf{B}\!\cdot\!\boldsymbol{\sigma}
+(D + \frac{\partial}{\partial t})F &= (\mathrm{div}\,\mathbf{E})\,I + i\,(\mathrm{rot}\,\mathbf{E})\!\cdot\!\bm{\sigma} + \frac{\partial}{\partial t}\mathbf{E}\!\cdot\!\bm{\sigma} \\
+&\quad + i\,(\mathrm{div}\,\mathbf{B})\,I - (\mathrm{rot}\,\mathbf{B})\!\cdot\!\bm{\sigma} + i\,\frac{\partial}{\partial t}\mathbf{B}\!\cdot\!\bm{\sigma}
 \end{aligned}
 $$
-<p>実部と虚部、そして $I$（スカラー）と $\boldsymbol{\sigma}$（ベクトル）の各成分に整理する。
+<p>実部と虚部、そして $I$（スカラー）と $\bm{\sigma}$（ベクトル）の各成分に整理する。
 </p>
 $$
 \begin{aligned}
 \text{実部・}I &: \mathrm{div}\,\mathbf{E} - 0 \\
-\text{実部・}\boldsymbol{\sigma} &: \frac{\partial}{\partial t}\mathbf{E} - \mathrm{rot}\,\mathbf{B} \\
+\text{実部・}\bm{\sigma} &: \frac{\partial}{\partial t}\mathbf{E} - \mathrm{rot}\,\mathbf{B} \\
 \text{虚部・}I &: 0 + \mathrm{div}\,\mathbf{B} \\
-\text{虚部・}\boldsymbol{\sigma} &: \mathrm{rot}\,\mathbf{E} + \frac{\partial}{\partial t}\mathbf{B}
+\text{虚部・}\bm{\sigma} &: \mathrm{rot}\,\mathbf{E} + \frac{\partial}{\partial t}\mathbf{B}
 \end{aligned}
 $$
-<p>これらをゼロとおけば、真空のマクスウェル方程式4本がすべて現れる。電流 $\mathbf{J}$ と電荷 $\rho$ がある場合は、第10章と同じ正規化のもとで右辺を $\rho/\epsilon_0 - \mu_0 c \mathbf{J}\!\cdot\!\boldsymbol{\sigma}$ と置けば、源のあるマクスウェル方程式が一行にまとまる。
+<p>これらをゼロとおけば、真空のマクスウェル方程式4本がすべて現れる。電流 $\mathbf{J}$ と電荷 $\rho$ がある場合は、第10章と同じ正規化のもとで右辺を $\rho/\epsilon_0 - \mu_0 c \mathbf{J}\!\cdot\!\bm{\sigma}$ と置けば、源のあるマクスウェル方程式が一行にまとまる。
 </p>
-$$(D + \frac{\partial}{\partial t})F = \frac{\rho}{\varepsilon_0} - \mu_0 c \mathbf{J}\!\cdot\!\boldsymbol{\sigma}$$
+$$(D + \frac{\partial}{\partial t})F = \frac{\rho}{\varepsilon_0} - \mu_0 c \mathbf{J}\!\cdot\!\bm{\sigma}$$
 <blockquote>
 <p><strong>注</strong> （第12章での正規化と符号）</p>
 <p>ここでの $t, \mathbf{B}, \rho, \mathbf{J}$ は第10章 §10.1–10.5 と同様に正規化された量である。右辺の源の係数と符号は、第10章の $d(\ast F) = \mu_0(\ast\mathcal{J})$ の展開結果と整合するように選ばれている。</p>
 </blockquote>
 <p>$dF=0$ と $d(\ast F)=\mu_0(\ast\mathcal{J})$ の2本が、$D$ の前ではたった一本の複素方程式に統合された。§12.1 の4次元トリックが特殊な次元に依存していたのに対し、こちらは $D$ という統合された演算子そのものが統合を実現している。
 </p>
-<h4 id="1234--4次元時空のディラック演算子">12.3.4 $\cancel{\partial} F = J$ —— 4次元時空のディラック演算子</h4>
-<p>§12.3.3 の $(D + \frac{\partial}{\partial t})F = \rho + \mathbf{J}\!\cdot\!\boldsymbol{\sigma}$ には、時間と空間が分離して現れている。これは3次元のパウリ行列 $\sigma_1,\sigma_2,\sigma_3$ をベースに組み立てたからだ。4次元時空を最初から扱えば、この分離すら消える。
+<h4 id="12.3.4-__MATH_BLOCK_217__-——-4次元時空のディラック演算子">12.3.4 $\cancel{\partial} F = J$ —— 4次元時空のディラック演算子</h4>
+<p>§12.3.3 の $(D + \frac{\partial}{\partial t})F = \rho + \mathbf{J}\!\cdot\!\bm{\sigma}$ には、時間と空間が分離して現れている。これは3次元のパウリ行列 $\sigma_1,\sigma_2,\sigma_3$ をベースに組み立てたからだ。4次元時空を最初から扱えば、この分離すら消える。
 </p>
 <p>パウリ行列を $4\times4$ に拡張したものが<strong>ガンマ行列</strong> $\gamma^0,\gamma^1,\gamma^2,\gamma^3$ である。これらは反可換性 $\gamma^\mu\gamma^\nu + \gamma^\nu\gamma^\mu = 2g^{\mu\nu}I$ を満たす（$g^{\mu\nu}$ はミンコフスキー計量）。この式に現れる実数係数の符号は、選んだ計量署名や添字の上下の規約に依存する。本章では、第10章と同じく時空計量の署名を $(-,+,+,+)$ とした規約を採用する。このガンマ行列を用いて、4次元のディラック演算子を
 </p>
@@ -349,12 +354,12 @@ $$\cancel{\partial} F = J$$
 </blockquote>
 <p>§12.1 の $F + i\ast F$ も、§12.3.3 の $(D + \frac{\partial}{\partial t})F$ も、すべてこの一行に吸収される。これが、$\nabla$ の解体から始まった旅の、最も遠くにある風景である。ディラックが1928年に電子の方程式を導くために発見したこの演算子は、時空の幾何と物理法則を一つの代数で記述する<strong>幾何代数（Geometric Algebra）</strong>の核であり、Doran & Lasenby の Geometric Algebra for Physicists に詳しい。
 </p>
-<h3 id="124-演算子">§12.4 演算子$\nabla$</h3>
+<h3 id="§12.4-演算子__MATH_BLOCK_239__">§12.4 演算子$\nabla$</h3>
 <p>さあ、ここで最初の問いに戻ろう。$\nabla$ とは何だったのか。
 </p>
 <p>ベクトル解析では、$\nabla$ は「偏微分を並べた形式的なベクトル」として導入され、grad・rot・div の三つの顔を持つ謎めいた記号だった。本書はそれを $d$ と $\ast$ に<strong>解体</strong>することで、各演算の正体を明らかにしてきた。
 </p>
-<p>そして今、これを逆方向に辿り、$d$ と $\ast$ というバラバラだった部品が、幾何代数の中で3次元のディラック演算子$D = \boldsymbol{\sigma}\!\cdot\!\nabla$ として<strong>統合</strong>され、更にその4次元版のディラック演算子$\cancel{\partial}$が、マクスウェル方程式のより統合的な表現 $\cancel{\partial} F = J$ を与えた。
+<p>そして今、これを逆方向に辿り、$d$ と $\ast$ というバラバラだった部品が、幾何代数の中で3次元のディラック演算子$D = \bm{\sigma}\!\cdot\!\nabla$ として<strong>統合</strong>され、更にその4次元版のディラック演算子$\cancel{\partial}$が、マクスウェル方程式のより統合的な表現 $\cancel{\partial} F = J$ を与えた。
 </p>
 <p>ところで、幾何代数の文脈では、この演算子を必ずしも$\cancel{\partial}$ とは書かない。むしろ、この種のベクトル微分演算子を
 </p>
@@ -364,13 +369,13 @@ $$
 <p>と書く。
 </p>
       <div class="nav-buttons">
-        <a href="ch11.html">← 第11章：曲がった空間へ ——...</a>
-        <a href="postscript.html">おわりに：『ナブラ解体新書』は... →</a>
+        <a href="ch11.html">← 第11章...</a>
+        <a href="postscript.html">おわりに... →</a>
       </div>
-      <footer class="site-footer">
-        <p>&copy; yokiikoy (CC BY-NC 4.0). 本書の最新版・PDF・改訂履歴・関連情報・本書以外のコンテンツはポータルサイト <a href="https://covectorspace.xyz/jp/">Project Co-Vector Space</a> をご確認ください。</p>
-      </footer>
     </article>
+    <footer class="site-footer">
+      <p>&copy; 2024- yokiikoy. CC BY-NC 4.0.</p>
+    </footer>
   </main>
 </body>
 </html>

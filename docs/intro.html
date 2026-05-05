@@ -21,6 +21,7 @@
   .sidebar a { text-decoration: none; color: #0969da; }
   .sidebar a:hover { text-decoration: underline; }
   .sidebar .active { color: #cf222e; font-weight: bold; }
+  .sidebar .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
   .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; }
   .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; }
   @media (max-width: 900px) { 
@@ -45,11 +46,13 @@
   .full-toc h2 { font-size: 1.1rem; margin: 1.5em 0 0.3em; padding-bottom: 2px; border-bottom: 1px solid #d0d7de; }
   .full-toc h2 a { color: #24292f; text-decoration: none; }
   .full-toc h2 a:hover { color: #0969da; }
+  .full-toc h2 .disabled-link { color: #8c959f; cursor: not-allowed; }
   .full-toc ul { list-style: none; padding-left: 1.5rem; margin: 0.3em 0 0; }
   .full-toc li { margin-bottom: 0.2rem; font-size: 0.9rem; }
   .full-toc .level-3 { padding-left: 1rem; font-size: 0.8rem; color: #57606a; }
   .full-toc a { color: #0969da; text-decoration: none; }
   .full-toc a:hover { text-decoration: underline; }
+  .full-toc .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
   .full-toc .part-header { font-size: 1.1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }
   .full-toc .toc-part-chapters { padding-left: 1.5rem; }
   .full-toc .toc-part-chapters h3 { font-size: 0.95rem; margin: 0.5em 0 0.2em; }
@@ -83,10 +86,11 @@
       著者: yokiikoy<br>
       <a href="http://covectorspace.xyz/jp/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a>
     </div>
-    <div class="toc"><ul>
+    <div class="toc">
+      <ul>
 <li class="level-1"><a href="toc.html" id="link-toc.html">目次</a></li>
-<li class="level-1"><a href="index.html" id="link-index.html">著者ノート</a></li>
-<li class="level-1"><a href="intro.html" class="active" id="link-intro.html">はじめに</a><ul class="sub-toc"><li class="level-2"><a href="#はじめのはじめに前提知識">はじめのはじめに：前提知識</a></li><li class="level-2"><a href="#とは何か">$dx$とは何か</a></li><li class="level-2"><a href="#ナブラとは何か">ナブラとは何か</a></li><li class="level-2"><a href="#本書のロードマップ">本書のロードマップ</a></li></ul></li>
+<li class="level-1"><a href="index.html" id="link-index.html">ごあいさつ</a></li>
+<li class="level-1"><a href="intro.html" class="active" id="link-intro.html">はじめに</a><ul class="sub-toc"><li class="level-2"><a href="#はじめのはじめに：前提知識">はじめのはじめに：前提知識</a></li><li class="level-2"><a href="#$dx$とは何か">$dx$とは何か</a></li><li class="level-2"><a href="#ナブラとは何か">ナブラとは何か</a></li></ul></li>
 <li class="level-1"><a href="portal.html" id="link-portal.html">ポータルサイトとちょっとした試み</a></li>
 <li class="level-1"><a href="ch01.html" id="link-ch01.html">第1章</a></li>
 <li class="level-1"><a href="ch02.html" id="link-ch02.html">第2章</a></li>
@@ -103,12 +107,13 @@
 <li class="level-1"><a href="postscript.html" id="link-postscript.html">おわりに</a></li>
 <li class="level-1"><a href="refs.html" id="link-refs.html">参考文献（と著者からのコメント）</a></li>
 <li class="level-1"><a href="appendix.html" id="link-appendix.html">付録</a></li>
-</ul></div>
+</ul>
+    </div>
   </nav>
   <main class="main-content">
     <article class="markdown-body">
-      <h1 id="はじめにとは何か・ナブラとは何か">はじめに：$dx$とは何か・ナブラとは何か</h1>
-<h2 id="はじめのはじめに前提知識">はじめのはじめに：前提知識</h2>
+<h1 id="はじめに：__MATH_BLOCK_2__とは何か・ナブラとは何か">はじめに：$dx$とは何か・ナブラとは何か</h1>
+<h2 id="はじめのはじめに：前提知識">はじめのはじめに：前提知識</h2>
 <p>本書は、以下の基本事項に馴染みがあれば、十分に読み進めることができます。
 </p>
 <ul>
@@ -119,14 +124,14 @@
 </p>
 <p>高校生でも読みこなせる、と言うと頑張ってもらう必要がありますが、少なくとも20歳の頃の筆者であれば通読できる、つもりで書きました。
 </p>
-<h2 id="とは何か">$dx$とは何か</h2>
+<h2 id="__MATH_BLOCK_3__とは何か">$dx$とは何か</h2>
 <p>積分記号の最後には、いつも $dx$ が付いています。高校数学では、これは「$x$ で積分する」という印のように扱われます。
 </p>
 <p>大学一年生の教養の微積分では、全微分 $dx$ として登場しますが、実際のところこれが何なのかは深入りしないことが多いように思います。また、高校数学では $\frac{dy}{dx}$ は割り算ではないと習うものの、あたかも割り算のように置換積分を行うことが、事実上許容されています。
 </p>
 <p>さらに、特に物理学や工学系の専門課程では、当然のように微小量 $dx$ や $\delta x$ という実体が操作されます。
 </p>
-<p>筆者の個人的な経験では、大学院一年生のみぎりに、数学系の友人に聞くと、「$dx$ は接ベクトル空間に対する線形汎関数、あるいは余接空間の元」と、分かるような分からないような説明をされた覚えがあります。
+<p>筆者の個人的な経験では、大学院一年生（M1)の頃に、数学系の友人に聞いたところ、「$dx$ は接ベクトル空間に対する線形汎関数、あるいは余接空間の元」と、分かるような分からないような説明をされた覚えがあります。
 </p>
 <p>さて、結局 $dx$ とは何でしょうか。進んだ専門課程でないと、深入りしないか、微小量として理解するしかないのでしょうか。
 </p>
@@ -167,27 +172,14 @@ $$
 </p>
 <p>明日の中間テストには間に合いませんが、期末テストなら間に合うのではないでしょうか。
 </p>
-<hr />
-<h2 id="本書のロードマップ">本書のロードマップ</h2>
-<p>本書は全12章で、大きく3つの部に分かれています。
-</p>
-<ol>
-<li><strong>第I部：$\mathbb{R}^3$ 上の微分形式（第1章〜第5章）</strong></li>
-<p>   $dx$ を「行列」として定義し直し、面積や体積を測る仕組みを代数的に組み上げます。「外微分 $d$」と「ホッジスター $\ast$」という二つの強力な道具を手に入れます。
-<li><strong>第II部：ベクトル解析（第6章〜第9章）</strong></li>
-<p>   本書の核心部です。ベクトル解析の grad, rot, div を「解体」し、ストークスの定理や曲線座標を攻略します。
-<li><strong>第III部：発展と統合（第10章〜第12章）</strong></li>
-<p>   電磁気学（マクスウェル方程式）への応用と、多様体や幾何代数（Geometric Algebra）の世界を展望します。
-</p>
-</ol>
       <div class="nav-buttons">
-        <a href="index.html">← 著者ノート：かつての私への贈り...</a>
+        <a href="index.html">← ごあいさつ...</a>
         <a href="portal.html">ポータルサイトとちょっとした試... →</a>
       </div>
-      <footer class="site-footer">
-        <p>&copy; yokiikoy (CC BY-NC 4.0). 本書の最新版・PDF・改訂履歴・関連情報・本書以外のコンテンツはポータルサイト <a href="https://covectorspace.xyz/jp/">Project Co-Vector Space</a> をご確認ください。</p>
-      </footer>
     </article>
+    <footer class="site-footer">
+      <p>&copy; 2024- yokiikoy. CC BY-NC 4.0.</p>
+    </footer>
   </main>
 </body>
 </html>

@@ -21,6 +21,7 @@
   .sidebar a { text-decoration: none; color: #0969da; }
   .sidebar a:hover { text-decoration: underline; }
   .sidebar .active { color: #cf222e; font-weight: bold; }
+  .sidebar .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
   .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; }
   .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; }
   @media (max-width: 900px) { 
@@ -45,11 +46,13 @@
   .full-toc h2 { font-size: 1.1rem; margin: 1.5em 0 0.3em; padding-bottom: 2px; border-bottom: 1px solid #d0d7de; }
   .full-toc h2 a { color: #24292f; text-decoration: none; }
   .full-toc h2 a:hover { color: #0969da; }
+  .full-toc h2 .disabled-link { color: #8c959f; cursor: not-allowed; }
   .full-toc ul { list-style: none; padding-left: 1.5rem; margin: 0.3em 0 0; }
   .full-toc li { margin-bottom: 0.2rem; font-size: 0.9rem; }
   .full-toc .level-3 { padding-left: 1rem; font-size: 0.8rem; color: #57606a; }
   .full-toc a { color: #0969da; text-decoration: none; }
   .full-toc a:hover { text-decoration: underline; }
+  .full-toc .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
   .full-toc .part-header { font-size: 1.1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }
   .full-toc .toc-part-chapters { padding-left: 1.5rem; }
   .full-toc .toc-part-chapters h3 { font-size: 0.95rem; margin: 0.5em 0 0.2em; }
@@ -83,14 +86,15 @@
       著者: yokiikoy<br>
       <a href="http://covectorspace.xyz/jp/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a>
     </div>
-    <div class="toc"><ul>
+    <div class="toc">
+      <ul>
 <li class="level-1"><a href="toc.html" id="link-toc.html">目次</a></li>
-<li class="level-1"><a href="index.html" id="link-index.html">著者ノート</a></li>
+<li class="level-1"><a href="index.html" id="link-index.html">ごあいさつ</a></li>
 <li class="level-1"><a href="intro.html" id="link-intro.html">はじめに</a></li>
 <li class="level-1"><a href="portal.html" id="link-portal.html">ポータルサイトとちょっとした試み</a></li>
 <li class="level-1"><a href="ch01.html" id="link-ch01.html">第1章</a></li>
 <li class="level-1"><a href="ch02.html" id="link-ch02.html">第2章</a></li>
-<li class="level-1"><a href="ch03.html" class="active" id="link-ch03.html">第3章</a><ul class="sub-toc"><li class="level-3"><a href="#30-曲がったものを測る小学校以来の借りを返す">§3.0 曲がったものを測る——小学校以来の借りを返す</a></li><li class="level-3"><a href="#31-体積3次元係数1">§3.1 体積——3次元、係数1</a></li><li class="level-3"><a href="#32-表面積2次元係数1">§3.2 表面積——2次元、係数1</a></li><li class="level-3"><a href="#33-曲線1次元係数1限界があらわになる">§3.3 曲線——1次元、係数1（限界があらわになる）</a></li><li class="level-3"><a href="#34-係数をつける密度と幾何の積">§3.4 係数をつける——密度と幾何の積</a></li><li class="level-3"><a href="#35-本章のまとめと次章への展望">§3.5 本章のまとめと次章への展望</a></li></ul></li>
+<li class="level-1"><a href="ch03.html" class="active" id="link-ch03.html">第3章</a><ul class="sub-toc"><li class="level-3"><a href="#§3.0-曲がったものを測る——小学校以来の借りを返す">§3.0 曲がったものを測る——小学校以来の借りを返す</a></li><li class="level-3"><a href="#§3.1-体積——3次元、係数1">§3.1 体積——3次元、係数1</a></li><li class="level-3"><a href="#§3.2-表面積——2次元、係数1">§3.2 表面積——2次元、係数1</a></li><li class="level-3"><a href="#§3.3-曲線——1次元、係数1（限界があらわになる）">§3.3 曲線——1次元、係数1（限界があらわになる）</a></li><li class="level-3"><a href="#§3.4-係数をつける——密度と幾何の積">§3.4 係数をつける——密度と幾何の積</a></li><li class="level-3"><a href="#§3.5-本章のまとめと次章への展望">§3.5 本章のまとめと次章への展望</a></li></ul></li>
 <li class="level-1"><a href="ch04.html" id="link-ch04.html">第4章</a></li>
 <li class="level-1"><a href="ch05.html" id="link-ch05.html">第5章</a></li>
 <li class="level-1"><a href="ch06.html" id="link-ch06.html">第6章</a></li>
@@ -103,12 +107,13 @@
 <li class="level-1"><a href="postscript.html" id="link-postscript.html">おわりに</a></li>
 <li class="level-1"><a href="refs.html" id="link-refs.html">参考文献（と著者からのコメント）</a></li>
 <li class="level-1"><a href="appendix.html" id="link-appendix.html">付録</a></li>
-</ul></div>
+</ul>
+    </div>
   </nav>
   <main class="main-content">
     <article class="markdown-body">
-      <h1 id="第3章積分するとは何か--有限のマスを数え最後に極限を取る">第3章：積分するとは何か —— 有限のマスを数え、最後に極限を取る</h1>
-<h3 id="30-曲がったものを測る小学校以来の借りを返す">§3.0 曲がったものを測る——小学校以来の借りを返す</h3>
+<h1 id="第3章：積分するとは何か-——-有限のマスを数え、最後に極限を取る">第3章：積分するとは何か —— 有限のマスを数え、最後に極限を取る</h1>
+<h3 id="§3.0-曲がったものを測る——小学校以来の借りを返す">§3.0 曲がったものを測る——小学校以来の借りを返す</h3>
 <p>　第2章では、平行四辺形の面積や平行六面体の体積といった<strong>平らな図形</strong>の測り方を定義した。$dx \wedge dy$ という面積測定器に二本のベクトルを食わせれば符号付き面積が返り、$dx \wedge dy \wedge dz$ という体積測定器に三本のベクトルを食わせれば符号付き体積が返る。小学校の「$1 \times 1$ の正方形がいくつ入るか」という直感を、代数的な測定器として再設計したのである。
 </p>
 <p>しかし、物理学者が本当に知りたいのは平らな図形ではない。曲線の長さ、曲面の面積、曲がった領域の体積——すなわち<strong>曲がったもの</strong>の測り方だ。
@@ -122,8 +127,8 @@
 <p>以下では、パラメータ表示は滑らかとし、向きの反転や自己交差などの細部は「物理でよく使う状況では問題にならない」レベルに留める。厳密な可積分論は本書の射程外である。
 </p>
 <hr />
-<h3 id="31-体積3次元係数1">§3.1 体積——3次元、係数1</h3>
-<h4 id="311-直方体から曲がった領域へリーマン和で定義する">3.1.1 直方体から曲がった領域へ——リーマン和で定義する</h4>
+<h3 id="§3.1-体積——3次元、係数1">§3.1 体積——3次元、係数1</h3>
+<h4 id="3.1.1-直方体から曲がった領域へ——リーマン和で定義する">3.1.1 直方体から曲がった領域へ——リーマン和で定義する</h4>
 <p>第2章 §2.5 で、我々は $dx \wedge dy \wedge dz$ という体積測定器を組み立てた。これに三本のベクトル $\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3$ を食わせると、それらが張る平行六面体の符号付き体積が返ってくる。
 </p>
 <p>いま、空間内の領域 $V$ の体積を測りたい。$V$ の形がどんなに曲がっていても、十分細かく刻めば各小片はほぼ直方体と見なせる。そこで $V$ を $x$ 方向・$y$ 方向・$z$ 方向に刻み、$V$ の内部にある小直方体に番号 $i$ を振る。第 $i$ 小直方体の三辺を
@@ -148,7 +153,7 @@ $$\iiint_V dx \wedge dy \wedge dz$$
 </blockquote>
 <p>さて、定義はした。ではこの和を実際にどう計算するか。$V$ が $x^2+y^2+z^2 \le R^2$ のような曲がった領域のとき、どの小直方体が $V$ の内部にあるかを判定しながら和をとるのは面倒だ。しかし和のとり方を工夫すれば、見通しがよくなる。次節で実際にやってみよう。
 </p>
-<h4 id="312-球の体積泥臭く愚直に足す">3.1.2 球の体積——泥臭く、愚直に足す</h4>
+<h4 id="3.1.2-球の体積——泥臭く、愚直に足す">3.1.2 球の体積——泥臭く、愚直に足す</h4>
 <p>半径 $R$ の球 $x^2 + y^2 + z^2 \le R^2$ の体積を、本当に泥臭く計算してみよう。これから示したいことはただ一つ——特別な座標系に逃げずとも、$x, y, z$ のまま愚直にリーマン和を整理するだけで、見慣れた $4\pi R^3/3$ に到達できることである。特別な座標系は使わない。$x, y, z$ のまま、小直方体 $\Delta x\,\Delta y\,\Delta z$ を愚直に積み重ねるだけだ。
 </p>
 <p>§3.1.1 のリーマン和をどう整理すれば計算できるか。球の内部で $z$ をある値に固定すると、$x, y$ の満たすべき条件は $x^2 + y^2 \le R^2 - z^2$ である。さらに $y$ も固定すれば $x^2 \le R^2 - z^2 - y^2$。したがって $x$ の動く範囲は $-\sqrt{R^2 - z^2 - y^2}$ から $+\sqrt{R^2 - z^2 - y^2}$ まで、$y$ の範囲は $-\sqrt{R^2 - z^2}$ から $+\sqrt{R^2 - z^2}$ まで、$z$ の範囲は $-R$ から $+R$ まで。この順に和をとる——第1章 §1.1 でやった1次元のリーマン和を三回重ねる——と考えれば、極限では：
@@ -193,8 +198,8 @@ $$\int_{-R}^{R} \pi(R^2 - z^2)\,dz = 2\pi\Bigl[R^2 z - \frac{z^3}{3}\Bigr]_{0}^{
 <p>- 次節では次元を一つ下げ、曲面の面積を測る。</p>
 </blockquote>
 <hr />
-<h3 id="32-表面積2次元係数1">§3.2 表面積——2次元、係数1</h3>
-<h4 id="321-平行四辺形から曲面へ">3.2.1 平行四辺形から曲面へ</h4>
+<h3 id="§3.2-表面積——2次元、係数1">§3.2 表面積——2次元、係数1</h3>
+<h4 id="3.2.1-平行四辺形から曲面へ">3.2.1 平行四辺形から曲面へ</h4>
 <p>第2章 §2.4 で、我々は $dx \wedge dy$ という面積測定器を組み立てた。これに二本のベクトル $\mathbf{v}_1, \mathbf{v}_2$ を食わせると、それらが $xy$ 平面に落とす影の符号付き面積が返ってくる。同様に $dy \wedge dz$ は $yz$ 平面への影、$dz \wedge dx$ は $zx$ 平面への影を測る。
 </p>
 <p>では曲面の面積を測るにはどうすればよいか。まず平らな場合で確認しておこう。$xy$ 平面に乗った単位正方形 $\mathbf{r}(u,v) = (u,\,v,\,0),\; 0 \le u,v \le 1$ を考える。$\mathbf{r}_u = (1,0,0),\; \mathbf{r}_v = (0,1,0)$ だから、$(dx \wedge dy)(\mathbf{r}_u, \mathbf{r}_v) = \det\begin{pmatrix}1&0\\0&1\end{pmatrix} = 1$。全区間で集計すれば $\iint_{[0,1]^2} 1 = 1$——正方形の面積だ。これは第2章の平らな平行四辺形の拡張にすぎず、面素という新しい道具が平らな面では正しく面積を返すことの確認である。
@@ -229,7 +234,7 @@ $$\sum_i\sum_j (\frac{\partial x}{\partial u} \frac{\partial y}{\partial v} - \f
 $$\iint_S dx \wedge dy$$
 <p>と<strong>書くことにする</strong>。これが $2$-form の積分——面積分——の定義である。構成は §3.1 の体積分と同じ型で、食わせるベクトルが2本になっただけだ。
 </p>
-<h4 id="322-が測るもの球面で試す">3.2.2 $dx \wedge dy$ が測るもの——球面で試す</h4>
+<h4 id="3.2.2-__MATH_BLOCK_177__-が測るもの——球面で試す">3.2.2 $dx \wedge dy$ が測るもの——球面で試す</h4>
 <p>実際に球面で計算してみよう。半径 $R$ の球面の上半分（$z \ge 0$）を考える。この曲面は、$x, y$ をそのままパラメータとして
 </p>
 $$z = f(x,y) = \sqrt{R^2 - x^2 - y^2},\qquad x^2 + y^2 \le R^2$$
@@ -250,7 +255,7 @@ $$\iint_{S_{\text{upper}}} dx \wedge dy$$
 </p>
 <p>したがって球面全体での $dx \wedge dy$ の積分は $\pi R^2 + (-\pi R^2) = 0$。上半球の影と下半球の影が打ち消し合ったのだ。これではっきりした：<strong>$dx \wedge dy$ が測るのは「$xy$ 平面への影の符号付き面積」であり、曲面の面積そのものではない。</strong>同様に、$dy \wedge dz$ は $yz$ 平面への影、$dz \wedge dx$ は $zx$ 平面への影を測る。
 </p>
-<h4 id="323-三つの影から本当の面積へ">3.2.3 三つの影から本当の面積へ</h4>
+<h4 id="3.2.3-三つの影から本当の面積へ">3.2.3 三つの影から本当の面積へ</h4>
 <p>では曲面の本当の面積はどう測ればよいのか。各点で三つの面積測定器すべてに面素を食わせ、その結果を合成する。
 </p>
 <p>上半球面で残り二つも計算しよう（§3.2.1 の $u=x,\;v=y$ の例）：
@@ -288,7 +293,7 @@ $$R\int_{-R}^{R} \pi\,dx = R \cdot \pi \cdot 2R = 2\pi R^2$$
 $$2\pi R^2 + 2\pi R^2 = 4\pi R^2$$
 <p>見事に $4\pi R^2$ が出た。第2章 §2.4.7 で平行四辺形の面積を三つの影から復元したのと、<strong>まったく同じパターン</strong>である。
 </p>
-<h4 id="324-ここまででわかったこと">3.2.4 ここまででわかったこと</h4>
+<h4 id="3.2.4-ここまででわかったこと">3.2.4 ここまででわかったこと</h4>
 <p>係数1の $2$-form は、それ単独では曲面の面積を直接返さない。$dx \wedge dy$ だけでは「$xy$ 平面への影の面積」しか測れず、曲面の本当の面積を知るには三つの基底 $2$-form の測定値を合成しなければならない。これは第2章の平行四辺形の面積のときとまったく同じ状況だ。
 </p>
 <p>しかし、物理ではしばしば「各点でどの方向の影をどれだけ重視するか」を制御したくなる。たとえば、曲面を貫く流体の流れを測るとき、流れが $x$ 方向に強ければ $dy \wedge dz$（$yz$ 平面への影）に大きな重みをかけたい。そのような<strong>場所ごとに変わる重み</strong>——係数——の必要性が、ここで自然に姿を現す。これが §3.4 への伏線である。
@@ -301,8 +306,8 @@ $$2\pi R^2 + 2\pi R^2 = 4\pi R^2$$
 <p>- 次節ではさらに次元を下げ、曲線の長さを測る。そこで係数1の限界が最もはっきりと姿を現す。</p>
 </blockquote>
 <hr />
-<h3 id="33-曲線1次元係数1限界があらわになる">§3.3 曲線——1次元、係数1（限界があらわになる）</h3>
-<h4 id="331-直線から曲線へリーマン和で定義する">3.3.1 直線から曲線へ——リーマン和で定義する</h4>
+<h3 id="§3.3-曲線——1次元、係数1（限界があらわになる）">§3.3 曲線——1次元、係数1（限界があらわになる）</h3>
+<h4 id="3.3.1-直線から曲線へ——リーマン和で定義する">3.3.1 直線から曲線へ——リーマン和で定義する</h4>
 <p>第1章で、我々は $dx, dy, dz$ を「ベクトルを食べて各成分を返す $1$-form（横ベクトル）」として定義した。$dx = \begin{pmatrix}1&0&0\end{pmatrix}$、$\mathbf{v} = \begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$ のとき $dx(\mathbf{v}) = \Delta x$ である。$dy, dz$ も同様。
 </p>
 <p>では曲線に沿ってこれらを適用し、集計すると何が出るか。曲線を時刻 $t$ の関数として
@@ -331,7 +336,7 @@ $$\int_\gamma dx$$
 $$\int_\gamma dx = \int_{t_0}^{t_1} \frac{dx}{dt}\,dt = x(t_1) - x(t_0)$$
 <p>同様に $\int_\gamma dy = y(t_1) - y(t_0)$、$\int_\gamma dz = z(t_1) - z(t_0)$。すなわち<strong>$dx, dy, dz$ という $1$-form の線積分は、曲線の正味の変位——始点と終点の座標の差——を返す。</strong>
 </p>
-<h4 id="332-円周で試す弧長は出ない">3.3.2 円周で試す——弧長は出ない</h4>
+<h4 id="3.3.2-円周で試す——弧長は出ない">3.3.2 円周で試す——弧長は出ない</h4>
 <p>確認しよう。半径 $R$ の円を
 </p>
 $$\gamma(t) = (R\cos t,\; R\sin t,\; 0),\qquad t \in [0, 2\pi]$$
@@ -366,7 +371,7 @@ $$ds(\mathbf{v}) = \sqrt{dx(\mathbf{v})^2 + dy(\mathbf{v})^2}$$
 <blockquote>
 <p><strong>注</strong> （計量への伏線）$dx(\mathbf{v})^2 + dy(\mathbf{v})^2$ という「成分の二乗和」の形は、第2章 §2.4.7 で平行四辺形のスカラー面積を $\sqrt{A_{yz}^2 + A_{zx}^2 + A_{xy}^2}$ と出したのと完全に並行である。この「ピタゴラスの組み合わせ方」は、直交デカルト座標における自然な長さの定義に他ならない。任意の座標系への一般化は第6章で計量 $g$ を使って行う。ここでは「$dx, dy, dz$ の作用結果の二乗和の平方根をとれば、向きを捨てた正の大きさ（長さ・面積・体積）が得られる」という事実だけを押さえておけばよい。</p>
 </blockquote>
-<h4 id="333-では--form-で何が測れるのか">3.3.3 では $1$-form で何が測れるのか</h4>
+<h4 id="3.3.3-では-__MATH_BLOCK_297__-form-で何が測れるのか">3.3.3 では $1$-form で何が測れるのか</h4>
 <p>弧長は $ds(\mathbf{v}) = \sqrt{dx(\mathbf{v})^2 + dy(\mathbf{v})^2}$ という計量由来の線素を積分して測れた。ただし、この $ds$ は $dx$ と $dy$ の線形結合では書けず、二乗和の平方根を必要とする。この組み合わせ方を任意の座標系へ一般化するのが第6章の計量 $g$ の役割だが、ここではまず、計量を必要としない $1$-form——すなわち $dx, dy, dz$ の線形結合で書ける $1$-form——が、いったい何を測るのかを見ていこう。
 </p>
 <p>空間の各点に力の場 $\mathbf{F}(x,y,z) = (F_x, F_y, F_z)$ が働いている。曲線に沿って質点を動かすとき、各小区間で力がする微小仕事は、力の変位方向成分と変位の大きさの積——すなわち $F_x\,\Delta x + F_y\,\Delta y + F_z\,\Delta z$——である。これを全区間で足し上げたものが仕事 $W = \int_\gamma \mathbf{F}\cdot d\mathbf{r}$ だ。
@@ -382,8 +387,8 @@ $$ds(\mathbf{v}) = \sqrt{dx(\mathbf{v})^2 + dy(\mathbf{v})^2}$$
 <p>- 計量なしの $1$-form（$dx, dy, dz$ の線形結合）が測るのは「仕事」のような量である。→ §3.4 へ。</p>
 </blockquote>
 <hr />
-<h3 id="34-係数をつける密度と幾何の積">§3.4 係数をつける——密度と幾何の積</h3>
-<h4 id="340-なぜ係数なのか物理が要求する">3.4.0 なぜ係数なのか——物理が要求する</h4>
+<h3 id="§3.4-係数をつける——密度と幾何の積">§3.4 係数をつける——密度と幾何の積</h3>
+<h4 id="3.4.0-なぜ係数なのか——物理が要求する">3.4.0 なぜ係数なのか——物理が要求する</h4>
 <p>§3.1〜§3.3 では、係数1の形式で曲がった図形を測ってきた。しかし現実の物理では、測定器に<strong>場所ごとに変わる重み</strong>を掛けたくなる場面が無数にある：
 </p>
 <ul>
@@ -395,7 +400,7 @@ $$ds(\mathbf{v}) = \sqrt{dx(\mathbf{v})^2 + dy(\mathbf{v})^2}$$
 </p>
 <p>以下、1次元・2次元・3次元の順に、係数付き形式の積分を定義していく。
 </p>
-<h4 id="341-一般の--form-の線積分仕事">3.4.1 一般の $1$-form の線積分（仕事）</h4>
+<h4 id="3.4.1-一般の-__MATH_BLOCK_327__-form-の線積分（仕事）">3.4.1 一般の $1$-form の線積分（仕事）</h4>
 <p>実空間で、係数が点 $(x,y,z)$ に依存する三つのスカラー場 $P,Q,R$ をとり、
 </p>
 $$\omega = P(x,y,z)\,dx + Q(x,y,z)\,dy + R(x,y,z)\,dz$$
@@ -430,7 +435,7 @@ $$\omega(\gamma'(t)) = (\sin t)(-\sin t) + (\cos t)(\cos t) = -\sin^2\!t + \cos^
 $$\int_\gamma \omega = \int_0^{2\pi} \cos 2t\,dt = \Bigl[\frac{1}{2}\sin 2t\Bigr]_0^{2\pi} = 0$$
 <p>仕事がゼロになった。この力場は単位円に沿って正味の仕事をしないのである。
 </p>
-<h4 id="342-一般の--form-の面積分流量">3.4.2 一般の $2$-form の面積分（流量）</h4>
+<h4 id="3.4.2-一般の-__MATH_BLOCK_364__-form-の面積分（流量）">3.4.2 一般の $2$-form の面積分（流量）</h4>
 <p>同様に、三つのスカラー場 $P, Q, R$ を係数とする一般の $2$-form：
 </p>
 $$\eta = P\,dy \wedge dz + Q\,dz \wedge dx + R\,dx \wedge dy$$
@@ -447,7 +452,7 @@ $$\iint_S \eta$$
 <blockquote>
 <p><strong>注</strong> （ここではベクトル解析との対応は補助線）流量との対応は、既にベクトル解析を知っている読者のための橋渡しにすぎない。本書の本線はあくまで「$2$-form を食わせて集計する」という操作であり、ベクトル解析の知識がなくともこの先の議論に支障はない。</p>
 </blockquote>
-<h4 id="343-一般の--form-の体積分総質量">3.4.3 一般の $3$-form の体積分（総質量）</h4>
+<h4 id="3.4.3-一般の-__MATH_BLOCK_377__-form-の体積分（総質量）">3.4.3 一般の $3$-form の体積分（総質量）</h4>
 <p>$3$-form の一般形は、スカラー場 $\rho(x,y,z)$ を係数として：
 </p>
 $$\Omega = \rho(x,y,z)\,dx \wedge dy \wedge dz$$
@@ -459,7 +464,7 @@ $$\Omega(\Delta x_i\,\hat{e}_x,\; \Delta y_i\,\hat{e}_y,\; \Delta z_i\,\hat{e}_z
 $$\iiint_V \Omega$$
 <p>と書く。$\rho=1$ なら §3.1 の係数1の場合に戻る。$\rho$ が質量密度なら総質量、電荷密度なら総電荷を与える。$3$-form の独立成分は $dx \wedge dy \wedge dz$ の1つだけなので、<strong>「密度（$\rho$）」と「体積の測り方（$dx \wedge dy \wedge dz$）」がきれいに分離</strong>して見通しがよい。
 </p>
-<h4 id="344-線・面・体の統一像">3.4.4 線・面・体の統一像</h4>
+<h4 id="3.4.4-線・面・体の統一像">3.4.4 線・面・体の統一像</h4>
 <p>ここまでを俯瞰しよう。
 </p>
 <div class="table-wrapper"><table>
@@ -468,7 +473,8 @@ $$\iiint_V \Omega$$
 <th>形式</th>
 <th>積分の骨格</th>
 <th>物理的意味の例</th>
-</tr></thead><tbody>
+</tr></thead>
+<tbody>
 <tr>
 <td>曲線 $\gamma$</td>
 <td>$1$-form $\omega$</td>
@@ -487,7 +493,8 @@ $$\iiint_V \Omega$$
 <td>$\displaystyle\iiint \Omega(\hat{e}_x,\hat{e}_y,\hat{e}_z)$</td>
 <td>総質量</td>
 </tr>
-</tbody></table></div>
+</tbody>
+</table></div>
 <p>いずれも<strong>「$k$-form（はかり）が $k$-vector（図形）を食べてスカラーを返し、それを領域全体で集計する」</strong>という同一の型である。次数が上がるごとに食わせるベクトルの本数が増え、交代性が面積・体積の向きを司る。次数が違うだけで、原理はどこまでも同じだ。
 </p>
 <blockquote>
@@ -496,7 +503,7 @@ $$\iiint_V \Omega$$
 <p>- 線積分 $\int_\gamma \omega$ は仕事、面積分 $\iint_S \eta$ は流量、体積分 $\iiint_V \Omega$ は総質量に対応する。</p>
 <p>- いずれも「はかりと図形の縮約 → 集計」という同一原理。次節では、これらの積分を別の座標で計算し直す方法——引き戻し——を導入する。</p>
 </blockquote>
-<h4 id="345-積分の一般形">3.4.5 積分の一般形</h4>
+<h4 id="3.4.5-積分の一般形">3.4.5 積分の一般形</h4>
 <p>§3.1〜§3.3 で別々に定義した線積分、面積分、体積分は、実は一つのパターンにまとまる。$k$-form $\omega$ を $k$ 次元領域 $M$ 上で積分するという操作を、次元によらず
 </p>
 $$\int_M \omega$$
@@ -505,7 +512,7 @@ $$\int_M \omega$$
 <p>本書の舞台は 3 次元空間だから $k=1,2,3$ で十分だが、この式が $k$ によらず成立するという事実は頭の片隅に置いておいて損はない。次章で外微分 $d$ を導入したとき、この統一的な見方がストークスの定理の一般形 $\int_{\partial M} \omega = \int_M d\omega$ へと結実する。
 </p>
 <hr />
-<h3 id="35-本章のまとめと次章への展望">§3.5 本章のまとめと次章への展望</h3>
+<h3 id="§3.5-本章のまとめと次章への展望">§3.5 本章のまとめと次章への展望</h3>
 <p>第I部「積分記号の尻尾の正体」の三段が、これで完結した：
 </p>
 <ol>
@@ -530,13 +537,13 @@ $$\int_M \omega$$
 <p>引き戻しを終えた先、ここから先の<strong>第II部</strong>では、いよいよ<strong>外微分 $d$</strong> を導入する。$d$ は形式の次数を1つ上げる線形演算子であり、勾配・回転・発散が<strong>一つの操作のバリエーション</strong>であることが明らかになる。積分側の言葉がそろったいま、微分側の代数を完成させる準備が整ったのである。
 </p>
       <div class="nav-buttons">
-        <a href="ch02.html">← 第2章：面積とは何か —— 平...</a>
-        <a href="ch04.html">第4章：変数変換とは何か ——... →</a>
+        <a href="ch02.html">← 第2章...</a>
+        <a href="ch04.html">第4章... →</a>
       </div>
-      <footer class="site-footer">
-        <p>&copy; yokiikoy (CC BY-NC 4.0). 本書の最新版・PDF・改訂履歴・関連情報・本書以外のコンテンツはポータルサイト <a href="https://covectorspace.xyz/jp/">Project Co-Vector Space</a> をご確認ください。</p>
-      </footer>
     </article>
+    <footer class="site-footer">
+      <p>&copy; 2024- yokiikoy. CC BY-NC 4.0.</p>
+    </footer>
   </main>
 </body>
 </html>

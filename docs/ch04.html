@@ -21,6 +21,7 @@
   .sidebar a { text-decoration: none; color: #0969da; }
   .sidebar a:hover { text-decoration: underline; }
   .sidebar .active { color: #cf222e; font-weight: bold; }
+  .sidebar .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
   .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; }
   .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; }
   @media (max-width: 900px) { 
@@ -45,11 +46,13 @@
   .full-toc h2 { font-size: 1.1rem; margin: 1.5em 0 0.3em; padding-bottom: 2px; border-bottom: 1px solid #d0d7de; }
   .full-toc h2 a { color: #24292f; text-decoration: none; }
   .full-toc h2 a:hover { color: #0969da; }
+  .full-toc h2 .disabled-link { color: #8c959f; cursor: not-allowed; }
   .full-toc ul { list-style: none; padding-left: 1.5rem; margin: 0.3em 0 0; }
   .full-toc li { margin-bottom: 0.2rem; font-size: 0.9rem; }
   .full-toc .level-3 { padding-left: 1rem; font-size: 0.8rem; color: #57606a; }
   .full-toc a { color: #0969da; text-decoration: none; }
   .full-toc a:hover { text-decoration: underline; }
+  .full-toc .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
   .full-toc .part-header { font-size: 1.1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }
   .full-toc .toc-part-chapters { padding-left: 1.5rem; }
   .full-toc .toc-part-chapters h3 { font-size: 0.95rem; margin: 0.5em 0 0.2em; }
@@ -83,15 +86,16 @@
       著者: yokiikoy<br>
       <a href="http://covectorspace.xyz/jp/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a>
     </div>
-    <div class="toc"><ul>
+    <div class="toc">
+      <ul>
 <li class="level-1"><a href="toc.html" id="link-toc.html">目次</a></li>
-<li class="level-1"><a href="index.html" id="link-index.html">著者ノート</a></li>
+<li class="level-1"><a href="index.html" id="link-index.html">ごあいさつ</a></li>
 <li class="level-1"><a href="intro.html" id="link-intro.html">はじめに</a></li>
 <li class="level-1"><a href="portal.html" id="link-portal.html">ポータルサイトとちょっとした試み</a></li>
 <li class="level-1"><a href="ch01.html" id="link-ch01.html">第1章</a></li>
 <li class="level-1"><a href="ch02.html" id="link-ch02.html">第2章</a></li>
 <li class="level-1"><a href="ch03.html" id="link-ch03.html">第3章</a></li>
-<li class="level-1"><a href="ch04.html" class="active" id="link-ch04.html">第4章</a><ul class="sub-toc"><li class="level-3"><a href="#40-物理は曲がる計算は四角">§4.0 物理は曲がる、計算は四角</a></li><li class="level-3"><a href="#41-1-form-の引き戻し仕事と運動エネルギー定理">§4.1 1-form の引き戻し——仕事と運動エネルギー定理</a></li><li class="level-3"><a href="#42-2-form-の引き戻し角運動量保存と面積速度">§4.2 2-form の引き戻し——角運動量保存と面積速度</a></li><li class="level-3"><a href="#43-3-form-の引き戻し質量保存と体積分">§4.3 3-form の引き戻し——質量保存と体積分</a></li><li class="level-3"><a href="#44-引き戻しの性質--ここまでに確立したこと">§4.4 引き戻しの性質 —— ここまでに確立したこと</a></li><li class="level-3"><a href="#45-本章のまとめと第5章外微分への展望">§4.5 本章のまとめと第5章（外微分）への展望</a></li></ul></li>
+<li class="level-1"><a href="ch04.html" class="active" id="link-ch04.html">第4章</a><ul class="sub-toc"><li class="level-3"><a href="#§4.0-物理は曲がる、計算は四角">§4.0 物理は曲がる、計算は四角</a></li><li class="level-3"><a href="#§4.1-1-form-の引き戻し——仕事と運動エネルギー定理">§4.1 1-form の引き戻し——仕事と運動エネルギー定理</a></li><li class="level-3"><a href="#§4.2-2-form-の引き戻し——角運動量保存と面積速度">§4.2 2-form の引き戻し——角運動量保存と面積速度</a></li><li class="level-3"><a href="#§4.3-3-form-の引き戻し——質量保存と体積分">§4.3 3-form の引き戻し——質量保存と体積分</a></li><li class="level-3"><a href="#§4.4-引き戻しの性質-——-ここまでに確立したこと">§4.4 引き戻しの性質 —— ここまでに確立したこと</a></li><li class="level-3"><a href="#§4.5-本章のまとめと第5章（外微分）への展望">§4.5 本章のまとめと第5章（外微分）への展望</a></li></ul></li>
 <li class="level-1"><a href="ch05.html" id="link-ch05.html">第5章</a></li>
 <li class="level-1"><a href="ch06.html" id="link-ch06.html">第6章</a></li>
 <li class="level-1"><a href="ch07.html" id="link-ch07.html">第7章</a></li>
@@ -103,12 +107,13 @@
 <li class="level-1"><a href="postscript.html" id="link-postscript.html">おわりに</a></li>
 <li class="level-1"><a href="refs.html" id="link-refs.html">参考文献（と著者からのコメント）</a></li>
 <li class="level-1"><a href="appendix.html" id="link-appendix.html">付録</a></li>
-</ul></div>
+</ul>
+    </div>
   </nav>
   <main class="main-content">
     <article class="markdown-body">
-      <h1 id="第4章変数変換とは何か--引き戻し-測定器のつじつま合わせ">第4章：変数変換とは何か —— 引き戻し $\Phi^*$：測定器のつじつま合わせ</h1>
-<h3 id="40-物理は曲がる計算は四角">§4.0 物理は曲がる、計算は四角</h3>
+<h1 id="第4章：変数変換とは何か-——-引き戻し-__MATH_BLOCK_55__：測定器のつじつま合わせ">第4章：変数変換とは何か —— 引き戻し $\Phi^*$：測定器のつじつま合わせ</h1>
+<h3 id="§4.0-物理は曲がる、計算は四角">§4.0 物理は曲がる、計算は四角</h3>
 <p>物理で本当に測りたい量は、座標の名前に依らない。
 </p>
 <p>質点にした仕事は、軌道を $x$ で書いても、時刻 $t$ で書いても同じでなければならない。惑星が掃く面積は、直交座標で測っても、極座標で測っても同じでなければならない。物体の質量は、直交座標で積分しても、円柱座標で積分しても同じでなければならない。
@@ -150,7 +155,7 @@
 <p>本章では、公式を覚えるのではなく、つじつまを合わせる。
  仕事、面積、体積という三つの物理量を通じて、$dx$、$dx \wedge dy$、$dx \wedge dy \wedge dz$ が、それぞれどのように作り替えられるかを見る。
 </p>
-<h3 id="41-1-form-の引き戻し仕事と運動エネルギー定理">§4.1 1-form の引き戻し——仕事と運動エネルギー定理</h3>
+<h3 id="§4.1-1-form-の引き戻し——仕事と運動エネルギー定理">§4.1 1-form の引き戻し——仕事と運動エネルギー定理</h3>
 <blockquote>
 <p><strong>注（物理学未習の読者へ）</strong> 以下の例では、物理学を学ぶ者がよく知っている結論（仕事-エネルギー定理）を先に使っている。しかし、単に「質点の位置 $x$ を時刻 $t$ の関数 $\gamma(t)$ で書き表せる」という状況だと思って読み進めてほしい。物理を知らなくても、$F(x)$ は $x$ の関数、$v(t)$ は $t$ の関数と読めれば十分である。</p>
 </blockquote>
@@ -258,7 +263,7 @@ $$W = \int F\,dx = \int_{\gamma} F\,dx = \int_{t_0}^{t_1} \gamma^*(F\,dx) = \int
 <blockquote>
 <p><strong>注</strong> （$dx$ は横ベクトル、$dt$ も横ベクトル）§4.1 の計算では、$dx$ も $dt$ も $dv$ も、すべてが「変位を食べてスカラーを返す」という同じ型を保っている。第1章 §1.1.3 以来の「横ベクトル×縦ベクトル→スカラー」の原則は、引き戻しのただ中でも崩れない。$\gamma^*(F\,dx)$ の結果も再び時間軸上の $1$-form（横ベクトル）であり、それを時間側の変位 $\Delta t$ に食わせればスカラー（仕事の小片）が得られる——この一貫性こそが、引き戻しの理解を支える。</p>
 </blockquote>
-<h3 id="42-2-form-の引き戻し角運動量保存と面積速度">§4.2 2-form の引き戻し——角運動量保存と面積速度</h3>
+<h3 id="§4.2-2-form-の引き戻し——角運動量保存と面積速度">§4.2 2-form の引き戻し——角運動量保存と面積速度</h3>
 <p><strong>① 物理量から始める。</strong> §4.1 では 1 次元の有限区間を写して測った。今度は同じことを 2 次元の有限マス目で行う。1-form で見た構造——積分値を保つために測定器を作り替える——は、そのまま 2-form にも拡張できる。§4.1 と正確に同じ <strong>7 つの手順</strong> をたどろう。
 </p>
 <p>中心力場の中を運動する質点を考える。力が常に原点に向かうとき、角運動量 $L = m(x \dot{y} - y \dot{x})$ は時間に依らず一定である（角運動量保存則）。この保存則には美しい幾何学的意味がある——質点の位置ベクトルが掃く面積の速度（<strong>面積速度</strong>）が一定になるのだ（ケプラーの第二法則）。
@@ -368,7 +373,7 @@ $$\frac{dA}{dt} = \frac{1}{2}r(t)^2\,\dot{\theta}(t)$$
 $$\frac{dA}{dt} = \frac{L}{2m}$$
 <p>中心力場では $L$ が保存されるから、面積速度も一定——これがケプラーの第二法則であり、角運動量保存則の幾何学的表現である。§4.1 で $1$-form のつじつま係数 $\gamma'(t)$ がエネルギー保存を記述したのとまったく同じ構造が、$2$-form のつじつま係数 $r$ を通じて角運動量保存を記述している。
 </p>
-<h3 id="43-3-form-の引き戻し質量保存と体積分">§4.3 3-form の引き戻し——質量保存と体積分</h3>
+<h3 id="§4.3-3-form-の引き戻し——質量保存と体積分">§4.3 3-form の引き戻し——質量保存と体積分</h3>
 <p><strong>① 物理量から始める。</strong> §4.1 では有限区間、§4.2 では有限マス目を写して測った。今度は同じことを 3 次元の有限箱で行う。最後は体積分だ。§4.1、§4.2 と正確に同じ <strong>7 つの手順</strong> を、もう一度たどる。
 </p>
 <p>密度 $\rho$ が一様な円柱（半径 $C$、高さ $H$）の質量を考えよう。$(x,y,z)$ 空間で直接計算すれば
@@ -452,7 +457,7 @@ $$\det\!\begin{pmatrix}
 $$M = \rho \iiint_V dx \wedge dy \wedge dz = \rho \iiint_{V'} r\,dr \wedge d\theta \wedge dz = \rho \cdot \pi C^2 H$$
 <p>正しい値に一致した。積分値を保つために、測定器 $dx \wedge dy \wedge dz$ は $(r,\theta,z)$ 空間では $r\,dr \wedge d\theta \wedge dz$ に作り替えられなければならなかったのである。§4.1 の $\gamma'(t)$ がエネルギー保存を、§4.2 の $r$ が角運動量保存を記述したのとまったく同じ構造で、§4.3 の $r$（一般には $J$）が質量保存を記述している。
 </p>
-<h3 id="44-引き戻しの性質--ここまでに確立したこと">§4.4 引き戻しの性質 —— ここまでに確立したこと</h3>
+<h3 id="§4.4-引き戻しの性質-——-ここまでに確立したこと">§4.4 引き戻しの性質 —— ここまでに確立したこと</h3>
 <p>§4.1〜§4.3 で三つの具体例を通じて引き戻しを構成してきた。ここで、これらに共通する代数的な性質を整理しておく。あわせて、§4.3 で現れた $3 \times 3$ 行列式 $J$ を <strong>ヤコビアン（ヤコビ行列式）</strong> と定義する。もととなる行列
 </p>
 $$\begin{pmatrix}
@@ -504,16 +509,13 @@ $$\Phi^*(\omega \wedge \eta) = \Phi^*(\omega) \wedge \Phi^*(\eta)$$
 </p>
 <blockquote>
 <p><strong>注</strong> （外微分 $d$ との可換性——第5章への伏線）これらに加えて、引き戻しと外微分 $d$ のあいだには重要な関係</p>
-<p></p>
-</blockquote>
-$$\Phi^*(d\omega) = d(\Phi^*\omega)$$
-<blockquote>
+<p>$$\Phi^*(d\omega) = d(\Phi^*\omega)$$</p>
 <p>が成り立つ。すなわち「微分してから引き戻す」のと「引き戻してから微分する」のは同じ結果を与える。この性質は第5章で $d$ を正式に導入したのち、§5.9 で改めて取り上げる。</p>
 </blockquote>
 <p>これ以上深く立ち入ることはしない——第 10 章で多様体の言葉による一般論に触れる——が、本書の $3$ 次元での経験は、その一般論を学ぶ際の確かな足場となるだろう。
 </p>
 <hr />
-<h3 id="45-本章のまとめと第5章外微分への展望">§4.5 本章のまとめと第5章（外微分）への展望</h3>
+<h3 id="§4.5-本章のまとめと第5章（外微分）への展望">§4.5 本章のまとめと第5章（外微分）への展望</h3>
 <p>第I部「積分記号の尻尾の正体」の三段が、これで完結した：
 </p>
 <ol>
@@ -540,13 +542,13 @@ $$\Phi^*(d\omega) = d(\Phi^*\omega)$$
 <p>次章では、いよいよ<strong>外微分 $d$</strong> を導入する。$d$ は形式の次数を1つ上げる線形演算子であり、勾配・回転・発散が<strong>一つの操作のバリエーション</strong>であることが明らかになる。積分側の言葉がそろったいま、微分側の代数を完成させる準備が整ったのである。
 </p>
       <div class="nav-buttons">
-        <a href="ch03.html">← 第3章：積分するとは何か ——...</a>
-        <a href="ch05.html">第5章：微分するとは何か ——... →</a>
+        <a href="ch03.html">← 第3章...</a>
+        <a href="ch05.html">第5章... →</a>
       </div>
-      <footer class="site-footer">
-        <p>&copy; yokiikoy (CC BY-NC 4.0). 本書の最新版・PDF・改訂履歴・関連情報・本書以外のコンテンツはポータルサイト <a href="https://covectorspace.xyz/jp/">Project Co-Vector Space</a> をご確認ください。</p>
-      </footer>
     </article>
+    <footer class="site-footer">
+      <p>&copy; 2024- yokiikoy. CC BY-NC 4.0.</p>
+    </footer>
   </main>
 </body>
 </html>

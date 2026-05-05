@@ -21,6 +21,7 @@
   .sidebar a { text-decoration: none; color: #0969da; }
   .sidebar a:hover { text-decoration: underline; }
   .sidebar .active { color: #cf222e; font-weight: bold; }
+  .sidebar .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
   .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; }
   .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; }
   @media (max-width: 900px) { 
@@ -45,11 +46,13 @@
   .full-toc h2 { font-size: 1.1rem; margin: 1.5em 0 0.3em; padding-bottom: 2px; border-bottom: 1px solid #d0d7de; }
   .full-toc h2 a { color: #24292f; text-decoration: none; }
   .full-toc h2 a:hover { color: #0969da; }
+  .full-toc h2 .disabled-link { color: #8c959f; cursor: not-allowed; }
   .full-toc ul { list-style: none; padding-left: 1.5rem; margin: 0.3em 0 0; }
   .full-toc li { margin-bottom: 0.2rem; font-size: 0.9rem; }
   .full-toc .level-3 { padding-left: 1rem; font-size: 0.8rem; color: #57606a; }
   .full-toc a { color: #0969da; text-decoration: none; }
   .full-toc a:hover { text-decoration: underline; }
+  .full-toc .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
   .full-toc .part-header { font-size: 1.1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }
   .full-toc .toc-part-chapters { padding-left: 1.5rem; }
   .full-toc .toc-part-chapters h3 { font-size: 0.95rem; margin: 0.5em 0 0.2em; }
@@ -83,9 +86,10 @@
       著者: yokiikoy<br>
       <a href="http://covectorspace.xyz/jp/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a>
     </div>
-    <div class="toc"><ul>
+    <div class="toc">
+      <ul>
 <li class="level-1"><a href="toc.html" id="link-toc.html">目次</a></li>
-<li class="level-1"><a href="index.html" id="link-index.html">著者ノート</a></li>
+<li class="level-1"><a href="index.html" id="link-index.html">ごあいさつ</a></li>
 <li class="level-1"><a href="intro.html" id="link-intro.html">はじめに</a></li>
 <li class="level-1"><a href="portal.html" id="link-portal.html">ポータルサイトとちょっとした試み</a></li>
 <li class="level-1"><a href="ch01.html" id="link-ch01.html">第1章</a></li>
@@ -93,7 +97,7 @@
 <li class="level-1"><a href="ch03.html" id="link-ch03.html">第3章</a></li>
 <li class="level-1"><a href="ch04.html" id="link-ch04.html">第4章</a></li>
 <li class="level-1"><a href="ch05.html" id="link-ch05.html">第5章</a></li>
-<li class="level-1"><a href="ch06.html" class="active" id="link-ch06.html">第6章</a><ul class="sub-toc"><li class="level-3"><a href="#60-言い訳の終焉内積を解放する">§6.0 言い訳の終焉——内積を解放する</a></li><li class="level-3"><a href="#61-パラメータ空間の内積計量-の正体">§6.1 パラメータ空間の内積——計量 $g$ の正体</a></li><li class="level-3"><a href="#62-による縦ベクトルと横ベクトルの変換">§6.2 $g$ による縦ベクトルと横ベクトルの変換</a></li><li class="level-3"><a href="#63-ホッジ・スター-二つの方法を繫ぐ対応">§6.3 ホッジ・スター $\ast$ ——二つの方法を繫ぐ対応</a></li><li class="level-3"><a href="#64-対応の実例微分形式とベクトル解析">§6.4 対応の実例——微分形式とベクトル解析</a></li><li class="level-3"><a href="#65-ナブラの三兄弟を解体する">§6.5 ナブラの三兄弟を解体する</a></li><li class="level-3"><a href="#66-第II部の結び--第III部へ">§6.6 第II部の結び —— 第III部へ</a></li><li class="level-2"><a href="#付録Dフロベニウス積とホッジ・スターの完全な行列表現">付録D：フロベニウス積とホッジ・スターの完全な行列表現</a></li><li class="level-3"><a href="#D1-行列の内積フロベニウス積">D.1 行列の内積——フロベニウス積</a></li><li class="level-3"><a href="#D2-行列の縦ベクトル">D.2 $\ast_{1\to2}$ ——行列の縦ベクトル</a></li><li class="level-3"><a href="#D3-フロベニウス積による係数抽出">D.3 $\ast_{2\to1}$ ——フロベニウス積による係数抽出</a></li><li class="level-3"><a href="#D4-転置関係">D.4 転置関係</a></li><li class="level-3"><a href="#D5-の成分">D.5 $E_k \cdot M$ の成分</a></li><li class="level-3"><a href="#D6-の二回作用">D.6 $\ast$ の二回作用</a></li></ul></li>
+<li class="level-1"><a href="ch06.html" class="active" id="link-ch06.html">第6章</a><ul class="sub-toc"><li class="level-3"><a href="#§6.0-言い訳の終焉——内積を解放する">§6.0 言い訳の終焉——内積を解放する</a></li><li class="level-3"><a href="#§6.1-パラメータ空間の内積——計量-$g$-の正体">§6.1 パラメータ空間の内積——計量 $g$ の正体</a></li><li class="level-3"><a href="#§6.2-$g$-による縦ベクトルと横ベクトルの変換">§6.2 $g$ による縦ベクトルと横ベクトルの変換</a></li><li class="level-3"><a href="#§6.3-ホッジ・スター-$\ast$-——二つの方法を繫ぐ対応">§6.3 ホッジ・スター $\ast$ ——二つの方法を繫ぐ対応</a></li><li class="level-3"><a href="#§6.4-対応の実例——微分形式とベクトル解析">§6.4 対応の実例——微分形式とベクトル解析</a></li><li class="level-3"><a href="#§6.5-ナブラの三兄弟を解体する">§6.5 ナブラの三兄弟を解体する</a></li><li class="level-3"><a href="#§6.6-第II部の結び-——-第III部へ">§6.6 第II部の結び —— 第III部へ</a></li><li class="level-2"><a href="#付録D：フロベニウス積とホッジ・スターの完全な行列表現">付録D：フロベニウス積とホッジ・スターの完全な行列表現</a></li><li class="level-3"><a href="#D.1-行列の内積——フロベニウス積">D.1 行列の内積——フロベニウス積</a></li><li class="level-3"><a href="#D.2-$\ast_{1\to2}$-——行列の縦ベクトル">D.2 $\ast_{1\to2}$ ——行列の縦ベクトル</a></li><li class="level-3"><a href="#D.3-$\ast_{2\to1}$-——フロベニウス積による係数抽出">D.3 $\ast_{2\to1}$ ——フロベニウス積による係数抽出</a></li><li class="level-3"><a href="#D.4-転置関係">D.4 転置関係</a></li><li class="level-3"><a href="#D.5-$E_k-\cdot-M$-の成分">D.5 $E_k \cdot M$ の成分</a></li><li class="level-3"><a href="#D.6-$\ast$-の二回作用">D.6 $\ast$ の二回作用</a></li></ul></li>
 <li class="level-1"><a href="ch07.html" id="link-ch07.html">第7章</a></li>
 <li class="level-1"><a href="ch08.html" id="link-ch08.html">第8章</a></li>
 <li class="level-1"><a href="ch09.html" id="link-ch09.html">第9章</a></li>
@@ -103,12 +107,13 @@
 <li class="level-1"><a href="postscript.html" id="link-postscript.html">おわりに</a></li>
 <li class="level-1"><a href="refs.html" id="link-refs.html">参考文献（と著者からのコメント）</a></li>
 <li class="level-1"><a href="appendix.html" id="link-appendix.html">付録</a></li>
-</ul></div>
+</ul>
+    </div>
   </nav>
   <main class="main-content">
     <article class="markdown-body">
-      <h1 id="第6章計量-とホッジ・スター--内積の召喚と次数の反転">第6章：計量 $g$ とホッジ・スター $\ast$ — 内積の召喚と次数の反転</h1>
-<h3 id="60-言い訳の終焉内積を解放する">§6.0 言い訳の終焉——内積を解放する</h3>
+<h1 id="第6章：計量-__MATH_BLOCK_55__-とホッジ・スター-__MATH_BLOCK_56__-—-内積の召喚と次数の反転">第6章：計量 $g$ とホッジ・スター $\ast$ — 内積の召喚と次数の反転</h1>
+<h3 id="§6.0-言い訳の終焉——内積を解放する">§6.0 言い訳の終焉——内積を解放する</h3>
 <p>　第2章で球の表面積 $4\pi R^2$ を導出したとき、第3章で弧長を二乗和の平方根として測ったとき——本書ではこれまで長さや面積を計算するたびに「数学者からは計量がないと怒られるだろうが、知らん顔で押し通そう」といったエクスキューズを書き連ねてきた。
 </p>
 <p>読者もそろそろくどいと感じている頃だろう。正直に言えば、筆者も飽きてきた。
@@ -135,8 +140,8 @@
 <p>そう、事は読者が思ったよりも深遠だ。実空間という特別な舞台では、この二つがたまたま同じ数値を返すことが多いために混同されてきた——その混同の上に、ベクトル解析という巨大な体系が築かれている。本章の目標は、この区別を明確にした上で、内積の自然な一般化として計量 $g$ を導き、そこからホッジ・スター $\ast$ の正体を暴くことである。
 </p>
 <hr />
-<h3 id="61-パラメータ空間の内積計量-の正体">§6.1 パラメータ空間の内積——計量 $g$ の正体</h3>
-<h4 id="611-実空間の内積">6.1.1 実空間の内積</h4>
+<h3 id="§6.1-パラメータ空間の内積——計量-__MATH_BLOCK_66__-の正体">§6.1 パラメータ空間の内積——計量 $g$ の正体</h3>
+<h4 id="6.1.1-実空間の内積">6.1.1 実空間の内積</h4>
 <p>実空間 $(x,y,z)$ における二つの縦ベクトルを成分で書こう。
 </p>
 $$\mathbf{v}_1 = \begin{pmatrix} x_1 \\ y_1 \\ z_1 \end{pmatrix},\qquad \mathbf{v}_2 = \begin{pmatrix} x_2 \\ y_2 \\ z_2 \end{pmatrix}$$
@@ -145,7 +150,7 @@ $$\mathbf{v}_1 = \begin{pmatrix} x_1 \\ y_1 \\ z_1 \end{pmatrix},\qquad \mathbf{
 $$\mathbf{v}_1 \cdot \mathbf{v}_2 = x_1 x_2 + y_1 y_2 + z_1 z_2$$
 <p>$xyz$ 座標での内積は、対応する成分同士を掛けて足し合わせるだけで計算できる。
 </p>
-<h4 id="612-内積を測定器として読み直す">6.1.2 内積を測定器として読み直す</h4>
+<h4 id="6.1.2-内積を測定器として読み直す">6.1.2 内積を測定器として読み直す</h4>
 <p>ここで、同じ計算を「測定器」の言葉で読み直しておこう。内積は一見すると、これまで扱ってきた測定器とは別系統の演算に見える。しかし実は、内積もまた「あるものを測定器に変え、別のものに作用させてスカラーを得る」操作として読むことができる。
 </p>
 <p>その入り口が転置である。$\mathbf{v}_1$ を転置すると、縦ベクトルは横ベクトルになる。
@@ -162,7 +167,7 @@ $$\mathbf{v}_1^T\mathbf{v}_2
 <blockquote>
 <p><strong>注</strong> （添字の上げ下げの正体）テンソル解析では、ベクトル成分と測定器側の成分を、上付き添字・下付き添字で区別する流儀がある。そして計量 $g$ を使って添字を上げ下げする、と説明される。本書の言葉で言えば、その正体は「縦ベクトルを、内積を測る横ベクトルへ変換する」操作である。直交デカルト座標では $g=I$ なので転置だけで済むが、次に見るようにパラメータ空間では途中に $\mathbf{g}=J^T J$ を挟む必要が出てくる。</p>
 </blockquote>
-<h4 id="613-パラメータ空間で内積をとるには">6.1.3 パラメータ空間で内積をとるには</h4>
+<h4 id="6.1.3-パラメータ空間で内積をとるには">6.1.3 パラメータ空間で内積をとるには</h4>
 <p>では、同じ読み替えをパラメータ空間 $(r,\theta,z)$ で行うとどうなるか。
 </p>
 <p>実空間の直交デカルト座標では、$\mathbf{v}_1^T$ がそのまま「$\mathbf{v}_1$ との内積を測る測定器」だった。だからパラメータ空間でも、$\mathbf{v}_1^T$ をそのまま測定器にしたくなる。しかしそれでは、$\Delta r_1 \Delta r_2 + \Delta\theta_1 \Delta\theta_2 + \Delta z_1 \Delta z_2$ を計算してしまうだけで、実空間での正しい内積にはならない。実空間とパラメータ空間のメモリの対応が場所によって異なるからである。
@@ -258,8 +263,8 @@ $$\mathbf{g}_{\text{球座標}} = \begin{pmatrix} 1 & 0 & 0 \\ 0 & r^2 & 0 \\ 0 
 <p>この $g$ を仲立ちにすることで、どの座標系でも一貫して内積（長さ・角度）を計算できる。また、後半で扱うホッジ・スター $\ast$ の仕様も、この内積のルールから自然に読み解ける。
 </p>
 <hr />
-<h3 id="62-による縦ベクトルと横ベクトルの変換">§6.2 $g$ による縦ベクトルと横ベクトルの変換</h3>
-<h4 id="621-は横ベクトルである">6.2.1 $\mathbf{v}^T \mathbf{g}$ は横ベクトルである</h4>
+<h3 id="§6.2-__MATH_BLOCK_126__-による縦ベクトルと横ベクトルの変換">§6.2 $g$ による縦ベクトルと横ベクトルの変換</h3>
+<h4 id="6.2.1-__MATH_BLOCK_127__-は横ベクトルである">6.2.1 $\mathbf{v}^T \mathbf{g}$ は横ベクトルである</h4>
 <p>§6.1 で導いた内積の式 $\mathbf{v}_1^T \mathbf{g} \,\mathbf{v}_2$ を、もう一度見てみよう。行列の積は左から順に実行できるから、この式は「まず $\mathbf{v}_1^T \mathbf{g}$ を計算し、その結果に $\mathbf{v}_2$ を掛ける」と読むことができる。
 </p>
 <p>$\mathbf{v}_1$ は縦ベクトルだが、転置された $\mathbf{v}_1^T$ は横ベクトルだ。横ベクトルに正方行列を掛けると、結果は再び横ベクトルになる。つまり、$\mathbf{v}_1^T \mathbf{g}$ という部分だけを取り出せば、
@@ -276,7 +281,7 @@ $$\omega = \mathbf{v}^T \mathbf{g}$$
 </p>
 <p>$g$ がなければ、「測られる図形」と「測る装置」は互いに変換不能である。$g$ は両者を繫ぐ唯一の仲介者なのだ。
 </p>
-<h4 id="622-計量が与えるもの平行-面体の幾何学的な大きさ">6.2.2 計量が与えるもの——平行 $k$ 面体の幾何学的な大きさ</h4>
+<h4 id="6.2.2-計量が与えるもの——平行-__MATH_BLOCK_155__-面体の幾何学的な大きさ">6.2.2 計量が与えるもの——平行 $k$ 面体の幾何学的な大きさ</h4>
 <p>計量 $g$ の最も基本的な役割は、$k$ 本のベクトルが貼る<strong>平行 $k$ 面体の実際の幾何学的な大きさ</strong>（長さ・面積・体積）を定義することである。
 </p>
 <p>本書のこれまでの章では、$k$-form に $k$ 本のベクトルを食わせることで「向き付きの数え上げ」を行ってきた。$dx(\mathbf{v})$ は $\mathbf{v}$ の $x$ 成分という数、$dx \wedge dy(\mathbf{v}_1, \mathbf{v}_2)$ は $\mathbf{v}_1, \mathbf{v}_2$ が張る平行四辺形の向き付き面積という数である。しかしこれらはあくまで影の測量であり、ベクトルたちが実際に何メートルの線分を張り、何平方メートルの平行四辺形を張っているか——<strong>幾何学的な本当の大きさ</strong>——は、計量 $g$ が与えられて初めて決まる。
@@ -295,7 +300,7 @@ $$|\mathbf{v}|^2 = \mathbf{v}^T \mathbf{g} \,\mathbf{v}$$
 </blockquote>
 <p>計量 $g$ の役割は、この「$xyz$ での計算」をパラメータ空間のような目盛りの歪んだ座標系へ一般化することである。いずれの場合も、<strong>$g$ が決まれば、あらゆる次数の平行 $k$ 面体に一貫した幾何学的な大きさが定義できる</strong>——これが計量の最も根本的な役割である。
 </p>
-<h4 id="623-内積の性質">6.2.3 内積の性質</h4>
+<h4 id="6.2.3-内積の性質">6.2.3 内積の性質</h4>
 <p>第5章で外微分 $d$ の性質（線形性・次数を上げる・$d^2=0$・ライプニッツ則）をまとめたのと同じように、内積についても、ここまでの計算から浮かび上がる性質を整理しておこう。これらは特定の座標系に依存しない。
 </p>
 <ol>
@@ -313,7 +318,7 @@ $$|\mathbf{v}|^2 = \mathbf{v}^T \mathbf{g} \,\mathbf{v}$$
 <p>ここで内積が対称行列（$\mathbf{g} = \mathbf{g}^T$）を要請することは、</p>
 <p>ちょうど対をなしている。前者は「重なればゼロ」、後者は「順番によらず同じ値」という、どちらもごく自然な要請から導かれる。行列の世界では、反対称が向き付きの数え上げ（符号付きの面積・体積）を、対称が向きなしの大きさ（符号なし面積・体積）と角度を司る。</p>
 </blockquote>
-<h4 id="624-計量行列の幾何を成分に宿らせる">6.2.4 計量行列の幾何を成分に宿らせる</h4>
+<h4 id="6.2.4-計量行列の幾何を成分に宿らせる">6.2.4 計量行列の幾何を成分に宿らせる</h4>
 <p>$\mathbf{g}$ の対角成分は「その軸方向の一歩が長さにどれだけ効くか」、非対角成分は「異なる軸方向の一歩が互いにどれだけ干渉するか」を表す。円柱座標の $\mathbf{g}$ が対角行列だったのは、$r,\theta,z$ の各軸が互いに直交しているからだ。いずれにせよ、$\mathbf{g}$ という一個の行列が、その場所での「ものさしの性質」のすべてを成分として担っている。
 </p>
 <blockquote>
@@ -327,8 +332,8 @@ $$|\mathbf{v}|^2 = \mathbf{v}^T \mathbf{g} \,\mathbf{v}$$
 <p>- 内積の性質（対称性・線形性・正定値性）から $g$ の対称性が導かれる。これは面積測定器 $\wedge$ の反対称性と対をなす。</p>
 </blockquote>
 <hr />
-<h3 id="63-ホッジ・スター-二つの方法を繫ぐ対応">§6.3 ホッジ・スター $\ast$ ——二つの方法を繫ぐ対応</h3>
-<h4 id="631-スカラーを得る二つの方法">6.3.1 スカラーを得る二つの方法</h4>
+<h3 id="§6.3-ホッジ・スター-__MATH_BLOCK_226__-——二つの方法を繫ぐ対応">§6.3 ホッジ・スター $\ast$ ——二つの方法を繫ぐ対応</h3>
+<h4 id="6.3.1-スカラーを得る二つの方法">6.3.1 スカラーを得る二つの方法</h4>
 <p>ここまでで $g = J^T J$ の正体が明らかになり、内積をどの座標系でも計算できるようになった。ここで、より大きな構図を見ておこう。
 </p>
 <p>物理の式を眺めると、スカラー量を作るやり方が一つではないことに気づく。ある場を線や面に沿って積分するときは、「測るもの」が「測られるもの」に作用して数を返す、という書き方が自然に現れる。一方で、仕事率やエネルギー密度のような量は、しばしば $\mathbf{E}\cdot\mathbf{J}$ や $\mathbf{A}\cdot(\nabla\times\mathbf{A})$ のように、同じ種類の矢印同士の内積として書かれる。
@@ -358,7 +363,7 @@ $$|\mathbf{v}|^2 = \mathbf{v}^T \mathbf{g} \,\mathbf{v}$$
 <blockquote>
 <p><strong>注</strong> （ベクトル解析を知っている読者へ）通常のベクトル解析で面の向きや外積として扱われる操作の多くは、この $\ast$ が与える対応として読み直せる。ただし本章では、それらを既知の公式として使うのではなく、$g$ と第2章の基底 $2$-form から作り直す。</p>
 </blockquote>
-<h4 id="632-行列から-を構成する">6.3.2 行列から $\ast$ を構成する</h4>
+<h4 id="6.3.2-行列から-__MATH_BLOCK_258__-を構成する">6.3.2 行列から $\ast$ を構成する</h4>
 <p>付録Aで、我々は $2$-form を行列表示する方法を学んだ。$dy \wedge dz$, $dz \wedge dx$, $dx \wedge dy$ という $3$ つの基底 $2$-form は、それぞれ $3 \times 3$ の反対称行列で表現できるのだった。
 </p>
 <p>さて、ここで素朴な問いを立てよう。任意の $1$-form $\omega = P\,dx + Q\,dy + R\,dz$ は、本書の流儀により係数の横ベクトル $\begin{pmatrix} P & Q & R \end{pmatrix}$ として書ける。この横ベクトルの各成分を、対応する基底 $2$-form の行列の係数として分配する——つまり、$P$ を $dy \wedge dz$ の行列に、$Q$ を $dz \wedge dx$ の行列に、$R$ を $dx \wedge dy$ の行列に掛けて足し合わせる——操作を考えよう。
@@ -405,7 +410,7 @@ $$
 <blockquote>
 <p><strong>注</strong> （$\ast$ の幾何学的意味）$\ast\omega$ が表す $2$-form は、$\omega$ の係数ベクトル $(P, Q, R)$ に直交する平面を測る面積測定器である。$x$ 軸方向の線分（$dx$）に対応するのは $x$ 軸に垂直な面（$dy \wedge dz$）。ベクトル解析で $3$ 成分の矢印として扱われる量は、本書の言葉ではこの面積測定器の情報を読み替えたものだ。</p>
 </blockquote>
-<h4 id="633-実空間での-辞書">6.3.3 実空間での $\ast$ 辞書</h4>
+<h4 id="6.3.3-実空間での-__MATH_BLOCK_291__-辞書">6.3.3 実空間での $\ast$ 辞書</h4>
 <p>§6.3.2 で行ったのは、$1$-form の係数を $dy \wedge dz$, $dz \wedge dx$, $dx \wedge dy$ という三つの面積測定器へ分配することだった。同じ手順を基底 $1$-form に対して繰り返す。すなわち、$dx$ なら第1成分だけを、$dy$ なら第2成分だけを、$dz$ なら第3成分だけを取り出せばよい。
 </p>
 <p>成分をすべて追いたい読者は付録Dの行列表示を確認してほしい。ここでは結果だけを $dx,dy,dz$ の言葉で書けば、次の簡潔な辞書になる。
@@ -421,7 +426,7 @@ $$\begin{aligned}
 <blockquote>
 <p><strong>注</strong> （なぜこの辞書でよいのか）$\ast dx = dy \wedge dz$ となるのは、$dx,dy,dz$ が正規直交基底（互いに直交し、長さ $1$）であり、かつ空間の向きを $dx \wedge dy \wedge dz$ が正となる右手系にとっているからだ。この条件のもとでは、上の辞書が一意的に定まる。パラメータ空間まで考慮すると、$\ast$ の辞書は計量 $g$ と空間の向きの選び方に依存する——言い換えると、$g$ が $I$ でなければ、辞書の係数はもっと複雑になる。</p>
 </blockquote>
-<h4 id="634">6.3.4 $\ast\ast = \mathrm{id}$</h4>
+<h4 id="6.3.4-__MATH_BLOCK_320__">6.3.4 $\ast\ast = \mathrm{id}$</h4>
 <p>上の辞書から直ちにわかるように、$\ast$ を二度続けて作用させると元に戻る：
 </p>
 $$\ast(\ast(dx)) = \ast(dy \wedge dz) = dx$$
@@ -434,7 +439,7 @@ $$\ast(\ast(dx)) = \ast(dy \wedge dz) = dx$$
 <p>- ホッジ・スター $\ast$ は、$1$-form の係数をそのまま $2$-form の基底行列に分配する演算として構成できる。行列表現は外積行列に一致する。</p>
 <p>- 実空間での $\ast$ 辞書：$\ast dx = dy \wedge dz$ など。$\ast\ast = \mathrm{id}$。</p>
 </blockquote>
-<h4 id="635-の性質">6.3.5 $\ast$ の性質</h4>
+<h4 id="6.3.5-__MATH_BLOCK_336__-の性質">6.3.5 $\ast$ の性質</h4>
 <p>§6.2.3 で内積の性質を、第5章で外微分 $d$ の性質をまとめたのに倣い、$\ast$ についてもここまでの構成から浮かび上がる性質を整理しておく。
 </p>
 <ol>
@@ -452,8 +457,8 @@ $$\ast(\ast(dx)) = \ast(dy \wedge dz) = dx$$
 <p>これらの性質は、$\ast$ が単なる「辞書」ではなく、計量と向きを備えた空間における<strong>次数の折り返し構造</strong>そのものであることを示している。
 </p>
 <hr />
-<h3 id="64-対応の実例微分形式とベクトル解析">§6.4 対応の実例——微分形式とベクトル解析</h3>
-<h4 id="641-ジュール熱-二つの経路">6.4.1 ジュール熱 $P=VI$ ——二つの経路</h4>
+<h3 id="§6.4-対応の実例——微分形式とベクトル解析">§6.4 対応の実例——微分形式とベクトル解析</h3>
+<h4 id="6.4.1-ジュール熱-__MATH_BLOCK_357__-——二つの経路">6.4.1 ジュール熱 $P=VI$ ——二つの経路</h4>
 <p>$\ast$ が具体的にどのように微分形式と同種ベクトルの内積表示を繫いでいるか、実際の計算で確かめよう。
 </p>
 <blockquote>
@@ -483,7 +488,7 @@ $$\ast(E \wedge J)$$
 </p>
 <p><strong>つまり、$\ast$ は方法①の $3$-form と方法②のスカラー表示を矛盾なく繫いでいる。</strong> $\ast\ast = \mathrm{id}$ があるからこそ、どちらの経路を通っても同じ結果に至るのだ。
 </p>
-<h4 id="642-ヘリシティ--の往復">6.4.2 ヘリシティ $A \cdot (\nabla \times A)$ ——$\ast$ の往復</h4>
+<h4 id="6.4.2-ヘリシティ-__MATH_BLOCK_403__-——__MATH_BLOCK_404__-の往復">6.4.2 ヘリシティ $A \cdot (\nabla \times A)$ ——$\ast$ の往復</h4>
 <p>もう一つの例で、$\ast$ の働きをさらに見てみよう。$1$-form $\alpha$ と、その外微分 $d\alpha$ を組み合わせた次の $3$-form を考える：
 </p>
 $$\alpha \wedge d\alpha$$
@@ -520,7 +525,7 @@ $$\ast(\alpha \wedge d\alpha)$$
 <p>- $\ast$ は微分形式とベクトル解析を繫ぐ対応であり、$\ast\ast = \mathrm{id}$ が往復の整合性を保証している。</p>
 </blockquote>
 <hr />
-<h3 id="65-ナブラの三兄弟を解体する">§6.5 ナブラの三兄弟を解体する</h3>
+<h3 id="§6.5-ナブラの三兄弟を解体する">§6.5 ナブラの三兄弟を解体する</h3>
 <p>ここまでで $d$（第5章）と $\ast$（本章）という二つの演算子が揃った。この二つを組み合わせることで、勾配（grad）、回転（rot）、発散（div）という三つの演算が、一つの統一的な枠組みで書けるようになる。
 </p>
 <blockquote>
@@ -528,7 +533,7 @@ $$\ast(\alpha \wedge d\alpha)$$
 </blockquote>
 <p>以降、ベクトル場 $\mathbf{F} = (F_x, F_y, F_z)$ に対応する $1$-form を $\omega = F_x\,dx + F_y\,dy + F_z\,dz$ と書く。
 </p>
-<h4 id="651-勾配">6.5.1 勾配 $\mathrm{grad}\,f = df$</h4>
+<h4 id="6.5.1-勾配-__MATH_BLOCK_476__">6.5.1 勾配 $\mathrm{grad}\,f = df$</h4>
 <p>これはすでに知っている。$0$-form（スカラー場）$f$ の外微分 $df$ は $1$-form であり、その係数は偏微分係数である：
 </p>
 $$df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz$$
@@ -537,7 +542,7 @@ $$df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \
 $$\mathrm{grad}\,f = df\qquad\text{（本書の $1$-form 表示）}$$
 <p>$d$ は次数を $0 \to 1$ に上げる。これが勾配の正体である。勾配では、$0$-form から $1$-form への外微分だけが現れる。
 </p>
-<h4 id="652-回転">6.5.2 回転 $\mathrm{rot}\,\mathbf{F} = \ast\,d\,\omega$</h4>
+<h4 id="6.5.2-回転-__MATH_BLOCK_490__">6.5.2 回転 $\mathrm{rot}\,\mathbf{F} = \ast\,d\,\omega$</h4>
 <p>$1$-form $\omega$ に $d$ を作用させると $2$-form $d\omega$ が得られる。その係数は第5章で導いたとおり：
 </p>
 $$d\omega = (\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z})\,dy \wedge dz + (\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x})\,dz \wedge dx + (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,dx \wedge dy$$
@@ -549,7 +554,7 @@ $$\ast(d\omega) = (\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z}
 $$\mathrm{rot}\,\mathbf{F} = \ast\,d\,\omega\qquad\text{（本書の $1$-form 表示）}$$
 <p>$\ast\,d$ は $1$-form $\to$ $2$-form $\to$ $1$-form という、次数を上げてから下げる操作である。この「上げて下げる」が、まさに回転の代数構造だ。
 </p>
-<h4 id="653-発散">6.5.3 発散 $\mathrm{div}\,\mathbf{F} = \ast\,d\,\ast\,\omega$</h4>
+<h4 id="6.5.3-発散-__MATH_BLOCK_511__">6.5.3 発散 $\mathrm{div}\,\mathbf{F} = \ast\,d\,\ast\,\omega$</h4>
 <p>さらに $\ast\,d\,\ast$ と三つの演算子を連ねる。まず $\ast\,\omega$ で $1$-form を $2$-form に変換し、$d$ で $3$-form に上げ、最後に $\ast$ で $0$-form（スカラー場）に落とす：
 </p>
 $$\ast(d(\ast\omega)) = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z}$$
@@ -561,7 +566,7 @@ $$\mathrm{div}\,\mathbf{F} = \ast\,d\,\ast\,\omega$$
 <blockquote>
 <p><strong>注</strong> （ベクトル解析を知っている読者へ）円柱座標や球座標での rot や div の公式が長くなる理由は、ここで明らかになったはずだ。rot は $\ast$ を $1$ 回、div は $\ast$ を $2$ 回使っている。$\ast$ の辞書は計量 $g$ に依存し、$g$ は $g = J^T J$ という場所の関数である。公式の複雑さは、裏で $\ast$ と $g$ が繰り返し適用されていることの結果に過ぎない。</p>
 </blockquote>
-<h4 id="654-の当然の帰結">6.5.4 $d^2 = 0$ の当然の帰結</h4>
+<h4 id="6.5.4-__MATH_BLOCK_539__-の当然の帰結">6.5.4 $d^2 = 0$ の当然の帰結</h4>
 <p>第5章で学んだ $d^2 = 0$ を思い出そう。この一つの事実から、二つの恒等式が自動的に導かれる。
 </p>
 <p>$\mathrm{rot}(\mathrm{grad}\,f) = 0$ は、$\ast\,d\,(df) = \ast\,(d^2 f) = 0$ に他ならない。
@@ -571,7 +576,7 @@ $$\mathrm{div}\,\mathbf{F} = \ast\,d\,\ast\,\omega$$
 <p>これらは「たまたま計算したらゼロになった」のではない。$d^2 = 0$ という一つの代数的真理が、ナブラの組み合わせの上に異なる二つの顔で現れているだけだ。
 </p>
 <hr />
-<h3 id="66-第II部の結び--第III部へ">§6.6 第II部の結び —— 第III部へ</h3>
+<h3 id="§6.6-第II部の結び-——-第III部へ">§6.6 第II部の結び —— 第III部へ</h3>
 <p>我々は第5章で外微分 $d$ を、本章で計量 $g$ とホッジ・スター $\ast$ を手に入れた。この二つの演算子の組み合わせとして：
 </p>
 <div class="table-wrapper"><table>
@@ -580,7 +585,8 @@ $$\mathrm{div}\,\mathbf{F} = \ast\,d\,\ast\,\omega$$
 <th>分解</th>
 <th>次数の遷移</th>
 <th>$\ast$ の使用回数</th>
-</tr></thead><tbody>
+</tr></thead>
+<tbody>
 <tr>
 <td>$\mathrm{grad}$</td>
 <td>$d$（必要に応じて $\sharp$ でベクトル化）</td>
@@ -599,7 +605,8 @@ $$\mathrm{div}\,\mathbf{F} = \ast\,d\,\ast\,\omega$$
 <td>$1 \to 2 \to 3 \to 0$</td>
 <td>2回</td>
 </tr>
-</tbody></table></div>
+</tbody>
+</table></div>
 <p>ナブラ $\nabla$ という一見謎めいた記号の正体は、$d$ と $\ast$ という二つの基本的な演算子の組み合わせに過ぎなかったのである。
 </p>
 <blockquote>
@@ -622,10 +629,10 @@ $$\mathrm{div}\,\mathbf{F} = \ast\,d\,\ast\,\omega$$
 <p>- $\mathrm{grad} = d$、$\mathrm{rot} = \ast\,d$、$\mathrm{div} = \ast\,d\,\ast$ であり、$d^2=0$ から $\mathrm{rot}(\mathrm{grad})=0$ と $\mathrm{div}(\mathrm{rot})=0$ が当然の帰結として導かれる。</p>
 </blockquote>
 <hr />
-<h2 id="付録Dフロベニウス積とホッジ・スターの完全な行列表現">付録D：フロベニウス積とホッジ・スターの完全な行列表現</h2>
+<h2 id="付録D：フロベニウス積とホッジ・スターの完全な行列表現">付録D：フロベニウス積とホッジ・スターの完全な行列表現</h2>
 <p>§6.3.2 では $1$-form の係数を「行列の縦ベクトル」に掛ける見方で $\ast_{1\to2}$ を導入し、§6.3.3 で簡略版の辞書を与えた。この付録では、縦ベクトルとフロベニウス積だけを使って $\ast_{1\to2}$ と $\ast_{2\to1}$ を構成し直し、両者が<strong>互いに転置</strong>であることを示す。
 </p>
-<h3 id="D1-行列の内積フロベニウス積">D.1 行列の内積——フロベニウス積</h3>
+<h3 id="D.1-行列の内積——フロベニウス積">D.1 行列の内積——フロベニウス積</h3>
 <p>$3 \times 3$ 行列 $A, B$ の<strong>内積</strong>を次で定義する。
 </p>
 $$A \cdot B = \frac{1}{2}\operatorname{tr}(A^T B) = \frac{1}{2}\sum_{i=1}^{3}\sum_{j=1}^{3} A_{ij}B_{ij}$$
@@ -640,7 +647,7 @@ $$A \cdot B = \frac{1}{2}\operatorname{tr}(A^T B) = \frac{1}{2}\sum_{i=1}^{3}\su
 <blockquote>
 <p><strong>注</strong> （抽象化の引力）§6.2.3 で「数学者はすぐに抽象化したがる」とぼやいたが、こうして実際に手を動かしてみると彼らの言い分も分からなくもない。縦ベクトルの内積には $\mathbf{v}_1^T \mathbf{v}_2$ を、行列の内積には $\frac{1}{2}\operatorname{tr}(A^T B)$ を——表示が変わるたびに内積を一から定義し直すのは、考えてみれば相当に大変だ。これらをまとめて「内積とは、ある公理を満たす演算である」と一言で済ませたい欲求に飲まれそうな自分に気付く。それでも本書は最後まで表示を明示する方針を崩さない。ここまで来ると意地である。</p>
 </blockquote>
-<h3 id="D2-行列の縦ベクトル">D.2 $\ast_{1\to2}$ ——行列の縦ベクトル</h3>
+<h3 id="D.2-__MATH_BLOCK_626__-——行列の縦ベクトル">D.2 $\ast_{1\to2}$ ——行列の縦ベクトル</h3>
 <p>基底 $2$-form に対応する3枚の反対称行列を $E_1, E_2, E_3$ と名付ける。添字 $1,2,3$ は $dx,dy,dz$ の順である。
 </p>
 $$
@@ -683,13 +690,13 @@ $$
 <blockquote>
 <p><strong>注</strong> （第2章の $\widehat{\epsilon}$ との関係）この $E_1, E_2, E_3$ は、付録Aで $\epsilon_{1,\cdot,\cdot}, \epsilon_{2,\cdot,\cdot}, \epsilon_{3,\cdot,\cdot}$ として書き下した行列と同一である。$\ast_{1\to2}$ の本質は、エディントンのイプシロン $\epsilon_{ijk}$ の第一添字を縦ベクトルの成分方向に、残りの二添字を $3\times 3$ 行列の方向に配置したものだ。第2章で体積測定器 $\widehat{\epsilon}$ として導入したあの3枚組が、ここでホッジ・スターとして再登場している。</p>
 </blockquote>
-<h3 id="D3-フロベニウス積による係数抽出">D.3 $\ast_{2\to1}$ ——フロベニウス積による係数抽出</h3>
+<h3 id="D.3-__MATH_BLOCK_644__-——フロベニウス積による係数抽出">D.3 $\ast_{2\to1}$ ——フロベニウス積による係数抽出</h3>
 <p>逆向きの変換 $\ast_{2\to1}$ は、$E_1, E_2, E_3$ とのフロベニウス積で構成する。$M$ を任意の $3\times 3$ 行列（反対称とは限らない）とする。
 </p>
 $$\ast_{2\to1}(M) = \begin{pmatrix} E_1 \cdot M & E_2 \cdot M & E_3 \cdot M \end{pmatrix}$$
 <p>$E_k \cdot M = \frac{1}{2}\operatorname{tr}(E_k^T M)$ は D.1 のフロベニウス積である。
 </p>
-<h3 id="D4-転置関係">D.4 転置関係</h3>
+<h3 id="D.4-転置関係">D.4 転置関係</h3>
 <p>$\ast_{1\to2}$ と $\ast_{2\to1}$ が互いに転置であることは、D.2 と D.3 の定義から直ちに従う。任意の $1$-form $\omega$ と任意の $3\times 3$ 行列 $M$ に対し、
 </p>
 $$
@@ -725,7 +732,7 @@ $$
 $$
 <p>$\ast_{1\to2}$ では縦に積まれていた $E_1, E_2, E_3$ が、ここでは横に並んでいる。作用の仕方も対称的だ。$\ast_{1\to2}(\omega) = \omega \,\ast_{1\to2}$ は横ベクトル $\omega$ と縦ベクトル $\ast_{1\to2}$ の積であり、各 $E_k$ を係数倍して足し合わせる。一方 $\ast_{2\to1}$ は横ベクトルであるから、$M$ に作用させるときは各成分 $E_k$ と $M$ のフロベニウス積をとる——これが D.3 の定義 $\ast_{2\to1}(M) = \begin{pmatrix} E_1 \cdot M & E_2 \cdot M & E_3 \cdot M \end{pmatrix}$ に他ならない。縦と横、加重和と内積抽出——この対称性が $\ast$ のすべてを支配している。
 </p>
-<h3 id="D5-の成分">D.5 $E_k \cdot M$ の成分</h3>
+<h3 id="D.5-__MATH_BLOCK_682__-の成分">D.5 $E_k \cdot M$ の成分</h3>
 <p>D.3 の定義が実際に $M$ から何を取り出すかは、$E_k$ の非ゼロ成分を数えればわかる。フロベニウス積は成分ごとの積の総和に $1/2$ を掛けたものだから、非ゼロ成分だけ見れば十分だ。
 </p>
 <p>$E_1$ の非ゼロ成分は $(2,3)=1$ と $(3,2)=-1$ のみ。したがって
@@ -744,7 +751,7 @@ $$
 $$\ast_{2\to1}(M) = \begin{pmatrix} M_{23} & M_{31} & M_{12} \end{pmatrix}$$
 <p>$1/2$ が反対称ペアの二重拾いを打ち消し、ちょうど係数そのものが抜き出される。これは §6.3.3 の簡略版辞書 $\ast(dy \wedge dz) = dx$ 等と完全に一致する。
 </p>
-<h3 id="D6-の二回作用">D.6 $\ast$ の二回作用</h3>
+<h3 id="D.6-__MATH_BLOCK_700__-の二回作用">D.6 $\ast$ の二回作用</h3>
 <p>D.2 と D.3 の定義のもとで $\ast$ を二回作用させるとどうなるか。$\ast_{1\to2}(\omega) = P E_1 + Q E_2 + R E_3$ に $\ast_{2\to1}$ を作用させると、
 </p>
 $$
@@ -785,13 +792,13 @@ $$\ast_{2\to1}(\ast_{1\to2}(\omega)) = \begin{pmatrix} P & Q & R \end{pmatrix} =
 <p>- $E_i \cdot E_j = \delta_{ij}$ より $\ast_{2\to1}(\ast_{1\to2}(\omega)) = \omega$。§6.3.3 の簡略辞書と同じ規格化である。</p>
 </blockquote>
       <div class="nav-buttons">
-        <a href="ch05.html">← 第5章：微分するとは何か ——...</a>
-        <a href="ch07.html">第7章：ベクトル解析 —— ナ... →</a>
+        <a href="ch05.html">← 第5章...</a>
+        <a href="ch07.html">第7章... →</a>
       </div>
-      <footer class="site-footer">
-        <p>&copy; yokiikoy (CC BY-NC 4.0). 本書の最新版・PDF・改訂履歴・関連情報・本書以外のコンテンツはポータルサイト <a href="https://covectorspace.xyz/jp/">Project Co-Vector Space</a> をご確認ください。</p>
-      </footer>
     </article>
+    <footer class="site-footer">
+      <p>&copy; 2024- yokiikoy. CC BY-NC 4.0.</p>
+    </footer>
   </main>
 </body>
 </html>

@@ -24,3 +24,13 @@ exports/manuscript.html
 
 # Reference materials (large PDFs and OCR markdown)
 reference/
+exports/manuscript_preview.tex
+exports/manuscript-preview.tex
+
+# Preview intermediates
+preview/*.aux
+preview/*.log
+preview/*.toc
+preview/*.out
+preview/*.fls
+preview/*.fdb_latexmk

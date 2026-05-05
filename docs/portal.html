@@ -21,6 +21,7 @@
   .sidebar a { text-decoration: none; color: #0969da; }
   .sidebar a:hover { text-decoration: underline; }
   .sidebar .active { color: #cf222e; font-weight: bold; }
+  .sidebar .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
   .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; }
   .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; }
   @media (max-width: 900px) { 
@@ -45,11 +46,13 @@
   .full-toc h2 { font-size: 1.1rem; margin: 1.5em 0 0.3em; padding-bottom: 2px; border-bottom: 1px solid #d0d7de; }
   .full-toc h2 a { color: #24292f; text-decoration: none; }
   .full-toc h2 a:hover { color: #0969da; }
+  .full-toc h2 .disabled-link { color: #8c959f; cursor: not-allowed; }
   .full-toc ul { list-style: none; padding-left: 1.5rem; margin: 0.3em 0 0; }
   .full-toc li { margin-bottom: 0.2rem; font-size: 0.9rem; }
   .full-toc .level-3 { padding-left: 1rem; font-size: 0.8rem; color: #57606a; }
   .full-toc a { color: #0969da; text-decoration: none; }
   .full-toc a:hover { text-decoration: underline; }
+  .full-toc .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
   .full-toc .part-header { font-size: 1.1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }
   .full-toc .toc-part-chapters { padding-left: 1.5rem; }
   .full-toc .toc-part-chapters h3 { font-size: 0.95rem; margin: 0.5em 0 0.2em; }
@@ -83,9 +86,10 @@
       著者: yokiikoy<br>
       <a href="http://covectorspace.xyz/jp/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a>
     </div>
-    <div class="toc"><ul>
+    <div class="toc">
+      <ul>
 <li class="level-1"><a href="toc.html" id="link-toc.html">目次</a></li>
-<li class="level-1"><a href="index.html" id="link-index.html">著者ノート</a></li>
+<li class="level-1"><a href="index.html" id="link-index.html">ごあいさつ</a></li>
 <li class="level-1"><a href="intro.html" id="link-intro.html">はじめに</a></li>
 <li class="level-1"><a href="portal.html" class="active" id="link-portal.html">ポータルサイトとちょっとした試み</a><ul class="sub-toc"><li class="level-3"><a href="#ポータルサイト">ポータルサイト</a></li><li class="level-3"><a href="#Discord-サーバー">Discord サーバー</a></li></ul></li>
 <li class="level-1"><a href="ch01.html" id="link-ch01.html">第1章</a></li>
@@ -103,39 +107,39 @@
 <li class="level-1"><a href="postscript.html" id="link-postscript.html">おわりに</a></li>
 <li class="level-1"><a href="refs.html" id="link-refs.html">参考文献（と著者からのコメント）</a></li>
 <li class="level-1"><a href="appendix.html" id="link-appendix.html">付録</a></li>
-</ul></div>
+</ul>
+    </div>
   </nav>
   <main class="main-content">
     <article class="markdown-body">
-      <h1 id="ポータルサイトとちょっとした試み">ポータルサイトとちょっとした試み</h1>
-<p>本書の PDF 版、正誤表、改訂履歴、GitHub リポジトリ、投げ銭窓口、および周辺メモへの導線は、以下のポータルサイトにまとめています。
+<h1 id="ポータルサイトとちょっとした試み">ポータルサイトとちょっとした試み</h1>
+<p>本書の PDF 版、正誤表、改訂履歴、GitHub リポジトリ、および周辺メモへの導線は、以下のポータルサイトにまとめています。
 </p>
 <h3 id="ポータルサイト">ポータルサイト</h3>
 <p><a href="https://covectorspace.xyz/jp/">https://covectorspace.xyz/jp/</a>
 </p>
-<p>本書は無料で公開しています。明らかな誤植レベルの指摘は GitHub Issues でも受け付けます。投げ銭の窓口も、たぶん用意されています。
+<p>本書は無料で公開しています。明らかな誤植レベルの指摘は GitHub Issues でも受け付けます。
 </p>
 <blockquote>
 <p><strong>注</strong>（名称について）</p>
 <p>ちなみに、<em>covector space</em>、ましてや <em>Co-Vector Space</em> という語はあまり一般的ではありません。数学では <em>dual space</em> などと言う方が普通です。</p>
 </blockquote>
 <h3 id="Discord-サーバー">Discord サーバー</h3>
-<p>また、本書をきっかけにした小さな Discord サーバーを試験的に準備中です。
+<p>また、本書をきっかけにした Discord サーバー自体はあります。
+ ただし、現時点では正式な部室でも、試験公開中のコミュニティでもありません。
 </p>
 <p>これは単なる読者サポート窓口ではありません。理工系に関心のある人たちが、本書の内容に限らず、初歩的すぎて表に出しにくい質問、未完成の怪しいメモ、未整理のアイデアなどを、ほどよい距離感で持ち寄れる場所があってもよいのではないか、という試みです。
 </p>
-<p>無料で様子を見るための「前室」と、怪しいアイデアの持ち寄りや、表ではマサカリが飛んできそうな込み入った議論を扱う「奥部屋」を分ける想定です。奥部屋は、冷やかしや荒らしを少し減らすため、無料期間つきのごく少額の有料ロールとして試験運用します。本書の閲覧料ではなく、収益化が目的でもありません。インフラ代だけでも赤字です。万が一黒字が出ても、全額この場の維持や改善に回します。
-</p>
-<p>詳しい参加方法、利用規約、お金まわりの約束事については、上記のポータルサイトを確認してください。
+<p>現時点では本当に「空き部屋」に近い状態です。興味のある方は、ポータルサイトから覗いてみてください。
 </p>
       <div class="nav-buttons">
-        <a href="intro.html">← はじめに：$dx$とは何か・ナ...</a>
-        <a href="ch01.html">第1章：$dx$ とは何か —... →</a>
+        <a href="intro.html">← はじめに...</a>
+        <a href="ch01.html">第1章... →</a>
       </div>
-      <footer class="site-footer">
-        <p>&copy; yokiikoy (CC BY-NC 4.0). 本書の最新版・PDF・改訂履歴・関連情報・本書以外のコンテンツはポータルサイト <a href="https://covectorspace.xyz/jp/">Project Co-Vector Space</a> をご確認ください。</p>
-      </footer>
     </article>
+    <footer class="site-footer">
+      <p>&copy; 2024- yokiikoy. CC BY-NC 4.0.</p>
+    </footer>
   </main>
 </body>
 </html>
