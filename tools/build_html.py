@@ -85,6 +85,9 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
   .full-toc .toc-part-chapters h3 {{ font-size: 0.95rem; margin: 0.5em 0 0.2em; }}
   .full-toc .toc-part-chapters h3 a {{ color: #24292f; }}
   .full-toc .toc-part-chapters ul {{ padding-left: 1.5rem; }}
+  .site-footer {{ margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #d0d7de; font-size: 0.8rem; color: #57606a; }}
+  .site-footer a {{ color: #0969da; text-decoration: none; }}
+  .site-footer a:hover {{ text-decoration: underline; }}
 </style>
 {KATEX_CDN}
 </head>
@@ -104,6 +107,9 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
         {prev_button}
         {next_button}
       </div>
+      <footer class="site-footer">
+        <p>&copy; yokiikoy. 本書の最新版・PDF・正誤表・改訂履歴・関連情報は<a href="https://covectorspace.xyz/jp/">ポータルサイト</a>をご確認ください。</p>
+      </footer>
     </article>
   </main>
 </body>
