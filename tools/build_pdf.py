@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 """Generate PDF from manuscript using Pandoc → XeLaTeX."""
-import subprocess, os, re, glob
+import subprocess, os, re, glob, argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--profile", default="full", choices=["full", "preview"])
+args = parser.parse_args()
+is_preview = args.profile == "preview"
+
 from datetime import datetime
 
 # Build combined markdown
@@ -11,7 +17,8 @@ front_matter.sort()
 files.extend(front_matter)
 front_matter_count = len(front_matter)
 
-for i in range(1, 13):
+max_chapter = 1 if is_preview else 12
+for i in range(1, max_chapter + 1):
     f = f'manuscript/ja/ch{i:02d}/ch{i:02d}.md'
     if os.path.exists(f):
         files.append(f)
@@ -42,10 +49,11 @@ for f in files:
 
 # Clean version for HTML and combined preview
 clean_md_text = '\n\n'.join(combined)
-with open('exports/manuscript_combined.md', 'w') as f:
+combined_md_filename = 'manuscript_preview_combined.md' if is_preview else 'manuscript_combined.md'
+with open(f'exports/{combined_md_filename}', 'w') as f:
     f.write(clean_md_text)
 
-print(f'Combined {len(files)} chapters → exports/manuscript_combined.md')
+print(f'Combined {len(files)} chapters → exports/{combined_md_filename}')
 
 # Version with page breaks for PDF
 md_text = '\n\n\\newpage\n\n'.join(combined)
@@ -405,6 +413,7 @@ try:
         r'\centering' '\n'
         r'\vspace*{35mm}' '\n'
         r'{\fontsize{34}{42}\selectfont\bfseries ナブラ解体新書\par}' '\n'
+        + (r'\vspace{6mm}{\Large (先行公開版)\par}' '\n' if is_preview else '') +
         r'\vspace{12mm}' '\n'
         r'{\Large 行列表示の微分形式による\par}' '\n'
         r'{\Large ベクトル解析の抜け道\par}' '\n'
@@ -438,12 +447,13 @@ try:
     )
     latex_doc = preamble + latex_body + '\n' + r'\end{document}' + '\n'
 
-    with open('exports/manuscript.tex', 'w') as f:
+    tex_filename = 'manuscript-preview.tex' if is_preview else 'manuscript.tex'
+    with open(f'exports/{tex_filename}', 'w') as f:
         f.write(latex_doc)
-    print('LaTeX source → exports/manuscript.tex')
+    print(f'LaTeX source → exports/{tex_filename}')
 
     # Post-process: hide appendix subsections from TOC
-    with open('exports/manuscript.tex', 'r') as f:
+    with open(f'exports/{tex_filename}', 'r') as f:
         lines = f.readlines()
     new_lines = []
     for line in lines:
@@ -456,7 +466,8 @@ try:
                 if m:
                     line = line.replace(marker, rf'\{cmd}*' + '{', 1)
         new_lines.append(line)
-    with open('exports/manuscript.tex', 'w') as f:
+    tex_filename = 'manuscript-preview.tex' if is_preview else 'manuscript.tex'
+    with open(f'exports/{tex_filename}', 'w') as f:
         f.writelines(new_lines)
 
 except Exception as e:
@@ -471,7 +482,7 @@ for run in [1, 2]:
     print(f'  Run {run}...')
     r = subprocess.run(
         ['xelatex', '-interaction=nonstopmode',
-         '-output-directory=exports', 'exports/manuscript.tex'],
+         f'-output-directory={"preview" if is_preview else "exports"}', f'exports/{tex_filename}'],
         capture_output=True, text=True, timeout=300
     )
     # Count warnings/errors
@@ -485,7 +496,7 @@ for run in [1, 2]:
         raise SystemExit(r.returncode)
 
 # Check output
-pdf_path = 'exports/manuscript.pdf'
+pdf_path = 'preview/manuscript-preview.pdf' if is_preview else 'exports/manuscript.pdf'
 if os.path.exists(pdf_path):
     import os as _os
     size_mb = _os.path.getsize(pdf_path) / (1024*1024)

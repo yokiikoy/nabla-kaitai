@@ -25,3 +25,4 @@ exports/manuscript.html
 # Reference materials (large PDFs and OCR markdown)
 reference/
 exports/manuscript_preview.tex
+exports/manuscript-preview.tex

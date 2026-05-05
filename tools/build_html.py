@@ -7,6 +7,7 @@ Splits content by chapters and provides fast, beautiful math rendering.
 import re
 import sys
 import glob
+import argparse
 from pathlib import Path
 
 # --- Configuration ---
@@ -369,8 +370,18 @@ def process_markdown(markdown_text):
 
 
 def main():
-    md_path = Path('exports/manuscript_combined.md')
-    docs_dir = Path('docs')
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--profile", default="full", choices=["full", "preview"])
+    args = parser.parse_args()
+    is_preview = args.profile == "preview"
+
+    preview_notice = ""
+    if is_preview:
+        preview_notice = '''<div class="preview-notice" style="background: #fff8c5; border: 1px solid #d4a72c; padding: 1rem; border-radius: 6px; margin-bottom: 2rem; font-size: 0.9rem;">
+      <strong>先行公開版のお知らせ:</strong> このドキュメントは先行公開用であり、内容（前付け・第1章・後付類のみ）を限定しています。最新の全体版や詳細についてはポータルサイトをご確認ください。
+    </div>'''
+    md_path = Path('exports/manuscript_preview_combined.md' if is_preview else 'exports/manuscript_combined.md')
+    docs_dir = Path('preview' if is_preview else 'docs')
     docs_dir.mkdir(exist_ok=True)
     
     with open(md_path, 'r', encoding='utf-8') as f:
@@ -472,8 +483,8 @@ def main():
             page_toc = page_toc.replace(find_str, find_str.replace('</li>', local_toc + '</li>'))
         
         final_html = HTML_TEMPLATE.format(
-            title=ch["title"], toc=page_toc, KATEX_CDN=KATEX_CDN,
-            content=content_html, prev_button=prev_btn, next_button=next_btn
+            title=(ch["title"] + " (先行公開版)" if is_preview else ch["title"]), toc=page_toc, KATEX_CDN=KATEX_CDN,
+            content=(preview_notice + "\n" + content_html if is_preview else content_html), prev_button=prev_btn, next_button=next_btn
         )
         with open(docs_dir / ch["filename"], 'w', encoding='utf-8') as f:
             f.write(final_html)
@@ -541,7 +552,7 @@ def main():
 
     toc_page_toc = toc_html.replace('id="link-toc.html"', 'class="active" id="link-toc.html"')
     toc_page_html = HTML_TEMPLATE.format(
-        title='目次', toc=toc_page_toc, KATEX_CDN=KATEX_CDN,
+        title=('目次 (先行公開版)' if is_preview else '目次'), toc=toc_page_toc, KATEX_CDN=KATEX_CDN,
         content=toc_content, prev_button='<span></span>', next_button='<span></span>'
     )
     with open(docs_dir / 'toc.html', 'w', encoding='utf-8') as f:
