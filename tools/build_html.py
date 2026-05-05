@@ -248,9 +248,10 @@ def process_markdown(md_text):
             close_quote()
             lv = len(h_match.group(1))
             heading_text = h_match.group(2).strip()
+            slug = re.sub(r'[\s]+', '-', heading_text)  # matches ManuscriptModel._slugify
             processed = protector.restore(apply_inline_formatting(heading_text))
             processed = re.sub(r'\[\^(.+?)\]', r'<sup>[\1]</sup>', processed)
-            result.append(f'<h{lv}>{processed}</h{lv}>')
+            result.append(f'<h{lv} id="{slug}">{processed}</h{lv}>')
             continue
 
         if line.strip().startswith('>'):
