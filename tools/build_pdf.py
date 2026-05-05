@@ -39,14 +39,13 @@ def main():
     combined = []
     
     for ch in content_chapters:
-        # For PDF, front matter markdown often contains YAML or specific markup.
         raw_text = "\n".join(ch.content_lines)
         if ch.is_front_matter:
             raw_text = strip_yaml(raw_text)
         
-        # If it's a regular chapter, ensure the chapter title is present
-        if not ch.is_front_matter and not raw_text.startswith('# '):
-             raw_text = f"# {ch.title}\n\n" + raw_text
+        # Ensure chapter title is present for main matter
+        if not ch.is_front_matter and ch.id.isdigit() and not raw_text.lstrip().startswith('# '):
+            raw_text = f"# {ch.title}\n\n" + raw_text
              
         combined.append(raw_text)
 
@@ -151,6 +150,29 @@ def main():
         )
 
     latex_body = soften_horizontal_rules(latex_body)
+
+    def add_matter_divisions(text):
+        """Insert frontmatter, mainmatter, backmatter before appropriate chapters."""
+        chapter_positions = [m.start() for m in re.finditer(r'\\chapter\{', text)]
+        if not chapter_positions:
+            return text
+        
+        fm_count = len(model.front_matter)
+        bm_count = sum(1 for ch in content_chapters if ch.id in ('afterword', 'references', 'appendix'))
+        main_start = fm_count
+        back_start = len(chapter_positions) - bm_count
+        
+        insertions = [(chapter_positions[0], '\n\\frontmatter\n')]
+        if main_start < len(chapter_positions):
+            insertions.append((chapter_positions[main_start], '\n\\mainmatter\n'))
+        if 0 < back_start < len(chapter_positions) and back_start != main_start:
+            insertions.append((chapter_positions[back_start], '\n\\backmatter\n'))
+        
+        for pos, cmd in reversed(insertions):
+            text = text[:pos] + cmd + text[pos:]
+        return text
+    
+    latex_body = add_matter_divisions(latex_body)
 
     def hide_appendix_from_toc(text):
         for cmd in ('subsection', 'subsubsection', 'paragraph'):
@@ -323,15 +345,14 @@ def main():
              f'-output-directory={"preview" if profile.is_preview else "exports"}', f'exports/{tex_filename}'],
             capture_output=True, text=True, timeout=300
         )
-        if r.returncode != 0:
-            print(f"XeLaTeX failed on run {run}:")
-            print(r.stdout[-3000:])
-            raise SystemExit(r.returncode)
-
+    
     pdf_path = 'preview/manuscript-preview.pdf' if profile.is_preview else 'exports/manuscript.pdf'
     if os.path.exists(pdf_path):
         size_mb = os.path.getsize(pdf_path) / (1024*1024)
         print(f'\nPDF generated: {pdf_path} ({size_mb:.1f} MB)')
+    else:
+        print('\nERROR: PDF not generated! Check exports/manuscript.log')
+        sys.exit(1)
 
 if __name__ == '__main__':
     main()
