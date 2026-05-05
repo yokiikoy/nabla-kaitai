@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ポータルサイトとちょっとした試み | ナブラ解体新書 (先行公開版)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+<style>
+  :root { --sidebar-width: 320px; }
+  body { margin: 0; display: flex; background: #fff; line-height: 1.7; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .sidebar { width: var(--sidebar-width); height: 100vh; position: sticky; top: 0; background: #f8f9fa; border-right: 1px solid #d0d7de; overflow-y: auto; padding: 1.5rem; box-sizing: border-box; flex-shrink: 0; }
+  .sidebar h2 { font-size: 1.2rem; border: none; margin-bottom: 0.5rem; color: #24292f; }
+  .sidebar .author { font-size: 0.8rem; color: #666; margin-bottom: 1.5rem; }
+  .sidebar .toc { font-size: 0.85rem; }
+  .sidebar .toc ul { list-style: none; padding-left: 0; margin: 0; }
+  .sidebar .toc li { margin-bottom: 0.4rem; }
+  .sidebar .toc .level-1 { font-weight: bold; margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 2px; }
+  .sidebar .toc .sub-toc { font-size: 0.8rem; margin-top: 0.5rem; padding-left: 0.8rem; border-left: 2px solid #eee; }
+  .sidebar .toc .sub-toc li { margin-bottom: 0.2rem; font-weight: normal; }
+  .sidebar .toc .sub-toc .level-3 { padding-left: 0.8rem; font-size: 0.75rem; color: #666; }
+  .sidebar a { text-decoration: none; color: #0969da; }
+  .sidebar a:hover { text-decoration: underline; }
+  .sidebar .active { color: #cf222e; font-weight: bold; }
+  .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; }
+  .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; }
+  @media (max-width: 900px) { 
+    body { flex-direction: column; } 
+    .sidebar { width: 100%; height: auto; position: static; padding: 1rem; border-right: none; border-bottom: 1px solid #d0d7de; } 
+    .main-content { padding: 1rem; } 
+    .markdown-body { padding: 0.5rem; }
+  }
+  .preview-notice { background: #fff8c5; border: 1px solid #d4a72c; padding: 1rem; border-radius: 6px; margin-bottom: 2rem; font-size: 0.9rem; }
+  .nav-buttons { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }
+  .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
+  .nav-buttons a:hover { background: #f6f8fa; }
+  .site-footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #d0d7de; font-size: 0.8rem; color: #57606a; }
+</style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ],
+            throwOnError : false
+        });
+    });
+</script>
+
+</head>
+<body>
+  <nav class="sidebar">
+    <h2><a href="index.html">ナブラ解体新書</a></h2>
+    <p style="font-size: 0.7rem; color: #cf222e; font-weight: bold; margin-bottom: 0.5rem;">先行公開版</p>
+    <div class="author">著者: yokiikoy</div>
+    <div class="toc"><ul><li class="level-1"><a href="index.html" id="link-index.html">著者ノート</a></li><li class="level-1"><a href="intro.html" id="link-intro.html">はじめに</a></li><li class="level-1"><a href="portal.html" class="active" id="link-portal.html">ポータルサイトとちょっとした試み</a></li><li class="level-1"><a href="ch01.html" id="link-ch01.html">第1章</a></li><li class="level-1"><a href="postscript.html" id="link-postscript.html">おわりに</a></li><li class="level-1"><a href="refs.html" id="link-refs.html">参考文献（と著者からのコメント）</a></li><li class="level-1"><a href="appendix.html" id="link-appendix.html">付録</a></li></ul></div>
+  </nav>
+  <main class="main-content">
+    <div class="preview-notice">
+      <strong>先行公開版のお知らせ:</strong> このドキュメントは先行公開用であり、内容（前付け・第1章・後付類のみ）を限定しています。最新の全体版や詳細についてはポータルサイトをご確認ください。
+    </div>
+    <article class="markdown-body">
+      <h1 id="ポータルサイトとちょっとした試み">ポータルサイトとちょっとした試み</h1>
+<p>本書の PDF 版、正誤表、改訂履歴、GitHub リポジトリ、投げ銭窓口、および周辺メモへの導線は、以下のポータルサイトにまとめています。
+</p>
+<h3 id="ポータルサイト">ポータルサイト</h3>
+<p><a href="https://covectorspace.xyz/jp/">https://covectorspace.xyz/jp/</a>
+</p>
+<p>本書は無料で公開しています。明らかな誤植レベルの指摘は GitHub Issues でも受け付けます。投げ銭の窓口も、たぶん用意されています。
+</p>
+<blockquote>
+<p><strong>注</strong>（名称について）</p>
+<p>ちなみに、<em>covector space</em>、ましてや <em>Co-Vector Space</em> という語はあまり一般的ではありません。数学では <em>dual space</em> などと言う方が普通です。</p>
+</blockquote>
+<h3 id="Discord-サーバー">Discord サーバー</h3>
+<p>また、本書をきっかけにした小さな Discord サーバーを試験的に準備中です。
+</p>
+<p>これは単なる読者サポート窓口ではありません。理工系に関心のある人たちが、本書の内容に限らず、初歩的すぎて表に出しにくい質問、未完成の怪しいメモ、未整理のアイデアなどを、ほどよい距離感で持ち寄れる場所があってもよいのではないか、という試みです。
+</p>
+<p>無料で様子を見るための「前室」と、怪しいアイデアの持ち寄りや、表ではマサカリが飛んできそうな込み入った議論を扱う「奥部屋」を分ける想定です。奥部屋は、冷やかしや荒らしを少し減らすため、無料期間つきのごく少額の有料ロールとして試験運用します。本書の閲覧料ではなく、収益化が目的でもありません。インフラ代だけでも赤字です。万が一黒字が出ても、全額この場の維持や改善に回します。
+</p>
+<p>詳しい参加方法、利用規約、お金まわりの約束事については、上記のポータルサイトを確認してください。
+</p>
+      <div class="nav-buttons">
+        <a href="intro.html">← はじめに：$dx$ ...</a>
+        <a href="ch01.html">第1章：$dx$ と... →</a>
+      </div>
+      <footer class="site-footer">
+        <p>&copy; yokiikoy (CC BY-NC 4.0). 先行公開版。詳細は <a href="https://covectorspace.xyz/jp/">Project Co-Vector Space</a> へ。</p>
+      </footer>
+    </article>
+  </main>
+</body>
+</html>
