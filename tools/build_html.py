@@ -261,9 +261,10 @@ def process_markdown(md_text):
                 close_list()
                 result.append('<blockquote>')
                 in_quote = True
-            processed_inner = protector.restore(apply_inline_formatting(content))
-            processed_inner = re.sub(r'\[\^(.+?)\]', r'<sup>[\1]</sup>', processed_inner)
-            result.append(f'<p>{processed_inner}</p>')
+            if content:
+                processed_inner = protector.restore(apply_inline_formatting(content))
+                processed_inner = re.sub(r'\[\^(.+?)\]', r'<sup>[\1]</sup>', processed_inner)
+                result.append(f'<p>{processed_inner}</p>')
             continue
         elif in_quote:
             if line.strip() == '':
@@ -333,7 +334,10 @@ def process_markdown(md_text):
             result.append(f'<p><small>[{fn_id}]: {formatted_content}</small></p>')
         result.append('</section>')
         
-    return '\n'.join(result)
+    final = '\n'.join(result)
+    # Clean up Markdown escape \* (becomes KaTeX discretionary break if left as-is)
+    final = final.replace(r'\*', '*')
+    return final
 
 
 def main():
