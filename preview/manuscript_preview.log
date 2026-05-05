@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.4.30)  5 MAY 2026 20:56
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.4.30)  5 MAY 2026 21:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -556,45 +556,27 @@ Chapter 1.
 
 ]
 Chapter 2.
-! Undefined control sequence.
-l.46 \tightlist
-               
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
 [4
 
 ]
-! Undefined control sequence.
-l.134 \tightlist
-                
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
 
 LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/sl' undefined
-(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 149.
+(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 150.
 
 
 LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/it' undefined
-(Font)              using `TU/IPAexMincho(0)/m/n' instead on input line 149.
+(Font)              using `TU/IPAexMincho(0)/m/n' instead on input line 150.
 
 [5]
 
 LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/sl' undefined
-(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 151.
+(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 152.
 
 [6]
 Chapter 3.
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 160.
+(hyperref)                than one, level fixed on input line 161.
 
 [7
 
@@ -602,37 +584,19 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 Chapter 4.
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 193.
-
-! Undefined control sequence.
-l.224 \tightlist
-                
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+(hyperref)                than one, level fixed on input line 194.
 
 [8
 
 ]
 
 LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/sl' undefined
-(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 296.
+(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 299.
 
 [9]
-! Undefined control sequence.
-l.323 \tightlist
-                
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
 
 LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/sl' undefined
-(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 357.
+(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 360.
 
 
 Overfull \hbox (22.7142pt too wide) has occurred while \output is active
@@ -643,23 +607,14 @@ ncho(0)/m/it/12 とは何か —— ベクトルを食べる測定器、ある�
 [10]
 
 LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/sl' undefined
-(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 435.
+(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 426.
 
 [11
 
 ]
-! Undefined control sequence.
-l.453 \tightlist
-                
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
 
 LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/sl' undefined
-(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 522.
+(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 511.
 
 
 Overfull \hbox (22.7142pt too wide) has occurred while \output is active
@@ -668,23 +623,14 @@ ncho(0)/m/it/12 とは何か —— ベクトルを食べる測定器、ある�
  []
 
 [12]
-! Undefined control sequence.
-l.588 \tightlist
-                
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
 
 LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/sl' undefined
-(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 602.
+(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 599.
 
 [13]
 
 LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/sl' undefined
-(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 670.
+(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 668.
 
 
 Overfull \hbox (22.7142pt too wide) has occurred while \output is active
@@ -695,33 +641,12 @@ ncho(0)/m/it/12 とは何か —— ベクトルを食べる測定器、ある�
 [14]
 
 LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/sl' undefined
-(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 736.
+(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 723.
 
 [15]
-! Missing { inserted.
-<to be read again> 
-                   \discretionary 
-l.786 より正確には、第4章で述べる引き戻しの記法を使って、\(\gamma^\*
-                                           (dx)=\gamma'(t)\,dt\)
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.786 ...しの記法を使って、\(\gamma^\*(dx)=\gamma'(t)\,dt\)
-                                                  
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
 
 LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/sl' undefined
-(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 793.
+(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 787.
 
 
 Overfull \hbox (22.7142pt too wide) has occurred while \output is active
@@ -732,10 +657,10 @@ ncho(0)/m/it/12 とは何か —— ベクトルを食べる測定器、ある�
 [16]
 
 LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/sl' undefined
-(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 875.
+(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 871.
 
 [17]
-Overfull \hbox (1.19328pt too wide) detected at line 882
+Overfull \hbox (1.19328pt too wide) detected at line 902
 \OT1/cmr/m/n/12 ^^A\OML/cmm/m/it/12 f \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 f\OT1/
 cmr/m/n/12 (\OML/cmm/m/it/12 x \OT1/cmr/m/n/12 + ^^A\OML/cmm/m/it/12 x;  y \OT1
 /cmr/m/n/12 + ^^A\OML/cmm/m/it/12 y;  z \OT1/cmr/m/n/12 + ^^A\OML/cmm/m/it/12 z
@@ -748,7 +673,7 @@ cmm/m/it/12 x; y; z\OT1/cmr/m/n/12 ) = [] ^^A\OML/cmm/m/it/12 x \OT1/cmr/m/n/12
 
 
 LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/sl' undefined
-(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 928.
+(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 925.
 
 
 Overfull \hbox (22.7142pt too wide) has occurred while \output is active
@@ -757,7 +682,7 @@ ncho(0)/m/it/12 とは何か —— ベクトルを食べる測定器、ある�
  []
 
 [18]
-Overfull \hbox (5.09834pt too wide) in paragraph at lines 942--948
+Overfull \hbox (5.09834pt too wide) in paragraph at lines 962--968
 []\TU/IPAexMincho(0)/m/it/12 【こ こ ま で の チ ェ ッ ク ポ イ ン ト】 - 微 分 可 能 性 は $\OT1/cm
 r/m/n/12 ^^A\OML/cmm/m/it/12 f \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 f[]\OT1/cmr/m
 /n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )^^A\OML/cmm/m/it/12 x \OT1/cmr/m/n/12
@@ -768,12 +693,12 @@ r/m/n/12 ^^A\OML/cmm/m/it/12 f \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 f[]\OT1/cmr/m
 
 
 LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/sl' undefined
-(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 986.
+(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 985.
 
 [19]
 
 LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/sl' undefined
-(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 1051.
+(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 1045.
 
 
 Overfull \hbox (22.7142pt too wide) has occurred while \output is active
@@ -784,12 +709,12 @@ ncho(0)/m/it/12 とは何か —— ベクトルを食べる測定器、ある�
 [20]
 
 LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/sl' undefined
-(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 1147.
+(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 1140.
 
 [21]
 
 LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/sl' undefined
-(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 1266.
+(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 1262.
 
 
 Overfull \hbox (22.7142pt too wide) has occurred while \output is active
@@ -800,12 +725,12 @@ ncho(0)/m/it/12 とは何か —— ベクトルを食べる測定器、ある�
 [22]
 
 LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/sl' undefined
-(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 1362.
+(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 1346.
 
 [23]
 
 LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/sl' undefined
-(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 1427.
+(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 1423.
 
 
 Overfull \hbox (22.7142pt too wide) has occurred while \output is active
@@ -814,23 +739,14 @@ ncho(0)/m/it/12 とは何か —— ベクトルを食べる測定器、ある�
  []
 
 [24]
-! Undefined control sequence.
-l.1484 \tightlist
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
 
 LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/sl' undefined
-(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 1510.
+(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 1496.
 
 [25]
 
 LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/sl' undefined
-(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 1591.
+(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 1575.
 
 
 Overfull \hbox (22.7142pt too wide) has occurred while \output is active
@@ -841,12 +757,12 @@ ncho(0)/m/it/12 とは何か —— ベクトルを食べる測定器、ある�
 [26]
 
 LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/sl' undefined
-(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 1689.
+(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 1687.
 
 [27]
 
 LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/sl' undefined
-(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 1703.
+(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 1723.
 
 
 Overfull \hbox (22.7142pt too wide) has occurred while \output is active
@@ -861,20 +777,20 @@ Chapter 5.
 ]
 
 LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/sl' undefined
-(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 1758.
+(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 1778.
 
 [30]
 Chapter 6.
 
 LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/b/it' undefined
-(Font)              using `TU/IPAexMincho(0)/b/n' instead on input line 1768.
+(Font)              using `TU/IPAexMincho(0)/b/n' instead on input line 1788.
 
 [31
 
 ]
 
 LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/sl' undefined
-(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 1817.
+(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 1837.
 
 [32]
 Chapter 7.
@@ -883,22 +799,22 @@ Chapter 7.
 ]
 
 LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/sl' undefined
-(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 1897.
+(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 1917.
 
 [34]
 
 LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/sl' undefined
-(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 1943.
+(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 1963.
 
 [35]
 
 LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/sl' undefined
-(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 1998.
+(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 2018.
 
 [36]
 
 LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/sl' undefined
-(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 2040.
+(Font)              using `TU/IPAexMincho(0)/m/it' instead on input line 2060.
 
 [37] (preview/manuscript_preview.aux)
  ***********
@@ -913,12 +829,12 @@ Package rerunfilecheck Info: File `manuscript_preview.out' has not changed.
 (rerunfilecheck)             Checksum: F7F78447823104C5FD4D46AF975CFC99;4108.
  ) 
 Here is how much of TeX's memory you used:
- 13071 strings out of 476878
- 252042 string characters out of 5805249
+ 13072 strings out of 476878
+ 252051 string characters out of 5805249
  1944627 words of memory out of 5000000
- 34788 multiletter control sequences out of 15000+600000
+ 34789 multiletter control sequences out of 15000+600000
  579396 words of font info for 144 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 79i,9n,93p,513b,426s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 79i,9n,93p,513b,424s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on preview/manuscript_preview.pdf (37 pages).

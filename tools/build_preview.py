@@ -283,6 +283,10 @@ def build_preview_artifacts():
     
     # Run pandoc to get LaTeX body
     process = subprocess.run(['pandoc', '--from=markdown+tex_math_dollars', '--to=latex', '--top-level-division=chapter'], input=combined_md, capture_output=True, text=True)
+    if process.returncode != 0:
+        import sys
+        print(f"Pandoc error: {process.stderr}")
+        sys.exit(1)
     latex_body = process.stdout
     
     # Basic preamble
@@ -298,20 +302,34 @@ def build_preview_artifacts():
 \author{yokiikoy}
 \date{\today}
 \maketitle
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \tableofcontents
 '''
     with open(preview_tex, 'w', encoding='utf-8') as f:
         f.write(preamble + latex_body + r'\end{document}')
     
     # Compile
-    for _ in [1, 2]:
-        subprocess.run(['xelatex', '-interaction=nonstopmode', '-output-directory=preview', str(preview_tex)], capture_output=True)
+    for run in [1, 2]:
+        print(f"  XeLaTeX Run {run}...")
+        r = subprocess.run(['xelatex', '-interaction=nonstopmode', '-output-directory=preview', str(preview_tex)], capture_output=True, text=True)
+        if r.returncode != 0:
+            import sys
+            print(f"XeLaTeX error on run {run}:")
+            print(r.stdout[-2000:])
+            sys.exit(1)
     
     # Rename output
-    if (PREVIEW_DIR / 'manuscript_preview.pdf').exists():
-        os.rename(PREVIEW_DIR / 'manuscript_preview.pdf', PREVIEW_DIR / 'manuscript-preview.pdf')
+    pdf_out = PREVIEW_DIR / 'manuscript_preview.pdf'
+    final_pdf = PREVIEW_DIR / 'manuscript-preview.pdf'
+    if pdf_out.exists():
+        os.rename(pdf_out, final_pdf)
     
-    print(f"Artifacts generated in {PREVIEW_DIR}/")
+    if final_pdf.exists():
+        print(f"Artifacts successfully generated in {PREVIEW_DIR}/ (PDF exists)")
+    else:
+        import sys
+        print("ERROR: PDF was not generated.")
+        sys.exit(1)
 
 if __name__ == '__main__':
     build_preview_artifacts()

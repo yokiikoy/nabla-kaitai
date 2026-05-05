@@ -23,4 +23,5 @@ exports/*.fdb_latexmk
 exports/manuscript.html
 
 # Reference materials (large PDFs and OCR markdown)
-reference/exports/manuscript_preview.tex
+reference/
+exports/manuscript_preview.tex
