@@ -1,282 +1,283 @@
 \contentsline {chapter}{著者ノート：かつての私への贈り物、あるいはSNS時代の予防線}{6}{chapter*.1}%
-\contentsline {chapter}{はじめに：\(dx\) とは何か、ナブラとは何か}{7}{chapter*.2}%
+\contentsline {chapter}{はじめに：\(dx\)とは何か・ナブラとは何か}{7}{chapter*.2}%
 \contentsline {section}{はじめのはじめに：前提知識}{7}{section*.3}%
-\contentsline {section}{ナブラとは何か}{8}{section*.4}%
-\contentsline {subsection}{本書のロードマップ}{8}{section*.5}%
-\contentsline {chapter}{ポータルサイトとちょっとした試み}{9}{chapter*.6}%
-\contentsline {subsection}{ポータルサイト}{9}{section*.7}%
-\contentsline {subsection}{Discord サーバー}{9}{section*.8}%
+\contentsline {section}{\(dx\)とは何か}{7}{section*.4}%
+\contentsline {section}{ナブラとは何か}{8}{section*.5}%
+\contentsline {section}{本書のロードマップ}{8}{section*.6}%
+\contentsline {chapter}{ポータルサイトとちょっとした試み}{9}{chapter*.7}%
+\contentsline {subsection}{ポータルサイト}{9}{section*.8}%
+\contentsline {subsection}{Discord サーバー}{9}{section*.9}%
 \contentsline {part}{I\hspace {1em}第I部：$\mathbb {R}^3$ 上の微分形式}{10}{part.1}%
 \contentsline {chapter}{\numberline {1}第1章：\(dx\) とは何か —— ベクトルを食べる測定器、あるいは横ベクトル}{11}{chapter.1}%
-\contentsline {subsection}{§1.0 数学者の1次元、物理学者の1次元}{11}{section*.9}%
-\contentsline {subsection}{§1.1 リーマン和と行列の積}{13}{section*.10}%
-\contentsline {subsubsection}{1.1.1 リーマン和の標準的構成（復習）}{13}{section*.11}%
-\contentsline {subsubsection}{1.1.2 小区間ごとの変位}{14}{section*.12}%
-\contentsline {subsubsection}{1.1.3 \(dx\) の登場 — 本書最大の特徴としての「断言」}{15}{section*.13}%
-\contentsline {subsubsection}{1.1.4 リーマン和のベクトル再解釈と積分記号}{17}{section*.14}%
-\contentsline {subsubsection}{1.1.5 一次形式（\(1\)-form）}{18}{section*.15}%
-\contentsline {subsubsection}{1.1.6 本書の記号契約}{18}{section*.16}%
-\contentsline {subsection}{§1.2 全微分 \(df\) — 変化率を行列にまとめた演算子}{19}{section*.17}%
-\contentsline {subsubsection}{1.2.1 微分可能性の行列表現}{19}{section*.18}%
-\contentsline {subsubsection}{1.2.2 \(df\) の行列としての定義と \(df(\mathbf {v})\)}{20}{section*.19}%
-\contentsline {subsubsection}{1.2.3 \(y\) 方向と \(z\) 方向の測定器 \(dy\), \(dz\)}{20}{section*.20}%
-\contentsline {subsubsection}{1.2.4 具体例： \(f(x) = x^2\) の場合}{21}{section*.21}%
-\contentsline {subsubsection}{1.2.5 置換積分と測定器の作り替え}{21}{section*.22}%
-\contentsline {subsubsection}{1.2.6 三次元への拡張}{22}{section*.23}%
-\contentsline {subsubsection}{1.2.7 線積分の先取り}{24}{section*.24}%
-\contentsline {subsection}{§1.3 ライプニッツの記法と代数的直感}{24}{section*.25}%
-\contentsline {subsection}{§1.4 座標変換——測定器を別の目盛りに作り替える}{25}{section*.26}%
-\contentsline {subsubsection}{1.4.1 円柱座標から実空間への変換}{26}{section*.27}%
-\contentsline {subsubsection}{1.4.2 小さな一歩を写して \(dx\) で測る}{26}{section*.28}%
-\contentsline {subsubsection}{1.4.3 一次項から測定器を作る}{27}{section*.29}%
-\contentsline {subsubsection}{1.4.4 引き戻された測定器として読む}{28}{section*.30}%
-\contentsline {subsubsection}{1.4.5 二つのデカルト座標}{29}{section*.31}%
-\contentsline {subsubsection}{1.4.6 第4章への伏線}{30}{section*.32}%
-\contentsline {subsection}{§1.5 別の座標で書く——演習}{31}{section*.33}%
-\contentsline {subsubsection}{1.5.1 演習問題：円柱座標での測定}{31}{section*.34}%
-\contentsline {subsubsection}{1.5.2 解答と解説}{32}{section*.35}%
-\contentsline {subsubsection}{1.5.3 角度方向に動かした場合}{32}{section*.36}%
-\contentsline {subsection}{§1.6 本章のまとめと次章への展望}{33}{section*.37}%
+\contentsline {subsection}{§1.0 数学者の1次元、物理学者の1次元}{11}{section*.10}%
+\contentsline {subsection}{§1.1 リーマン和と行列の積}{13}{section*.11}%
+\contentsline {subsubsection}{1.1.1 リーマン和の標準的構成（復習）}{13}{section*.12}%
+\contentsline {subsubsection}{1.1.2 小区間ごとの変位}{14}{section*.13}%
+\contentsline {subsubsection}{1.1.3 \(dx\) の登場 — 本書最大の特徴としての「断言」}{15}{section*.14}%
+\contentsline {subsubsection}{1.1.4 リーマン和のベクトル再解釈と積分記号}{17}{section*.15}%
+\contentsline {subsubsection}{1.1.5 一次形式（\(1\)-form）}{18}{section*.16}%
+\contentsline {subsubsection}{1.1.6 本書の記号契約}{18}{section*.17}%
+\contentsline {subsection}{§1.2 全微分 \(df\) — 変化率を行列にまとめた演算子}{19}{section*.18}%
+\contentsline {subsubsection}{1.2.1 微分可能性の行列表現}{19}{section*.19}%
+\contentsline {subsubsection}{1.2.2 \(df\) の行列としての定義と \(df(\mathbf {v})\)}{20}{section*.20}%
+\contentsline {subsubsection}{1.2.3 \(y\) 方向と \(z\) 方向の測定器 \(dy\), \(dz\)}{20}{section*.21}%
+\contentsline {subsubsection}{1.2.4 具体例： \(f(x) = x^2\) の場合}{21}{section*.22}%
+\contentsline {subsubsection}{1.2.5 置換積分と測定器の作り替え}{21}{section*.23}%
+\contentsline {subsubsection}{1.2.6 三次元への拡張}{22}{section*.24}%
+\contentsline {subsubsection}{1.2.7 線積分の先取り}{24}{section*.25}%
+\contentsline {subsection}{§1.3 ライプニッツの記法と代数的直感}{24}{section*.26}%
+\contentsline {subsection}{§1.4 座標変換——測定器を別の目盛りに作り替える}{25}{section*.27}%
+\contentsline {subsubsection}{1.4.1 円柱座標から実空間への変換}{26}{section*.28}%
+\contentsline {subsubsection}{1.4.2 小さな一歩を写して \(dx\) で測る}{26}{section*.29}%
+\contentsline {subsubsection}{1.4.3 一次項から測定器を作る}{27}{section*.30}%
+\contentsline {subsubsection}{1.4.4 引き戻された測定器として読む}{28}{section*.31}%
+\contentsline {subsubsection}{1.4.5 二つのデカルト座標}{29}{section*.32}%
+\contentsline {subsubsection}{1.4.6 第4章への伏線}{30}{section*.33}%
+\contentsline {subsection}{§1.5 別の座標で書く——演習}{31}{section*.34}%
+\contentsline {subsubsection}{1.5.1 演習問題：円柱座標での測定}{31}{section*.35}%
+\contentsline {subsubsection}{1.5.2 解答と解説}{32}{section*.36}%
+\contentsline {subsubsection}{1.5.3 角度方向に動かした場合}{32}{section*.37}%
+\contentsline {subsection}{§1.6 本章のまとめと次章への展望}{33}{section*.38}%
 \contentsline {chapter}{\numberline {2}第2章：面積とは何か —— 平行多面体に潜む、符号のルール}{34}{chapter.2}%
-\contentsline {subsection}{§2.0 測定器と面積・体積、そして長さ}{34}{section*.38}%
-\contentsline {subsection}{§2.1 小学校の面積の限界}{34}{section*.39}%
-\contentsline {subsection}{§2.2 面積測定器が満たすべき「3つのルール」}{35}{section*.40}%
-\contentsline {subsubsection}{2.2.1 ルール1：片方が伸びれば、面積も伸びる（比例関係）}{35}{section*.41}%
-\contentsline {subsubsection}{2.2.2 ルール2：重なれば、ペチャンコでゼロ（交代性）}{36}{section*.42}%
-\contentsline {subsubsection}{2.2.3 ルール3：基準の決定（規格化）}{36}{section*.43}%
-\contentsline {subsection}{§2.3 面積測定器の正体は「反対称行列」である}{37}{section*.44}%
-\contentsline {subsubsection}{2.3.1 なぜ「反対称」なのか？}{38}{section*.45}%
-\contentsline {subsubsection}{2.3.2 測定器の進化と、次なる壁}{38}{section*.46}%
-\contentsline {subsection}{§2.4 面積測定器の内部構造}{39}{section*.47}%
-\contentsline {subsubsection}{2.4.1 「2つの入力をさばく装置」の形を決める}{39}{section*.48}%
-\contentsline {subsubsection}{2.4.2 欲しい結果からマス目を埋める}{40}{section*.49}%
-\contentsline {subsubsection}{2.4.3 テンソル積の導入}{40}{section*.50}%
-\contentsline {subsubsection}{2.4.4 ウェッジ積の完成}{41}{section*.51}%
-\contentsline {subsubsection}{2.4.5 3つの基底\(2\)-form}{41}{section*.52}%
-\contentsline {subsubsection}{2.4.6 向き付き面積の正体と「図形側の基底」}{42}{section*.53}%
-\contentsline {subsubsection}{2.4.7 小学校のスカラー面積に戻すには}{43}{section*.54}%
-\contentsline {subsubsection}{2.4.8 1次元の「面積」（長さ）と0次元の「面積」（点）}{43}{section*.55}%
-\contentsline {subsubsection}{2.4.9 クロス積との符合}{44}{section*.56}%
-\contentsline {subsection}{§2.5 体積測定器と行列式}{45}{section*.57}%
-\contentsline {subsubsection}{2.5.1 体積測定器が満たすべきルール}{45}{section*.58}%
-\contentsline {subsubsection}{2.5.2 ルールから形を決める——基底展開と消去}{45}{section*.59}%
-\contentsline {subsubsection}{2.5.3 \(2\)-form の行列式としての再解釈}{47}{section*.60}%
-\contentsline {subsubsection}{2.5.4 \(dx \wedge dy \wedge dz\) の定義——行列式パターンの完成}{47}{section*.61}%
-\contentsline {subsubsection}{2.5.5 体積測定器のテンソル積表現——\(3 \times 3\) ブロックを横に並べた配列}{48}{section*.62}%
-\contentsline {subsubsection}{2.5.6 具体例：平行六面体の符号付き体積}{50}{section*.63}%
-\contentsline {subsubsection}{2.5.7 スカラー三重積との符合}{50}{section*.64}%
-\contentsline {subsubsection}{2.5.8 体積における「図形側の基底」}{51}{section*.65}%
-\contentsline {subsubsection}{2.5.9 \(3\)-form の「サイズ」——なぜ独立成分は1つだけか}{51}{section*.66}%
-\contentsline {subsubsection}{2.5.10 測定器の階層——第2章で手に入れた武器の整理}{51}{section*.67}%
-\contentsline {subsection}{§2.6 本章のまとめと第3章への展望}{52}{section*.68}%
-\contentsline {section}{第2章 付録A：体積測定器のテンソル積表現 — 全成分の計算}{53}{section*.69}%
+\contentsline {subsection}{§2.0 測定器と面積・体積、そして長さ}{34}{section*.39}%
+\contentsline {subsection}{§2.1 小学校の面積の限界}{34}{section*.40}%
+\contentsline {subsection}{§2.2 面積測定器が満たすべき「3つのルール」}{35}{section*.41}%
+\contentsline {subsubsection}{2.2.1 ルール1：片方が伸びれば、面積も伸びる（比例関係）}{35}{section*.42}%
+\contentsline {subsubsection}{2.2.2 ルール2：重なれば、ペチャンコでゼロ（交代性）}{36}{section*.43}%
+\contentsline {subsubsection}{2.2.3 ルール3：基準の決定（規格化）}{36}{section*.44}%
+\contentsline {subsection}{§2.3 面積測定器の正体は「反対称行列」である}{37}{section*.45}%
+\contentsline {subsubsection}{2.3.1 なぜ「反対称」なのか？}{38}{section*.46}%
+\contentsline {subsubsection}{2.3.2 測定器の進化と、次なる壁}{38}{section*.47}%
+\contentsline {subsection}{§2.4 面積測定器の内部構造}{39}{section*.48}%
+\contentsline {subsubsection}{2.4.1 「2つの入力をさばく装置」の形を決める}{39}{section*.49}%
+\contentsline {subsubsection}{2.4.2 欲しい結果からマス目を埋める}{40}{section*.50}%
+\contentsline {subsubsection}{2.4.3 テンソル積の導入}{40}{section*.51}%
+\contentsline {subsubsection}{2.4.4 ウェッジ積の完成}{41}{section*.52}%
+\contentsline {subsubsection}{2.4.5 3つの基底\(2\)-form}{41}{section*.53}%
+\contentsline {subsubsection}{2.4.6 向き付き面積の正体と「図形側の基底」}{42}{section*.54}%
+\contentsline {subsubsection}{2.4.7 小学校のスカラー面積に戻すには}{43}{section*.55}%
+\contentsline {subsubsection}{2.4.8 1次元の「面積」（長さ）と0次元の「面積」（点）}{43}{section*.56}%
+\contentsline {subsubsection}{2.4.9 クロス積との符合}{44}{section*.57}%
+\contentsline {subsection}{§2.5 体積測定器と行列式}{45}{section*.58}%
+\contentsline {subsubsection}{2.5.1 体積測定器が満たすべきルール}{45}{section*.59}%
+\contentsline {subsubsection}{2.5.2 ルールから形を決める——基底展開と消去}{45}{section*.60}%
+\contentsline {subsubsection}{2.5.3 \(2\)-form の行列式としての再解釈}{47}{section*.61}%
+\contentsline {subsubsection}{2.5.4 \(dx \wedge dy \wedge dz\) の定義——行列式パターンの完成}{47}{section*.62}%
+\contentsline {subsubsection}{2.5.5 体積測定器のテンソル積表現——\(3 \times 3\) ブロックを横に並べた配列}{48}{section*.63}%
+\contentsline {subsubsection}{2.5.6 具体例：平行六面体の符号付き体積}{50}{section*.64}%
+\contentsline {subsubsection}{2.5.7 スカラー三重積との符合}{50}{section*.65}%
+\contentsline {subsubsection}{2.5.8 体積における「図形側の基底」}{51}{section*.66}%
+\contentsline {subsubsection}{2.5.9 \(3\)-form の「サイズ」——なぜ独立成分は1つだけか}{51}{section*.67}%
+\contentsline {subsubsection}{2.5.10 測定器の階層——第2章で手に入れた武器の整理}{51}{section*.68}%
+\contentsline {subsection}{§2.6 本章のまとめと第3章への展望}{52}{section*.69}%
+\contentsline {section}{第2章 付録A：体積測定器のテンソル積表現 — 全成分の計算}{53}{section*.70}%
 \contentsline {chapter}{\numberline {3}第3章：積分するとは何か —— 有限のマスを数え、最後に極限を取る}{56}{chapter.3}%
-\contentsline {subsection}{§3.0 曲がったものを測る——小学校以来の借りを返す}{56}{section*.74}%
-\contentsline {subsection}{§3.1 体積——3次元、係数1}{56}{section*.75}%
-\contentsline {subsubsection}{3.1.1 直方体から曲がった領域へ——リーマン和で定義する}{57}{section*.76}%
-\contentsline {subsubsection}{3.1.2 球の体積——泥臭く、愚直に足す}{58}{section*.77}%
-\contentsline {subsection}{§3.2 表面積——2次元、係数1}{59}{section*.78}%
-\contentsline {subsubsection}{3.2.1 平行四辺形から曲面へ}{59}{section*.79}%
-\contentsline {subsubsection}{3.2.2 \(dx \wedge dy\) が測るもの——球面で試す}{60}{section*.80}%
-\contentsline {subsubsection}{3.2.3 三つの影から本当の面積へ}{61}{section*.81}%
-\contentsline {subsubsection}{3.2.4 ここまででわかったこと}{62}{section*.82}%
-\contentsline {subsection}{§3.3 曲線——1次元、係数1（限界があらわになる）}{63}{section*.83}%
-\contentsline {subsubsection}{3.3.1 直線から曲線へ——リーマン和で定義する}{63}{section*.84}%
-\contentsline {subsubsection}{3.3.2 円周で試す——弧長は出ない}{64}{section*.85}%
-\contentsline {subsubsection}{3.3.3 では \(1\)-form で何が測れるのか}{65}{section*.86}%
-\contentsline {subsection}{§3.4 係数をつける——密度と幾何の積}{65}{section*.87}%
-\contentsline {subsubsection}{3.4.0 なぜ係数なのか——物理が要求する}{66}{section*.88}%
-\contentsline {subsubsection}{3.4.1 一般の \(1\)-form の線積分（仕事）}{66}{section*.89}%
-\contentsline {subsubsection}{3.4.2 一般の \(2\)-form の面積分（流量）}{67}{section*.90}%
-\contentsline {subsubsection}{3.4.3 一般の \(3\)-form の体積分（総質量）}{68}{section*.91}%
-\contentsline {subsubsection}{3.4.4 線・面・体の統一像}{68}{section*.92}%
-\contentsline {subsubsection}{3.4.5 積分の一般形}{69}{section*.93}%
-\contentsline {subsection}{§3.5 本章のまとめと次章への展望}{69}{section*.94}%
+\contentsline {subsection}{§3.0 曲がったものを測る——小学校以来の借りを返す}{56}{section*.75}%
+\contentsline {subsection}{§3.1 体積——3次元、係数1}{56}{section*.76}%
+\contentsline {subsubsection}{3.1.1 直方体から曲がった領域へ——リーマン和で定義する}{57}{section*.77}%
+\contentsline {subsubsection}{3.1.2 球の体積——泥臭く、愚直に足す}{58}{section*.78}%
+\contentsline {subsection}{§3.2 表面積——2次元、係数1}{59}{section*.79}%
+\contentsline {subsubsection}{3.2.1 平行四辺形から曲面へ}{59}{section*.80}%
+\contentsline {subsubsection}{3.2.2 \(dx \wedge dy\) が測るもの——球面で試す}{60}{section*.81}%
+\contentsline {subsubsection}{3.2.3 三つの影から本当の面積へ}{61}{section*.82}%
+\contentsline {subsubsection}{3.2.4 ここまででわかったこと}{62}{section*.83}%
+\contentsline {subsection}{§3.3 曲線——1次元、係数1（限界があらわになる）}{63}{section*.84}%
+\contentsline {subsubsection}{3.3.1 直線から曲線へ——リーマン和で定義する}{63}{section*.85}%
+\contentsline {subsubsection}{3.3.2 円周で試す——弧長は出ない}{64}{section*.86}%
+\contentsline {subsubsection}{3.3.3 では \(1\)-form で何が測れるのか}{65}{section*.87}%
+\contentsline {subsection}{§3.4 係数をつける——密度と幾何の積}{65}{section*.88}%
+\contentsline {subsubsection}{3.4.0 なぜ係数なのか——物理が要求する}{66}{section*.89}%
+\contentsline {subsubsection}{3.4.1 一般の \(1\)-form の線積分（仕事）}{66}{section*.90}%
+\contentsline {subsubsection}{3.4.2 一般の \(2\)-form の面積分（流量）}{67}{section*.91}%
+\contentsline {subsubsection}{3.4.3 一般の \(3\)-form の体積分（総質量）}{68}{section*.92}%
+\contentsline {subsubsection}{3.4.4 線・面・体の統一像}{68}{section*.93}%
+\contentsline {subsubsection}{3.4.5 積分の一般形}{69}{section*.94}%
+\contentsline {subsection}{§3.5 本章のまとめと次章への展望}{69}{section*.95}%
 \contentsline {chapter}{\numberline {4}第4章：変数変換とは何か —— 引き戻し \(\Phi ^*\)：測定器のつじつま合わせ}{71}{chapter.4}%
-\contentsline {subsection}{§4.0 物理は曲がる、計算は四角}{71}{section*.95}%
-\contentsline {subsection}{§4.1 1-form の引き戻し——仕事と運動エネルギー定理}{72}{section*.96}%
-\contentsline {subsection}{§4.2 2-form の引き戻し——角運動量保存と面積速度}{75}{section*.97}%
-\contentsline {subsection}{§4.3 3-form の引き戻し——質量保存と体積分}{78}{section*.98}%
-\contentsline {subsection}{§4.4 引き戻しの性質 —— ここまでに確立したこと}{81}{section*.99}%
-\contentsline {subsection}{§4.5 本章のまとめと第5章（外微分）への展望}{83}{section*.100}%
+\contentsline {subsection}{§4.0 物理は曲がる、計算は四角}{71}{section*.96}%
+\contentsline {subsection}{§4.1 1-form の引き戻し——仕事と運動エネルギー定理}{72}{section*.97}%
+\contentsline {subsection}{§4.2 2-form の引き戻し——角運動量保存と面積速度}{75}{section*.98}%
+\contentsline {subsection}{§4.3 3-form の引き戻し——質量保存と体積分}{78}{section*.99}%
+\contentsline {subsection}{§4.4 引き戻しの性質 —— ここまでに確立したこと}{81}{section*.100}%
+\contentsline {subsection}{§4.5 本章のまとめと第5章（外微分）への展望}{83}{section*.101}%
 \contentsline {chapter}{\numberline {5}第5章：微分するとは何か —— 外微分 \(d\)：局所のズレとStokesの橋}{84}{chapter.5}%
-\contentsline {subsection}{§5.0 第II部の扉——観測は積分、法則は微分}{84}{section*.101}%
-\contentsline {subsection}{§5.1 \(df\) 再訪——微分と積分は逆演算か}{85}{section*.102}%
-\contentsline {subsubsection}{5.1.1 \(df\) は「次元上げ」をしている}{85}{section*.103}%
-\contentsline {subsubsection}{5.1.2 線積分すると端点の差だけが残る}{85}{section*.104}%
-\contentsline {subsubsection}{5.1.3 第3章の例で確かめる}{86}{section*.105}%
-\contentsline {subsection}{§5.2 閉ループで姿を現す「ズレ」}{86}{section*.106}%
-\contentsline {subsubsection}{5.2.1 一般の \(1\)-form ではどうか}{86}{section*.107}%
-\contentsline {subsubsection}{5.2.2 局所情報はどこに宿るか}{87}{section*.108}%
-\contentsline {subsection}{§5.3 微小ループの解体——ズレは面積に比例する}{88}{section*.109}%
-\contentsline {subsubsection}{5.3.1 \(xy\) 平面の微小長方形}{88}{section*.110}%
-\contentsline {subsubsection}{5.3.2 決定的な事実}{89}{section*.111}%
-\contentsline {subsection}{§5.4 \(d\) の誕生——面積あたりのズレを測る新しい測定器}{89}{section*.112}%
-\contentsline {subsubsection}{5.4.1 ウェッジ積の再確認}{89}{section*.113}%
-\contentsline {subsubsection}{5.4.2 \(d\omega \) の定義}{89}{section*.114}%
-\contentsline {subsection}{§5.5 一般の \(1\)-form の外微分——3次元への拡張}{90}{section*.115}%
-\contentsline {subsubsection}{5.5.1 \(yz\) 平面と \(zx\) 平面}{90}{section*.116}%
-\contentsline {subsubsection}{5.5.2 代数的導出——ライプニッツ則と \(d(dx)=0\)}{91}{section*.117}%
-\contentsline {subsubsection}{5.5.3 係数のパターン}{92}{section*.118}%
-\contentsline {subsection}{§5.6 集積すれば境界だけが残る——ストークスの定理}{93}{section*.119}%
-\contentsline {subsubsection}{5.6.1 面をタイル貼りする}{93}{section*.120}%
-\contentsline {subsubsection}{5.6.2 内部の辺は相殺する}{93}{section*.121}%
-\contentsline {subsubsection}{5.6.3 生き残るのは境界だけ}{94}{section*.122}%
-\contentsline {subsection}{§5.7 同じことをもう一段——\(2\)-form の外微分と発散}{95}{section*.123}%
-\contentsline {subsubsection}{5.7.1 \(2\)-form は面の測定器}{95}{section*.124}%
-\contentsline {subsubsection}{5.7.2 微小直方体の表面で測る}{95}{section*.125}%
-\contentsline {subsubsection}{5.7.3 \(d\eta \) の定義と代数的導出}{95}{section*.126}%
-\contentsline {subsubsection}{5.7.4 ガウスの定理}{96}{section*.127}%
-\contentsline {subsection}{§5.8 \(d^2 = 0\)——二度測れば必ずゼロ}{97}{section*.128}%
-\contentsline {subsubsection}{5.8.1 \(d(df) = 0\)}{97}{section*.129}%
-\contentsline {subsubsection}{5.8.2 \(d(d\omega ) = 0\)}{97}{section*.130}%
-\contentsline {subsection}{§5.9 外微分の統合——一つの式、一つのルール}{98}{section*.131}%
-\contentsline {subsubsection}{5.9.1 ストークスとガウスは同じ式だった}{98}{section*.132}%
-\contentsline {subsubsection}{5.9.2 一般の \(k\)-form の外微分}{99}{section*.133}%
-\contentsline {subsubsection}{5.9.3 計算ルールまとめ}{99}{section*.134}%
-\contentsline {subsection}{§5.10 積分から微分方程式へ——物理法則の局所化}{100}{section*.135}%
-\contentsline {subsubsection}{5.10.1 積分法則を微分法則に変える}{100}{section*.136}%
-\contentsline {subsubsection}{5.10.2 物理の実例}{100}{section*.137}%
-\contentsline {subsection}{§5.11 第II部への展望——ホッジ・スターへの伏線}{101}{section*.138}%
-\contentsline {section}{付録C：外微分の行列表示}{102}{section*.139}%
+\contentsline {subsection}{§5.0 第II部の扉——観測は積分、法則は微分}{84}{section*.102}%
+\contentsline {subsection}{§5.1 \(df\) 再訪——微分と積分は逆演算か}{85}{section*.103}%
+\contentsline {subsubsection}{5.1.1 \(df\) は「次元上げ」をしている}{85}{section*.104}%
+\contentsline {subsubsection}{5.1.2 線積分すると端点の差だけが残る}{85}{section*.105}%
+\contentsline {subsubsection}{5.1.3 第3章の例で確かめる}{86}{section*.106}%
+\contentsline {subsection}{§5.2 閉ループで姿を現す「ズレ」}{86}{section*.107}%
+\contentsline {subsubsection}{5.2.1 一般の \(1\)-form ではどうか}{86}{section*.108}%
+\contentsline {subsubsection}{5.2.2 局所情報はどこに宿るか}{87}{section*.109}%
+\contentsline {subsection}{§5.3 微小ループの解体——ズレは面積に比例する}{88}{section*.110}%
+\contentsline {subsubsection}{5.3.1 \(xy\) 平面の微小長方形}{88}{section*.111}%
+\contentsline {subsubsection}{5.3.2 決定的な事実}{89}{section*.112}%
+\contentsline {subsection}{§5.4 \(d\) の誕生——面積あたりのズレを測る新しい測定器}{89}{section*.113}%
+\contentsline {subsubsection}{5.4.1 ウェッジ積の再確認}{89}{section*.114}%
+\contentsline {subsubsection}{5.4.2 \(d\omega \) の定義}{89}{section*.115}%
+\contentsline {subsection}{§5.5 一般の \(1\)-form の外微分——3次元への拡張}{90}{section*.116}%
+\contentsline {subsubsection}{5.5.1 \(yz\) 平面と \(zx\) 平面}{90}{section*.117}%
+\contentsline {subsubsection}{5.5.2 代数的導出——ライプニッツ則と \(d(dx)=0\)}{91}{section*.118}%
+\contentsline {subsubsection}{5.5.3 係数のパターン}{92}{section*.119}%
+\contentsline {subsection}{§5.6 集積すれば境界だけが残る——ストークスの定理}{93}{section*.120}%
+\contentsline {subsubsection}{5.6.1 面をタイル貼りする}{93}{section*.121}%
+\contentsline {subsubsection}{5.6.2 内部の辺は相殺する}{93}{section*.122}%
+\contentsline {subsubsection}{5.6.3 生き残るのは境界だけ}{94}{section*.123}%
+\contentsline {subsection}{§5.7 同じことをもう一段——\(2\)-form の外微分と発散}{95}{section*.124}%
+\contentsline {subsubsection}{5.7.1 \(2\)-form は面の測定器}{95}{section*.125}%
+\contentsline {subsubsection}{5.7.2 微小直方体の表面で測る}{95}{section*.126}%
+\contentsline {subsubsection}{5.7.3 \(d\eta \) の定義と代数的導出}{95}{section*.127}%
+\contentsline {subsubsection}{5.7.4 ガウスの定理}{96}{section*.128}%
+\contentsline {subsection}{§5.8 \(d^2 = 0\)——二度測れば必ずゼロ}{97}{section*.129}%
+\contentsline {subsubsection}{5.8.1 \(d(df) = 0\)}{97}{section*.130}%
+\contentsline {subsubsection}{5.8.2 \(d(d\omega ) = 0\)}{97}{section*.131}%
+\contentsline {subsection}{§5.9 外微分の統合——一つの式、一つのルール}{98}{section*.132}%
+\contentsline {subsubsection}{5.9.1 ストークスとガウスは同じ式だった}{98}{section*.133}%
+\contentsline {subsubsection}{5.9.2 一般の \(k\)-form の外微分}{99}{section*.134}%
+\contentsline {subsubsection}{5.9.3 計算ルールまとめ}{99}{section*.135}%
+\contentsline {subsection}{§5.10 積分から微分方程式へ——物理法則の局所化}{100}{section*.136}%
+\contentsline {subsubsection}{5.10.1 積分法則を微分法則に変える}{100}{section*.137}%
+\contentsline {subsubsection}{5.10.2 物理の実例}{100}{section*.138}%
+\contentsline {subsection}{§5.11 第II部への展望——ホッジ・スターへの伏線}{101}{section*.139}%
+\contentsline {section}{付録C：外微分の行列表示}{102}{section*.140}%
 \contentsline {part}{II\hspace {1em}第II部：ベクトル解析}{105}{part.2}%
 \contentsline {chapter}{\numberline {6}第6章：計量 \(g\) とホッジ・スター \(\ast \) — 内積の召喚と次数の反転}{106}{chapter.6}%
-\contentsline {subsection}{§6.0 言い訳の終焉——内積を解放する}{106}{section*.146}%
-\contentsline {subsection}{§6.1 パラメータ空間の内積——計量 \(g\) の正体}{107}{section*.147}%
-\contentsline {subsubsection}{6.1.1 実空間の内積}{107}{section*.148}%
-\contentsline {subsubsection}{6.1.2 内積を測定器として読み直す}{107}{section*.149}%
-\contentsline {subsubsection}{6.1.3 パラメータ空間で内積をとるには}{108}{section*.150}%
-\contentsline {subsection}{§6.2 \(g\) による縦ベクトルと横ベクトルの変換}{110}{section*.151}%
-\contentsline {subsubsection}{6.2.1 \(\mathbf {v}^T \mathbf {g}\) は横ベクトルである}{110}{section*.152}%
-\contentsline {subsubsection}{6.2.2 計量が与えるもの——平行 \(k\) 面体の幾何学的な大きさ}{111}{section*.153}%
-\contentsline {subsubsection}{6.2.3 内積の性質}{112}{section*.154}%
-\contentsline {subsubsection}{6.2.4 計量行列の幾何を成分に宿らせる}{112}{section*.155}%
-\contentsline {subsection}{§6.3 ホッジ・スター \(\ast \) ——二つの方法を繫ぐ対応}{113}{section*.156}%
-\contentsline {subsubsection}{6.3.1 スカラーを得る二つの方法}{113}{section*.157}%
-\contentsline {subsubsection}{6.3.2 行列から \(\ast \) を構成する}{114}{section*.158}%
-\contentsline {subsubsection}{6.3.3 実空間での \(\ast \) 辞書}{115}{section*.159}%
-\contentsline {subsubsection}{6.3.4 \(\ast \ast = \mathrm {id}\)}{116}{section*.160}%
-\contentsline {subsubsection}{6.3.5 \(\ast \) の性質}{116}{section*.161}%
-\contentsline {subsection}{§6.4 対応の実例——微分形式とベクトル解析}{117}{section*.162}%
-\contentsline {subsubsection}{6.4.1 ジュール熱 \(P=VI\) ——二つの経路}{117}{section*.163}%
-\contentsline {subsubsection}{6.4.2 ヘリシティ \(A \cdot (\nabla \times A)\) ——\(\ast \) の往復}{118}{section*.164}%
-\contentsline {subsection}{§6.5 ナブラの三兄弟を解体する}{119}{section*.165}%
-\contentsline {subsubsection}{6.5.1 勾配 \(\mathrm {grad}\,f = df\)}{119}{section*.166}%
-\contentsline {subsubsection}{6.5.2 回転 \(\mathrm {rot}\,\mathbf {F} = \ast \,d\,\omega \)}{120}{section*.167}%
-\contentsline {subsubsection}{6.5.3 発散 \(\mathrm {div}\,\mathbf {F} = \ast \,d\,\ast \,\omega \)}{120}{section*.168}%
-\contentsline {subsubsection}{6.5.4 \(d^2 = 0\) の当然の帰結}{121}{section*.169}%
-\contentsline {subsection}{§6.6 第II部の結び —— 第III部へ}{121}{section*.170}%
-\contentsline {section}{付録D：フロベニウス積とホッジ・スターの完全な行列表現}{122}{section*.171}%
+\contentsline {subsection}{§6.0 言い訳の終焉——内積を解放する}{106}{section*.147}%
+\contentsline {subsection}{§6.1 パラメータ空間の内積——計量 \(g\) の正体}{107}{section*.148}%
+\contentsline {subsubsection}{6.1.1 実空間の内積}{107}{section*.149}%
+\contentsline {subsubsection}{6.1.2 内積を測定器として読み直す}{107}{section*.150}%
+\contentsline {subsubsection}{6.1.3 パラメータ空間で内積をとるには}{108}{section*.151}%
+\contentsline {subsection}{§6.2 \(g\) による縦ベクトルと横ベクトルの変換}{110}{section*.152}%
+\contentsline {subsubsection}{6.2.1 \(\mathbf {v}^T \mathbf {g}\) は横ベクトルである}{110}{section*.153}%
+\contentsline {subsubsection}{6.2.2 計量が与えるもの——平行 \(k\) 面体の幾何学的な大きさ}{111}{section*.154}%
+\contentsline {subsubsection}{6.2.3 内積の性質}{112}{section*.155}%
+\contentsline {subsubsection}{6.2.4 計量行列の幾何を成分に宿らせる}{112}{section*.156}%
+\contentsline {subsection}{§6.3 ホッジ・スター \(\ast \) ——二つの方法を繫ぐ対応}{113}{section*.157}%
+\contentsline {subsubsection}{6.3.1 スカラーを得る二つの方法}{113}{section*.158}%
+\contentsline {subsubsection}{6.3.2 行列から \(\ast \) を構成する}{114}{section*.159}%
+\contentsline {subsubsection}{6.3.3 実空間での \(\ast \) 辞書}{115}{section*.160}%
+\contentsline {subsubsection}{6.3.4 \(\ast \ast = \mathrm {id}\)}{116}{section*.161}%
+\contentsline {subsubsection}{6.3.5 \(\ast \) の性質}{116}{section*.162}%
+\contentsline {subsection}{§6.4 対応の実例——微分形式とベクトル解析}{117}{section*.163}%
+\contentsline {subsubsection}{6.4.1 ジュール熱 \(P=VI\) ——二つの経路}{117}{section*.164}%
+\contentsline {subsubsection}{6.4.2 ヘリシティ \(A \cdot (\nabla \times A)\) ——\(\ast \) の往復}{118}{section*.165}%
+\contentsline {subsection}{§6.5 ナブラの三兄弟を解体する}{119}{section*.166}%
+\contentsline {subsubsection}{6.5.1 勾配 \(\mathrm {grad}\,f = df\)}{119}{section*.167}%
+\contentsline {subsubsection}{6.5.2 回転 \(\mathrm {rot}\,\mathbf {F} = \ast \,d\,\omega \)}{120}{section*.168}%
+\contentsline {subsubsection}{6.5.3 発散 \(\mathrm {div}\,\mathbf {F} = \ast \,d\,\ast \,\omega \)}{120}{section*.169}%
+\contentsline {subsubsection}{6.5.4 \(d^2 = 0\) の当然の帰結}{121}{section*.170}%
+\contentsline {subsection}{§6.6 第II部の結び —— 第III部へ}{121}{section*.171}%
+\contentsline {section}{付録D：フロベニウス積とホッジ・スターの完全な行列表現}{122}{section*.172}%
 \contentsline {chapter}{\numberline {7}第7章：ベクトル解析 —— ナブラの登場}{127}{chapter.7}%
-\contentsline {subsection}{§7.0 ナブラの登場}{127}{section*.178}%
-\contentsline {subsection}{§7.1 ドット積とクロス積}{127}{section*.179}%
-\contentsline {subsubsection}{7.1.1 ドット積}{127}{section*.180}%
-\contentsline {subsubsection}{7.1.2 クロス積}{128}{section*.181}%
-\contentsline {subsection}{§7.2 \(\nabla \) と勾配}{129}{section*.182}%
-\contentsline {subsubsection}{7.2.1 \(\nabla \) の定義}{129}{section*.183}%
-\contentsline {subsubsection}{7.2.2 勾配}{129}{section*.184}%
-\contentsline {subsection}{§7.3 発散}{130}{section*.185}%
-\contentsline {subsection}{§7.4 回転}{130}{section*.186}%
-\contentsline {subsection}{§7.5 ラプラシアン}{131}{section*.187}%
-\contentsline {subsection}{§7.6 恒等式}{132}{section*.188}%
-\contentsline {subsubsection}{7.6.1 \(\mathrm {rot}(\mathrm {grad}\,f) = \mathbf {0}\)}{132}{section*.189}%
-\contentsline {subsubsection}{7.6.2 \(\mathrm {div}(\mathrm {rot}\,\mathbf {F}) = 0\)}{132}{section*.190}%
-\contentsline {subsection}{§7.7 ナブラの公式集}{133}{section*.191}%
-\contentsline {subsubsection}{7.7.1 積の微分則}{133}{section*.192}%
-\contentsline {subsubsection}{7.7.2 二回作用の恒等式}{133}{section*.193}%
-\contentsline {subsubsection}{7.7.3 スカラー三重積}{134}{section*.194}%
-\contentsline {subsubsection}{7.7.4 ベクトル三重積（BAC-CAB 則）}{134}{section*.195}%
-\contentsline {subsection}{§7.8 積分定理——ストークス・ガウス・グリーン}{135}{section*.196}%
-\contentsline {subsubsection}{7.8.1 ストークスの定理}{135}{section*.197}%
-\contentsline {subsubsection}{7.8.2 ガウスの発散定理}{135}{section*.198}%
-\contentsline {subsubsection}{7.8.3 三つの定理の共通構造}{135}{section*.199}%
-\contentsline {subsection}{§7.9 第III部へ —— 矢印を見るな、測定器を見ろ}{136}{section*.200}%
+\contentsline {subsection}{§7.0 ナブラの登場}{127}{section*.179}%
+\contentsline {subsection}{§7.1 ドット積とクロス積}{127}{section*.180}%
+\contentsline {subsubsection}{7.1.1 ドット積}{127}{section*.181}%
+\contentsline {subsubsection}{7.1.2 クロス積}{128}{section*.182}%
+\contentsline {subsection}{§7.2 \(\nabla \) と勾配}{129}{section*.183}%
+\contentsline {subsubsection}{7.2.1 \(\nabla \) の定義}{129}{section*.184}%
+\contentsline {subsubsection}{7.2.2 勾配}{129}{section*.185}%
+\contentsline {subsection}{§7.3 発散}{130}{section*.186}%
+\contentsline {subsection}{§7.4 回転}{130}{section*.187}%
+\contentsline {subsection}{§7.5 ラプラシアン}{131}{section*.188}%
+\contentsline {subsection}{§7.6 恒等式}{132}{section*.189}%
+\contentsline {subsubsection}{7.6.1 \(\mathrm {rot}(\mathrm {grad}\,f) = \mathbf {0}\)}{132}{section*.190}%
+\contentsline {subsubsection}{7.6.2 \(\mathrm {div}(\mathrm {rot}\,\mathbf {F}) = 0\)}{132}{section*.191}%
+\contentsline {subsection}{§7.7 ナブラの公式集}{133}{section*.192}%
+\contentsline {subsubsection}{7.7.1 積の微分則}{133}{section*.193}%
+\contentsline {subsubsection}{7.7.2 二回作用の恒等式}{133}{section*.194}%
+\contentsline {subsubsection}{7.7.3 スカラー三重積}{134}{section*.195}%
+\contentsline {subsubsection}{7.7.4 ベクトル三重積（BAC-CAB 則）}{134}{section*.196}%
+\contentsline {subsection}{§7.8 積分定理——ストークス・ガウス・グリーン}{135}{section*.197}%
+\contentsline {subsubsection}{7.8.1 ストークスの定理}{135}{section*.198}%
+\contentsline {subsubsection}{7.8.2 ガウスの発散定理}{135}{section*.199}%
+\contentsline {subsubsection}{7.8.3 三つの定理の共通構造}{135}{section*.200}%
+\contentsline {subsection}{§7.9 第III部へ —— 矢印を見るな、測定器を見ろ}{136}{section*.201}%
 \contentsline {chapter}{\numberline {8}第8章：二つの言語 —— 測定器の微分と、場の微分}{137}{chapter.8}%
-\contentsline {subsection}{§8.0 本書のハイライト}{137}{section*.201}%
-\contentsline {subsection}{§8.1 二つの微分、二つの世界}{137}{section*.202}%
-\contentsline {subsubsection}{8.1.1 測定器に微分を乗せる——\(d\) の立場}{137}{section*.203}%
-\contentsline {subsubsection}{8.1.2 測定器はそのまま、新たな場を考える——\(\nabla \) の立場}{138}{section*.204}%
-\contentsline {subsection}{§8.2 翻訳辞書の完成}{139}{section*.205}%
-\contentsline {subsubsection}{8.2.1 勾配}{139}{section*.206}%
-\contentsline {subsubsection}{8.2.2 回転}{139}{section*.207}%
-\contentsline {subsubsection}{8.2.3 発散}{139}{section*.208}%
-\contentsline {subsubsection}{8.2.4 辞書の表}{140}{section*.209}%
-\contentsline {subsection}{§8.3 ストークスの定理を翻訳する}{140}{section*.210}%
-\contentsline {subsubsection}{8.3.1 \(\nabla \) から \(d\) へ}{140}{section*.211}%
-\contentsline {subsubsection}{8.3.2 翻訳の往復——どちらからでも行ける}{141}{section*.212}%
-\contentsline {subsection}{§8.4 ガウスの定理を翻訳する}{141}{section*.213}%
-\contentsline {subsubsection}{8.4.1 三つの定理、一つの式}{142}{section*.214}%
-\contentsline {subsection}{§8.5 二つの方法論——場はそのままか、測定器はそのままか}{142}{section*.215}%
-\contentsline {subsubsection}{8.5.1 方法①（dの方法）——場はそのまま、測定器の側が変化する}{142}{section*.216}%
-\contentsline {subsubsection}{8.5.2 方法②（∇の方法）——測定器はそのまま、新たな場を考える}{143}{section*.217}%
-\contentsline {subsubsection}{8.5.3 なぜ一致するのか}{143}{section*.218}%
-\contentsline {subsection}{§8.6 曲線座標と二つの方法}{144}{section*.219}%
-\contentsline {subsubsection}{8.6.1 辞書は計量で変わる}{144}{section*.220}%
-\contentsline {subsubsection}{8.6.2 二つの方法を回してみる}{144}{section*.221}%
-\contentsline {subsubsection}{8.6.3 曲線座標での発散と回転}{146}{section*.222}%
+\contentsline {subsection}{§8.0 本書のハイライト}{137}{section*.202}%
+\contentsline {subsection}{§8.1 二つの微分、二つの世界}{137}{section*.203}%
+\contentsline {subsubsection}{8.1.1 測定器に微分を乗せる——\(d\) の立場}{137}{section*.204}%
+\contentsline {subsubsection}{8.1.2 測定器はそのまま、新たな場を考える——\(\nabla \) の立場}{138}{section*.205}%
+\contentsline {subsection}{§8.2 翻訳辞書の完成}{139}{section*.206}%
+\contentsline {subsubsection}{8.2.1 勾配}{139}{section*.207}%
+\contentsline {subsubsection}{8.2.2 回転}{139}{section*.208}%
+\contentsline {subsubsection}{8.2.3 発散}{139}{section*.209}%
+\contentsline {subsubsection}{8.2.4 辞書の表}{140}{section*.210}%
+\contentsline {subsection}{§8.3 ストークスの定理を翻訳する}{140}{section*.211}%
+\contentsline {subsubsection}{8.3.1 \(\nabla \) から \(d\) へ}{140}{section*.212}%
+\contentsline {subsubsection}{8.3.2 翻訳の往復——どちらからでも行ける}{141}{section*.213}%
+\contentsline {subsection}{§8.4 ガウスの定理を翻訳する}{141}{section*.214}%
+\contentsline {subsubsection}{8.4.1 三つの定理、一つの式}{142}{section*.215}%
+\contentsline {subsection}{§8.5 二つの方法論——場はそのままか、測定器はそのままか}{142}{section*.216}%
+\contentsline {subsubsection}{8.5.1 方法①（dの方法）——場はそのまま、測定器の側が変化する}{142}{section*.217}%
+\contentsline {subsubsection}{8.5.2 方法②（∇の方法）——測定器はそのまま、新たな場を考える}{143}{section*.218}%
+\contentsline {subsubsection}{8.5.3 なぜ一致するのか}{143}{section*.219}%
+\contentsline {subsection}{§8.6 曲線座標と二つの方法}{144}{section*.220}%
+\contentsline {subsubsection}{8.6.1 辞書は計量で変わる}{144}{section*.221}%
+\contentsline {subsubsection}{8.6.2 二つの方法を回してみる}{144}{section*.222}%
+\contentsline {subsubsection}{8.6.3 曲線座標での発散と回転}{146}{section*.223}%
 \contentsline {chapter}{\numberline {9}第9章：実戦 —— 辞書を作り、難問を解く}{147}{chapter.9}%
-\contentsline {subsection}{§9.0 本書の中心的な道具は揃った}{147}{section*.223}%
-\contentsline {subsection}{§9.1 辞書をその場で作る——機械的手順}{147}{section*.224}%
-\contentsline {subsection}{§9.2 円柱座標 \((r,\theta ,z)\)}{148}{section*.225}%
-\contentsline {subsubsection}{9.2.1 辞書の導出}{148}{section*.226}%
-\contentsline {subsubsection}{9.2.2 勾配}{149}{section*.227}%
-\contentsline {subsubsection}{9.2.3 発散}{149}{section*.228}%
-\contentsline {subsubsection}{9.2.4 回転}{150}{section*.229}%
-\contentsline {subsection}{§9.3 球座標 \((\rho ,\theta ,\phi )\)}{150}{section*.230}%
-\contentsline {subsubsection}{9.3.1 辞書の導出}{150}{section*.231}%
-\contentsline {subsubsection}{9.3.2 発散}{151}{section*.232}%
-\contentsline {subsubsection}{9.3.3 回転}{151}{section*.233}%
-\contentsline {subsection}{§9.4 微積分の難問——球座標でのベクトルラプラシアン}{151}{section*.234}%
-\contentsline {subsubsection}{9.4.1 第一項——勾配の発散}{152}{section*.235}%
-\contentsline {subsubsection}{9.4.2 第二項——回転の回転}{152}{section*.236}%
-\contentsline {subsubsection}{9.4.3 差をとる——ベクトルラプラシアン}{152}{section*.237}%
-\contentsline {subsection}{§9.5 電磁気学の難問——点電荷の電場と発散}{153}{section*.238}%
-\contentsline {subsection}{§9.6 辞書は終わり、旅は続く}{154}{section*.239}%
+\contentsline {subsection}{§9.0 本書の中心的な道具は揃った}{147}{section*.224}%
+\contentsline {subsection}{§9.1 辞書をその場で作る——機械的手順}{147}{section*.225}%
+\contentsline {subsection}{§9.2 円柱座標 \((r,\theta ,z)\)}{148}{section*.226}%
+\contentsline {subsubsection}{9.2.1 辞書の導出}{148}{section*.227}%
+\contentsline {subsubsection}{9.2.2 勾配}{149}{section*.228}%
+\contentsline {subsubsection}{9.2.3 発散}{149}{section*.229}%
+\contentsline {subsubsection}{9.2.4 回転}{150}{section*.230}%
+\contentsline {subsection}{§9.3 球座標 \((\rho ,\theta ,\phi )\)}{150}{section*.231}%
+\contentsline {subsubsection}{9.3.1 辞書の導出}{150}{section*.232}%
+\contentsline {subsubsection}{9.3.2 発散}{151}{section*.233}%
+\contentsline {subsubsection}{9.3.3 回転}{151}{section*.234}%
+\contentsline {subsection}{§9.4 微積分の難問——球座標でのベクトルラプラシアン}{151}{section*.235}%
+\contentsline {subsubsection}{9.4.1 第一項——勾配の発散}{152}{section*.236}%
+\contentsline {subsubsection}{9.4.2 第二項——回転の回転}{152}{section*.237}%
+\contentsline {subsubsection}{9.4.3 差をとる——ベクトルラプラシアン}{152}{section*.238}%
+\contentsline {subsection}{§9.5 電磁気学の難問——点電荷の電場と発散}{153}{section*.239}%
+\contentsline {subsection}{§9.6 辞書は終わり、旅は続く}{154}{section*.240}%
 \contentsline {part}{III\hspace {1em}第III部：発展と統合}{155}{part.3}%
 \contentsline {chapter}{\numberline {10}第10章：マクスウェル方程式 —— 美しさのその先へ}{156}{chapter.10}%
-\contentsline {subsection}{§10.0 お約束}{156}{section*.240}%
-\contentsline {subsection}{§10.1 マクスウェル方程式——2本で書く}{156}{section*.241}%
-\contentsline {subsection}{§10.2 電磁場 \(F\) と符号規約の固定}{157}{section*.242}%
-\contentsline {subsection}{§10.3 ミンコフスキー計量——\(\mathbb {R}^3\) から4次元へ}{158}{section*.243}%
-\contentsline {subsection}{§10.4 \(dF=0\) を全部書き下す}{159}{section*.244}%
-\contentsline {subsection}{§10.5 \(\ast F\) と残りの2本}{160}{section*.245}%
-\contentsline {subsection}{§10.6 ポテンシャル構成——\(F=-d\mathcal {A}\) から始める}{161}{section*.246}%
-\contentsline {subsubsection}{\(dd=0\) が \(dF=0\) を証明する}{163}{section*.247}%
-\contentsline {subsubsection}{もう1本の式——ポテンシャルで書く}{163}{section*.248}%
-\contentsline {section}{付録E：\(dF\) と \(d(\ast F)\) のスライス行列表示 —— \(4\times 4\times 4\) 配列で見るマクスウェル方程式}{164}{section*.249}%
+\contentsline {subsection}{§10.0 お約束}{156}{section*.241}%
+\contentsline {subsection}{§10.1 マクスウェル方程式——2本で書く}{156}{section*.242}%
+\contentsline {subsection}{§10.2 電磁場 \(F\) と符号規約の固定}{157}{section*.243}%
+\contentsline {subsection}{§10.3 ミンコフスキー計量——\(\mathbb {R}^3\) から4次元へ}{158}{section*.244}%
+\contentsline {subsection}{§10.4 \(dF=0\) を全部書き下す}{159}{section*.245}%
+\contentsline {subsection}{§10.5 \(\ast F\) と残りの2本}{160}{section*.246}%
+\contentsline {subsection}{§10.6 ポテンシャル構成——\(F=-d\mathcal {A}\) から始める}{161}{section*.247}%
+\contentsline {subsubsection}{\(dd=0\) が \(dF=0\) を証明する}{163}{section*.248}%
+\contentsline {subsubsection}{もう1本の式——ポテンシャルで書く}{163}{section*.249}%
+\contentsline {section}{付録E：\(dF\) と \(d(\ast F)\) のスライス行列表示 —— \(4\times 4\times 4\) 配列で見るマクスウェル方程式}{164}{section*.250}%
 \contentsline {chapter}{\numberline {11}第11章：曲がった空間へ —— 本書の先にあるもの}{168}{chapter.11}%
-\contentsline {subsection}{§11.0 この章の立ち位置 —— さらに先を見たい読者のための道標}{168}{section*.255}%
-\contentsline {subsection}{§11.1 多様体 —— \(\mathbf {g}(x)\) から始める}{169}{section*.256}%
-\contentsline {subsubsection}{11.1.1 定義 —— チャートとアトラス}{170}{section*.257}%
-\contentsline {subsubsection}{11.1.2 接空間 —— 「曲がった空間での微分」の定義}{170}{section*.258}%
-\contentsline {subsubsection}{11.1.3 微分形式 —— 余接束とテンソル場}{171}{section*.259}%
-\contentsline {subsubsection}{11.1.4 外微分 \(d\) —— 多様体上で変わらないもの}{172}{section*.260}%
-\contentsline {subsubsection}{11.1.5 計量とホッジ・スター —— 場所ごとに変わるもの}{172}{section*.261}%
-\contentsline {subsubsection}{11.1.6 積分 —— 1の分割と向き付け可能性}{173}{section*.262}%
-\contentsline {subsubsection}{11.1.7 接続と曲率 —— 一言だけ}{173}{section*.263}%
-\contentsline {subsubsection}{11.1.8 本書との対応}{173}{section*.264}%
-\contentsline {subsection}{§11.2 リーマン幾何学 —— テンソル解析のスタイル}{174}{section*.265}%
-\contentsline {subsubsection}{11.2.1 テンソル —— 変換則による定義}{174}{section*.266}%
-\contentsline {subsubsection}{11.2.2 クリストッフェル記号 —— 微分がテンソルでなくなる問題}{175}{section*.267}%
-\contentsline {subsubsection}{11.2.3 リーマン曲率テンソル}{175}{section*.268}%
-\contentsline {subsubsection}{11.2.4 二つのスタイル —— 本書との関係}{176}{section*.269}%
-\contentsline {subsection}{§11.3 その先へ}{177}{section*.270}%
+\contentsline {subsection}{§11.0 この章の立ち位置 —— さらに先を見たい読者のための道標}{168}{section*.256}%
+\contentsline {subsection}{§11.1 多様体 —— \(\mathbf {g}(x)\) から始める}{169}{section*.257}%
+\contentsline {subsubsection}{11.1.1 定義 —— チャートとアトラス}{170}{section*.258}%
+\contentsline {subsubsection}{11.1.2 接空間 —— 「曲がった空間での微分」の定義}{170}{section*.259}%
+\contentsline {subsubsection}{11.1.3 微分形式 —— 余接束とテンソル場}{171}{section*.260}%
+\contentsline {subsubsection}{11.1.4 外微分 \(d\) —— 多様体上で変わらないもの}{172}{section*.261}%
+\contentsline {subsubsection}{11.1.5 計量とホッジ・スター —— 場所ごとに変わるもの}{172}{section*.262}%
+\contentsline {subsubsection}{11.1.6 積分 —— 1の分割と向き付け可能性}{173}{section*.263}%
+\contentsline {subsubsection}{11.1.7 接続と曲率 —— 一言だけ}{173}{section*.264}%
+\contentsline {subsubsection}{11.1.8 本書との対応}{173}{section*.265}%
+\contentsline {subsection}{§11.2 リーマン幾何学 —— テンソル解析のスタイル}{174}{section*.266}%
+\contentsline {subsubsection}{11.2.1 テンソル —— 変換則による定義}{174}{section*.267}%
+\contentsline {subsubsection}{11.2.2 クリストッフェル記号 —— 微分がテンソルでなくなる問題}{175}{section*.268}%
+\contentsline {subsubsection}{11.2.3 リーマン曲率テンソル}{175}{section*.269}%
+\contentsline {subsubsection}{11.2.4 二つのスタイル —— 本書との関係}{176}{section*.270}%
+\contentsline {subsection}{§11.3 その先へ}{177}{section*.271}%
 \contentsline {chapter}{\numberline {12}第12章：真のナブラ —— クリフォード・パウリ・ディラック・ハミルトン}{178}{chapter.12}%
-\contentsline {subsection}{§12.0 2本を1本に}{178}{section*.271}%
-\contentsline {subsection}{§12.1 虚数で一本に —— マクスウェル方程式の統合}{178}{section*.272}%
-\contentsline {subsection}{§12.2 パウリ行列 —— 異なる次数を足す魔法}{179}{section*.273}%
-\contentsline {subsubsection}{12.2.1 パウリ行列の定義と掛け算}{179}{section*.274}%
-\contentsline {subsubsection}{12.2.2 ベクトルをパウリ行列で書く}{180}{section*.275}%
-\contentsline {subsubsection}{12.2.3 スカラーも混ぜて足す}{181}{section*.276}%
-\contentsline {subsection}{§12.3 ディラック演算子と「真のナブラ」}{182}{section*.277}%
-\contentsline {subsubsection}{12.3.1 \(\bm {\sigma }\!\cdot \!\nabla \) —— 統合的な微分演算子}{182}{section*.278}%
-\contentsline {subsubsection}{12.3.2 \(D^2\) —— ラプラシアン}{183}{section*.279}%
-\contentsline {subsubsection}{12.3.3 マクスウェルを一本に —— 再訪}{184}{section*.280}%
-\contentsline {subsubsection}{12.3.4 \(\cancel {\partial } F = J\) —— 4次元時空のディラック演算子}{185}{section*.281}%
-\contentsline {subsection}{§12.4 演算子\(\nabla \)}{185}{section*.282}%
-\contentsline {chapter}{おわりに：『ナブラ解体新書』はいかにして生まれたか}{186}{chapter*.283}%
-\contentsline {chapter}{参考文献（と著者からのコメント）}{188}{chapter*.284}%
-\contentsline {chapter}{付録：本書で語らなかったもの}{190}{chapter*.285}%
-\contentsline {section}{I. 理論的枠組みと厳密性について}{191}{section*.286}%
-\contentsline {section}{II. 手法の選択と適用限界について}{192}{section*.287}%
-\contentsline {section}{III. 物理的定義と教育的配慮について}{193}{section*.288}%
+\contentsline {subsection}{§12.0 2本を1本に}{178}{section*.272}%
+\contentsline {subsection}{§12.1 虚数で一本に —— マクスウェル方程式の統合}{178}{section*.273}%
+\contentsline {subsection}{§12.2 パウリ行列 —— 異なる次数を足す魔法}{179}{section*.274}%
+\contentsline {subsubsection}{12.2.1 パウリ行列の定義と掛け算}{179}{section*.275}%
+\contentsline {subsubsection}{12.2.2 ベクトルをパウリ行列で書く}{180}{section*.276}%
+\contentsline {subsubsection}{12.2.3 スカラーも混ぜて足す}{181}{section*.277}%
+\contentsline {subsection}{§12.3 ディラック演算子と「真のナブラ」}{182}{section*.278}%
+\contentsline {subsubsection}{12.3.1 \(\bm {\sigma }\!\cdot \!\nabla \) —— 統合的な微分演算子}{182}{section*.279}%
+\contentsline {subsubsection}{12.3.2 \(D^2\) —— ラプラシアン}{183}{section*.280}%
+\contentsline {subsubsection}{12.3.3 マクスウェルを一本に —— 再訪}{184}{section*.281}%
+\contentsline {subsubsection}{12.3.4 \(\cancel {\partial } F = J\) —— 4次元時空のディラック演算子}{185}{section*.282}%
+\contentsline {subsection}{§12.4 演算子\(\nabla \)}{185}{section*.283}%
+\contentsline {chapter}{おわりに：『ナブラ解体新書』はいかにして生まれたか}{186}{chapter*.284}%
+\contentsline {chapter}{参考文献（と著者からのコメント）}{188}{chapter*.285}%
+\contentsline {chapter}{付録：本書で語らなかったもの}{190}{chapter*.286}%
+\contentsline {section}{I. 理論的枠組みと厳密性について}{191}{section*.287}%
+\contentsline {section}{II. 手法の選択と適用限界について}{192}{section*.288}%
+\contentsline {section}{III. 物理的定義と教育的配慮について}{193}{section*.289}%
