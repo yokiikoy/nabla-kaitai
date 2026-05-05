@@ -21,6 +21,7 @@
   .sidebar a { text-decoration: none; color: #0969da; }
   .sidebar a:hover { text-decoration: underline; }
   .sidebar .active { color: #cf222e; font-weight: bold; }
+  .sidebar .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
   .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; }
   .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; }
   @media (max-width: 900px) { 
@@ -45,11 +46,13 @@
   .full-toc h2 { font-size: 1.1rem; margin: 1.5em 0 0.3em; padding-bottom: 2px; border-bottom: 1px solid #d0d7de; }
   .full-toc h2 a { color: #24292f; text-decoration: none; }
   .full-toc h2 a:hover { color: #0969da; }
+  .full-toc h2 .disabled-link { color: #8c959f; cursor: not-allowed; }
   .full-toc ul { list-style: none; padding-left: 1.5rem; margin: 0.3em 0 0; }
   .full-toc li { margin-bottom: 0.2rem; font-size: 0.9rem; }
   .full-toc .level-3 { padding-left: 1rem; font-size: 0.8rem; color: #57606a; }
   .full-toc a { color: #0969da; text-decoration: none; }
   .full-toc a:hover { text-decoration: underline; }
+  .full-toc .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
   .full-toc .part-header { font-size: 1.1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }
   .full-toc .toc-part-chapters { padding-left: 1.5rem; }
   .full-toc .toc-part-chapters h3 { font-size: 0.95rem; margin: 0.5em 0 0.2em; }
@@ -83,7 +86,8 @@
       著者: yokiikoy<br>
       <a href="http://covectorspace.xyz/jp/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a>
     </div>
-    <div class="toc"><ul>
+    <div class="toc">
+      <ul>
 <li class="level-1"><a href="toc.html" id="link-toc.html">目次</a></li>
 <li class="level-1"><a href="index.html" id="link-index.html">著者ノート</a></li>
 <li class="level-1"><a href="intro.html" id="link-intro.html">はじめに</a></li>
@@ -95,7 +99,7 @@
 <li class="level-1"><a href="ch05.html" id="link-ch05.html">第5章</a></li>
 <li class="level-1"><a href="ch06.html" id="link-ch06.html">第6章</a></li>
 <li class="level-1"><a href="ch07.html" id="link-ch07.html">第7章</a></li>
-<li class="level-1"><a href="ch08.html" class="active" id="link-ch08.html">第8章</a><ul class="sub-toc"><li class="level-3"><a href="#80-本書のハイライト">§8.0 本書のハイライト</a></li><li class="level-3"><a href="#81-二つの微分二つの世界">§8.1 二つの微分、二つの世界</a></li><li class="level-3"><a href="#82-翻訳辞書の完成">§8.2 翻訳辞書の完成</a></li><li class="level-3"><a href="#83-ストークスの定理を翻訳する">§8.3 ストークスの定理を翻訳する</a></li><li class="level-3"><a href="#84-ガウスの定理を翻訳する">§8.4 ガウスの定理を翻訳する</a></li><li class="level-3"><a href="#85-二つの方法論場はそのままか測定器はそのままか">§8.5 二つの方法論——場はそのままか、測定器はそのままか</a></li><li class="level-3"><a href="#86-曲線座標と二つの方法">§8.6 曲線座標と二つの方法</a></li></ul></li>
+<li class="level-1"><a href="ch08.html" class="active" id="link-ch08.html">第8章</a><ul class="sub-toc"><li class="level-3"><a href="#§8.0-本書のハイライト">§8.0 本書のハイライト</a></li><li class="level-3"><a href="#§8.1-二つの微分、二つの世界">§8.1 二つの微分、二つの世界</a></li><li class="level-3"><a href="#§8.2-翻訳辞書の完成">§8.2 翻訳辞書の完成</a></li><li class="level-3"><a href="#§8.3-ストークスの定理を翻訳する">§8.3 ストークスの定理を翻訳する</a></li><li class="level-3"><a href="#§8.4-ガウスの定理を翻訳する">§8.4 ガウスの定理を翻訳する</a></li><li class="level-3"><a href="#§8.5-二つの方法論——場はそのままか、測定器はそのままか">§8.5 二つの方法論——場はそのままか、測定器はそのままか</a></li><li class="level-3"><a href="#§8.6-曲線座標と二つの方法">§8.6 曲線座標と二つの方法</a></li></ul></li>
 <li class="level-1"><a href="ch09.html" id="link-ch09.html">第9章</a></li>
 <li class="level-1"><a href="ch10.html" id="link-ch10.html">第10章</a></li>
 <li class="level-1"><a href="ch11.html" id="link-ch11.html">第11章</a></li>
@@ -103,12 +107,48 @@
 <li class="level-1"><a href="postscript.html" id="link-postscript.html">おわりに</a></li>
 <li class="level-1"><a href="refs.html" id="link-refs.html">参考文献（と著者からのコメント）</a></li>
 <li class="level-1"><a href="appendix.html" id="link-appendix.html">付録</a></li>
-</ul></div>
+</ul>
+    </div>
   </nav>
   <main class="main-content">
     <article class="markdown-body">
-      <h1 id="第8章二つの言語--測定器の微分と場の微分">第8章：二つの言語 —— 測定器の微分と、場の微分</h1>
-<h3 id="80-本書のハイライト">§8.0 本書のハイライト</h3>
+<p># 第8章：二つの言語 —— 測定器の微分と、場の微分
+</p>
+<hr />
+<p>chapter: 8
+ order: 80
+ assumes:
+   - exterior_derivative
+   - stokes_theorem
+   - gauss_theorem
+   - metric
+   - hodge_star
+   - nabla_operators
+   - cross_product
+   - nabla_symbol
+   - laplacian
+ introduces: {}
+ previews:
+   maxwell_forms:
+     max_level: mention
+   manifold_overview:
+     max_level: intuition
+ recap_policy:
+   exterior_derivative:
+     max_level: mention
+     max_lines: 3
+   hodge_star:
+     max_level: mention
+     max_lines: 3
+   nabla_operators:
+     max_level: formula
+     max_lines: 5
+</p>
+<hr />
+<p># 第8章：二つの言語 —— 測定器の微分と、場の微分
+</p>
+<p>### §8.0 本書のハイライト
+</p>
 <p>　ここまで長かった。第1章で $dx$ を行ベクトルと定義し、第2章で面積測定器と体積測定器を組み立て、第3章で積分を再構築し、第5章で外微分 $d$ を得て、第6章で計量 $g$ とホッジ・スター $\ast$ を手に入れ、そして第7章ではついに $\nabla$ を正面から定義してベクトル解析を一気に展開した。
 </p>
 <p>ここから先は、もう遠慮しない。$d$ も $\ast$ も $\nabla$ も、すべての道具が揃った。ベクトル解析の用語を引き合いに出すのに、もはや「ベクトル解析を知っている読者へ」と断る必要もない。第7章で $\nabla$ は正式に本書の住人になったのだから。
@@ -116,8 +156,10 @@
 <p>本章は、この本の<strong>ハイライト</strong>である。しかし、その実あっさりと、これまでのどの章よりも短くなる。そのために第1章から第7章までの入念な準備があった——行列、ウェッジ積、外微分、計量、ホッジ・スター、そしてベクトル解析。これらの道具がすべて揃っているからこそ、本章ではただ「翻訳する」だけで、二つの世界が一つの絵に収まる。我々は二つの言語を手に入れた——測定器の微分（$d$）と、場の微分（$\nabla$）。この二つは、やっていることが根本的に違う。しかし積分を通じて繋がるとき、まったく同じ結果を与える。その仕組みを、これから徹底的に掘り下げる。
 </p>
 <hr />
-<h3 id="81-二つの微分二つの世界">§8.1 二つの微分、二つの世界</h3>
-<h4 id="811-測定器に微分を乗せる-の立場">8.1.1 測定器に微分を乗せる——$d$ の立場</h4>
+<p>### §8.1 二つの微分、二つの世界
+</p>
+<p>#### 8.1.1 測定器に微分を乗せる——$d$ の立場
+</p>
 <p>第1章以来、我々は $dx = \begin{pmatrix}1&0&0\end{pmatrix}$, $dy = \begin{pmatrix}0&1&0\end{pmatrix}$, $dz = \begin{pmatrix}0&0&1\end{pmatrix}$ を横ベクトルの測定器として扱ってきた。これらは縦ベクトル（変位）を食わせると、その方向の変位量をスカラーで返す。
 </p>
 <p>外微分 $d$ は、この測定器に<strong>微分を乗せる</strong>操作である。
@@ -133,7 +175,8 @@ $$d\omega = \left(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\ri
 $$d\eta = \left(\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z}\right) dx\wedge dy\wedge dz$$
 <p>このように、$d$ が作用するたびに測定器の次数が $0\to1\to2\to3$ と一つずつ上がっていく。核心は<strong>場はそのまま、測定器の側が変化する</strong>ことだ。$f$ はスカラー場のままだが、$d$ が作用するたびに新しい測定器——$df$（$1$-form）、$d\omega$（$2$-form）、$d\eta$（$3$-form）——が生み出される。
 </p>
-<h4 id="812-測定器はそのまま新たな場を考える-の立場">8.1.2 測定器はそのまま、新たな場を考える——$\nabla$ の立場</h4>
+<p>#### 8.1.2 測定器はそのまま、新たな場を考える——$\nabla$ の立場
+</p>
 <p>一方、第7章で導入した $\nabla = \begin{pmatrix} \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \end{pmatrix}^T$ の世界では、<strong>測定器（$\nabla$）は変わらず、作用する相手に応じて新たな場が生まれる</strong>。$\nabla$ はつねに同じ演算子だが、スカラー場 $f$ に作用すればベクトル場 $\nabla f$ を、ベクトル場 $\mathbf{F}$ に作用すればスカラー場 $\nabla\cdot\mathbf{F}$ やベクトル場 $\nabla\times\mathbf{F}$ を返す。
 </p>
 <p>スカラー場 $f(x,y,z)$ に $\nabla$ を作用させると、各方向の変化率を成分とする縦ベクトル場が得られる。
@@ -159,7 +202,8 @@ $$\nabla \times \mathbf{F} = \begin{pmatrix} \frac{\partial F_z}{\partial y} - \
 <p>- $\nabla$ の立場：測定器（$\nabla$）はそのまま、新たな場が生まれる。</p>
 </blockquote>
 <hr />
-<h3 id="82-翻訳辞書の完成">§8.2 翻訳辞書の完成</h3>
+<p>### §8.2 翻訳辞書の完成
+</p>
 <p>第6章 §6.5 で $\mathrm{grad}=d$, $\mathrm{rot}=\ast d$, $\mathrm{div}=\ast d\ast$ という対応を導入した。ここで、この辞書を $\nabla$ の言葉と突き合わせて、完全な形で整理する。ここで完成するのは、三次元ユークリッド空間・本書の行列表現の範囲で使う翻訳辞書である。
 </p>
 <p>以下の辞書では、ベクトル場 $\mathbf{F}$ に対応する $1$-form を
@@ -169,7 +213,8 @@ $$
 $$
 <p>と書く。記号 $\flat$（フラット）は、計量 $g$ によってベクトル場を「測定器側」の $1$-form として読む操作（音楽同型）を表す。直交デカルト座標では $\mathbf{g} = I$ なので成分は同じに見えるが、これは「同じ対象だ」という意味ではない。逆に、微分形式側で得られた $1$-form を通常の矢印（ベクトル）として読むときは、計量による逆変換 $\sharp$（シャープ）を暗黙に用いている。
 </p>
-<h4 id="821-勾配">8.2.1 勾配</h4>
+<p>#### 8.2.1 勾配
+</p>
 $$
 \mathrm{grad}\,f = \nabla f
 \quad\longleftrightarrow\quad
@@ -177,7 +222,8 @@ df = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy + \frac{\
 $$
 <p>$\nabla f$ は<strong>縦ベクトル</strong>、$df$ は<strong>横ベクトル</strong>。転置の関係にある。本書の記法では、$\nabla f$ の各成分と $df$ の各成分は数値として同じだが、縦と横の区別が「場の見方」と「測定器の見方」の違いを反映している。
 </p>
-<h4 id="822-回転">8.2.2 回転</h4>
+<p>#### 8.2.2 回転
+</p>
 $$
 \mathrm{rot}\,\mathbf{F} = \nabla \times \mathbf{F}
 \quad\longleftrightarrow\quad
@@ -187,7 +233,8 @@ $$
 </p>
 <p>$\nabla\times\mathbf{F}$ の $x$ 成分 $\frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z}$ は、$\ast d\omega$ の $dx$ の係数と一致する。これは §5.5.2 で確認した通りである。
 </p>
-<h4 id="823-発散">8.2.3 発散</h4>
+<p>#### 8.2.3 発散
+</p>
 $$
 \mathrm{div}\,\mathbf{F} = \nabla \cdot \mathbf{F}
 \quad\longleftrightarrow\quad
@@ -195,14 +242,16 @@ $$
 $$
 <p>$\nabla\cdot\mathbf{F}$ は<strong>スカラー場</strong>、$\ast d\ast\omega$ も<strong>$0$-form（スカラー場）</strong>である。発散は「ホッジ・スターで $2$-form に変え、外微分で $3$-form に上げ、再びホッジ・スターでスカラーに落とす」という三段階の操作だ。
 </p>
-<h4 id="824-辞書の表">8.2.4 辞書の表</h4>
+<p>#### 8.2.4 辞書の表
+</p>
 <div class="table-wrapper"><table>
 <thead><tr>
 <th>演算</th>
 <th>ベクトル解析側</th>
 <th>微分形式（測定器）側</th>
 <th>ベクトル場として戻すなら</th>
-</tr></thead><tbody>
+</tr></thead>
+<tbody>
 <tr>
 <td>勾配</td>
 <td>$\mathrm{grad}\,f$</td>
@@ -221,7 +270,8 @@ $$
 <td>$\ast d \ast \mathbf{F}^\flat$</td>
 <td>そのまま $0$-form</td>
 </tr>
-</tbody></table></div>
+</tbody>
+</table></div>
 <p>$\ast$ の使用回数が増えるほど、$\nabla$ 表記と $d,\ast$ 表記の間の「翻訳コスト」が上がる。
  勾配は $\ast$ がゼロ回だが、$df$ を通常の勾配ベクトルとして読むには計量による $\sharp$ が入る。回転は $\ast$ が $1$ 回、発散は $2$ 回である。この計量 $g$ と $\ast$ による翻訳辞書が、第7章 §7.7 の注で「微分形式のほうが汚い」と感じた原因だった。
 </p>
@@ -231,10 +281,12 @@ $$
 <p>- $\ast$ の使用回数が勾配 $0$、回転 $1$、発散 $2$。この翻訳コストが「微分形式は汚い」という印象の正体。</p>
 </blockquote>
 <hr />
-<h3 id="83-ストークスの定理を翻訳する">§8.3 ストークスの定理を翻訳する</h3>
+<p>### §8.3 ストークスの定理を翻訳する
+</p>
 <p>第5章 §5.6 で、我々はすでに $\int_{\partial S}\omega = \int_S d\omega$ という形のストークスの定理を導いた。第7章 §7.8.1 では、同じ定理を $\nabla$ の言葉で $\oint_C \mathbf{F}\cdot d\mathbf{r} = \iint_S (\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS$ と書いた。この二つが同じものであることを、§8.2 の辞書を使って確認する。
 </p>
-<h4 id="831-から-へ">8.3.1 $\nabla$ から $d$ へ</h4>
+<p>#### 8.3.1 $\nabla$ から $d$ へ
+</p>
 <p>$\nabla$ 表記のストークスの定理を出発点とする。
 </p>
 $$\oint_C \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdot \mathbf{n}\,dS$$
@@ -249,7 +301,8 @@ $$\iint_S (\nabla \times \mathbf{F}) \cdot \mathbf{n}\,dS = \int_S d\omega$$
 $$\int_{\partial S} \omega = \int_S d\omega$$
 <p>これは第5章 §5.6 で得た式そのものである。$\nabla$ の世界のストークスの定理は、辞書を通じて $d$ の言葉に翻訳すると、ただの $\int_{\partial M}\omega = \int_M d\omega$ になる。
 </p>
-<h4 id="832-翻訳の往復どちらからでも行ける">8.3.2 翻訳の往復——どちらからでも行ける</h4>
+<p>#### 8.3.2 翻訳の往復——どちらからでも行ける
+</p>
 <p>逆方向もできる。$d$ の言葉で書かれた式に辞書を逆に当てれば、$\nabla$ の言葉に戻る。この双方向の翻訳が自由にできることこそ、第6章で $\ast$ を導入した最大の成果である。
 </p>
 <blockquote>
@@ -259,7 +312,8 @@ $$\int_{\partial S} \omega = \int_S d\omega$$
 <p><strong>注</strong>（筆者の本音）本文では「問題に応じて二つの言語を使い分ける」と書いた。これは読者のための建前である。筆者自身は、可能な限り $d,\ast$ の言葉で考える。なぜなら、$\nabla$ の記法は計算には便利だが、勾配・回転・発散の型の違いを同じ矢印やスカラーの中に押し込めてしまうからである。本書の目的は、ベクトル解析を禁止することではなく、その背後で暗黙に行われている型変換を見える場所に出すことにある。</p>
 </blockquote>
 <hr />
-<h3 id="84-ガウスの定理を翻訳する">§8.4 ガウスの定理を翻訳する</h3>
+<p>### §8.4 ガウスの定理を翻訳する
+</p>
 <p>第7章 §7.8.2 のガウスの発散定理も、同様に翻訳できる。
 </p>
 $$\oiint_{\partial V} \mathbf{F} \cdot \mathbf{n}\,dS = \iiint_V (\nabla \cdot \mathbf{F})\,dV$$
@@ -275,7 +329,8 @@ $$\int_{\partial V} \ast\omega = \int_V d\ast\omega$$
 $$\int_{\partial V} \eta = \int_V d\eta$$
 <p>これは第5章 §5.7 で得たガウスの定理の $d$-form 表現そのものだ。そしてこの式は、すでに §5.9.1 で $\int_{\partial M}\omega = \int_M d\omega$ の $k=2$ の場合として統合されている。
 </p>
-<h4 id="841-三つの定理一つの式">8.4.1 三つの定理、一つの式</h4>
+<p>#### 8.4.1 三つの定理、一つの式
+</p>
 <p>第7章で別々の定理として並べた三つの積分定理——グリーン、ストークス、ガウス——は、$\nabla$ の言葉では確かに異なる顔をしていた。しかし $d$ の言葉に翻訳すれば、すべてが $\int_{\partial M}\omega = \int_M d\omega$ の $k$ の値が違うだけの同一の式になる。
 </p>
 <div class="table-wrapper"><table>
@@ -284,7 +339,8 @@ $$\int_{\partial V} \eta = \int_V d\eta$$
 <th>$\partial M$</th>
 <th>$M$</th>
 <th>定理</th>
-</tr></thead><tbody>
+</tr></thead>
+<tbody>
 <tr>
 <td>$0$</td>
 <td>$B-A$（二点）</td>
@@ -303,7 +359,8 @@ $$\int_{\partial V} \eta = \int_V d\eta$$
 <td>立体</td>
 <td>ガウス</td>
 </tr>
-</tbody></table></div>
+</tbody>
+</table></div>
 <p>$k$ が違うだけだ。もはや三つの定理を別々に暗記する理由はない。$\int_{\partial M}\omega = \int_M d\omega$ 一つ覚えれば、あとは $M$ の次元に応じて適用するだけである。
 </p>
 <blockquote>
@@ -313,10 +370,12 @@ $$\int_{\partial V} \eta = \int_V d\eta$$
 <p>- どちらも $\int_{\partial M}\omega = \int_M d\omega$ の $k$ が違うだけ。三定理は一つの式の異なる現れである。</p>
 </blockquote>
 <hr />
-<h3 id="85-二つの方法論場はそのままか測定器はそのままか">§8.5 二つの方法論——場はそのままか、測定器はそのままか</h3>
+<p>### §8.5 二つの方法論——場はそのままか、測定器はそのままか
+</p>
 <p>第6章 §6.3.1 で、スカラーを得る二つの方法を導入した。本章の翻訳作業を経て、この二つの方法論の対比をより深く理解できる段階に来た。ここで改めて、二つの視点を突き合わせる。
 </p>
-<h4 id="851-方法dの方法場はそのまま測定器の側が変化する">8.5.1 方法①（dの方法）——場はそのまま、測定器の側が変化する</h4>
+<p>#### 8.5.1 方法①（dの方法）——場はそのまま、測定器の側が変化する
+</p>
 <p>場そのものには手を触れない。$d$ が作用するたびに、<strong>新しい測定器が生み出される</strong>。
 </p>
 <ul>
@@ -328,7 +387,8 @@ $$\int_{\partial V} \eta = \int_V d\eta$$
 </p>
 <p>積分は、作った測定器を領域に適用するだけである。そして $\int_{\partial M}\omega = \int_M d\omega$ が、測定器のすげ替えと積分の間の整合性を保証する。
 </p>
-<h4 id="852-方法の方法測定器はそのまま新たな場を考える">8.5.2 方法②（∇の方法）——測定器はそのまま、新たな場を考える</h4>
+<p>#### 8.5.2 方法②（∇の方法）——測定器はそのまま、新たな場を考える
+</p>
 <p>$\nabla$ という測定器はつねに同じ。作用する相手に応じて、<strong>異なる種類の場が結果として生まれる</strong>。
 </p>
 <ul>
@@ -338,7 +398,8 @@ $$\int_{\partial V} \eta = \int_V d\eta$$
 </ul>
 <p>この立場では、$\nabla f$ も $\nabla\times\mathbf{F}$ も画面上では同じ「矢印」である。勾配の矢印と回転の矢印は幾何的意味がまったく異なるのに、表示上は区別がつかない。第7章で指摘した「すべてが同じ矢印に見える」問題がここにある。
 </p>
-<h4 id="853-なぜ一致するのか">8.5.3 なぜ一致するのか</h4>
+<p>#### 8.5.3 なぜ一致するのか
+</p>
 <p>方法①と方法②は、やっていることが<strong>根本的に違う</strong>。一方は場をそのままに新しい測定器を生み出し、他方は測定器をそのままに新たな場を考える。操作方法も、出てくる対象の種類も異なる。
 </p>
 <p>なのに積分すると一致する。たとえばスカラー場 $f$ の変化を線積分するとき、$df$（横ベクトルの測定器）を使っても $\nabla f$（縦ベクトルの矢印）を使っても、結果はどちらも $f(B)-f(A)$ だ。
@@ -364,10 +425,12 @@ $$\int_C df = \int_C \nabla f \cdot d\mathbf{r} = f(B) - f(A)$$
 <p>積分での一致を支えるのが、計量 $g$ と $\ast$ による翻訳辞書である。$\ast\ast=\mathrm{id}$ により往復は自由。</p>
 </blockquote>
 <hr />
-<h3 id="86-曲線座標と二つの方法">§8.6 曲線座標と二つの方法</h3>
+<p>### §8.6 曲線座標と二つの方法
+</p>
 <p>§8.2 の辞書はデカルト座標 $(x,y,z)$ で $\mathbf{g}=I$ を前提としていた。一般の座標系では計量 $g = J^T J$ が単位行列ではなくなり、$\ast$ の辞書も変わる。ここでは円柱座標を例に、辞書の変化を確認したあと、§8.5 で語った二つの方法論を目の前で回してみる。
 </p>
-<h4 id="861-辞書は計量で変わる">8.6.1 辞書は計量で変わる</h4>
+<p>#### 8.6.1 辞書は計量で変わる
+</p>
 <p>第6章 §6.1.3 で円柱座標の計量を導出した。
 </p>
 $$\mathbf{g} = \begin{pmatrix} 1 & 0 & 0 \\ 0 & r^2 & 0 \\ 0 & 0 & 1 \end{pmatrix}$$
@@ -380,7 +443,8 @@ $$\begin{aligned}
 \end{aligned}$$
 <p>$r$ や $1/r$ という係数は $\mathbf{g} = J^T J$ の対角成分 $1, r^2, 1$ から決まる。$\ast$ の辞書は、その場所の計量を反映して場所ごとに異なる係数を持つ。
 </p>
-<h4 id="862-二つの方法を回してみる">8.6.2 二つの方法を回してみる</h4>
+<p>#### 8.6.2 二つの方法を回してみる
+</p>
 <p>辞書が変わるということは、§8.1 で対比した二つの方法の違いが具体的な計算に現れるということだ。ここで、同じ問題を二つの方法で実際に解いてみよう。題材は「二次元平面上のある点での発散を求める」である。
 </p>
 <blockquote>
@@ -426,7 +490,8 @@ $$\nabla \cdot \mathbf{F} = \frac{1}{r}\frac{\partial}{\partial r}(r F_r) + \fra
 </p>
 <p>方法①は均一な正方形グリッドで測り、方法②は扇形の小片を描いて流れを数える。やっていることはまったく違う。しかし出てくる答えは同じ $\frac{1}{r}\frac{\partial}{\partial r}(rF_r) + \frac{1}{r}\frac{\partial F_\theta}{\partial\theta}$ だ。そして、この一致は発散に限らない。勾配も回転もラプラシアンも、すべての微分演算がこの二つの方法で構成できる。単純な座標変換なら方法②のほうが早いこともあるが、座標系が歪んだり場の種類が入り組んだりしたら方法①に切り替えればよい。
 </p>
-<h4 id="863-曲線座標での発散と回転">8.6.3 曲線座標での発散と回転</h4>
+<p>#### 8.6.3 曲線座標での発散と回転
+</p>
 <p>§8.6.1 の辞書と §8.6.2 の方法①を組み合わせれば、円柱座標での発散と回転の公式が機械的に導出できる。結果だけを示す（$\mathbf{F} = (F_r, F_\theta, F_z)^T$）。
 </p>
 $$\nabla \cdot \mathbf{F} = \frac{1}{r}\frac{\partial}{\partial r}(r F_r) + \frac{1}{r}\frac{\partial F_\theta}{\partial \theta} + \frac{\partial F_z}{\partial z}$$
@@ -446,13 +511,13 @@ $$\nabla \times \mathbf{F} = \begin{pmatrix}
 <p>- 重要なのは、一つの言語に固執せず、問題に応じて二つの言語を使い分けること。そのための辞書は、もう手に入れた。</p>
 </blockquote>
       <div class="nav-buttons">
-        <a href="ch07.html">← 第7章：ベクトル解析 —— ナ...</a>
-        <a href="ch09.html">第9章：実戦 —— 辞書を作り... →</a>
+        <a href="ch07.html">← 第7章...</a>
+        <a href="ch09.html">第9章... →</a>
       </div>
-      <footer class="site-footer">
-        <p>&copy; yokiikoy (CC BY-NC 4.0). 本書の最新版・PDF・改訂履歴・関連情報・本書以外のコンテンツはポータルサイト <a href="https://covectorspace.xyz/jp/">Project Co-Vector Space</a> をご確認ください。</p>
-      </footer>
     </article>
+    <footer class="site-footer">
+      <p>&copy; 2024- yokiikoy. CC BY-NC 4.0.</p>
+    </footer>
   </main>
 </body>
 </html>

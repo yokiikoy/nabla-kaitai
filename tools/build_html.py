@@ -1,17 +1,20 @@
 #!/usr/bin/env python3
 """
-Generate multi-page HTML from manuscript_combined.md using KaTeX.
-Splits content by chapters and provides fast, beautiful math rendering.
+Generate multi-page HTML from manuscript using KaTeX.
+Profile-driven build system separating content scope and toc scope.
 """
 
 import re
 import sys
-import glob
 import argparse
 from pathlib import Path
 
-# --- Configuration ---
+# Add tools directory to path so we can import core
+sys.path.append(str(Path(__file__).parent))
+from core.profile import get_profile
+from core.manuscript import ManuscriptModel
 
+# --- Configuration ---
 KATEX_CDN = '''
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
@@ -52,6 +55,7 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
   .sidebar a {{ text-decoration: none; color: #0969da; }}
   .sidebar a:hover {{ text-decoration: underline; }}
   .sidebar .active {{ color: #cf222e; font-weight: bold; }}
+  .sidebar .disabled-link {{ color: #8c959f; cursor: not-allowed; text-decoration: none; }}
   .main-content {{ flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; }}
   .markdown-body {{ max-width: 850px; margin: 0 auto; min-height: 100vh; }}
   @media (max-width: 900px) {{ 
@@ -76,11 +80,13 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
   .full-toc h2 {{ font-size: 1.1rem; margin: 1.5em 0 0.3em; padding-bottom: 2px; border-bottom: 1px solid #d0d7de; }}
   .full-toc h2 a {{ color: #24292f; text-decoration: none; }}
   .full-toc h2 a:hover {{ color: #0969da; }}
+  .full-toc h2 .disabled-link {{ color: #8c959f; cursor: not-allowed; }}
   .full-toc ul {{ list-style: none; padding-left: 1.5rem; margin: 0.3em 0 0; }}
   .full-toc li {{ margin-bottom: 0.2rem; font-size: 0.9rem; }}
   .full-toc .level-3 {{ padding-left: 1rem; font-size: 0.8rem; color: #57606a; }}
   .full-toc a {{ color: #0969da; text-decoration: none; }}
   .full-toc a:hover {{ text-decoration: underline; }}
+  .full-toc .disabled-link {{ color: #8c959f; cursor: not-allowed; text-decoration: none; }}
   .full-toc .part-header {{ font-size: 1.1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }}
   .full-toc .toc-part-chapters {{ padding-left: 1.5rem; }}
   .full-toc .toc-part-chapters h3 {{ font-size: 0.95rem; margin: 0.5em 0 0.2em; }}
@@ -99,132 +105,81 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
       著者: yokiikoy<br>
       <a href="http://covectorspace.xyz/jp/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a>
     </div>
-    <div class="toc">{toc}</div>
+    <div class="toc">
+      {toc}
+    </div>
   </nav>
   <main class="main-content">
     <article class="markdown-body">
-      {content}
+{content}
       <div class="nav-buttons">
         {prev_button}
         {next_button}
       </div>
-      <footer class="site-footer">
-        <p>&copy; yokiikoy (CC BY-NC 4.0). 本書の最新版・PDF・改訂履歴・関連情報・本書以外のコンテンツはポータルサイト <a href="https://covectorspace.xyz/jp/">Project Co-Vector Space</a> をご確認ください。</p>
-      </footer>
     </article>
+    <footer class="site-footer">
+      <p>&copy; 2024- yokiikoy. CC BY-NC 4.0.</p>
+    </footer>
   </main>
 </body>
-</html>'''
+</html>
+'''
 
+# --- Markdown Processing Utils ---
 class MathProtector:
     def __init__(self):
-        self.math_blocks = []
-        self.inline_math = []
+        self.math_blocks = {}
+        self.counter = 0
+
     def protect(self, text):
-        def replace_display(match):
-            idx = len(self.math_blocks)
-            self.math_blocks.append(match.group(0))
-            return f'\n\nMATH_BLOCK_{idx}_END\n\n'
-        def replace_inline(match):
-            idx = len(self.inline_math)
-            self.inline_math.append(match.group(0))
-            return f'INLINE_MATH_{idx}_END'
-        text = re.sub(r'\$\$[\s\S]+?\$\$', replace_display, text)
-        text = re.sub(r'(?<!\\)\$[^$\n]+?(?<!\\)\$', replace_inline, text)
-        return text
-    def restore(self, text):
-        for i, block in enumerate(self.math_blocks):
-            text = text.replace(f'MATH_BLOCK_{i}_END', block)
-        for i, math in enumerate(self.inline_math):
-            text = text.replace(f'INLINE_MATH_{i}_END', math)
+        def repl(match):
+            key = f"__MATH_BLOCK_{self.counter}__"
+            self.math_blocks[key] = match.group(0)
+            self.counter += 1
+            return key
+        text = re.sub(r'\$\$(.*?)\$\$', repl, text, flags=re.DOTALL)
+        text = re.sub(r'\$(.*?)\$', repl, text)
         return text
 
-def slugify(text):
-    text = re.sub(r'\$[^$]*\$', '', text)
-    text = re.sub(r'[{}\\[\\]()（）——–—ー・。、,!?！？]', '', text)
-    text = re.sub(r'\s+', '-', text).strip('-')
-    text = re.sub(r'[^a-zA-Z0-9\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FAF-]', '', text)
-    return text or 'section'
+    def restore(self, text):
+        for key, val in self.math_blocks.items():
+            text = text.replace(key, val)
+        return text
 
 def apply_inline_formatting(text):
-    """Apply markdown-style inline formatting (bold, italic, code, links)."""
-    text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
-    text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
-    text = re.sub(r'`(.+?)`', r'<code>\1</code>', text)
-    text = re.sub(r'\[(.+?)\]\((.+?)\)', r'<a href="\2">\1</a>', text)
+    text = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', text)
+    text = re.sub(r'\*(.*?)\*', r'<em>\1</em>', text)
+    text = re.sub(r'`([^`]+)`', r'<code>\1</code>', text)
+    text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', text)
     return text
 
-def render_table(lines, protector):
-    """Render markdown table lines as HTML safely."""
-    if len(lines) < 2:
-        return "\n".join(lines)
-    
-    html = ['<div class="table-wrapper"><table>']
-    # Filter out the separator line (| :--- |)
-    content_lines = [l for l in lines if not re.match(r'^\|?[:\-\s|]+\|?$', l)]
-    
-    for i, line in enumerate(content_lines):
-        cells = [c.strip() for c in line.split('|')]
-        # Handle leading/trailing pipe markers
-        if cells and not cells[0]: cells = cells[1:]
-        if cells and not cells[-1]: cells = cells[:-1]
-        
-        if not cells: continue
-
-        if i == 0:
-            html.append('<thead><tr>')
-            for cell in cells:
-                formatted = protector.restore(apply_inline_formatting(cell))
-                html.append(f'<th>{formatted}</th>')
-            html.append('</tr></thead><tbody>')
-        else:
-            html.append('<tr>')
-            for cell in cells:
-                formatted = protector.restore(apply_inline_formatting(cell))
-                html.append(f'<td>{formatted}</td>')
-            html.append('</tr>')
-    
-    html.append('</tbody></table></div>')
-    return "\n".join(html)
-
-def process_markdown(markdown_text):
-    # 0. Clean up PDF-specific markers
-    text = markdown_text.replace('<!-- pagebreak -->', '')
-    text = text.replace('<!-- scalebox -->', '')
-    text = text.replace('<!-- endscalebox -->', '')
-
-    # 1. Collect footnotes
-    footnotes = {}
-    def collect_footnotes(match):
-        fn_id = match.group(1)
-        content = match.group(2)
-        footnotes[fn_id] = content
-        return ""
-    text = re.sub(r'^\[\^(.+?)\]:\s*(.+)$', collect_footnotes, text, flags=re.MULTILINE)
-
-    # 2. Global replacement of \bm for KaTeX compatibility
-    text = re.sub(r'\\bm\{([a-zA-Z0-9]+)\}', r'\\mathbf{\1}', text)
-    text = re.sub(r'\\bm\{(.+?)\}', r'\\boldsymbol{\1}', text)
-    text = text.replace('\\bm ', '\\boldsymbol ')
-    
-    # 3. Protection
+def process_markdown(md_text):
     protector = MathProtector()
-    text = protector.protect(text)
+    md_text = protector.protect(md_text)
     
-    lines = text.split('\n')
+    lines = md_text.split('\n')
     result = []
-    
+    in_list = False
     in_para = False
     in_quote = False
-    in_list = False # 'ul', 'ol', or False
     in_table = False
     table_lines = []
+    footnotes = {}
 
     def close_para():
         nonlocal in_para
         if in_para:
             result.append('</p>')
             in_para = False
+            
+    def close_list():
+        nonlocal in_list
+        if in_list == 'ul':
+            result.append('</ul>')
+            in_list = False
+        elif in_list == 'ol':
+            result.append('</ol>')
+            in_list = False
 
     def close_quote():
         nonlocal in_quote
@@ -232,23 +187,40 @@ def process_markdown(markdown_text):
             result.append('</blockquote>')
             in_quote = False
 
-    def close_list():
-        nonlocal in_list
-        if in_list == 'ul':
-            result.append('</ul>')
-        elif in_list == 'ol':
-            result.append('</ol>')
-        in_list = False
-
     def flush_table():
         nonlocal in_table, table_lines
-        if in_table:
-            result.append(render_table(table_lines, protector))
-            in_table = False
-            table_lines = []
+        if not in_table or not table_lines: return
+        
+        result.append('<div class="table-wrapper"><table>')
+        
+        header_cols = [c.strip() for c in table_lines[0].strip('|').split('|')]
+        result.append('<thead><tr>')
+        for col in header_cols:
+            result.append(f'<th>{protector.restore(apply_inline_formatting(col))}</th>')
+        result.append('</tr></thead>')
+        
+        if len(table_lines) > 2:
+            result.append('<tbody>')
+            for row in table_lines[2:]:
+                cols = [c.strip() for c in row.strip('|').split('|')]
+                result.append('<tr>')
+                for col in cols:
+                    result.append(f'<td>{protector.restore(apply_inline_formatting(col))}</td>')
+                result.append('</tr>')
+            result.append('</tbody>')
+            
+        result.append('</table></div>')
+        in_table = False
+        table_lines = []
 
     for i, line in enumerate(lines):
-        # Table detection
+        if line.startswith('[^') and ']:' in line:
+            fn_id = line[2:line.find(']')]
+            fn_content = line[line.find(']:')+2:].strip()
+            footnotes[fn_id] = fn_content
+            continue
+
+    for i, line in enumerate(lines):
         if line.strip().startswith('|'):
             if not in_table:
                 close_para()
@@ -261,19 +233,6 @@ def process_markdown(markdown_text):
         elif in_table:
             flush_table()
 
-        # Heading detection
-        h_match = re.match(r'^(#{1,6})\s+(.+)$', line)
-        if h_match:
-            close_para()
-            close_list()
-            close_quote()
-            lv, content = len(h_match.group(1)), h_match.group(2).strip()
-            restored = protector.restore(apply_inline_formatting(content))
-            restored = re.sub(r'\[\^(.+?)\]', r'<sup>[\1]</sup>', restored)
-            result.append(f'<h{lv} id="{slugify(restored)}">{restored}</h{lv}>')
-            continue
-
-        # Horizontal rule
         if line.strip() == '---':
             close_para()
             close_list()
@@ -281,7 +240,6 @@ def process_markdown(markdown_text):
             result.append('<hr />')
             continue
 
-        # Blockquote handler
         if line.strip().startswith('>'):
             content = line.strip()[1:].strip()
             if not in_quote:
@@ -289,7 +247,6 @@ def process_markdown(markdown_text):
                 close_list()
                 result.append('<blockquote>')
                 in_quote = True
-            
             processed_inner = protector.restore(apply_inline_formatting(content))
             processed_inner = re.sub(r'\[\^(.+?)\]', r'<sup>[\1]</sup>', processed_inner)
             result.append(f'<p>{processed_inner}</p>')
@@ -298,7 +255,6 @@ def process_markdown(markdown_text):
             if line.strip() == '':
                 close_quote()
 
-        # List handler
         ol_match = re.match(r'^(\d+)\.\s*(.*)', line.strip())
         ul_match = re.match(r'^[-*]\s+(.*)', line)
         
@@ -327,19 +283,17 @@ def process_markdown(markdown_text):
             in_para = False
             continue
 
-        # Blank line handles paragraph end
         if line.strip() == '':
             close_para()
             close_list()
             close_quote()
             continue
         
-        # Default: normal paragraph
         processed = apply_inline_formatting(line)
         processed = protector.restore(processed)
         processed = re.sub(r'\[\^(.+?)\]', r'<sup>[\1]</sup>', processed)
         
-        is_block = any(processed.strip().startswith(t) for t in ['<h', '<blockquote', '<ul', '<ol', '<pre', '<hr', '<div', '$$'])
+        is_block = any(processed.strip().startswith(t) for t in ['<blockquote', '<ul', '<ol', '<pre', '<hr', '<div', '$$'])
         is_inline_tag = any(processed.strip().startswith(t) for t in ['<strong', '<em', '<code', '<a', '<span', '<img'])
         
         if (not is_block or is_inline_tag) and processed.strip():
@@ -358,7 +312,6 @@ def process_markdown(markdown_text):
     close_list()
     flush_table()
     
-    # Append footnotes if any
     if footnotes:
         result.append('<hr><section class="footnotes">')
         for fn_id, content in footnotes.items():
@@ -373,300 +326,151 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--profile", default="full", choices=["full", "preview"])
     args = parser.parse_args()
-    is_preview = args.profile == "preview"
+
+    profile = get_profile(args.profile)
+    model = ManuscriptModel(profile)
+
+    docs_dir = Path('preview' if profile.is_preview else 'docs')
+    docs_dir.mkdir(exist_ok=True)
 
     preview_notice = ""
-    if is_preview:
+    if profile.is_preview:
         preview_notice = '''<div class="preview-notice" style="background: #fff8c5; border: 1px solid #d4a72c; padding: 1rem; border-radius: 6px; margin-bottom: 2rem; font-size: 0.9rem;">
-      <strong>先行公開版のお知らせ:</strong> このドキュメントは先行公開用であり、内容（前付け・第1章・後付類のみ）を限定しています。最新の全体版や詳細についてはポータルサイトをご確認ください。
+      <strong>先行公開版のお知らせ:</strong> このドキュメントは先行公開用であり、内容（前付け・第1章・後付類のみ）を限定しています。最新の完結版や詳細についてはポータルサイトをご確認ください。
     </div>'''
-    md_path = Path('exports/manuscript_preview_combined.md' if is_preview else 'exports/manuscript_combined.md')
-    docs_dir = Path('preview' if is_preview else 'docs')
-    docs_dir.mkdir(exist_ok=True)
-    
-    with open(md_path, 'r', encoding='utf-8') as f:
-        full_text = f.read()
 
-    chapters = []
-    front_matter_files = glob.glob('manuscript/ja/ch00/*.md')
-    front_matter_files.sort()
-    front_mapping = {
-        "01_preface.md": "index.html",
-        "02_introduction.md": "intro.html",
-        "03_portal.md": "portal.html"
-    }
-    
-    for fpath in front_matter_files:
-        fname = Path(fpath).name
-        target_html = front_mapping.get(fname, fname.replace('.md', '.html'))
-        with open(fpath, 'r', encoding='utf-8') as f:
-            content = f.read()
-            title_match = re.search(r'^#\s+(.+)$', content, re.MULTILINE)
-            title = title_match.group(1) if title_match else "まえがき"
-            chapters.append({"title": title, "content": content.split('\n'), "filename": target_html})
-    
-    def parse_chapter_number(title):
-        match = re.match(r'^第([0-9０-９]+)章', title)
-        if not match:
-            return None
-        digits = match.group(1).translate(str.maketrans('０１２３４５６７８９', '0123456789'))
-        return int(digits)
+    all_chapters_for_nav = model.front_matter + model.get_full_toc_chapters()
 
-    lines = full_text.split('\n')
-    special_mapping = {"おわりに": "postscript.html", "参考文献": "refs.html", "付録": "appendix.html"}
-    current_chapter = None
-
-    for line in lines:
-        if line.startswith('# '):
-            title = line.lstrip('#').strip()
-            is_new = False
-            new_filename = ""
-            if title.startswith('第'):
-                chapter_number = parse_chapter_number(title)
-                if chapter_number is not None:
-                    new_filename = f"ch{chapter_number:02d}.html"
-                    is_new = True
-            else:
-                for key, fname in special_mapping.items():
-                    if key in title:
-                        new_filename = fname
-                        is_new = True
-                        break
-            if is_new:
-                if current_chapter: chapters.append(current_chapter)
-                current_chapter = {"title": title, "content": [line], "filename": new_filename}
-                continue
-        if current_chapter:
-            current_chapter["content"].append(line)
-    if current_chapter: chapters.append(current_chapter)
-
-    # Build TOC HTML
+    # --- Build Sidebar TOC ---
     toc_html_parts = ["<ul>"]
     toc_html_parts.append('<li class="level-1"><a href="toc.html" id="link-toc.html">目次</a></li>')
-    for ch in chapters:
-        display_title = ch["title"]
-        if '：' in display_title: display_title = display_title.split('：')[0]
-        elif '——' in display_title: display_title = display_title.split('——')[0]
-        toc_html_parts.append(f'<li class="level-1"><a href="{ch["filename"]}" id="link-{ch["filename"]}">{display_title}</a></li>')
+    for ch in all_chapters_for_nav:
+        css_class = "" if ch.is_included_in_content else ' class="disabled-link" title="完結版に収録予定"'
+        href = ch.filename if ch.is_included_in_content else '#'
+        toc_html_parts.append(f'<li class="level-1"><a href="{href}" id="link-{ch.filename}"{css_class}>{ch.short_title}</a></li>')
     toc_html_parts.append("</ul>")
-    toc_html = "\n".join(toc_html_parts)
+    base_toc_html = "\n".join(toc_html_parts)
 
-    for i, ch in enumerate(chapters):
-        sub_headings = []
-        for line in ch["content"]:
-            h_match = re.match(r'^(#{2,3})\s+(.+)$', line)
-            if h_match:
-                lv, text = len(h_match.group(1)), h_match.group(2).strip()
-                temp_protector = MathProtector()
-                protected = temp_protector.protect(text)
-                restored = temp_protector.restore(apply_inline_formatting(protected))
-                sub_headings.append((lv, restored, slugify(restored)))
-
-        content_html = process_markdown("\n".join(ch["content"]))
+    # --- Build Pages for Content Scope ---
+    content_chapters = model.get_content_chapters()
+    for i, ch in enumerate(content_chapters):
+        # Build local sub-toc
         local_toc = ""
-        if sub_headings:
+        if ch.toc_items:
             local_toc = '<ul class="sub-toc">'
-            for lv, text, anchor in sub_headings:
-                local_toc += f'<li class="level-{lv}"><a href="#{anchor}">{text}</a></li>'
+            for item in ch.toc_items:
+                local_toc += f'<li class="level-{item.level}"><a href="#{item.anchor}">{item.title}</a></li>'
             local_toc += '</ul>'
 
-        prev_ch = chapters[i-1] if i > 0 else None
-        next_ch = chapters[i+1] if i < len(chapters)-1 else None
-        prev_btn = f'<a href="{prev_ch["filename"]}">← {prev_ch["title"][:15]}...</a>' if prev_ch else '<span></span>'
-        next_btn = f'<a href="{next_ch["filename"]}">{next_ch["title"][:15]}... →</a>' if next_ch else '<span></span>'
-        
-        active_marker = f'id="link-{ch["filename"]}"'
-        page_toc = toc_html.replace(active_marker, f'class="active" {active_marker}')
-        if local_toc:
-            short_title = ch["title"].split("：")[0] if "：" in ch["title"] else ch["title"].split("——")[0]
-            find_str = f'link-{ch["filename"]}">{short_title}</a></li>'
-            page_toc = page_toc.replace(find_str, find_str.replace('</li>', local_toc + '</li>'))
-        
-        final_html = HTML_TEMPLATE.format(
-            title=(ch["title"] + " (先行公開版)" if is_preview else ch["title"]), toc=page_toc, KATEX_CDN=KATEX_CDN,
-            content=(preview_notice + "\n" + content_html if is_preview else content_html), prev_button=prev_btn, next_button=next_btn
-        )
-        with open(docs_dir / ch["filename"], 'w', encoding='utf-8') as f:
-            f.write(final_html)
-        print(f"Generated {docs_dir / ch['filename']}")
+        # Prev/Next navigation within content scope
+        prev_ch = content_chapters[i-1] if i > 0 else None
+        next_ch = content_chapters[i+1] if i < len(content_chapters)-1 else None
+        prev_btn = f'<a href="{prev_ch.filename}">← {prev_ch.short_title[:15]}...</a>' if prev_ch else '<span></span>'
+        next_btn = f'<a href="{next_ch.filename}">{next_ch.short_title[:15]}... →</a>' if next_ch else '<span></span>'
 
-    # Build full toc.html
-    toc_content_parts = []
-    toc_content_parts.append('<h1>目次</h1>')
-    toc_content_parts.append('<p>各見出しはリンクになっており、クリックすると該当章の該当位置にジャンプします。</p>')
-    toc_content_parts.append('<div class="full-toc">')
+        # Inject headings into markdown before processing
+        md_text = ""
+        if not ch.is_front_matter:
+            md_text += f"# {ch.title}\n\n"
+        md_text += "\n".join(ch.content_lines)
+
+        content_html = process_markdown(md_text)
+
+        # Highlight current page in sidebar
+        active_marker = f'id="link-{ch.filename}"'
+        page_toc = base_toc_html.replace(active_marker, f'class="active" {active_marker}')
+        if local_toc:
+            find_str = f'link-{ch.filename}">{ch.short_title}</a></li>'
+            page_toc = page_toc.replace(find_str, find_str.replace('</li>', local_toc + '</li>'))
+
+        final_html = HTML_TEMPLATE.format(
+            title=(ch.title + " (先行公開版)" if profile.is_preview else ch.title),
+            toc=page_toc,
+            KATEX_CDN=KATEX_CDN,
+            content=(preview_notice + "\n" + content_html if profile.is_preview and not ch.is_front_matter else content_html),
+            prev_button=prev_btn,
+            next_button=next_btn
+        )
+        with open(docs_dir / ch.filename, 'w', encoding='utf-8') as f:
+            f.write(final_html)
+        print(f"Generated {docs_dir / ch.filename}")
+
+    # --- Build Full TOC Page (toc.html) ---
+    toc_page_parts = []
+    toc_page_parts.append('<h1>目次</h1>')
+    if profile.is_preview:
+        toc_page_parts.append('<p style="color: #666;">※ 先行公開版では第1章のみ公開しています。リンクのない章は完結版にて収録予定です。</p>')
+    else:
+        toc_page_parts.append('<p>各見出しはリンクになっており、クリックすると該当章の該当位置にジャンプします。</p>')
+    
+    toc_page_parts.append('<div class="full-toc">')
 
     part_info = {
         'I': ('ch01.html', 'ch05.html', '第I部：$\\mathbb{R}^3$ 上の微分形式（第1章〜第5章）'),
         'II': ('ch06.html', 'ch09.html', '第II部：ベクトル解析（第6章〜第9章）'),
         'III': ('ch10.html', 'ch12.html', '第III部：発展と統合（第10章〜第12章）'),
     }
-    part_chapters = {}
-    for p, (start, end, label) in part_info.items():
-        for ch in chapters:
-            fname = ch["filename"]
-            if start <= fname <= end:
-                part_chapters[fname] = p
-
+    
     in_part = None
-    for ch in chapters:
-        fname = ch["filename"]
-        p = part_chapters.get(fname)
+    for ch in model.get_full_toc_chapters():
+        # Determine Part
+        p = None
+        for key, (start, end, label) in part_info.items():
+            if start <= ch.filename <= end:
+                p = key
+                break
 
         if p and p != in_part:
-            _, _, label = part_info[p]
             if in_part:
-                toc_content_parts.append('</div>')
-            toc_content_parts.append(f'<div class="toc-part"><h2 class="part-header">{label}</h2><div class="toc-part-chapters">')
+                toc_page_parts.append('</div></div>')
+            _, _, label = part_info[p]
+            toc_page_parts.append(f'<div class="toc-part"><h2 class="part-header">{label}</h2><div class="toc-part-chapters">')
             in_part = p
         elif not p and in_part:
-            toc_content_parts.append('</div></div>')
+            toc_page_parts.append('</div></div>')
             in_part = None
 
         heading_level = 'h3' if p else 'h2'
-        toc_content_parts.append(f'<{heading_level}><a href="{ch["filename"]}">{ch["title"]}</a></{heading_level}>')
+        
+        if ch.is_included_in_content:
+            toc_page_parts.append(f'<{heading_level}><a href="{ch.filename}">{ch.title}</a></{heading_level}>')
+        else:
+            toc_page_parts.append(f'<{heading_level}><span class="disabled-link">{ch.title}</span></{heading_level}>')
 
-        sub_items = []
-        for line in ch["content"]:
-            h_match = re.match(r'^(#{2,3})\s+(.+)$', line)
-            if h_match:
-                lv = len(h_match.group(1))
-                txt = h_match.group(2).strip()
-                temp_p = MathProtector()
-                protected = temp_p.protect(txt)
-                restored = temp_p.restore(apply_inline_formatting(protected))
-                anchor = slugify(restored)
-                sub_items.append((lv, restored, anchor))
-
-        if sub_items:
-            toc_content_parts.append('<ul>')
-            for lv, txt, anchor in sub_items:
-                toc_content_parts.append(f'<li class="level-{lv}"><a href="{ch["filename"]}#{anchor}">{txt}</a></li>')
-            toc_content_parts.append('</ul>')
-
+        if ch.toc_items:
+            toc_page_parts.append('<ul>')
+            for item in ch.toc_items:
+                if ch.is_included_in_content:
+                    toc_page_parts.append(f'<li class="level-{item.level}"><a href="{ch.filename}#{item.anchor}">{item.title}</a></li>')
+                else:
+                    toc_page_parts.append(f'<li class="level-{item.level}"><span class="disabled-link">{item.title}</span></li>')
+            toc_page_parts.append('</ul>')
 
     if in_part:
-        toc_content_parts.append('</div></div>')
+        toc_page_parts.append('</div></div>')
+    toc_page_parts.append('</div>')
 
-    if is_preview:
-        detailed_toc = r'''
-        <h2>完全版の目次（予告）</h2>
-        <p style="color: #666; font-size: 0.9em; margin-bottom: 2em;">※ 先行公開版では第1章のみ公開しています。第2章以降は完結版にて収録予定です。</p>
-        <div class="planned-toc" style="color: #666;">
-          <ul style="list-style: none; padding-left: 0;">
-            <li class="level-1" style="font-weight: bold; margin-top: 1.5em;">第2章：面積とは何か —— 平行多面体に潜む、符号のルール</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§2.0 測定器と面積・体積、そして長さ</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§2.1 小学校の面積の限界</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§2.2 面積測定器が満たすべき「3つのルール」</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§2.3 面積測定器の正体は「反対称行列」である</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§2.4 面積測定器の内部構造</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§2.5 体積測定器と行列式</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§2.6 本章のまとめと第3章への展望</li>
-            
-            <li class="level-1" style="font-weight: bold; margin-top: 1.5em;">第3章：積分するとは何か —— 有限のマスを数え、最後に極限を取る</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§3.0 曲がったものを測る——小学校以来の借りを返す</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§3.1 体積——3次元、係数1</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§3.2 表面積——2次元、係数1</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§3.3 曲線——1次元、係数1（限界があらわになる）</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§3.4 係数をつける——密度と幾何の積</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§3.5 本章のまとめと次章への展望</li>
-            
-            <li class="level-1" style="font-weight: bold; margin-top: 1.5em;">第4章：変数変換とは何か —— 引き戻し $\Phi^*$：測定器のつじつま合わせ</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§4.0 物理は曲がる、計算は四角</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§4.1 1-form の引き戻し——仕事と運動エネルギー定理</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§4.2 2-form の引き戻し——角運動量保存と面積速度</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§4.3 3-form の引き戻し——質量保存と体積分</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§4.4 引き戻しの性質 —— ここまでに確立したこと</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§4.5 本章のまとめと第5章（外微分）への展望</li>
-            
-            <li class="level-1" style="font-weight: bold; margin-top: 1.5em;">第5章：微分するとは何か —— 外微分 $d$：局所のズレとStokesの橋</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§5.0 第II部の扉——観測は積分、法則は微分</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§5.1 $df$ 再訪——微分と積分は逆演算か</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§5.2 閉ループで姿を現す「ズレ」</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§5.3 微小ループの解体——ズレは面積に比例する</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§5.4 $d$ の誕生——面積あたりのズレを測る新しい測定器</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§5.5 一般の $1$-form の外微分——3次元への拡張</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§5.6 集積すれば境界だけが残る——ストークスの定理</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§5.7 同じことをもう一段——$2$-form の外微分と発散</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§5.8 $d^2 = 0$——二度測れば必ずゼロ</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§5.9 外微分の統合——一つの式、一つのルール</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§5.10 積分から微分方程式へ——物理法則の局所化</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§5.11 第II部への展望——ホッジ・スターへの伏線</li>
-            
-            <li class="level-1" style="font-weight: bold; margin-top: 1.5em;">第6章：計量 $g$ とホッジ・スター $\ast$ — 内積の召喚と次数の反転</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§6.0 言い訳の終焉——内積を解放する</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§6.1 パラメータ空間の内積——計量 $g$ の正体</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§6.2 $g$ による縦ベクトルと横ベクトルの変換</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§6.3 ホッジ・スター $\ast$ ——二つの方法を繫ぐ対応</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§6.4 対応の実例——微分形式とベクトル解析</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§6.5 ナブラの三兄弟を解体する</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§6.6 第II部の結び —— 第III部へ</li>
-            
-            <li class="level-1" style="font-weight: bold; margin-top: 1.5em;">第7章：ベクトル解析 —— ナブラの登場</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§7.0 ナブラの登場</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§7.1 ドット積とクロス積</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§7.2 $\nabla$ と勾配</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§7.3 発散</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§7.4 回転</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§7.5 ラプラシアン</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§7.6 恒等式</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§7.7 ナブラの公式集</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§7.8 積分定理——ストークス・ガウス・グリーン</li>
-            
-            <li class="level-1" style="font-weight: bold; margin-top: 1.5em;">第8章：二つの言語 —— 測定器の微分と、場の微分</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§8.0 本書のハイライト</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§8.1 二つの微分、二つの世界</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§8.2 翻訳辞書の完成</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§8.3 ストークスの定理を翻訳する</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§8.4 ガウスの定理を翻訳する</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§8.5 二つの方法論——場はそのままか、測定器はそのままか</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§8.6 曲線座標と二つの方法</li>
-            
-            <li class="level-1" style="font-weight: bold; margin-top: 1.5em;">第9章：実戦 —— 辞書を作り、難問を解く</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§9.0 本書の中心的な道具は揃った</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§9.1 辞書をその場で作る——機械的手順</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§9.2 円柱座標 $(r,\theta,z)$</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§9.3 球座標 $(\rho,\theta,\phi)$</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§9.4 微積分の難問——球座標でのベクトルラプラシアン</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§9.5 電磁気学の難問——点電荷の電場と発散</li>
-            
-            <li class="level-1" style="font-weight: bold; margin-top: 1.5em;">第10章：マクスウェル方程式 —— 美しさのその先へ</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§10.0 お約束</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§10.1 マクスウェル方程式——2本で書く</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§10.2 電磁場 $F$ と符号規約の固定</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§10.3 ミンコフスキー計量——$\mathbb{R}^3$ から4次元へ</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§10.4 $dF=0$ を全部書き下す</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§10.5 $\ast F$ と残りの2本</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§10.6 ポテンシャル構成——$F=-d\mathcal{A}$ から始める</li>
-            
-            <li class="level-1" style="font-weight: bold; margin-top: 1.5em;">第11章：曲がった空間へ —— 本書の先にあるもの</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§11.0 この章の立ち位置 —— さらに先を見たい読者のための道標</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§11.1 多様体 —— $\mathbf{g}(x)$ から始める</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§11.2 リーマン幾何学 —— テンソル解析のスタイル</li>
-            
-            <li class="level-1" style="font-weight: bold; margin-top: 1.5em;">第12章：真のナブラ —— クリフォード・パウリ・ディラック・ハミルトン</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§12.0 2本を1本に</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§12.1 虚数で一本に —— マクスウェル方程式の統合</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§12.2 パウリ行列 —— 異なる次数を足す魔法</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§12.3 ディラック演算子と「真のナブラ」</li>
-            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§12.4 演算子$\nabla$</li>
-          </ul>
-        </div>
-        '''
-        toc_content_parts.append(detailed_toc)
-
-
-    toc_content_parts.append('</div>')
-    toc_content = '\n'.join(toc_content_parts)
-
-    toc_page_toc = toc_html.replace('id="link-toc.html"', 'class="active" id="link-toc.html"')
+    toc_page_toc = base_toc_html.replace('id="link-toc.html"', 'class="active" id="link-toc.html"')
     toc_page_html = HTML_TEMPLATE.format(
-        title=('目次 (先行公開版)' if is_preview else '目次'), toc=toc_page_toc, KATEX_CDN=KATEX_CDN,
-        content=toc_content, prev_button='<span></span>', next_button='<span></span>'
+        title=('目次 (先行公開版)' if profile.is_preview else '目次'), 
+        toc=toc_page_toc, 
+        KATEX_CDN=KATEX_CDN,
+        content='\n'.join(toc_page_parts), 
+        prev_button='<span></span>', 
+        next_button='<span></span>'
     )
     with open(docs_dir / 'toc.html', 'w', encoding='utf-8') as f:
         f.write(toc_page_html)
     print(f"Generated {docs_dir / 'toc.html'}")
+
+    # For compatibility with legacy processes, output combined MD of content scope
+    combined_md_path = Path('exports/manuscript_preview_combined.md' if profile.is_preview else 'exports/manuscript_combined.md')
+    combined_md_path.parent.mkdir(exist_ok=True)
+    with open(combined_md_path, 'w', encoding='utf-8') as f:
+        for ch in content_chapters:
+            if not ch.is_front_matter:
+                f.write(f"# {ch.title}\n\n")
+            f.write("\n".join(ch.content_lines) + "\n\n")
 
 if __name__ == '__main__':
     main()

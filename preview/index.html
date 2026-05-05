@@ -21,6 +21,7 @@
   .sidebar a { text-decoration: none; color: #0969da; }
   .sidebar a:hover { text-decoration: underline; }
   .sidebar .active { color: #cf222e; font-weight: bold; }
+  .sidebar .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
   .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; }
   .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; }
   @media (max-width: 900px) { 
@@ -45,11 +46,13 @@
   .full-toc h2 { font-size: 1.1rem; margin: 1.5em 0 0.3em; padding-bottom: 2px; border-bottom: 1px solid #d0d7de; }
   .full-toc h2 a { color: #24292f; text-decoration: none; }
   .full-toc h2 a:hover { color: #0969da; }
+  .full-toc h2 .disabled-link { color: #8c959f; cursor: not-allowed; }
   .full-toc ul { list-style: none; padding-left: 1.5rem; margin: 0.3em 0 0; }
   .full-toc li { margin-bottom: 0.2rem; font-size: 0.9rem; }
   .full-toc .level-3 { padding-left: 1rem; font-size: 0.8rem; color: #57606a; }
   .full-toc a { color: #0969da; text-decoration: none; }
   .full-toc a:hover { text-decoration: underline; }
+  .full-toc .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
   .full-toc .part-header { font-size: 1.1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }
   .full-toc .toc-part-chapters { padding-left: 1.5rem; }
   .full-toc .toc-part-chapters h3 { font-size: 0.95rem; margin: 0.5em 0 0.2em; }
@@ -83,23 +86,34 @@
       著者: yokiikoy<br>
       <a href="http://covectorspace.xyz/jp/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a>
     </div>
-    <div class="toc"><ul>
+    <div class="toc">
+      <ul>
 <li class="level-1"><a href="toc.html" id="link-toc.html">目次</a></li>
 <li class="level-1"><a href="index.html" class="active" id="link-index.html">著者ノート</a></li>
 <li class="level-1"><a href="intro.html" id="link-intro.html">はじめに</a></li>
 <li class="level-1"><a href="portal.html" id="link-portal.html">ポータルサイトとちょっとした試み</a></li>
 <li class="level-1"><a href="ch01.html" id="link-ch01.html">第1章</a></li>
+<li class="level-1"><a href="#" id="link-ch02.html" class="disabled-link" title="完結版に収録予定">第2章</a></li>
+<li class="level-1"><a href="#" id="link-ch03.html" class="disabled-link" title="完結版に収録予定">第3章</a></li>
+<li class="level-1"><a href="#" id="link-ch04.html" class="disabled-link" title="完結版に収録予定">第4章</a></li>
+<li class="level-1"><a href="#" id="link-ch05.html" class="disabled-link" title="完結版に収録予定">第5章</a></li>
+<li class="level-1"><a href="#" id="link-ch06.html" class="disabled-link" title="完結版に収録予定">第6章</a></li>
+<li class="level-1"><a href="#" id="link-ch07.html" class="disabled-link" title="完結版に収録予定">第7章</a></li>
+<li class="level-1"><a href="#" id="link-ch08.html" class="disabled-link" title="完結版に収録予定">第8章</a></li>
+<li class="level-1"><a href="#" id="link-ch09.html" class="disabled-link" title="完結版に収録予定">第9章</a></li>
+<li class="level-1"><a href="#" id="link-ch10.html" class="disabled-link" title="完結版に収録予定">第10章</a></li>
+<li class="level-1"><a href="#" id="link-ch11.html" class="disabled-link" title="完結版に収録予定">第11章</a></li>
+<li class="level-1"><a href="#" id="link-ch12.html" class="disabled-link" title="完結版に収録予定">第12章</a></li>
 <li class="level-1"><a href="postscript.html" id="link-postscript.html">おわりに</a></li>
 <li class="level-1"><a href="refs.html" id="link-refs.html">参考文献（と著者からのコメント）</a></li>
 <li class="level-1"><a href="appendix.html" id="link-appendix.html">付録</a></li>
-</ul></div>
+</ul>
+    </div>
   </nav>
   <main class="main-content">
     <article class="markdown-body">
-      <div class="preview-notice" style="background: #fff8c5; border: 1px solid #d4a72c; padding: 1rem; border-radius: 6px; margin-bottom: 2rem; font-size: 0.9rem;">
-      <strong>先行公開版のお知らせ:</strong> このドキュメントは先行公開用であり、内容（前付け・第1章・後付類のみ）を限定しています。最新の全体版や詳細についてはポータルサイトをご確認ください。
-    </div>
-<h1 id="著者ノートかつての私への贈り物あるいはSNS時代の予防線">著者ノート：かつての私への贈り物、あるいはSNS時代の予防線</h1>
+<p># 著者ノート：かつての私への贈り物、あるいはSNS時代の予防線
+</p>
 <p>この本は、大学学部生時代の筆者自身の疑問を解決するための本として、かつての筆者の前提知識を想定して書きました。
 </p>
 <p>同時に、インターネット上に数学めいた文章を公開する以上、いくつかの予防線も必要でした。本書には、より進んだ立場の教科書なら最初に抽象化してしまうところを、あえて行列表示や有限セルの計算から始める箇所があります。
@@ -118,12 +132,12 @@
 </blockquote>
       <div class="nav-buttons">
         <span></span>
-        <a href="intro.html">はじめに：$dx$ とは何か、... →</a>
+        <a href="intro.html">はじめに... →</a>
       </div>
-      <footer class="site-footer">
-        <p>&copy; yokiikoy (CC BY-NC 4.0). 本書の最新版・PDF・改訂履歴・関連情報・本書以外のコンテンツはポータルサイト <a href="https://covectorspace.xyz/jp/">Project Co-Vector Space</a> をご確認ください。</p>
-      </footer>
     </article>
+    <footer class="site-footer">
+      <p>&copy; 2024- yokiikoy. CC BY-NC 4.0.</p>
+    </footer>
   </main>
 </body>
 </html>

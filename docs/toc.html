@@ -21,6 +21,7 @@
   .sidebar a { text-decoration: none; color: #0969da; }
   .sidebar a:hover { text-decoration: underline; }
   .sidebar .active { color: #cf222e; font-weight: bold; }
+  .sidebar .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
   .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; }
   .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; }
   @media (max-width: 900px) { 
@@ -45,11 +46,13 @@
   .full-toc h2 { font-size: 1.1rem; margin: 1.5em 0 0.3em; padding-bottom: 2px; border-bottom: 1px solid #d0d7de; }
   .full-toc h2 a { color: #24292f; text-decoration: none; }
   .full-toc h2 a:hover { color: #0969da; }
+  .full-toc h2 .disabled-link { color: #8c959f; cursor: not-allowed; }
   .full-toc ul { list-style: none; padding-left: 1.5rem; margin: 0.3em 0 0; }
   .full-toc li { margin-bottom: 0.2rem; font-size: 0.9rem; }
   .full-toc .level-3 { padding-left: 1rem; font-size: 0.8rem; color: #57606a; }
   .full-toc a { color: #0969da; text-decoration: none; }
   .full-toc a:hover { text-decoration: underline; }
+  .full-toc .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
   .full-toc .part-header { font-size: 1.1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }
   .full-toc .toc-part-chapters { padding-left: 1.5rem; }
   .full-toc .toc-part-chapters h3 { font-size: 0.95rem; margin: 0.5em 0 0.2em; }
@@ -83,7 +86,8 @@
       著者: yokiikoy<br>
       <a href="http://covectorspace.xyz/jp/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a>
     </div>
-    <div class="toc"><ul>
+    <div class="toc">
+      <ul>
 <li class="level-1"><a href="toc.html" class="active" id="link-toc.html">目次</a></li>
 <li class="level-1"><a href="index.html" id="link-index.html">著者ノート</a></li>
 <li class="level-1"><a href="intro.html" id="link-intro.html">はじめに</a></li>
@@ -103,190 +107,178 @@
 <li class="level-1"><a href="postscript.html" id="link-postscript.html">おわりに</a></li>
 <li class="level-1"><a href="refs.html" id="link-refs.html">参考文献（と著者からのコメント）</a></li>
 <li class="level-1"><a href="appendix.html" id="link-appendix.html">付録</a></li>
-</ul></div>
+</ul>
+    </div>
   </nav>
   <main class="main-content">
     <article class="markdown-body">
-      <h1>目次</h1>
+<h1>目次</h1>
 <p>各見出しはリンクになっており、クリックすると該当章の該当位置にジャンプします。</p>
 <div class="full-toc">
-<h2><a href="index.html">著者ノート：かつての私への贈り物、あるいはSNS時代の予防線</a></h2>
-<h2><a href="intro.html">はじめに：$dx$とは何か・ナブラとは何か</a></h2>
-<ul>
-<li class="level-2"><a href="intro.html#はじめのはじめに前提知識">はじめのはじめに：前提知識</a></li>
-<li class="level-2"><a href="intro.html#とは何か">$dx$とは何か</a></li>
-<li class="level-2"><a href="intro.html#ナブラとは何か">ナブラとは何か</a></li>
-<li class="level-2"><a href="intro.html#本書のロードマップ">本書のロードマップ</a></li>
-</ul>
-<h2><a href="portal.html">ポータルサイトとちょっとした試み</a></h2>
-<ul>
-<li class="level-3"><a href="portal.html#ポータルサイト">ポータルサイト</a></li>
-<li class="level-3"><a href="portal.html#Discord-サーバー">Discord サーバー</a></li>
-</ul>
 <div class="toc-part"><h2 class="part-header">第I部：$\mathbb{R}^3$ 上の微分形式（第1章〜第5章）</h2><div class="toc-part-chapters">
 <h3><a href="ch01.html">第1章：$dx$ とは何か —— ベクトルを食べる測定器、あるいは横ベクトル</a></h3>
 <ul>
-<li class="level-3"><a href="ch01.html#10-数学者の1次元物理学者の1次元">§1.0 数学者の1次元、物理学者の1次元</a></li>
-<li class="level-3"><a href="ch01.html#11-リーマン和と行列の積">§1.1 リーマン和と行列の積</a></li>
-<li class="level-3"><a href="ch01.html#12-全微分--変化率を行列にまとめた演算子">§1.2 全微分 $df$ — 変化率を行列にまとめた演算子</a></li>
-<li class="level-3"><a href="ch01.html#13-ライプニッツの記法と代数的直感">§1.3 ライプニッツの記法と代数的直感</a></li>
-<li class="level-3"><a href="ch01.html#14-座標変換測定器を別の目盛りに作り替える">§1.4 座標変換——測定器を別の目盛りに作り替える</a></li>
-<li class="level-3"><a href="ch01.html#15-別の座標で書く演習">§1.5 別の座標で書く——演習</a></li>
-<li class="level-3"><a href="ch01.html#16-本章のまとめと次章への展望">§1.6 本章のまとめと次章への展望</a></li>
+<li class="level-3"><a href="ch01.html#§1.0-数学者の1次元、物理学者の1次元">§1.0 数学者の1次元、物理学者の1次元</a></li>
+<li class="level-3"><a href="ch01.html#§1.1-リーマン和と行列の積">§1.1 リーマン和と行列の積</a></li>
+<li class="level-3"><a href="ch01.html#§1.2-全微分-$df$-—-変化率を行列にまとめた演算子">§1.2 全微分 $df$ — 変化率を行列にまとめた演算子</a></li>
+<li class="level-3"><a href="ch01.html#§1.3-ライプニッツの記法と代数的直感">§1.3 ライプニッツの記法と代数的直感</a></li>
+<li class="level-3"><a href="ch01.html#§1.4-座標変換——測定器を別の目盛りに作り替える">§1.4 座標変換——測定器を別の目盛りに作り替える</a></li>
+<li class="level-3"><a href="ch01.html#§1.5-別の座標で書く——演習">§1.5 別の座標で書く——演習</a></li>
+<li class="level-3"><a href="ch01.html#§1.6-本章のまとめと次章への展望">§1.6 本章のまとめと次章への展望</a></li>
 </ul>
 <h3><a href="ch02.html">第2章：面積とは何か —— 平行多面体に潜む、符号のルール</a></h3>
 <ul>
-<li class="level-3"><a href="ch02.html#20-測定器と面積・体積そして長さ">§2.0 測定器と面積・体積、そして長さ</a></li>
-<li class="level-3"><a href="ch02.html#21-小学校の面積の限界">§2.1 小学校の面積の限界</a></li>
-<li class="level-3"><a href="ch02.html#22-面積測定器が満たすべき3つのルール">§2.2 面積測定器が満たすべき「3つのルール」</a></li>
-<li class="level-3"><a href="ch02.html#23-面積測定器の正体は反対称行列である">§2.3 面積測定器の正体は「反対称行列」である</a></li>
-<li class="level-3"><a href="ch02.html#24-面積測定器の内部構造">§2.4 面積測定器の内部構造</a></li>
-<li class="level-3"><a href="ch02.html#25-体積測定器と行列式">§2.5 体積測定器と行列式</a></li>
-<li class="level-3"><a href="ch02.html#26-本章のまとめと第3章への展望">§2.6 本章のまとめと第3章への展望</a></li>
-<li class="level-2"><a href="ch02.html#第2章-付録A体積測定器のテンソル積表現--全成分の計算">第2章 付録A：体積測定器のテンソル積表現 — 全成分の計算</a></li>
+<li class="level-3"><a href="ch02.html#§2.0-測定器と面積・体積、そして長さ">§2.0 測定器と面積・体積、そして長さ</a></li>
+<li class="level-3"><a href="ch02.html#§2.1-小学校の面積の限界">§2.1 小学校の面積の限界</a></li>
+<li class="level-3"><a href="ch02.html#§2.2-面積測定器が満たすべき「3つのルール」">§2.2 面積測定器が満たすべき「3つのルール」</a></li>
+<li class="level-3"><a href="ch02.html#§2.3-面積測定器の正体は「反対称行列」である">§2.3 面積測定器の正体は「反対称行列」である</a></li>
+<li class="level-3"><a href="ch02.html#§2.4-面積測定器の内部構造">§2.4 面積測定器の内部構造</a></li>
+<li class="level-3"><a href="ch02.html#§2.5-体積測定器と行列式">§2.5 体積測定器と行列式</a></li>
+<li class="level-3"><a href="ch02.html#§2.6-本章のまとめと第3章への展望">§2.6 本章のまとめと第3章への展望</a></li>
+<li class="level-2"><a href="ch02.html#第2章-付録A：体積測定器のテンソル積表現-—-全成分の計算">第2章 付録A：体積測定器のテンソル積表現 — 全成分の計算</a></li>
 </ul>
 <h3><a href="ch03.html">第3章：積分するとは何か —— 有限のマスを数え、最後に極限を取る</a></h3>
 <ul>
-<li class="level-3"><a href="ch03.html#30-曲がったものを測る小学校以来の借りを返す">§3.0 曲がったものを測る——小学校以来の借りを返す</a></li>
-<li class="level-3"><a href="ch03.html#31-体積3次元係数1">§3.1 体積——3次元、係数1</a></li>
-<li class="level-3"><a href="ch03.html#32-表面積2次元係数1">§3.2 表面積——2次元、係数1</a></li>
-<li class="level-3"><a href="ch03.html#33-曲線1次元係数1限界があらわになる">§3.3 曲線——1次元、係数1（限界があらわになる）</a></li>
-<li class="level-3"><a href="ch03.html#34-係数をつける密度と幾何の積">§3.4 係数をつける——密度と幾何の積</a></li>
-<li class="level-3"><a href="ch03.html#35-本章のまとめと次章への展望">§3.5 本章のまとめと次章への展望</a></li>
+<li class="level-3"><a href="ch03.html#§3.0-曲がったものを測る——小学校以来の借りを返す">§3.0 曲がったものを測る——小学校以来の借りを返す</a></li>
+<li class="level-3"><a href="ch03.html#§3.1-体積——3次元、係数1">§3.1 体積——3次元、係数1</a></li>
+<li class="level-3"><a href="ch03.html#§3.2-表面積——2次元、係数1">§3.2 表面積——2次元、係数1</a></li>
+<li class="level-3"><a href="ch03.html#§3.3-曲線——1次元、係数1（限界があらわになる）">§3.3 曲線——1次元、係数1（限界があらわになる）</a></li>
+<li class="level-3"><a href="ch03.html#§3.4-係数をつける——密度と幾何の積">§3.4 係数をつける——密度と幾何の積</a></li>
+<li class="level-3"><a href="ch03.html#§3.5-本章のまとめと次章への展望">§3.5 本章のまとめと次章への展望</a></li>
 </ul>
 <h3><a href="ch04.html">第4章：変数変換とは何か —— 引き戻し $\Phi^*$：測定器のつじつま合わせ</a></h3>
 <ul>
-<li class="level-3"><a href="ch04.html#40-物理は曲がる計算は四角">§4.0 物理は曲がる、計算は四角</a></li>
-<li class="level-3"><a href="ch04.html#41-1-form-の引き戻し仕事と運動エネルギー定理">§4.1 1-form の引き戻し——仕事と運動エネルギー定理</a></li>
-<li class="level-3"><a href="ch04.html#42-2-form-の引き戻し角運動量保存と面積速度">§4.2 2-form の引き戻し——角運動量保存と面積速度</a></li>
-<li class="level-3"><a href="ch04.html#43-3-form-の引き戻し質量保存と体積分">§4.3 3-form の引き戻し——質量保存と体積分</a></li>
-<li class="level-3"><a href="ch04.html#44-引き戻しの性質--ここまでに確立したこと">§4.4 引き戻しの性質 —— ここまでに確立したこと</a></li>
-<li class="level-3"><a href="ch04.html#45-本章のまとめと第5章外微分への展望">§4.5 本章のまとめと第5章（外微分）への展望</a></li>
+<li class="level-3"><a href="ch04.html#§4.0-物理は曲がる、計算は四角">§4.0 物理は曲がる、計算は四角</a></li>
+<li class="level-3"><a href="ch04.html#§4.1-1-form-の引き戻し——仕事と運動エネルギー定理">§4.1 1-form の引き戻し——仕事と運動エネルギー定理</a></li>
+<li class="level-3"><a href="ch04.html#§4.2-2-form-の引き戻し——角運動量保存と面積速度">§4.2 2-form の引き戻し——角運動量保存と面積速度</a></li>
+<li class="level-3"><a href="ch04.html#§4.3-3-form-の引き戻し——質量保存と体積分">§4.3 3-form の引き戻し——質量保存と体積分</a></li>
+<li class="level-3"><a href="ch04.html#§4.4-引き戻しの性質-——-ここまでに確立したこと">§4.4 引き戻しの性質 —— ここまでに確立したこと</a></li>
+<li class="level-3"><a href="ch04.html#§4.5-本章のまとめと第5章（外微分）への展望">§4.5 本章のまとめと第5章（外微分）への展望</a></li>
 </ul>
 <h3><a href="ch05.html">第5章：微分するとは何か —— 外微分 $d$：局所のズレとStokesの橋</a></h3>
 <ul>
-<li class="level-3"><a href="ch05.html#50-第II部の扉観測は積分法則は微分">§5.0 第II部の扉——観測は積分、法則は微分</a></li>
-<li class="level-3"><a href="ch05.html#51-再訪微分と積分は逆演算か">§5.1 $df$ 再訪——微分と積分は逆演算か</a></li>
-<li class="level-3"><a href="ch05.html#52-閉ループで姿を現すズレ">§5.2 閉ループで姿を現す「ズレ」</a></li>
-<li class="level-3"><a href="ch05.html#53-微小ループの解体ズレは面積に比例する">§5.3 微小ループの解体——ズレは面積に比例する</a></li>
-<li class="level-3"><a href="ch05.html#54-の誕生面積あたりのズレを測る新しい測定器">§5.4 $d$ の誕生——面積あたりのズレを測る新しい測定器</a></li>
-<li class="level-3"><a href="ch05.html#55-一般の--form-の外微分3次元への拡張">§5.5 一般の $1$-form の外微分——3次元への拡張</a></li>
-<li class="level-3"><a href="ch05.html#56-集積すれば境界だけが残るストークスの定理">§5.6 集積すれば境界だけが残る——ストークスの定理</a></li>
-<li class="level-3"><a href="ch05.html#57-同じことをもう一段-form-の外微分と発散">§5.7 同じことをもう一段——$2$-form の外微分と発散</a></li>
-<li class="level-3"><a href="ch05.html#58-二度測れば必ずゼロ">§5.8 $d^2 = 0$——二度測れば必ずゼロ</a></li>
-<li class="level-3"><a href="ch05.html#59-外微分の統合一つの式一つのルール">§5.9 外微分の統合——一つの式、一つのルール</a></li>
-<li class="level-3"><a href="ch05.html#510-積分から微分方程式へ物理法則の局所化">§5.10 積分から微分方程式へ——物理法則の局所化</a></li>
-<li class="level-3"><a href="ch05.html#511-第II部への展望ホッジ・スターへの伏線">§5.11 第II部への展望——ホッジ・スターへの伏線</a></li>
-<li class="level-2"><a href="ch05.html#付録C外微分の行列表示">付録C：外微分の行列表示</a></li>
-<li class="level-3"><a href="ch05.html#C1--form-の-行ベクトル">C.1 $0$-form：$df$ の $1 \times 3$ 行ベクトル</a></li>
-<li class="level-3"><a href="ch05.html#C2--form係数のヤコビ行列">C.2 $1$-form：係数のヤコビ行列 $\mathbf{J}$</a></li>
-<li class="level-3"><a href="ch05.html#C3">C.3 $d\omega = \mathbf{J}^T - \mathbf{J}$</a></li>
-<li class="level-3"><a href="ch05.html#C4--form-とヤコビ行列のトレース">C.4 $2$-form：$d\eta$ とヤコビ行列のトレース</a></li>
-<li class="level-3"><a href="ch05.html#C5-とヘッセ行列">C.5 $d^2 f = 0$ とヘッセ行列</a></li>
+<li class="level-3"><a href="ch05.html#§5.0-第II部の扉——観測は積分、法則は微分">§5.0 第II部の扉——観測は積分、法則は微分</a></li>
+<li class="level-3"><a href="ch05.html#§5.1-$df$-再訪——微分と積分は逆演算か">§5.1 $df$ 再訪——微分と積分は逆演算か</a></li>
+<li class="level-3"><a href="ch05.html#§5.2-閉ループで姿を現す「ズレ」">§5.2 閉ループで姿を現す「ズレ」</a></li>
+<li class="level-3"><a href="ch05.html#§5.3-微小ループの解体——ズレは面積に比例する">§5.3 微小ループの解体——ズレは面積に比例する</a></li>
+<li class="level-3"><a href="ch05.html#§5.4-$d$-の誕生——面積あたりのズレを測る新しい測定器">§5.4 $d$ の誕生——面積あたりのズレを測る新しい測定器</a></li>
+<li class="level-3"><a href="ch05.html#§5.5-一般の-$1$-form-の外微分——3次元への拡張">§5.5 一般の $1$-form の外微分——3次元への拡張</a></li>
+<li class="level-3"><a href="ch05.html#§5.6-集積すれば境界だけが残る——ストークスの定理">§5.6 集積すれば境界だけが残る——ストークスの定理</a></li>
+<li class="level-3"><a href="ch05.html#§5.7-同じことをもう一段——$2$-form-の外微分と発散">§5.7 同じことをもう一段——$2$-form の外微分と発散</a></li>
+<li class="level-3"><a href="ch05.html#§5.8-$d^2-=-0$——二度測れば必ずゼロ">§5.8 $d^2 = 0$——二度測れば必ずゼロ</a></li>
+<li class="level-3"><a href="ch05.html#§5.9-外微分の統合——一つの式、一つのルール">§5.9 外微分の統合——一つの式、一つのルール</a></li>
+<li class="level-3"><a href="ch05.html#§5.10-積分から微分方程式へ——物理法則の局所化">§5.10 積分から微分方程式へ——物理法則の局所化</a></li>
+<li class="level-3"><a href="ch05.html#§5.11-第II部への展望——ホッジ・スターへの伏線">§5.11 第II部への展望——ホッジ・スターへの伏線</a></li>
+<li class="level-2"><a href="ch05.html#付録C：外微分の行列表示">付録C：外微分の行列表示</a></li>
+<li class="level-3"><a href="ch05.html#C.1-$0$-form：$df$-の-$1-\times-3$-行ベクトル">C.1 $0$-form：$df$ の $1 \times 3$ 行ベクトル</a></li>
+<li class="level-3"><a href="ch05.html#C.2-$1$-form：係数のヤコビ行列-$\mathbf{J}$">C.2 $1$-form：係数のヤコビ行列 $\mathbf{J}$</a></li>
+<li class="level-3"><a href="ch05.html#C.3-$d\omega-=-\mathbf{J}^T---\mathbf{J}$">C.3 $d\omega = \mathbf{J}^T - \mathbf{J}$</a></li>
+<li class="level-3"><a href="ch05.html#C.4-$2$-form：$d\eta$-とヤコビ行列のトレース">C.4 $2$-form：$d\eta$ とヤコビ行列のトレース</a></li>
+<li class="level-3"><a href="ch05.html#C.5-$d^2-f-=-0$-とヘッセ行列">C.5 $d^2 f = 0$ とヘッセ行列</a></li>
 </ul>
-</div>
+</div></div>
 <div class="toc-part"><h2 class="part-header">第II部：ベクトル解析（第6章〜第9章）</h2><div class="toc-part-chapters">
 <h3><a href="ch06.html">第6章：計量 $g$ とホッジ・スター $\ast$ — 内積の召喚と次数の反転</a></h3>
 <ul>
-<li class="level-3"><a href="ch06.html#60-言い訳の終焉内積を解放する">§6.0 言い訳の終焉——内積を解放する</a></li>
-<li class="level-3"><a href="ch06.html#61-パラメータ空間の内積計量-の正体">§6.1 パラメータ空間の内積——計量 $g$ の正体</a></li>
-<li class="level-3"><a href="ch06.html#62-による縦ベクトルと横ベクトルの変換">§6.2 $g$ による縦ベクトルと横ベクトルの変換</a></li>
-<li class="level-3"><a href="ch06.html#63-ホッジ・スター-二つの方法を繫ぐ対応">§6.3 ホッジ・スター $\ast$ ——二つの方法を繫ぐ対応</a></li>
-<li class="level-3"><a href="ch06.html#64-対応の実例微分形式とベクトル解析">§6.4 対応の実例——微分形式とベクトル解析</a></li>
-<li class="level-3"><a href="ch06.html#65-ナブラの三兄弟を解体する">§6.5 ナブラの三兄弟を解体する</a></li>
-<li class="level-3"><a href="ch06.html#66-第II部の結び--第III部へ">§6.6 第II部の結び —— 第III部へ</a></li>
-<li class="level-2"><a href="ch06.html#付録Dフロベニウス積とホッジ・スターの完全な行列表現">付録D：フロベニウス積とホッジ・スターの完全な行列表現</a></li>
-<li class="level-3"><a href="ch06.html#D1-行列の内積フロベニウス積">D.1 行列の内積——フロベニウス積</a></li>
-<li class="level-3"><a href="ch06.html#D2-行列の縦ベクトル">D.2 $\ast_{1\to2}$ ——行列の縦ベクトル</a></li>
-<li class="level-3"><a href="ch06.html#D3-フロベニウス積による係数抽出">D.3 $\ast_{2\to1}$ ——フロベニウス積による係数抽出</a></li>
-<li class="level-3"><a href="ch06.html#D4-転置関係">D.4 転置関係</a></li>
-<li class="level-3"><a href="ch06.html#D5-の成分">D.5 $E_k \cdot M$ の成分</a></li>
-<li class="level-3"><a href="ch06.html#D6-の二回作用">D.6 $\ast$ の二回作用</a></li>
+<li class="level-3"><a href="ch06.html#§6.0-言い訳の終焉——内積を解放する">§6.0 言い訳の終焉——内積を解放する</a></li>
+<li class="level-3"><a href="ch06.html#§6.1-パラメータ空間の内積——計量-$g$-の正体">§6.1 パラメータ空間の内積——計量 $g$ の正体</a></li>
+<li class="level-3"><a href="ch06.html#§6.2-$g$-による縦ベクトルと横ベクトルの変換">§6.2 $g$ による縦ベクトルと横ベクトルの変換</a></li>
+<li class="level-3"><a href="ch06.html#§6.3-ホッジ・スター-$\ast$-——二つの方法を繫ぐ対応">§6.3 ホッジ・スター $\ast$ ——二つの方法を繫ぐ対応</a></li>
+<li class="level-3"><a href="ch06.html#§6.4-対応の実例——微分形式とベクトル解析">§6.4 対応の実例——微分形式とベクトル解析</a></li>
+<li class="level-3"><a href="ch06.html#§6.5-ナブラの三兄弟を解体する">§6.5 ナブラの三兄弟を解体する</a></li>
+<li class="level-3"><a href="ch06.html#§6.6-第II部の結び-——-第III部へ">§6.6 第II部の結び —— 第III部へ</a></li>
+<li class="level-2"><a href="ch06.html#付録D：フロベニウス積とホッジ・スターの完全な行列表現">付録D：フロベニウス積とホッジ・スターの完全な行列表現</a></li>
+<li class="level-3"><a href="ch06.html#D.1-行列の内積——フロベニウス積">D.1 行列の内積——フロベニウス積</a></li>
+<li class="level-3"><a href="ch06.html#D.2-$\ast_{1\to2}$-——行列の縦ベクトル">D.2 $\ast_{1\to2}$ ——行列の縦ベクトル</a></li>
+<li class="level-3"><a href="ch06.html#D.3-$\ast_{2\to1}$-——フロベニウス積による係数抽出">D.3 $\ast_{2\to1}$ ——フロベニウス積による係数抽出</a></li>
+<li class="level-3"><a href="ch06.html#D.4-転置関係">D.4 転置関係</a></li>
+<li class="level-3"><a href="ch06.html#D.5-$E_k-\cdot-M$-の成分">D.5 $E_k \cdot M$ の成分</a></li>
+<li class="level-3"><a href="ch06.html#D.6-$\ast$-の二回作用">D.6 $\ast$ の二回作用</a></li>
 </ul>
 <h3><a href="ch07.html">第7章：ベクトル解析 —— ナブラの登場</a></h3>
 <ul>
-<li class="level-3"><a href="ch07.html#70-ナブラの登場">§7.0 ナブラの登場</a></li>
-<li class="level-3"><a href="ch07.html#71-ドット積とクロス積">§7.1 ドット積とクロス積</a></li>
-<li class="level-3"><a href="ch07.html#72-と勾配">§7.2 $\nabla$ と勾配</a></li>
-<li class="level-3"><a href="ch07.html#73-発散">§7.3 発散</a></li>
-<li class="level-3"><a href="ch07.html#74-回転">§7.4 回転</a></li>
-<li class="level-3"><a href="ch07.html#75-ラプラシアン">§7.5 ラプラシアン</a></li>
-<li class="level-3"><a href="ch07.html#76-恒等式">§7.6 恒等式</a></li>
-<li class="level-3"><a href="ch07.html#77-ナブラの公式集">§7.7 ナブラの公式集</a></li>
-<li class="level-3"><a href="ch07.html#78-積分定理ストークス・ガウス・グリーン">§7.8 積分定理——ストークス・ガウス・グリーン</a></li>
-<li class="level-3"><a href="ch07.html#79-第III部へ--矢印を見るな測定器を見ろ">§7.9 第III部へ —— 矢印を見るな、測定器を見ろ</a></li>
+<li class="level-3"><a href="ch07.html#§7.0-ナブラの登場">§7.0 ナブラの登場</a></li>
+<li class="level-3"><a href="ch07.html#§7.1-ドット積とクロス積">§7.1 ドット積とクロス積</a></li>
+<li class="level-3"><a href="ch07.html#§7.2-$\nabla$-と勾配">§7.2 $\nabla$ と勾配</a></li>
+<li class="level-3"><a href="ch07.html#§7.3-発散">§7.3 発散</a></li>
+<li class="level-3"><a href="ch07.html#§7.4-回転">§7.4 回転</a></li>
+<li class="level-3"><a href="ch07.html#§7.5-ラプラシアン">§7.5 ラプラシアン</a></li>
+<li class="level-3"><a href="ch07.html#§7.6-恒等式">§7.6 恒等式</a></li>
+<li class="level-3"><a href="ch07.html#§7.7-ナブラの公式集">§7.7 ナブラの公式集</a></li>
+<li class="level-3"><a href="ch07.html#§7.8-積分定理——ストークス・ガウス・グリーン">§7.8 積分定理——ストークス・ガウス・グリーン</a></li>
+<li class="level-3"><a href="ch07.html#§7.9-第III部へ-——-矢印を見るな、測定器を見ろ">§7.9 第III部へ —— 矢印を見るな、測定器を見ろ</a></li>
 </ul>
 <h3><a href="ch08.html">第8章：二つの言語 —— 測定器の微分と、場の微分</a></h3>
 <ul>
-<li class="level-3"><a href="ch08.html#80-本書のハイライト">§8.0 本書のハイライト</a></li>
-<li class="level-3"><a href="ch08.html#81-二つの微分二つの世界">§8.1 二つの微分、二つの世界</a></li>
-<li class="level-3"><a href="ch08.html#82-翻訳辞書の完成">§8.2 翻訳辞書の完成</a></li>
-<li class="level-3"><a href="ch08.html#83-ストークスの定理を翻訳する">§8.3 ストークスの定理を翻訳する</a></li>
-<li class="level-3"><a href="ch08.html#84-ガウスの定理を翻訳する">§8.4 ガウスの定理を翻訳する</a></li>
-<li class="level-3"><a href="ch08.html#85-二つの方法論場はそのままか測定器はそのままか">§8.5 二つの方法論——場はそのままか、測定器はそのままか</a></li>
-<li class="level-3"><a href="ch08.html#86-曲線座標と二つの方法">§8.6 曲線座標と二つの方法</a></li>
+<li class="level-3"><a href="ch08.html#§8.0-本書のハイライト">§8.0 本書のハイライト</a></li>
+<li class="level-3"><a href="ch08.html#§8.1-二つの微分、二つの世界">§8.1 二つの微分、二つの世界</a></li>
+<li class="level-3"><a href="ch08.html#§8.2-翻訳辞書の完成">§8.2 翻訳辞書の完成</a></li>
+<li class="level-3"><a href="ch08.html#§8.3-ストークスの定理を翻訳する">§8.3 ストークスの定理を翻訳する</a></li>
+<li class="level-3"><a href="ch08.html#§8.4-ガウスの定理を翻訳する">§8.4 ガウスの定理を翻訳する</a></li>
+<li class="level-3"><a href="ch08.html#§8.5-二つの方法論——場はそのままか、測定器はそのままか">§8.5 二つの方法論——場はそのままか、測定器はそのままか</a></li>
+<li class="level-3"><a href="ch08.html#§8.6-曲線座標と二つの方法">§8.6 曲線座標と二つの方法</a></li>
 </ul>
 <h3><a href="ch09.html">第9章：実戦 —— 辞書を作り、難問を解く</a></h3>
 <ul>
-<li class="level-3"><a href="ch09.html#90-本書の中心的な道具は揃った">§9.0 本書の中心的な道具は揃った</a></li>
-<li class="level-3"><a href="ch09.html#91-辞書をその場で作る機械的手順">§9.1 辞書をその場で作る——機械的手順</a></li>
-<li class="level-3"><a href="ch09.html#92-円柱座標">§9.2 円柱座標 $(r,\theta,z)$</a></li>
-<li class="level-3"><a href="ch09.html#93-球座標">§9.3 球座標 $(\rho,\theta,\phi)$</a></li>
-<li class="level-3"><a href="ch09.html#94-微積分の難問球座標でのベクトルラプラシアン">§9.4 微積分の難問——球座標でのベクトルラプラシアン</a></li>
-<li class="level-3"><a href="ch09.html#95-電磁気学の難問点電荷の電場と発散">§9.5 電磁気学の難問——点電荷の電場と発散</a></li>
-<li class="level-3"><a href="ch09.html#96-辞書は終わり旅は続く">§9.6 辞書は終わり、旅は続く</a></li>
+<li class="level-3"><a href="ch09.html#§9.0-本書の中心的な道具は揃った">§9.0 本書の中心的な道具は揃った</a></li>
+<li class="level-3"><a href="ch09.html#§9.1-辞書をその場で作る——機械的手順">§9.1 辞書をその場で作る——機械的手順</a></li>
+<li class="level-3"><a href="ch09.html#§9.2-円柱座標-$(r,\theta,z)$">§9.2 円柱座標 $(r,\theta,z)$</a></li>
+<li class="level-3"><a href="ch09.html#§9.3-球座標-$(\rho,\theta,\phi)$">§9.3 球座標 $(\rho,\theta,\phi)$</a></li>
+<li class="level-3"><a href="ch09.html#§9.4-微積分の難問——球座標でのベクトルラプラシアン">§9.4 微積分の難問——球座標でのベクトルラプラシアン</a></li>
+<li class="level-3"><a href="ch09.html#§9.5-電磁気学の難問——点電荷の電場と発散">§9.5 電磁気学の難問——点電荷の電場と発散</a></li>
+<li class="level-3"><a href="ch09.html#§9.6-辞書は終わり、旅は続く">§9.6 辞書は終わり、旅は続く</a></li>
 </ul>
-</div>
+</div></div>
 <div class="toc-part"><h2 class="part-header">第III部：発展と統合（第10章〜第12章）</h2><div class="toc-part-chapters">
 <h3><a href="ch10.html">第10章：マクスウェル方程式 —— 美しさのその先へ</a></h3>
 <ul>
-<li class="level-3"><a href="ch10.html#100-お約束">§10.0 お約束</a></li>
-<li class="level-3"><a href="ch10.html#101-マクスウェル方程式2本で書く">§10.1 マクスウェル方程式——2本で書く</a></li>
-<li class="level-3"><a href="ch10.html#102-電磁場-と符号規約の固定">§10.2 電磁場 $F$ と符号規約の固定</a></li>
-<li class="level-3"><a href="ch10.html#103-ミンコフスキー計量-から4次元へ">§10.3 ミンコフスキー計量——$\mathbb{R}^3$ から4次元へ</a></li>
-<li class="level-3"><a href="ch10.html#104-を全部書き下す">§10.4 $dF=0$ を全部書き下す</a></li>
-<li class="level-3"><a href="ch10.html#105-と残りの2本">§10.5 $\ast F$ と残りの2本</a></li>
-<li class="level-3"><a href="ch10.html#106-ポテンシャル構成-から始める">§10.6 ポテンシャル構成——$F=-d\mathcal{A}$ から始める</a></li>
-<li class="level-2"><a href="ch10.html#付録E-と-のスライス行列表示--配列で見るマクスウェル方程式">付録E：$dF$ と $d(\ast F)$ のスライス行列表示 —— $4\times4\times4$ 配列で見るマクスウェル方程式</a></li>
-<li class="level-3"><a href="ch10.html#E1-基底--form-とそのスライス行列--全16枚">E.1 基底 $3$-form とそのスライス行列 —— 全16枚</a></li>
-<li class="level-3"><a href="ch10.html#E2-をスライス行列で書く">E.2 $dF$ をスライス行列で書く</a></li>
-<li class="level-3"><a href="ch10.html#E3-フロベニウス積で係数を抜き出す">E.3 フロベニウス積で係数を抜き出す</a></li>
-<li class="level-3"><a href="ch10.html#E4-をスライスで読む">E.4 $dF=0$ をスライスで読む</a></li>
-<li class="level-3"><a href="ch10.html#E5-のスライス表示">E.5 $d(\ast F) = \mu_0(\ast\mathcal{J})$ のスライス表示</a></li>
+<li class="level-3"><a href="ch10.html#§10.0-お約束">§10.0 お約束</a></li>
+<li class="level-3"><a href="ch10.html#§10.1-マクスウェル方程式——2本で書く">§10.1 マクスウェル方程式——2本で書く</a></li>
+<li class="level-3"><a href="ch10.html#§10.2-電磁場-$F$-と符号規約の固定">§10.2 電磁場 $F$ と符号規約の固定</a></li>
+<li class="level-3"><a href="ch10.html#§10.3-ミンコフスキー計量——$\mathbb{R}^3$-から4次元へ">§10.3 ミンコフスキー計量——$\mathbb{R}^3$ から4次元へ</a></li>
+<li class="level-3"><a href="ch10.html#§10.4-$dF=0$-を全部書き下す">§10.4 $dF=0$ を全部書き下す</a></li>
+<li class="level-3"><a href="ch10.html#§10.5-$\ast-F$-と残りの2本">§10.5 $\ast F$ と残りの2本</a></li>
+<li class="level-3"><a href="ch10.html#§10.6-ポテンシャル構成——$F=-d\mathcal{A}$-から始める">§10.6 ポテンシャル構成——$F=-d\mathcal{A}$ から始める</a></li>
+<li class="level-2"><a href="ch10.html#付録E：$dF$-と-$d(\ast-F)$-のスライス行列表示-——-$4\times4\times4$-配列で見るマクスウェル方程式">付録E：$dF$ と $d(\ast F)$ のスライス行列表示 —— $4\times4\times4$ 配列で見るマクスウェル方程式</a></li>
+<li class="level-3"><a href="ch10.html#E.1-基底-$3$-form-とそのスライス行列-——-全16枚">E.1 基底 $3$-form とそのスライス行列 —— 全16枚</a></li>
+<li class="level-3"><a href="ch10.html#E.2-$dF$-をスライス行列で書く">E.2 $dF$ をスライス行列で書く</a></li>
+<li class="level-3"><a href="ch10.html#E.3-フロベニウス積で係数を抜き出す">E.3 フロベニウス積で係数を抜き出す</a></li>
+<li class="level-3"><a href="ch10.html#E.4-$dF=0$-をスライスで読む">E.4 $dF=0$ をスライスで読む</a></li>
+<li class="level-3"><a href="ch10.html#E.5-$d(\ast-F)-=-\mu_0(\ast\mathcal{J})$-のスライス表示">E.5 $d(\ast F) = \mu_0(\ast\mathcal{J})$ のスライス表示</a></li>
 </ul>
 <h3><a href="ch11.html">第11章：曲がった空間へ —— 本書の先にあるもの</a></h3>
 <ul>
-<li class="level-3"><a href="ch11.html#110-この章の立ち位置--さらに先を見たい読者のための道標">§11.0 この章の立ち位置 —— さらに先を見たい読者のための道標</a></li>
-<li class="level-3"><a href="ch11.html#111-多様体--から始める">§11.1 多様体 —— $\mathbf{g}(x)$ から始める</a></li>
-<li class="level-3"><a href="ch11.html#112-リーマン幾何学--テンソル解析のスタイル">§11.2 リーマン幾何学 —— テンソル解析のスタイル</a></li>
-<li class="level-3"><a href="ch11.html#113-その先へ">§11.3 その先へ</a></li>
+<li class="level-3"><a href="ch11.html#§11.0-この章の立ち位置-——-さらに先を見たい読者のための道標">§11.0 この章の立ち位置 —— さらに先を見たい読者のための道標</a></li>
+<li class="level-3"><a href="ch11.html#§11.1-多様体-——-$\mathbf{g}(x)$-から始める">§11.1 多様体 —— $\mathbf{g}(x)$ から始める</a></li>
+<li class="level-3"><a href="ch11.html#§11.2-リーマン幾何学-——-テンソル解析のスタイル">§11.2 リーマン幾何学 —— テンソル解析のスタイル</a></li>
+<li class="level-3"><a href="ch11.html#§11.3-その先へ">§11.3 その先へ</a></li>
 </ul>
 <h3><a href="ch12.html">第12章：真のナブラ —— クリフォード・パウリ・ディラック・ハミルトン</a></h3>
 <ul>
-<li class="level-3"><a href="ch12.html#120-2本を1本に">§12.0 2本を1本に</a></li>
-<li class="level-3"><a href="ch12.html#121-虚数で一本に--マクスウェル方程式の統合">§12.1 虚数で一本に —— マクスウェル方程式の統合</a></li>
-<li class="level-3"><a href="ch12.html#122-パウリ行列--異なる次数を足す魔法">§12.2 パウリ行列 —— 異なる次数を足す魔法</a></li>
-<li class="level-3"><a href="ch12.html#123-ディラック演算子と真のナブラ">§12.3 ディラック演算子と「真のナブラ」</a></li>
-<li class="level-3"><a href="ch12.html#124-演算子">§12.4 演算子$\nabla$</a></li>
+<li class="level-3"><a href="ch12.html#§12.0-2本を1本に">§12.0 2本を1本に</a></li>
+<li class="level-3"><a href="ch12.html#§12.1-虚数で一本に-——-マクスウェル方程式の統合">§12.1 虚数で一本に —— マクスウェル方程式の統合</a></li>
+<li class="level-3"><a href="ch12.html#§12.2-パウリ行列-——-異なる次数を足す魔法">§12.2 パウリ行列 —— 異なる次数を足す魔法</a></li>
+<li class="level-3"><a href="ch12.html#§12.3-ディラック演算子と「真のナブラ」">§12.3 ディラック演算子と「真のナブラ」</a></li>
+<li class="level-3"><a href="ch12.html#§12.4-演算子$\nabla$">§12.4 演算子$\nabla$</a></li>
 </ul>
 </div></div>
 <h2><a href="postscript.html">おわりに：『ナブラ解体新書』はいかにして生まれたか</a></h2>
 <h2><a href="refs.html">参考文献（と著者からのコメント）</a></h2>
 <h2><a href="appendix.html">付録：本書で語らなかったもの</a></h2>
 <ul>
-<li class="level-2"><a href="appendix.html#I-理論的枠組みと厳密性について">I. 理論的枠組みと厳密性について</a></li>
-<li class="level-2"><a href="appendix.html#II-手法の選択と適用限界について">II. 手法の選択と適用限界について</a></li>
-<li class="level-2"><a href="appendix.html#III-物理的定義と教育的配慮について">III. 物理的定義と教育的配慮について</a></li>
+<li class="level-2"><a href="appendix.html#I.-理論的枠組みと厳密性について">I. 理論的枠組みと厳密性について</a></li>
+<li class="level-2"><a href="appendix.html#II.-手法の選択と適用限界について">II. 手法の選択と適用限界について</a></li>
+<li class="level-2"><a href="appendix.html#III.-物理的定義と教育的配慮について">III. 物理的定義と教育的配慮について</a></li>
 </ul>
 </div>
       <div class="nav-buttons">
         <span></span>
         <span></span>
       </div>
-      <footer class="site-footer">
-        <p>&copy; yokiikoy (CC BY-NC 4.0). 本書の最新版・PDF・改訂履歴・関連情報・本書以外のコンテンツはポータルサイト <a href="https://covectorspace.xyz/jp/">Project Co-Vector Space</a> をご確認ください。</p>
-      </footer>
     </article>
+    <footer class="site-footer">
+      <p>&copy; 2024- yokiikoy. CC BY-NC 4.0.</p>
+    </footer>
   </main>
 </body>
 </html>

@@ -21,6 +21,7 @@
   .sidebar a { text-decoration: none; color: #0969da; }
   .sidebar a:hover { text-decoration: underline; }
   .sidebar .active { color: #cf222e; font-weight: bold; }
+  .sidebar .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
   .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; }
   .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; }
   @media (max-width: 900px) { 
@@ -45,11 +46,13 @@
   .full-toc h2 { font-size: 1.1rem; margin: 1.5em 0 0.3em; padding-bottom: 2px; border-bottom: 1px solid #d0d7de; }
   .full-toc h2 a { color: #24292f; text-decoration: none; }
   .full-toc h2 a:hover { color: #0969da; }
+  .full-toc h2 .disabled-link { color: #8c959f; cursor: not-allowed; }
   .full-toc ul { list-style: none; padding-left: 1.5rem; margin: 0.3em 0 0; }
   .full-toc li { margin-bottom: 0.2rem; font-size: 0.9rem; }
   .full-toc .level-3 { padding-left: 1rem; font-size: 0.8rem; color: #57606a; }
   .full-toc a { color: #0969da; text-decoration: none; }
   .full-toc a:hover { text-decoration: underline; }
+  .full-toc .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
   .full-toc .part-header { font-size: 1.1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }
   .full-toc .toc-part-chapters { padding-left: 1.5rem; }
   .full-toc .toc-part-chapters h3 { font-size: 0.95rem; margin: 0.5em 0 0.2em; }
@@ -83,23 +86,46 @@
       著者: yokiikoy<br>
       <a href="http://covectorspace.xyz/jp/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a>
     </div>
-    <div class="toc"><ul>
+    <div class="toc">
+      <ul>
 <li class="level-1"><a href="toc.html" id="link-toc.html">目次</a></li>
 <li class="level-1"><a href="index.html" id="link-index.html">著者ノート</a></li>
 <li class="level-1"><a href="intro.html" id="link-intro.html">はじめに</a></li>
 <li class="level-1"><a href="portal.html" id="link-portal.html">ポータルサイトとちょっとした試み</a></li>
 <li class="level-1"><a href="ch01.html" id="link-ch01.html">第1章</a></li>
+<li class="level-1"><a href="#" id="link-ch02.html" class="disabled-link" title="完結版に収録予定">第2章</a></li>
+<li class="level-1"><a href="#" id="link-ch03.html" class="disabled-link" title="完結版に収録予定">第3章</a></li>
+<li class="level-1"><a href="#" id="link-ch04.html" class="disabled-link" title="完結版に収録予定">第4章</a></li>
+<li class="level-1"><a href="#" id="link-ch05.html" class="disabled-link" title="完結版に収録予定">第5章</a></li>
+<li class="level-1"><a href="#" id="link-ch06.html" class="disabled-link" title="完結版に収録予定">第6章</a></li>
+<li class="level-1"><a href="#" id="link-ch07.html" class="disabled-link" title="完結版に収録予定">第7章</a></li>
+<li class="level-1"><a href="#" id="link-ch08.html" class="disabled-link" title="完結版に収録予定">第8章</a></li>
+<li class="level-1"><a href="#" id="link-ch09.html" class="disabled-link" title="完結版に収録予定">第9章</a></li>
+<li class="level-1"><a href="#" id="link-ch10.html" class="disabled-link" title="完結版に収録予定">第10章</a></li>
+<li class="level-1"><a href="#" id="link-ch11.html" class="disabled-link" title="完結版に収録予定">第11章</a></li>
+<li class="level-1"><a href="#" id="link-ch12.html" class="disabled-link" title="完結版に収録予定">第12章</a></li>
 <li class="level-1"><a href="postscript.html" id="link-postscript.html">おわりに</a></li>
 <li class="level-1"><a href="refs.html" id="link-refs.html">参考文献（と著者からのコメント）</a></li>
-<li class="level-1"><a href="appendix.html" class="active" id="link-appendix.html">付録</a><ul class="sub-toc"><li class="level-2"><a href="#I-理論的枠組みと厳密性について">I. 理論的枠組みと厳密性について</a></li><li class="level-2"><a href="#II-手法の選択と適用限界について">II. 手法の選択と適用限界について</a></li><li class="level-2"><a href="#III-物理的定義と教育的配慮について">III. 物理的定義と教育的配慮について</a></li></ul></li>
-</ul></div>
+<li class="level-1"><a href="appendix.html" class="active" id="link-appendix.html">付録</a><ul class="sub-toc"><li class="level-2"><a href="#I.-理論的枠組みと厳密性について">I. 理論的枠組みと厳密性について</a></li><li class="level-2"><a href="#II.-手法の選択と適用限界について">II. 手法の選択と適用限界について</a></li><li class="level-2"><a href="#III.-物理的定義と教育的配慮について">III. 物理的定義と教育的配慮について</a></li></ul></li>
+</ul>
+    </div>
   </nav>
   <main class="main-content">
     <article class="markdown-body">
-      <div class="preview-notice" style="background: #fff8c5; border: 1px solid #d4a72c; padding: 1rem; border-radius: 6px; margin-bottom: 2rem; font-size: 0.9rem;">
-      <strong>先行公開版のお知らせ:</strong> このドキュメントは先行公開用であり、内容（前付け・第1章・後付類のみ）を限定しています。最新の全体版や詳細についてはポータルサイトをご確認ください。
+<div class="preview-notice" style="background: #fff8c5; border: 1px solid #d4a72c; padding: 1rem; border-radius: 6px; margin-bottom: 2rem; font-size: 0.9rem;">
+      <strong>先行公開版のお知らせ:</strong> このドキュメントは先行公開用であり、内容（前付け・第1章・後付類のみ）を限定しています。最新の完結版や詳細についてはポータルサイトをご確認ください。
     </div>
-<h1 id="付録本書で語らなかったもの">付録：本書で語らなかったもの</h1>
+<p># 付録：本書で語らなかったもの
+</p>
+<hr />
+<p>title: "付録：本書で語らなかったもの"
+ series: ナブラ解体新書
+ chapter: NA
+ order: 99
+</p>
+<hr />
+<p># 付録：本書で語らなかったもの
+</p>
 <p>本付録は、本書の記述に対して想定される流儀上の相違、理論的限界、または読者からの典型的な指摘を整理したものです。
 </p>
 <p>本書は、一般多様体上の微分形式論を公理的に展開する本ではありません。3次元デカルト空間におけるベクトル解析を、行列表示の微分形式を通して再構成するための教育的な本です。したがって、本書で採用した記法や説明順序は、標準的な数学書の記述と一致しない箇所があります。それらは原則として意図的な選択であり、必要に応じて第11章で標準的理論への接続を示しました。
@@ -137,7 +163,8 @@
 <p>三十にして立つなどというが、実際にその折になってみると、立つどころか未だに式と腹が立つばかりです。オヤジギャグは言うようになってしまいました。</p>
 </blockquote>
 <hr />
-<h2 id="I-理論的枠組みと厳密性について">I. 理論的枠組みと厳密性について</h2>
+<p>## I. 理論的枠組みと厳密性について
+</p>
 <ul>
 <li><strong>多様体、アトラス、接空間などの数学的定義なしに外微分 $d$ を導入するのは不正確です</strong></li>
 <p>  → 本書は一般多様体上の微分形式の教科書ではなく、3次元ユークリッド空間上でベクトル解析へ到達するための導入書です。一般多様体への移行については第11章で道標を示します。
@@ -179,7 +206,8 @@
 </p>
 </ul>
 <hr />
-<h2 id="II-手法の選択と適用限界について">II. 手法の選択と適用限界について</h2>
+<p>## II. 手法の選択と適用限界について
+</p>
 <ul>
 <li><strong>アインシュタインの縮約記法（テンソル解析）を用いれば行列の束を使わずとも計算できます</strong></li>
 <p>  → その通りである。本書では、行列の成分を毎回明示的に書き下す方針をとっています。これにより、読者は「ブラックボックス化された添字操作」に惑わず、各成分がどこから来て、どこへ作用するのかを追うことができます。むしろ、本書を読みこなした読者なら、上付き添字・下付き添字の規則とアインシュタイン縮約を練習するだけで、テンソル解析の成分計算へ比較的すぐ移行できるはずです。添字記法との対応は第11章で示す。
@@ -231,7 +259,8 @@
 </p>
 </ul>
 <hr />
-<h2 id="III-物理的定義と教育的配慮について">III. 物理的定義と教育的配慮について</h2>
+<p>## III. 物理的定義と教育的配慮について
+</p>
 <ul>
 <li><strong>直感的な図解（右ねじの法則等）がなく、代数計算ばかりで物理的イメージが湧きません</strong></li>
 <p>  → 本書は「図解」ではなく「行列計算」によって物理的イメージを形成することを目的としています。たとえば第2章 §2.4 では、面積測定器の内部構造を行列として視覚化することで、ウェッジ積の交代性が「引き算」として現れることを示しています。これが本書における「イメージ」です。
@@ -275,10 +304,10 @@
         <a href="refs.html">← 参考文献（と著者からのコメント...</a>
         <span></span>
       </div>
-      <footer class="site-footer">
-        <p>&copy; yokiikoy (CC BY-NC 4.0). 本書の最新版・PDF・改訂履歴・関連情報・本書以外のコンテンツはポータルサイト <a href="https://covectorspace.xyz/jp/">Project Co-Vector Space</a> をご確認ください。</p>
-      </footer>
     </article>
+    <footer class="site-footer">
+      <p>&copy; 2024- yokiikoy. CC BY-NC 4.0.</p>
+    </footer>
   </main>
 </body>
 </html>

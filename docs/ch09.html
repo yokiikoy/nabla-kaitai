@@ -21,6 +21,7 @@
   .sidebar a { text-decoration: none; color: #0969da; }
   .sidebar a:hover { text-decoration: underline; }
   .sidebar .active { color: #cf222e; font-weight: bold; }
+  .sidebar .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
   .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; }
   .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; }
   @media (max-width: 900px) { 
@@ -45,11 +46,13 @@
   .full-toc h2 { font-size: 1.1rem; margin: 1.5em 0 0.3em; padding-bottom: 2px; border-bottom: 1px solid #d0d7de; }
   .full-toc h2 a { color: #24292f; text-decoration: none; }
   .full-toc h2 a:hover { color: #0969da; }
+  .full-toc h2 .disabled-link { color: #8c959f; cursor: not-allowed; }
   .full-toc ul { list-style: none; padding-left: 1.5rem; margin: 0.3em 0 0; }
   .full-toc li { margin-bottom: 0.2rem; font-size: 0.9rem; }
   .full-toc .level-3 { padding-left: 1rem; font-size: 0.8rem; color: #57606a; }
   .full-toc a { color: #0969da; text-decoration: none; }
   .full-toc a:hover { text-decoration: underline; }
+  .full-toc .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
   .full-toc .part-header { font-size: 1.1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }
   .full-toc .toc-part-chapters { padding-left: 1.5rem; }
   .full-toc .toc-part-chapters h3 { font-size: 0.95rem; margin: 0.5em 0 0.2em; }
@@ -83,7 +86,8 @@
       著者: yokiikoy<br>
       <a href="http://covectorspace.xyz/jp/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a>
     </div>
-    <div class="toc"><ul>
+    <div class="toc">
+      <ul>
 <li class="level-1"><a href="toc.html" id="link-toc.html">目次</a></li>
 <li class="level-1"><a href="index.html" id="link-index.html">著者ノート</a></li>
 <li class="level-1"><a href="intro.html" id="link-intro.html">はじめに</a></li>
@@ -96,19 +100,60 @@
 <li class="level-1"><a href="ch06.html" id="link-ch06.html">第6章</a></li>
 <li class="level-1"><a href="ch07.html" id="link-ch07.html">第7章</a></li>
 <li class="level-1"><a href="ch08.html" id="link-ch08.html">第8章</a></li>
-<li class="level-1"><a href="ch09.html" class="active" id="link-ch09.html">第9章</a><ul class="sub-toc"><li class="level-3"><a href="#90-本書の中心的な道具は揃った">§9.0 本書の中心的な道具は揃った</a></li><li class="level-3"><a href="#91-辞書をその場で作る機械的手順">§9.1 辞書をその場で作る——機械的手順</a></li><li class="level-3"><a href="#92-円柱座標">§9.2 円柱座標 $(r,\theta,z)$</a></li><li class="level-3"><a href="#93-球座標">§9.3 球座標 $(\rho,\theta,\phi)$</a></li><li class="level-3"><a href="#94-微積分の難問球座標でのベクトルラプラシアン">§9.4 微積分の難問——球座標でのベクトルラプラシアン</a></li><li class="level-3"><a href="#95-電磁気学の難問点電荷の電場と発散">§9.5 電磁気学の難問——点電荷の電場と発散</a></li><li class="level-3"><a href="#96-辞書は終わり旅は続く">§9.6 辞書は終わり、旅は続く</a></li></ul></li>
+<li class="level-1"><a href="ch09.html" class="active" id="link-ch09.html">第9章</a><ul class="sub-toc"><li class="level-3"><a href="#§9.0-本書の中心的な道具は揃った">§9.0 本書の中心的な道具は揃った</a></li><li class="level-3"><a href="#§9.1-辞書をその場で作る——機械的手順">§9.1 辞書をその場で作る——機械的手順</a></li><li class="level-3"><a href="#§9.2-円柱座標-$(r,\theta,z)$">§9.2 円柱座標 $(r,\theta,z)$</a></li><li class="level-3"><a href="#§9.3-球座標-$(\rho,\theta,\phi)$">§9.3 球座標 $(\rho,\theta,\phi)$</a></li><li class="level-3"><a href="#§9.4-微積分の難問——球座標でのベクトルラプラシアン">§9.4 微積分の難問——球座標でのベクトルラプラシアン</a></li><li class="level-3"><a href="#§9.5-電磁気学の難問——点電荷の電場と発散">§9.5 電磁気学の難問——点電荷の電場と発散</a></li><li class="level-3"><a href="#§9.6-辞書は終わり、旅は続く">§9.6 辞書は終わり、旅は続く</a></li></ul></li>
 <li class="level-1"><a href="ch10.html" id="link-ch10.html">第10章</a></li>
 <li class="level-1"><a href="ch11.html" id="link-ch11.html">第11章</a></li>
 <li class="level-1"><a href="ch12.html" id="link-ch12.html">第12章</a></li>
 <li class="level-1"><a href="postscript.html" id="link-postscript.html">おわりに</a></li>
 <li class="level-1"><a href="refs.html" id="link-refs.html">参考文献（と著者からのコメント）</a></li>
 <li class="level-1"><a href="appendix.html" id="link-appendix.html">付録</a></li>
-</ul></div>
+</ul>
+    </div>
   </nav>
   <main class="main-content">
     <article class="markdown-body">
-      <h1 id="第9章実戦--辞書を作り難問を解く">第9章：実戦 —— 辞書を作り、難問を解く</h1>
-<h3 id="90-本書の中心的な道具は揃った">§9.0 本書の中心的な道具は揃った</h3>
+<p># 第9章：実戦 —— 辞書を作り、難問を解く
+</p>
+<hr />
+<p>chapter: 9
+ order: 90
+ assumes:
+   - exterior_derivative
+   - metric
+   - hodge_star
+   - nabla_operators
+   - cross_product
+   - nabla_symbol
+   - laplacian
+   - pullback
+   - jacobian
+ introduces: {}
+ previews:
+   maxwell_forms:
+     max_level: intuition
+     note: "電磁気学の例として簡単な計算のみ。具体式やマクスウェル方程式の全容は第10章。"
+ recap_policy:
+   exterior_derivative:
+     max_level: formula
+     max_lines: 3
+   hodge_star:
+     max_level: formula
+     max_lines: 3
+   nabla_operators:
+     max_level: formula
+     max_lines: 3
+   pullback:
+     max_level: formula
+     max_lines: 3
+   jacobian:
+     max_level: formula
+     max_lines: 3
+</p>
+<hr />
+<p># 第9章：実戦 —— 辞書を作り、難問を解く
+</p>
+<p>### §9.0 本書の中心的な道具は揃った
+</p>
 <p>　第8章 §8.0 で「本章はこの本のハイライトである」と述べ、実際に二つの言語のあいだを翻訳し、積分定理を一本化し、二つの方法論を対比した。本書の中心的な道具立ては、ここまででほぼ揃っている。
 </p>
 <p>しかし、これだけの道具を揃えて、使わずに終わるのはもったいない。本章では、ここまでに構築した辞書を実際の問題に適用し、ベクトル解析の難問を機械的に解いてみせる。理論は第8章までで十分だ——ここから先は<strong>演習</strong>である。
@@ -119,7 +164,8 @@
 <p><strong>注</strong> （ベクトル解析を学んだことがない読者へ）以下の計算のうち、grad, div, rot の導出はどれも数行で済んでいる。$\ast d\ast$ に辞書を代入し、偏微分を展開する——それだけだ。だから簡単そうに見える。しかし、これと同じ結果をベクトル解析の流儀で導出しようとすると、$\nabla$ に $\frac{1}{r}\frac{\partial}{\partial r}(r\,\cdot\,)$ や $\frac{1}{\rho^2\sin\theta}$ といった因子を手作業で管理しながら、数ページにわたる式変形を強いられる。簡単そうに見えるのは、次数の異なる測定器を $\ast$ が自動的に整理してくれるからだ。§9.4 のラプラシアンはさすがに手強いが、それでもやっていることは辞書を引いて偏微分を展開するだけ——要領は変わらない。この差こそ、本書が第1章から積み上げてきた「測定器」の枠組みの真価である。</p>
 </blockquote>
 <hr />
-<h3 id="91-辞書をその場で作る機械的手順">§9.1 辞書をその場で作る——機械的手順</h3>
+<p>### §9.1 辞書をその場で作る——機械的手順
+</p>
 <p>直交曲線座標で $\mathrm{grad}, \mathrm{div}, \mathrm{rot}$ の公式を導出する手順は、以下の3ステップに集約される。
 </p>
 <ol>
@@ -141,8 +187,10 @@
 <p>以下、この手順を円柱座標と球座標で実演する。まず形式（form）として計算し、最後に正規直交ベクトル成分へ戻す流れを意識してほしい。
 </p>
 <hr />
-<h3 id="92-円柱座標">§9.2 円柱座標 $(r,\theta,z)$</h3>
-<h4 id="921-辞書の導出">9.2.1 辞書の導出</h4>
+<p>### §9.2 円柱座標 $(r,\theta,z)$
+</p>
+<p>#### 9.2.1 辞書の導出
+</p>
 <p>円柱座標への変換は $x = r\cos\theta$, $y = r\sin\theta$, $z = z$。
 </p>
 <blockquote>
@@ -181,7 +229,8 @@ $$\begin{aligned}
 <p></p>
 <p>物理で使う単位ベクトル方向の成分（物理成分）を $(F_r, F_\theta, F_z)$ と書くなら、対応する $1$-form は $F_r dr + F_\theta (r d\theta) + F_z dz$、すなわち form 係数は $(F_r, rF_\theta, F_z)$ となる。本章の $F_\theta$ はつねに「物理成分」を指す。</p>
 </blockquote>
-<h4 id="922-勾配">9.2.2 勾配</h4>
+<p>#### 9.2.2 勾配
+</p>
 <p>$\mathrm{grad}\,f = df$ は $\ast$ を使わない。単に偏微分係数を基底 $1$-form に載せるだけだ。
 </p>
 $$df = \frac{\partial f}{\partial r}\,dr + \frac{\partial f}{\partial \theta}\,d\theta + \frac{\partial f}{\partial z}\,dz$$
@@ -190,28 +239,23 @@ $$df = \frac{\partial f}{\partial r}\,dr + \frac{\partial f}{\partial \theta}\,d
 $$\nabla f = \begin{pmatrix} \frac{\partial f}{\partial r} & \frac{1}{r}\frac{\partial f}{\partial \theta} & \frac{\partial f}{\partial z} \end{pmatrix}^T$$
 <p>$\theta$ 成分に $\frac{1}{r}$ がつくのは、$\nabla f$ が正規直交基底に対する成分だからだ。$df$ の $d\theta$ の係数 $\frac{\partial f}{\partial\theta}$ は「角度あたりの変化率」だが、$\nabla f$ の $\mathbf{e}_\theta$ 成分は「長さあたりの変化率」であり、$d\theta$ が弧長 $r\,d\theta$ に対応するための換算 $\frac{1}{r}$ が必要になる。
 </p>
-<h4 id="923-発散">9.2.3 発散</h4>
+<p>#### 9.2.3 発散
+</p>
 <p>$\mathbf{F} = (F_r, F_\theta, F_z)^T$ に対応する $1$-form は、以下に述べる「式に現れるスケール因子によって form 係数を明示する」という約束に基づき、$\omega = F_r\,dr + rF_\theta\,d\theta + F_z\,dz$ である。
 </p>
 <blockquote>
 <p><strong>注</strong> （$\tilde{\omega}$ のチルダについて）</p>
 <p>第8章 §8.6.2 では、正規直交成分 $F_\theta$ と form 係数 $rF_\theta$ を区別するために $\tilde{\omega}$ という記法を使った。本章では記号を軽くするため、以下ではチルダを省いて $\omega$ と書く。ただし、$F_r,F_\theta,F_z$ は常に正規直交ベクトル成分を表すものとする。対応する $1$-form は、その都度スケール因子を含めて明示する。円柱座標では
-<p></p>
-</blockquote>
-</p>
-$$
+<p>$$
 > \omega = F_r\,dr + rF_\theta\,d\theta + F_z\,dz
-> $$
-<blockquote>
+> $$</p>
 <p>であり、球座標では</p>
-<p></p>
-</blockquote>
-$$
+<p>$$
 > \omega = F_\rho\,d\rho + \rho F_\theta\,d\theta + \rho\sin\theta\,F_\phi\,d\phi
-> $$
-<blockquote>
+> $$</p>
 <p>である。したがって、読者が文脈から推測するのではなく、式に現れるスケール因子によって form 係数を明示する、という約束で読む。</p>
 </blockquote>
+</p>
 $$\begin{aligned}
 \ast\omega &= F_r(r\,d\theta\wedge dz) + rF_\theta\!\left(\frac{1}{r}\,dz\wedge dr\right) + F_z(r\,dr\wedge d\theta) \\
 &= rF_r\,d\theta\wedge dz + F_\theta\,dz\wedge dr + rF_z\,dr\wedge d\theta \\[0.3em]
@@ -220,7 +264,8 @@ d\ast\omega &= \left(\frac{\partial}{\partial r}(rF_r) + \frac{\partial F_\theta
 \end{aligned}$$
 <p>これが円柱座標での発散の公式である。
 </p>
-<h4 id="924-回転">9.2.4 回転</h4>
+<p>#### 9.2.4 回転
+</p>
 <p>回転は $\mathrm{rot}\,\mathbf{F} \leftrightarrow \ast d\omega$。
 </p>
 $$d\omega = \left(\frac{\partial}{\partial r}(rF_\theta) - \frac{\partial F_r}{\partial\theta}\right) dr\wedge d\theta + \left(\frac{\partial F_z}{\partial\theta} - \frac{\partial}{\partial z}(rF_\theta)\right) d\theta\wedge dz + \left(\frac{\partial F_r}{\partial z} - \frac{\partial F_z}{\partial r}\right) dz\wedge dr$$
@@ -235,8 +280,10 @@ $$\nabla \times \mathbf{F} = \begin{pmatrix}
 <p>$r$ が $\frac{\partial}{\partial r}$ の内側と外側に現れる構造は、§7.6.2 の方法②で扇形の面積要素を数えたときの $\frac{1}{r}$ とまったく同じ起源を持つ。
 </p>
 <hr />
-<h3 id="93-球座標">§9.3 球座標 $(\rho,\theta,\phi)$</h3>
-<h4 id="931-辞書の導出">9.3.1 辞書の導出</h4>
+<p>### §9.3 球座標 $(\rho,\theta,\phi)$
+</p>
+<p>#### 9.3.1 辞書の導出
+</p>
 <p>球座標への変換は $x = \rho\sin\theta\cos\phi$, $y = \rho\sin\theta\sin\phi$, $z = \rho\cos\theta$（$\theta$ は $z$ 軸からの角度、$\phi$ は $xy$ 平面内の方位角）。
 </p>
 $$J = \begin{pmatrix}
@@ -270,7 +317,8 @@ $$\begin{aligned}
 </blockquote>
 <p>ここでは $\rho>0$ かつ $0<\theta<\pi$ の座標パッチで計算している。原点 $\rho=0$ と極軸 $\sin\theta=0$ では球座標そのものが特異になり、$1/\rho$ や $1/\sin\theta$ を含む公式をそのまま使うことはできない。特異点をまたぐ問題では、別の座標パッチを使うか、特異点を除いた領域で計算してから境界条件として扱う。
 </p>
-<h4 id="932-発散">9.3.2 発散</h4>
+<p>#### 9.3.2 発散
+</p>
 <p>$\mathbf{F} = (F_\rho, F_\theta, F_\phi)^T$ の $1$-form への変換では、$d\rho$ の係数は $F_\rho$（$\rho$ はすでに長さ）、$d\theta$ の係数は $\rho F_\theta$、$d\phi$ の係数は $\rho\sin\theta\,F_\phi$ となる（それぞれ弧長 $\rho\,d\theta$, $\rho\sin\theta\,d\phi$ に対応）。
 </p>
 $$\omega = F_\rho\,d\rho + \rho F_\theta\,d\theta + \rho\sin\theta\,F_\phi\,d\phi$$
@@ -281,7 +329,8 @@ $$d\ast\omega = \left(\frac{\partial}{\partial\rho}(\rho^2\sin\theta\,F_\rho) + 
 <p>$\ast(d\rho\wedge d\theta\wedge d\phi) = 1/(\rho^2\sin\theta)$ より、
 </p>
 $$\nabla \cdot \mathbf{F} = \frac{1}{\rho^2}\frac{\partial}{\partial\rho}(\rho^2 F_\rho) + \frac{1}{\rho\sin\theta}\frac{\partial}{\partial\theta}(\sin\theta\,F_\theta) + \frac{1}{\rho\sin\theta}\frac{\partial F_\phi}{\partial\phi}$$
-<h4 id="933-回転">9.3.3 回転</h4>
+<p>#### 9.3.3 回転
+</p>
 <p>同様に $\ast d\omega$ から、
 </p>
 $$\nabla \times \mathbf{F} = \begin{pmatrix}
@@ -290,7 +339,8 @@ $$\nabla \times \mathbf{F} = \begin{pmatrix}
 \frac{1}{\rho}\frac{\partial}{\partial\rho}(\rho F_\theta) - \frac{1}{\rho}\frac{\partial F_\rho}{\partial\theta}
 \end{pmatrix}$$
 <hr />
-<h3 id="94-微積分の難問球座標でのベクトルラプラシアン">§9.4 微積分の難問——球座標でのベクトルラプラシアン</h3>
+<p>### §9.4 微積分の難問——球座標でのベクトルラプラシアン
+</p>
 <p>ベクトルラプラシアン $\nabla^2\mathbf{F} = \nabla(\nabla\cdot\mathbf{F}) - \nabla\times(\nabla\times\mathbf{F})$ は、ベクトル解析の公式集で最も長い式の一つとして知られる。ここでは全成分を辞書から導出する。
 </p>
 <p>方針は第8章の辞書をそのまま使うだけだ。
@@ -304,7 +354,8 @@ $$\nabla \times \mathbf{F} = \begin{pmatrix}
 $$\nabla^2\mathbf{F} \leftrightarrow d\ast d\ast\omega - \ast d\ast d\omega$$
 <p>球座標で $\omega = F_\rho\,d\rho + \rho F_\theta\,d\theta + \rho\sin\theta\,F_\phi\,d\phi$ から出発し、$d\ast d\ast\omega$ と $\ast d\ast d\omega$ を個別に計算して差をとる。
 </p>
-<h4 id="941-第一項勾配の発散">9.4.1 第一項——勾配の発散</h4>
+<p>#### 9.4.1 第一項——勾配の発散
+</p>
 <p>§9.3.2 より、発散は
 </p>
 $$\ast d\ast\omega = \frac{1}{\rho^2}\frac{\partial}{\partial\rho}(\rho^2 F_\rho) + \frac{1}{\rho\sin\theta}\frac{\partial}{\partial\theta}(\sin\theta\,F_\theta) + \frac{1}{\rho\sin\theta}\frac{\partial F_\phi}{\partial\phi}$$
@@ -315,7 +366,8 @@ $$\nabla(\nabla\cdot\mathbf{F}) = \begin{pmatrix}
 \frac{1}{\rho}\frac{\partial S}{\partial\theta} \\[0.5em]
 \frac{1}{\rho\sin\theta}\frac{\partial S}{\partial\phi}
 \end{pmatrix}$$
-<h4 id="942-第二項回転の回転">9.4.2 第二項——回転の回転</h4>
+<p>#### 9.4.2 第二項——回転の回転
+</p>
 <p>§9.3.3 の回転の結果を $C_\rho, C_\theta, C_\phi$ とおく。
 </p>
 $$\begin{aligned}
@@ -330,7 +382,8 @@ $$\begin{aligned}
 (\nabla\times(\nabla\times\mathbf{F}))_\theta &= \frac{1}{\rho\sin\theta}\frac{\partial C_\rho}{\partial\phi} - \frac{1}{\rho}\frac{\partial}{\partial\rho}(\rho C_\phi) \\[0.5em]
 (\nabla\times(\nabla\times\mathbf{F}))_\phi &= \frac{1}{\rho}\frac{\partial}{\partial\rho}(\rho C_\theta) - \frac{1}{\rho}\frac{\partial C_\rho}{\partial\theta}
 \end{aligned}$$
-<h4 id="943-差をとるベクトルラプラシアン">9.4.3 差をとる——ベクトルラプラシアン</h4>
+<p>#### 9.4.3 差をとる——ベクトルラプラシアン
+</p>
 <p>$\nabla^2\mathbf{F} = \nabla(\nabla\cdot\mathbf{F}) - \nabla\times(\nabla\times\mathbf{F})$ だから、各成分は第一項から第二項を引けばよい。$\rho$ 成分を展開する。
 </p>
 $$(\nabla^2\mathbf{F})_\rho = \frac{\partial S}{\partial\rho} - \frac{1}{\rho\sin\theta}\frac{\partial}{\partial\theta}(\sin\theta\,C_\phi) + \frac{1}{\rho\sin\theta}\frac{\partial C_\theta}{\partial\phi}$$
@@ -345,7 +398,8 @@ $$(\nabla^2\mathbf{F})_\theta = \nabla^2 F_\theta - \frac{F_\theta}{\rho^2\sin^2
 $$(\nabla^2\mathbf{F})_\phi = \nabla^2 F_\phi - \frac{F_\phi}{\rho^2\sin^2\theta} + \frac{2}{\rho^2\sin\theta}\frac{\partial F_\rho}{\partial\phi} + \frac{2\cos\theta}{\rho^2\sin^2\theta}\frac{\partial F_\theta}{\partial\phi}$$
 <p>以上で全成分の導出が完了した。ベクトル解析の流儀で一から導出すれば1ページを優に超える計算量だが、辞書を経由すれば各ステップは偏微分と係数の掛け算の繰り返しに過ぎない。個別公式を丸暗記する必要はない——$d\ast d\ast\omega - \ast d\ast d\omega$ の一本と、§9.3 の $\ast$ 辞書さえあれば、その場で再構成できる。
 </p>
-<h3 id="95-電磁気学の難問点電荷の電場と発散">§9.5 電磁気学の難問——点電荷の電場と発散</h3>
+<p>### §9.5 電磁気学の難問——点電荷の電場と発散
+</p>
 <p>最後に、電磁気学からの例題を一つ。第10章への橋渡しでもある。
 </p>
 <blockquote>
@@ -369,7 +423,8 @@ $$d\ast\omega = 0 \quad (\rho \neq 0)$$
 <p><strong>注</strong> （原点では？）$\rho = 0$ では $\omega$ が定義できない。原点を含む全空間で扱うには、通常の関数としての発散ではなく、分布（$\delta$ 関数）や積分形式で点電荷を表す必要がある。本書ではそこには立ち入らず、原点を除いた領域での計算に限ることにする。電荷密度を扱う第10章では、動径座標 $\rho$ と混同しないように、電荷密度を $\rho_{\mathrm e}$ と書いて右辺に $\rho_{\mathrm e}/\varepsilon_0$ が現れる形を扱う。</p>
 </blockquote>
 <hr />
-<h3 id="96-辞書は終わり旅は続く">§9.6 辞書は終わり、旅は続く</h3>
+<p>### §9.6 辞書は終わり、旅は続く
+</p>
 <p>本章では、第8章までに構築した辞書を使って、ベクトル解析の公式を機械的に導出し、微積分と電磁気学の難問を解いた。重要なのは、どの計算も「公式を思い出す」ではなく「辞書を引いて手順をなぞる」だけで済んだことだ。
 </p>
 <p>もはや、円柱座標や球座標の発散・回転の公式を暗記する必要はない。$J \to g = J^T J \to \ast$ 辞書 $\to$ $d$ と $\ast$ の組み合わせ——この一本道を覚えておけば、直交曲線座標の公式をその場で再構成できる。非直交座標でも原理は同じだが、$\ast$ の辞書には非対角計量に由来する混合項が現れるため、本章のような単純なスケール因子だけの表にはならないことに注意されたい。
@@ -386,13 +441,13 @@ $$d\ast\omega = 0 \quad (\rho \neq 0)$$
 <p>- 公式は丸暗記しなくてもよい。辞書さえあれば、そしてその辞書すらも、すべてその場で再構成できる。</p>
 </blockquote>
       <div class="nav-buttons">
-        <a href="ch08.html">← 第8章：二つの言語 —— 測定...</a>
-        <a href="ch10.html">第10章：マクスウェル方程式 ... →</a>
+        <a href="ch08.html">← 第8章...</a>
+        <a href="ch10.html">第10章... →</a>
       </div>
-      <footer class="site-footer">
-        <p>&copy; yokiikoy (CC BY-NC 4.0). 本書の最新版・PDF・改訂履歴・関連情報・本書以外のコンテンツはポータルサイト <a href="https://covectorspace.xyz/jp/">Project Co-Vector Space</a> をご確認ください。</p>
-      </footer>
     </article>
+    <footer class="site-footer">
+      <p>&copy; 2024- yokiikoy. CC BY-NC 4.0.</p>
+    </footer>
   </main>
 </body>
 </html>

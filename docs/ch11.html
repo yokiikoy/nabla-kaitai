@@ -21,6 +21,7 @@
   .sidebar a { text-decoration: none; color: #0969da; }
   .sidebar a:hover { text-decoration: underline; }
   .sidebar .active { color: #cf222e; font-weight: bold; }
+  .sidebar .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
   .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; }
   .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; }
   @media (max-width: 900px) { 
@@ -45,11 +46,13 @@
   .full-toc h2 { font-size: 1.1rem; margin: 1.5em 0 0.3em; padding-bottom: 2px; border-bottom: 1px solid #d0d7de; }
   .full-toc h2 a { color: #24292f; text-decoration: none; }
   .full-toc h2 a:hover { color: #0969da; }
+  .full-toc h2 .disabled-link { color: #8c959f; cursor: not-allowed; }
   .full-toc ul { list-style: none; padding-left: 1.5rem; margin: 0.3em 0 0; }
   .full-toc li { margin-bottom: 0.2rem; font-size: 0.9rem; }
   .full-toc .level-3 { padding-left: 1rem; font-size: 0.8rem; color: #57606a; }
   .full-toc a { color: #0969da; text-decoration: none; }
   .full-toc a:hover { text-decoration: underline; }
+  .full-toc .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
   .full-toc .part-header { font-size: 1.1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }
   .full-toc .toc-part-chapters { padding-left: 1.5rem; }
   .full-toc .toc-part-chapters h3 { font-size: 0.95rem; margin: 0.5em 0 0.2em; }
@@ -83,7 +86,8 @@
       著者: yokiikoy<br>
       <a href="http://covectorspace.xyz/jp/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a>
     </div>
-    <div class="toc"><ul>
+    <div class="toc">
+      <ul>
 <li class="level-1"><a href="toc.html" id="link-toc.html">目次</a></li>
 <li class="level-1"><a href="index.html" id="link-index.html">著者ノート</a></li>
 <li class="level-1"><a href="intro.html" id="link-intro.html">はじめに</a></li>
@@ -98,17 +102,42 @@
 <li class="level-1"><a href="ch08.html" id="link-ch08.html">第8章</a></li>
 <li class="level-1"><a href="ch09.html" id="link-ch09.html">第9章</a></li>
 <li class="level-1"><a href="ch10.html" id="link-ch10.html">第10章</a></li>
-<li class="level-1"><a href="ch11.html" class="active" id="link-ch11.html">第11章</a><ul class="sub-toc"><li class="level-3"><a href="#110-この章の立ち位置--さらに先を見たい読者のための道標">§11.0 この章の立ち位置 —— さらに先を見たい読者のための道標</a></li><li class="level-3"><a href="#111-多様体--から始める">§11.1 多様体 —— $\mathbf{g}(x)$ から始める</a></li><li class="level-3"><a href="#112-リーマン幾何学--テンソル解析のスタイル">§11.2 リーマン幾何学 —— テンソル解析のスタイル</a></li><li class="level-3"><a href="#113-その先へ">§11.3 その先へ</a></li></ul></li>
+<li class="level-1"><a href="ch11.html" class="active" id="link-ch11.html">第11章</a><ul class="sub-toc"><li class="level-3"><a href="#§11.0-この章の立ち位置-——-さらに先を見たい読者のための道標">§11.0 この章の立ち位置 —— さらに先を見たい読者のための道標</a></li><li class="level-3"><a href="#§11.1-多様体-——-$\mathbf{g}(x)$-から始める">§11.1 多様体 —— $\mathbf{g}(x)$ から始める</a></li><li class="level-3"><a href="#§11.2-リーマン幾何学-——-テンソル解析のスタイル">§11.2 リーマン幾何学 —— テンソル解析のスタイル</a></li><li class="level-3"><a href="#§11.3-その先へ">§11.3 その先へ</a></li></ul></li>
 <li class="level-1"><a href="ch12.html" id="link-ch12.html">第12章</a></li>
 <li class="level-1"><a href="postscript.html" id="link-postscript.html">おわりに</a></li>
 <li class="level-1"><a href="refs.html" id="link-refs.html">参考文献（と著者からのコメント）</a></li>
 <li class="level-1"><a href="appendix.html" id="link-appendix.html">付録</a></li>
-</ul></div>
+</ul>
+    </div>
   </nav>
   <main class="main-content">
     <article class="markdown-body">
-      <h1 id="第11章曲がった空間へ--本書の先にあるもの">第11章：曲がった空間へ —— 本書の先にあるもの</h1>
-<h3 id="110-この章の立ち位置--さらに先を見たい読者のための道標">§11.0 この章の立ち位置 —— さらに先を見たい読者のための道標</h3>
+<p># 第11章：曲がった空間へ —— 本書の先にあるもの
+</p>
+<hr />
+<p>chapter: 11
+ order: 110
+ assumes:
+   - exterior_derivative
+   - hodge_star
+   - maxwell_forms
+ introduces:
+   manifold_overview:
+     from: intuition
+     to: formula
+ previews:
+   clifford_dirac:
+     max_level: mention
+ recap_policy:
+   maxwell_forms:
+     max_level: mention
+     max_lines: 5
+</p>
+<hr />
+<p># 第11章：曲がった空間へ —— 本書の先にあるもの
+</p>
+<p>### §11.0 この章の立ち位置 —— さらに先を見たい読者のための道標
+</p>
 <p>　本書『ナブラ解体新書』の目的は、$\nabla$ を $d$ と $\ast$ に解体し、ベクトル解析の公式群を見通しよく再構築することだった。第8章・第9章でその目的は達成されている。第10章は「おまけ」として、この枠組みがマクスウェル方程式をいかに簡潔に記述するかを見た。
 </p>
 <p>本章は、そのさらに先——本書を読み終えて「この $d$ と $\ast$ という道具は、もっと広い世界でどう使えるのか」と興味を持った読者のための<strong>道標</strong>である。完結した説明はしない。専門書への橋渡しとして、何がどう変わり、何が変わらないかの見取り図だけを示す。それからもう一つ——本章では、これまで筆者が意図的に避けてきた数学書的な言い回しを、特に読者に配慮せず、定義もせずに遠慮なく使う。まだまだ世界は広いのだ、ということを感じてほしい。
@@ -136,7 +165,8 @@
 <p>つまり本書は、「微分形式の幾何学的直感」と「テンソル解析の計算力」の両方を手に入れるための、中間的なアプローチだったのだ。</p>
 <p>——ただし、どちらの伝統から見ても中途半端な側面は否めない。</p>
 </blockquote>
-<h3 id="111-多様体--から始める">§11.1 多様体 —— $\mathbf{g}(x)$ から始める</h3>
+<p>### §11.1 多様体 —— $\mathbf{g}(x)$ から始める
+</p>
 <p>本書では第6章で計量 $\mathbf{g}$ を導入し、第9章で $\mathbf{g}$ から $\ast$ の辞書を作る手順を練習した。第6章のデカルト座標では $\mathbf{g}=I$ という定数行列だったが、第9章の円柱座標や球座標では $\mathbf{g}$ の成分はすでに $r,\rho,\theta$ に依存していた。では、これを座標表示の都合ではなく、空間そのものの各点に与えられた計量 $\mathbf{g}(p)$ として見ると何が起きるか。
 </p>
 <p>$\ast$ の辞書は $\mathbf{g}$ から作られる。$\mathbf{g}$ が場所ごとに変われば、$\ast$ の辞書も場所ごとに変わる。$dx \mapsto \ast(dx) = \cdots\,dy\wedge dz$ という対応表が、空間の各点で異なる係数を持つようになるのだ。
@@ -154,7 +184,8 @@
 <blockquote>
 <p><strong>注</strong> （「曲がった時空」という言葉について）一般相対性理論の解説では「時空が曲がる」と表現される。個人的なこだわりではあるが、筆者はこの言い回しが好きではない。というのも、任意の一点では局所慣性系を選んで計量をミンコフスキー計量にし、接続係数を消すことができるが、曲率は一般には消えず、有限の近傍全体が平坦になるわけではない。曲率は、まさにその局所慣性系を二階以上で貼り合わせるときのずれとして現れるからだ。つまり、単体の「曲がったゴム膜」のようなお絵かきでは不十分で、むしろ「計量と接続を通じて、異なる点の接空間をどう比べるかが問題になる」と捉えたほうが正確だと感じている。とはいえこれは筆者が偏屈なのであり、事実として「曲がっている」と考えたほうが直感的だろう。</p>
 </blockquote>
-<h4 id="1111-定義--チャートとアトラス">11.1.1 定義 —— チャートとアトラス</h4>
+<p>#### 11.1.1 定義 —— チャートとアトラス
+</p>
 <p>$n$ 次元<strong>位相多様体</strong> $M$ とは、ハウスドルフかつ第二可算公理を満たす位相空間であって、任意の点 $p \in M$ に対し、$p$ を含む開集合 $U \subset M$ と、$U$ から $\mathbb{R}^n$ の開集合への同相写像 $\varphi: U \to \varphi(U) \subset \mathbb{R}^n$ が存在するものである。この組 $(U, \varphi)$ を<strong>チャート</strong>（座標近傍）と呼ぶ。$\varphi(p) = (x^1(p), \dots, x^n(p))$ と書いたとき、$x^i$ を<strong>局所座標</strong>という。
 </p>
 <p>$M$ を覆うチャートの族 $\{(U_\alpha, \varphi_\alpha)\}$ であって、任意の重なるチャート対に対して<strong>座標変換</strong>
@@ -166,7 +197,8 @@ $$\varphi_\beta \circ \varphi_\alpha^{-1}: \varphi_\alpha(U_\alpha \cap U_\beta)
 </p>
 <p>よく知られた別の例として、$n$ 次元球面 $S^n = \{x \in \mathbb{R}^{n+1} \mid \|x\| = 1\}$ がある。$S^n$ は一枚のチャートでは覆えないが、北極と南極を除いた二枚のチャート（立体射影）でアトラスが構成できる。一般相対性理論の時空はローレンツ多様体——計量の符号が $(-,+,+,+)$ である4次元多様体——として定式化される。
 </p>
-<h4 id="1112-接空間--曲がった空間での微分の定義">11.1.2 接空間 —— 「曲がった空間での微分」の定義</h4>
+<p>#### 11.1.2 接空間 —— 「曲がった空間での微分」の定義
+</p>
 <p>$\mathbb{R}^n$ では「ベクトル」を「原点から伸びる矢印」として素朴に定義できた。多様体上ではそうはいかない。球面の表面に矢印を描こうとしても、矢印は曲面からはみ出してしまう。
 </p>
 <p>接空間の構成には二つの同値な方法がある。
@@ -187,7 +219,8 @@ $$\left.\frac{\partial}{\partial x^i}\right|_p (f) = \left.\frac{\partial (f \ci
 $$\frac{\partial}{\partial y^j} = \sum_i \frac{\partial x^i}{\partial y^j}\,\frac{\partial}{\partial x^i}$$
 <p>と変換される。この変換行列 $\partial x^i/\partial y^j$ は、本書第3章で座標変換のヤコビ行列として繰り返し登場したものだ。接ベクトルの成分はこのヤコビ行列の逆行列で変換される（反変ベクトル）。これに対し、1-form の成分はヤコビ行列そのもので変換される（共変ベクトル）。この「反変」と「共変」の区別——本書ではベクトルが「縦」、1-form が「横」として視覚化されてきた——が、多様体論におけるテンソル解析の出発点である。
 </p>
-<h4 id="1113-微分形式--余接束とテンソル場">11.1.3 微分形式 —— 余接束とテンソル場</h4>
+<p>#### 11.1.3 微分形式 —— 余接束とテンソル場
+</p>
 <p>接空間 $T_p M$ の双対空間を<strong>余接空間</strong> $T_p^* M$ と呼ぶ。$\omega_p \in T_p^* M$ は接ベクトルを食べて実数を返す線形写像 $\omega_p: T_p M \to \mathbb{R}$、すなわち<strong>1-form</strong>である。本書第1章で $dx$ を「変位ベクトルから $x$ 成分を抽出する横ベクトル」と定義したのは、まさにこの双対性の具現化だった。
 </p>
 <blockquote>
@@ -209,7 +242,8 @@ $$(f^*\omega)_p(v_1, \dots, v_k) = \omega_{f(p)}(df_p(v_1), \dots, df_p(v_k))$$
 </p>
 <p>この双対性は高次の形式にも拡張される。本書第2章で $k$-form を行列（$k=1$ では横ベクトル、$k=2$ では反対称行列、$k=3$ では反対称3階テンソル）で表示したのは、交代多重線形写像としての $k$-form の成分表示にほかならない。付録Eで $4\times4\times4$ のスライス行列を扱ったとき、我々はすでに多様体上の3-form の成分計算を実践していたのだ。
 </p>
-<h4 id="1114-外微分--多様体上で変わらないもの">11.1.4 外微分 $d$ —— 多様体上で変わらないもの</h4>
+<p>#### 11.1.4 外微分 $d$ —— 多様体上で変わらないもの
+</p>
 <p>外微分 $d$ は、多様体上で<strong>計量を一切使わずに</strong>定義できる数少ない微分演算子の一つである。$k$-form $\omega$ に対し、$d\omega$ は $(k+1)$-form であり、その定義は本書第5章で偏微分とウェッジ積の組み合わせとして学んだものと完全に一致する。
 </p>
 <p>外微分 $d$ は、$\Omega^k(M)$ から $\Omega^{k+1}(M)$ への線形作用素であり、関数に対して通常の全微分を与え、次数付きライプニッツ則を満たし、局所座標では偏微分とウェッジ積によって与えられる。この作用素について $d^2 = 0$ が成り立つ。計量はどこにも登場しない。曲がっていようがいまいが、$d$ は本書で慣れ親しんだ計算規則をそのまま使える。
@@ -219,7 +253,8 @@ $$(f^*\omega)_p(v_1, \dots, v_k) = \omega_{f(p)}(df_p(v_1), \dots, df_p(v_k))$$
 $$\int_M d\omega = \int_{\partial M} \omega$$
 <p>が向き付けられた $n$ 次元多様体 $M$ と、適切な滑らかさ・台条件を満たす $(n-1)$-form に対して成立する根拠でもある。本書第8章で「統一ストークスの定理」として出会ったものは、この一般公式の特別な場合（$M \subset \mathbb{R}^3$, $n \le 3$）だった。
 </p>
-<h4 id="1115-計量とホッジ・スター--場所ごとに変わるもの">11.1.5 計量とホッジ・スター —— 場所ごとに変わるもの</h4>
+<p>#### 11.1.5 計量とホッジ・スター —— 場所ごとに変わるもの
+</p>
 <p>$d$ が普遍的であるのに対し、$\ast$ はそうではない。<strong>リーマン計量</strong> $g$ とは、各点 $p \in M$ において接空間 $T_p M$ 上の正定値内積 $g_p: T_p M \times T_p M \to \mathbb{R}$ を滑らかに与える2階の共変テンソル場である。局所座標では
 </p>
 $$g = \sum_i\sum_j g_{ij}(x)\,dx^i \otimes dx^j$$
@@ -232,26 +267,30 @@ $$\ast: \Omega^k(M) \to \Omega^{n-k}(M)$$
 </p>
 <p>この $d$ と $\ast$ の非対称性——$d$ は普遍的、$\ast$ は計量依存——こそが、Burke の「計量遅延」が最終的に照射する構造である。一般相対性理論では、計量 $g$ そのものがアインシュタイン方程式の解として動的に決まる。電磁場の方程式 $dF = 0$, $d(\ast F) = \mu_0(\ast\mathcal{J})$ は、時空計量から定まる $\ast$ と適切な電流形式を用いれば、曲がった時空上でも同じ形で書ける。
 </p>
-<h4 id="1116-積分--1の分割と向き付け可能性">11.1.6 積分 —— 1の分割と向き付け可能性</h4>
+<p>#### 11.1.6 積分 —— 1の分割と向き付け可能性
+</p>
 <p>多様体上の積分もまた、本書のリーマン和の延長線上にある。$\mathbb{R}^n$ では、$n$-form $\omega = f\,dx^1 \wedge \cdots \wedge dx^n$ の積分を素朴に $\int f\,dx^1 \cdots dx^n$ と定義できた。多様体上で $n$-form を積分するには、チャートごとに局所積分を計算し、それらを貼り合わせる必要がある。この貼り合わせを可能にするのが<strong>1の分割（partition of unity）</strong>——多様体を被覆するチャート族に付随する、足して1になる滑らかな関数の族——である。
 </p>
 <p>また、多様体上で $n$-form の積分が座標の取り方に依存しないためには、多様体が<strong>向き付け可能（orientable）</strong>でなければならない。本書で一貫して右手系 $(x,y,z)$ を仮定してきたのは、$\mathbb{R}^3$ に向きを固定していたことに相当する。メビウスの帯のように向き付け不能な多様体では、大域的な体積形式が定義できない。
 </p>
 <p>こうして多様体上の積分論が整備されると、適切な滑らかさ・台条件のもとで、ストークスの定理 $\int_M d\omega = \int_{\partial M} \omega$ は向き付けられた $n$ 次元多様体とその上の $(n-1)$-form に対して成立する。本書の旅が到達した統一ストークスの定理は、この一般的枠組みの $n \le 3$ への適用だったのだ。
 </p>
-<h4 id="1117-接続と曲率--一言だけ">11.1.7 接続と曲率 —— 一言だけ</h4>
+<p>#### 11.1.7 接続と曲率 —— 一言だけ
+</p>
 <p>多様体上でベクトル場を「平行移動」するための追加構造が<strong>接続（connection）</strong>、あるいは<strong>共変微分</strong> $\nabla$ である。接続が与えられると、曲がり具合を測る<strong>曲率テンソル</strong> $R$ が定義される。一般相対性理論では、レヴィ＝チヴィタ接続（計量と整合的で捩れのない唯一の接続）から得られる曲率が、時空の重力を記述する。
 </p>
 <p>微分形式の言葉では、曲率は<strong>曲率2-form</strong> $\Omega$ として表され、ビアンキ恒等式 $D\Omega = 0$（外共変微分で $\Omega$ が閉じている）といった構造が現れる。この先は、Flanders や Burke の専門書に譲る。
 </p>
-<h4 id="1118-本書との対応">11.1.8 本書との対応</h4>
+<p>#### 11.1.8 本書との対応
+</p>
 <p>本書の概念が多様体論のどこに対応するかを一覧にしておく。
 </p>
 <div class="table-wrapper"><table>
 <thead><tr>
 <th>本書</th>
 <th>多様体論</th>
-</tr></thead><tbody>
+</tr></thead>
+<tbody>
 <tr>
 <td>$dx$ は横ベクトル（第1章）</td>
 <td>$dx^i$ は余接空間 $T_p^*M$ の基底</td>
@@ -292,11 +331,14 @@ $$\ast: \Omega^k(M) \to \Omega^{n-k}(M)$$
 <td>付録Eの $4\times4\times4$ スライス（第10章）</td>
 <td>4次元多様体上の 3-form の成分計算</td>
 </tr>
-</tbody></table></div>
-<h3 id="112-リーマン幾何学--テンソル解析のスタイル">§11.2 リーマン幾何学 —— テンソル解析のスタイル</h3>
+</tbody>
+</table></div>
+<p>### §11.2 リーマン幾何学 —— テンソル解析のスタイル
+</p>
 <p>多様体論が「幾何学的対象を座標に依存せずに定義する」ことを目指すのに対し、古典的なリーマン幾何学——アインシュタインの一般相対性理論で使われるテンソル解析——は「座標を選び、成分の変換則を正面から扱う」スタイルをとる。本書が行列の成分を明示してきた流儀に近いのは、むしろこちらである。
 </p>
-<h4 id="1121-テンソル--変換則による定義">11.2.1 テンソル —— 変換則による定義</h4>
+<p>#### 11.2.1 テンソル —— 変換則による定義
+</p>
 <p>古典的なテンソル解析では、テンソルを「座標変換に対する変換規則」で定義する。座標 $x^i$ から $\bar{x}^i$ への変換に対して、
 </p>
 <p><strong>反変ベクトル</strong> $V^i$ は $\bar{V}^i = \sum_j \frac{\partial \bar{x}^i}{\partial x^j} V^j$ と変換され、
@@ -309,7 +351,8 @@ $$\ast: \Omega^k(M) \to \Omega^{n-k}(M)$$
 $$\bar{g}_{ij} = \sum_{p,q} \frac{\partial x^p}{\partial \bar{x}^i} \frac{\partial x^q}{\partial \bar{x}^j}\,g_{pq}$$
 <p>と変換される。本書第6章で導出した $\mathbf{g} = J^T J$ という関係式は、デカルト座標で $g_{ij} = \delta_{ij}$ であるときに曲線座標での $\bar{g}_{ij}$ を計算する公式にほかならない。一般のリーマン計量は、必ずしも一つの座標変換のヤコビ行列 $J$ から $J^T J$ として得られるわけではない。第6章の $J^T J$ は、あくまでユークリッド空間内で誘導計量を計算する最も具体的な例である。
 </p>
-<h4 id="1122-クリストッフェル記号--微分がテンソルでなくなる問題">11.2.2 クリストッフェル記号 —— 微分がテンソルでなくなる問題</h4>
+<p>#### 11.2.2 クリストッフェル記号 —— 微分がテンソルでなくなる問題
+</p>
 <p>ベクトル場 $V^i$ の偏微分 $\partial_j V^i$ は、そのままではテンソルとして振る舞わない。座標変換すると余分な項が現れてしまう。計量 $g$ と整合的で捩れのないレヴィ＝チヴィタ接続を選ぶと、その接続係数、すなわち<strong>クリストッフェル記号（Christoffel symbols）</strong>は
 </p>
 $$\Gamma^i_{jk} = \frac{1}{2}\sum_m g^{im}(\partial_j g_{km} + \partial_k g_{jm} - \partial_m g_{jk})$$
@@ -322,7 +365,8 @@ $$\nabla_j V^i = \partial_j V^i + \sum_k \Gamma^i_{jk} V^k$$
 </p>
 <p>本書の経験で言い換えよう。第9章では、円柱座標や球座標の $\mathbf{g}$ から $\mathrm{div}$ や $\mathrm{rot}$ の公式を導出した。第9章の $\ast$ 辞書による導出は、クリストッフェル記号を明示的に計算する方法とは異なる。むしろ、$d$ と $\ast$ を使うことで、$\Gamma^i_{jk}$ を表に出さずに同じ座標公式へ到達していた、と言うべきである。テンソル解析で同じ公式を導けば、そこには共変微分とクリストッフェル記号が現れる。リーマン幾何学を学ぶとは、同じ座標公式を、接続係数 $\Gamma^i_{jk}$ と曲率テンソル $R^i_{\,mjk}$ の側から見直すことである。
 </p>
-<h4 id="1123-リーマン曲率テンソル">11.2.3 リーマン曲率テンソル</h4>
+<p>#### 11.2.3 リーマン曲率テンソル
+</p>
 <p>共変微分の非可換性が、空間の曲がり具合を定量化する。ベクトル場 $V^i$ に対して
 </p>
 $$(\nabla_j \nabla_k - \nabla_k \nabla_j) V^i = \sum_m R^i_{\,mjk} V^m$$
@@ -340,12 +384,9 @@ $$R_{abcd}=-R_{bacd},\qquad R_{abcd}=-R_{abdc},\qquad R_{abcd}=R_{cdab}$$
 <p><strong>注</strong>（曲率テンソルの符号と添字順序）</p>
 <p>曲率テンソルの符号と添字順序には複数の規約がある。本項では一つの代表的な規約を示したが、他の文献では添字の順序や符号が異なる場合がある。</p>
 <p></p>
-<p></p>
-</blockquote>
-$$
+<p>$$
 > \nabla_i R_{mjkl}+\nabla_j R_{mkil}+\nabla_k R_{mijl}=0
-> $$
-<blockquote>
+> $$</p>
 <p></p>
 <p>この恒等式は、外微分の $d^2=0$ と同じ「二度境界を取ると消える」型の構造を思わせるが、厳密には接続を含む外共変微分 $D$ に関する恒等式であり、単なる $d^2=0$ ではない。</p>
 </blockquote>
@@ -359,12 +400,14 @@ $$R_{ij} - \frac{1}{2}R\,g_{ij} = \frac{8\pi G}{c^4}\,T_{ij}$$
 </blockquote>
 <p>本書はこの式を導出しないし、読者に理解を求めもしない。ただ、この式の背後にある土台——多様体、計量、共変微分、曲率——は、本書で扱った $d$ と $\ast$ だけでは尽くせない。むしろ、第11章で初めて現れた接続 $\nabla$ が不可欠である。それでも、微分形式による見方は、これらの構造へ進むための有力な入口になる。
 </p>
-<h4 id="1124-二つのスタイル--本書との関係">11.2.4 二つのスタイル —— 本書との関係</h4>
+<p>#### 11.2.4 二つのスタイル —— 本書との関係
+</p>
 <p>微分形式による記述と、添字を用いたテンソル解析による記述は、どちらもテンソル場を扱うための言語である。前者は反対称テンソルと外微分を前面に出し、後者は成分と変換則を前面に出す。
 </p>
 <p>本書は一貫して成分を明示するスタイル——行列、添字なしの偏微分、ウェッジ積の展開——をとってきた。この意味で、本書の自然な延長は微分形式の抽象論よりもむしろ、テンソル解析の具体的計算にある。すでに第9章で曲線座標の $\ast$ 辞書を引いたとき、我々は $\Gamma^i_{jk}$ を明示せずに $\mathrm{rot}$ や $\mathrm{div}$ の座標公式へ到達した。テンソル解析で同じ公式を導くなら、その背後には $g_{ij}$、接続係数 $\Gamma^i_{jk}$、共変微分の世界が現れる。その先にリーマン幾何学の全容がある。
 </p>
-<h3 id="113-その先へ">§11.3 その先へ</h3>
+<p>### §11.3 その先へ
+</p>
 <p>本書はここで終わりである。第1章から積み上げてきた $d$ と $\ast$ の枠組みは、ベクトル解析の解体という当初の目的を果たした。
 </p>
 <p>ただ、ここまで来ると趣味の領域だが——別の流派の姿を少しだけ覗いてみよう。
@@ -372,13 +415,13 @@ $$R_{ij} - \frac{1}{2}R\,g_{ij} = \frac{8\pi G}{c^4}\,T_{ij}$$
 <p>現代数理物理には、我々が苦労して分離した外積（$\wedge$）と内積（計量）を、最初から「幾何積」として一つの代数に統合する<strong>幾何代数（Geometric Algebra）</strong> という世界がある。$d$ と $\ast$ という二つの道具も、そこではより根源的な演算子に吸収される。分離の苦しみを知った者だけが、統合の凄みを味わえる——それだけを伝えて、本書を閉じることにする。
 </p>
       <div class="nav-buttons">
-        <a href="ch10.html">← 第10章：マクスウェル方程式 ...</a>
-        <a href="ch12.html">第12章：真のナブラ —— ク... →</a>
+        <a href="ch10.html">← 第10章...</a>
+        <a href="ch12.html">第12章... →</a>
       </div>
-      <footer class="site-footer">
-        <p>&copy; yokiikoy (CC BY-NC 4.0). 本書の最新版・PDF・改訂履歴・関連情報・本書以外のコンテンツはポータルサイト <a href="https://covectorspace.xyz/jp/">Project Co-Vector Space</a> をご確認ください。</p>
-      </footer>
     </article>
+    <footer class="site-footer">
+      <p>&copy; 2024- yokiikoy. CC BY-NC 4.0.</p>
+    </footer>
   </main>
 </body>
 </html>

@@ -21,6 +21,7 @@
   .sidebar a { text-decoration: none; color: #0969da; }
   .sidebar a:hover { text-decoration: underline; }
   .sidebar .active { color: #cf222e; font-weight: bold; }
+  .sidebar .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
   .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; }
   .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; }
   @media (max-width: 900px) { 
@@ -45,11 +46,13 @@
   .full-toc h2 { font-size: 1.1rem; margin: 1.5em 0 0.3em; padding-bottom: 2px; border-bottom: 1px solid #d0d7de; }
   .full-toc h2 a { color: #24292f; text-decoration: none; }
   .full-toc h2 a:hover { color: #0969da; }
+  .full-toc h2 .disabled-link { color: #8c959f; cursor: not-allowed; }
   .full-toc ul { list-style: none; padding-left: 1.5rem; margin: 0.3em 0 0; }
   .full-toc li { margin-bottom: 0.2rem; font-size: 0.9rem; }
   .full-toc .level-3 { padding-left: 1rem; font-size: 0.8rem; color: #57606a; }
   .full-toc a { color: #0969da; text-decoration: none; }
   .full-toc a:hover { text-decoration: underline; }
+  .full-toc .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
   .full-toc .part-header { font-size: 1.1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }
   .full-toc .toc-part-chapters { padding-left: 1.5rem; }
   .full-toc .toc-part-chapters h3 { font-size: 0.95rem; margin: 0.5em 0 0.2em; }
@@ -83,13 +86,14 @@
       著者: yokiikoy<br>
       <a href="http://covectorspace.xyz/jp/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a>
     </div>
-    <div class="toc"><ul>
+    <div class="toc">
+      <ul>
 <li class="level-1"><a href="toc.html" id="link-toc.html">目次</a></li>
 <li class="level-1"><a href="index.html" id="link-index.html">著者ノート</a></li>
 <li class="level-1"><a href="intro.html" id="link-intro.html">はじめに</a></li>
 <li class="level-1"><a href="portal.html" id="link-portal.html">ポータルサイトとちょっとした試み</a></li>
 <li class="level-1"><a href="ch01.html" id="link-ch01.html">第1章</a></li>
-<li class="level-1"><a href="ch02.html" class="active" id="link-ch02.html">第2章</a><ul class="sub-toc"><li class="level-3"><a href="#20-測定器と面積・体積そして長さ">§2.0 測定器と面積・体積、そして長さ</a></li><li class="level-3"><a href="#21-小学校の面積の限界">§2.1 小学校の面積の限界</a></li><li class="level-3"><a href="#22-面積測定器が満たすべき3つのルール">§2.2 面積測定器が満たすべき「3つのルール」</a></li><li class="level-3"><a href="#23-面積測定器の正体は反対称行列である">§2.3 面積測定器の正体は「反対称行列」である</a></li><li class="level-3"><a href="#24-面積測定器の内部構造">§2.4 面積測定器の内部構造</a></li><li class="level-3"><a href="#25-体積測定器と行列式">§2.5 体積測定器と行列式</a></li><li class="level-3"><a href="#26-本章のまとめと第3章への展望">§2.6 本章のまとめと第3章への展望</a></li><li class="level-2"><a href="#第2章-付録A体積測定器のテンソル積表現--全成分の計算">第2章 付録A：体積測定器のテンソル積表現 — 全成分の計算</a></li></ul></li>
+<li class="level-1"><a href="ch02.html" class="active" id="link-ch02.html">第2章</a><ul class="sub-toc"><li class="level-3"><a href="#§2.0-測定器と面積・体積、そして長さ">§2.0 測定器と面積・体積、そして長さ</a></li><li class="level-3"><a href="#§2.1-小学校の面積の限界">§2.1 小学校の面積の限界</a></li><li class="level-3"><a href="#§2.2-面積測定器が満たすべき「3つのルール」">§2.2 面積測定器が満たすべき「3つのルール」</a></li><li class="level-3"><a href="#§2.3-面積測定器の正体は「反対称行列」である">§2.3 面積測定器の正体は「反対称行列」である</a></li><li class="level-3"><a href="#§2.4-面積測定器の内部構造">§2.4 面積測定器の内部構造</a></li><li class="level-3"><a href="#§2.5-体積測定器と行列式">§2.5 体積測定器と行列式</a></li><li class="level-3"><a href="#§2.6-本章のまとめと第3章への展望">§2.6 本章のまとめと第3章への展望</a></li><li class="level-2"><a href="#第2章-付録A：体積測定器のテンソル積表現-—-全成分の計算">第2章 付録A：体積測定器のテンソル積表現 — 全成分の計算</a></li></ul></li>
 <li class="level-1"><a href="ch03.html" id="link-ch03.html">第3章</a></li>
 <li class="level-1"><a href="ch04.html" id="link-ch04.html">第4章</a></li>
 <li class="level-1"><a href="ch05.html" id="link-ch05.html">第5章</a></li>
@@ -103,15 +107,69 @@
 <li class="level-1"><a href="postscript.html" id="link-postscript.html">おわりに</a></li>
 <li class="level-1"><a href="refs.html" id="link-refs.html">参考文献（と著者からのコメント）</a></li>
 <li class="level-1"><a href="appendix.html" id="link-appendix.html">付録</a></li>
-</ul></div>
+</ul>
+    </div>
   </nav>
   <main class="main-content">
     <article class="markdown-body">
-      <h1 id="第2章面積とは何か--平行多面体に潜む符号のルール">第2章：面積とは何か —— 平行多面体に潜む、符号のルール</h1>
-<h3 id="20-測定器と面積・体積そして長さ">§2.0 測定器と面積・体積、そして長さ</h3>
+<p># 第2章：面積とは何か —— 平行多面体に潜む、符号のルール
+</p>
+<hr />
+<p>title: 第2章：代数としての面積・体積
+ series: dx-matrix
+ chapter: 2
+ order: 20
+ assumes:
+</p>
+<ul>
+<li>displacement_vector</li>
+<li>dx_as_row_vector</li>
+<li>one_form</li>
+<li>differential</li>
+<p>introduces:
+   wedge_product:
+     from: definition
+     to: computation
+   two_form:
+     from: definition
+     to: computation
+   three_form:
+     from: definition
+     to: computation
+   k_form:
+     from: intuition
+     to: formula
+ previews:
+   form_integral:
+     max_level: intuition
+   metric:
+     max_level: intuition
+     note: 長さ・角度への直感的言及は許可するが、計量構造としては導入しない。
+   exterior_derivative:
+     max_level: intuition
+   jacobian:
+     max_level: intuition
+   hodge_star:
+     max_level: intuition
+     note: 名前だけの伏線として許可。具体式や計算は禁止。
+ recap_policy:
+   dx_as_row_vector:
+     max_level: mention
+     max_lines: 5
+   one_form:
+     max_level: mention
+     max_lines: 5
+</p>
+</ul>
+<hr />
+<p># 第2章：面積とは何か —— 平行多面体に潜む、符号のルール
+</p>
+<p>### §2.0 測定器と面積・体積、そして長さ
+</p>
 <p>　第1章では、$dx, dy, dz$ を「ベクトルを1つ食べてスカラーを返す横ベクトル（$1$-form）」として定義し、$\int f\,dx$ を行列作用の極限として読み直した。本章ではこれを拡張し、<strong>2つのベクトルを食べる面積測定器（$2$-form）</strong>と<strong>3つのベクトルを食べる体積測定器（$3$-form）</strong>を、同じ部品 $dx, dy, dz$ から発見する。
 </p>
-<h3 id="21-小学校の面積の限界">§2.1 小学校の面積の限界</h3>
+<p>### §2.1 小学校の面積の限界
+</p>
 <p>多くの読者は「積分とはつまり面積を求める計算だ」ということを知っているだろう。
  ところで、面積とはなんだろうか。改めて考えてみると、小学校以来、改めて定式化したことがないのではないだろうか。
 </p>
@@ -139,7 +197,8 @@ $$S = \sqrt{(y_1z_2 - z_1y_2)^2 + (z_1x_2 - x_1z_2)^2 + (x_1y_2 - x_2y_1)^2}$$
 <p>ここで我々は、がらりと考え方を変えよう。<strong>小学校以来の「面積の定義」を一旦棚に上げ</strong>、<strong>「面積を出力する代数的な測定装置」</strong>をゼロから設計し直すのである。
 </p>
 <hr />
-<h3 id="22-面積測定器が満たすべき3つのルール">§2.2 面積測定器が満たすべき「3つのルール」</h3>
+<p>### §2.2 面積測定器が満たすべき「3つのルール」
+</p>
 <p>設計の第一歩として、「$1\times 1$ の正方形だけ」を足掛かりにするのではなく、<strong>「2つのベクトルが張る平行四辺形」</strong>を基本に据えることにする。
 </p>
 <blockquote>
@@ -149,8 +208,8 @@ $$S = \sqrt{(y_1z_2 - z_1y_2)^2 + (z_1x_2 - x_1z_2)^2 + (x_1y_2 - x_2y_1)^2}$$
 </p>
 <p>このブラックボックスが「面積測定器」としてまともに機能するためには、最低限、次の3つのルールを満たさなければならない。原点から伸びる2本の矢印を隣り合う辺とする平行四辺形を思い浮かべながら確認してほしい。
 </p>
-<h4 id="221-ルール1片方が伸びれば面積も伸びる比例関係">2.2.1 ルール1：片方が伸びれば、面積も伸びる（比例関係）</h4>
-<p>もしベクトル $\mathbf{v}_1$ の長さが2倍になれば、作られる平行四辺形の面積も当然2倍になるはずだ。
+<p>#### 2.2.1 ルール1：片方が伸びれば、面積も伸びる（比例関係）
+ もしベクトル $\mathbf{v}_1$ の長さが2倍になれば、作られる平行四辺形の面積も当然2倍になるはずだ。
 </p>
 $$S(2\mathbf{v}_1, \mathbf{v}_2) = 2 S(\mathbf{v}_1, \mathbf{v}_2)$$
 <p>同様に、2つのベクトルを足し合わせたものを入力すれば、面積も足し算に分解できる：
@@ -158,8 +217,8 @@ $$S(2\mathbf{v}_1, \mathbf{v}_2) = 2 S(\mathbf{v}_1, \mathbf{v}_2)$$
 $$S(\mathbf{v}_1 + \mathbf{u}, \mathbf{v}_2) = S(\mathbf{v}_1, \mathbf{v}_2) + S(\mathbf{u}, \mathbf{v}_2)$$
 <p>この2つの性質を合わせて<strong>線形性</strong>と呼ぶ。第2引数 $\mathbf{v}_2$ についても、同様に「スカラー倍」と「和に関する分配」が成り立つ——すなわち $S$ は<strong>両方の引数について線形</strong>（<strong>双線形</strong>）である。
 </p>
-<h4 id="222-ルール2重なればペチャンコでゼロ交代性">2.2.2 ルール2：重なれば、ペチャンコでゼロ（交代性）</h4>
-<p>これが最も重要だ。もし $\mathbf{v}_1$ と $\mathbf{v}_2$ が全く同じベクトルだったらどうなるか。平行四辺形は潰れてただの「線」になってしまい、面積はゼロになる。
+<p>#### 2.2.2 ルール2：重なれば、ペチャンコでゼロ（交代性）
+ これが最も重要だ。もし $\mathbf{v}_1$ と $\mathbf{v}_2$ が全く同じベクトルだったらどうなるか。平行四辺形は潰れてただの「線」になってしまい、面積はゼロになる。
 </p>
 $$S(\mathbf{v}_1, \mathbf{v}_1) = 0$$
 <p>実は、この「同じならゼロ」というルールから、非常に奇妙な性質が導かれる。ルール1（線形性）を使って、$\mathbf{v}_1 + \mathbf{v}_2$ を両方の引数に入れてみよう。「同じならゼロ」だから：
@@ -178,12 +237,12 @@ $$S(\mathbf{v}_1, \mathbf{v}_2) = - S(\mathbf{v}_2, \mathbf{v}_1)$$
 </blockquote>
 <blockquote>
 <p><strong>注</strong> （面積の符号2）1変数でも、$f(x)<0$ の区間では $\displaystyle\int_a^b f(x)\,dx<0$ となり得る——符号付き「面積」はそこで既に現れている。向き付き面積は、その考え方を2次元に持ち上げたものだ。</p>
-</blockquote>
-<h4 id="223-ルール3基準の決定規格化">2.2.3 ルール3：基準の決定（規格化）</h4>
-<p>最後に、「どのくらいの大きさを1とするか」を決めなければならない。ここでは素直に、$x$方向の<strong>基底ベクトル</strong>（標準基底の一つ）$\hat{e}_x$ と $y$方向の基底ベクトル $\hat{e}_y$ が作る正方形の面積を $1$ としよう。本書の慣例どおり<strong>縦ベクトル</strong>で書けば
+<p>#### 2.2.3 ルール3：基準の決定（規格化）
+ 最後に、「どのくらいの大きさを1とするか」を決めなければならない。ここでは素直に、$x$方向の<strong>基底ベクトル</strong>（標準基底の一つ）$\hat{e}_x$ と $y$方向の基底ベクトル $\hat{e}_y$ が作る正方形の面積を $1$ としよう。本書の慣例どおり<strong>縦ベクトル</strong>で書けば
 </p>
 $$\hat{e}_x = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \quad \hat{e}_y = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}$$
 <p>である。
+</blockquote>
 </p>
 $$S(\hat{e}_x, \hat{e}_y) = 1$$
 <blockquote>
@@ -196,7 +255,8 @@ $$S(\hat{e}_x, \hat{e}_y) = 1$$
 <p>- 次節では、この3ルールを満たす代数的な装置を具体的に探す。</p>
 </blockquote>
 <hr />
-<h3 id="23-面積測定器の正体は反対称行列である">§2.3 面積測定器の正体は「反対称行列」である</h3>
+<p>### §2.3 面積測定器の正体は「反対称行列」である
+</p>
 <p>さて、ここからが数学の魔法だ。
  我々は今、この「平行四辺形」という<strong>図形のイメージ</strong>を頭に描きながら3つのルールを設定した。しかし、一度ルールを決めてしまえば、もはや図形を思い浮かべる必要はない。<strong>「この3つのルールを満たす代数的な計算式」を探せば、それが面積の定義になるからだ。</strong>
 </p>
@@ -237,7 +297,8 @@ $$
 <blockquote>
 <p><strong>注</strong> （反対称行列と計量）我々は今、$\mathbf{v}_1^T M \mathbf{v}_2$ （横ベクトル $\times$ 行列 $\times$ 縦ベクトル）という書き方をした。ここでは標準デカルト座標に固定しているため、ベクトルと双対ベクトルの成分を行列計算の中で同一視している。一般の座標や一般の多様体では、この同一視には計量が必要になる。本書の序盤では $xyz$ のデカルト座標に固定し、ピタゴラスの定理が成り立つ範囲で、素朴な面積・体積の直観を代数に載せる便法を採る。</p>
 </blockquote>
-<h4 id="231-なぜ反対称なのか">2.3.1 なぜ「反対称」なのか？</h4>
+<p>#### 2.3.1 なぜ「反対称」なのか？
+</p>
 <p>話を戻そう。真ん中に挟まった行列の構造をじっくり観察してほしい。
  対角成分（左上から右下）はすべて $0$ であり、それを挟んで $1$ と $-1$ が<strong>符号を反転させて向かい合っている</strong>。このような行列を「反対称行列（交代行列）」と呼ぶ。
 </p>
@@ -247,7 +308,8 @@ $$
 </p>
 <p>なぜ唯一に決まるのか？ ルール1（線形性）により、どんなベクトルの面積も基底ベクトル（標準基底）同士の面積の足し合わせに分解できる。そしてルール3（規格化）で基準の正方形を「1」と決めた瞬間、行列の右上成分が1に固定される。さらにルール2（交代性）の「ペチャンコならゼロ」が、対角成分を0にし、左下成分を-1へと強制的に反転させるのだ。なお、行列の第3行・第3列がすべてゼロなのは、入力ベクトルの $z$ 成分が常にゼロだから——この位置にどんな値を入れても $\mathbf{v}_1^T M \mathbf{v}_2$ の計算結果は変わらないので、3ルールだけからは決まらない（不定）。いまの議論は $xy$ 平面を $\mathbb{R}^3$ に埋め込んだものと見なせるので、<strong>余剰の $z$ 方向は測定に入ってこない</strong>——その意味でもゼロを置くのが素直である。つまり、<strong>我々の定めた物理的ルールが、この行列の形を完全に「設計」した</strong>のである。
 </p>
-<h4 id="232-測定器の進化と次なる壁">2.3.2 測定器の進化と、次なる壁</h4>
+<p>#### 2.3.2 測定器の進化と、次なる壁
+</p>
 <p>我々はここで、次の立場をはっきりさせる。
  小学校で数えていた<strong>タイルの枚数</strong>に相当する素朴な直感を先に置くのではなく、<strong>いま定めたこの $3 \times 3$ 反対称行列に2本のベクトルを食わせて得られる量</strong>を、<strong>この測定器（$xy$ 平面専用の面積測定器）が返す面積の成分</strong>——$dx \wedge dy$ に沿った読み取り値——だと定義するのである。三次元空間における向き付き面積の<strong>すべての情報</strong>を一つの数で尽くすわけではなく、あくまで<strong>一つの眼鏡が切り出したスカラー</strong>にすぎない。全体像は §2.4.5 で3種の測定器をそろえて述べる。
 </p>
@@ -275,8 +337,10 @@ $$
 <p>- 続く §2.4 で、物差しから面積測定器をリバースエンジニアリングする（テンソル積とウェッジ積）。</p>
 </blockquote>
 <hr />
-<h3 id="24-面積測定器の内部構造">§2.4 面積測定器の内部構造</h3>
-<h4 id="241-2つの入力をさばく装置の形を決める">2.4.1 「2つの入力をさばく装置」の形を決める</h4>
+<p>### §2.4 面積測定器の内部構造
+</p>
+<p>#### 2.4.1 「2つの入力をさばく装置」の形を決める
+</p>
 <p>§2.3 で、面積測定器（$2$-form）の正体は真ん中に挟まった「$3 \times 3$ の反対称行列」であると述べた。しかし、あの行列は筆者から天下り的に与えられたものだった。
 </p>
 <p>我々の次なる野望はこうだ：
@@ -290,7 +354,8 @@ $$
 </p>
 <p>それは、2つのベクトルの間に真四角の表（行列）を挟み込む形、すなわち <strong>「横 $\times$ 行列 $\times$ 縦（$\mathbf{v}_1^T M \mathbf{v}_2$）」</strong> の形になるしかない。これが線形代数の要請である。我々が探すべきは、この真ん中に挟まる行列 $M$ の中身だ。
 </p>
-<h4 id="242-欲しい結果からマス目を埋める">2.4.2 欲しい結果からマス目を埋める</h4>
+<p>#### 2.4.2 欲しい結果からマス目を埋める
+</p>
 <p>闇雲に探す必要はない。我々はすでに、出力されるべき<strong>「答え」</strong>を知っている。
  $xy$ 平面の面積公式だ。
 </p>
@@ -320,8 +385,8 @@ M = \begin{pmatrix}
   0 & 0 & 0
 \end{pmatrix}
 $$
-<h4 id="243-テンソル積の導入">2.4.3 テンソル積の導入</h4>
-<p>さて、この面積測定器の行列 $M$ をよく見ると、2つの部品の「引き算」でできていることがわかる。
+<p>#### 2.4.3 テンソル積の導入
+ さて、この面積測定器の行列 $M$ をよく見ると、2つの部品の「引き算」でできていることがわかる。
 </p>
 $$
 \begin{pmatrix} 0 & 1 & 0 \\ -1 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}
@@ -338,8 +403,9 @@ $$(dx \otimes dy)(\mathbf{v}_1, \mathbf{v}_2) := dx(\mathbf{v}_1)\,dy(\mathbf{v}
 </p>
 <blockquote>
 <p><strong>注</strong> （テンソル積の行列表現）数式が好きな読者のために書いておくと、$dx = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}$、$dy = \begin{pmatrix} 0 & 1 & 0 \end{pmatrix}$ としたとき、「前のベクトルを転置して縦にし、後ろの横ベクトルと隣り合わせに置き（$dx^T dy$）、縦と横の成分を総当たりで掛け合わせて行列のマス目に配置する」という操作で$dx \otimes dy$の行列表現が機械的に得られる。</p>
+<p>#### 2.4.4 ウェッジ積の完成
 </blockquote>
-<h4 id="244-ウェッジ積の完成">2.4.4 ウェッジ積の完成</h4>
+</p>
 <p>これで準備は整った。
  我々が導き出した $xy$ 平面の面積測定器行列は、「$x_1 y_2$ のスイッチ」から「$y_1 x_2$ のスイッチ」を引いたものだった。
 </p>
@@ -356,7 +422,8 @@ $$
 <p>見事に、第1章の物差し（$1$-form）の組み合わせから、面積測定器（$2$-form）をシステマティックに構成することができた。
  テンソル積の引き算で構成したことにより、<strong>引数を入れ替えると符号が反転する（交代性）</strong>という §2.2 のルール2が、自動的に「仕込まれている」ことにも注目してほしい。
 </p>
-<h4 id="245-3つの基底-form">2.4.5 3つの基底$2$-form</h4>
+<p>#### 2.4.5 3つの基底$2$-form
+</p>
 <p>同じ方法で、残る2つの「偏った眼鏡」も構成できる。
 </p>
 <p><strong>$yz$ 平面を見る眼鏡：$dy \wedge dz$</strong>
@@ -386,7 +453,8 @@ $$
 $$
 <p>各計算は引き算1回。ベクトルの向きがどうであれ、ウェッジ積の定義が自動的に正しい値を返す。
 </p>
-<h4 id="246-向き付き面積の正体と図形側の基底">2.4.6 向き付き面積の正体と「図形側の基底」</h4>
+<p>#### 2.4.6 向き付き面積の正体と「図形側の基底」
+</p>
 <p>さて、読者は当然こう期待していただろう——「3つの眼鏡の計算結果を何かうまく合成すれば、最終的に一つのスカラー（数値）が出てくるんだろう？」と。
 </p>
 <p>実は、そう単純ではない。
@@ -413,7 +481,8 @@ $$\text{向き付き面積} = A_{yz}\,(\hat{e}_y \wedge \hat{e}_z) + A_{zx}\,(\h
 <blockquote>
 <p><strong>注</strong> （行列はどこへ行った？）前の節まで「面積測定器は反対称行列だ」と散々やってきたのに、図形側の行列表現はどうなるのかと気になるかもしれない。3次元空間では、図形側の二重ベクトルも $3 \times 3$ 反対称行列と同型になる（成分に $A_{yz}$ 等を並べた行列になる）。しかし、この行列表示をここに明示してしまうと「面積測定器の行列」と足したり掛けたりできそうな気がしてしまい読者の直感に悪影響であるので、本書では「図形は二重ベクトルの基底に乗る」という説明でとどめておく。</p>
 </blockquote>
-<h4 id="247-小学校のスカラー面積に戻すには">2.4.7 小学校のスカラー面積に戻すには</h4>
+<p>#### 2.4.7 小学校のスカラー面積に戻すには
+</p>
 <p>では、小学校で習った「正の値の面積」に戻していこう。
 </p>
 <p>読者は、1次元の図形データであるベクトル $\mathbf{v} = x\hat{e}_x + y\hat{e}_y + z\hat{e}_z$ から「長さ（スカラー）」を取り出すとき、各基底の係数の二乗和の平方根 $\sqrt{x^2+y^2+z^2}$ を計算すればよいことを知っているだろう。
@@ -423,7 +492,8 @@ $$\text{向き付き面積} = A_{yz}\,(\hat{e}_y \wedge \hat{e}_z) + A_{zx}\,(\h
 $$S = \sqrt{A_{yz}^2 + A_{zx}^2 + A_{xy}^2} = \sqrt{(y_1 z_2 - z_1 y_2)^2 + (z_1 x_2 - x_1 z_2)^2 + (x_1 y_2 - x_2 y_1)^2}$$
 <p>これはまさしく §2.1 で「大変な計算」と呼んだ高校数学の面積の式と完全に一致する。我々はついに、代数的な測定器の設計から出発し、小学校の「タイルの枚数」にまで無事に帰還したのである。
 </p>
-<h4 id="248-1次元の面積長さと0次元の面積点">2.4.8 1次元の「面積」（長さ）と0次元の「面積」（点）</h4>
+<p>#### 2.4.8 1次元の「面積」（長さ）と0次元の「面積」（点）
+</p>
 <p>ここで少し視点を下げてみよう。「成分の二乗和の平方根」という操作に見覚えがあると言ったが、実は我々は<strong>1次元の図形（線分）</strong>に対しても、全く同じ「はかり」と「図形」の構造をすでに知っている。
 </p>
 <p>第1章で扱った $1$-form（$dx, dy, dz$）は、「ベクトルを1つだけ食べる」測定器だった。
@@ -445,7 +515,8 @@ $$S = \sqrt{A_{yz}^2 + A_{zx}^2 + A_{xy}^2} = \sqrt{(y_1 z_2 - z_1 y_2)^2 + (z_1
 </ul>
 <p>本書の舞台は3次元空間だから $k=0,1,2,3$ で打ち止めだが、「$k$-form が $k$-vector を食べてスカラーを返す」という原理は $k$ によらない。このパターンが第3章の積分、第5章の外微分へと受け継がれていく。
 </p>
-<h4 id="249-クロス積との符合">2.4.9 クロス積との符合</h4>
+<p>#### 2.4.9 クロス積との符合
+</p>
 <p>大学の線形代数で「ベクトルの外積（クロス積）」を学んだ読者なら、次の3成分に見覚えがあるだろう。
 </p>
 $$\mathbf{v}_1 \times \mathbf{v}_2 = (y_1 z_2 - z_1 y_2)\,\hat{e}_x + (z_1 x_2 - x_1 z_2)\,\hat{e}_y + (x_1 y_2 - x_2 y_1)\,\hat{e}_z = \begin{pmatrix} y_1 z_2 - z_1 y_2 \\ z_1 x_2 - x_1 z_2 \\ x_1 y_2 - x_2 y_1 \end{pmatrix}$$
@@ -465,7 +536,8 @@ $$\mathbf{v}_1 \times \mathbf{v}_2 = (y_1 z_2 - z_1 y_2)\,\hat{e}_x + (z_1 x_2 -
 <p>- スカラー面積（タイルの枚数に相当する正の大きさ）は、係数の二乗和の平方根 $\sqrt{A_{yz}^2 + A_{zx}^2 + A_{xy}^2}$ で §2.1 の式に戻る（ラグランジュの恒等式）。ベクトルの長さの公式と同じ形の操作だ。</p>
 </blockquote>
 <hr />
-<h3 id="25-体積測定器と行列式">§2.5 体積測定器と行列式</h3>
+<p>### §2.5 体積測定器と行列式
+</p>
 <p>前節で我々は、2つの一次形式（物差し）$dx, dy$ をウェッジ積で掛け合わせ、面積測定器（$2$-form）$dx \wedge dy$ を組み立てた。面積測定器は「2つのベクトルを食べて、それらが張る平行四辺形の符号付き面積を返す装置」だった。
 </p>
 <p>いよいよ<strong>体積</strong>だが、ここでも立場は同じである。まず<strong>標準基底 $\hat{e}_x,\hat{e}_y,\hat{e}_z$ を並べた単位立方体</strong>に体積 $1$ を対応させ（ルール3）、交代性・線形性で測定器を定める。小学校の「単位立方体がいくつ入るか」という<strong>正の体積</strong>に戻すには、やはり<strong>成分の二乗和の平方根</strong>（あるいは絶対値）が入る——面積のときと同じ構造だ。
@@ -473,7 +545,8 @@ $$\mathbf{v}_1 \times \mathbf{v}_2 = (y_1 z_2 - z_1 y_2)\,\hat{e}_x + (z_1 x_2 -
 <p>自然な問いが湧く。
  <strong>「3つのベクトルが張る平行六面体の体積を測る装置——体積測定器（$3$-form）——も、同じ方法で組み立てられるだろうか？」</strong>
 </p>
-<h4 id="251-体積測定器が満たすべきルール">2.5.1 体積測定器が満たすべきルール</h4>
+<p>#### 2.5.1 体積測定器が満たすべきルール
+</p>
 <p>§2.2 で面積測定器を設計したときとまったく同じ戦略をとろう。まず「体積測定器 $V$ が満たすべきルール」を決め、その後でルールから装置の形を一意に導く。
 </p>
 <p>体積測定器 $V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3)$ は3つのベクトルを食べて1つのスカラーを返す関数である。これに課すルールは、面積測定器の3ルールを<strong>3引数へそのまま拡張</strong>したものだ：
@@ -492,7 +565,8 @@ $$V(\mathbf{v}_2, \mathbf{v}_1, \mathbf{v}_3) = -V(\mathbf{v}_1, \mathbf{v}_2, \
 <p><strong>ルール3（規格化 — 単位立方体の体積を1とする）</strong>
 </p>
 $$V(\hat{e}_x, \hat{e}_y, \hat{e}_z) = 1$$
-<h4 id="252-ルールから形を決める基底展開と消去">2.5.2 ルールから形を決める——基底展開と消去</h4>
+<p>#### 2.5.2 ルールから形を決める——基底展開と消去
+</p>
 <p>§2.3 で面積測定器の行列を導いたときと同じ手順を踏もう。3つのベクトルを基底で展開する：
 </p>
 $$\mathbf{v}_1 = x_1 \hat{e}_x + y_1 \hat{e}_y + z_1 \hat{e}_z, \quad \mathbf{v}_2 = x_2 \hat{e}_x + y_2 \hat{e}_y + z_2 \hat{e}_z, \quad \mathbf{v}_3 = x_3 \hat{e}_x + y_3 \hat{e}_y + z_3 \hat{e}_z$$
@@ -514,7 +588,8 @@ $$V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = \sum_i\sum_j\sum_k v_{1i}\,v_{2j
 <th>置換</th>
 <th>偶/奇</th>
 <th>値</th>
-</tr></thead><tbody>
+</tr></thead>
+<tbody>
 <tr>
 <td>$(x,y,z)$</td>
 <td>偶（0回交換）</td>
@@ -545,7 +620,8 @@ $$V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = \sum_i\sum_j\sum_k v_{1i}\,v_{2j
 <td>奇（1回交換）</td>
 <td>$-1$</td>
 </tr>
-</tbody></table></div>
+</tbody>
+</table></div>
 <p>したがって：
 </p>
 $$V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = x_1 y_2 z_3 + y_1 z_2 x_3 + z_1 x_2 y_3 - y_1 x_2 z_3 - x_1 z_2 y_3 - z_1 y_2 x_3$$
@@ -561,7 +637,8 @@ $$\begin{pmatrix} x_1 & x_2 & x_3 \\ y_1 & y_2 & y_3 \\ z_1 & z_2 & z_3 \end{pma
 <blockquote>
 <p><strong>注</strong> （行列式の6項の順序）教科書によっては、いきなり「行列式の定義はこの6項」と置く。本書の流れでは、<strong>測定器のルール → 6項</strong>の順である。</p>
 </blockquote>
-<h4 id="253--form-の行列式としての再解釈">2.5.3 $2$-form の行列式としての再解釈</h4>
+<p>#### 2.5.3 $2$-form の行列式としての再解釈
+</p>
 <p>実は、§2.4 で定義した $2$-form のウェッジ積にも、行列式が隠れていた。定義を振り返ろう：
 </p>
 $$(dx \wedge dy)(\mathbf{v}_1, \mathbf{v}_2) = dx(\mathbf{v}_1)\,dy(\mathbf{v}_2) - dy(\mathbf{v}_1)\,dx(\mathbf{v}_2)$$
@@ -570,7 +647,8 @@ $$(dx \wedge dy)(\mathbf{v}_1, \mathbf{v}_2) = dx(\mathbf{v}_1)\,dy(\mathbf{v}_2
 $$(dx \wedge dy)(\mathbf{v}_1, \mathbf{v}_2) = \det\begin{pmatrix} dx(\mathbf{v}_1) & dx(\mathbf{v}_2) \\ dy(\mathbf{v}_1) & dy(\mathbf{v}_2) \end{pmatrix}$$
 <p>つまり、横に「どの物差しか」、縦に「どのベクトルか」を並べた行列の行列式が、ウェッジ積の値だったのだ。
 </p>
-<h4 id="254-の定義行列式パターンの完成">2.5.4 $dx \wedge dy \wedge dz$ の定義——行列式パターンの完成</h4>
+<p>#### 2.5.4 $dx \wedge dy \wedge dz$ の定義——行列式パターンの完成
+</p>
 <p>この「行列式パターン」を素直に $3 \times 3$ に拡張すれば、体積測定器が手に入る。
 </p>
 <p><strong>定義：</strong> 3つのベクトル $\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3$ に対し、
@@ -588,7 +666,8 @@ $$= \det\begin{pmatrix} x_1 & x_2 & x_3 \\ y_1 & y_2 & y_3 \\ z_1 & z_2 & z_3 \e
 <li><strong>交代性</strong>：行列式の2つの列を入れ替えると符号が反転する。</li>
 <li><strong>規格化</strong>：$\hat{e}_x, \hat{e}_y, \hat{e}_z$ を入れると行列は単位行列になり、$\det(I) = 1$。</li>
 </ul>
-<h4 id="255-体積測定器のテンソル積表現-ブロックを横に並べた配列">2.5.5 体積測定器のテンソル積表現——$3 \times 3$ ブロックを横に並べた配列</h4>
+<p>#### 2.5.5 体積測定器のテンソル積表現——$3 \times 3$ ブロックを横に並べた配列
+</p>
 <p>§2.4.3–2.4.4 で我々は、面積測定器 $dx \wedge dy$ がテンソル積の引き算 $dx \otimes dy - dy \otimes dx$ で構成でき、その結果が $3 \times 3$ の反対称行列であることを見た。体積測定器 $dx \wedge dy \wedge dz$ にも同じ手が使えるだろうか？
 </p>
 <p>なぜここで敢えてテンソル配列を持ち出すのか——それは、<strong>ベクトル3本を食べて行列式を返す操作が、実は面積測定器のときとまったく同じ「添字の縮約」という統一的視点で書ける</strong>ことを示すためである。これを理解すれば、$1$-form・$2$-form・$3$-form がすべて同じ原理で動いていることが見えてくる。
@@ -635,7 +714,8 @@ $$
 <thead><tr>
 <th>左から $i$ 枚目</th>
 <th>正体</th>
-</tr></thead><tbody>
+</tr></thead>
+<tbody>
 <tr>
 <td>$i=1$</td>
 <td>$dy \wedge dz$（$yz$ 平面の面積測定器）</td>
@@ -648,7 +728,8 @@ $$
 <td>$i=3$</td>
 <td>$dx \wedge dy$（$xy$ 平面の面積測定器）</td>
 </tr>
-</tbody></table></div>
+</tbody>
+</table></div>
 <p><strong>ベクトル3本を食べてスカラーに潰す</strong>
 </p>
 <p>$\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3$ を代入する手順は、<strong>配列の添字とベクトル成分を、合うところどうしで掛けて足す</strong>——と見るのが早い：
@@ -665,7 +746,8 @@ $$
 </blockquote>
 <p>この手順で §2.5.2 の行列式の6項が一つ残らず再現されること、および数値検算は、<strong>付録A</strong>で全成分を書き下して確認する。
 </p>
-<h4 id="256-具体例平行六面体の符号付き体積">2.5.6 具体例：平行六面体の符号付き体積</h4>
+<p>#### 2.5.6 具体例：平行六面体の符号付き体積
+</p>
 <p>手を動かして確認しよう。§2.4.5 で面積を測った2つのベクトルに、3つ目を加えてみる：
 </p>
 $$\mathbf{v}_1 = \begin{pmatrix}1\\0\\1\end{pmatrix}, \quad \mathbf{v}_2 = \begin{pmatrix}0\\1\\1\end{pmatrix}, \quad \mathbf{v}_3 = \begin{pmatrix}1\\1\\0\end{pmatrix}$$
@@ -681,7 +763,8 @@ $$= 1\cdot1\cdot0 + 0\cdot1\cdot1 + 1\cdot0\cdot1 - 1\cdot1\cdot1 - 0\cdot0\cdot
 <p>試しに $\mathbf{v}_1$ と $\mathbf{v}_2$ を入れ替えてみよう：
 </p>
 $$(dx \wedge dy \wedge dz)(\mathbf{v}_2, \mathbf{v}_1, \mathbf{v}_3) = -(-2) = +2$$
-<h4 id="257-スカラー三重積との符合">2.5.7 スカラー三重積との符合</h4>
+<p>#### 2.5.7 スカラー三重積との符合
+</p>
 <p>ベクトル解析で「スカラー三重積」を学んだ読者は、次の恒等式を知っているかもしれない：
 </p>
 $$\mathbf{v}_1 \cdot (\mathbf{v}_2 \times \mathbf{v}_3) = \det\begin{pmatrix}x_1 & x_2 & x_3 \\ y_1 & y_2 & y_3 \\ z_1 & z_2 & z_3\end{pmatrix}$$
@@ -690,7 +773,8 @@ $$\mathbf{v}_1 \cdot (\mathbf{v}_2 \times \mathbf{v}_3) = \det\begin{pmatrix}x_1
 <blockquote>
 <p><strong>注</strong> （内積記号の先取り）左辺の「$\cdot$」は<strong>内積</strong>の記号であり、ここでは小学校以来おなじみの「成分ごとの積の和」という意味で使っている。第6章で計量 $g$ を使った形式的な定義を与える。</p>
 </blockquote>
-<h4 id="258-体積における図形側の基底">2.5.8 体積における「図形側の基底」</h4>
+<p>#### 2.5.8 体積における「図形側の基底」
+</p>
 <p>面積（2次元）のときと同じように、ここでも「はかり」と「図形」を明確に分けておこう。
 </p>
 <p>我々が組み立てた $dx \wedge dy \wedge dz$ は、あくまで3つのベクトルを待ち構える<strong>体積測定器（$3$-form）</strong>である。
@@ -703,7 +787,8 @@ $$\text{向き付き体積} = V\,(\hat{e}_x \wedge \hat{e}_y \wedge \hat{e}_z)$$
 <p>係数となる $V$ は、体積測定器にベクトルを入れて計算した行列式の値（§2.5.6 の例なら $-2$）である。
  そして「小学校の正の体積（スカラー体積）」が欲しければ、成分の二乗和の平方根（$\sqrt{V^2} = |V|$）をとればよい。独立成分が1つしかないので、ただの絶対値になるというわけだ。
 </p>
-<h4 id="259--form-のサイズなぜ独立成分は1つだけか">2.5.9 $3$-form の「サイズ」——なぜ独立成分は1つだけか</h4>
+<p>#### 2.5.9 $3$-form の「サイズ」——なぜ独立成分は1つだけか
+</p>
 <p>面積測定器（$2$-form）は $3 \times 3$ 反対称行列で表現でき、独立な成分は3つだった（$dy \wedge dz$, $dz \wedge dx$, $dx \wedge dy$ の係数）。
 </p>
 <p>では体積測定器（$3$-form）の独立成分はいくつか？ 基底 $3$-form として作れる候補を考えてみよう。3つの物差し $dx, dy, dz$ から<strong>重複なく</strong>3つを選ぶ方法は……1通りしかない。$dx \wedge dy \wedge dz$ だけだ（順序を変えると符号が変わるだけで、新しい基底にはならない）。
@@ -711,7 +796,8 @@ $$\text{向き付き体積} = V\,(\hat{e}_x \wedge \hat{e}_y \wedge \hat{e}_z)$$
 <blockquote>
 <p><strong>注</strong> （ホッジ双対の伏線）読者はお気づきだろうか——体積の向きは、面積のときとは違って $+/-$ のスカラー1つに収まった。§2.4.6 で面積のときに行ったような「ごまかし」の告白を、体積の側でもう一度繰り返す羽目にならずに済んだのは、$3$-form の独立成分がちょうど1つだからだ。そしてこれは偶然ではない。$0$-form（スカラー場）の独立成分も1つ、$1$-form の独立成分は3つ、$2$-form の独立成分も3つ——つまり $1, 3, 3, 1$ と、両端から鏡写しになっている。この並びは、<strong>ホッジ双対</strong>という対称性の前触れだ。詳しくは後の章で。</p>
 </blockquote>
-<h4 id="2510-測定器の階層第2章で手に入れた武器の整理">2.5.10 測定器の階層——第2章で手に入れた武器の整理</h4>
+<p>#### 2.5.10 測定器の階層——第2章で手に入れた武器の整理
+</p>
 <p>ここで、我々が第1章から積み上げてきた「測定器」の全体像を俯瞰しよう。
 </p>
 <p>§2.4.8 以降、とくに §2.5.8（図形側の三重ベクトル）と §2.5.9（独立成分の個数）までを通じて、<strong>次元 $k$ ごとに「はかり（$k$-form）」と「図形（$k$-ベクトル）」の横と縦の関係</strong>が同じ型で繰り返されることが見えてきた。データの成分の個数と、「スカラー（正の大きさ）」の取り出し方を一枚の表にまとめると、次のとおりだ。
@@ -723,7 +809,8 @@ $$\text{向き付き体積} = V\,(\hat{e}_x \wedge \hat{e}_y \wedge \hat{e}_z)$$
 <th>図形（$k$-ベクトル）</th>
 <th>値（データ）の出方</th>
 <th>スカラーの取り出し方</th>
-</tr></thead><tbody>
+</tr></thead>
+<tbody>
 <tr>
 <td><strong>0次元</strong></td>
 <td>$0$-form（スカラー場 $f$）</td>
@@ -752,14 +839,16 @@ $$\text{向き付き体積} = V\,(\hat{e}_x \wedge \hat{e}_y \wedge \hat{e}_z)$$
 <td>1成分（$V$）</td>
 <td>$\sqrt{V^2}$</td>
 </tr>
-</tbody></table></div>
+</tbody>
+</table></div>
 <blockquote>
 <p><strong>【ここまでのチェックポイント】</strong></p>
 <p>- 体積測定器 $dx \wedge dy \wedge dz$（$3$-form）は、3つの物差しのウェッジ積であり、その値は $3 \times 3$ 行列式に等しい。</p>
 <p>- $0$-form（1成分）→ $1$-form（3成分）→ $2$-form（3成分）→ $3$-form（1成分）と、$1, 3, 3, 1$ の対称性がある。</p>
 <p>- はかり（$k$-form）と図形（$k$-ベクトル）の横と縦の関係は、次元が変わっても同じ型で繰り返される。スカラーの大きさは成分の二乗和の平方根で取り出す。</p>
 </blockquote>
-<h3 id="26-本章のまとめと第3章への展望">§2.6 本章のまとめと第3章への展望</h3>
+<p>### §2.6 本章のまとめと第3章への展望
+</p>
 <blockquote>
 <p><strong>【ここまでのチェックポイント — 第2章全体】</strong></p>
 <p>- 面積とは「2つのベクトルの絡み合い」を測る反対称行列（$2$-form）であり、物理的ルールが行列の形を完全に決める。</p>
@@ -771,10 +860,12 @@ $$\text{向き付き体積} = V\,(\hat{e}_x \wedge \hat{e}_y \wedge \hat{e}_z)$$
 <p>次章（第3章）では、これらの形式を<strong>曲線・曲面・領域に沿って集計する</strong>——すなわち線積分・面積分・体積分を、$1$-form / $2$-form / $3$-form の言葉で統一的に書き直す。さらに変数変換と<strong>引き戻し（pullback）</strong>が登場し、ヤコビアンが「影の計算」として自然に現れる。
 </p>
 <hr />
-<h2 id="第2章-付録A体積測定器のテンソル積表現--全成分の計算">第2章 付録A：体積測定器のテンソル積表現 — 全成分の計算</h2>
+<p>## 第2章 付録A：体積測定器のテンソル積表現 — 全成分の計算
+</p>
 <p>§2.5.5 で、$\widehat{\epsilon}$（成分 $\epsilon_{ijk}$）とベクトル3本との縮約で行列式に一致すると述べた。ここではその全過程を手計算で追い、一つ残らず確認する。
 </p>
-<h4 id="A1-テンソル積の3引数への拡張">A.1 テンソル積の3引数への拡張</h4>
+<p>#### A.1 テンソル積の3引数への拡張
+</p>
 <p>復習しよう。$dx \otimes dy$ の $(i,j)$ 成分は、$dx$ の第 $i$ 成分と $dy$ の第 $j$ 成分の積だった：
 </p>
 $$(dx \otimes dy)_{ij} = (dx)_i\,(dy)_j$$
@@ -783,7 +874,8 @@ $$(dx \otimes dy)_{ij} = (dx)_i\,(dy)_j$$
 $$(dx \otimes dy \otimes dz)_{ijk} = (dx)_i\,(dy)_j\,(dz)_k$$
 <p>$dx = (1\ 0\ 0)$, $dy = (0\ 1\ 0)$, $dz = (0\ 0\ 1)$ を代入すると、$3^3 = 27$ マスのうち $(i,j,k) = (1,2,3)$ の1箇所だけが $1$、残り26マスはすべて $0$ になる。他の5つの並べ替え（$dx \otimes dz \otimes dy$ など）もそれぞれ1箇所だけ非ゼロになる——$dy \otimes dx \otimes dz$ なら位置 $(2,1,3)$ に、$dz \otimes dy \otimes dx$ なら $(3,2,1)$ に $1$ が立つ。
 </p>
-<h4 id="A2-反対称化6つの配列を符号つきで重ねる">A.2 反対称化——6つの配列を符号つきで重ねる</h4>
+<p>#### A.2 反対称化——6つの配列を符号つきで重ねる
+</p>
 <p>§2.4.4 で面積のとき $dx \wedge dy = dx \otimes dy - dy \otimes dx$（2項の符号つき和）だった。3つの物差しは デカルト座標における $dx, dy, dz$ である。その並べ替えは $3! = 6$ 通りだから、置換 $\sigma$ ごとに $(dx,dy,dz)$ を並べ替えた順にテンソル積 $\otimes$ でつなぎ、符号 $\mathrm{sgn}(\sigma)$ を付けて $S_3$ 上で和をとる、という意味である——すなわち次の6行の和を、置換の言葉で一行にまとめたものだ。
 </p>
 <blockquote>
@@ -795,7 +887,8 @@ $$\underbrace{dx \otimes dy \otimes dz}_{(1,2,3)\text{ に }+1} - \underbrace{dx
 $$- \underbrace{dy \otimes dx \otimes dz}_{(2,1,3)\text{ に }-1} + \underbrace{dz \otimes dx \otimes dy}_{(3,1,2)\text{ に }+1} - \underbrace{dz \otimes dy \otimes dx}_{(3,2,1)\text{ に }-1}$$
 <p>6つの「1箇所だけ非ゼロの配列」を符号つきで重ねると、27成分のうち6箇所だけが $\pm 1$ で、残り21箇所はゼロになる。§2.5.2 の置換の表と見比べてほしい——これが $\widehat{\epsilon}$ の各成分 $\epsilon_{ijk}$ を与える構成原理だ。
 </p>
-<h4 id="A3-各成分の行列を書き下す">A.3 各成分の行列を書き下す</h4>
+<p>#### A.3 各成分の行列を書き下す
+</p>
 <p>§2.5.5 で示した3つの成分行列を、ここでは1マスずつ確認しよう。
 </p>
 <p><strong>第1成分（$i = 1$, $x$）：</strong> 6項のうち $i = 1$ を持つのは $(1,2,3)$ に $+1$ と $(1,3,2)$ に $-1$。
@@ -809,7 +902,8 @@ $$\epsilon_{2,\cdot,\cdot} = \begin{pmatrix} 0 & 0 & -1 \\ 0 & 0 & 0 \\ 1 & 0 & 
 $$\epsilon_{3,\cdot,\cdot} = \begin{pmatrix} 0 & 1 & 0 \\ -1 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}$$
 <p>繰り返しになるが、これらはそれぞれ $dy \wedge dz$、$dz \wedge dx$、$dx \wedge dy$ の行列そのものである。
 </p>
-<h4 id="A4-ベクトル3本を食わせる縮約の全過程">A.4 ベクトル3本を食わせる——縮約の全過程</h4>
+<p>#### A.4 ベクトル3本を食わせる——縮約の全過程
+</p>
 <p><strong>ステップ1：添字 $i$ について $\mathbf{v}_1$ の成分で加重和（添字 $i$ を潰す）</strong>
 </p>
 <p>$\mathbf{v}_1$ の各成分を重みにして3つの面積測定器行列を足し合わせる。3次元配列がベクトル1本を食べて $3 \times 3$ 行列に降りる：
@@ -837,13 +931,13 @@ $$= x_1 y_2 z_3 + y_1 z_2 x_3 + z_1 x_2 y_3 - y_1 x_2 z_3 - x_1 z_2 y_3 - z_1 y_
 <p>となり、<strong>§2.5.2 の行列式と、6つの項が1つ残らず一致する。</strong>
 </p>
       <div class="nav-buttons">
-        <a href="ch01.html">← 第1章：$dx$ とは何か —...</a>
-        <a href="ch03.html">第3章：積分するとは何か ——... →</a>
+        <a href="ch01.html">← 第1章...</a>
+        <a href="ch03.html">第3章... →</a>
       </div>
-      <footer class="site-footer">
-        <p>&copy; yokiikoy (CC BY-NC 4.0). 本書の最新版・PDF・改訂履歴・関連情報・本書以外のコンテンツはポータルサイト <a href="https://covectorspace.xyz/jp/">Project Co-Vector Space</a> をご確認ください。</p>
-      </footer>
     </article>
+    <footer class="site-footer">
+      <p>&copy; 2024- yokiikoy. CC BY-NC 4.0.</p>
+    </footer>
   </main>
 </body>
 </html>
