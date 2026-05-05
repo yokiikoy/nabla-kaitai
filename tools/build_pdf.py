@@ -447,23 +447,141 @@ try:
     )
 
     if is_preview:
-        latex_body += r'''\chapter*{完全版の予定目次 (予告)}
-\addcontentsline{toc}{chapter}{完全版の予定目次}
-\begin{itemize}
-  \item 第2章：面積とは何か —— 平行多面体に潜む、符号のルール
-  \item 第3章：積分するとは何か —— 有限のマスを数え、最後に極限を取る
-  \item 第4章：変数変換とは何か —— 引き戻し $\Phi^*$：測定器のつじつま合わせ
-  \item 第5章：微分するとは何か —— 外微分 $d$：局所のズレとStokesの橋
-  \item 第6章：計量 $g$ とホッジ・スター $\ast$ — 内積の召喚と次数の反転
-  \item 第7章：ベクトル解析 —— ナブラの登場
-  \item 第8章：二つの言語 —— 測定器の微分と、場の微分
-  \item 第9章：実戦 —— 辞書を作り、難問を解く
-  \item 第10章：マクスウェル方程式 —— 美しさのその先へ
-  \item 第11章：曲がった空間へ —— 本書の先にあるもの
-  \item 第12章：真のナブラ —— クリフォード・パウリ・ディラック・ハミルトン
-\end{itemize}
+        detailed_latex_toc = r'''
+\chapter*{完全版の目次（予告）}
+\addcontentsline{toc}{chapter}{完全版の目次（予告）}
+\begin{flushleft}
+{\small ※ 先行公開版では第1章のみ公開しています。第2章以降は完結版にて収録予定です。}
+\end{flushleft}
+\vspace{1em}
+
+\newcommand{\plannedchapter}[2]{{\bfseries #1 #2}\dotfill ??\par}
+\newcommand{\plannedsection}[1]{\hspace{1em}#1\dotfill ??\par}
+\newcommand{\plannedsubsection}[1]{\hspace{2em}{\footnotesize #1}\dotfill ??\par}
+
+\plannedchapter{第2章}{面積とは何か —— 平行多面体に潜む、符号のルール}
+\plannedsubsection{§2.0 測定器と面積・体積、そして長さ}
+\plannedsubsection{§2.1 小学校の面積の限界}
+\plannedsubsection{§2.2 面積測定器が満たすべき「3つのルール」}
+\plannedsubsection{§2.3 面積測定器の正体は「反対称行列」である}
+\plannedsubsection{§2.4 面積測定器の内部構造}
+\plannedsubsection{§2.5 体積測定器と行列式}
+\plannedsubsection{§2.6 本章のまとめと第3章への展望}
+\plannedsection{第2章 付録A：体積測定器のテンソル積表現 — 全成分の計算}
+
+\plannedchapter{第3章}{積分するとは何か —— 有限のマスを数え、最後に極限を取る}
+\plannedsubsection{§3.0 曲がったものを測る——小学校以来の借りを返す}
+\plannedsubsection{§3.1 体積——3次元、係数1}
+\plannedsubsection{§3.2 表面積——2次元、係数1}
+\plannedsubsection{§3.3 曲線——1次元、係数1（限界があらわになる）}
+\plannedsubsection{§3.4 係数をつける——密度と幾何の積}
+\plannedsubsection{§3.5 本章のまとめと次章への展望}
+
+\plannedchapter{第4章}{変数変換とは何か —— 引き戻し $\Phi^*$：測定器のつじつま合わせ}
+\plannedsubsection{§4.0 物理は曲がる、計算は四角}
+\plannedsubsection{§4.1 1-form の引き戻し——仕事と運動エネルギー定理}
+\plannedsubsection{§4.2 2-form の引き戻し——角運動量保存と面積速度}
+\plannedsubsection{§4.3 3-form の引き戻し——質量保存と体積分}
+\plannedsubsection{§4.4 引き戻しの性質 —— ここまでに確立したこと}
+\plannedsubsection{§4.5 本章のまとめと第5章（外微分）への展望}
+
+\plannedchapter{第5章}{微分するとは何か —— 外微分 $d$：局所のズレとStokesの橋}
+\plannedsubsection{§5.0 第II部の扉——観測は積分、法則は微分}
+\plannedsubsection{§5.1 $df$ 再訪——微分と積分は逆演算か}
+\plannedsubsection{§5.2 閉ループで姿を現す「ズレ」}
+\plannedsubsection{§5.3 微小ループの解体——ズレは面積に比例する}
+\plannedsubsection{§5.4 $d$ の誕生——面積あたりのズレを測る新しい測定器}
+\plannedsubsection{§5.5 一般の $1$-form の外微分——3次元への拡張}
+\plannedsubsection{§5.6 集積すれば境界だけが残る——ストークスの定理}
+\plannedsubsection{§5.7 同じことをもう一段——$2$-form の外微分と発散}
+\plannedsubsection{§5.8 $d^2 = 0$——二度測れば必ずゼロ}
+\plannedsubsection{§5.9 外微分の統合——一つの式、一つのルール}
+\plannedsubsection{§5.10 積分から微分方程式へ——物理法則の局所化}
+\plannedsubsection{§5.11 第II部への展望——ホッジ・スターへの伏線}
+\plannedsection{付録C：外微分の行列表示}
+\plannedsubsection{C.1 $0$-form：$df$ の $1 \times 3$ 行ベクトル}
+\plannedsubsection{C.2 $1$-form：係数のヤコビ行列 $\mathbf{J}$}
+\plannedsubsection{C.3 $d\omega = \mathbf{J}^T - \mathbf{J}$}
+\plannedsubsection{C.4 $2$-form：$d\eta$ とヤコビ行列のトレース}
+\plannedsubsection{C.5 $d^2 f = 0$ とヘッセ行列}
+
+\plannedchapter{第6章}{計量 $g$ とホッジ・スター $\ast$ — 内積の召喚と次数の反転}
+\plannedsubsection{§6.0 言い訳の終焉——内積を解放する}
+\plannedsubsection{§6.1 パラメータ空間の内積——計量 $g$ の正体}
+\plannedsubsection{§6.2 $g$ による縦ベクトルと横ベクトルの変換}
+\plannedsubsection{§6.3 ホッジ・スター $\ast$ ——二つの方法を繫ぐ対応}
+\plannedsubsection{§6.4 対応の実例——微分形式とベクトル解析}
+\plannedsubsection{§6.5 ナブラの三兄弟を解体する}
+\plannedsubsection{§6.6 第II部の結び —— 第III部へ}
+\plannedsection{付録D：フロベニウス積とホッジ・スターの完全な行列表現}
+\plannedsubsection{D.1 行列の内積——フロベニウス積}
+\plannedsubsection{D.2 $\ast_{1\to2}$ ——行列の縦ベクトル}
+\plannedsubsection{D.3 $\ast_{2\to1}$ ——フロベニウス積による係数抽出}
+\plannedsubsection{D.4 転置関係}
+\plannedsubsection{D.5 $E_k \cdot M$ の成分}
+\plannedsubsection{D.6 $\ast$ の二回作用}
+
+\plannedchapter{第7章}{ベクトル解析 —— ナブラの登場}
+\plannedsubsection{§7.0 ナブラの登場}
+\plannedsubsection{§7.1 ドット積とクロス積}
+\plannedsubsection{§7.2 $\nabla$ と勾配}
+\plannedsubsection{§7.3 発散}
+\plannedsubsection{§7.4 回転}
+\plannedsubsection{§7.5 ラプラシアン}
+\plannedsubsection{§7.6 恒等式}
+\plannedsubsection{§7.7 ナブラの公式集}
+\plannedsubsection{§7.8 積分定理——ストークス・ガウス・グリーン}
+\plannedsubsection{§7.9 第III部へ —— 矢印を見るな、測定器を見ろ}
+
+\plannedchapter{第8章}{二つの言語 —— 測定器の微分と、場の微分}
+\plannedsubsection{§8.0 本書のハイライト}
+\plannedsubsection{§8.1 二つの微分、二つの世界}
+\plannedsubsection{§8.2 翻訳辞書の完成}
+\plannedsubsection{§8.3 ストークスの定理を翻訳する}
+\plannedsubsection{§8.4 ガウスの定理を翻訳する}
+\plannedsubsection{§8.5 二つの方法論——場はそのままか、測定器はそのままか}
+\plannedsubsection{§8.6 曲線座標と二つの方法}
+
+\plannedchapter{第9章}{実戦 —— 辞書を作り、難問を解く}
+\plannedsubsection{§9.0 本書の中心的な道具は揃った}
+\plannedsubsection{§9.1 辞書をその場で作る——機械的手順}
+\plannedsubsection{§9.2 円柱座標 $(r,\theta,z)$}
+\plannedsubsection{§9.3 球座標 $(\rho,\theta,\phi)$}
+\plannedsubsection{§9.4 微積分の難問——球座標でのベクトルラプラシアン}
+\plannedsubsection{§9.5 電磁気学の難問——点電荷の電場と発散}
+\plannedsubsection{§9.6 辞書は終わり、旅は続く}
+
+\plannedchapter{第10章}{マクスウェル方程式 —— 美しさのその先へ}
+\plannedsubsection{§10.0 お約束}
+\plannedsubsection{§10.1 マクスウェル方程式——2本で書く}
+\plannedsubsection{§10.2 電磁場 $F$ と符号規約の固定}
+\plannedsubsection{§10.3 ミンコフスキー計量——$\mathbb{R}^3$ から4次元へ}
+\plannedsubsection{§10.4 $dF=0$ を全部書き下す}
+\plannedsubsection{§10.5 $\ast F$ と残りの2本}
+\plannedsubsection{§10.6 ポテンシャル構成——$F=-d\mathcal{A}$ から始める}
+\plannedsection{付録E：$dF$ と $d(\ast F)$ のスライス行列表示 —— $4\times4\times4$ 配列で見るマクスウェル方程式}
+\plannedsubsection{E.1 基底 $3$-form とそのスライス行列 —— 全16枚}
+\plannedsubsection{E.2 $dF$ をスライス行列で書く}
+\plannedsubsection{E.3 フロベニウス積で係数を抜き出す}
+\plannedsubsection{E.4 $dF=0$ をスライスで読む}
+\plannedsubsection{E.5 $d(\ast F) = \mu_0(\ast\mathcal{J})$ のスライス表示}
+
+\plannedchapter{第11章}{曲がった空間へ —— 本書の先にあるもの}
+\plannedsubsection{§11.0 この章の立ち位置 —— さらに先を見たい読者のための道標}
+\plannedsubsection{§11.1 多様体 —— $\mathbf{g}(x)$ から始める}
+\plannedsubsection{§11.2 リーマン幾何学 —— テンソル解析のスタイル}
+\plannedsubsection{§11.3 その先へ}
+
+\plannedchapter{第12章}{真のナブラ —— クリフォード・パウリ・ディラック・ハミルトン}
+\plannedsubsection{§12.0 2本を1本に}
+\plannedsubsection{§12.1 虚数で一本に —— マクスウェル方程式の統合}
+\plannedsubsection{§12.2 パウリ行列 —— 異なる次数を足す魔法}
+\plannedsubsection{§12.3 ディラック演算子と「真のナブラ」}
+\plannedsubsection{§12.4 演算子$\nabla$}
+
 \newpage
 '''
+        latex_body += detailed_latex_toc
 
     latex_doc = preamble + latex_body + '\n' + r'\end{document}' + '\n'
 

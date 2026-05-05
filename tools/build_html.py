@@ -549,22 +549,111 @@ def main():
         toc_content_parts.append('</div></div>')
 
     if is_preview:
-        toc_content_parts.append(
-            '<h2>完全版の予定目次</h2>\n'
-            '<ul style="color: #666;">\n'
-            '  <li>第2章：面積とは何か —— 平行多面体に潜む、符号のルール</li>\n'
-            '  <li>第3章：積分するとは何か —— 有限のマスを数え、最後に極限を取る</li>\n'
-            '  <li>第4章：変数変換とは何か —— 引き戻し $\Phi^*$：測定器のつじつま合わせ</li>\n'
-            '  <li>第5章：微分するとは何か —— 外微分 $d$：局所のズレとStokesの橋</li>\n'
-            '  <li>第6章：計量 $g$ とホッジ・スター $\ast$ — 内積の召喚と次数の反転</li>\n'
-            '  <li>第7章：ベクトル解析 —— ナブラの登場</li>\n'
-            '  <li>第8章：二つの言語 —— 測定器の微分と、場の微分</li>\n'
-            '  <li>第9章：実戦 —— 辞書を作り、難問を解く</li>\n'
-            '  <li>第10章：マクスウェル方程式 —— 美しさのその先へ</li>\n'
-            '  <li>第11章：曲がった空間へ —— 本書の先にあるもの</li>\n'
-            '  <li>第12章：真のナブラ —— クリフォード・パウリ・ディラック・ハミルトン</li>\n'
-            '</ul>\n'
-        )
+        detailed_toc = r'''
+        <h2>完全版の目次（予告）</h2>
+        <p style="color: #666; font-size: 0.9em; margin-bottom: 2em;">※ 先行公開版では第1章のみ公開しています。第2章以降は完結版にて収録予定です。</p>
+        <div class="planned-toc" style="color: #666;">
+          <ul style="list-style: none; padding-left: 0;">
+            <li class="level-1" style="font-weight: bold; margin-top: 1.5em;">第2章：面積とは何か —— 平行多面体に潜む、符号のルール</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§2.0 測定器と面積・体積、そして長さ</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§2.1 小学校の面積の限界</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§2.2 面積測定器が満たすべき「3つのルール」</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§2.3 面積測定器の正体は「反対称行列」である</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§2.4 面積測定器の内部構造</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§2.5 体積測定器と行列式</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§2.6 本章のまとめと第3章への展望</li>
+            
+            <li class="level-1" style="font-weight: bold; margin-top: 1.5em;">第3章：積分するとは何か —— 有限のマスを数え、最後に極限を取る</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§3.0 曲がったものを測る——小学校以来の借りを返す</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§3.1 体積——3次元、係数1</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§3.2 表面積——2次元、係数1</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§3.3 曲線——1次元、係数1（限界があらわになる）</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§3.4 係数をつける——密度と幾何の積</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§3.5 本章のまとめと次章への展望</li>
+            
+            <li class="level-1" style="font-weight: bold; margin-top: 1.5em;">第4章：変数変換とは何か —— 引き戻し $\Phi^*$：測定器のつじつま合わせ</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§4.0 物理は曲がる、計算は四角</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§4.1 1-form の引き戻し——仕事と運動エネルギー定理</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§4.2 2-form の引き戻し——角運動量保存と面積速度</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§4.3 3-form の引き戻し——質量保存と体積分</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§4.4 引き戻しの性質 —— ここまでに確立したこと</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§4.5 本章のまとめと第5章（外微分）への展望</li>
+            
+            <li class="level-1" style="font-weight: bold; margin-top: 1.5em;">第5章：微分するとは何か —— 外微分 $d$：局所のズレとStokesの橋</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§5.0 第II部の扉——観測は積分、法則は微分</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§5.1 $df$ 再訪——微分と積分は逆演算か</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§5.2 閉ループで姿を現す「ズレ」</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§5.3 微小ループの解体——ズレは面積に比例する</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§5.4 $d$ の誕生——面積あたりのズレを測る新しい測定器</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§5.5 一般の $1$-form の外微分——3次元への拡張</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§5.6 集積すれば境界だけが残る——ストークスの定理</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§5.7 同じことをもう一段——$2$-form の外微分と発散</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§5.8 $d^2 = 0$——二度測れば必ずゼロ</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§5.9 外微分の統合——一つの式、一つのルール</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§5.10 積分から微分方程式へ——物理法則の局所化</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§5.11 第II部への展望——ホッジ・スターへの伏線</li>
+            
+            <li class="level-1" style="font-weight: bold; margin-top: 1.5em;">第6章：計量 $g$ とホッジ・スター $\ast$ — 内積の召喚と次数の反転</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§6.0 言い訳の終焉——内積を解放する</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§6.1 パラメータ空間の内積——計量 $g$ の正体</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§6.2 $g$ による縦ベクトルと横ベクトルの変換</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§6.3 ホッジ・スター $\ast$ ——二つの方法を繫ぐ対応</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§6.4 対応の実例——微分形式とベクトル解析</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§6.5 ナブラの三兄弟を解体する</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§6.6 第II部の結び —— 第III部へ</li>
+            
+            <li class="level-1" style="font-weight: bold; margin-top: 1.5em;">第7章：ベクトル解析 —— ナブラの登場</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§7.0 ナブラの登場</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§7.1 ドット積とクロス積</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§7.2 $\nabla$ と勾配</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§7.3 発散</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§7.4 回転</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§7.5 ラプラシアン</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§7.6 恒等式</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§7.7 ナブラの公式集</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§7.8 積分定理——ストークス・ガウス・グリーン</li>
+            
+            <li class="level-1" style="font-weight: bold; margin-top: 1.5em;">第8章：二つの言語 —— 測定器の微分と、場の微分</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§8.0 本書のハイライト</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§8.1 二つの微分、二つの世界</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§8.2 翻訳辞書の完成</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§8.3 ストークスの定理を翻訳する</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§8.4 ガウスの定理を翻訳する</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§8.5 二つの方法論——場はそのままか、測定器はそのままか</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§8.6 曲線座標と二つの方法</li>
+            
+            <li class="level-1" style="font-weight: bold; margin-top: 1.5em;">第9章：実戦 —— 辞書を作り、難問を解く</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§9.0 本書の中心的な道具は揃った</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§9.1 辞書をその場で作る——機械的手順</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§9.2 円柱座標 $(r,\theta,z)$</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§9.3 球座標 $(\rho,\theta,\phi)$</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§9.4 微積分の難問——球座標でのベクトルラプラシアン</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§9.5 電磁気学の難問——点電荷の電場と発散</li>
+            
+            <li class="level-1" style="font-weight: bold; margin-top: 1.5em;">第10章：マクスウェル方程式 —— 美しさのその先へ</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§10.0 お約束</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§10.1 マクスウェル方程式——2本で書く</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§10.2 電磁場 $F$ と符号規約の固定</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§10.3 ミンコフスキー計量——$\mathbb{R}^3$ から4次元へ</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§10.4 $dF=0$ を全部書き下す</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§10.5 $\ast F$ と残りの2本</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§10.6 ポテンシャル構成——$F=-d\mathcal{A}$ から始める</li>
+            
+            <li class="level-1" style="font-weight: bold; margin-top: 1.5em;">第11章：曲がった空間へ —— 本書の先にあるもの</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§11.0 この章の立ち位置 —— さらに先を見たい読者のための道標</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§11.1 多様体 —— $\mathbf{g}(x)$ から始める</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§11.2 リーマン幾何学 —— テンソル解析のスタイル</li>
+            
+            <li class="level-1" style="font-weight: bold; margin-top: 1.5em;">第12章：真のナブラ —— クリフォード・パウリ・ディラック・ハミルトン</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§12.0 2本を1本に</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§12.1 虚数で一本に —— マクスウェル方程式の統合</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§12.2 パウリ行列 —— 異なる次数を足す魔法</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§12.3 ディラック演算子と「真のナブラ」</li>
+            <li class="level-3" style="margin-left: 20px; font-size: 0.9em;">§12.4 演算子$\nabla$</li>
+          </ul>
+        </div>
+        '''
+        toc_content_parts.append(detailed_toc)
 
 
     toc_content_parts.append('</div>')
