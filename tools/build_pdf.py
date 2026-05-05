@@ -445,6 +445,26 @@ try:
         r'\tableofcontents' '\n'
         r'\newpage' '\n'
     )
+
+    if is_preview:
+        latex_body += r'''\chapter*{完全版の予定目次 (予告)}
+\addcontentsline{toc}{chapter}{完全版の予定目次}
+\begin{itemize}
+  \item 第2章：面積とは何か —— 平行多面体に潜む、符号のルール
+  \item 第3章：積分するとは何か —— 有限のマスを数え、最後に極限を取る
+  \item 第4章：変数変換とは何か —— 引き戻し $\Phi^*$：測定器のつじつま合わせ
+  \item 第5章：微分するとは何か —— 外微分 $d$：局所のズレとStokesの橋
+  \item 第6章：計量 $g$ とホッジ・スター $\ast$ — 内積の召喚と次数の反転
+  \item 第7章：ベクトル解析 —— ナブラの登場
+  \item 第8章：二つの言語 —— 測定器の微分と、場の微分
+  \item 第9章：実戦 —— 辞書を作り、難問を解く
+  \item 第10章：マクスウェル方程式 —— 美しさのその先へ
+  \item 第11章：曲がった空間へ —— 本書の先にあるもの
+  \item 第12章：真のナブラ —— クリフォード・パウリ・ディラック・ハミルトン
+\end{itemize}
+\newpage
+'''
+
     latex_doc = preamble + latex_body + '\n' + r'\end{document}' + '\n'
 
     tex_filename = 'manuscript-preview.tex' if is_preview else 'manuscript.tex'

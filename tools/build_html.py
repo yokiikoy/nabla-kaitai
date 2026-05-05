@@ -544,8 +544,28 @@ def main():
                 toc_content_parts.append(f'<li class="level-{lv}"><a href="{ch["filename"]}#{anchor}">{txt}</a></li>')
             toc_content_parts.append('</ul>')
 
+
     if in_part:
         toc_content_parts.append('</div></div>')
+
+    if is_preview:
+        toc_content_parts.append(
+            '<h2>完全版の予定目次</h2>\n'
+            '<ul style="color: #666;">\n'
+            '  <li>第2章：面積とは何か —— 平行多面体に潜む、符号のルール</li>\n'
+            '  <li>第3章：積分するとは何か —— 有限のマスを数え、最後に極限を取る</li>\n'
+            '  <li>第4章：変数変換とは何か —— 引き戻し $\Phi^*$：測定器のつじつま合わせ</li>\n'
+            '  <li>第5章：微分するとは何か —— 外微分 $d$：局所のズレとStokesの橋</li>\n'
+            '  <li>第6章：計量 $g$ とホッジ・スター $\ast$ — 内積の召喚と次数の反転</li>\n'
+            '  <li>第7章：ベクトル解析 —— ナブラの登場</li>\n'
+            '  <li>第8章：二つの言語 —— 測定器の微分と、場の微分</li>\n'
+            '  <li>第9章：実戦 —— 辞書を作り、難問を解く</li>\n'
+            '  <li>第10章：マクスウェル方程式 —— 美しさのその先へ</li>\n'
+            '  <li>第11章：曲がった空間へ —— 本書の先にあるもの</li>\n'
+            '  <li>第12章：真のナブラ —— クリフォード・パウリ・ディラック・ハミルトン</li>\n'
+            '</ul>\n'
+        )
+
 
     toc_content_parts.append('</div>')
     toc_content = '\n'.join(toc_content_parts)
