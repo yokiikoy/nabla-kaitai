@@ -294,7 +294,11 @@ def main():
     if profile.is_preview:
         toc_stubs.append(r'\chapter*{完結版の収録予定について}')
         toc_stubs.append(r'\addcontentsline{toc}{chapter}{完結版の収録予定について}')
-        toc_stubs.append(r'以下の章および節は、先行公開版（本PDF）には本文が含まれていません。完結版をお待ちください。')
+        toc_stubs.append(r'以下の章および節は、先行公開版（本PDF）には本文が含まれていません。')
+        toc_stubs.append(r'')
+        toc_stubs.append(r'本書の全12章分の草稿はすでに書き上がっていますが、現在は誤字脱字、全体の整合性、数学的厳密性と教育的な断言のバランスを調整している最中です。GitHub リポジトリや作業中ブランチを探すと、第2章以降の草稿が見えてしまう可能性があります。ただし、それらは正式な公開版ではありません。')
+        toc_stubs.append(r'')
+        toc_stubs.append(r'どうしても続きを読む場合は、こっそり作業場を覗き見たものとして扱い、現時点では批評・レビュー・拡散の対象にしないでください。正式な完結版は、ポータルサイトで案内します。')
         toc_stubs.append(r'\vspace{2em}')
 
         # Create phantom contents lines for TOC
@@ -345,6 +349,11 @@ def main():
              f'-output-directory={"preview" if profile.is_preview else "exports"}', f'exports/{tex_filename}'],
             capture_output=True, text=True, timeout=300
         )
+        if r.returncode != 0:
+            print(f"XeLaTeX failed on run {run}:")
+            print(r.stdout[-3000:])
+            print(r.stderr[-3000:])
+            raise SystemExit(r.returncode)
     
     pdf_path = 'preview/manuscript-preview.pdf' if profile.is_preview else 'exports/manuscript.pdf'
     if os.path.exists(pdf_path):

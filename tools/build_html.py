@@ -350,7 +350,7 @@ def main():
     preview_notice = ""
     if profile.is_preview:
         preview_notice = '''<div class="preview-notice" style="background: #fff8c5; border: 1px solid #d4a72c; padding: 1rem; border-radius: 6px; margin-bottom: 2rem; font-size: 0.9rem;">
-      <strong>先行公開版のお知らせ:</strong> このドキュメントは先行公開用であり、内容（前付け・第1章・後付類のみ）を限定しています。最新の完結版や詳細についてはポータルサイトをご確認ください。
+      <strong>先行公開版のお知らせ:</strong> このドキュメントは先行公開用であり、正式な公開範囲は前付け・第1章・後付類のみです。第2章以降の本文は、現在、誤字脱字、全体の整合性、数学的厳密性と教育的な断言のバランスを調整している最中です。GitHub リポジトリや作業中ブランチを探すと全12章分の草稿が見えてしまう可能性がありますが、それらは正式な公開版ではありません。どうしても読む場合は、こっそり作業場を覗き見たものとして扱い、現時点では批評・レビュー・拡散の対象にしないでください。最新版や正式な公開情報はポータルサイトをご確認ください。
     </div>'''
 
     all_chapters_for_nav = model.front_matter + model.get_full_toc_chapters()
