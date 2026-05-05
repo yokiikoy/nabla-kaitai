@@ -34,3 +34,6 @@ preview/*.toc
 preview/*.out
 preview/*.fls
 preview/*.fdb_latexmk
+docs/preview/*.aux
+docs/preview/*.log
+docs/preview/*.toc
