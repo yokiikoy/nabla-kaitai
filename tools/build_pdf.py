@@ -351,7 +351,32 @@ def main():
     # This allows the PDF to display the full TOC even in preview mode.
     toc_stubs = []
     if profile.is_preview:
-        # Full build page numbers for chapters 2-12
+        # Ensure full PDF is built so we can read its TOC for section page numbers
+        full_toc_path = 'exports/manuscript.toc'
+        if not os.path.exists(full_toc_path):
+            print('Building full PDF first to obtain section page numbers...')
+            # Build full PDF in a subprocess (avoiding side effects)
+            subprocess.run([sys.executable, __file__, '--profile', 'full'], check=True)
+        
+        section_page_map = {}
+        if os.path.exists(full_toc_path):
+            with open(full_toc_path) as f:
+                for line in f:
+                    m = re.search(r'\\contentsline\s*\{[^}]*\}\{(.+?)\}\{(\d+)\}', line)
+                    if m:
+                        raw_title = m.group(1).strip()
+                        page = m.group(2)
+                        clean = re.sub(r'\\numberline\s*\{[^}]*\}', '', raw_title)
+                        clean = re.sub(r'\\texorpdfstring\{[^}]*\}\{', '', clean)
+                        clean = clean.replace('}', '')
+                        clean = re.sub(r'\\(\(|\))', r'\1', clean)
+                        clean = re.sub(r'\\([a-zA-Z]+)\*?\s*\{([^}]*)\}', r'\2', clean)
+                        clean = re.sub(r'\\([a-zA-Z]+)', r'\1', clean)
+                        clean = clean.strip()
+                        if clean:
+                            section_page_map[clean] = int(page)
+        
+        # Chapter-level page numbers as fallback
         FULL_PAGE_NUMBERS = {
             '02': 24, '03': 45, '04': 59, '05': 72, '06': 92,
             '07': 112, '08': 122, '09': 132, '10': 140, '11': 152, '12': 162,
@@ -364,24 +389,25 @@ def main():
         toc_stubs.append(r'本書の全12章分の草稿はすでに書き上がっていますが、現在は誤字脱字、全体の整合性、数学的厳密性と教育的な断言のバランスを調整している最中です。GitHub リポジトリや作業中ブランチを探すと、第2章以降の草稿が見えてしまう可能性があります。ただし、それらは正式な公開版ではありません。')
         toc_stubs.append(r'')
         toc_stubs.append(r'どうしても続きを読む場合は、こっそり作業場を覗き見たものとして扱い、現時点では批評・レビュー・拡散の対象にしないでください。正式な完結版は、ポータルサイトで案内します。')
-        toc_stubs.append(r'\vspace{2em}')
-        toc_stubs.append(r'{\small ページ番号は完全版のものです。この先行公開版では対応する本文はありません。}')
         toc_stubs.append(r'\vspace{1em}')
+        toc_stubs.append(r'{\small ページ番号は完全版のものです。この先行公開版では対応する本文はありません。}')
+        toc_stubs.append(r'\vspace{2em}')
 
-        # Custom mini-TOC with full build page numbers
+        # Custom mini-TOC with page numbers from full build
         for ch in model.chapters:
             if not ch.is_included_in_content:
-                page_num = FULL_PAGE_NUMBERS.get(ch.id, '??')
-                # Escape LaTeX special chars in title (but preserve $ math)
+                ch_page = FULL_PAGE_NUMBERS.get(ch.id, '??')
                 safe_title = ch.title.replace('_', r'\_').replace('&', r'\&').replace('#', r'\#')
-                toc_stubs.append(r'\noindent\textbf{' + safe_title + r'}\dotfill ' + str(page_num) + r'\par')
+                toc_stubs.append(r'\noindent\textbf{' + safe_title + r'}\dotfill ' + str(ch_page) + r'\par')
                 for item in ch.toc_items:
                     indent = r'\hspace{1em}' if item.level == 2 else r'\hspace{2em}'
                     safe_item = item.title.replace('_', r'\_').replace('&', r'\&').replace('#', r'\#')
+                    # Try to find per-section page number from full TOC
+                    page = section_page_map.get(item.title.strip(), ch_page)
                     if item.level == 2:
-                        toc_stubs.append(r'\noindent' + indent + safe_item + r'\dotfill ' + str(page_num) + r'\par')
+                        toc_stubs.append(r'\noindent' + indent + safe_item + r'\dotfill ' + str(page) + r'\par')
                     else:
-                        toc_stubs.append(r'\noindent' + indent + r'{\footnotesize ' + safe_item + r'}\dotfill ' + str(page_num) + r'\par')
+                        toc_stubs.append(r'\noindent' + indent + r'{\footnotesize ' + safe_item + r'}\dotfill ' + str(page) + r'\par')
         
         toc_stubs.append(r'\newpage')
 
