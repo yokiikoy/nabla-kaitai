@@ -312,8 +312,6 @@ def main():
         r'\pagestyle{empty}' '\n'
         r'\centering' '\n'
         r'\vspace*{20mm}' '\n'
-        r'{\includegraphics[width=4cm]{exports/icons/nabla_icon_inflate_65.png}\par}' '\n'
-        r'\vspace{5mm}' '\n'
         r'{\fontsize{34}{42}\selectfont\bfseries ナブラ解体新書\par}' '\n'
         r'\vspace{7mm}' '\n'
         r'{\Large 行列表示の微分形式による\par}' '\n'
@@ -339,6 +337,8 @@ def main():
         )
         + r'\end{tabular}' '\n'
         r'\end{minipage}\par' '\n'
+        r'\vspace{5mm}' '\n'
+        r'{\includegraphics[width=3cm]{exports/icons/nabla_icon_inflate_65.png}\par}' '\n'
         r'\vfill' '\n'
         r'{\footnotesize ' + latex_escape(build_datetime) + r' --- 著者：' + latex_escape(author_name) + r'\par}' '\n'
         r'\restoregeometry' '\n'
