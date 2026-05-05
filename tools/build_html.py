@@ -334,10 +334,7 @@ def process_markdown(md_text):
             result.append(f'<p><small>[{fn_id}]: {formatted_content}</small></p>')
         result.append('</section>')
         
-    final = '\n'.join(result)
-    # Clean up Markdown escape \* (becomes KaTeX discretionary break if left as-is)
-    final = final.replace(r'\*', '*')
-    return final
+    return '\n'.join(result)
 
 
 def main():
