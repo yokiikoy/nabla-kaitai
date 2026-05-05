@@ -17,9 +17,23 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyfoot[L]{\tiny \textcopyright\ yokiikoy (CC BY-NC 4.0). 本書の最新版・PDF・正誤表・改訂履歴・関連情報・本書以外のコンテンツはポータルサイト \href{https://covectorspace.xyz/jp/}{Project Co-Vector Space} をご確認ください。}
-\fancyfoot[C]{\thepage}
-\fancypagestyle{plain}{\fancyhf{}\fancyfoot[L]{\tiny \textcopyright\ yokiikoy (CC BY-NC 4.0). 本書の最新版・PDF・正誤表・改訂履歴・関連情報・本書以外のコンテンツはポータルサイト \href{https://covectorspace.xyz/jp/}{Project Co-Vector Space} をご確認ください。}\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0pt}}
+\fancyfoot[L]{%
+  \tiny
+  \parbox{\textwidth}{%
+    \raggedright
+    \textcopyright\ yokiikoy (CC BY-NC 4.0). 本書の最新版・PDF・改訂履歴・関連情報・本書以外のコンテンツはポータルサイト \href{https://covectorspace.xyz/jp/}{Project Co-Vector Space} をご確認ください。\\[2pt]
+    \centering\thepage
+  }%
+}
+\fancyfoot[C]{}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[L]{%
+  \tiny
+  \parbox{\textwidth}{%
+    \raggedright
+    \textcopyright\ yokiikoy (CC BY-NC 4.0). 本書の最新版・PDF・改訂履歴・関連情報・本書以外のコンテンツはポータルサイト \href{https://covectorspace.xyz/jp/}{Project Co-Vector Space} をご確認ください。\\[2pt]
+    \centering\thepage
+  }%
+}\renewcommand{\headrulewidth}{0pt}}
 \renewcommand{\headrulewidth}{0pt}
 \usepackage{hyperref}
 \usepackage{bookmark}
@@ -116,13 +130,13 @@ v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline
 \end{tabular}\par\bigskip\bigskip\bigskip
 \begin{tabular}{|p{\textwidth}|}\hline
 \multicolumn{1}{|c|}{\textbf{直近の改定履歴}}\\ \hline
+{\small 3efc0ed (2026-05-05)  Add CC BY-NC 4.0 and Project Co-Vector Space to HTML/PDF footer}\\ \hline
 {\small be02256 (2026-05-05)  Merge pull request \#103 from yokiikoy/feature/html-footer}\\ \hline
 {\small 24ce856 (2026-05-05)  Add copyright and portal link footer to all HTML pages}\\ \hline
-{\small cfae1d6 (2026-05-05)  Merge pull request \#101 from yokiikoy/fix/toc-part-hierarchy}\\ \hline
 \end{tabular}
 \end{minipage}\par
 \vfill
-{\footnotesize 2026-05-05 15:51 JST --- 著者：yokiikoy\par}
+{\footnotesize 2026-05-05 16:04 JST --- 著者：yokiikoy\par}
 \restoregeometry
 \end{titlepage}
 \tableofcontents
