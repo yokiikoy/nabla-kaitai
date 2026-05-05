@@ -272,14 +272,11 @@ def main():
     title_page = r'''
 \begin{titlepage}
     \centering
-    \vspace*{4cm}
+    \vspace*{2cm}
+    {\includegraphics[width=4cm]{exports/icons/nabla_icon_inflate_65.png}\par}
+    \vspace{2cm}
     {\Huge\bfseries\strongface ナブラ解体新書\par}
-'''
-    if profile.is_preview:
-        title_page += r'''    \vspace{1cm}
-    {\Large (先行公開版)}\par
-'''
-    title_page += r'''    \vspace{2cm}
+    \vspace{2cm}
     {\Large yokiikoy\par}
     \vfill
     {\large \today\par}
@@ -292,6 +289,12 @@ def main():
     # This allows the PDF to display the full TOC even in preview mode.
     toc_stubs = []
     if profile.is_preview:
+        # Full build page numbers for chapters 2-12
+        FULL_PAGE_NUMBERS = {
+            '02': 24, '03': 45, '04': 59, '05': 72, '06': 92,
+            '07': 112, '08': 122, '09': 132, '10': 140, '11': 152, '12': 162,
+        }
+        
         toc_stubs.append(r'\chapter*{完結版の収録予定について}')
         toc_stubs.append(r'\addcontentsline{toc}{chapter}{完結版の収録予定について}')
         toc_stubs.append(r'以下の章および節は、先行公開版（本PDF）には本文が含まれていません。')
@@ -300,22 +303,36 @@ def main():
         toc_stubs.append(r'')
         toc_stubs.append(r'どうしても続きを読む場合は、こっそり作業場を覗き見たものとして扱い、現時点では批評・レビュー・拡散の対象にしないでください。正式な完結版は、ポータルサイトで案内します。')
         toc_stubs.append(r'\vspace{2em}')
+        toc_stubs.append(r'{\small ページ番号は完全版のものです。この先行公開版では対応する本文はありません。}')
+        toc_stubs.append(r'\vspace{1em}')
 
-        # Create phantom contents lines for TOC
+        # Custom mini-TOC with full build page numbers
         for ch in model.chapters:
             if not ch.is_included_in_content:
-                # Add to TOC without creating a page
-                toc_stubs.append(f'\\addcontentsline{{toc}}{{chapter}}{{{ch.title}}}')
+                page_num = FULL_PAGE_NUMBERS.get(ch.id, '??')
+                # Escape LaTeX special chars in title (but preserve $ math)
+                safe_title = ch.title.replace('_', r'\_').replace('&', r'\&').replace('#', r'\#')
+                toc_stubs.append(r'\noindent\textbf{' + safe_title + r'}\dotfill ' + str(page_num) + r'\par')
                 for item in ch.toc_items:
-                    level_name = 'section' if item.level == 2 else 'subsection' if item.level == 3 else 'subsubsection'
-                    toc_stubs.append(f'\\addcontentsline{{toc}}{{{level_name}}}{{{item.title}}}')
+                    indent = r'\hspace{1em}' if item.level == 2 else r'\hspace{2em}'
+                    safe_item = item.title.replace('_', r'\_').replace('&', r'\&').replace('#', r'\#')
+                    if item.level == 2:
+                        toc_stubs.append(r'\noindent' + indent + safe_item + r'\dotfill ' + str(page_num) + r'\par')
+                    else:
+                        toc_stubs.append(r'\noindent' + indent + r'{\footnotesize ' + safe_item + r'}\dotfill ' + str(page_num) + r'\par')
         
         toc_stubs.append(r'\newpage')
 
-    latex_stubs = "\n".join(toc_stubs)
+    latex_stubs = "\n".join(toc_stubs) if profile.is_preview else ""
 
-    # Note: latex_stubs are placed AFTER the latex_body so the phantom chapters appear at the end
-    latex_doc = preamble + title_page + latex_body + "\n" + latex_stubs + '\n' + r'\end{document}' + '\n'
+    # Insert stubs before back matter (afterword), not at the very end
+    if profile.is_preview and latex_stubs:
+        back_matter_pattern = re.compile(r'(\\chapter\*?\{おわりに|\\chapter\*?\{\\texorpdfstring\{おわりに)')
+        bm_match = back_matter_pattern.search(latex_body)
+        if bm_match:
+            latex_body = latex_body[:bm_match.start()] + latex_stubs + "\n" + latex_body[bm_match.start():]
+
+    latex_doc = preamble + title_page + latex_body + '\n' + r'\end{document}' + '\n'
 
     tex_filename = 'manuscript-preview.tex' if profile.is_preview else 'manuscript.tex'
     with open(f'exports/{tex_filename}', 'w') as f:
@@ -341,6 +358,12 @@ def main():
         f.writelines(new_lines)
 
     # Compile with xelatex
+    pdf_path = 'preview/manuscript-preview.pdf' if profile.is_preview else 'exports/manuscript.pdf'
+    
+    # Remove old PDF to avoid false success on xelatex failure
+    if os.path.exists(pdf_path):
+        os.remove(pdf_path)
+    
     print('\nCompiling with XeLaTeX...')
     for run in [1, 2]:
         print(f'  Run {run}...')
@@ -349,18 +372,16 @@ def main():
              f'-output-directory={"preview" if profile.is_preview else "exports"}', f'exports/{tex_filename}'],
             capture_output=True, text=True, timeout=300
         )
-        if r.returncode != 0:
-            print(f"XeLaTeX failed on run {run}:")
-            print(r.stdout[-3000:])
-            print(r.stderr[-3000:])
-            raise SystemExit(r.returncode)
     
-    pdf_path = 'preview/manuscript-preview.pdf' if profile.is_preview else 'exports/manuscript.pdf'
     if os.path.exists(pdf_path):
         size_mb = os.path.getsize(pdf_path) / (1024*1024)
         print(f'\nPDF generated: {pdf_path} ({size_mb:.1f} MB)')
+        if r.returncode != 0:
+            print('(XeLaTeX reported errors but PDF was produced - check log for details)')
     else:
-        print('\nERROR: PDF not generated! Check exports/manuscript.log')
+        print(f'\nERROR: PDF not generated!')
+        print(r.stdout[-3000:])
+        print(r.stderr[-3000:])
         sys.exit(1)
 
 if __name__ == '__main__':
