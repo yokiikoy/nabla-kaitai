@@ -337,8 +337,8 @@ def main():
         )
         + r'\end{tabular}' '\n'
         r'\end{minipage}\par' '\n'
-        r'\vspace{5mm}' '\n'
-        r'{\includegraphics[width=3cm]{exports/icons/nabla_icon_inflate_65.png}\par}' '\n'
+        r'\vfill' '\n'
+        r'{\includegraphics[height=0.28\textheight]{exports/icons/nabla_icon_inflate_65.png}\par}' '\n'
         r'\vfill' '\n'
         r'{\footnotesize ' + latex_escape(build_datetime) + r' --- 著者：' + latex_escape(author_name) + r'\par}' '\n'
         r'\restoregeometry' '\n'
