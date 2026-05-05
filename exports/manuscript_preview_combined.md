@@ -15,7 +15,7 @@
 > **注**（歴史順と理解順）
 > 現代の読者は、行列、線型代数、微分形式、ベクトル解析を、すでに整備された道具として学ぶことができます。少なくとも筆者の受けた教育では、行列はまず、高校生時代に手で計算できる代数的な道具として現れました。しかし、実際の歴史では、これらの道具は互いに影響し合いながら、行きつ戻りつ発展してきたように見えます。そのため、教育現場にも歴史的経緯による混乱が残っているように筆者には思えます。本書は物理数学の歴史を再現する本ではありません。むしろ、現代の読者がすでに持っている行列代数の言葉を使って、多変数微積分とベクトル解析を別の順序でほどき直す試みという側面があります。
 
-# はじめに：$dx$ とは何か、ナブラとは何か
+# はじめに：$dx$とは何か・ナブラとは何か
 
 ## はじめのはじめに：前提知識
 
@@ -27,6 +27,8 @@
 行列式を既に知っている必要はありません。途中で一緒に発見しましょう。
 
 高校生でも読みこなせる、と言うと頑張ってもらう必要がありますが、少なくとも20歳の頃の筆者であれば通読できる、つもりで書きました。
+
+## $dx$とは何か
 
 積分記号の最後には、いつも $dx$ が付いています。高校数学では、これは「$x$ で積分する」という印のように扱われます。
 
@@ -78,18 +80,6 @@ $$
 
 明日の中間テストには間に合いませんが、期末テストなら間に合うのではないでしょうか。
 
----
-
-### 本書のロードマップ
-
-本書は全12章で、大きく3つの部に分かれています。
-
-1. **第I部：$\mathbb{R}^3$ 上の微分形式（第1章〜第5章）**  
-   $dx$ を「行列」として定義し直し、面積や体積を測る仕組みを代数的に組み上げます。「外微分 $d$」と「ホッジスター $\ast$」という二つの強力な道具を手に入れます。
-2. **第II部：ベクトル解析（第6章〜第9章）**  
-   本書の核心部です。ベクトル解析の grad, rot, div を「解体」し、ストークスの定理や曲線座標を攻略します。
-3. **第III部：発展と統合（第10章〜第12章）**  
-   電磁気学（マクスウェル方程式）への応用と、多様体や幾何代数（Geometric Algebra）の世界を展望します。
 
 # ポータルサイトとちょっとした試み
 
@@ -115,51 +105,6 @@ $$
 
 # 第1章：$dx$ とは何か —— ベクトルを食べる測定器、あるいは横ベクトル
 
----
-title: 第1章：$dx$ とは何か —— ベクトルを食べる測定器、あるいは横ベクトル
-series: dx-matrix
-chapter: 1
-order: 10
-introduces:
-  displacement_vector:
-    from: definition
-    to: computation
-  dx_as_row_vector:
-    from: definition
-    to: computation
-  one_form:
-    from: intuition
-    to: computation
-  differential:
-    from: definition
-    to: computation
-  pullback:
-    from: intuition
-    to: formula
-previews:
-  wedge_product:
-    max_level: intuition
-  k_form:
-    max_level: intuition
-  two_form:
-    max_level: intuition
-  three_form:
-    max_level: intuition
-  form_integral:
-    max_level: intuition
-  stokes_theorem:
-    max_level: intuition
-  metric:
-    max_level: intuition
-  exterior_derivative:
-    max_level: intuition
-  hodge_star:
-    max_level: intuition
-  nabla_operators:
-    max_level: intuition
-  maxwell_forms:
-    max_level: intuition
----
 
 
 # 第1章：$dx$ とは何か —— ベクトルを食べる測定器、あるいは横ベクトル
@@ -1257,12 +1202,6 @@ $$
 
 # おわりに：『ナブラ解体新書』はいかにして生まれたか
 
----
-title: "おわりに：『ナブラ解体新書』はいかにして生まれたか"
-series: ナブラ解体新書
-chapter: NA
-order: 100
----
 
 
 # おわりに：『ナブラ解体新書』はいかにして生まれたか
@@ -1292,12 +1231,6 @@ order: 100
 
 # 参考文献（と著者からのコメント）
 
----
-title: "参考文献（と著者からのコメント）"
-series: ナブラ解体新書
-chapter: NA
-order: 101
----
 
 
 # 参考文献（と著者からのコメント）
@@ -1343,12 +1276,6 @@ order: 101
 
 # 付録：本書で語らなかったもの
 
----
-title: "付録：本書で語らなかったもの"
-series: ナブラ解体新書
-chapter: NA
-order: 99
----
 
 
 # 付録：本書で語らなかったもの

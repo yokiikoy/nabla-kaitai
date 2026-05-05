@@ -112,12 +112,8 @@
   </nav>
   <main class="main-content">
     <article class="markdown-body">
-<p># 第7章：ベクトル解析 —— ナブラの登場
-</p>
-<p># 第7章：ベクトル解析 —— ナブラの登場
-</p>
-<p>### §7.0 ナブラの登場
-</p>
+<h1>第7章：ベクトル解析 —— ナブラの登場</h1>
+<h3>§7.0 ナブラの登場</h3>
 <p>　本書のタイトルは「ナブラ解体新書」である。しかし第1章から第6章まで、ナブラ $\nabla$ を正面から定義したことは一度もない、という建前だ。grad、rot、div という言葉すら、§5.5 で $d$ と $\ast$ の組み合わせとして登場したきりだ。
 </p>
 <p>代わりに何をしてきたか。$dx$ は横ベクトル、$2$-form は反対称行列、$d$ は次数を上げる演算——いわば「裏方」の道具をひたすら積み上げてきた。読者の中には「いつになったら $\nabla$ が出てくるんだ」と思っていた人もいるだろう。正直に言えば、筆者もそろそろタイトル詐欺が気になってきた。
@@ -130,17 +126,14 @@
 <p>本章で使う道具は、第6章までに揃えたものだけである——縦ベクトル、横ベクトル、行列、内積、ヤコビ行列、そして偏微分。
 </p>
 <hr />
-<p>### §7.1 ドット積とクロス積
-</p>
-<p>#### 7.1.1 ドット積
-</p>
+<h3>§7.1 ドット積とクロス積</h3>
+<h4>7.1.1 ドット積</h4>
 <p>二つの縦ベクトル $\mathbf{a} = (a_x, a_y, a_z)^T$, $\mathbf{b} = (b_x, b_y, b_z)^T$ の<strong>ドット積</strong>（内積）を次で定義する。
 </p>
 $$\mathbf{a} \cdot \mathbf{b} = a_x b_x + a_y b_y + a_z b_z$$
 <p>§5.2.3 で見たように、これは実空間 $(x,y,z)$ で $\mathbf{g} = I$ とした場合の内積 $\mathbf{a}^T \mathbf{g} \,\mathbf{b}$ に等しい。本書ではすでに縦ベクトルと横ベクトルの積として何度も使ってきた操作だ。
 </p>
-<p>#### 7.1.2 クロス積
-</p>
+<h4>7.1.2 クロス積</h4>
 <p>二つの縦ベクトル $\mathbf{a}, \mathbf{b}$ の<strong>クロス積</strong>（外積）を次で定義する。
 </p>
 $$\mathbf{a} \times \mathbf{b} = \begin{pmatrix}
@@ -186,10 +179,8 @@ a_x b_y - a_y b_x
 <p>- クロス積は反可換、自分自身とはゼロ、結果は二つのベクトルに直交する。</p>
 </blockquote>
 <hr />
-<p>### §7.2 $\nabla$ と勾配
-</p>
-<p>#### 7.2.1 $\nabla$ の定義
-</p>
+<h3>§7.2 $\nabla$ と勾配</h3>
+<h4>7.2.1 $\nabla$ の定義</h4>
 <p>ナブラ $\nabla$ を、偏微分演算子を縦に並べた形式的なベクトルとして定義する。
 </p>
 $$\nabla = \begin{pmatrix}
@@ -199,8 +190,7 @@ $$\nabla = \begin{pmatrix}
 \end{pmatrix}$$
 <p>$\nabla$ は「ベクトル」だが、その成分は数ではなく<strong>微分演算子</strong>である。$\nabla$ は単独では意味を持たず、何かに作用して初めて値が定まる。
 </p>
-<p>#### 7.2.2 勾配
-</p>
+<h4>7.2.2 勾配</h4>
 <p>スカラー場 $f(x,y,z)$ に $\nabla$ を作用させたものを<strong>勾配</strong>と呼び、$\mathrm{grad}\,f$ または $\nabla f$ と書く。
 </p>
 $$\mathrm{grad}\,f = \nabla f = \begin{pmatrix}
@@ -219,8 +209,7 @@ $$\nabla f = \begin{pmatrix} 2x \\ 2y \\ 2z \end{pmatrix}$$
 <p>このベクトル場は原点から放射状に外向きで、原点から離れるほど大きくなる。
 </p>
 <hr />
-<p>### §7.3 発散
-</p>
+<h3>§7.3 発散</h3>
 <p>ベクトル場 $\mathbf{F}(x,y,z) = (F_x, F_y, F_z)^T$ に対して、$\nabla$ とのドット積をとったものを<strong>発散</strong>と呼ぶ。
 </p>
 $$\mathrm{div}\,\mathbf{F} = \nabla \cdot \mathbf{F} = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z}$$
@@ -247,8 +236,7 @@ $$\nabla \cdot \mathbf{F} = \frac{\partial (-y)}{\partial x} + \frac{\partial x}
 <p>この場は回転しているが、湧き出してはいない。
 </p>
 <hr />
-<p>### §7.4 回転
-</p>
+<h3>§7.4 回転</h3>
 <p>ベクトル場 $\mathbf{F}$ に対して、$\nabla$ とのクロス積をとったものを<strong>回転</strong>（ローテーション）と呼ぶ。
 </p>
 $$\mathrm{rot}\,\mathbf{F} = \nabla \times \mathbf{F} = \begin{pmatrix}
@@ -295,8 +283,7 @@ $$\nabla \times \mathbf{F} = \begin{pmatrix}
 <p>- $\mathrm{rot}\,\mathbf{F} = \nabla \times \mathbf{F}$（回転）：ベクトル場 → ベクトル場。外積行列で書ける。</p>
 </blockquote>
 <hr />
-<p>### §7.5 ラプラシアン
-</p>
+<h3>§7.5 ラプラシアン</h3>
 <p>勾配（スカラー→ベクトル）と発散（ベクトル→スカラー）を連続して作用させると、スカラー場からスカラー場への演算が得られる。これを<strong>ラプラシアン</strong>と呼ぶ。
 </p>
 $$\nabla^2 f = \mathrm{div}(\mathrm{grad}\,f) = \nabla \cdot (\nabla f) = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2}$$
@@ -311,12 +298,10 @@ $$\nabla^2 \mathbf{F} = \begin{pmatrix} \nabla^2 F_x \\ \nabla^2 F_y \\ \nabla^2
 <p>ラプラシアンは物理の至るところに現れる。熱伝導方程式、波動方程式、ポアソン方程式——いずれも $\nabla^2$ を中心に据えた方程式である。
 </p>
 <hr />
-<p>### §7.6 恒等式
-</p>
+<h3>§7.6 恒等式</h3>
 <p>ここまでに定義した三つの演算の間には、二つの重要な恒等式が成り立つ。どちらも「二度作用させるとゼロになる」という形をしている。
 </p>
-<p>#### 7.6.1 $\mathrm{rot}(\mathrm{grad}\,f) = \mathbf{0}$
-</p>
+<h4>7.6.1 $\mathrm{rot}(\mathrm{grad}\,f) = \mathbf{0}$</h4>
 <p>勾配でベクトル場を得て、その回転をとると必ずゼロベクトルになる。
 </p>
 $$\nabla \times (\nabla f) = \begin{pmatrix}
@@ -328,8 +313,7 @@ $$\nabla \times (\nabla f) = \begin{pmatrix}
 </p>
 <p>物理的意味：「勾配場には渦がない」。保存的な重力場や静電場がこれに当たる。
 </p>
-<p>#### 7.6.2 $\mathrm{div}(\mathrm{rot}\,\mathbf{F}) = 0$
-</p>
+<h4>7.6.2 $\mathrm{div}(\mathrm{rot}\,\mathbf{F}) = 0$</h4>
 <p>回転でベクトル場を得て、その発散をとると必ずゼロになる。
 </p>
 $$\nabla \cdot (\nabla \times \mathbf{F}) = \frac{\partial}{\partial x}\!\left(\frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z}\right) + \frac{\partial}{\partial y}\!\left(\frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x}\right) + \frac{\partial}{\partial z}\!\left(\frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y}\right)$$
@@ -345,12 +329,10 @@ $$\nabla \cdot (\nabla \times \mathbf{F}) = \frac{\partial}{\partial x}\!\left(\
 <p>- いずれも偏微分の順序交換 $\partial_i\partial_j = \partial_j\partial_i$ からの当然の帰結。</p>
 </blockquote>
 <hr />
-<p>### §7.7 ナブラの公式集
-</p>
+<h3>§7.7 ナブラの公式集</h3>
 <p>実用的な計算のために、$\nabla$ を含む積の微分則と代表的なベクトル恒等式をまとめておく。以下、$f, g$ はスカラー場、$\mathbf{F}, \mathbf{G}$ はベクトル場とする。
 </p>
-<p>#### 7.7.1 積の微分則
-</p>
+<h4>7.7.1 積の微分則</h4>
 <p><strong>勾配の積</strong>：
 </p>
 $$\nabla(fg) = f\,\nabla g + g\,\nabla f$$
@@ -363,8 +345,7 @@ $$\nabla \times (f\mathbf{F}) = (\nabla f) \times \mathbf{F} + f\,(\nabla \times
 <p><strong>クロス積の発散</strong>：
 </p>
 $$\nabla \cdot (\mathbf{F} \times \mathbf{G}) = (\nabla \times \mathbf{F}) \cdot \mathbf{G} - \mathbf{F} \cdot (\nabla \times \mathbf{G})$$
-<p>#### 7.7.2 二回作用の恒等式
-</p>
+<h4>7.7.2 二回作用の恒等式</h4>
 <p>スカラー場の勾配の回転と、ベクトル場の回転の発散は §7.6 で導いた。公式集として再掲する。
 </p>
 <p><strong>勾配の回転はゼロ</strong>：
@@ -383,16 +364,14 @@ $$\nabla \times (\nabla \times \mathbf{F}) = \nabla(\nabla \cdot \mathbf{F}) - \
 $$\nabla \cdot (\nabla f) = \nabla^2 f$$
 <p>§7.5 の定義そのもの。
 </p>
-<p>#### 7.7.3 スカラー三重積
-</p>
+<h4>7.7.3 スカラー三重積</h4>
 <p>三つの縦ベクトル $\mathbf{A}, \mathbf{B}, \mathbf{C}$ のスカラー三重積は、$\mathbf{A}$ と $\mathbf{B}\times\mathbf{C}$ のドット積で定義される。
 </p>
 $$\mathbf{A} \cdot (\mathbf{B} \times \mathbf{C})$$
 <p>この値は $\mathbf{A}, \mathbf{B}, \mathbf{C}$ の張る平行六面体の符号付き体積に等しい。巡回置換に対して不変であり、二つのベクトルを入れ替えると符号が反転する。
 </p>
 $$\mathbf{A} \cdot (\mathbf{B} \times \mathbf{C}) = \mathbf{B} \cdot (\mathbf{C} \times \mathbf{A}) = \mathbf{C} \cdot (\mathbf{A} \times \mathbf{B})$$
-<p>#### 7.7.4 ベクトル三重積（BAC-CAB 則）
-</p>
+<h4>7.7.4 ベクトル三重積（BAC-CAB 則）</h4>
 $$\mathbf{A} \times (\mathbf{B} \times \mathbf{C}) = \mathbf{B}(\mathbf{A} \cdot \mathbf{C}) - \mathbf{C}(\mathbf{A} \cdot \mathbf{B})$$
 <p>クロス積を二重に使うときに現れる。右辺の各項はスカラー倍されたベクトルであり、BAC-CAB の語呂で記憶される。
 </p>
@@ -411,12 +390,10 @@ $$\mathbf{A} \times (\mathbf{B} \times \mathbf{C}) = \mathbf{B}(\mathbf{A} \cdot
 <p>その「純粋な微分形式の世界」へ向かうために、あえて不格好な $\ast$ まみれの翻訳作業を一度やり遂げる。それが本書のこの段階の狙いである。この「微分形式によるベクトル解析」の計算を汚い、不自然だ、と読者が思えたなら、それは正しい。その時、君はもうベクトル解析の初学者を卒業している。</p>
 </blockquote>
 <hr />
-<p>### §7.8 積分定理——ストークス・ガウス・グリーン
-</p>
+<h3>§7.8 積分定理——ストークス・ガウス・グリーン</h3>
 <p>ベクトル解析の最も重要な仕事は、微分演算（grad, div, rot）と積分を結びつけることにある。以下に三つの積分定理を、$\nabla$ の言葉で示す。
 </p>
-<p>#### 7.8.1 ストークスの定理
-</p>
+<h4>7.8.1 ストークスの定理</h4>
 <p>曲面 $S$ とその境界である閉曲線 $C = \partial S$ に対し、
 </p>
 $$\oint_C \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdot \mathbf{n}\,dS$$
@@ -427,15 +404,13 @@ $$\oint_C \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdo
 <p></p>
 <p>$$\oint_{\partial D} (P\,dx + Q\,dy) = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dx\,dy$$</p>
 </blockquote>
-<p>#### 7.8.2 ガウスの発散定理
-</p>
+<h4>7.8.2 ガウスの発散定理</h4>
 <p>立体 $V$ とその境界である閉曲面 $S = \partial V$ に対し、
 </p>
 $$\oiint_S \mathbf{F} \cdot \mathbf{n}\,dS = \iiint_V (\nabla \cdot \mathbf{F})\,dV$$
 <p>左辺は閉曲面 $S$ を通る $\mathbf{F}$ の外向きの流束、右辺は立体 $V$ 内の発散の体積分である。「境界を通る流れの総和は、内部の湧き出しの総和に等しい」という意味を持つ。
 </p>
-<p>#### 7.8.3 三つの定理の共通構造
-</p>
+<h4>7.8.3 三つの定理の共通構造</h4>
 <p>ストークスの定理とガウスの発散定理を並べて見ると、共通のパターンが浮かぶ。
 </p>
 <div class="table-wrapper"><table>
@@ -472,8 +447,7 @@ $$\oiint_S \mathbf{F} \cdot \mathbf{n}\,dS = \iiint_V (\nabla \cdot \mathbf{F})\
 <p>- 三定理は「境界の積分 = 内部の微分の積分」という共通構造を持つが、$\nabla$ の言葉では別々の定理として扱わざるを得ない。</p>
 </blockquote>
 <hr />
-<p>### §7.9 第III部へ —— 矢印を見るな、測定器を見ろ
-</p>
+<h3>§7.9 第III部へ —— 矢印を見るな、測定器を見ろ</h3>
 <p>第5章と第6章で、我々は二つの演算子を手に入れた。外微分 $d$ ——次数を一つ上げ、局所的なズレを測る。ホッジ・スター $\ast$ ——計量に基づいて次数を反転させる。§5.5 では、この二つの組み合わせだけで $\mathrm{grad} = d$, $\mathrm{rot} = \ast d$, $\mathrm{div} = \ast d \ast$ と書けることを見た。
 </p>
 <p>一方、本章では $\nabla$ とドット積・クロス積だけを使って同じ対象を記述した。$\nabla f$ も $\nabla\times\mathbf{F}$ も $\nabla\cdot\mathbf{F}$ も、画面上ではすべて矢印（かスカラー）だ。しかし、それぞれが担う幾何的意味はまったく異なる。そして問題が複雑になるほど、矢印だけを見て区別するのは難しくなる。

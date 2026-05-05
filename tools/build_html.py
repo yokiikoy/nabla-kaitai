@@ -240,6 +240,19 @@ def process_markdown(md_text):
             result.append('<hr />')
             continue
 
+        # Heading detection
+        h_match = re.match(r'^(#{1,6})\s+(.+)$', line.strip())
+        if h_match:
+            close_para()
+            close_list()
+            close_quote()
+            lv = len(h_match.group(1))
+            heading_text = h_match.group(2).strip()
+            processed = protector.restore(apply_inline_formatting(heading_text))
+            processed = re.sub(r'\[\^(.+?)\]', r'<sup>[\1]</sup>', processed)
+            result.append(f'<h{lv}>{processed}</h{lv}>')
+            continue
+
         if line.strip().startswith('>'):
             content = line.strip()[1:].strip()
             if not in_quote:
@@ -369,10 +382,8 @@ def main():
         next_btn = f'<a href="{next_ch.filename}">{next_ch.short_title[:15]}... →</a>' if next_ch else '<span></span>'
 
         # Inject headings into markdown before processing
-        md_text = ""
-        if not ch.is_front_matter:
-            md_text += f"# {ch.title}\n\n"
-        md_text += "\n".join(ch.content_lines)
+        # content_lines already contain the # Title as first line; do not duplicate
+        md_text = "\n".join(ch.content_lines)
 
         content_html = process_markdown(md_text)
 
