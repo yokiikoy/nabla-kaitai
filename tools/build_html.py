@@ -108,7 +108,7 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
         {next_button}
       </div>
       <footer class="site-footer">
-        <p>&copy; yokiikoy. 本書の最新版・PDF・正誤表・改訂履歴・関連情報は<a href="https://covectorspace.xyz/jp/">ポータルサイト</a>をご確認ください。</p>
+        <p>&copy; yokiikoy (CC BY-NC 4.0). 本書の最新版・PDF・正誤表・改訂履歴・関連情報・本書以外のコンテンツはポータルサイト <a href="https://covectorspace.xyz/jp/">Project Co-Vector Space</a> をご確認ください。</p>
       </footer>
     </article>
   </main>
