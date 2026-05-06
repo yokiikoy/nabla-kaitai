@@ -52,7 +52,7 @@ $dx$ は変位を食べて $x$ 成分を返す。$dx\wedge dy$ は、二本の�
 
 $$
 \frac{\partial F_y}{\partial x}-\frac{\partial F_x}{\partial y}
-\qquad\leftrightarrow\qquad
+\qquad=\qquad
 \frac{1}{r}\frac{\partial (r F_\theta)}{\partial r}-\frac{1}{r}\frac{\partial F_r}{\partial \theta}
 $$
 
