@@ -69,9 +69,9 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
   blockquote {{ border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }}
   blockquote p {{ color: #57606a; }}
   .table-wrapper {{ overflow-x: auto; margin: 1.5em 0; }}
-  table {{ border-collapse: collapse; width: 100%; font-size: 0.9em; }}
-  th, td {{ border: 1px solid #d0d7de; padding: 6px 13px; color: #24292f; }}
-  tr:nth-child(even) {{ background-color: #f6f8fa; }}
+  .markdown-body table {{ border-collapse: collapse; width: 100%; font-size: 0.9em; background: #fff; }}
+  .markdown-body th, .markdown-body td {{ border: 1px solid #d0d7de; padding: 6px 13px; color: #24292f !important; }}
+  .markdown-body tr:nth-child(even) {{ background-color: #f6f8fa !important; }}
   th {{ font-weight: 600; background-color: #f6f8fa; }}
   code, pre {{ color: #24292f; background-color: #f6f8fa; }}
   .nav-buttons {{ display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }}
