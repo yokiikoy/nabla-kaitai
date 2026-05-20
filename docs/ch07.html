@@ -102,7 +102,7 @@
 <li class="level-1"><a href="ch04.html" id="link-ch04.html">第4章</a></li>
 <li class="level-1"><a href="ch05.html" id="link-ch05.html">第5章</a></li>
 <li class="level-1"><a href="ch06.html" id="link-ch06.html">第6章</a></li>
-<li class="level-1"><a href="ch07.html" class="active" id="link-ch07.html">第7章</a><ul class="sub-toc"><li class="level-3"><a href="#§7.0-ナブラの登場">§7.0 ナブラの登場</a></li><li class="level-3"><a href="#§7.1-ドット積とクロス積">§7.1 ドット積とクロス積</a></li><li class="level-3"><a href="#§7.2-$\nabla$-と勾配">§7.2 $\nabla$ と勾配</a></li><li class="level-3"><a href="#§7.3-発散">§7.3 発散</a></li><li class="level-3"><a href="#§7.4-回転">§7.4 回転</a></li><li class="level-3"><a href="#§7.5-ラプラシアン">§7.5 ラプラシアン</a></li><li class="level-3"><a href="#§7.6-恒等式">§7.6 恒等式</a></li><li class="level-3"><a href="#§7.7-ナブラの公式集">§7.7 ナブラの公式集</a></li><li class="level-3"><a href="#§7.8-積分定理——ストークス・ガウス・グリーン">§7.8 積分定理——ストークス・ガウス・グリーン</a></li><li class="level-3"><a href="#§7.9-第III部へ-——-矢印を見るな、測定器を見ろ">§7.9 第III部へ —— 矢印を見るな、測定器を見ろ</a></li></ul></li>
+<li class="level-1"><a href="ch07.html" class="active" id="link-ch07.html">第7章</a><ul class="sub-toc"><li class="level-3"><a href="#§7.0-ナブラの登場">§7.0 ナブラの登場</a></li><li class="level-3"><a href="#§7.1-ドット積とクロス積">§7.1 ドット積とクロス積</a></li><li class="level-3"><a href="#§7.2-$\nabla$-と勾配">§7.2 $\nabla$ と勾配</a></li><li class="level-3"><a href="#§7.3-発散">§7.3 発散</a></li><li class="level-3"><a href="#§7.4-回転">§7.4 回転</a></li><li class="level-3"><a href="#§7.5-ラプラシアン">§7.5 ラプラシアン</a></li><li class="level-3"><a href="#§7.6-恒等式">§7.6 恒等式</a></li><li class="level-3"><a href="#§7.7-ナブラの公式集">§7.7 ナブラの公式集</a></li><li class="level-3"><a href="#§7.8-積分定理——ストークス・ガウス・グリーン">§7.8 積分定理——ストークス・ガウス・グリーン</a></li><li class="level-3"><a href="#§7.9-第8章へ-——-矢印を見るな、測定器を見ろ">§7.9 第8章へ —— 矢印を見るな、測定器を見ろ</a></li></ul></li>
 <li class="level-1"><a href="ch08.html" id="link-ch08.html">第8章</a></li>
 <li class="level-1"><a href="ch09.html" id="link-ch09.html">第9章</a></li>
 <li class="level-1"><a href="ch10.html" id="link-ch10.html">第10章</a></li>
@@ -118,24 +118,45 @@
     <article class="markdown-body">
 <h1 id="第7章：ベクトル解析-——-ナブラの登場">第7章：ベクトル解析 —— ナブラの登場</h1>
 <h3 id="§7.0-ナブラの登場">§7.0 ナブラの登場</h3>
-<p>　本書のタイトルは「ナブラ解体新書」である。しかし第1章から第6章まで、ナブラ $\nabla$ を正面から定義したことは一度もない、という建前だ。grad、rot、div という言葉すら、§5.5 で $d$ と $\ast$ の組み合わせとして登場したきりだ。
+<p>　本書のタイトルは「ナブラ解体新書」である。しかしここに至るまで、ナブラ $\nabla$ を正面から定義したことは一度もない、という建前だ。第6章では、$d$ と $\ast$ を組み合わせることで grad, rot, div の型だけを先に見た。本章では、同じ対象を標準的なベクトル解析の記法で書き直す。
 </p>
-<p>代わりに何をしてきたか。$dx$ は横ベクトル、$2$-form は反対称行列、$d$ は次数を上げる演算——いわば「裏方」の道具をひたすら積み上げてきた。読者の中には「いつになったら $\nabla$ が出てくるんだ」と思っていた人もいるだろう。正直に言えば、筆者もそろそろタイトル詐欺が気になってきた。
+<p>代わりに何をしてきたか。$dx$ は横ベクトル、$2$-form は反対称行列、$d$ は次数を上げる演算——いわば「裏方」の道具をひたすら積み上げてきた。読者の中には「いつになったら $\nabla$ が出てくるんだ」と思っていた人もいるだろう。
 </p>
-<p>本章では、ついに $\nabla$ を定義する。そして標準的なベクトル解析——勾配・発散・回転・ラプラシアン・諸恒等式——を、天下りのまま一気に展開する。$d$ も $\ast$ も $\wedge$ も一切使わない。これは多くの読者が大学1-2年で（おそらく挫折しながら）学んだ、あのベクトル解析そのものである。
+<p>筆者もずっとタイトル詐欺が気になっている。
+</p>
+<p>本章では、ついに $\nabla$ を定義する。そして標準的なベクトル解析——勾配・発散・回転・ラプラシアン・諸恒等式——を、天下りのまま一気に展開する。本文の計算では、$d$ も $\ast$ も $\wedge$ もいったん脇に置く。これは多くの読者が大学1-2年で（おそらく挫折しながら）学んだ、あのベクトル解析そのものである。
 </p>
 <blockquote>
-<p><strong>注</strong> （なぜ今なのか）第6章まで form の道具を積んだのは、本章の「公式だらけのベクトル解析」と第8章の「二つの演算子で一本化された世界」を対比するためだ。本章を読み終えたとき「公式が多すぎる」と感じたら、それでよい。その違和感が、第III部への推進力になる。</p>
+<p><strong>注</strong> （なぜ今なのか）第6章で我々は、$d$ と $\ast$ を使って grad, rot, div の型を先に見た。本章では、同じ対象を標準的なベクトル解析の記法で、あえて公式だらけに展開する。本章を読み終えたとき「公式が多すぎる」と感じたら、それでよい。その違和感が、次章で二つの記法を対応させるための推進力になる。</p>
 </blockquote>
-<p>本章で使う道具は、第6章までに揃えたものだけである——縦ベクトル、横ベクトル、行列、内積、ヤコビ行列、そして偏微分。
+<p>本章で使う道具は、ここまでに揃えたものだけである——縦ベクトル、横ベクトル、行列、内積、ヤコビ行列、そして偏微分。
 </p>
 <hr />
 <h3 id="§7.1-ドット積とクロス積">§7.1 ドット積とクロス積</h3>
 <h4 id="7.1.1-ドット積">7.1.1 ドット積</h4>
-<p>二つの縦ベクトル $\mathbf{a} = (a_x, a_y, a_z)^T$, $\mathbf{b} = (b_x, b_y, b_z)^T$ の<strong>ドット積</strong>（内積）を次で定義する。
+<p>二つの縦ベクトル
+</p>
+$$
+\mathbf{a}
+=
+\begin{pmatrix}
+a_x\\
+a_y\\
+a_z
+\end{pmatrix},
+\qquad
+\mathbf{b}
+=
+\begin{pmatrix}
+b_x\\
+b_y\\
+b_z
+\end{pmatrix}
+$$
+<p>の<strong>ドット積</strong>（内積）を次で定義する。
 </p>
 $$\mathbf{a} \cdot \mathbf{b} = a_x b_x + a_y b_y + a_z b_z$$
-<p>§5.2.3 で見たように、これは実空間 $(x,y,z)$ で $\mathbf{g} = I$ とした場合の内積 $\mathbf{a}^T \mathbf{g} \,\mathbf{b}$ に等しい。本書ではすでに縦ベクトルと横ベクトルの積として何度も使ってきた操作だ。
+<p>§6.1 で見たように、これは実空間 $(x,y,z)$ で $\mathbf{g} = I$ とした場合の内積 $\mathbf{a}^T \mathbf{g} \,\mathbf{b}$ に等しい。本書ではすでに縦ベクトルと横ベクトルの積として何度も使ってきた操作だ。
 </p>
 <h4 id="7.1.2-クロス積">7.1.2 クロス積</h4>
 <p>二つの縦ベクトル $\mathbf{a}, \mathbf{b}$ の<strong>クロス積</strong>（外積）を次で定義する。
@@ -165,7 +186,7 @@ a_y b_z - a_z b_y \\
 a_z b_x - a_x b_z \\
 a_x b_y - a_y b_x
 \end{pmatrix}$$
-<p>となる。この $(\mathbf{a} \times)$ を $\mathbf{a}$ の<strong>外積行列</strong>と呼ぶ。第2章 §2.4.9 で $2$-form の行列表現として現れ、§5.3.2 では $\ast$ の出力として再登場した行列と、まったく同じ形である。本章ではこれを純粋に「ベクトルにベクトルを掛けてベクトルを得る演算」として使う。
+<p>となる。この $(\mathbf{a} \times)$ を $\mathbf{a}$ の<strong>外積行列</strong>と呼ぶ。第2章で $2$-form の行列表現として現れ、第6章の付録Dではホッジ・スターの配列表示として再登場した行列と、まったく同じ形である。本章ではこれを純粋に「ベクトルにベクトルを掛けてベクトルを得る演算」として使う。
 </p>
 <p>クロス積には次の基本的な性質がある。
 </p>
@@ -178,13 +199,13 @@ a_x b_y - a_y b_x
 </p>
 <blockquote>
 <p><strong>【ここまでのチェックポイント — §7.1】</strong></p>
-<p>- ドット積 $\mathbf{a}\cdot\mathbf{b} = a_x b_x + a_y b_y + a_z b_z$。実空間では $\mathbf{a}^T \mathbf{b}$ に等しい。</p>
+<p>- ドット積 $\mathbf{a}\cdot\mathbf{b} = a_x b_x + a_y b_y + a_z b_z$。実空間では、縦ベクトル $\mathbf{a}$ を転置して $\mathbf{a}^T \mathbf{b}$ と書ける。</p>
 <p>- クロス積 $\mathbf{a}\times\mathbf{b}$ は外積行列 $(\mathbf{a}\times)$ を使って $(\mathbf{a}\times)\,\mathbf{b}$ と書ける。</p>
 <p>- クロス積は反可換、自分自身とはゼロ、結果は二つのベクトルに直交する。</p>
 </blockquote>
 <hr />
-<h3 id="§7.2-__MATH_BLOCK_69__-と勾配">§7.2 $\nabla$ と勾配</h3>
-<h4 id="7.2.1-__MATH_BLOCK_70__-の定義">7.2.1 $\nabla$ の定義</h4>
+<h3 id="§7.2-__MATH_BLOCK_75__-と勾配">§7.2 $\nabla$ と勾配</h3>
+<h4 id="7.2.1-__MATH_BLOCK_76__-の定義">7.2.1 $\nabla$ の定義</h4>
 <p>ナブラ $\nabla$ を、偏微分演算子を縦に並べた形式的なベクトルとして定義する。
 </p>
 $$\nabla = \begin{pmatrix}
@@ -205,7 +226,7 @@ $$\mathrm{grad}\,f = \nabla f = \begin{pmatrix}
 <p>勾配の各成分は、$f$ の各座標方向の変化率である。幾何学的には、$\nabla f$ は $f$ が最も急に増加する方向を指すベクトル場になる。
 </p>
 <blockquote>
-<p><strong>注</strong> （勾配は横ベクトルか縦ベクトルか）§5.5 では $\mathrm{grad}\,f = df$ と書き、$df$ は係数の横ベクトルだった。本章では $\nabla f$ を縦ベクトルとして扱う。数学的に厳密に言えば、第6章で導入したユークリッド計量（内積）を用いて、$1$-form $df$ をベクトルへ持ち上げたものが $\nabla f$ である。§5.5 では「微分そのもの（form）が空間の性質を測る」立場に立ち、本章では標準的なベクトル解析に合わせて「各点に矢印（ベクトル）が立っている」立場に立っている。出発点の絵は異なるが、線積分で集計すれば同じスカラー量を与える。この一致は偶然ではない。</p>
+<p><strong>注</strong> （勾配は横ベクトルか縦ベクトルか）§6.5 では $\mathrm{grad}\,f = df$ と書き、$df$ は係数の横ベクトルだった。本章では $\nabla f$ を縦ベクトルとして扱う。第6章で導入したユークリッド計量を用いて、$1$-form $df$ を対応する縦ベクトルとして読むと $\nabla f$ が得られる。§6.5 では「微分そのもの（form）が空間の性質を測る」立場に立ち、本章では標準的なベクトル解析に合わせて「各点に矢印（ベクトル）が立っている」立場に立っている。出発点の絵は異なるが、線積分で集計すれば同じスカラー量を与える。この一致は偶然ではない。</p>
 </blockquote>
 <p><strong>例</strong>：$f(x,y,z) = x^2 + y^2 + z^2$ の勾配。
 </p>
@@ -214,7 +235,18 @@ $$\nabla f = \begin{pmatrix} 2x \\ 2y \\ 2z \end{pmatrix}$$
 </p>
 <hr />
 <h3 id="§7.3-発散">§7.3 発散</h3>
-<p>ベクトル場 $\mathbf{F}(x,y,z) = (F_x, F_y, F_z)^T$ に対して、$\nabla$ とのドット積をとったものを<strong>発散</strong>と呼ぶ。
+<p>ベクトル場
+</p>
+$$
+\mathbf{F}(x,y,z)
+=
+\begin{pmatrix}
+F_x\\
+F_y\\
+F_z
+\end{pmatrix}
+$$
+<p>に対して、$\nabla$ とのドット積をとったものを<strong>発散</strong>と呼ぶ。
 </p>
 $$\mathrm{div}\,\mathbf{F} = \nabla \cdot \mathbf{F} = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z}$$
 <p>形式的には「$\nabla$ と $\mathbf{F}$ のドット積」だが、$\nabla$ の各成分が微分演算子であるため、結果はスカラー場になる。
@@ -231,10 +263,32 @@ $$\mathbf{J}_\mathbf{F} = \begin{pmatrix}
 $$\mathrm{div}\,\mathbf{F} = \operatorname{tr}(\mathbf{J}_\mathbf{F}) = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z}$$
 <p>物理的には、$\mathrm{div}\,\mathbf{F}$ はその点での「湧き出し」の強さを表す。正なら湧き出し、負なら吸い込み、ゼロならその点では湧き出しも吸い込みもない。
 </p>
-<p><strong>例</strong>：$\mathbf{F} = (x, y, z)^T$ の発散。
+<p><strong>例</strong>：
+</p>
+$$
+\mathbf{F}
+=
+\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix}
+$$
+<p>の発散。
 </p>
 $$\nabla \cdot \mathbf{F} = \frac{\partial x}{\partial x} + \frac{\partial y}{\partial y} + \frac{\partial z}{\partial z} = 1 + 1 + 1 = 3$$
-<p><strong>例</strong>：$\mathbf{F} = (-y, x, 0)^T$ の発散。
+<p><strong>例</strong>：
+</p>
+$$
+\mathbf{F}
+=
+\begin{pmatrix}
+-y\\
+x\\
+0
+\end{pmatrix}
+$$
+<p>の発散。
 </p>
 $$\nabla \cdot \mathbf{F} = \frac{\partial (-y)}{\partial x} + \frac{\partial x}{\partial y} + \frac{\partial 0}{\partial z} = 0 + 0 + 0 = 0$$
 <p>この場は回転しているが、湧き出してはいない。
@@ -259,7 +313,18 @@ F_x \\ F_y \\ F_z
 \end{pmatrix}$$
 <p>物理的には、$\mathrm{rot}\,\mathbf{F}$ はその点での「渦」の強さと向きを表す。渦の軸方向を向き、大きさが渦の強さに対応する。
 </p>
-<p><strong>例</strong>：$\mathbf{F} = (-y, x, 0)^T$ の回転。
+<p><strong>例</strong>：
+</p>
+$$
+\mathbf{F}
+=
+\begin{pmatrix}
+-y\\
+x\\
+0
+\end{pmatrix}
+$$
+<p>の回転。
 </p>
 $$\nabla \times \mathbf{F} = \begin{pmatrix}
 \frac{\partial 0}{\partial y} - \frac{\partial x}{\partial z} \\[0.3em]
@@ -270,7 +335,18 @@ $$\nabla \times \mathbf{F} = \begin{pmatrix}
 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 2 \end{pmatrix}$$
 <p>この場は $z$ 軸まわりに一様に回転しており、渦の強さは $2$ である。
 </p>
-<p><strong>例</strong>：$\mathbf{F} = (x, y, z)^T$ の回転。
+<p><strong>例</strong>：
+</p>
+$$
+\mathbf{F}
+=
+\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix}
+$$
+<p>の回転。
 </p>
 $$\nabla \times \mathbf{F} = \begin{pmatrix}
 \frac{\partial z}{\partial y} - \frac{\partial y}{\partial z} \\[0.3em]
@@ -281,7 +357,7 @@ $$\nabla \times \mathbf{F} = \begin{pmatrix}
 </p>
 <blockquote>
 <p><strong>【ここまでのチェックポイント — §7.2–§7.4】</strong></p>
-<p>- $\nabla = (\partial_x, \partial_y, \partial_z)^T$ は偏微分演算子を縦に並べた形式的ベクトル。</p>
+<p>- $\nabla$ は $\partial_x,\partial_y,\partial_z$ を縦に並べた形式的ベクトル。</p>
 <p>- $\mathrm{grad}\,f = \nabla f$（勾配）：スカラー場 → ベクトル場。</p>
 <p>- $\mathrm{div}\,\mathbf{F} = \nabla \cdot \mathbf{F}$（発散）：ベクトル場 → スカラー場。ヤコビ行列のトレースに等しい。</p>
 <p>- $\mathrm{rot}\,\mathbf{F} = \nabla \times \mathbf{F}$（回転）：ベクトル場 → ベクトル場。外積行列で書ける。</p>
@@ -305,7 +381,7 @@ $$\nabla^2 \mathbf{F} = \begin{pmatrix} \nabla^2 F_x \\ \nabla^2 F_y \\ \nabla^2
 <h3 id="§7.6-恒等式">§7.6 恒等式</h3>
 <p>ここまでに定義した三つの演算の間には、二つの重要な恒等式が成り立つ。どちらも「二度作用させるとゼロになる」という形をしている。
 </p>
-<h4 id="7.6.1-__MATH_BLOCK_115__">7.6.1 $\mathrm{rot}(\mathrm{grad}\,f) = \mathbf{0}$</h4>
+<h4 id="7.6.1-__MATH_BLOCK_117__">7.6.1 $\mathrm{rot}(\mathrm{grad}\,f) = \mathbf{0}$</h4>
 <p>勾配でベクトル場を得て、その回転をとると必ずゼロベクトルになる。
 </p>
 $$\nabla \times (\nabla f) = \begin{pmatrix}
@@ -317,7 +393,7 @@ $$\nabla \times (\nabla f) = \begin{pmatrix}
 </p>
 <p>物理的意味：「勾配場には渦がない」。保存的な重力場や静電場がこれに当たる。
 </p>
-<h4 id="7.6.2-__MATH_BLOCK_118__">7.6.2 $\mathrm{div}(\mathrm{rot}\,\mathbf{F}) = 0$</h4>
+<h4 id="7.6.2-__MATH_BLOCK_120__">7.6.2 $\mathrm{div}(\mathrm{rot}\,\mathbf{F}) = 0$</h4>
 <p>回転でベクトル場を得て、その発散をとると必ずゼロになる。
 </p>
 $$\nabla \cdot (\nabla \times \mathbf{F}) = \frac{\partial}{\partial x}\!\left(\frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z}\right) + \frac{\partial}{\partial y}\!\left(\frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x}\right) + \frac{\partial}{\partial z}\!\left(\frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y}\right)$$
@@ -386,7 +462,7 @@ $$\mathbf{A} \times (\mathbf{B} \times \mathbf{C}) = \mathbf{B}(\mathbf{A} \cdot
 <blockquote>
 <p><strong>注</strong> （ここだけの話）$\mathrm{grad}=d$, $\mathrm{rot}=\ast d$, $\mathrm{div}=\ast d\ast$ と対応を書き下すのは、実はベクトル解析を解体するための妥協案という側面がある。</p>
 <p>一部の微分形式の啓蒙的な説明では、きれいに書ける範囲が強調されることが多い。しかし、ベクトル解析を本気で翻訳しようとすると、$\ast$ が何度も顔を出し、必ずしも見た目が簡単になるわけではない。たとえば §7.7.4 のベクトル三重積 $\mathbf{A}\times(\mathbf{B}\times\mathbf{C})$ をこの枠組みで書き直すと、$\ast(\alpha \wedge \ast(\beta \wedge \gamma))$ のように $\ast$ の入れ子が発生し、むしろベクトル解析よりも不格好な姿を晒すことになる。</p>
-<p>それでも一部の啓蒙書が美しさを強調するのは、計量という「ものさし」を召喚する前の世界——すなわち $\ast$ を使わずに $d$ と $\wedge$ だけで編まれた風景——があまりに純粋で美しいからだ。計量（内積）を定義する前からマクスウェル方程式のような物理法則の骨格が定まる、という事実は確かに衝撃的である。</p>
+<p>それでも一部の啓蒙書が美しさを強調するのは、計量という「強力な制限」を召喚する前の世界——すなわち $\ast$ を使わずに $d$ と $\wedge$ だけで編まれた風景——があまりに純粋で美しいからだ。計量（内積）を定義する前からマクスウェル方程式のような物理法則の骨格が定まる、という事実は確かに衝撃的である。</p>
 <p>その「純粋な微分形式の世界」へ向かうために、あえて不格好な $\ast$ まみれの翻訳作業を一度やり遂げる。それが本書のこの段階の狙いである。この「微分形式によるベクトル解析」の計算を汚い、不自然だ、と読者が思えたなら、それは正しい。その時、君はもうベクトル解析の初学者を卒業している。</p>
 </blockquote>
 <hr />
@@ -400,7 +476,7 @@ $$\oint_C \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdo
 <p>左辺は曲線 $C$ に沿った $\mathbf{F}$ の線積分（循環）、右辺は曲面 $S$ 上の回転の法線成分の面積分である。「境界での循環は、内部の渦の総和に等しい」という意味を持つ。$\mathbf{n}$ は曲面の単位法線ベクトルで、$C$ の向きに対して右ねじの関係で選ぶ。
 </p>
 <blockquote>
-<p><strong>注</strong> （グリーンの定理）$S$ が $xy$ 平面内の領域 $D$ で、$\mathbf{F} = (P, Q, 0)^T$ の場合、ストークスの定理は次の形になる。これはグリーンの定理と呼ばれる。</p>
+<p><strong>注</strong> （グリーンの定理）$S$ が $xy$ 平面内の領域 $D$ で、$\mathbf{F}$ の成分が $F_x=P,\;F_y=Q,\;F_z=0$ の場合、ストークスの定理は次の形になる。これはグリーンの定理と呼ばれる。</p>
 <p>$$\oint_{\partial D} (P\,dx + Q\,dy) = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dx\,dy$$</p>
 </blockquote>
 <h4 id="7.8.2-ガウスの発散定理">7.8.2 ガウスの発散定理</h4>
@@ -409,7 +485,7 @@ $$\oint_C \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdo
 $$\oiint_S \mathbf{F} \cdot \mathbf{n}\,dS = \iiint_V (\nabla \cdot \mathbf{F})\,dV$$
 <p>左辺は閉曲面 $S$ を通る $\mathbf{F}$ の外向きの流束、右辺は立体 $V$ 内の発散の体積分である。「境界を通る流れの総和は、内部の湧き出しの総和に等しい」という意味を持つ。
 </p>
-<h4 id="7.8.3-三つの定理の共通構造">7.8.3 三つの定理の共通構造</h4>
+<h4 id="7.8.3-積分定理の共通構造">7.8.3 積分定理の共通構造</h4>
 <p>ストークスの定理とガウスの発散定理を並べて見ると、共通のパターンが浮かぶ。
 </p>
 <div class="table-wrapper"><table>
@@ -436,30 +512,30 @@ $$\oiint_S \mathbf{F} \cdot \mathbf{n}\,dS = \iiint_V (\nabla \cdot \mathbf{F})\
 </table></div>
 <p>いずれも「境界で測った量 = 内部の微分量の総和」という形をしている。§7.6 の $\mathrm{div}(\mathrm{rot})=0$ は、この枠組みでは「渦場には湧き出しがないから、閉曲面で囲んでも中から出てくるものはない」と読める。
 </p>
-<p>しかし、ここには一つの不満が残る。ストークスとガウスは、grad / rot / div という異なる演算子を使うため、<strong>別々の定理として暗記しなければならない</strong>。第5章で $\int_{\partial M}\omega = \int_M d\omega$ という一本の式がこれらすべてを統合していたことを思い出してほしい。第8章では、$\nabla$ の世界の積分定理をこの一本の形に読み替える辞書を完成させる。
+<p>しかし、ここには一つの不満が残る。ストークスとガウスは、grad / rot / div という異なる演算子を使うため、<strong>別々の定理として暗記しなければならない</strong>。第5章で $\int_{\partial M}\omega = \int_M d\omega$ という一本の式がこれらすべてを統合していたことを思い出してほしい。第8章では、$\nabla$ の世界の積分定理を、この一本の形に読み替える対応を整理する。
 </p>
 <blockquote>
 <p><strong>【ここまでのチェックポイント — §7.8】</strong></p>
 <p>- ストークスの定理：$\oint_C \mathbf{F}\cdot d\mathbf{r} = \iint_S (\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS$</p>
 <p>- ガウスの発散定理：$\oiint_S \mathbf{F}\cdot\mathbf{n}\,dS = \iiint_V (\nabla\cdot\mathbf{F})\,dV$</p>
 <p>- グリーンの定理はストークスの定理の平面版。</p>
-<p>- 三定理は「境界の積分 = 内部の微分の積分」という共通構造を持つが、$\nabla$ の言葉では別々の定理として扱わざるを得ない。</p>
+<p>- これらの積分定理は「境界の積分 = 内部の微分の積分」という共通構造を持つが、$\nabla$ の言葉では別々の定理として扱わざるを得ない。</p>
 </blockquote>
 <hr />
-<h3 id="§7.9-第III部へ-——-矢印を見るな、測定器を見ろ">§7.9 第III部へ —— 矢印を見るな、測定器を見ろ</h3>
-<p>第5章と第6章で、我々は二つの演算子を手に入れた。外微分 $d$ ——次数を一つ上げ、局所的なズレを測る。ホッジ・スター $\ast$ ——計量に基づいて次数を反転させる。§5.5 では、この二つの組み合わせだけで $\mathrm{grad} = d$, $\mathrm{rot} = \ast d$, $\mathrm{div} = \ast d \ast$ と書けることを見た。
+<h3 id="§7.9-第8章へ-——-矢印を見るな、測定器を見ろ">§7.9 第8章へ —— 矢印を見るな、測定器を見ろ</h3>
+<p>第6章で、我々は外微分 $d$ とホッジ・スター $\ast$ を組み合わせることで、$\mathrm{grad}=d$、$\mathrm{rot}=\ast d$、$\mathrm{div}=\ast d\ast$ という三つの型が現れることを見た。
 </p>
-<p>一方、本章では $\nabla$ とドット積・クロス積だけを使って同じ対象を記述した。$\nabla f$ も $\nabla\times\mathbf{F}$ も $\nabla\cdot\mathbf{F}$ も、画面上ではすべて矢印（かスカラー）だ。しかし、それぞれが担う幾何的意味はまったく異なる。そして問題が複雑になるほど、矢印だけを見て区別するのは難しくなる。
+<p>本章では、同じ対象を標準的なベクトル解析の言葉で書き直した。$\nabla f$、$\nabla\times\mathbf F$、$\nabla\cdot\mathbf F$ は便利だが、画面上ではすべて矢印やスカラーに見える。しかし、それぞれが担う幾何的意味はまったく異なる。そして問題が複雑になるほど、矢印だけを見て区別するのは難しくなる。
 </p>
-<p>第III部では、この状況を整理する。$\nabla f$ を $df$ に、$\nabla\times\mathbf{F}$ を $\ast d\omega$ に、$\nabla\cdot\mathbf{F}$ を $\ast d\ast\omega$ に読み替える辞書を完成させる。そうすれば、式の形そのものが「いま何をしているか」を教えてくれる。矢印の絵に頼らず、測定器（$n$-form）の代数で考える——それが第III部の目標だ。
+<p>次章では、第6章で得た $d,\ast$ の型と、本章で導入した $\nabla$ 記法を対応させる。$\nabla f$ を $df$ に、$\nabla\times\mathbf F$ を $\ast d\omega$ に、$\nabla\cdot\mathbf F$ を $\ast d\ast\omega$ に読み替えることで、標準ベクトル解析の式が、測定器の次数を持った式として整理される。矢印の絵に頼らず、測定器の代数で考える——その視点を、次章で標準ベクトル解析の記法と接続する。
 </p>
 <blockquote>
 <p><strong>【ここまでのチェックポイント — 第7章全体】</strong></p>
-<p>- $\nabla = (\partial_x, \partial_y, \partial_z)^T$ を定義し、勾配・発散・回転・ラプラシアンを導入した。</p>
-<p>- $\mathrm{grad}\,f = \nabla f$, $\mathrm{div}\,\mathbf{F} = \nabla \cdot \mathbf{F} = \operatorname{tr}(\mathbf{J}_\mathbf{F})$, $\mathrm{rot}\,\mathbf{F} = \nabla \times \mathbf{F}$</p>
-<p>- $\nabla^2 = \mathrm{div}\,\mathrm{grad}$, $\mathrm{rot}(\mathrm{grad}) = 0$, $\mathrm{div}(\mathrm{rot}) = 0$</p>
-<p>- クロス積の外積行列表示と BAC-CAB 則。</p>
-<p>- ベクトル解析の難しさは公式の数もさることながら、すべてが同じ矢印に見えることにある。微分形式は測定器（$n$-form）の次数で区別する。第III部でこの二つの言語を繫ぐ。</p>
+<p>- $\nabla$ を偏微分演算子を縦に並べた形式的ベクトルとして定義し、勾配・発散・回転・ラプラシアンを導入した。</p>
+<p>- $\mathrm{grad}\,f = \nabla f$, $\mathrm{div}\,\mathbf{F} = \nabla \cdot \mathbf{F} = \operatorname{tr}(\mathbf{J}_\mathbf{F})$, $\mathrm{rot}\,\mathbf{F} = \nabla \times \mathbf{F}$。</p>
+<p>- $\nabla^2 = \mathrm{div}\,\mathrm{grad}$, $\mathrm{rot}(\mathrm{grad}) = 0$, $\mathrm{div}(\mathrm{rot}) = 0$。</p>
+<p>- クロス積の外積行列表示と BAC-CAB 則を確認した。</p>
+<p>- ベクトル解析の難しさは公式の数もさることながら、すべてが同じ矢印に見えることにある。微分形式は測定器（$n$-form）の次数で区別する。第8章でこの二つの言語を繫ぐ。</p>
 </blockquote>
       <div class="nav-buttons">
         <a href="ch06.html">← 第6章...</a>

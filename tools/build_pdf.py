@@ -94,8 +94,12 @@ def main():
         flags=re.DOTALL
     )
 
-    # Convert HTML <strong> tags to Pandoc-native **bold** syntax for LaTeX
-    md_text = re.sub(r'<strong>\s*(.*?)\s*</strong>', r'**\1**', md_text, flags=re.DOTALL)
+    # Convert HTML <strong> tags directly to LaTeX bold for PDF output.
+    def strong_to_latex(match):
+        content = match.group(1).strip().replace('&', r'\&')
+        return r'\textbf{' + content + '}'
+
+    md_text = re.sub(r'<strong>\s*(.*?)\s*</strong>', strong_to_latex, md_text, flags=re.DOTALL)
 
     def ensure_blank_lines_before_structures(text):
         lines = text.split('\n')

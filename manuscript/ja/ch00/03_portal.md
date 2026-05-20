@@ -8,7 +8,7 @@
 
 本書は無料で公開しています。明らかな誤植レベルの指摘は GitHub Issues でも受け付けます。
 
-> **注**（名称について）  
+> <strong>注</strong>（名称について）  
 > ちなみに、*covector space*、ましてや *Co-Vector Space* という語はあまり一般的ではありません。数学では *dual space* などと言う方が普通です。
 
 ### Discord サーバー

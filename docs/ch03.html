@@ -98,7 +98,7 @@
 <li class="level-1"><a href="portal.html" id="link-portal.html">ポータルサイトとちょっとした試み</a></li>
 <li class="level-1"><a href="ch01.html" id="link-ch01.html">第1章</a></li>
 <li class="level-1"><a href="ch02.html" id="link-ch02.html">第2章</a></li>
-<li class="level-1"><a href="ch03.html" class="active" id="link-ch03.html">第3章</a><ul class="sub-toc"><li class="level-3"><a href="#§3.0-曲がったものを測る——小学校以来の借りを返す">§3.0 曲がったものを測る——小学校以来の借りを返す</a></li><li class="level-3"><a href="#§3.1-体積——3次元、係数1">§3.1 体積——3次元、係数1</a></li><li class="level-3"><a href="#§3.2-表面積——2次元、係数1">§3.2 表面積——2次元、係数1</a></li><li class="level-3"><a href="#§3.3-曲線——1次元、係数1（限界があらわになる）">§3.3 曲線——1次元、係数1（限界があらわになる）</a></li><li class="level-3"><a href="#§3.4-係数をつける——密度と幾何の積">§3.4 係数をつける——密度と幾何の積</a></li><li class="level-3"><a href="#§3.5-本章のまとめと次章への展望">§3.5 本章のまとめと次章への展望</a></li></ul></li>
+<li class="level-1"><a href="ch03.html" class="active" id="link-ch03.html">第3章</a><ul class="sub-toc"><li class="level-3"><a href="#§3.0-曲がったものを測る——小学校以来の借りを返す">§3.0 曲がったものを測る——小学校以来の借りを返す</a></li><li class="level-3"><a href="#§3.1-体積——3次元、係数1">§3.1 体積——3次元、係数1</a></li><li class="level-3"><a href="#§3.2-表面積——2次元、係数1の限界">§3.2 表面積——2次元、係数1の限界</a></li><li class="level-3"><a href="#§3.3-曲線——1次元、係数1の限界があらわになる">§3.3 曲線——1次元、係数1の限界があらわになる</a></li><li class="level-3"><a href="#§3.4-係数をつける——密度と幾何の積">§3.4 係数をつける——密度と幾何の積</a></li><li class="level-3"><a href="#§3.5-本章のまとめと次章への展望">§3.5 本章のまとめと次章への展望</a></li></ul></li>
 <li class="level-1"><a href="ch04.html" id="link-ch04.html">第4章</a></li>
 <li class="level-1"><a href="ch05.html" id="link-ch05.html">第5章</a></li>
 <li class="level-1"><a href="ch06.html" id="link-ch06.html">第6章</a></li>
@@ -118,18 +118,32 @@
     <article class="markdown-body">
 <h1 id="第3章：積分するとは何か-——-有限のマスを数え、最後に極限を取る">第3章：積分するとは何か —— 有限のマスを数え、最後に極限を取る</h1>
 <h3 id="§3.0-曲がったものを測る——小学校以来の借りを返す">§3.0 曲がったものを測る——小学校以来の借りを返す</h3>
-<p>　第2章では、平行四辺形の面積や平行六面体の体積といった<strong>平らな図形</strong>の測り方を定義した。$dx \wedge dy$ という面積測定器に二本のベクトルを食わせれば符号付き面積が返り、$dx \wedge dy \wedge dz$ という体積測定器に三本のベクトルを食わせれば符号付き体積が返る。小学校の「$1 \times 1$ の正方形がいくつ入るか」という直感を、代数的な測定器として再設計したのである。
+<p>第2章では、平行四辺形の面積や平行六面体の体積といった<strong>平らな図形</strong>の測り方を定義した。
 </p>
-<p>しかし、物理学者が本当に知りたいのは平らな図形ではない。曲線の長さ、曲面の面積、曲がった領域の体積——すなわち<strong>曲がったもの</strong>の測り方だ。
+<p>$dx \wedge dy$ という面積測定器に二本のベクトルを食わせれば符号付き面積が返り、$dx \wedge dy \wedge dz$ という体積測定器に三本のベクトルを食わせれば符号付き体積が返る。小学校の「$1 \times 1$ の正方形がいくつ入るか」という直感を、代数的な測定器として再設計したのである。
 </p>
-<p>円周 $2\pi r$、球の表面積 $4\pi r^2$、球の体積 $4\pi r^3/3$。これらの公式は小学校以来「そういうもの」として使ってきた。だが、部分に刻んで足し上げる操作として——積分として——一度でも定義したことがあるだろうか。ないはずだ。
+<p>しかし、小学校以来の借りはまだ残っている。
 </p>
-<p>考えてみれば当然である。曲線を細かく刻んで足し上げる操作自体は、微分形式がなくても定義できる。しかし、各ステップで「何を測り、どの向きを正として足しているのか」を明示し、仕事、面積、体積といった物理量を統一的に扱うには、<strong>微分形式</strong>という測定器が最も強力な道具となる。いま我々の手元には、第1章と第2章で作り上げた測定器——$0$-form、$1$-form、$2$-form、$3$-form——がそろっている。本章の仕事は、これらを<strong>曲線・曲面・領域に沿って適用し、集計する</strong>ことである。
+<p>我々は円周 $2\pi r$、球の表面積 $4\pi r^2$、球の体積 $\frac{4}{3}\pi r^3$ を、長いあいだ「そういう公式」として使ってきた。だが、それらは本来、どこから来るのか。
 </p>
-<p>原理はどの次数でも同じだ。まずは係数1の体積測定器がそのまま領域の体積を返してくれるケースから始め、次元を降りながら「どこで係数1の限界が姿を現すか」を確かめていこう。
+<p>答えは一つである。
 </p>
-<p>以下では、パラメータ表示は滑らかとし、向きの反転や自己交差などの細部は「物理でよく使う状況では問題にならない」レベルに留める。厳密な可積分論は本書の射程外である。
+<p><strong>有限の小片に刻み、それぞれを測り、足し上げ、最後に刻みを無限に細かくする。</strong>
 </p>
+<p>これが積分である。
+</p>
+<p>本章の目的は、球の公式を覚え直すことではない。むしろ、見慣れた球という題材を使って、「積分する」とは何をしているのかを、リーマン和のレベルから確認することにある。
+</p>
+<p>そのため、ここではあえて極座標や球面座標にすぐ逃げない。$x,y,z$ のまま小片を数え、どの小片が対象に含まれるかを判定し、和を整理する。泥臭いが、この泥臭さこそが積分の本体である。
+</p>
+<p>さて、いま我々の手元には、第1章と第2章で作り上げた測定器——$0$-form、$1$-form、$2$-form、$3$-form——がそろっている。本章の仕事は、これらを<strong>曲線・曲面・領域に沿って適用し、集計する</strong>ことである。
+</p>
+<p>原理はどの次数でも同じだ。まずは係数1の体積測定器がそのまま領域の体積を返してくれるケースから始め、次元を降りながら「形式は何を測り、何を測らないのか」を確かめていこう。
+</p>
+<blockquote>
+<p><strong>注</strong> （お約束）</p>
+<p>お約束として断っておく。以下では、曲線や曲面は十分滑らかで、小片に刻んで足し上げる操作が素直に極限を持つ場合を扱う。向きの反転や自己交差などの細部は「物理でよく使う状況では問題にならない」レベルに留める。厳密な可積分論は本書の射程外である。</p>
+</blockquote>
 <hr />
 <h3 id="§3.1-体積——3次元、係数1">§3.1 体積——3次元、係数1</h3>
 <h4 id="3.1.1-直方体から曲がった領域へ——リーマン和で定義する">3.1.1 直方体から曲がった領域へ——リーマン和で定義する</h4>
@@ -142,7 +156,7 @@ $$\Delta x_i\,\hat{e}_x,\quad \Delta y_i\,\hat{e}_y,\quad \Delta z_i\,\hat{e}_z$
 </p>
 $$(dx \wedge dy \wedge dz)(\Delta x_i\,\hat{e}_x,\; \Delta y_i\,\hat{e}_y,\; \Delta z_i\,\hat{e}_z) = \det\begin{pmatrix}\Delta x_i & 0 & 0 \\ 0 & \Delta y_i & 0 \\ 0 & 0 & \Delta z_i\end{pmatrix} = \Delta x_i\,\Delta y_i\,\Delta z_i$$
 <blockquote>
-<p><strong>注</strong> （はかりと図形の縮約）ここで起きていることは、第2章 §2.5.10 で見たパターンそのものだ。<strong>$3$-form（体積測定器＝はかり）</strong>が<strong>$3$-vector（体積素＝図形）</strong>を食べてスカラーを吐き出す。この縮約が各小直方体で行われる。</p>
+<p><strong>注</strong> （測定器と図形の縮約）ここで起きていることは、第2章 §2.5.10 で見たパターンそのものだ。<strong>$3$-form（体積測定器）</strong>が、三本の変位ベクトルが張る<strong>体積素（図形）</strong>を食べてスカラーを吐き出す。この縮約が各小直方体で行われる。ここでは、この三本の変位ベクトルが張る向き付きの小直方体、すなわち微小な体積図形を「体積素」と呼ぶ。</p>
 </blockquote>
 <p>各小直方体から得られたスカラー $\Delta x_i\,\Delta y_i\,\Delta z_i$ を、$V$ の内部にあるすべての小直方体について足し上げる：
 </p>
@@ -153,14 +167,29 @@ $$\iiint_V dx \wedge dy \wedge dz$$
 <p>と<strong>書くことにする</strong>。これが $3$-form の積分——体積分——の定義である。
 </p>
 <blockquote>
-<p><strong>注</strong> （$\iiint$ という記号について）本書では $\iiint_V$ を「3次元領域 $V$ における $3$-form の積分」を表す記号として<strong>ここで初めて定義する</strong>。高校数学の延長にある何かではなく、上記のリーマン和の極限に与えた名前である。</p>
+<p><strong>注</strong> （$\iiint$ という記号について）本書では $\iiint_V$ を「3次元領域 $V$ における $3$-form の積分」を表す記号として<strong>ここで初めて定義する</strong>。高校数学の体積分を前提にした記号ではなく、上記のリーマン和の極限に与えた名前である。</p>
 </blockquote>
 <p>さて、定義はした。ではこの和を実際にどう計算するか。$V$ が $x^2+y^2+z^2 \le R^2$ のような曲がった領域のとき、どの小直方体が $V$ の内部にあるかを判定しながら和をとるのは面倒だ。しかし和のとり方を工夫すれば、見通しがよくなる。次節で実際にやってみよう。
 </p>
 <h4 id="3.1.2-球の体積——泥臭く、愚直に足す">3.1.2 球の体積——泥臭く、愚直に足す</h4>
-<p>半径 $R$ の球 $x^2 + y^2 + z^2 \le R^2$ の体積を、本当に泥臭く計算してみよう。これから示したいことはただ一つ——特別な座標系に逃げずとも、$x, y, z$ のまま愚直にリーマン和を整理するだけで、見慣れた $4\pi R^3/3$ に到達できることである。特別な座標系は使わない。$x, y, z$ のまま、小直方体 $\Delta x\,\Delta y\,\Delta z$ を愚直に積み重ねるだけだ。
+<p>半径 $R$ の球 $x^2 + y^2 + z^2 \le R^2$ の体積を、本当に泥臭く計算してみよう。これから示したいことはただ一つ——特別な座標系に逃げずとも、$x, y, z$ のまま愚直にリーマン和を整理するだけで、見慣れた $\frac{4}{3}\pi R^3$ に到達できることである。特別な座標系は使わない。$x, y, z$ のまま、小直方体 $\Delta x\,\Delta y\,\Delta z$ を愚直に積み重ねるだけだ。
 </p>
-<p>§3.1.1 のリーマン和をどう整理すれば計算できるか。球の内部で $z$ をある値に固定すると、$x, y$ の満たすべき条件は $x^2 + y^2 \le R^2 - z^2$ である。さらに $y$ も固定すれば $x^2 \le R^2 - z^2 - y^2$。したがって $x$ の動く範囲は $-\sqrt{R^2 - z^2 - y^2}$ から $+\sqrt{R^2 - z^2 - y^2}$ まで、$y$ の範囲は $-\sqrt{R^2 - z^2}$ から $+\sqrt{R^2 - z^2}$ まで、$z$ の範囲は $-R$ から $+R$ まで。この順に和をとる——第1章 §1.1 でやった1次元のリーマン和を三回重ねる——と考えれば、極限では：
+<p>球を、関数
+</p>
+$$F(x,y,z)=x^2+y^2+z^2$$
+<p>の値で判定する領域として見る。球の内部とは $F\le R^2$ を満たす点全体であり、境界の球面は $F=R^2$ である。
+</p>
+<p>境界の向きや、球面に沿う変位を読むには、第1章で定義した全微分 $dF$ が効いてくる。しかし体積を数える段階では、まだ $dF$ は使わない。ここではまず、$F\le R^2$ という条件をそのままほどいて、小直方体を数える。体積を測る主役は、あくまで $dx\wedge dy\wedge dz$ である。
+</p>
+<p>§3.1.1 のリーマン和をどう整理すれば計算できるか。$z$ をある値に固定すると、$F\le R^2$ は
+</p>
+$$x^2+y^2\le R^2-z^2$$
+<p>になる。つまり、その高さで許される $(x,y)$ は半径 $\sqrt{R^2-z^2}$ の円板である。さらに $y$ も固定すれば、
+</p>
+$$x^2\le R^2-z^2-y^2$$
+<p>だから、$x$ の動く範囲は $-\sqrt{R^2 - z^2 - y^2}$ から $+\sqrt{R^2 - z^2 - y^2}$ までである。同様に、$y$ の範囲は $-\sqrt{R^2 - z^2}$ から $+\sqrt{R^2 - z^2}$ まで、$z$ の範囲は $-R$ から $+R$ まで。
+</p>
+<p>これは結局、$F\le R^2$ という判定を、$z$、$y$、$x$ の順にほどいているだけである。この順に和をとる——第1章 §1.1 でやった1次元のリーマン和を三回重ねる——と考えれば、極限では：
 </p>
 $$\iiint_V dx \wedge dy \wedge dz = \int_{-R}^{R} \Biggl( \int_{-\sqrt{R^2 - z^2}}^{\sqrt{R^2 - z^2}} \Biggl( \int_{-\sqrt{R^2 - z^2 - y^2}}^{\sqrt{R^2 - z^2 - y^2}} dx \Biggr) dy \Biggr) dz$$
 <p>右辺の $dx, dy, dz$ は、左辺の $dx \wedge dy \wedge dz$ を順に和の整理に使った結果として並んでいる。$\wedge$ を省略しているのではない。カッコの内側から順に、$x$ についての和（$\int dx$）→ $y$ についての和（$\int dy$）→ $z$ についての和（$\int dz$）を実行する、という意味である。
@@ -191,160 +220,259 @@ $$\begin{aligned}
 </p>
 $$\int_{-R}^{R} \pi(R^2 - z^2)\,dz = 2\pi\Bigl[R^2 z - \frac{z^3}{3}\Bigr]_{0}^{R} = 2\pi\cdot\frac{2R^3}{3} = \frac{4}{3}\pi R^3$$
 <blockquote>
-<p><strong>注</strong> （この計算の意味）ここで我々がやったことは、§3.1.1 のリーマン和の整理にすぎない。$x,y,z$ のまま、どの小直方体が球の内部にあるかを判定しながら和をとるかわりに、和の順序を $x \to y \to z$ と整理した。各段階は第1章でやった1変数のリーマン和であり、極限で見慣れた1変数積分の計算になる。それだけである。測定器と図形の縮約を愚直に集計すれば $4\pi R^3/3$ に到達する。</p>
+<p><strong>注</strong> （この計算の意味）ここで我々がやったことは、§3.1.1 のリーマン和の整理にすぎない。$x,y,z$ のまま、どの小直方体が球の内部にあるかを判定しながら和をとるかわりに、和の順序を $x \to y \to z$ と整理した。各段階は第1章でやった1変数のリーマン和であり、極限で見慣れた1変数積分の計算になる。それだけである。測定器と図形の縮約を愚直に集計すれば $\frac{4}{3}\pi R^3$ に到達する。</p>
 </blockquote>
-<p>こうして、$dx \wedge dy \wedge dz$ という<strong>一つの測定器</strong>の積分が、曲がった領域の体積 $4\pi R^3/3$ を正しく与えることが確認できた。3次元では、係数1の体積測定器がそのまま体積を直接測れるのである。
+<p>こうして、$dx \wedge dy \wedge dz$ という<strong>一つの測定器</strong>の積分が、曲がった領域の体積 $\frac{4}{3}\pi R^3$ を正しく与えることが確認できた。3次元では、係数1の体積測定器がそのまま体積を直接測れるのである。
 </p>
 <blockquote>
 <p><strong>【ここまでのチェックポイント】</strong></p>
 <p>- $dx \wedge dy \wedge dz$ の積分は、領域を小直方体に刻み、各小片の体積素を体積測定器に食わせた値を足し上げるリーマン和の極限である。$\iiint_V$ は本書がこの極限に与えた記号である。</p>
-<p>- 係数1でそのまま体積が測れる。球の体積 $4\pi R^3/3$ が、リーマン和を $x \to y \to z$ の順に整理することで得られる。特別な座標系は不要。</p>
+<p>- 係数1でそのまま体積が測れる。球の体積 $\frac{4}{3}\pi R^3$ が、リーマン和を $x \to y \to z$ の順に整理することで得られる。特別な座標系は不要。</p>
 <p>- 次節では次元を一つ下げ、曲面の面積を測る。</p>
 </blockquote>
 <hr />
-<h3 id="§3.2-表面積——2次元、係数1">§3.2 表面積——2次元、係数1</h3>
+<h3 id="§3.2-表面積——2次元、係数1の限界">§3.2 表面積——2次元、係数1の限界</h3>
 <h4 id="3.2.1-平行四辺形から曲面へ">3.2.1 平行四辺形から曲面へ</h4>
 <p>第2章 §2.4 で、我々は $dx \wedge dy$ という面積測定器を組み立てた。これに二本のベクトル $\mathbf{v}_1, \mathbf{v}_2$ を食わせると、それらが $xy$ 平面に落とす影の符号付き面積が返ってくる。同様に $dy \wedge dz$ は $yz$ 平面への影、$dz \wedge dx$ は $zx$ 平面への影を測る。
 </p>
-<p>では曲面の面積を測るにはどうすればよいか。まず平らな場合で確認しておこう。$xy$ 平面に乗った単位正方形 $\mathbf{r}(u,v) = (u,\,v,\,0),\; 0 \le u,v \le 1$ を考える。$\mathbf{r}_u = (1,0,0),\; \mathbf{r}_v = (0,1,0)$ だから、$(dx \wedge dy)(\mathbf{r}_u, \mathbf{r}_v) = \det\begin{pmatrix}1&0\\0&1\end{pmatrix} = 1$。全区間で集計すれば $\iint_{[0,1]^2} 1 = 1$——正方形の面積だ。これは第2章の平らな平行四辺形の拡張にすぎず、面素という新しい道具が平らな面では正しく面積を返すことの確認である。
+<p>では曲面の面積を測るにはどうすればよいか。まず平らな場合で確認しておこう。$xy$ 平面に乗った単位正方形を、細かな小正方形に刻む。一つの小正方形の二辺は
 </p>
-<p>では曲面が曲がっていたらどうなるか。一般に、曲面 $S$ が二つのパラメータ $u, v$ で
+$$\Delta\mathbf{x}=\begin{pmatrix}\Delta x\\0\\0\end{pmatrix},\qquad
+\Delta\mathbf{y}=\begin{pmatrix}0\\\Delta y\\0\end{pmatrix}$$
+<p>である。これを $dx \wedge dy$ に食わせると、
 </p>
-$$\mathbf{r}(u,v) = \bigl(x(u,v),\, y(u,v),\, z(u,v)\bigr)$$
-<p>と表されているとする。$u, v$ が平面内の領域 $D$ を動くとき、$\mathbf{r}(u,v)$ が曲面 $S$ を描く。
+$$(dx \wedge dy)(\Delta\mathbf{x},\Delta\mathbf{y})=\Delta x\,\Delta y$$
+<p>となる。全小正方形で集計すれば面積は $1$。これは第2章の平らな平行四辺形の拡張にすぎない。ここで確認しているのは、$dx\wedge dy$ という $2$-form が、$xy$ 平面上の小片に対してはその符号付き面積をそのまま返す、ということである。
 </p>
-<p>曲面を小区画に刻む。$u$ 方向に $\Delta u$、$v$ 方向に $\Delta v$ だけ進んだときの変位ベクトルは、偏微分を使って
+<p>では曲面が曲がっていたらどうなるか。曲面を十分細かい小片に刻む。各小片の上で、隣り合う二方向の変位ベクトルを $\Delta\mathbf{a},\Delta\mathbf{b}$ と書く。この二本の変位ベクトル、またはそれらが張る向き付きの微小平行四辺形を、この章では曲面の「面素」と呼ぶ。曲面を細かく刻めば刻むほど、この面素の集計は曲面そのものの集計に近づく。
 </p>
-$$\mathbf{r}_u = \frac{\partial \mathbf{r}}{\partial u},\qquad \mathbf{r}_v = \frac{\partial \mathbf{r}}{\partial v}$$
-<p>と近似できる（$\Delta u, \Delta v$ が十分小さいとき）。この二本が張る平行四辺形が、曲面の小片の近似だ。$\mathbf{r}_u, \mathbf{r}_v$ が平行でなく、ちゃんと面を張っているとする。
+<p>この曲面小片を張る二本の変位ベクトル $\Delta\mathbf{a},\Delta\mathbf{b}$ を、面積測定器 $dx \wedge dy$ に食わせる。第2章 §2.4.4 の定義より、もし
 </p>
-<blockquote>
-<p><strong>注</strong> （偏微分に不慣れな読者へ）$\mathbf{r}_u$ は「$v$ を止めて $u$ だけを少し動かしたときの変位ベクトル」と思えばよい。第1章の $\Delta x$ を2次元に拡張したものである。</p>
-</blockquote>
-<p>この面素 $\mathbf{r}_u \Delta u,\; \mathbf{r}_v \Delta v$ を面積測定器 $dx \wedge dy$ に食わせる。$u,v$ 方向の刻みに番号 $i,j$ を振れば、第 $(i,j)$ 小区画からの寄与は：
+$$\Delta\mathbf{a}=\begin{pmatrix}\Delta a_x\\\Delta a_y\\\Delta a_z\end{pmatrix},\qquad
+\Delta\mathbf{b}=\begin{pmatrix}\Delta b_x\\\Delta b_y\\\Delta b_z\end{pmatrix}$$
+<p>なら、
 </p>
-$$(dx \wedge dy)(\mathbf{r}_u \Delta u,\; \mathbf{r}_v \Delta v) = (dx \wedge dy)(\mathbf{r}_u, \mathbf{r}_v)\,\Delta u\,\Delta v$$
-<p>第2章 §2.4.4 の定義より：
+$$(dx \wedge dy)(\Delta\mathbf{a},\Delta\mathbf{b})
+=\Delta a_x\Delta b_y-\Delta a_y\Delta b_x$$
+<p>である。これは、その小片が $xy$ 平面に落とす影の符号付き面積だ。
 </p>
-$$(dx \wedge dy)(\mathbf{r}_u, \mathbf{r}_v) = \det\begin{pmatrix} \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\ \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} \end{pmatrix} = \frac{\partial x}{\partial u} \frac{\partial y}{\partial v} - \frac{\partial x}{\partial v} \frac{\partial y}{\partial u}$$
-<blockquote>
-<p><strong>注</strong> （$2$-form と $2$-vector の縮約）ここでも同じ構図だ。<strong>$2$-form（面積測定器＝はかり）</strong>が<strong>$2$-vector（面素＝図形）</strong>を食べてスカラー（影の面積）を返す。各小区画でこの縮約が行われる。</p>
-</blockquote>
-<p>これを $D$ 内のすべての小区画について足し上げる：
-</p>
-$$\sum_i\sum_j (\frac{\partial x}{\partial u} \frac{\partial y}{\partial v} - \frac{\partial x}{\partial v} \frac{\partial y}{\partial u})\,\Delta u\,\Delta v$$
 <p>刻みを無限に細かくする極限を
 </p>
 $$\iint_S dx \wedge dy$$
 <p>と<strong>書くことにする</strong>。これが $2$-form の積分——面積分——の定義である。構成は §3.1 の体積分と同じ型で、食わせるベクトルが2本になっただけだ。
 </p>
-<h4 id="3.2.2-__MATH_BLOCK_177__-が測るもの——球面で試す">3.2.2 $dx \wedge dy$ が測るもの——球面で試す</h4>
-<p>実際に球面で計算してみよう。半径 $R$ の球面の上半分（$z \ge 0$）を考える。この曲面は、$x, y$ をそのままパラメータとして
+<h4 id="3.2.2-__MATH_BLOCK_187__-が測るもの——球面で試す">3.2.2 $dx \wedge dy$ が測るもの——球面で試す</h4>
+<p>実際に球面で計算してみよう。半径 $R$ の球面の上半分（$z \ge 0$）を考える。球面上の点 $(x,y,z)$ は
 </p>
-$$z = f(x,y) = \sqrt{R^2 - x^2 - y^2},\qquad x^2 + y^2 \le R^2$$
-<p>と書ける（グラフ表示）。$\mathbf{r}(x,y) = (x,\; y,\; f(x,y))$ とパラメータ表示すれば、偏微分は：
+$$x^2+y^2+z^2=R^2,\qquad z=\sqrt{R^2-x^2-y^2}$$
+<p>を満たす。ここで、第1章で定義した全微分を使う。関数
 </p>
-$$\mathbf{r}_x = \frac{\partial \mathbf{r}}{\partial x} = \begin{pmatrix} 1 \\[2pt] 0 \\[2pt] \frac{\partial f}{\partial x} \end{pmatrix},\qquad \mathbf{r}_y = \frac{\partial \mathbf{r}}{\partial y} = \begin{pmatrix} 0 \\[2pt] 1 \\[2pt] \frac{\partial f}{\partial y} \end{pmatrix}$$
-<p>ここで $\frac{\partial f}{\partial x} = \dfrac{\partial f}{\partial x} = -\dfrac{x}{\sqrt{R^2 - x^2 - y^2}},\; \frac{\partial f}{\partial y} = \dfrac{\partial f}{\partial y} = -\dfrac{y}{\sqrt{R^2 - x^2 - y^2}}$。
+$$F(x,y,z)=x^2+y^2+z^2$$
+<p>の全微分は
+</p>
+$$dF=2x\,dx+2y\,dy+2z\,dz$$
+<p>である。第1章の約束どおり、これは変位ベクトルを食べて $F$ の変化を読み取る横ベクトルである。球面に接する変位ベクトルなら、一次の変化としては $F=x^2+y^2+z^2$ の値を変えない。したがって、その変位ベクトル $\mathbf{v}$ は $dF(\mathbf{v})=0$ を満たす。球面小片を張る二本の変位ベクトルも、この条件を満たすように選ぶ。
+</p>
+<p>たとえば、$y$ を止めて $x$ 方向へ微小幅 $\Delta x$ だけ進む変位ベクトルを
+</p>
+$$\Delta\mathbf{x}_S=\begin{pmatrix}\Delta x\\[2pt]0\\[2pt]\Delta z\end{pmatrix}$$
+<p>とおく。これを $dF$ に食わせると、
+</p>
+$$dF(\Delta\mathbf{x}_S)=2x\,\Delta x+2z\,\Delta z$$
+<p>である。球面に沿う方向として $dF(\Delta\mathbf{x}_S)=0$ となるように選ぶと、$\Delta z=-(x/z)\Delta x$ となる。同様に、$x$ を止めて $y$ 方向へ微小幅 $\Delta y$ だけ進む変位ベクトルについては、$\Delta z=-(y/z)\Delta y$ となる。
+</p>
+<p>したがって、球面小片を張る二本の変位ベクトルは
+</p>
+$$\Delta\mathbf{x}_S=\begin{pmatrix}\Delta x\\[2pt]0\\[2pt]-\dfrac{x}{z}\Delta x\end{pmatrix},\qquad
+\Delta\mathbf{y}_S=\begin{pmatrix}0\\[2pt]\Delta y\\[2pt]-\dfrac{y}{z}\Delta y\end{pmatrix}$$
+<p>と書ける。曲面を十分細かく刻めば、この二本が張る平行四辺形の集計は、球面そのものの集計に近づいていく。
 </p>
 <p>まず $dx \wedge dy$ だけを曲面に食わせてみる：
 </p>
-$$(dx \wedge dy)(\mathbf{r}_x, \mathbf{r}_y) = \det\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = 1$$
+$$(dx \wedge dy)(\Delta\mathbf{x}_S,\Delta\mathbf{y}_S)=\Delta x\,\Delta y$$
 <p>したがって上半球面での $dx \wedge dy$ の積分は：
 </p>
 $$\iint_{S_{\text{upper}}} dx \wedge dy$$
 <p>の計算は §3.1.2 の $y$ 積分と同じ方法でできて（$a$ を $R$ と思えばまったく同じ）、結果は $\pi R^2$ である。これは上半球を $xy$ 平面に落とした影——半径 $R$ の円板——の面積にほかならない。
 </p>
-<p>下半球（$z = -\sqrt{R^2 - x^2 - y^2}$）でも同様に計算すると、$(dx \wedge dy)(\mathbf{r}_x, \mathbf{r}_y) = 1$ は変わらない（確かめてほしい）が、面の向きが裏返るために符号が反転し、積分は $-\pi R^2$ になる。
+<p>下半球（$z = -\sqrt{R^2 - x^2 - y^2}$）でも同様に計算できる。ただし球面全体を外向きに測ると、下半球では面の向きが裏返るために符号が反転し、積分は $-\pi R^2$ になる。
 </p>
-<p>したがって球面全体での $dx \wedge dy$ の積分は $\pi R^2 + (-\pi R^2) = 0$。上半球の影と下半球の影が打ち消し合ったのだ。これではっきりした：<strong>$dx \wedge dy$ が測るのは「$xy$ 平面への影の符号付き面積」であり、曲面の面積そのものではない。</strong>同様に、$dy \wedge dz$ は $yz$ 平面への影、$dz \wedge dx$ は $zx$ 平面への影を測る。
+<p>したがって球面全体での $dx \wedge dy$ の積分は $\pi R^2 + (-\pi R^2) = 0$。上半球の影と下半球の影が打ち消し合ったのだ。これではっきりした：<strong>$dx \wedge dy$ が測るのは「$xy$ 平面への影の符号付き面積」であり、曲面のスカラー面積ではない。</strong>同様に、$dy \wedge dz$ は $yz$ 平面への影、$dz \wedge dx$ は $zx$ 平面への影を測る。
 </p>
-<h4 id="3.2.3-三つの影から本当の面積へ">3.2.3 三つの影から本当の面積へ</h4>
-<p>では曲面の本当の面積はどう測ればよいのか。各点で三つの面積測定器すべてに面素を食わせ、その結果を合成する。
+<h4 id="3.2.3-三つの影からスカラー面積へ">3.2.3 三つの影からスカラー面積へ</h4>
+<p>では曲面のスカラー面積（小学校の面積）はどう測ればよいのか。各小区画で面素を構成する二本の変位ベクトルを、三つの面積測定器すべてに食わせ、その結果を合成する。
 </p>
-<p>上半球面で残り二つも計算しよう（§3.2.1 の $u=x,\;v=y$ の例）：
+<p>上半球面で残り二つも計算しよう。先ほどの二本の変位ベクトル
 </p>
-$$\begin{aligned}
-(dy \wedge dz)(\mathbf{r}_x, \mathbf{r}_y) &= y_x z_y - y_y z_x = 0\cdot \frac{\partial f}{\partial y} - 1\cdot \frac{\partial f}{\partial x} = -\frac{\partial f}{\partial x} = \frac{x}{\sqrt{R^2 - x^2 - y^2}} \\[4pt]
-(dz \wedge dx)(\mathbf{r}_x, \mathbf{r}_y) &= z_x x_y - z_y x_x = \frac{\partial f}{\partial x}\cdot 0 - \frac{\partial f}{\partial y}\cdot 1 = -\frac{\partial f}{\partial y} = \frac{y}{\sqrt{R^2 - x^2 - y^2}} \\[4pt]
-(dx \wedge dy)(\mathbf{r}_x, \mathbf{r}_y) &= 1
-\end{aligned}$$
-<p>これら三つの値——$A_{yz},\,A_{zx},\,A_{xy}$——が、各点での面素の<strong>向きと大きさ</strong>の情報を完全にエンコードしている。第2章 §2.4.6 で見た「向き付き面積＝三つの基底 $\hat{e}_y \wedge \hat{e}_z$ 等の線形結合」の曲面版である。
-</p>
-<p>では、これら三つの「影」から曲面のスカラー面積を取り出す。やることは第2章 §2.4.7 の平行四辺形のときと<strong>一字一句同じ</strong>——三つの値の二乗和の平方根をとればよい：
+$$\Delta\mathbf{x}_S=\begin{pmatrix}\Delta x\\0\\-\dfrac{x}{z}\Delta x\end{pmatrix},\qquad
+\Delta\mathbf{y}_S=\begin{pmatrix}0\\\Delta y\\-\dfrac{y}{z}\Delta y\end{pmatrix}$$
+<p>を三つの面積測定器に食わせると：
 </p>
 $$\begin{aligned}
-\sqrt{A_{yz}^2 + A_{zx}^2 + A_{xy}^2}
-&= \sqrt{\Bigl(\frac{x}{\sqrt{R^2 - x^2 - y^2}}\Bigr)^2 + \Bigl(\frac{y}{\sqrt{R^2 - x^2 - y^2}}\Bigr)^2 + 1^2} \\
-&= \sqrt{\frac{x^2 + y^2}{R^2 - x^2 - y^2} + 1} \\
-&= \sqrt{\frac{R^2}{R^2 - x^2 - y^2}}
-= \frac{R}{\sqrt{R^2 - x^2 - y^2}}
+(dy \wedge dz)(\Delta\mathbf{x}_S,\Delta\mathbf{y}_S) &= \frac{x}{z}\,\Delta x\,\Delta y
+= \frac{x}{\sqrt{R^2-x^2-y^2}}\,\Delta x\,\Delta y \\[4pt]
+(dz \wedge dx)(\Delta\mathbf{x}_S,\Delta\mathbf{y}_S) &= \frac{y}{z}\,\Delta x\,\Delta y
+= \frac{y}{\sqrt{R^2-x^2-y^2}}\,\Delta x\,\Delta y \\[4pt]
+(dx \wedge dy)(\Delta\mathbf{x}_S,\Delta\mathbf{y}_S) &= \Delta x\,\Delta y
 \end{aligned}$$
-<p>これをパラメータ領域 $x^2 + y^2 \le R^2$ 全体で積分すれば、上半球面の面積が得られる：
+<p>三つの測定値 $A_{yz},A_{zx},A_{xy}$ は、面素の三つの座標平面への符号付き射影面積である。これら三成分をそろえると、向き付き微小面積の情報が記録される。これは第2章 §2.4.6 で見た、平行四辺形の向き付き面積を三つの射影面積として読む話の曲面版である。
 </p>
-$$\iint_{x^2+y^2 \le R^2} \frac{R}{\sqrt{R^2 - x^2 - y^2}}\;dx \wedge dy = R\int_{-R}^{R}\int_{-\sqrt{R^2-x^2}}^{\sqrt{R^2-x^2}} \frac{dy}{\sqrt{R^2 - x^2 - y^2}}\;dx$$
+<p>ここから、向きを捨てた正の面積を取り出したい。そこで、この章では
+</p>
+$$
+dS(\Delta\mathbf{a},\Delta\mathbf{b})
+= \sqrt{A_{yz}^2+A_{zx}^2+A_{xy}^2}
+$$
+<p>を、その小区画の<strong>スカラー面素</strong>と呼ぶ。
+</p>
+<p>これは $2$-form ではない。$dx\wedge dy$ が面素を構成する二本の変位ベクトルを食べて一つの射影面積を返すのに対し、$dS$ は三つの射影面積を、直交デカルト座標でおなじみの二乗和平方根によって合成し、向きを捨てた正の面積を返す記法である。
+</p>
+<p>ただし、すぐに $dS$ を足し上げる前に、三つの面積測定器をそれぞれ上半球面全体で積分すると何が起きるかを見ておこう。上半球が $xy$ 平面に落とす円板を $D=\{(x,y)\mid x^2+y^2\le R^2\}$ と書くと、三つの符号付き影面積は次の三本の積分になる：
+</p>
+$$\begin{aligned}
+\iint_{S_{\text{upper}}} dy\wedge dz
+&= \int_{-R}^{R}\int_{-\sqrt{R^2-x^2}}^{\sqrt{R^2-x^2}}
+\frac{x}{\sqrt{R^2-x^2-y^2}}\,dy\,dx, \\[4pt]
+\iint_{S_{\text{upper}}} dz\wedge dx
+&= \int_{-R}^{R}\int_{-\sqrt{R^2-x^2}}^{\sqrt{R^2-x^2}}
+\frac{y}{\sqrt{R^2-x^2-y^2}}\,dy\,dx, \\[4pt]
+\iint_{S_{\text{upper}}} dx\wedge dy
+&= \int_{-R}^{R}\int_{-\sqrt{R^2-x^2}}^{\sqrt{R^2-x^2}}
+1\,dy\,dx.
+\end{aligned}$$
+<p>この三本は、それぞれ $yz$ 平面、$zx$ 平面、$xy$ 平面への符号付き影面積を測っている。実際、対称性から前二者は $0$、最後は $\pi R^2$ になる：
+</p>
+$$
+\iint_{S_{\text{upper}}} dy\wedge dz=0,\qquad
+\iint_{S_{\text{upper}}} dz\wedge dx=0,\qquad
+\iint_{S_{\text{upper}}} dx\wedge dy=\pi R^2.
+$$
+<p>ここで注意する。これら三本の積分値を後から二乗和平方根にしても、上半球面の面積にはならない。三つの影を<strong>各小区画ごとに</strong>合成してから足し上げなければ、曲面の傾きの情報が途中で消えてしまうからである。
+</p>
+<p>したがって、表面積を出すには、各小区画で三つの射影面積を求め、そこからスカラー面素 $dS$ を作り、それを足し上げればよい。先ほどの三つの射影面積を
+</p>
+$$\begin{aligned}
+A_{yz} &= (dy \wedge dz)(\Delta\mathbf{x}_S,\Delta\mathbf{y}_S) \\
+A_{zx} &= (dz \wedge dx)(\Delta\mathbf{x}_S,\Delta\mathbf{y}_S) \\
+A_{xy} &= (dx \wedge dy)(\Delta\mathbf{x}_S,\Delta\mathbf{y}_S)
+\end{aligned}$$
+<p>と書けば、スカラー面素は
+</p>
+$$
+dS(\Delta\mathbf{x}_S,\Delta\mathbf{y}_S)
+= \sqrt{A_{yz}^2+A_{zx}^2+A_{xy}^2}
+$$
+<p>である。先ほど計算した三つの出力を代入すると、
+</p>
+$$\begin{aligned}
+dS(\Delta\mathbf{x}_S,\Delta\mathbf{y}_S)
+&= \sqrt{
+\Bigl(\frac{x}{\sqrt{R^2-x^2-y^2}}\Delta x\,\Delta y\Bigr)^2
++ \Bigl(\frac{y}{\sqrt{R^2-x^2-y^2}}\Delta x\,\Delta y\Bigr)^2
++ (\Delta x\,\Delta y)^2} \\[4pt]
+&= \sqrt{\frac{x^2+y^2}{R^2-x^2-y^2}+1}\;\Delta x\,\Delta y \\[4pt]
+&= \frac{R}{\sqrt{R^2-x^2-y^2}}\,\Delta x\,\Delta y
+\end{aligned}$$
+<p>つまり、上半球が $xy$ 平面に落とす円板 $x^2+y^2 \le R^2$ を小区画に刻むと、面積のリーマン和は
+</p>
+$$\sum_i\sum_j
+\frac{R}{\sqrt{R^2-x_i^2-y_j^2}}\,
+\Delta x_i\,\Delta y_j$$
+<p>になる。つまり
+</p>
+$$\sum_i\sum_j dS(\Delta\mathbf{x}_{S,ij},\Delta\mathbf{y}_{S,ij})$$
+<p>という形で、各小区画のスカラー面素を愚直に足し上げているだけである。刻みを細かくする極限では：
+</p>
+$$
+\operatorname{Area}(S_{\text{upper}})
+= R\int_{-R}^{R}\biggl(\int_{-\sqrt{R^2-x^2}}^{\sqrt{R^2-x^2}}
+\frac{dy}{\sqrt{R^2 - x^2 - y^2}}\biggr)\;dx
+$$
 <p>内側の $y$ 積分。$a = \sqrt{R^2 - x^2}$ とおく：
 </p>
 $$\int_{-a}^{a} \frac{dy}{\sqrt{a^2 - y^2}}$$
 <p>置換積分 $y = a\sin t$ を使う（§3.1.2 と同じ手順）。$dy = a\cos t\,dt$、$\sqrt{a^2 - y^2} = a\cos t$、$y$ が $-a \to a$ のとき $t$ は $-\pi/2 \to \pi/2$：
 </p>
 $$\int_{-a}^{a} \frac{dy}{\sqrt{a^2 - y^2}} = \int_{-\pi/2}^{\pi/2} \frac{a\cos t}{a\cos t}\,dt = \int_{-\pi/2}^{\pi/2} dt = \pi$$
-<p>積分結果は $a$ に依らず $\pi$ ！ したがって：
+<p>積分結果は $a$ に依らず $\pi$ になる。したがって：
 </p>
 $$R\int_{-R}^{R} \pi\,dx = R \cdot \pi \cdot 2R = 2\pi R^2$$
-<p>これが上半球面の面積。これが上半球面の面積。下半球面でも（原点から見て「外向き」を正にとれば）符号は一部反転するが、二乗和は同じなので、同じく $2\pi R^2$。よって球面全体の面積は：
+<p>これが上半球面の面積。下半球面でも（原点から見て「外向き」を正にとれば）符号は一部反転するが、二乗和は同じなので、同じく $2\pi R^2$。よって球面全体の面積は：
 </p>
 $$2\pi R^2 + 2\pi R^2 = 4\pi R^2$$
 <p>見事に $4\pi R^2$ が出た。第2章 §2.4.7 で平行四辺形の面積を三つの影から復元したのと、<strong>まったく同じパターン</strong>である。
 </p>
 <h4 id="3.2.4-ここまででわかったこと">3.2.4 ここまででわかったこと</h4>
-<p>係数1の $2$-form は、それ単独では曲面の面積を直接返さない。$dx \wedge dy$ だけでは「$xy$ 平面への影の面積」しか測れず、曲面の本当の面積を知るには三つの基底 $2$-form の測定値を合成しなければならない。これは第2章の平行四辺形の面積のときとまったく同じ状況だ。
+<p>係数1の基底 $2$-form は、それ単独では曲面のスカラー面積を直接返さない。$dx \wedge dy$ は、曲面小片の $xy$ 平面への符号付き射影面積を測る。曲面のスカラー面積を得るには、三つの射影成分を各小片ごとに合成してスカラー面素 $dS$ を作り、それを足し上げなければならない。これは第2章の平行四辺形の面積のときとまったく同じ状況だ。
 </p>
 <p>しかし、物理ではしばしば「各点でどの方向の影をどれだけ重視するか」を制御したくなる。たとえば、曲面を貫く流体の流れを測るとき、流れが $x$ 方向に強ければ $dy \wedge dz$（$yz$ 平面への影）に大きな重みをかけたい。そのような<strong>場所ごとに変わる重み</strong>——係数——の必要性が、ここで自然に姿を現す。これが §3.4 への伏線である。
 </p>
 <blockquote>
 <p><strong>【ここまでのチェックポイント】</strong></p>
-<p>- 曲面積分は $\iint_D \eta(\mathbf{r}_u, \mathbf{r}_v)\,du \wedge dv$。各小区画で面素を面積測定器に食わせてスカラーにし、集計する。</p>
+<p>- 曲面積分は、各小区画で面素を構成する二本の変位ベクトルを面積測定器に食わせ、得られたスカラーを集計する操作である。</p>
 <p>- $dx \wedge dy$ は単独では $xy$ 平面への影の面積を測る。球面全体では正味ゼロ（上半球と下半球の影が打ち消し合う）。</p>
-<p>- 三つの基底 $2$-form の測定値の二乗和の平方根をとれば曲面のスカラー面積が得られる。球面では $4\pi R^2$。</p>
+<p>- 三つの基底 $2$-form の測定値を各小片ごとに二乗和平方根で合成すると、スカラー面素 $dS$ が得られる。これを足し上げれば曲面のスカラー面積になる。球面では $4\pi R^2$。</p>
 <p>- 次節ではさらに次元を下げ、曲線の長さを測る。そこで係数1の限界が最もはっきりと姿を現す。</p>
 </blockquote>
 <hr />
-<h3 id="§3.3-曲線——1次元、係数1（限界があらわになる）">§3.3 曲線——1次元、係数1（限界があらわになる）</h3>
+<h3 id="§3.3-曲線——1次元、係数1の限界があらわになる">§3.3 曲線——1次元、係数1の限界があらわになる</h3>
 <h4 id="3.3.1-直線から曲線へ——リーマン和で定義する">3.3.1 直線から曲線へ——リーマン和で定義する</h4>
 <p>第1章で、我々は $dx, dy, dz$ を「ベクトルを食べて各成分を返す $1$-form（横ベクトル）」として定義した。$dx = \begin{pmatrix}1&0&0\end{pmatrix}$、$\mathbf{v} = \begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$ のとき $dx(\mathbf{v}) = \Delta x$ である。$dy, dz$ も同様。
 </p>
-<p>では曲線に沿ってこれらを適用し、集計すると何が出るか。曲線を時刻 $t$ の関数として
+<p>では曲線に沿ってこれらを適用し、集計すると何が出るか。
 </p>
-$$\gamma(t) = \bigl(x(t),\, y(t),\, z(t)\bigr),\qquad t \in [t_0, t_1]$$
-<p>と表す。曲線を小区間に刻み、$i$ 番目の小区間での変位ベクトルを $\Delta\mathbf{r}_i = \gamma(t_i + \Delta t) - \gamma(t_i)$ とする。$\Delta\mathbf{r}_i$ は有限の変位であり、ここでは各小区間の始点を食べさせる測定器の作用として等式（近似ではない）を扱う。成分を明示すれば $\Delta\mathbf{r}_i = (\Delta x_i,\; \Delta y_i,\; \Delta z_i)$ である。
+<p>まず、曲線を細かい小区間に刻む。各小区間には、始点から終点への変位ベクトル
 </p>
-<p>各小区間で<strong>行列 $dx$ を変位ベクトル $\Delta\mathbf{r}_i$ に作用させる</strong>：
+$$
+\Delta\mathbf{r}_i=(\Delta x_i,\Delta y_i,\Delta z_i)
+$$
+<p>が対応する。この段階では、まだ曲線を式で表示する必要はない。各小区間で $dx$ をこの変位ベクトルに食わせれば、
 </p>
-$$dx(\Delta\mathbf{r}_i) = \begin{pmatrix}1&0&0\end{pmatrix} \begin{pmatrix}\Delta x_i \\ \Delta y_i \\ \Delta z_i\end{pmatrix} = \Delta x_i = \frac{\Delta x_i}{\Delta t}\,\Delta t$$
-<p>この $\Delta x_i/\Delta t$ は有限のままの比であり、近似ではない。全区間で足し上げれば、各項が $\Delta t$ ごとの換算率 $\Delta x_i/\Delta t$ を持つ正確な和になる：
+$$dx(\Delta\mathbf{r}_i)=\Delta x_i$$
+<p>である。同様に、$dy(\Delta\mathbf{r}_i)=\Delta y_i$、$dz(\Delta\mathbf{r}_i)=\Delta z_i$ である。
 </p>
-$$\sum_i dx(\Delta\mathbf{r}_i) = \sum_i \frac{\Delta x_i}{\Delta t}\,\Delta t$$
-<p>刻みを無限に細かくする極限で、換算率は導関数に収束する：$\Delta x_i/\Delta t \to dx/dt$。この極限を
+<p>全小区間で足し上げれば、
 </p>
-<p>刻みを無限に細かくする極限を
+$$
+\sum_i dx(\Delta\mathbf{r}_i)=\sum_i \Delta x_i
+$$
+<p>となる。これは、曲線上の各小片が持つ $x$ 方向の変位を、愚直に足し上げているだけである。刻みを無限に細かくする極限を
 </p>
 $$\int_\gamma dx$$
 <p>と<strong>書くことにする</strong>。これが $1$-form の積分——線積分——の定義である。
 </p>
-<blockquote>
-<p><strong>注</strong> （$1$-form と $1$-vector の縮約）§3.1・§3.2 と同じく、<strong>$1$-form（横ベクトル＝はかり）</strong>が<strong>$1$-vector（縦ベクトル＝図形）</strong>を食べてスカラーを返す。各小区間でこの縮約を行い、集計する。次数が違うだけで原理は同じだ。</p>
-</blockquote>
-<p>この極限は第1章 §1.2.5 の置換積分とまったく同じ形であり：
+<p>さて、定義はできた。ではこの和を実際に計算するにはどうするか。
+</p>
+<p>ここで $t$ を導入するのは、これまでの方針を捨てるためではない。§3.1 では球の内部の小直方体を $z,y,x$ の順に整理し、§3.2 では球面上の小片を $xy$ 平面への射影で整理した。同じように、曲線では小片を始点から終点へ順に並べるためのラベルが必要になる。そのラベルを $t$ と呼ぶだけである。
+</p>
+<p>そこで、曲線上の小片に連続的な番号 $t$ を振り、
+</p>
+$$\gamma(t) = \bigl(x(t),\, y(t),\, z(t)\bigr),\qquad t \in [t_0, t_1]$$
+<p>と書く。ここでの $t$ は、新しい空間座標ではない。曲線上の小片を始点から終点へ順番に並べるためのラベルである。このラベルを使うと、$i$ 番目の小区間の変位は
+</p>
+$$
+\Delta\mathbf{r}_i = \gamma(t_i+\Delta t)-\gamma(t_i)
+$$
+<p>と書ける。
+</p>
+<p>各小区間で<strong>行列 $dx$ を変位ベクトル $\Delta\mathbf{r}_i$ に作用させる</strong>：
+</p>
+$$dx(\Delta\mathbf{r}_i) = \begin{pmatrix}1&0&0\end{pmatrix} \begin{pmatrix}\Delta x_i \\ \Delta y_i \\ \Delta z_i\end{pmatrix} = \Delta x_i = \frac{\Delta x_i}{\Delta t}\,\Delta t$$
+<p>ここで等式なのは、固定した $1$-form $dx$ を変位ベクトル $\Delta\mathbf{r}_i$ に作用させれば、成分 $\Delta x_i$ が正確に返る、という意味である。一方で、曲線全体の積分は、小区間ごとの代表点で測定器を評価して足し上げるリーマン和の極限として定義される。
+</p>
+$$\sum_i dx(\Delta\mathbf{r}_i) = \sum_i \frac{\Delta x_i}{\Delta t}\,\Delta t$$
+<p>第1章で扱った置換積分は、まさにこのような和の整理だった。ここでも同じことをする。曲線上の小片を $t$ で番号づけし、各成分の変化を「変化率 $\times$ 小区間幅」として整理するのである。刻みを無限に細かくすると、換算率は導関数に収束する：$\Delta x_i/\Delta t \to dx/dt$。
+</p>
+<p>この計算は第1章 §1.2.5 の置換積分とまったく同じ形であり：
 </p>
 $$\int_\gamma dx = \int_{t_0}^{t_1} \frac{dx}{dt}\,dt = x(t_1) - x(t_0)$$
 <p>同様に $\int_\gamma dy = y(t_1) - y(t_0)$、$\int_\gamma dz = z(t_1) - z(t_0)$。すなわち<strong>$dx, dy, dz$ という $1$-form の線積分は、曲線の正味の変位——始点と終点の座標の差——を返す。</strong>
 </p>
 <h4 id="3.3.2-円周で試す——弧長は出ない">3.3.2 円周で試す——弧長は出ない</h4>
-<p>確認しよう。半径 $R$ の円を
+<p>確認しよう。円周の場合も、まず考えているのは円を細かい弧に刻み、各小片の変位を足し上げる操作である。ただし、実際に一周分の和を計算するには、小片を順番に並べる番号が必要になる。ここではその番号として、角度 $t$ を使う。半径 $R$ の円を
 </p>
 $$\gamma(t) = (R\cos t,\; R\sin t,\; 0),\qquad t \in [0, 2\pi]$$
-<p>とパラメータ表示する。$\gamma'(t) = (-R\sin t,\; R\cos t,\; 0)$ だから：
+<p>と表す。$\gamma'(t) = (-R\sin t,\; R\cos t,\; 0)$ だから：
 </p>
 $$\begin{aligned}
 \int_\gamma dx &= \int_0^{2\pi} dx(\gamma'(t))\,dt = \int_0^{2\pi} (-R\sin t)\,dt = R\bigl[\cos t\bigr]_0^{2\pi} = 0 \\[4pt]
@@ -354,29 +482,26 @@ $$\begin{aligned}
 </p>
 <p>しかし、この円の弧長が $2\pi R$ であることも我々は知っている。係数1の $dx, dy$ だけではゼロになってしまうが、では<strong>どうすれば弧長が出るのか</strong>。
 </p>
-<p>各瞬間に $dx, dy$ が測った値はすでに手元にある。$dx(\gamma'(t)) = -R\sin t$、$dy(\gamma'(t)) = R\cos t$。これらはスカラーだから、二乗して足すことができる：
+<p>各番号 $t$ で $dx, dy$ が測った値はすでに手元にある。$dx(\gamma'(t)) = -R\sin t$、$dy(\gamma'(t)) = R\cos t$。これらはスカラーだから、二乗して足すことができる：
 </p>
 $$dx(\gamma'(t))^2 + dy(\gamma'(t))^2 = R^2\sin^2 t + R^2\cos^2 t = R^2$$
-<p>その平方根をとれば、その瞬間の速さ $|\gamma'(t)| = R$ が得られる。全区間で積分すれば：
+<p>その平方根をとれば、その小片あたりの長さの換算率 $|\gamma'(t)| = R$ が得られる。全区間で積分すれば：
 </p>
 $$\int_0^{2\pi} \!\sqrt{dx(\gamma'(t))^2 + dy(\gamma'(t))^2}\;dt = \int_0^{2\pi} \!R\,dt = 2\pi R$$
 <p>弧長 $2\pi R$ が出た。ここで起きていることは重要だ——$dx$ も $dy$ も単独では閉曲線でゼロになったのに、それらの二乗和の平方根をとって積分すると、正しい弧長が姿を現した。係数1の $1$-form にはなかった「長さを測る力」が、二乗和という代数的な組み換えによって回復されたのである。
 </p>
-<p>弧長 $2\pi R$ が出た。
+<p>ここで起きていることを整理しよう。各番号 $t$ で $dx(\gamma'(t))$ と $dy(\gamma'(t))$ という二つのスカラーを得て、それらの二乗和の平方根 $\sqrt{dx(\gamma'(t))^2 + dy(\gamma'(t))^2}$ をとり、$t$ で積分した。これはすなわち、直交座標での長さ測定を曲線上で積分したことにほかならない。三次元では、この線素を
 </p>
-<p>ここで起きていることを整理しよう。各時刻 $t$ で $dx(\gamma'(t))$ と $dy(\gamma'(t))$ という二つのスカラーを得て、それらの二乗和の平方根 $\sqrt{dx(\gamma'(t))^2 + dy(\gamma'(t))^2}$ をとり、$t$ で積分した。これはすなわち、「変位 $\mathbf{v}$ に対して $\sqrt{dx(\mathbf{v})^2 + dy(\mathbf{v})^2}$ を返す」という<strong>計量由来の線素</strong>を曲線上で積分したことにほかならない。この線素を $ds$ と書く：
+$$ds(\mathbf{v}) = \sqrt{dx(\mathbf{v})^2 + dy(\mathbf{v})^2 + dz(\mathbf{v})^2}$$
+<p>と書く。いまの円周は $z=0$ の平面内にあるので、$dz(\gamma'(t))=0$ となり、上の計算では $dx,dy$ の二成分だけが残っている。
 </p>
-$$ds(\mathbf{v}) = \sqrt{dx(\mathbf{v})^2 + dy(\mathbf{v})^2}$$
 <blockquote>
 <p><strong>注</strong> （記法について）第1章 §1.1.6 の契約により、単独の $dx$ は横ベクトル（演算子）であり、それ自体を二乗することはできない。$dx(\mathbf{v})^2$ は、$1$-form $dx$ をベクトル $\mathbf{v}$ に<strong>作用させて得たスカラー</strong>を二乗したものである。この区別を崩さないことが、本書の記法の一貫性を保つ。</p>
 </blockquote>
-<p>この $ds$ は弧長を測るための便利な記法だが、本書でいう $1$-form そのものではない。$1$-form は変位 $\mathbf{v}$ に対して線形に作用する測定器であるのに対し、$ds(\mathbf{v})$ は二乗和の平方根を含むため、一般に $ds(\mathbf{v}+\mathbf{w}) = ds(\mathbf{v})+ds(\mathbf{w})$ を満たさない。したがって $ds$ を $dx$ と $dy$ の線形結合——$P\,dx+Q\,dy$ の形——で書くことはできない。
+<p>この $ds$ は弧長を測るための便利な記法だが、本書でいう $1$-form そのものではない。$1$-form は変位 $\mathbf{v}$ に対して線形に作用する測定器であるのに対し、$ds(\mathbf{v})$ は二乗和の平方根を含むため、一般に $ds(\mathbf{v}+\mathbf{w}) = ds(\mathbf{v})+ds(\mathbf{w})$ を満たさない。したがって $ds$ を $dx,dy,dz$ の線形結合——$P\,dx+Q\,dy+R\,dz$ の形——で書くことはできない。
 </p>
-<blockquote>
-<p><strong>注</strong> （計量への伏線）$dx(\mathbf{v})^2 + dy(\mathbf{v})^2$ という「成分の二乗和」の形は、第2章 §2.4.7 で平行四辺形のスカラー面積を $\sqrt{A_{yz}^2 + A_{zx}^2 + A_{xy}^2}$ と出したのと完全に並行である。この「ピタゴラスの組み合わせ方」は、直交デカルト座標における自然な長さの定義に他ならない。任意の座標系への一般化は第6章で計量 $g$ を使って行う。ここでは「$dx, dy, dz$ の作用結果の二乗和の平方根をとれば、向きを捨てた正の大きさ（長さ・面積・体積）が得られる」という事実だけを押さえておけばよい。</p>
-</blockquote>
-<h4 id="3.3.3-では-__MATH_BLOCK_297__-form-で何が測れるのか">3.3.3 では $1$-form で何が測れるのか</h4>
-<p>弧長は $ds(\mathbf{v}) = \sqrt{dx(\mathbf{v})^2 + dy(\mathbf{v})^2}$ という計量由来の線素を積分して測れた。ただし、この $ds$ は $dx$ と $dy$ の線形結合では書けず、二乗和の平方根を必要とする。この組み合わせ方を任意の座標系へ一般化するのが第6章の計量 $g$ の役割だが、ここではまず、計量を必要としない $1$-form——すなわち $dx, dy, dz$ の線形結合で書ける $1$-form——が、いったい何を測るのかを見ていこう。
+<h4 id="3.3.3-では-__MATH_BLOCK_330__-form-で何が測れるのか">3.3.3 では $1$-form で何が測れるのか</h4>
+<p>弧長は $ds(\mathbf{v}) = \sqrt{dx(\mathbf{v})^2 + dy(\mathbf{v})^2 + dz(\mathbf{v})^2}$ という線素を積分して測れた。ただし、この $ds$ は $dx,dy,dz$ の線形結合では書けず、二乗和の平方根を必要とする。ここではまず、このような二乗和平方根を使わない $1$-form——すなわち $dx, dy, dz$ の線形結合で書ける $1$-form——が、いったい何を測るのかを見ていこう。
 </p>
 <p>空間の各点に力の場 $\mathbf{F}(x,y,z) = (F_x, F_y, F_z)$ が働いている。曲線に沿って質点を動かすとき、各小区間で力がする微小仕事は、力の変位方向成分と変位の大きさの積——すなわち $F_x\,\Delta x + F_y\,\Delta y + F_z\,\Delta z$——である。これを全区間で足し上げたものが仕事 $W = \int_\gamma \mathbf{F}\cdot d\mathbf{r}$ だ。
 </p>
@@ -387,8 +512,8 @@ $$ds(\mathbf{v}) = \sqrt{dx(\mathbf{v})^2 + dy(\mathbf{v})^2}$$
 <blockquote>
 <p><strong>【ここまでのチェックポイント】</strong></p>
 <p>- $dx, dy, dz$ の線積分は「正味の変位」を返す。閉曲線ではゼロ。</p>
-<p>- 弧長は $ds(\mathbf{v}) = \sqrt{dx(\mathbf{v})^2 + dy(\mathbf{v})^2}$ という計量由来の線素を積分して計算できる。$ds$ は $1$-form ではなく、$dx, dy$ の線形結合で書くことはできない（二乗和の平方根を必要とする。任意の座標系への一般化は第6章）。</p>
-<p>- 計量なしの $1$-form（$dx, dy, dz$ の線形結合）が測るのは「仕事」のような量である。→ §3.4 へ。</p>
+<p>- 弧長は $ds(\mathbf{v}) = \sqrt{dx(\mathbf{v})^2 + dy(\mathbf{v})^2 + dz(\mathbf{v})^2}$ という線素を積分して計算できる。$ds$ は $1$-form ではなく、$dx, dy, dz$ の線形結合で書くことはできない（二乗和の平方根を必要とする）。</p>
+<p>- $dx, dy, dz$ の線形結合で書ける $1$-form が測るのは「仕事」のような量である。→ §3.4 へ。</p>
 </blockquote>
 <hr />
 <h3 id="§3.4-係数をつける——密度と幾何の積">§3.4 係数をつける——密度と幾何の積</h3>
@@ -404,16 +529,16 @@ $$ds(\mathbf{v}) = \sqrt{dx(\mathbf{v})^2 + dy(\mathbf{v})^2}$$
 </p>
 <p>以下、1次元・2次元・3次元の順に、係数付き形式の積分を定義していく。
 </p>
-<h4 id="3.4.1-一般の-__MATH_BLOCK_327__-form-の線積分（仕事）">3.4.1 一般の $1$-form の線積分（仕事）</h4>
+<h4 id="3.4.1-一般の-__MATH_BLOCK_358__-form-の線積分（仕事）">3.4.1 一般の $1$-form の線積分（仕事）</h4>
 <p>実空間で、係数が点 $(x,y,z)$ に依存する三つのスカラー場 $P,Q,R$ をとり、
 </p>
 $$\omega = P(x,y,z)\,dx + Q(x,y,z)\,dy + R(x,y,z)\,dz$$
 <p>を<strong>$1$-form の一般形</strong>と呼ぶ。各 $dx, dy, dz$ は第1章どおり、縦ベクトルから成分を読み取る横ベクトルである。係数 $P,Q,R$ は場所ごとに変わる重み——$0$-form——である。もし $P=\partial f/\partial x,\;Q=\partial f/\partial y,\;R=\partial f/\partial z$ と一つの関数 $f$ から来るなら $\omega=df$ という特別な場合になるが、一般にはそうとは限らない。
 </p>
-<p>曲線 $\gamma(t)$ に沿った積分は、§3.3.1 のリーマン和に係数を乗せるだけだ。各小区間の代表点を $\gamma(t_i)$ とし、その点で係数を評価した $\omega_{\gamma(t_i)}$ を変位 $\Delta\mathbf{r}_i$ に食わせる。$\omega_{\gamma(t_i)}$ は横ベクトル、$\Delta\mathbf{r}_i$ は縦ベクトルであり、その縮約は定義そのものとして厳密な等式で書ける：
+<p>曲線 $\gamma(t)$ に沿った積分は、§3.3.1 のリーマン和に係数を乗せるだけだ。各小区間の代表点を $\gamma(t_i)$ とし、その点で係数を評価した $\omega_{\gamma(t_i)}$ を変位 $\Delta\mathbf{r}_i$ に食わせる。固定した点 $\gamma(t_i)$ での $\omega_{\gamma(t_i)}$ は横ベクトル、$\Delta\mathbf{r}_i$ は縦ベクトルであり、その縮約は次の等式で書ける：
 </p>
 $$\omega_{\gamma(t_i)}(\Delta\mathbf{r}_i) = P(\gamma(t_i))\,\Delta x_i + Q(\gamma(t_i))\,\Delta y_i + R(\gamma(t_i))\,\Delta z_i$$
-<p>ここで $=$ であって $\approx$ ではない——これは一点で固定した横ベクトル $\omega_{\gamma(t_i)}$ と有限変位 $\Delta\mathbf{r}_i$ の縮約だからである。ただし、小区間全体の寄与としては、代表点で係数を凍結したリーマン和の一項であり、刻みを細かくする極限で線積分になる。
+<p>ここで等式なのは、一点で固定した横ベクトル $\omega_{\gamma(t_i)}$ と変位ベクトル $\Delta\mathbf{r}_i$ の縮約である、という意味である。一方で、小区間全体の寄与としては、代表点で係数を凍結したリーマン和の一項であり、刻みを細かくする極限で線積分になる。
 </p>
 <p>各成分の変化を「有限の比 $\times \Delta t$」の形に整理する：
 </p>
@@ -439,24 +564,27 @@ $$\omega(\gamma'(t)) = (\sin t)(-\sin t) + (\cos t)(\cos t) = -\sin^2\!t + \cos^
 $$\int_\gamma \omega = \int_0^{2\pi} \cos 2t\,dt = \Bigl[\frac{1}{2}\sin 2t\Bigr]_0^{2\pi} = 0$$
 <p>仕事がゼロになった。この力場は単位円に沿って正味の仕事をしないのである。
 </p>
-<h4 id="3.4.2-一般の-__MATH_BLOCK_364__-form-の面積分（流量）">3.4.2 一般の $2$-form の面積分（流量）</h4>
+<h4 id="3.4.2-一般の-__MATH_BLOCK_394__-form-の面積分（流量）">3.4.2 一般の $2$-form の面積分（流量）</h4>
 <p>同様に、三つのスカラー場 $P, Q, R$ を係数とする一般の $2$-form：
 </p>
 $$\eta = P\,dy \wedge dz + Q\,dz \wedge dx + R\,dx \wedge dy$$
-<p>曲面 $\mathbf{r}(u,v)$ に沿った積分も、§3.2.1 のリーマン和に係数を乗せるだけだ。各小区画の代表点で係数を評価し、面素 $(\mathbf{r}_u \Delta u,\; \mathbf{r}_v \Delta v)$ に $\eta$ を食わせる：
+<p>曲面に沿った積分も、§3.2.1 のリーマン和に係数を乗せるだけだ。各小区画の代表点で係数を評価し、その小片を張る二本の変位ベクトル $\Delta\mathbf{a},\Delta\mathbf{b}$ に $\eta$ を食わせる：
 </p>
-$$\eta(\mathbf{r}_u \Delta u,\; \mathbf{r}_v \Delta v) = \bigl(P\,(dy \wedge dz) + Q\,(dz \wedge dx) + R\,(dx \wedge dy)\bigr)(\mathbf{r}_u, \mathbf{r}_v)\,\Delta u\,\Delta v$$
+$$\eta(\Delta\mathbf{a},\Delta\mathbf{b})
+= P\,(dy \wedge dz)(\Delta\mathbf{a},\Delta\mathbf{b})
++ Q\,(dz \wedge dx)(\Delta\mathbf{a},\Delta\mathbf{b})
++ R\,(dx \wedge dy)(\Delta\mathbf{a},\Delta\mathbf{b})$$
 <p>全区画で足し上げて極限をとる。この極限を
 </p>
 $$\iint_S \eta$$
-<p>と記す。各点で面素を面積測定器 $\eta$ が食べてスカラーを返し、それを $D$ 全体で集計する点は §3.2 と同じである。
+<p>と記す。各点で面素を構成する二本の変位ベクトルを面積測定器 $\eta$ が食べてスカラーを返し、それを曲面全体で集計する点は §3.2 と同じである。
 </p>
-<p>$dy \wedge dz,\; dz \wedge dx,\; dx \wedge dy$ がそれぞれ各平面への「影の面積」を測ることは §3.2 で見た。係数 $P, Q, R$ は、それらの影に<strong>場所ごとに変わる重み</strong>をつける役割を果たす。物理的には、$(P, Q, R)$ が流速場の成分であり、$\iint_S \eta$ が曲面を貫く流量（フラックス）に対応するが、これをベクトル解析の言葉に翻訳して厳密に整理するには計量（内積）が必要である。詳しくは第6章で行う。
+<p>$dy \wedge dz,\; dz \wedge dx,\; dx \wedge dy$ がそれぞれ各平面への「影の面積」を測ることは §3.2 で見た。係数 $P, Q, R$ は、それらの影に<strong>場所ごとに変わる重み</strong>をつける役割を果たす。物理的には、$(P, Q, R)$ が流速場の成分であり、$\iint_S \eta$ が曲面を貫く流量（フラックス）に対応するが、これをベクトル解析の言葉に翻訳して厳密に整理するには追加の対応関係が必要である。詳しくは後の章で行う。
 </p>
 <blockquote>
 <p><strong>注</strong> （ここではベクトル解析との対応は補助線）流量との対応は、既にベクトル解析を知っている読者のための橋渡しにすぎない。本書の本線はあくまで「$2$-form を食わせて集計する」という操作であり、ベクトル解析の知識がなくともこの先の議論に支障はない。</p>
 </blockquote>
-<h4 id="3.4.3-一般の-__MATH_BLOCK_377__-form-の体積分（総質量）">3.4.3 一般の $3$-form の体積分（総質量）</h4>
+<h4 id="3.4.3-一般の-__MATH_BLOCK_405__-form-の体積分（総質量）">3.4.3 一般の $3$-form の体積分（総質量）</h4>
 <p>$3$-form の一般形は、スカラー場 $\rho(x,y,z)$ を係数として：
 </p>
 $$\Omega = \rho(x,y,z)\,dx \wedge dy \wedge dz$$
@@ -475,70 +603,94 @@ $$\iiint_V \Omega$$
 <thead><tr>
 <th>対象</th>
 <th>形式</th>
-<th>積分の骨格</th>
+<th>積分の記法</th>
 <th>物理的意味の例</th>
 </tr></thead>
 <tbody>
 <tr>
 <td>曲線 $\gamma$</td>
 <td>$1$-form $\omega$</td>
-<td>$\displaystyle\int \omega(\gamma')\,dt$</td>
+<td>$\displaystyle\int_\gamma \omega$</td>
 <td>仕事</td>
 </tr>
 <tr>
 <td>曲面 $S$</td>
 <td>$2$-form $\eta$</td>
-<td>$\displaystyle\iint \eta(\mathbf{r}_u, \mathbf{r}_v)\,du \wedge dv$</td>
+<td>$\displaystyle\iint_S \eta$</td>
 <td>流量</td>
 </tr>
 <tr>
 <td>領域 $V$</td>
 <td>$3$-form $\Omega$</td>
-<td>$\displaystyle\iiint \Omega(\hat{e}_x,\hat{e}_y,\hat{e}_z)$</td>
+<td>$\displaystyle\iiint_V \Omega$</td>
 <td>総質量</td>
 </tr>
 </tbody>
 </table></div>
-<p>いずれも<strong>「$k$-form（はかり）が $k$-vector（図形）を食べてスカラーを返し、それを領域全体で集計する」</strong>という同一の型である。次数が上がるごとに食わせるベクトルの本数が増え、交代性が面積・体積の向きを司る。次数が違うだけで、原理はどこまでも同じだ。
+<p>リーマン和として書けば、それぞれ
+</p>
+$$
+\int_\gamma \omega
+= \lim_{\text{刻み}\to 0}
+\sum_i \omega(\Delta\mathbf{r}_i),
+$$
+$$
+\iint_S \eta
+= \lim_{\text{刻み}\to 0}
+\sum_i\sum_j\eta(\Delta\mathbf{a}_{ij},\Delta\mathbf{b}_{ij}),
+$$
+$$
+\iiint_V \Omega
+= \lim_{\text{刻み}\to 0}
+\sum_i\sum_j\sum_k
+\Omega(\Delta\mathbf{a}_{ijk},\Delta\mathbf{b}_{ijk},\Delta\mathbf{c}_{ijk})
+$$
+<p>である。ここで「刻み $\to 0$」とは、曲線・曲面・領域を構成する最も粗い小片の大きさを $0$ に近づける、という意味である。
+</p>
+<p>どれも、<strong>$k$-form（測定器）が $k$ 個の変位ベクトル、すなわち $k$ 次元の小片を食べてスカラーを返し、それを領域全体で集計する</strong>という同じ型をしている。次数が上がるごとに食わせるベクトルの本数が増え、交代性が面積・体積の向きを司る。次数が違うだけで、原理はどこまでも同じだ。
 </p>
 <blockquote>
 <p><strong>【ここまでのチェックポイント】</strong></p>
 <p>- 一般の $k$-form は「場所ごとに変わる重み（$0$-form）」による「基底 $k$-form」の線形結合。</p>
 <p>- 線積分 $\int_\gamma \omega$ は仕事、面積分 $\iint_S \eta$ は流量、体積分 $\iiint_V \Omega$ は総質量に対応する。</p>
-<p>- いずれも「はかりと図形の縮約 → 集計」という同一原理。次節では、これらの積分を別の座標で計算し直す方法——引き戻し——を導入する。</p>
+<p>- いずれも「測定器と図形の縮約 → 集計」という同一原理。次章では、これらの積分を別の座標で計算し直す方法——引き戻し——を導入する。</p>
 </blockquote>
 <h4 id="3.4.5-積分の一般形">3.4.5 積分の一般形</h4>
 <p>§3.1〜§3.3 で別々に定義した線積分、面積分、体積分は、実は一つのパターンにまとまる。$k$-form $\omega$ を $k$ 次元領域 $M$ 上で積分するという操作を、次元によらず
 </p>
 $$\int_M \omega$$
-<p>と書く。$M$ が曲線（$k=1$）なら $\int_\gamma$、曲面（$k=2$）なら $\iint_S$、立体（$k=3$）なら $\iiint_V$ ——積分記号の重なりは $M$ の次元で決まるにすぎない。中身は常に「小区分に刻む → $k$-form を $k$-vector に食わせる → 和 $\sum$ → 極限」である。
+<p>と書く。$M$ が曲線（$k=1$）なら $\int_\gamma$、曲面（$k=2$）なら $\iint_S$、立体（$k=3$）なら $\iiint_V$ ——積分記号の重なりは $M$ の次元で決まるにすぎない。中身は常に「小区分に刻む → $k$-form に $k$ 個の変位ベクトルを食わせる → 和 $\sum$ → 極限」である。
 </p>
-<p>本書の舞台は 3 次元空間だから $k=1,2,3$ で十分だが、この式が $k$ によらず成立するという事実は頭の片隅に置いておいて損はない。次章で外微分 $d$ を導入したとき、この統一的な見方がストークスの定理の一般形 $\int_{\partial M} \omega = \int_M d\omega$ へと結実する。
+<p>本書の舞台は 3 次元空間だから $k=1,2,3$ で十分だが、この式が $k$ によらず成立するという事実は頭の片隅に置いておいて損はない。第5章で外微分 $d$ を導入したとき、この統一的な見方がストークスの定理の一般形 $\int_{\partial M} \omega = \int_M d\omega$ へと結実する。
 </p>
 <hr />
 <h3 id="§3.5-本章のまとめと次章への展望">§3.5 本章のまとめと次章への展望</h3>
-<p>第I部「積分記号の尻尾の正体」の三段が、これで完結した：
+<p>ここまでの三章で、我々は次の三つをそろえた。
 </p>
 <ol>
 <li><strong>第1章</strong>：$dx$ を行列（$1$-form）と見なし、積分を行列作用の極限と読む</li>
 <li><strong>第2章</strong>：ウェッジ積 $\wedge$ で $2$-form・$3$-form を構成し、面積・体積を代数で測る</li>
-<li><strong>第3章（本章）</strong>：曲線・曲面・領域に形式を適用し集計する（積分）という操作を確立した</li>
+<li><strong>第3章（本章）</strong>：曲線・曲面・領域に形式を適用し、その出力を集計する操作を確立した</li>
 </ol>
-<p>本章で確立したのは、次の統一原理である：
+<p>本章で確立したのは、次の統一原理である。
 </p>
-<p><strong>$k$-form（はかり）が $k$-vector（図形）を食べてスカラーを返し、それを領域全体で集計する。</strong>次数が $0,1,2,3$ と変わっても、この構図は不変だった。曲線上の仕事も、曲面上の流量も、領域内の総質量も——すべて同じ言語で書ける。
+<p><strong>$k$-form（測定器）が $k$ 個の変位ベクトル、すなわち $k$ 次元の小片を食べてスカラーを返し、それを領域全体で集計する。</strong>次数が $0,1,2,3$ と変わっても、この構図は不変だった。曲線上の仕事も、曲面上の流量も、領域内の総質量も——すべて同じ言語で書ける。
 </p>
 <blockquote>
-<p><strong>【ここまでのチェックポイント——第3章・第I部全体】</strong></p>
-<p>- $k$-form $\omega$ の積分 $\int_M \omega$ は「小区分に刻む → $k$-form を $k$-vector に食わせる → 和 → 極限」で定義される。</p>
-<p>- $1$-form の線積分 $\int_\gamma \omega$ は、$\gamma'(t)$ に $\omega$ を食わせて集計する操作。仕事は $\int_\gamma \omega$ で、$\mathbf{F}\cdot d\mathbf{r}$ と同じ量。</p>
-<p>- $2$-form $\eta$ の面積分 $\iint_S \eta = \iint_D \eta(\mathbf{r}_u, \mathbf{r}_v)\,du \wedge dv$。係数1では各平面への「影」を測り、三つの影を合成すればスカラー面積が得られる。</p>
-<p>- $3$-form $\Omega$ の体積分 $\iiint_V \Omega$。係数1でそのまま体積、係数 $\rho$ で総質量・総電荷。</p>
-<p>- 一般の $k$-form の積分は、係数（$0$-form）と $k$-form の積として書ける。</p>
+<p><strong>【ここまでのチェックポイント——第3章】</strong></p>
+<p>- $k$-form $\omega$ の積分 $\int_M \omega$ は「小区分に刻む → $k$-form に $k$ 個の変位ベクトルを食わせる → 和 → 極限」で定義される。</p>
+<p>- $1$-form の線積分 $\int_\gamma \omega$ は、曲線小片の変位ベクトルに $\omega$ を食わせて集計する操作である。仕事は $\int_\gamma \omega$ で、$\mathbf{F}\cdot d\mathbf{r}$ と同じ量。</p>
+<p>- $2$-form $\eta$ の面積分 $\iint_S \eta$ は、小片を構成する二本の変位ベクトルに $\eta$ を食わせて集計する操作。係数1では各平面への「影」を測り、三つの影からスカラー面素 $dS$ を作って足し上げればスカラー面積が得られる。</p>
+<p>- $3$-form $\Omega$ の体積分 $\iiint_V \Omega$ は、小直方体を構成する三本の変位ベクトルに $\Omega$ を食わせて集計する操作である。係数1でそのまま体積、係数 $\rho$ で総質量・総電荷。</p>
+<p>- 一般の $k$-form は、場所ごとに変わる係数（$0$-form）と基底 $k$-form の組み合わせとして書ける。</p>
 </blockquote>
-<p>次章（第4章）では、これらの積分を「別の変数で計算する」とは何かを掘り下げる。すなわち<strong>引き戻し</strong>——積分値を保つために測定器を作り替える操作——を、三つの保存則を通じて発見する。
+<p>しかし、まだ重要な問題が残っている。
 </p>
-<p>引き戻しを終えた先、ここから先の<strong>第II部</strong>では、いよいよ<strong>外微分 $d$</strong> を導入する。$d$ は形式の次数を1つ上げる線形演算子であり、勾配・回転・発散が<strong>一つの操作のバリエーション</strong>であることが明らかになる。積分側の言葉がそろったいま、微分側の代数を完成させる準備が整ったのである。
+<p>ここまでは、できるだけ標準デカルト座標 $x,y,z$ の測定器を保ったまま、小片を数えてきた。だが実際の計算では、別の変数で数えた方が圧倒的に楽なことがある。円周を角度でたどる。球を半径と角度で見る。物理の問題では、そのような変数変換を避けて通ることはできない。
+</p>
+<p>そのとき、何を変え、何を保てばよいのか。
+</p>
+<p>次章（第4章）では、変数変換を「点を動かす操作」ではなく、<strong>測定器を作り替える操作</strong>として読み直す。これが<strong>引き戻し</strong>である。
 </p>
       <div class="nav-buttons">
         <a href="ch02.html">← 第2章...</a>
