@@ -116,7 +116,7 @@
   </nav>
   <main class="main-content">
     <article class="markdown-body">
-<h1 id="第4章：変数変換とは何か-——-引き戻し-__MATH_BLOCK_55__：測定器のつじつま合わせ">第4章：変数変換とは何か —— 引き戻し $\Phi^*$：測定器のつじつま合わせ</h1>
+<h1 id="第4章：変数変換とは何か-——-引き戻し-__MATH_BLOCK_64__：測定器のつじつま合わせ">第4章：変数変換とは何か —— 引き戻し $\Phi^*$：測定器のつじつま合わせ</h1>
 <h3 id="§4.0-物理は曲がる、計算は四角">§4.0 物理は曲がる、計算は四角</h3>
 <p>物理で本当に測りたい量は、座標の名前に依らない。
 </p>
@@ -140,13 +140,11 @@
 </p>
 <p>そのとき、測定器をどう作り替えればよいか。
 </p>
-<p>本章でやることは、この問いを一つずつ解くことである。
- 最初から「引き戻し」という完成品の定義を覚える必要はない。むしろ、まだその言葉を知らないつもりで読んでほしい。
+<p>本章では、この問いを三つの例で追う。
 </p>
-<p>出発点は単純だ。
- 実空間では正しく測れている量がある。ところが、計算したい変数は別にある。そこで、計算側の小区間・小マス・小箱に対して、実空間側と同じ値を返すように測定器を作り替える。この作り替えを、有限の区間やマス目の上でまず発見する。
+<p>まず有限の区間で、時間側に何を掛ければ仕事の小片が一致するかを見る。次に有限のマス目で、面積を合わせる係数を探す。最後に有限の箱で、体積を合わせる係数を探す。
 </p>
-<p>そのあと、分割を細かくしていく。有限の比は微分係数になり、有限の行列式は偏微分でできた行列式になる。この極限で得られる通常の微分形式の言葉での測定器の作り替えを、数学では <strong>引き戻し</strong> と呼び、$\Phi^*$ と書く。
+<p>分割を細かくすると、有限の比は微分係数になり、有限の行列式は偏微分でできた行列式になる。その極限で得られる測定器の作り替えを、引き戻しと呼び、$\Phi^*$ と書く。
 </p>
 <p>つまり、本章の順番はこうである。
 </p>
@@ -161,7 +159,7 @@
 </p>
 <h3 id="§4.1-1-form-の引き戻し——仕事と運動エネルギー定理">§4.1 1-form の引き戻し——仕事と運動エネルギー定理</h3>
 <blockquote>
-<p><strong>注（物理学未習の読者へ）</strong> 以下の例では、物理学を学ぶ者がよく知っている結論（仕事-エネルギー定理）を先に使っている。しかし、単に「質点の位置 $x$ を時刻 $t$ の関数 $\gamma(t)$ で書き表せる」という状況だと思って読み進めてほしい。物理を知らなくても、$F(x)$ は $x$ の関数、$v(t)$ は $t$ の関数と読めれば十分である。</p>
+<p><strong>注（物理学未習の読者へ）</strong> ここで使うのは、位置を $x=\gamma(t)$ と書けることだけである。$F(x)$ は位置の関数、$v(t)$ は時刻の関数と読めればよい。</p>
 </blockquote>
 <p><strong>① 物理量から始める。</strong> いきなり一般論には行かない。まずは、よく知られた力学の事実から始めよう。
 </p>
@@ -174,9 +172,9 @@ $$F = m\frac{dv}{dt}$$
 <p>である。この二つから、おなじみの仕事-エネルギー定理
 </p>
 $$W = \frac{1}{2}mv^2\,\Big|_{t_0}^{t_1}$$
-<p>が出る。本節ではこの導出を、「測定器をどう作り替えれば同じ仕事が出るか」という目で読み直す。まだ $\gamma^*$ という記号を知らなくてよい。有限区間で何を掛ければよいかを、自分で発見するところから始める。
+<p>が出る。本節ではこの導出を、「測定器をどう作り替えれば同じ仕事が出るか」という目で読み直す。有限区間ごとに、時間側の測定器に必要な係数を求めるところから始める。
 </p>
-<p><strong>② 素朴な置き換え——必ず間違える。</strong> 質点の位置を $x = \gamma(t)$ と書く。速度は $v(t) = \gamma'(t)$ である。仕事の測定器は $F\,dx$ ——これは実空間の変位を食べて仕事の小片を返す $1$-form だ。
+<p><strong>② 素朴な置き換え——そのままでは合わない。</strong> 質点の位置を $x = \gamma(t)$ と書く。速度は $v(t)=\frac{d\gamma}{dt}(t)$ である。仕事の測定器は $F\,dx$ ——これは実空間の変位を食べて仕事の小片を返す $1$-form だ。
 </p>
 <p>しかし運動は時刻 $t$ によって与えられている。そこで、仕事を時間で計算したい。
 </p>
@@ -203,32 +201,37 @@ $$\frac{\Delta x_i}{\Delta t_i}\,dt$$
 $$\left(\frac{\Delta x_i}{\Delta t_i}\,dt\right)(\Delta t_i)=\Delta x_i$$
 <p>となる。これで、時間側の有限区間でも、実空間側と同じ変位を読めるようになった。
 </p>
-<p>この有限区間上の作り替えを、記号で
+<p>この有限区間上の仮の測定器を、記号で
+</p>
+$$\gamma_h^\square(dx):=\frac{\Delta x_i}{\Delta t_i}\,dt$$
+<p>と書くことにする。ここで $h$ は分割の最大幅を表す。この測定器を有限区間に食わせると、
 </p>
 $$\gamma_h^\square(dx)\bigl(\Delta t_i\bigr)=\Delta x_i$$
-<p>と書くことにする。ここで $h$ は分割の最大幅を表す。右辺を $\Delta t_i$ の係数として見れば、
-</p>
-$$\gamma_h^\square(dx)=\frac{\Delta x_i}{\Delta t_i}\,dt$$
-<p>これは通常の教科書で見かける標準的な記法ではない。有限区間上で「実空間側の測定器を、時間側の区間で同じ値を返すように作り替える」操作を、本書では一時的にこう書く。
+<p>となる。
 </p>
 <p>分割を細かくすると、有限比は速度
 </p>
-$$\frac{\Delta x_i}{\Delta t_i}\to \gamma'(t)$$
+$$\frac{\Delta x_i}{\Delta t_i}\to \frac{d\gamma}{dt}(t)$$
 <p>へ近づく。したがって極限では
 </p>
-$$\gamma_h^\square(dx)\to \gamma^*(dx)=\gamma'(t)\,dt$$
-<p>が得られる。ここで初めて、通常の微分形式でいう引き戻し $\gamma^*$ という記号を使う。つまり、本章では $\gamma^*$ を先に知っているものとして使うのではなく、有限区間版 $\gamma_h^\square$ から発見する。
+$$
+\gamma_h^\square(dx)
+\xrightarrow{h\to0}
+\gamma^*(dx)
+=
+\frac{d\gamma}{dt}(t)\,dt
+$$
+<p>が得られる。この極限後の測定器を $\gamma^*(dx)=\frac{d\gamma}{dt}(t)\,dt$ と書く。有限区間で見つけた係数 $\Delta x_i/\Delta t_i$ が、極限で速度 $\frac{d\gamma}{dt}(t)$ に変わったのである。
 </p>
-<p>以後、2 次元・3 次元で有限のマス目や箱に対して同じことを行うときは、有限セル版の作り替えを $\Phi_h^\square$ と書く。これは、いま 1 次元で作った $\gamma_h^\square$ を多次元へ拡張した記号である。
+<p>以後、有限のマス目や箱に対する同じ作り替えを、まとめて $\Phi_h^\square$ と書く。
 </p>
 <blockquote>
-<p><strong>注</strong>（$\Phi_h^\square$ は通常の微分形式でいう引き戻しそのものではない）</p>
-<p>$\gamma_h^\square$ や $\Phi_h^\square$ は、本書で有限区間・有限セル上の測定操作を区別するために用意した記法である。通常の微分形式の教科書で用いられる引き戻し $\Phi^*$ そのものではない。</p>
-<p>通常の微分形式でいう引き戻し $\Phi^*$ は、点ごとの微分、すなわち接写像 $D\Phi$ を用いて定義される。これはすでに $h\to0$ の極限を取った後の世界である。一方、本書で $\Phi_h^\square$ と書いているものは、その手前にある有限差分の測定操作である。</p>
-<p>たとえば、1次元では有限区間を写して、その向き付き変位 $\Delta x$ を $dx$ で測る。2次元では有限マス目を写して、二本の差分ベクトルが張る平行四辺形を $dx\wedge dy$ で測る。3次元では有限箱を写して、三本の差分ベクトルが張る平行六面体を $dx\wedge dy\wedge dz$ で測る。</p>
-<p>この意味では、有限差分ベクトルが張る図形に対して、$\Phi_h^\square$ の値は等式である。ただし、写像された有限セルそのものが一般に平行四辺形や平行六面体になるわけではない。たとえば極座標の有限マス目の像は曲がった扇形状の領域であり、ここで測っているのは、その有限セルそのものの面積ではなく、選んだ差分ベクトルが張る平行四辺形の向き付き面積である。</p>
-<p>したがって、$\Phi_h^\square$ は標準的な $\Phi^*$ を置き換えるものではない。有限セル上の測定値をセル幅で正規化し、分割幅 $h\to0$ の極限を取ることで、通常の微分形式でいう引き戻し $\Phi^*$ の係数が得られる。</p>
-<p>本書では、この途中段階に名前を付けているだけである。通常の教科書では、この段階に記号を置かず、すぐに微分係数やヤコビアンへ進むことが多い。本書では、有限セル上で何を測っているのかを見えるようにするために、あえて $\Phi_h^\square$ という仮の記法を使う。</p>
+<p><strong>注</strong>（$\Phi_h^\square$ と $\Phi^*$）</p>
+<p>$\gamma_h^\square$ や $\Phi_h^\square$ は、有限区間・有限セル上で使うための、本書内の仮の測定器である。$h\to0$ 後の $\Phi^*$ とは区別する。</p>
+<p>有限セル版では、有限差分ベクトルが張る図形の測定値を、計算側のセル幅で割ったものを係数にする。したがって、この測定器を有限セルに食わせると、もとの測定値が戻る。</p>
+<p>この係数はセルごとに定まる。記号を軽くするため、セル番号への依存は $\Phi_h^\square$ には書き込まない。</p>
+<p>ここで測っているのは、写された有限セルそのものではなく、選んだ差分ベクトルが張る図形である。1次元なら変位、2次元なら平行四辺形、3次元なら平行六面体である。たとえば極座標の有限マス目の像は曲がった扇形状になるが、ここで測っているのはその扇形そのものではなく、選んだ二本の差分ベクトルが張る平行四辺形である。</p>
+<p>分割幅 $h\to0$ の極限で、$\gamma_h^\square$ や $\Phi_h^\square$ の係数は、極限後の引き戻し $\Phi^*$ の係数に収束する。</p>
 </blockquote>
 <p><strong>④ 具体例の引き戻しを書く。</strong> 極限を取ったあと、時間軸上での測定器（引き戻された結果）は
 </p>
@@ -237,15 +240,23 @@ $$\gamma^*(F\,dx) = F(\gamma(t))\,v(t)\,dt$$
 </p>
 <p><strong>⑤ 係数付き $1$-form の引き戻し。</strong> 任意の係数 $F(x)$ に対して、同じ構造が成り立つ。位置が $x = \gamma(t)$ で与えられるとき
 </p>
-$$\gamma^*(F(x)\,dx) = F(\gamma(t))\,\gamma'(t)\,dt$$
+$$
+\gamma^*(F(x)\,dx)
+=
+F(\gamma(t))\,\frac{d\gamma}{dt}(t)\,dt
+$$
 <p>である。
 </p>
 <p><strong>⑥ この場合の変換で定義する。</strong> ここまでで、有限区間版から標準版へ移る道筋が見えた。そこで、滑らかな曲線 $\gamma: t \mapsto x$ に対しては、$1$-form $\omega = F(x)\,dx$ の作り替えを
 </p>
-$$\gamma^*(F(x)\,dx) = F(\gamma(t))\,\gamma'(t)\,dt$$
-<p>で定義する。この式が、1次元のパラメータで書いた $1$-form の引き戻しである。$\gamma'(t)$ は、有限区間で見つけた $\Delta x_i/\Delta t_i$ の極限であり、「実空間の測定器 $dx$ を時間軸の測定器 $dt$ に焼き直す」ためのつじつま係数になっている。
+$$
+\gamma^*(F(x)\,dx)
+=
+F(\gamma(t))\,\frac{d\gamma}{dt}(t)\,dt
+$$
+<p>で定義する。この式が、時間側で使う $1$-form の引き戻しである。速度 $\frac{d\gamma}{dt}(t)$ は、有限区間で見つけた $\Delta x_i/\Delta t_i$ の極限であり、「実空間の測定器 $dx$ を時間軸の測定器 $dt$ に焼き直す」ためのつじつま係数になっている。
 </p>
-<p>多変数の式は、まだ急がない。次は同じ手順を、2次元の面積測定器 $dx\wedge dy$ で繰り返す。1次元では有限区間を写して、その像の変位を測った。2次元では有限四角を写して、その像の二本の差分ベクトルが張る面積を測る。
+<p>次は同じ手順を、2次元の面積測定器 $dx\wedge dy$ で繰り返す。1次元では有限区間を写して、その像の変位を測った。2次元では有限四角を写して、その像の二本の差分ベクトルが張る面積を測る。
 </p>
 <p><strong>⑦ 物理量へ戻る。</strong> ここで運動方程式 $F = m\,dv/dt$ を使うと、
 </p>
@@ -262,9 +273,23 @@ $$W = \int F\,dx = \int_{\gamma} F\,dx = \int_{t_0}^{t_1} \gamma^*(F\,dx) = \int
 <p><strong>注</strong> （$dx$ は横ベクトル、$dt$ も横ベクトル）§4.1 の計算では、$dx$ も $dt$ も $dv$ も、すべてが「変位を食べてスカラーを返す」という同じ型を保っている。第1章 §1.1.3 以来の「横ベクトル×縦ベクトル→スカラー」の原則は、引き戻しのただ中でも崩れない。$\gamma^*(F\,dx)$ の結果も再び時間軸上の $1$-form（横ベクトル）であり、それを時間側の変位 $\Delta t$ に食わせればスカラー（仕事の小片）が得られる——この一貫性こそが、引き戻しの理解を支える。</p>
 </blockquote>
 <h3 id="§4.2-2-form-の引き戻し——角運動量保存と面積速度">§4.2 2-form の引き戻し——角運動量保存と面積速度</h3>
-<p><strong>① 物理量から始める。</strong> §4.1 では 1 次元の有限区間を写して測った。今度は同じことを 2 次元の有限マス目で行う。1-form で見た構造——積分値を保つために測定器を作り替える——は、そのまま 2-form にも拡張できる。§4.1 と正確に同じ <strong>7 つの手順</strong> をたどろう。
+<p><strong>① 物理量から始める。</strong> §4.1 では 1 次元の有限区間を写して測った。今度は同じ発想を、2 次元の有限マス目に対して行う。
 </p>
-<p>中心力場の中を運動する質点を考える。力が常に原点に向かうとき、角運動量 $L = m(x \dot{y} - y \dot{x})$ は時間に依らず一定である（角運動量保存則）。この保存則には美しい幾何学的意味がある——質点の位置ベクトルが掃く面積の速度（<strong>面積速度</strong>）が一定になるのだ（ケプラーの第二法則）。
+<blockquote>
+<p><strong>注</strong> （物理学未習の読者へ）以下では角運動量保存やケプラーの第二法則という言葉が出るが、本節で本当に使うのは「平面上の面積を、別の変数で測り直す」という事実である。物理の意味は後から読めばよい。</p>
+</blockquote>
+<p>中心力場の中を運動する質点を考える。力が常に原点に向かうとき、角運動量
+</p>
+$$
+L
+=
+m\left(
+x\frac{dy}{dt}
+-
+y\frac{dx}{dt}
+\right)
+$$
+<p>は時間に依らず一定である（角運動量保存則）。この保存則には美しい幾何学的意味がある——質点の位置ベクトルが掃く面積の速度（<strong>面積速度</strong>）が一定になるのだ（ケプラーの第二法則）。
 </p>
 <p>質点の運動は $z=0$ 平面上で起こるとしてよい。時刻 $t_0$ から $t_1$ までに位置ベクトルが掃く扇形領域 $D$ の面積は
 </p>
@@ -272,14 +297,26 @@ $$A = \iint_D dx \wedge dy$$
 <p>と書ける。$dx \wedge dy$ は $xy$ 平面上の面積測定器（$2$-form）である。
 </p>
 <blockquote>
-<p><strong>注</strong> （物理学者の二次元）忘れないでほしい——本書は一貫して三次元空間の実在を前提としている。以下の角運動量の議論で $z=0$ と置くのは、計算を見やすくするための一時的な簡略化であり、我々は依然として三次元空間の中の一つの平面を眺めているにすぎない。</p>
+<p><strong>注</strong> （物理学者の二次元）ここで確認しておこう。本書は一貫して三次元空間の実在を前提としている。以下の角運動量の議論で $z=0$ と置くのは、計算を見やすくするための一時的な簡略化であり、我々は依然として三次元空間の中の一つの平面を眺めているにすぎない。</p>
 </blockquote>
-<p><strong>② 素朴な置き換え——必ず間違える。</strong> 右辺の扇形は $(x,y)$ の式では書きづらい。そこで $(r,\theta)$ で書きたくなる。しかし、$dx \wedge dy$ をそのまま $dr \wedge d\theta$ に置き換えるとどうなるか。半径 $C$ の完全な円の面積を計算してみよう。正しい値は $\pi C^2$ である。ところが、素朴に置き換えると：
+<p><strong>② 素朴な置き換え——そのままでは合わない。</strong> 右辺の扇形は $(x,y)$ の式では書きづらい。そこで $(r,\theta)$ で書きたくなる。しかし、$dx \wedge dy$ をそのまま $dr \wedge d\theta$ に置き換えるとどうなるか。半径 $C$ の完全な円の面積を計算してみよう。正しい値は $\pi C^2$ である。ところが、素朴に置き換えると：
 </p>
-$$A_{\text{素朴}} = \iint dr \wedge d\theta = \int_0^{2\pi}\!\int_0^C dr\,d\theta = 2\pi C$$
+$$
+A_{\text{素朴}}
+=
+\iint dr \wedge d\theta
+=
+\int_0^{2\pi}
+\biggl(
+  \int_0^C dr
+\biggr)
+d\theta
+=
+2\pi C
+$$
 <p>これは $\pi C^2$ とはまったく違う。$dr \wedge d\theta$ のままでは、正しい面積が出ない。
 </p>
-<p><strong>③ 有限マス目で原因を見る。</strong> §4.1 と同じことをする。1次元では「時間側の区間 $\Delta t_i$ に何を食わせれば、実空間側の変位 $\Delta x_i$ と同じ値になるか」を考えた。今度は 2 次元なので、「$(r,\theta)$ 側の有限マス目に何を食わせれば、$xy$ 側の面積と同じ値になるか」を考える。
+<p><strong>③ 有限マス目で原因を見る。</strong> 今度は、$(r,\theta)$ 側の有限マス目に何を食わせれば、$xy$ 側の面積と同じ値になるかを見る。
 </p>
 <p>$(r,\theta)$ 空間に、有限の大きさ $\Delta r \times \Delta\theta$ のグリッドを切る。座標 $(r, \theta)$ にある一マスが、$(x,y)$ 空間でどのような二つの変位ベクトルを作るかを求める。
 </p>
@@ -290,37 +327,92 @@ $$\Delta x_r = \Delta r \cos\theta,\qquad \Delta y_r = \Delta r \sin\theta$$
 </p>
 $$\begin{aligned}
 \Delta x_\theta &= r\bigl(\cos(\theta+\Delta\theta) - \cos\theta\bigr)
-= -2r\sin\bigl(\theta+\tfrac{\Delta\theta}{2}\bigr)\sin\tfrac{\Delta\theta}{2} \\[4pt]
+= -2r\sin\biggl(\theta+\frac{\Delta\theta}{2}\biggr)\sin\biggl(\frac{\Delta\theta}{2}\biggr) \\[4pt]
 \Delta y_\theta &= r\bigl(\sin(\theta+\Delta\theta) - \sin\theta\bigr)
-= 2r\cos\bigl(\theta+\tfrac{\Delta\theta}{2}\bigr)\sin\tfrac{\Delta\theta}{2}
+= 2r\cos\biggl(\theta+\frac{\Delta\theta}{2}\biggr)\sin\biggl(\frac{\Delta\theta}{2}\biggr)
 \end{aligned}$$
 <p>二辺 $\mathbf{v}_r = (\Delta x_r, \Delta y_r)$ と $\mathbf{v}_\theta = (\Delta x_\theta, \Delta y_\theta)$ が張る平行四辺形の面積を行列式で求める：
 </p>
 $$\begin{aligned}
 \det(\mathbf{v}_r,\mathbf{v}_\theta) &= \Delta x_r\,\Delta y_\theta - \Delta x_\theta\,\Delta y_r \\
-&= 2r\Delta r\,\sin\tfrac{\Delta\theta}{2}\bigl[ \cos\theta\cos\bigl(\theta+\tfrac{\Delta\theta}{2}\bigr) + \sin\theta\sin\bigl(\theta+\tfrac{\Delta\theta}{2}\bigr) \bigr] \\
+&= 2r\Delta r\,\sin\biggl(\frac{\Delta\theta}{2}\biggr)\biggl[ \cos\theta\cos\biggl(\theta+\frac{\Delta\theta}{2}\biggr) + \sin\theta\sin\biggl(\theta+\frac{\Delta\theta}{2}\biggr) \biggr] \\
 &= r\Delta r\,\sin\Delta\theta
 \end{aligned}$$
-<p>結果は $\det = r\Delta r\,\sin\Delta\theta$。マス目全体を足し上げるリーマン和：
+<p>結果は
 </p>
-$$A \approx \sum_i\sum_j r_i\,\Delta r_i \,\sin\Delta\theta_j$$
-<p>$\sin\Delta\theta_j$ は有限の $\Delta\theta_j$ に対して厳密な値である。ここで測っているのは、極座標の有限マス目そのものの曲がった扇形面積ではなく、二つの有限差分ベクトルが張る平行四辺形の符号付き面積である。
+$$\det = r\Delta r\,\sin\Delta\theta$$
+<p>である。
 </p>
-<p>つまり、1次元で
+<p>この測定値を、$(r,\theta)$ 側のセル幅 $\Delta r_i\,\Delta\theta_j$ で割ると、有限セル上で使う仮の測定器の係数が得られる。つまり
 </p>
-$$\gamma_h^\square(dx)(\Delta t_i)=\Delta x_i$$
-<p>と書いたのと同じことを、2次元でやっている。有限セル版 $\Phi_h^\square(dx\wedge dy)$ は、$(r,\theta)$ 側の一マスを食べて、$xy$ 側の二つの差分ベクトルが張る面積を返す。これが、2次元版の等式である。総和の極限をとる最終段階で $\sin\Delta\theta_j \approx \Delta\theta_j$ と置き：
+$$
+\Phi_h^\square(dx\wedge dy)
+:=
+r_i\frac{\sin\Delta\theta_j}{\Delta\theta_j}\,dr\wedge d\theta
+$$
+<p>と置く。この測定器を有限マス目に食わせると、
 </p>
-$$A = \lim_{\substack{\Delta r_i \to 0 \\ \Delta\theta_j \to 0}} \sum_i\sum_j r_i\,\Delta r_i \,\sin\Delta\theta_j = \iint_D r\,dr\,d\theta$$
-<p>ここで何が起きたかを、1次元と同じ形で見る。有限セルでは
+$$
+\begin{aligned}
+\Phi_h^\square(dx\wedge dy)(\Delta r_i,\Delta\theta_j)
+&=
+\left(
+r_i\frac{\sin\Delta\theta_j}{\Delta\theta_j}\,dr\wedge d\theta
+\right)(\Delta r_i,\Delta\theta_j) \\
+&=
+r_i\,\Delta r_i\,\sin\Delta\theta_j
+\end{aligned}
+$$
+<p>となる。右辺は、二本の有限差分ベクトルが張る平行四辺形の符号付き面積である。
 </p>
-$$\Phi_h^\square(dx\wedge dy)(\Delta r,\Delta\theta)=r\Delta r\,\sin\Delta\theta$$
-<p>である。この等式は、有限差分ベクトルが張る平行四辺形を測っているという意味では正確である。これを $(r,\theta)$ 側のセル幅 $\Delta r\,\Delta\theta$ で割ると、測定器の係数は
+<p>有限セル版の面積総和を $A_h^\square$ と置く。したがって
 </p>
-$$r\,\frac{\sin\Delta\theta}{\Delta\theta}$$
-<p>になる。分割を細かくして $\Delta\theta\to0$ とすると、この係数は $r$ へ近づく。こうして、極限で
+$$
+A_h^\square
+:=
+\sum_i\sum_j
+\Phi_h^\square(dx\wedge dy)(\Delta r_i,\Delta\theta_j)
+=
+\sum_i\sum_j r_i\,\Delta r_i\,\sin\Delta\theta_j
+$$
+<p>である。
 </p>
-$$r\,dr\wedge d\theta$$
+<p>$\sin\Delta\theta_j$ は有限の $\Delta\theta_j$ に対して厳密な値である。ここで測っているのは、極座標の有限マス目そのものの曲がった扇形面積ではなく、二つの有限差分ベクトルが張る平行四辺形の符号付き面積である。実空間側で質点の位置ベクトルが掃く扇形領域を $D$ と書く。一方、極座標側でその領域に対応する $(r,\theta)$ の範囲を $D'$ と書く。
+</p>
+<p>総和の極限をとる最終段階で
+</p>
+$$
+\frac{\sin\Delta\theta_j}{\Delta\theta_j}\to 1
+$$
+<p>となる。したがって、真の面積 $A$ は
+</p>
+$$
+A
+=
+\lim_{h\to0} A_h^\square
+=
+\iint_{D'} r\,dr\wedge d\theta
+=
+\int_{\theta_0}^{\theta_1}
+\biggl(
+  \int_0^{R(\theta)} r\,dr
+\biggr)
+d\theta
+=
+\int_{\theta_0}^{\theta_1}
+\frac{1}{2}R(\theta)^2\,d\theta
+$$
+<p>として得られる。
+</p>
+<p>有限セル上の測定器の係数は $r_i\frac{\sin\Delta\theta_j}{\Delta\theta_j}$ である。分割を細かくすると、この係数は $r$ へ近づく。こうして、極限で
+</p>
+$$
+\Phi_h^\square(dx\wedge dy)
+\xrightarrow{h\to0}
+\Phi^*(dx\wedge dy)
+=
+r\,dr\wedge d\theta
+$$
 <p>が現れる。
 </p>
 <blockquote>
@@ -329,7 +421,7 @@ $$r\,dr\wedge d\theta$$
 <p><strong>④ 極限で得られた標準形を書く。</strong> 極座標への変換 $\Phi(r,\theta) = (r\cos\theta,\; r\sin\theta)$ に対して：
 </p>
 $$\Phi^*(dx \wedge dy) = r\,dr \wedge d\theta$$
-<p>これが、有限セル版 $\Phi_h^\square$ から $h\to0$ で得られる $2$-form の作り替えである。この極限で得られた作り替えを $\Phi^*$ と書く。この $r$ が、§4.1 の $\gamma'(t)$ に対応するつじつま係数である。
+<p>これが、有限セル版 $\Phi_h^\square$ から $h\to0$ で得られる $2$-form の作り替えである。この極限で得られた作り替えを $\Phi^*$ と書く。この $r$ が、§4.1 の速度 $d\gamma/dt$ に対応するつじつま係数である。
 </p>
 <p><strong>⑤ 係数付き $2$-form の引き戻し。</strong> 任意の係数 $G(x,y)$ を持つ $2$-form $G(x,y)\,dx \wedge dy$ に対して、同じ構造が成り立つ：
 </p>
@@ -338,12 +430,12 @@ $$\Phi^*\bigl(G(x,y)\,dx \wedge dy\bigr) = G(r\cos\theta,\, r\sin\theta)\; r\,dr
 </p>
 <p><strong>⑥ 同じ発見を一般の変換へ移す。</strong> 極座標だけに特別なことはない。平面間の変換 $\Phi(u,v)=(x(u,v),y(u,v))$ を考え、$(u,v)$ 側の有限四角を写す。$u$ 方向と $v$ 方向の二本の差分ベクトルを $dx\wedge dy$ で測ると、有限四角ごとの面積値が出る。
 </p>
-<p>その面積値を $\Delta u\,\Delta v$ で割り、分割を細かくしていく。すると、差分比は偏微分係数へ移り、$2\times2$ の行列式が現れる。したがって、$2$-form $\eta = G(x,y)\,dx \wedge dy$ の、通常の微分形式の意味での作り替えは
+<p>その面積値を $\Delta u\,\Delta v$ で割り、分割を細かくしていく。すると、差分比は偏微分係数へ移り、$2\times2$ の行列式が現れる。したがって、$h\to0$ 後の作り替えは
 </p>
 $$\Phi^*\bigl(G(x,y)\,dx \wedge dy\bigr) = G(x(u,v), y(u,v))\;
 \det\!\begin{pmatrix}
-\dfrac{\partial x}{\partial u} & \dfrac{\partial x}{\partial v} \\[6pt]
-\dfrac{\partial y}{\partial u} & \dfrac{\partial y}{\partial v}
+\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\[6pt]
+\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
 \end{pmatrix}
 \,du \wedge dv$$
 <p>となる。つまり
@@ -353,38 +445,85 @@ $$\Phi^*\bigl(G(x,y)\,dx \wedge dy\bigr)
 \frac{\partial x}{\partial u}\frac{\partial y}{\partial v}
 -\frac{\partial x}{\partial v}\frac{\partial y}{\partial u}
 \right)\,du\wedge dv$$
-<p>である。ここで現れる $2\times2$ 行列式が、「実空間の面積測定器 $dx \wedge dy$ をパラメータ空間の面積測定器 $du \wedge dv$ に焼き直す」ための本来の（極限での）つじつま係数である。
+<p>である。ここで現れる $2\times2$ 行列式が、実空間の面積測定器 $dx\wedge dy$ を、$(u,v)$ 側で使える測定器 $du\wedge dv$ に焼き直すためのつじつま係数である。
 </p>
 <p>有限マス目で見た
 </p>
 $$\Delta x_u\,\Delta y_v-\Delta x_v\,\Delta y_u$$
-<p>は、この偏微分行列式を発見するための有限セル版である。有限差分ベクトルが張る平行四辺形については等式だが、$\Phi^*$ と書く極限後の作り替えでは偏微分係数を使う。有限セルの値を $\Delta u\,\Delta v$ で割った係数は、分割幅 $h$ を $0$ に近づけると、上の $2\times2$ 行列式へ収束する。
+<p>は、この偏微分行列式を発見するための有限セル版である。有限差分ベクトルが張る平行四辺形については等式だが、$\Phi^*$ と書く極限後の作り替えでは偏微分係数を使う。有限セル上の測定値を $\Delta u\,\Delta v$ で割った係数は、分割幅 $h$ を $0$ に近づけると、上の $2\times2$ 行列式へ収束する。
 </p>
-<p><strong>⑦ 物理量へ戻る。</strong> 扇形領域 $D$ の面積を、引き戻した測定器で積分すれば：
+<p><strong>⑦ 物理量へ戻る。</strong> 扇形領域 $D$ の面積を、引き戻した測定器で対応する極座標側の領域 $D'$ 上で積分すれば：
 </p>
-$$A = \iint_D dx \wedge dy = \iint_D r\,dr \wedge d\theta = \int_{\theta_0}^{\theta_1} \frac{1}{2}R(\theta)^2\,d\theta$$
+$$
+A
+=
+\iint_D dx\wedge dy
+=
+\iint_{D'} \Phi^*(dx\wedge dy)
+=
+\iint_{D'} r\,dr\wedge d\theta
+$$
+$$
+=
+\int_{\theta_0}^{\theta_1}
+\biggl(
+  \int_0^{R(\theta)} r\,dr
+\biggr)
+d\theta
+=
+\int_{\theta_0}^{\theta_1}
+\frac{1}{2}R(\theta)^2\,d\theta
+$$
 <p>$r$ で積分した結果、$\frac{1}{2}r^2$ が現れ、面積が $\theta$ 軸上の $1$-form の線積分に還元された。さらに時間パラメータ $t$ へ引き戻す。質点の軌道を $r = R(t),\, \theta = \Theta(t)$ とすれば：
 </p>
-$$\frac{dA}{dt} = \frac{1}{2}r(t)^2\,\dot{\theta}(t)$$
-<p>角運動量の定義 $L = m r^2 \dot{\theta}$ より、面積速度は
+$$
+\frac{dA}{dt}
+=
+\frac{1}{2}r(t)^2\,\frac{d\theta}{dt}(t)
+$$
+<p>角運動量の定義
+</p>
+$$
+L
+=
+m r^2\frac{d\theta}{dt}
+$$
+<p>より、面積速度は
 </p>
 $$\frac{dA}{dt} = \frac{L}{2m}$$
-<p>中心力場では $L$ が保存されるから、面積速度も一定——これがケプラーの第二法則であり、角運動量保存則の幾何学的表現である。§4.1 で $1$-form のつじつま係数 $\gamma'(t)$ がエネルギー保存を記述したのとまったく同じ構造が、$2$-form のつじつま係数 $r$ を通じて角運動量保存を記述している。
+<p>中心力場では $L$ が保存されるから、面積速度も一定——これがケプラーの第二法則であり、角運動量保存則の幾何学的表現である。§4.1 で $1$-form のつじつま係数 $d\gamma/dt$ がエネルギー保存を記述したのとまったく同じ構造が、$2$-form のつじつま係数 $r$ を通じて角運動量保存を記述している。
 </p>
 <h3 id="§4.3-3-form-の引き戻し——質量保存と体積分">§4.3 3-form の引き戻し——質量保存と体積分</h3>
-<p><strong>① 物理量から始める。</strong> §4.1 では有限区間、§4.2 では有限マス目を写して測った。今度は同じことを 3 次元の有限箱で行う。最後は体積分だ。§4.1、§4.2 と正確に同じ <strong>7 つの手順</strong> を、もう一度たどる。
+<p><strong>① 物理量から始める。</strong> 最後は体積分である。今度は 3 次元の有限箱を写して測る。
 </p>
 <p>密度 $\rho$ が一様な円柱（半径 $C$、高さ $H$）の質量を考えよう。$(x,y,z)$ 空間で直接計算すれば
 </p>
 $$M = \rho \cdot (\text{体積}) = \rho \cdot \pi C^2 H$$
-<p>である。この $M$ は——当然だが——どんな座標で計算しても変化してはならない。
+<p>である。この $M$ は、どんな座標で計算しても変化してはならない。
 </p>
-<p><strong>② 素朴な置き換え——必ず間違える。</strong> 積分を円柱座標 $(r,\theta,z)$ で書きたい。円柱の範囲は $r \in [0, C],\; \theta \in [0, 2\pi],\; z \in [0, H]$ だから、$dx \wedge dy \wedge dz$ をそのまま $dr \wedge d\theta \wedge dz$ に置き換えて：
+<p><strong>② 素朴な置き換え——そのままでは合わない。</strong> 積分を円柱座標 $(r,\theta,z)$ で書きたい。円柱の範囲は $r \in [0, C],\; \theta \in [0, 2\pi],\; z \in [0, H]$ だから、$dx \wedge dy \wedge dz$ をそのまま $dr \wedge d\theta \wedge dz$ に置き換えて：
 </p>
-$$M_{\text{素朴}} = \rho \iiint dr\,d\theta\,dz = \rho \cdot C \cdot 2\pi \cdot H = 2\pi\rho C H$$
+$$
+M_{\text{素朴}}
+=
+\rho \iiint dr\wedge d\theta\wedge dz
+=
+\rho
+\int_0^H
+\biggl(
+  \int_0^{2\pi}
+  \biggl(
+    \int_0^C dr
+  \biggr)
+  d\theta
+\biggr)
+dz
+=
+2\pi\rho C H
+$$
 <p>これを正しい値 $\rho \pi C^2 H$ と比べると、$2\pi\rho C H \neq \rho \pi C^2 H$。明らかに一致しない。
 </p>
-<p><strong>③ 有限マス目で原因を見る。</strong> また同じ問いを立てる。1次元では有限区間、2次元では有限マス目だった。3次元では、$(r,\theta,z)$ 側の有限の箱に何を食わせれば、$(x,y,z)$ 側の体積と同じ値になるかを探す。
+<p><strong>③ 有限マス目で原因を見る。</strong> 3次元では、$(r,\theta,z)$ 側の有限の箱に何を食わせれば、$(x,y,z)$ 側の体積と同じ値になるかを探す。
 </p>
 <p>$(r,\theta,z)$ 空間に、有限の大きさ $\Delta r \times \Delta\theta \times \Delta z$ のグリッドを切る。変換は $x = r\cos\theta,\; y = r\sin\theta,\; z = z$。$z$ 方向は変換を受けないから、体積は「$xy$ 平面内のマス目面積」$\times \Delta z$ である。$xy$ 平面内の面積は、§4.2 の手順そのままだ：
 </p>
@@ -392,27 +531,82 @@ $$\det = r\Delta r\,\sin\Delta\theta$$
 <p>したがって、一マスの体積は
 </p>
 $$\text{体積} = \bigl(r\Delta r\,\sin\Delta\theta\bigr) \times \Delta z$$
-<p>これは有限差分ベクトルが張る平行六面体の符号付き体積である。円柱座標の有限セルそのものは $\theta$ 方向に曲がっているが、差分ベクトルを測定器に食わせた結果としては上の式が厳密に成り立つ。
+<p>円柱座標の有限セルそのものは $\theta$ 方向に曲がっているが、ここで測っているのは、三本の差分ベクトルが張る平行六面体の符号付き体積である。
 </p>
-<p>したがって、ここでも先にあるのは有限の箱に対する測定である。有限の箱に対して、$dx\wedge dy\wedge dz$ と同じ値を返す測定器を作っている。これを有限セル版 $\Phi_h^\square(dx\wedge dy\wedge dz)$ と呼び、最後に $h\to0$ の極限で $\Phi^*$ へ移る。
+<p>この測定値を、$(r,\theta,z)$ 側のセル幅 $\Delta r_i\,\Delta\theta_j\,\Delta z_k$ で割ると、有限セル上で使う仮の測定器の係数が得られる。つまり
 </p>
-<p>円柱全体の質量は、マス目 $(i,j,k)$ の寄与を足し上げたリーマン和である：
+$$
+\Phi_h^\square(dx\wedge dy\wedge dz)
+:=
+r_i\frac{\sin\Delta\theta_j}{\Delta\theta_j}\,dr\wedge d\theta\wedge dz
+$$
+<p>と置く。この測定器を有限箱に食わせると、
 </p>
-$$M \approx \sum_i\sum_j\sum_k \rho\; r_i\,\Delta r_i\,\sin\Delta\theta_j\,\Delta z_k$$
-<p>総和の極限をとる最終段階で $\sin\Delta\theta_j \approx \Delta\theta_j$ と置く：
+$$
+\begin{aligned}
+&\Phi_h^\square(dx\wedge dy\wedge dz)
+(\Delta r_i,\Delta\theta_j,\Delta z_k)\\
+&\qquad =
+r_i\frac{\sin\Delta\theta_j}{\Delta\theta_j}
+\Delta r_i\Delta\theta_j\Delta z_k \\
+&\qquad =
+r_i\Delta r_i\sin\Delta\theta_j\Delta z_k
+\end{aligned}
+$$
+<p>となる。右辺は、三本の有限差分ベクトルが張る平行六面体の符号付き体積である。
 </p>
-$$M = \lim_{\substack{\Delta r_i \to 0 \\ \Delta\theta_j \to 0 \\ \Delta z_k \to 0}} \sum_i\sum_j\sum_k \rho\, r_i\,\Delta r_i\,\sin\Delta\theta_j\,\Delta z_k = \rho \iiint_{V'} r\,dr\,d\theta\,dz = \rho \cdot \pi C^2 H$$
-<p>有限の箱での測定値は
+<p>有限セル版の質量総和を $M_h^\square$ と置くと、
 </p>
-$$\Phi_h^\square(dx\wedge dy\wedge dz)(\Delta r,\Delta\theta,\Delta z)=r\Delta r\,\sin\Delta\theta\,\Delta z$$
-<p>である。この等式は、三本の有限差分ベクトルが張る平行六面体を測っているという意味では正確である。これをセル幅 $\Delta r\,\Delta\theta\,\Delta z$ で割ると、係数は
+$$
+M_h^\square
+:=
+\sum_i\sum_j\sum_k
+\rho\,
+\Phi_h^\square(dx\wedge dy\wedge dz)(\Delta r_i,\Delta\theta_j,\Delta z_k)
+=
+\sum_i\sum_j\sum_k
+\rho\,r_i\,\Delta r_i\,\sin\Delta\theta_j\,\Delta z_k
+$$
+<p>である。総和の極限をとる最終段階で
 </p>
-$$r\,\frac{\sin\Delta\theta}{\Delta\theta}$$
-<p>になる。$\Delta\theta\to0$ で、この係数はまた $r$ へ近づく。
+$$
+\frac{\sin\Delta\theta_j}{\Delta\theta_j}\to 1
+$$
+<p>となる。したがって、真の質量 $M$ は
+</p>
+$$
+M
+=
+\lim_{h\to0} M_h^\square
+=
+\rho\iiint_{V'} r\,dr\wedge d\theta\wedge dz
+=
+\rho
+\int_0^H
+\biggl(
+  \int_0^{2\pi}
+  \biggl(
+    \int_0^C r\,dr
+  \biggr)
+  d\theta
+\biggr)
+dz
+=
+\rho\cdot\pi C^2H
+$$
+<p>として得られる。
+</p>
+<p>有限セル上の測定器の係数は $r_i\frac{\sin\Delta\theta_j}{\Delta\theta_j}$ である。$h\to0$ で、この係数はまた $r$ へ近づく。
 </p>
 <p><strong>④ 極限で得られた標準形を書く。</strong> 円柱座標への変換 $\Phi(r,\theta,z) = (r\cos\theta,\; r\sin\theta,\; z)$ に対して：
 </p>
-$$\Phi^*(dx \wedge dy \wedge dz) = r\,dr \wedge d\theta \wedge dz$$
+$$
+\Phi_h^\square(dx\wedge dy\wedge dz)
+\xrightarrow{h\to0}
+\Phi^*(dx \wedge dy \wedge dz)
+=
+r\,dr \wedge d\theta \wedge dz
+$$
 <p>これが、有限セル版 $\Phi_h^\square$ から $h\to0$ で得られる $3$-form の作り替えである。この極限で得られた作り替えを $\Phi^*$ と書く。この $r$ が、§4.2 の $r$ をそのまま引き継いだつじつま係数である。
 </p>
 <p><strong>⑤ 係数付き $3$-form の引き戻し。</strong> 任意の密度 $\rho(x,y,z)$ を持つ $3$-form $\rho\,dx \wedge dy \wedge dz$ に対して、同じ構造が成り立つ：
@@ -422,17 +616,17 @@ $$\Phi^*\bigl(\rho(x,y,z)\,dx \wedge dy \wedge dz\bigr) = \rho(r\cos\theta,\, r\
 </p>
 <p><strong>⑥ 同じ発見を一般の変換へ移す。</strong> より一般に、空間の変換 $\Phi(u,v,w) = (x(u,v,w), y(u,v,w), z(u,v,w))$ を考える。$(u,v,w)$ 側の有限箱を写すと、三本の差分ベクトルができる。それを $dx\wedge dy\wedge dz$ で測れば、写された平行六面体の向き付き体積が出る。
 </p>
-<p>その体積値を $\Delta u\,\Delta v\,\Delta w$ で割り、分割を細かくしていく。すると差分比は偏微分係数へ移り、$3\times3$ の行列式が現れる。したがって、$3$-form $\Omega = \rho(x,y,z)\,dx \wedge dy \wedge dz$ の通常の微分形式の意味での作り替えは：
+<p>その体積値を $\Delta u\,\Delta v\,\Delta w$ で割り、分割を細かくしていく。すると差分比は偏微分係数へ移り、$3\times3$ の行列式が現れる。したがって、$h\to0$ 後の引き戻しは：
 </p>
 $$\Phi^*\bigl(\rho(x,y,z)\,dx \wedge dy \wedge dz\bigr) = \rho(x(u,v,w), y(u,v,w), z(u,v,w))\ \det\!\begin{pmatrix}
-\dfrac{\partial x}{\partial u} & \dfrac{\partial x}{\partial v} & \dfrac{\partial x}{\partial w} \\[6pt]
-\dfrac{\partial y}{\partial u} & \dfrac{\partial y}{\partial v} & \dfrac{\partial y}{\partial w} \\[6pt]
-\dfrac{\partial z}{\partial u} & \dfrac{\partial z}{\partial v} & \dfrac{\partial z}{\partial w}
+\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} & \frac{\partial x}{\partial w} \\[6pt]
+\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} & \frac{\partial y}{\partial w} \\[6pt]
+\frac{\partial z}{\partial u} & \frac{\partial z}{\partial v} & \frac{\partial z}{\partial w}
 \end{pmatrix}\,du \wedge dv \wedge dw$$
 <p>この $3 \times 3$ 行列式を $J(u,v,w)$ と書けば
 </p>
 $$\Phi^*(\rho\,dx \wedge dy \wedge dz) = \rho(\Phi(u,v,w))\,J\,du \wedge dv \wedge dw$$
-<p>となる。この $3 \times 3$ 行列式 $J(u,v,w)$ が、$3$-form の本来の（極限での）つじつま係数である。
+<p>となる。この $3\times3$ 行列式 $J(u,v,w)$ が、$3$-form のつじつま係数である。
 </p>
 <p>有限マス目で三個の差分ベクトルを並べれば、
 </p>
@@ -441,19 +635,40 @@ $$\det\!\begin{pmatrix}
 \Delta y_u & \Delta y_v & \Delta y_w \\[2pt]
 \Delta z_u & \Delta z_v & \Delta z_w
 \end{pmatrix}$$
-<p>が出る。これは有限セル版 $\Phi_h^\square$ が有限セルに与える値であり、差分ベクトルが張る平行六面体については等式である。分割幅 $h$ を $0$ に近づけると、この有限行列式を $\Delta u\,\Delta v\,\Delta w$ で割った係数が、偏微分からなるヤコビアン $J$ へ収束する。
+<p>が出る。これは有限セル上の測定器を有限箱に食わせた値であり、差分ベクトルが張る平行六面体については等式である。分割幅 $h$ を $0$ に近づけると、この有限行列式を $\Delta u\,\Delta v\,\Delta w$ で割った係数が、偏微分からなるヤコビアン $J$ へ収束する。
 </p>
-<p>$J$ が負なら向きが反転していることを意味する。微分形式の引き戻しでは、この符号を持った $J$ をそのまま使う。一方、通常の変数変換公式で「正の体積」や密度を積分するときには、向きを忘れた大きさが必要になるため $|J|$ が現れる。ここで $J$ と $|J|$ を混同しないことが重要である。
+<p>$J$ が負なら向きが反転していることを意味する。形式の引き戻しでは、この符号を持った $J$ をそのまま使う。一方、「正の体積」や密度を積分するときには、向きを忘れた大きさが必要になるため $|J|$ が現れる。ここで $J$ と $|J|$ を混同しないことが重要である。
 </p>
-<p>$1$-form なら $1 \times 1$ 行列式（スカラー $\gamma'(t)$）、$2$-form なら $2 \times 2$ 行列式、$3$-form なら $3 \times 3$ 行列式（$J$）——次数が上がるごとに、つじつま係数を司る行列式のサイズが一つずつ大きくなる。上の偏微分行列式の式こそが <strong>$3$-form の引き戻しの一般的な定義</strong> である。
+<p>$1$-form なら $1 \times 1$ 行列式（速度 $dx/dt$）、$2$-form なら $2 \times 2$ 行列式、$3$-form なら $3 \times 3$ 行列式（$J$）——次数が上がるごとに、つじつま係数を司る行列式のサイズが一つずつ大きくなる。上の偏微分行列式の式こそが <strong>$3$-form の引き戻しの一般的な定義</strong> である。
 </p>
 <blockquote>
-<p><strong>注</strong> （ベクトル解析を学んだ読者へ）変数変換で「極座標にすると $r\,dr\,d\theta$ が出る」と習ったとき、多くの教科書は「$\theta$ 方向の弧の長さ $r\Delta\theta$ を考えて、$\Delta V \approx \Delta r \cdot r\Delta\theta \cdot \Delta z$」という幾何学的な説明をする。その説明に間違いはない。しかし本書の計算では弧の長さを一切考えていない。変換式と三角関数の公式、そして $\wedge$ に相当する行列式の計算だけが、正しいつじつま係数 $r$ を自動的に導いている。</p>
+<p><strong>注</strong> （ベクトル解析を学んだ読者へ）変数変換で「極座標にすると $r\,dr\,d\theta$ が出る」と習ったとき、多くの教科書は「$\theta$ 方向の弧の長さ $r\Delta\theta$ を考えて、$\Delta V \approx \Delta r \cdot r\Delta\theta \cdot \Delta z$」という幾何学的な説明をする。その説明に間違いはない。しかし本書の計算では弧の長さを一切考えていない。変換式と三角関数の公式、そして $\wedge$ に相当する行列式の計算だけで、つじつま係数 $r$ が出てくる。</p>
 </blockquote>
 <p><strong>⑦ 物理量へ戻る。</strong> 引き戻した測定器で積分すれば
 </p>
-$$M = \rho \iiint_V dx \wedge dy \wedge dz = \rho \iiint_{V'} r\,dr \wedge d\theta \wedge dz = \rho \cdot \pi C^2 H$$
-<p>正しい値に一致した。積分値を保つために、測定器 $dx \wedge dy \wedge dz$ は $(r,\theta,z)$ 空間では $r\,dr \wedge d\theta \wedge dz$ に作り替えられなければならなかったのである。§4.1 の $\gamma'(t)$ がエネルギー保存を、§4.2 の $r$ が角運動量保存を記述したのとまったく同じ構造で、§4.3 の $r$（一般には $J$）が質量保存を記述している。
+$$
+M
+=
+\rho\iiint_V dx\wedge dy\wedge dz
+=
+\rho\iiint_{V'} r\,dr\wedge d\theta\wedge dz
+$$
+$$
+=
+\rho
+\int_0^H
+\biggl(
+  \int_0^{2\pi}
+  \biggl(
+    \int_0^C r\,dr
+  \biggr)
+  d\theta
+\biggr)
+dz
+=
+\rho\cdot\pi C^2H
+$$
+<p>正しい値に一致した。積分値を保つために、測定器 $dx \wedge dy \wedge dz$ は $(r,\theta,z)$ 空間では $r\,dr \wedge d\theta \wedge dz$ に作り替えられなければならなかったのである。§4.1 の速度 $d\gamma/dt$ がエネルギー保存を、§4.2 の $r$ が角運動量保存を記述したのとまったく同じ構造で、§4.3 の $r$（一般には $J$）が質量保存を記述している。
 </p>
 <h3 id="§4.4-引き戻しの性質-——-ここまでに確立したこと">§4.4 引き戻しの性質 —— ここまでに確立したこと</h3>
 <p>§4.1〜§4.3 で三つの具体例を通じて引き戻しを構成してきた。ここで、これらに共通する代数的な性質を整理しておく。あわせて、§4.3 で現れた $3 \times 3$ 行列式 $J$ を <strong>ヤコビアン（ヤコビ行列式）</strong> と定義する。もととなる行列
@@ -480,37 +695,66 @@ $$\Phi^*(a\omega + b\eta) = a\,\Phi^*(\omega) + b\,\Phi^*(\eta)$$
 $$\Phi^*(\omega \wedge \eta) = \Phi^*(\omega) \wedge \Phi^*(\eta)$$
 <p>が成り立つ。すなわち「組み立ててから引き戻す」のと「引き戻してから組み立てる」のは同じ結果を与える。§4.2 で $dx$ と $dy$ を個別に展開してから $\wedge$ で組み立てた操作が、まさにこの性質を実行していた。
 </p>
-<p><strong>④ 次数ごとのつじつま係数。</strong> 有限セルから $h\to0$ の極限を取った後の引き戻し $\Phi^*$ では、変換 $\Phi$ の偏微分を並べたヤコビ行列から、必要な $k$ 個の方向を取り出し、その $k \times k$ 行列式がつじつま係数となる。本書の範囲では：
+<p><strong>④ 次数ごとのつじつま係数。</strong> 有限セルから $h\to0$ の極限を取った後の引き戻し $\Phi^*$ では、変換 $\Phi$ の偏微分を並べたヤコビ行列から、必要な $k$ 個の方向を取り出し、その $k \times k$ 行列式がつじつま係数となる。本書の範囲では、次の形で現れる。
+</p>
+<ul>
+<li>$k=1$（$1$-form）：$1 \times 1$ 行列式</li>
+</ul>
+$$
+\det
+\begin{pmatrix}
+\frac{dx}{dt}
+\end{pmatrix}
+=
+\frac{dx}{dt}
+$$
+<ul>
+<li>$k=2$（$2$-form）：$2 \times 2$ 行列式</li>
+</ul>
+$$
+\det
+\begin{pmatrix}
+\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v}\\[4pt]
+\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
+\end{pmatrix}
+=
+\frac{\partial x}{\partial u}\frac{\partial y}{\partial v}
+-
+\frac{\partial x}{\partial v}\frac{\partial y}{\partial u}
+$$
+<ul>
+<li>$k=3$（$3$-form）：$3 \times 3$ 行列式</li>
+</ul>
+$$
+J
+=
+\det
+\begin{pmatrix}
+\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} & \frac{\partial x}{\partial w}\\[4pt]
+\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} & \frac{\partial y}{\partial w}\\[4pt]
+\frac{\partial z}{\partial u} & \frac{\partial z}{\partial v} & \frac{\partial z}{\partial w}
+\end{pmatrix}
+$$
+<p>こうして、$1$-form では $1\times1$ 行列式、$2$-form では $2\times2$ 行列式、$3$-form では $3\times3$ 行列式が現れる。次数が上がるごとに、測定器のつじつま係数を決める行列式のサイズが一つずつ大きくなる。この構造は、より高い次元の $k$-form でも同じである。変換式を微分して得られる係数を並べ、必要な $k$ 本の方向を取り出して行列式を作る。その行列式が、$k$ 次元の測定器を計算側の変数で使える形へ焼き直すためのつじつま係数になる。
 </p>
 <blockquote>
-<p>- $k=1$（$1$-form）：$1 \times 1$ 行列式 → スカラー $\gamma'(t)$</p>
-<p>- $k=2$（$2$-form）：$2 \times 2$ 行列式 → $\dfrac{\partial x}{\partial u}\dfrac{\partial y}{\partial v}-\dfrac{\partial x}{\partial v}\dfrac{\partial y}{\partial u}$</p>
-<p>- $k=3$（$3$-form）：$3 \times 3$ 行列式 → $J$（ヤコビアン）</p>
+<p><strong>注</strong> （ヤコビアンという呼び名）一般には、変数変換の微分係数を並べた行列をヤコビ行列、その行列式をヤコビアンと呼ぶ。$1$ 次元なら $\frac{dx}{dt}$、$2$ 次元なら上の $2\times2$ 行列式、$3$ 次元なら $J$ がそれにあたる。</p>
+<p>本書では、特に体積換算率として現れる $3\times3$ 行列式を $J$ と書き、ヤコビアンと呼ぶことが多い。</p>
 </blockquote>
-<blockquote>
-<p><strong>注</strong> （ヤコビアンの呼称について）本書では $3 \times 3$ 行列式 $J$ を特にヤコビアンと呼んでいる。$2 \times 2$ 行列式や $1 \times 1$ 行列式（すなわち $\gamma'(t)$）もまた、低次元のヤコビアンと見なせる。一般の $k$ 次元でも $k \times k$ 行列式をヤコビアンと呼ぶ。対応する $k \times k$ 行列はヤコビ行列である。しかし、おおむね断りがなければ「ヤコビアン」は $3 \times 3$ の体積換算率を指す、と覚えておけば十分である。</p>
-</blockquote>
-<p>次数が上がるごとに行列式のサイズが一つずつ大きくなる。この構造は $n$ 次元の一般の $k$-form でもまったく同じである。$k$-form の、通常の微分形式における引き戻しとは、<strong>接写像からなる $k \times k$ 行列式で、$k$ 次元の測定器を座標変換後の空間へ焼き直す操作</strong>にほかならない。
-</p>
 <p><strong>⑤ 有限セル版と極限後の引き戻しの関係。</strong> 本章の導出では、いきなり偏微分を書かなかった。まず §4.1 で、有限区間上の測定器の作り替えを $\gamma_h^\square$ と書いた。そこでは有限比 $\Delta x/\Delta t$ が区間ごとの係数になり、$h\to0$ で $\gamma^*$ へ移った。
 </p>
-<p>§4.2 と §4.3 では、この考えを 2 次元・3 次元へ拡張した。有限のマス目を取り、有限差分ベクトルを並べ、その行列式でつじつま係数を見つける。この拡張版を $\Phi_h^\square$ と書いた。
+<p>§4.2 と §4.3 では、この考えを 2 次元・3 次元へ拡張した。有限セル版 $\Phi_h^\square$ は、有限セル上で使う仮の測定器である。係数は、「有限差分ベクトルが張る図形の測定値 $\div$ 計算側のセル幅」で定める。この測定器を有限セルに食わせると、もとの測定値が戻る。
 </p>
-<p>有限セル版では、次のことが成り立つ。
+<p>たとえば $2$-form では、二本の差分ベクトルが張る平行四辺形の面積を $\Delta u\,\Delta v$ で割ったものが係数になる。$3$-form では、三本の差分ベクトルが張る平行六面体の体積を $\Delta u\,\Delta v\,\Delta w$ で割ったものが係数になる。
 </p>
-<blockquote>
-<p>- $1$ 次元では、有限区間の比 $\Delta x/\Delta t$ が区間ごとの係数になる。</p>
-<p>- $2$ 次元では、二個の差分ベクトルが張る平行四辺形の行列式が面積値になる。</p>
-<p>- $3$ 次元では、三個の差分ベクトルが張る平行六面体の行列式が体積値になる。</p>
-</blockquote>
-<p>これらは、選んだ有限差分ベクトルが張る図形については等式である。ただし、極限後の引き戻し $\Phi^*$ は、有限差分ではなく偏微分で書く。分割幅 $h$ を $0$ に近づけると、$\Phi_h^\square$ の値をセル幅で割った係数が $\Phi^*$ の係数へ収束する。したがって本章の流れは、「有限マス目で発見する → $h\to0$ で $\Phi^*$ を得る」という二段階になっている。
+<p>分割幅 $h\to0$ の極限で、これらの係数は偏微分からなる行列式へ収束する。これが極限後の引き戻し $\Phi^*$ の係数である。したがって本章の流れは、「有限セルで仮の測定器を作る → $h\to0$ で $\Phi^*$ を得る」という二段階になっている。
 </p>
 <blockquote>
 <p><strong>注</strong> （外微分 $d$ との可換性——第5章への伏線）これらに加えて、引き戻しと外微分 $d$ のあいだには重要な関係</p>
 <p>$$\Phi^*(d\omega) = d(\Phi^*\omega)$$</p>
 <p>が成り立つ。すなわち「微分してから引き戻す」のと「引き戻してから微分する」のは同じ結果を与える。この性質は第5章で $d$ を正式に導入したのち、§5.9 で改めて取り上げる。</p>
 </blockquote>
-<p>これ以上深く立ち入ることはしない——第 10 章で多様体の言葉による一般論に触れる——が、本書の $3$ 次元での経験は、その一般論を学ぶ際の確かな足場となるだろう。
+<p>これ以上深く立ち入ることはしない。後の章では、曲がった空間そのものを扱う言葉へ進む。そのときにも、本章で見た有限セルと行列式の経験は足場になる。
 </p>
 <hr />
 <h3 id="§4.5-本章のまとめと第5章（外微分）への展望">§4.5 本章のまとめと第5章（外微分）への展望</h3>
@@ -526,19 +770,20 @@ $$\Phi^*(\omega \wedge \eta) = \Phi^*(\omega) \wedge \Phi^*(\eta)$$
 </p>
 <p><strong>別の変数で数えるときは、積分値が変わらないように測定器を作り替える。</strong>これが引き戻しである。曲線上の仕事も、曲面上の面積や流量も、領域内の総質量も、この同じ考え方で扱える。
 </p>
-<p>引き戻しは「積分値を保つために測定器を作り替える」技術であり、その核心は §4.1〜§4.3 で見た発見的導出——「素朴にやって合わない → 有限マス目でつじつま係数を求める → $h\to0$ で一般形を得る」——に尽きる。有限セル版 $\Phi_h^\square$ では有限差分ベクトルの行列式が等式として働き、$\Phi^*$ ではその正規化極限として偏微分係数やヤコビアンが現れる。$1$-form では速度 $\gamma'(t)$ が、$2$-form では $r$ が、$3$-form では $3 \times 3$ 行列式 $J$ が、いずれも変換式と行列式（$\wedge$）の計算から自動的に導かれた。既存の微分公式は一切必要なかった。
+<p>引き戻しは「積分値を保つために測定器を作り替える」技術であり、その核心は、§4.1〜§4.3 で見た発見的導出にある。すなわち、「素朴にやって合わない → 有限セルで仮の測定器を作る → $h\to0$ で一般形を得る」という流れである。有限セル版 $\Phi_h^\square$ では、有限差分ベクトルの行列式をセル幅で割ったものが係数になり、$\Phi^*$ ではその極限として偏微分係数やヤコビアンが現れる。$1$-form では速度 $d\gamma/dt$、$2$-form では $r$、$3$-form では $3\times3$ 行列式 $J$ が、有限セルを測る計算の中から現れた。
 </p>
 <blockquote>
 <p><strong>【ここまでのチェックポイント——第4章】</strong></p>
-<p>- $1$-form $\omega$ の線積分 $\int_\gamma \omega$ は、$\gamma'(t)$ に $\omega$ を食わせて集計する操作。仕事は $\int_\gamma \omega$ で、$\mathbf{F}\cdot d\mathbf{r}$ と同じ量。積分値（＝エネルギー変化）は座標のとり方に依らず一定。</p>
-<p>- $2$-form $\eta$ の面積分 $\iint_S \eta = \iint_D \eta(\mathbf{r}_u, \mathbf{r}_v)\,du \wedge dv$。係数1では各平面への「影」を測り、三つの影を合成すればスカラー面積が得られる。面積速度と角運動量保存（ケプラーの第二法則）に応用できる。</p>
-<p>- $3$-form $\Omega$ の体積分 $\iiint_V \Omega$。係数1でそのまま体積、係数 $\rho$ で総質量・総電荷。積分値（＝質量）は座標不変。</p>
-<p>- 引き戻し $\Phi^*$ は「積分値が不変となるように測定器をパラメータ空間用に焼き直す」操作。第1章 §1.4 の $dx = \cos\theta\,dr - r\sin\theta\,d\theta$ がその原型。</p>
-<p>- 有限セル版 $\Phi_h^\square$ は、有限差分ベクトルが張る図形に対して等式で測定値を与える。$\Phi^*$ は、その測定値をセル幅で割った $h\to0$ の極限として偏微分・ヤコビアンで定義される。</p>
-<p>- $1$-form → $\gamma'(t)$、$2$-form → $r$、$3$-form → $J$。いずれも変換式と行列式（$\wedge$）の計算だけが、幾何的直感なしに正しいつじつま係数を導く。</p>
+<p>- 引き戻し $\Phi^*$ は、積分値が変わらないように、実空間側の測定器を計算側の変数で使える形へ焼き直す操作である。</p>
+<p>- $1$-form では、実空間の測定器 $F(x)\,dx$ が、時間側では $\gamma^*(F(x)\,dx)=F(\gamma(t))\,\frac{d\gamma}{dt}(t)\,dt$ に作り替えられる。有限区間では $\Delta x/\Delta t$、極限では速度 $d\gamma/dt$ がつじつま係数になる。</p>
+<p>- $2$-form では、$dx\wedge dy$ が極座標側で $\Phi^*(dx\wedge dy)=r\,dr\wedge d\theta$ に作り替えられる。有限マス目では $r\Delta r\sin\Delta\theta$ が現れ、$h\to0$ の極限で係数 $r$ が残る。</p>
+<p>- $3$-form では、$dx\wedge dy\wedge dz$ が円柱座標側で $\Phi^*(dx\wedge dy\wedge dz)=r\,dr\wedge d\theta\wedge dz$ に作り替えられる。一般の変換では $\Phi^*(dx\wedge dy\wedge dz)=J\,du\wedge dv\wedge dw$ となる。</p>
+<p>- 有限セル版 $\Phi_h^\square$ は、有限セル上で使う仮の測定器である。その係数は「有限差分ベクトルが張る図形の測定値 $\div$ 計算側セル幅」で定める。この測定器を有限セルに食わせると、もとの測定値が戻る。$h\to0$ で、この係数が $\Phi^*$ の係数になる。</p>
+<p>- $1$-form では $1\times1$ 行列式、$2$-form では $2\times2$ 行列式、$3$-form では $3\times3$ 行列式が、測定器を作り替えるためのつじつま係数になる。</p>
+<p>- 第1章 §1.4 の $dx = \cos\theta\,dr - r\sin\theta\,d\theta$ は、すでに $1$-form の引き戻しの原型だった。</p>
 </blockquote>
 <hr />
-<p>次章では、いよいよ<strong>外微分 $d$</strong> を導入する。$d$ は形式の次数を1つ上げる線形演算子であり、勾配・回転・発散が<strong>一つの操作のバリエーション</strong>であることが明らかになる。積分側の言葉がそろったいま、微分側の代数を完成させる準備が整ったのである。
+<p>次章では、いよいよ<strong>外微分 $d$</strong> を導入する。測定器を作り、積分し、変数に合わせて作り替えるところまで来た。次に見るのは、その測定器自身の変化である。場所ごとの変化を、一つ上の次数の形式として記録する操作——それが外微分 $d$ である。
 </p>
       <div class="nav-buttons">
         <a href="ch03.html">← 第3章...</a>
