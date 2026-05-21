@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.4.30)  21 MAY 2026 15:29
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.4.30)  21 MAY 2026 15:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -910,33 +910,15 @@ File: exports/icons/nabla_icon_inflate_65.png Graphic file (type bmp)
 \tf@toc=\write3
 \openout3 = `manuscript.toc'.
 
- [4] [5]
-Runaway argument?
-{
-! Paragraph ended before \hypertarget was complete.
-<to be read again>
-                   \par
-l.115
-
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
-
-[6
+ [4] [5] [6
 
 ]
-! Too many }'s.
-l.117 ...snsux6642ux4ee3ux306eux4e88ux9632ux7dda}}
-
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
 Package mdframed Info: mdframed works in twoside mode on input line 131.
 Package mdframed Info: mdframed works in twoside mode on input line 146.
 Package mdframed Info: You first box width is to small
  mdframed fixed it
 (mdframed)              on input line 149.
-[1
+ [1
 
 ]
 Package mdframed Info: mdframed works in twoside mode on input line 151.
@@ -951,28 +933,10 @@ LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/it' undefined
 
 [5
 
-]
-Runaway argument?
-{
-! Paragraph ended before \hypertarget was complete.
-<to be read again>
-                   \par
-l.289
-
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
-
-[6
+] [6
 
 ]
 Chapter 1.
-! Too many }'s.
-l.292 ...044ux306fux6a2aux30d9ux30afux30c8ux30eb}}
-
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
 Package mdframed Info: mdframed works in twoside mode on input line 308.
 [1
 
@@ -1586,25 +1550,7 @@ Package mdframed Info: mdframed works in twoside mode on input line 12936.
 Package mdframed Info: mdframed works in twoside mode on input line 13033.
  [191]
 Package mdframed Info: mdframed works in twoside mode on input line 13076.
- [192]
-Runaway argument?
-{
-! Paragraph ended before \hypertarget was complete.
-<to be read again>
-                   \par
-l.13117
-
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
-
-! Too many }'s.
-l.13119 ...7ux3066ux751fux307eux308cux305fux304b}}
-
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
-[193
+ [192] [193
 
 
 ] [194] [195
@@ -1615,7 +1561,8 @@ Package mdframed Info: mdframed works in twoside mode on input line 13243.
 Package mdframed Info: You first box width is to small
  mdframed fixed it
 (mdframed)              on input line 13255.
- [197
+
+[197
 
 ]
 Package mdframed Info: mdframed works in twoside mode on input line 13257.
@@ -1625,8 +1572,7 @@ Package mdframed Info: mdframed works in twoside mode on input line 13432.
 Package mdframed Info: You first box width is to small
  mdframed fixed it
 (mdframed)              on input line 13439.
- [201] [202]
-(exports/manuscript.aux)
+ [201] [202] (exports/manuscript.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1639,7 +1585,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  16915 strings out of 476878
  334094 string characters out of 5805249
- 1961627 words of memory out of 5000000
+ 1962627 words of memory out of 5000000
  38525 multiletter control sequences out of 15000+600000
  583576 words of font info for 163 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
