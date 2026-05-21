@@ -156,7 +156,7 @@ $$
 <p>の<strong>ドット積</strong>（内積）を次で定義する。
 </p>
 $$\mathbf{a} \cdot \mathbf{b} = a_x b_x + a_y b_y + a_z b_z$$
-<p>§6.1 で見たように、これは実空間 $(x,y,z)$ で $\mathbf{g} = I$ とした場合の内積 $\mathbf{a}^T \mathbf{g} \,\mathbf{b}$ に等しい。本書ではすでに縦ベクトルと横ベクトルの積として何度も使ってきた操作だ。
+<p>§6.1 で見たように、これは実空間 $(x,y,z)$ では$\mathbf{a}^T \mathbf{b}$ と書ける。ただし、これは第1章以来の「横ベクトルが縦ベクトルを食べる評価」と同じ行列積で表されるだけで、概念としては内積である。
 </p>
 <h4 id="7.1.2-クロス積">7.1.2 クロス積</h4>
 <p>二つの縦ベクトル $\mathbf{a}, \mathbf{b}$ の<strong>クロス積</strong>（外積）を次で定義する。
@@ -204,8 +204,8 @@ a_x b_y - a_y b_x
 <p>- クロス積は反可換、自分自身とはゼロ、結果は二つのベクトルに直交する。</p>
 </blockquote>
 <hr />
-<h3 id="§7.2-__MATH_BLOCK_75__-と勾配">§7.2 $\nabla$ と勾配</h3>
-<h4 id="7.2.1-__MATH_BLOCK_76__-の定義">7.2.1 $\nabla$ の定義</h4>
+<h3 id="§7.2-__MATH_BLOCK_74__-と勾配">§7.2 $\nabla$ と勾配</h3>
+<h4 id="7.2.1-__MATH_BLOCK_75__-の定義">7.2.1 $\nabla$ の定義</h4>
 <p>ナブラ $\nabla$ を、偏微分演算子を縦に並べた形式的なベクトルとして定義する。
 </p>
 $$\nabla = \begin{pmatrix}
@@ -213,7 +213,7 @@ $$\nabla = \begin{pmatrix}
 \frac{\partial}{\partial y} \\[0.5em]
 \frac{\partial}{\partial z}
 \end{pmatrix}$$
-<p>$\nabla$ は「ベクトル」だが、その成分は数ではなく<strong>微分演算子</strong>である。$\nabla$ は単独では意味を持たず、何かに作用して初めて値が定まる。
+<p>$\nabla$ は「ベクトル」だが、その成分は数ではなく<strong>微分演算子</strong>である。$\nabla$ は通常、単独のベクトル量として値を持つものではなく、何かに作用して初めて具体的な場を返す。
 </p>
 <h4 id="7.2.2-勾配">7.2.2 勾配</h4>
 <p>スカラー場 $f(x,y,z)$ に $\nabla$ を作用させたものを<strong>勾配</strong>と呼び、$\mathrm{grad}\,f$ または $\nabla f$ と書く。
@@ -381,7 +381,7 @@ $$\nabla^2 \mathbf{F} = \begin{pmatrix} \nabla^2 F_x \\ \nabla^2 F_y \\ \nabla^2
 <h3 id="§7.6-恒等式">§7.6 恒等式</h3>
 <p>ここまでに定義した三つの演算の間には、二つの重要な恒等式が成り立つ。どちらも「二度作用させるとゼロになる」という形をしている。
 </p>
-<h4 id="7.6.1-__MATH_BLOCK_117__">7.6.1 $\mathrm{rot}(\mathrm{grad}\,f) = \mathbf{0}$</h4>
+<h4 id="7.6.1-__MATH_BLOCK_116__">7.6.1 $\mathrm{rot}(\mathrm{grad}\,f) = \mathbf{0}$</h4>
 <p>勾配でベクトル場を得て、その回転をとると必ずゼロベクトルになる。
 </p>
 $$\nabla \times (\nabla f) = \begin{pmatrix}
@@ -393,7 +393,7 @@ $$\nabla \times (\nabla f) = \begin{pmatrix}
 </p>
 <p>物理的意味：「勾配場には渦がない」。保存的な重力場や静電場がこれに当たる。
 </p>
-<h4 id="7.6.2-__MATH_BLOCK_120__">7.6.2 $\mathrm{div}(\mathrm{rot}\,\mathbf{F}) = 0$</h4>
+<h4 id="7.6.2-__MATH_BLOCK_119__">7.6.2 $\mathrm{div}(\mathrm{rot}\,\mathbf{F}) = 0$</h4>
 <p>回転でベクトル場を得て、その発散をとると必ずゼロになる。
 </p>
 $$\nabla \cdot (\nabla \times \mathbf{F}) = \frac{\partial}{\partial x}\!\left(\frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z}\right) + \frac{\partial}{\partial y}\!\left(\frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x}\right) + \frac{\partial}{\partial z}\!\left(\frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y}\right)$$

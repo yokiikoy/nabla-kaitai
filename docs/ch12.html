@@ -341,13 +341,13 @@ $$(D + \frac{\partial}{\partial t})F = \frac{\rho}{\varepsilon_0} - \mu_0 c \mat
 <h4 id="12.3.4-__MATH_BLOCK_215__-——-4次元時空のディラック演算子">12.3.4 $\cancel{\partial} F = J$ —— 4次元時空のディラック演算子</h4>
 <p>§12.3.3 の $(D + \frac{\partial}{\partial t})F = \rho + \mathbf{J}\!\cdot\!\bm{\sigma}$ には、時間と空間が分離して現れている。これは3次元のパウリ行列 $\sigma_1,\sigma_2,\sigma_3$ をベースに組み立てたからだ。4次元時空を最初から扱えば、この分離すら消える。
 </p>
-<p>パウリ行列を $4\times4$ に拡張したものが<strong>ガンマ行列</strong> $\gamma^0,\gamma^1,\gamma^2,\gamma^3$ である。これらは反可換性 $\gamma^\mu\gamma^\nu + \gamma^\nu\gamma^\mu = 2g^{\mu\nu}I$ を満たす（$g^{\mu\nu}$ はミンコフスキー計量）。この式に現れる実数係数の符号は、選んだ計量署名や添字の上下の規約に依存する。本章では、第10章と同じく時空計量の署名を $(-,+,+,+)$ とした規約を採用する。このガンマ行列を用いて、4次元のディラック演算子を
+<p>パウリ行列を $4\times4$ に拡張したものが<strong>ガンマ行列</strong> $\gamma^0,\gamma^1,\gamma^2,\gamma^3$ である。これらは反可換性 $\gamma^\mu\gamma^\nu + \gamma^\nu\gamma^\mu = 2g^{\mu\nu}I$ を満たす（$g^{\mu\nu}$ はミンコフスキー計量）。この式に現れる実数係数の符号は、選んだ計量シグネチャや添字の上下の規約に依存する。本章では、第10章と同じく時空計量のシグネチャを $(-,+,+,+)$ とした規約を採用する。このガンマ行列を用いて、4次元のディラック演算子を
 </p>
 $$\cancel{\partial} = \gamma^0\frac{\partial}{\partial t} + \gamma^1\frac{\partial}{\partial x} + \gamma^2\frac{\partial}{\partial y} + \gamma^3\frac{\partial}{\partial z}$$
 <p>と定義する。第10章の電磁場 $F$（$4\times4$ 反対称行列）をガンマ行列のウェッジ積 $\gamma^\mu\!\wedge\!\gamma^\nu$ で展開したものと同一視すれば、マクスウェル方程式は
 </p>
 $$\cancel{\partial} F = J$$
-<p>の一行にまとめられる、というのが幾何代数側の標準的な見取り図である。$F$ は電磁場、$J$ は4元電流（$\gamma^\mu$ で展開されたもの）。真空では $\cancel{\partial} F = 0$。ここでは詳細な符号規約や単位系の換算までは扱わず、第10章までの演算が一つの演算子へ束ねられることだけを見る。
+<p>の一行にまとめられる、というのが幾何代数側の標準的な見取り図である。$F$ は電磁場、$J$ は4元電流（$\gamma^\mu$ で展開されたもの）。真空では $\cancel{\partial} F = 0$である。
 </p>
 <blockquote>
 <p><strong>注</strong> （$\cancel{\partial} F$ の積について）ここでの積は通常の行列積ではなく、ガンマ行列が生成する幾何代数の積である。第10章の反対称行列 $F$ は、ここでは $\gamma^\mu\!\wedge\!\gamma^\nu$ で展開された2-vectorとして再解釈される。細部は幾何代数の教科書に譲るが、$\sigma_i\sigma_j = \delta_{ij}I + i\varepsilon_{ijk}\sigma_k$（§12.2.1）の4次元版がここでも成り立っていると考えればよい。</p>
@@ -359,7 +359,7 @@ $$\cancel{\partial} F = J$$
 </p>
 <p>ベクトル解析では、$\nabla$ は「偏微分を並べた形式的なベクトル」として導入され、grad・rot・div の三つの顔を持つ謎めいた記号だった。本書はそれを $d$ と $\ast$ に<strong>解体</strong>することで、各演算の正体を明らかにしてきた。
 </p>
-<p>そして今、これを逆方向に辿り、$d$ と $\ast$ というバラバラだった部品が、幾何代数の中で3次元のディラック演算子$D = \bm{\sigma}\!\cdot\!\nabla$ として<strong>統合</strong>され、更にその4次元版のディラック演算子$\cancel{\partial}$が、マクスウェル方程式のより統合的な表現 $\cancel{\partial} F = J$ を与えた。
+<p>そして今、これを逆方向に辿り、$d$ と $\ast$ というバラバラだった部品が、幾何代数の中で3次元のディラック演算子$D = \bm{\sigma}\!\cdot\!\nabla$ として<strong>統合</strong>され、更にその4次元版のディラック演算子$\cancel{\partial}$が、究極のマクスウェル方程式 $\cancel{\partial} F = J$ を与えた。
 </p>
 <p>ところで、幾何代数の文脈では、この演算子を必ずしも$\cancel{\partial}$ とは書かない。むしろ、この種のベクトル微分演算子を
 </p>
