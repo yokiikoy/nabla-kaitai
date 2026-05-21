@@ -334,7 +334,7 @@ def main():
         r'{\Large 行列表示の微分形式による\par}' '\n'
         r'{\Large ベクトル解析の抜け道\par}' '\n'
         r'\vspace{0mm}' '\n'
-        r'{\normalsize v0.1.0-alpha\par}' '\n'
+        r'{\normalsize v1.0.0\par}' '\n'
         r'\vspace{1mm}' '\n'
         r'\begin{minipage}{0.78\textwidth}' '\n'
         r'\centering' '\n'
