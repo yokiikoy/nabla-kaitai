@@ -23,12 +23,20 @@
   .sidebar a:hover { text-decoration: underline; }
   .sidebar .active { color: #cf222e; font-weight: bold; }
   .sidebar .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
+  .mobile-current { display: none; }
+  .mobile-toc-button { display: none; }
   .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; background: #fff; color: #24292f; }
   .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; color-scheme: light; background: #fff; color: #24292f; }
   .markdown-body p, .markdown-body li { color: #24292f; }
   @media (max-width: 900px) { 
     body { flex-direction: column; } 
-    .sidebar { width: 100%; height: auto; position: static; padding: 1rem; border-right: none; border-bottom: 1px solid #d0d7de; } 
+    .sidebar { width: 100%; height: auto; position: sticky; top: 0; z-index: 10; padding: 0.75rem 1rem; border-right: none; border-bottom: 1px solid #d0d7de; box-shadow: 0 1px 8px rgba(27, 31, 36, 0.08); }
+    .sidebar h2 { margin: 0; font-size: 1rem; }
+    .sidebar .author { display: none; }
+    .sidebar .toc { display: none; }
+    .mobile-current { display: block; margin-top: 0.35rem; font-size: 0.85rem; color: #57606a; }
+    .mobile-current strong { color: #cf222e; }
+    .mobile-toc-button { display: inline-block; margin-top: 0.35rem; font-size: 0.85rem; }
     .main-content { padding: 1rem; } 
     .markdown-body { padding: 0.5rem; }
   }
@@ -90,6 +98,8 @@
       著者: yokiikoy<br>
       <a href="http://covectorspace.xyz/jp/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a>
     </div>
+    <div class="mobile-current">現在: <strong>第11章：曲がった空間へ —— 本書の先にあるもの</strong></div>
+    <a class="mobile-toc-button" href="toc.html">目次を開く</a>
     <div class="toc">
       <ul>
 <li class="level-1"><a href="toc.html" id="link-toc.html">目次</a></li>
