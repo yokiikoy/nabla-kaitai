@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.4.30)  21 MAY 2026 15:20
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.4.30)  21 MAY 2026 15:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -114,7 +114,7 @@ Package bm Info: No bold for \U/msb/m/n, using \pmb.
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/esint/esint.sty
-Package: esint 
+Package: esint
 \symlargesymbolsA=\mathgroup9
 )
 (/usr/share/texlive/texmf-dist/tex/latex/cancel/cancel.sty
@@ -123,7 +123,7 @@ Package: cancel 2013/04/12 v2.2 Cancel math terms
 (/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.sty
 (/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2024-01-22 L3 programming layer (loader) 
+Package: expl3 2024-01-22 L3 programming layer (loader)
 
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
 File: l3backend-xetex.def 2024-01-04 L3 backend support: XeTeX
@@ -175,18 +175,18 @@ Package fontspec Info: Could not resolve font "IPAexMincho/I" (it probably
 Package fontspec Info: Font family 'IPAexMincho(0)' created for font
 (fontspec)             'IPAexMincho' with options
 (fontspec)             [Ligatures=TeX,AutoFakeBold=1.5,Ligatures=TeX].
-(fontspec)              
+(fontspec)
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
-(fontspec)              
+(fontspec)
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
 (fontspec)             <->"IPAexMincho/OT:script=latn;language=dflt;mapping=tex
 -text;"
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
 (fontspec)             <->"IPAexMincho/OT:script=latn;language=dflt;embolden=1.
 5;mapping=tex-text;"
-(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
 
 
 Package fontspec Info: Could not resolve font "IPAexGothic/BI" (it probably
@@ -204,14 +204,14 @@ Package fontspec Info: Could not resolve font "IPAexGothic/I" (it probably
 Package fontspec Info: Font family 'IPAexGothic(0)' created for font
 (fontspec)             'IPAexGothic' with options
 (fontspec)             [Ligatures=TeX,Ligatures=TeX].
-(fontspec)              
+(fontspec)
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
-(fontspec)              
+(fontspec)
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
 (fontspec)             <->"IPAexGothic/OT:script=latn;language=dflt;mapping=tex
 -text;"
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
 
 
 Package fontspec Info: Could not resolve font "IPAexGothic/BI" (it probably
@@ -230,36 +230,36 @@ Package fontspec Info: Font family 'IPAexGothic(1)' created for font
 (fontspec)             'IPAexGothic' with options
 (fontspec)             [WordSpace={1,0,0},HyphenChar=None,PunctuationSpace=Word
 Space,Ligatures=TeX].
-(fontspec)              
+(fontspec)
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
-(fontspec)              
+(fontspec)
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
 (fontspec)             <->"IPAexGothic/OT:script=latn;language=dflt;mapping=tex
 -text;"
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
 (fontspec)             and font adjustment code:
 (fontspec)             \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font
 (fontspec)             =0\fontdimen 3\font \fontdimen 4\font =0\fontdimen
 (fontspec)             4\font \fontdimen 7\font =0\fontdimen 2\font
-(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
+(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop:
 
 
 Package fontspec Info: Font family 'IPAexGothic(2)' created for font
 (fontspec)             'IPAexGothic' with options
 (fontspec)             [BoldFont={},ItalicFont={},SmallCapsFont={},AutoFakeBold
 =4.0].
-(fontspec)              
+(fontspec)
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
-(fontspec)              
+(fontspec)
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
 (fontspec)             <->"IPAexGothic/OT:script=latn;language=dflt;"
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
 (fontspec)             <->"IPAexGothic/OT:script=latn;language=dflt;embolden=4.
 0;"
-(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
@@ -817,7 +817,7 @@ LaTeX Font Info:    ... okay on input line 76.
 * paper: a4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: twoside 
+* modes: twoside
 * h-part:(L,W,R)=(71.13188pt, 455.24411pt, 71.13188pt)
 * v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
 * \paperwidth=597.50787pt
@@ -850,7 +850,7 @@ Package hyperref Info: Link coloring ON on input line 76.
 * paper: a4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: twoside 
+* modes: twoside
 * h-part:(L,W,R)=(113.81102pt, 369.88583pt, 113.81102pt)
 * v-part:(T,H,B)=(71.13188pt, 717.00946pt, 56.9055pt)
 * \paperwidth=597.50787pt
@@ -892,10 +892,10 @@ LaTeX Font Info:    Trying to load font information for U+esint on input line 9
 2.
 
 (/usr/share/texlive/texmf-dist/tex/latex/esint/uesint.fd
-File: uesint.fd 
+File: uesint.fd
 )
 Overfull \hbox (12.79999pt too wide) in paragraph at lines 99--105
- [][] 
+ [][]
  []
 
 File: exports/icons/nabla_icon_inflate_65.png Graphic file (type bmp)
@@ -914,10 +914,10 @@ File: exports/icons/nabla_icon_inflate_65.png Graphic file (type bmp)
 Runaway argument?
 {
 ! Paragraph ended before \hypertarget was complete.
-<to be read again> 
-                   \par 
-l.115 
-      
+<to be read again>
+                   \par
+l.115
+
 I suspect you've forgotten a `}', causing me to apply this
 control sequence to too much text. How can we recover?
 My plan is to forget the whole thing and hope for the best.
@@ -927,7 +927,7 @@ My plan is to forget the whole thing and hope for the best.
 ]
 ! Too many }'s.
 l.117 ...snsux6642ux4ee3ux306eux4e88ux9632ux7dda}}
-                                                  
+
 You've closed more groups than you opened.
 Such booboos are generally harmless, so keep going.
 
@@ -955,10 +955,10 @@ LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/it' undefined
 Runaway argument?
 {
 ! Paragraph ended before \hypertarget was complete.
-<to be read again> 
-                   \par 
-l.289 
-      
+<to be read again>
+                   \par
+l.289
+
 I suspect you've forgotten a `}', causing me to apply this
 control sequence to too much text. How can we recover?
 My plan is to forget the whole thing and hope for the best.
@@ -969,7 +969,7 @@ My plan is to forget the whole thing and hope for the best.
 Chapter 1.
 ! Too many }'s.
 l.292 ...044ux306fux6a2aux30d9ux30afux30c8ux30eb}}
-                                                  
+
 You've closed more groups than you opened.
 Such booboos are generally harmless, so keep going.
 
@@ -1114,12 +1114,12 @@ Package mdframed Info: mdframed works in twoside mode on input line 2767.
 [38]
 Overfull \hbox (8.13475pt too wide) in paragraph at lines 2814--2814
 \TU/IPAexMincho(0)/m/it/12 （$\OML/cmm/m/it/12 A[]; A[]; A[]$\TU/IPAexMincho(0)/
-m/it/12 ）|  
+m/it/12 ）|
  []
 
 
 Overfull \hbox (14.55122pt too wide) in paragraph at lines 2815--2816
-[]|$[]$|  
+[]|$[]$|
  []
 
 Package mdframed Info: mdframed works in twoside mode on input line 2820.
@@ -1137,422 +1137,76 @@ Package mdframed Info: mdframed works in twoside mode on input line 3077.
  [44] [45]
 Package mdframed Info: mdframed works in twoside mode on input line 3172.
 Package mdframed Info: mdframed works in twoside mode on input line 3186.
- [46] [47] [48] [49]
-
-! Package amsmath Error: \begin{aligned} allowed only in math mode.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.3412 d
-        S(\Delta\mathbf{x}_S,\Delta\mathbf{y}_S)
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.3412 d
-        S(\Delta\mathbf{x}_S,\Delta\mathbf{y}_S)
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.3415 
-       
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.3415 
-       
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.3415 
-       
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.3415 
-       
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing \cr inserted.
-<inserted text> 
-                \cr 
-l.3415 
-       
-I'm guessing that you meant to end an alignment here.
-
-! Missing { inserted.
-<inserted text> 
-                {
-l.3415 
-       
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.3415 
-       
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.3416 + \Bigl
-              (\frac{y}{\sqrt{R^2-x^2-y^2}}\Delta x\,\Delta y\Bigr)^2
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.3417 
-       
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.3418 + (\Delta
-                 x\,\Delta y)^2} \\[4pt]
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-l.3418 + (\Delta x\,\Delta y)^2}
-                                 \\[4pt]
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Misplaced alignment tab character &.
-\next@ ->&
-          \kern -\alignsep@ 
-l.3418 + (\Delta x\,\Delta y)^2} \\[4pt]
-                                        
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced \cr.
-\math@cr@@@ ...&\kern -\alignsep@ }\fi \next@ \cr 
-                                                  
-l.3418 + (\Delta x\,\Delta y)^2} \\[4pt]
-                                        
-I can't figure out why you would want to use a tab mark
-or \cr or \span just now. If something like a right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced \noalign.
-\math@cr@@ ... \iffalse }\fi \math@cr@@@ \noalign 
-                                                  {\vskip #1\relax }
-l.3418 + (\Delta x\,\Delta y)^2} \\[4pt]
-                                        
-I expect to see \noalign only after the \cr of
-an alignment. Proceed, and I'll ignore this case.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.3418 + (\Delta x\,\Delta y)^2} \\[4pt]
-                                        
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.3418 + (\Delta x\,\Delta y)^2} \\[4pt]
-                                        
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Misplaced alignment tab character &.
-l.3419 &
-        = \sqrt{\frac{x^2+y^2}{R^2-x^2-y^2}+1}\;\Delta x\,\Delta y \\[4pt]
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-l.3420 &
-        = \frac{R}{\sqrt{R^2-x^2-y^2}}\,\Delta x\,\Delta y
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced \crcr.
-\endaligned ->\crcr 
-                    \egroup \restorecolumn@ \egroup 
-l.3421 \end{aligned}
-                    
-I can't figure out why you would want to use a tab mark
-or \cr or \span just now. If something like a right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Extra }, or forgotten $.
-\endaligned ->\crcr \egroup 
-                            \restorecolumn@ \egroup 
-l.3421 \end{aligned}
-                    
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Extra }, or forgotten $.
-\endaligned ...cr \egroup \restorecolumn@ \egroup 
-                                                  
-l.3421 \end{aligned}
-                    
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.3421 \end{aligned}
-                    
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-
-Overfull \hbox (30.47208pt too wide) in paragraph at lines 3412--3422
-[]$[] \OT1/cmr/m/n/12 =
- []
-
-[50]
-Package mdframed Info: mdframed works in twoside mode on input line 3482.
+ [46] [47] [48] [49] [50]
+Package mdframed Info: mdframed works in twoside mode on input line 3476.
  [51] [52]
-Underfull \hbox (badness 6825) in paragraph at lines 3610--3612
+Underfull \hbox (badness 6825) in paragraph at lines 3604--3606
 []\TU/IPAexMincho(0)/m/it/12 各 番 号 $\OML/cmm/m/it/12 t$ \TU/IPAexMincho(0)/m/it
-/12 で $\OML/cmm/m/it/12 dx; dy$ \TU/IPAexMincho(0)/m/it/12 が 測 っ た 値 は す で に 手 
+/12 で $\OML/cmm/m/it/12 dx; dy$ \TU/IPAexMincho(0)/m/it/12 が 測 っ た 値 は す で に 手
 元 に あ る。$\OML/cmm/m/it/12 dx\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^M[]\OT1/cmr/m/n
 /12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )) =
  []
 
 [53]
-Package mdframed Info: mdframed works in twoside mode on input line 3636.
-Package mdframed Info: mdframed works in twoside mode on input line 3672.
+Package mdframed Info: mdframed works in twoside mode on input line 3630.
+Package mdframed Info: mdframed works in twoside mode on input line 3666.
  [54]
-Package mdframed Info: mdframed works in twoside mode on input line 3768.
-Package mdframed Info: Not enough space on this page on input line 3773.
+Package mdframed Info: mdframed works in twoside mode on input line 3762.
+Package mdframed Info: Not enough space on this page on input line 3767.
  [55]
-Package mdframed Info: Not enough space on this page on input line 3773.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.3803 \$\$\eta
-               (\Delta\mathbf{a},\Delta\mathbf{b}) = P,(dy
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.3805 
-       
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.3808   Q,(dz \wedge
-                      dx)(\Delta\mathbf{a},\Delta\mathbf{b})
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-! LaTeX Error: Command \item invalid in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.3809 \item
-            
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.3810   R
-          ,(dx \wedge dy)(\Delta\mathbf{a},\Delta\mathbf{b})\$\$
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.3810   R
-          ,(dx \wedge dy)(\Delta\mathbf{a},\Delta\mathbf{b})\$\$
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Command \end{itemize} invalid in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.3811 \end{itemize}
-                    
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.3811 \end{itemize}
-                    
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.3811 \end{itemize}
-                    
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.3811 \end{itemize}
-                    
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-Package mdframed Info: mdframed works in twoside mode on input line 3827.
-[56]
-Package mdframed Info: mdframed works in twoside mode on input line 3915.
-Package mdframed Info: Not enough space on this page on input line 3929.
+Package mdframed Info: Not enough space on this page on input line 3767.
+Package mdframed Info: mdframed works in twoside mode on input line 3816.
+ [56]
+Package mdframed Info: mdframed works in twoside mode on input line 3904.
+Package mdframed Info: Not enough space on this page on input line 3918.
  [57]
-Package mdframed Info: Not enough space on this page on input line 3929.
-Package mdframed Info: mdframed works in twoside mode on input line 3979.
+Package mdframed Info: Not enough space on this page on input line 3918.
+Package mdframed Info: mdframed works in twoside mode on input line 3968.
 Package mdframed Info: Box was splittet wrong
  starting loop to iterate the splitting point
-(mdframed)              on input line 4006.
+(mdframed)              on input line 3995.
 Package mdframed Info: You first box width is to small
  mdframed fixed it
-(mdframed)              on input line 4006.
+(mdframed)              on input line 3995.
  [58] [59]
 Chapter 4.
-Package mdframed Info: mdframed works in twoside mode on input line 4061.
+Package mdframed Info: mdframed works in twoside mode on input line 4050.
 [60
 
 ]
-Package mdframed Info: mdframed works in twoside mode on input line 4075.
+Package mdframed Info: mdframed works in twoside mode on input line 4064.
  [61]
-Package mdframed Info: mdframed works in twoside mode on input line 4182.
+Package mdframed Info: mdframed works in twoside mode on input line 4171.
 Package mdframed Info: Box was splittet wrong
  starting loop to iterate the splitting point
-(mdframed)              on input line 4198.
+(mdframed)              on input line 4187.
 Package mdframed Info: You first box width is to small
  mdframed fixed it
-(mdframed)              on input line 4198.
+(mdframed)              on input line 4187.
  [62]
-Package mdframed Info: mdframed works in twoside mode on input line 4249.
+Package mdframed Info: mdframed works in twoside mode on input line 4238.
 
 
 Package mdframed Warning: You got a bad break
 (mdframed)                because the last box will be empty
 (mdframed)                you have to change it manually
 (mdframed)                by changing the text, the space
-(mdframed)                or something else on input line 4254.
+(mdframed)                or something else on input line 4243.
 
 Package mdframed Info: You first box width is to small
  mdframed fixed it
-(mdframed)              on input line 4254.
+(mdframed)              on input line 4243.
 [63]
-Package mdframed Info: mdframed works in twoside mode on input line 4256.
-Package mdframed Info: mdframed works in twoside mode on input line 4275.
-Package mdframed Info: mdframed works in twoside mode on input line 4302.
+Package mdframed Info: mdframed works in twoside mode on input line 4245.
+Package mdframed Info: mdframed works in twoside mode on input line 4264.
+Package mdframed Info: mdframed works in twoside mode on input line 4291.
  [64] [65]
-Package mdframed Info: mdframed works in twoside mode on input line 4454.
+Package mdframed Info: mdframed works in twoside mode on input line 4443.
  [66] [67] [68]
-Overfull \hbox (12.16548pt too wide) detected at line 4754
+Overfull \hbox (12.16548pt too wide) detected at line 4743
 \OT1/cmr/m/n/12 ^^H[][]\OML/cmm/m/it/12 ^^Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x;
- y; z\OT1/cmr/m/n/12 ) \OML/cmm/m/it/12 dx \OMS/cmsy/m/n/12 ^ \OML/cmm/m/it/12 
-dy \OMS/cmsy/m/n/12 ^ \OML/cmm/m/it/12 dz[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 
+ y; z\OT1/cmr/m/n/12 ) \OML/cmm/m/it/12 dx \OMS/cmsy/m/n/12 ^ \OML/cmm/m/it/12
+dy \OMS/cmsy/m/n/12 ^ \OML/cmm/m/it/12 dz[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12
 ^^Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 u; v; w
 \OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; y\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 u; v; w\
 OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 u; v; w\O
@@ -1561,353 +1215,174 @@ T1/cmr/m/n/12 ))  []  []  \OML/cmm/m/it/12 du \OMS/cmsy/m/n/12 ^ \OML/cmm/m/it/
  []
 
 [69]
-Package mdframed Info: mdframed works in twoside mode on input line 4787.
+Package mdframed Info: mdframed works in twoside mode on input line 4776.
  [70]
-Package mdframed Info: mdframed works in twoside mode on input line 4935.
-Package mdframed Info: mdframed works in twoside mode on input line 4968.
+Package mdframed Info: mdframed works in twoside mode on input line 4924.
+Package mdframed Info: mdframed works in twoside mode on input line 4957.
  [71]
-Package mdframed Info: Not enough space on this page on input line 4974.
-Package mdframed Info: mdframed works in twoside mode on input line 5014.
+Package mdframed Info: Not enough space on this page on input line 4963.
+Package mdframed Info: mdframed works in twoside mode on input line 5003.
 Package mdframed Info: You first box width is to small
  mdframed fixed it
-(mdframed)              on input line 5050.
+(mdframed)              on input line 5039.
  [72] [73]
 Chapter 5.
-Package mdframed Info: mdframed works in twoside mode on input line 5082.
-Package mdframed Info: mdframed works in twoside mode on input line 5089.
+Package mdframed Info: mdframed works in twoside mode on input line 5071.
+Package mdframed Info: mdframed works in twoside mode on input line 5078.
 [74
 
 ]
-Package mdframed Info: mdframed works in twoside mode on input line 5160.
+Package mdframed Info: mdframed works in twoside mode on input line 5149.
 Package mdframed Info: Box was splittet wrong
  starting loop to iterate the splitting point
-(mdframed)              on input line 5170.
+(mdframed)              on input line 5159.
 Package mdframed Info: You first box width is to small
  mdframed fixed it
-(mdframed)              on input line 5170.
+(mdframed)              on input line 5159.
  [75]
-Package mdframed Info: mdframed works in twoside mode on input line 5194.
-Package mdframed Info: mdframed works in twoside mode on input line 5202.
-Package mdframed Info: mdframed works in twoside mode on input line 5230.
-Package mdframed Info: Not enough space on this page on input line 5242.
+Package mdframed Info: mdframed works in twoside mode on input line 5183.
+Package mdframed Info: mdframed works in twoside mode on input line 5191.
+Package mdframed Info: mdframed works in twoside mode on input line 5219.
+Package mdframed Info: Not enough space on this page on input line 5231.
  [76]
-Package mdframed Info: Not enough space on this page on input line 5242.
-Package mdframed Info: mdframed works in twoside mode on input line 5257.
-Package mdframed Info: mdframed works in twoside mode on input line 5277.
+Package mdframed Info: Not enough space on this page on input line 5231.
+Package mdframed Info: mdframed works in twoside mode on input line 5246.
+Package mdframed Info: mdframed works in twoside mode on input line 5266.
  [77]
-Package mdframed Info: mdframed works in twoside mode on input line 5302.
-Package mdframed Info: mdframed works in twoside mode on input line 5356.
-Package mdframed Info: Not enough space on this page on input line 5358.
+Package mdframed Info: mdframed works in twoside mode on input line 5291.
+Package mdframed Info: mdframed works in twoside mode on input line 5345.
+Package mdframed Info: Not enough space on this page on input line 5347.
  [78]
-Package mdframed Info: Not enough space on this page on input line 5358.
-Package mdframed Info: mdframed works in twoside mode on input line 5373.
+Package mdframed Info: Not enough space on this page on input line 5347.
+Package mdframed Info: mdframed works in twoside mode on input line 5362.
  [79]
-Package mdframed Info: mdframed works in twoside mode on input line 5441.
-Package mdframed Info: mdframed works in twoside mode on input line 5484.
-Package mdframed Info: mdframed works in twoside mode on input line 5502.
+Package mdframed Info: mdframed works in twoside mode on input line 5430.
+Package mdframed Info: mdframed works in twoside mode on input line 5473.
+Package mdframed Info: mdframed works in twoside mode on input line 5491.
  [80]
-Package mdframed Info: Not enough space on this page on input line 5508.
+Package mdframed Info: Not enough space on this page on input line 5497.
  [81]
-Package mdframed Info: mdframed works in twoside mode on input line 5611.
-Package mdframed Info: mdframed works in twoside mode on input line 5617.
-Package mdframed Info: Not enough space on this page on input line 5632.
+Package mdframed Info: mdframed works in twoside mode on input line 5600.
+Package mdframed Info: mdframed works in twoside mode on input line 5606.
+Package mdframed Info: Not enough space on this page on input line 5621.
  [82]
-Package mdframed Info: Not enough space on this page on input line 5632.
+Package mdframed Info: Not enough space on this page on input line 5621.
  [83]
-Package mdframed Info: mdframed works in twoside mode on input line 5696.
-Package mdframed Info: mdframed works in twoside mode on input line 5701.
-Package mdframed Info: mdframed works in twoside mode on input line 5708.
+Package mdframed Info: mdframed works in twoside mode on input line 5685.
+Package mdframed Info: mdframed works in twoside mode on input line 5690.
+Package mdframed Info: mdframed works in twoside mode on input line 5697.
  [84] [85]
-Package mdframed Info: mdframed works in twoside mode on input line 5843.
-Package mdframed Info: mdframed works in twoside mode on input line 5850.
-Package mdframed Info: mdframed works in twoside mode on input line 5892.
+Package mdframed Info: mdframed works in twoside mode on input line 5832.
+Package mdframed Info: mdframed works in twoside mode on input line 5839.
+Package mdframed Info: mdframed works in twoside mode on input line 5881.
  [86]
-Package mdframed Info: Not enough space on this page on input line 5899.
-Package mdframed Info: mdframed works in twoside mode on input line 5920.
+Package mdframed Info: Not enough space on this page on input line 5888.
+Package mdframed Info: mdframed works in twoside mode on input line 5909.
  [87]
-Package mdframed Info: mdframed works in twoside mode on input line 5972.
-Package mdframed Info: mdframed works in twoside mode on input line 6020.
+Package mdframed Info: mdframed works in twoside mode on input line 5961.
+Package mdframed Info: mdframed works in twoside mode on input line 6009.
  [88]
-Package mdframed Info: mdframed works in twoside mode on input line 6030.
-Package mdframed Info: mdframed works in twoside mode on input line 6057.
+Package mdframed Info: mdframed works in twoside mode on input line 6019.
+Package mdframed Info: mdframed works in twoside mode on input line 6046.
 
 [89]
-Package mdframed Info: mdframed works in twoside mode on input line 6100.
-Package mdframed Info: mdframed works in twoside mode on input line 6106.
+Package mdframed Info: mdframed works in twoside mode on input line 6089.
+Package mdframed Info: mdframed works in twoside mode on input line 6095.
  [90]
-Package mdframed Info: mdframed works in twoside mode on input line 6227.
+Package mdframed Info: mdframed works in twoside mode on input line 6216.
  [91]
-Package mdframed Info: Not enough space on this page on input line 6243.
-Package mdframed Info: mdframed works in twoside mode on input line 6291.
+Package mdframed Info: Not enough space on this page on input line 6232.
+Package mdframed Info: mdframed works in twoside mode on input line 6280.
 Package mdframed Info: Box was splittet wrong
  starting loop to iterate the splitting point
-(mdframed)              on input line 6319.
+(mdframed)              on input line 6308.
 Package mdframed Info: You first box width is to small
  mdframed fixed it
-(mdframed)              on input line 6319.
+(mdframed)              on input line 6308.
  [92] [93]
-Overfull \hbox (42.34456pt too wide) detected at line 6434
+Overfull \hbox (42.34456pt too wide) detected at line 6423
 \OML/cmm/m/it/12 d^^Q[] \OT1/cmr/m/n/12 = [] \OML/cmm/m/it/12 ;  d^^Q[] \OT1/cm
 r/m/n/12 = [] \OML/cmm/m/it/12 ;  d^^Q[] \OT1/cmr/m/n/12 = []
  []
 
 [94] [95] [96] [97] [98]
 Chapter 6.
-Package mdframed Info: mdframed works in twoside mode on input line 6777.
+Package mdframed Info: mdframed works in twoside mode on input line 6766.
 Package mdframed Info: You first box width is to small
  mdframed fixed it
-(mdframed)              on input line 6784.
+(mdframed)              on input line 6773.
 [99
 
 ] [100]
-Package mdframed Info: mdframed works in twoside mode on input line 6837.
+Package mdframed Info: mdframed works in twoside mode on input line 6826.
  [101] [102]
-Package mdframed Info: mdframed works in twoside mode on input line 7037.
-Package mdframed Info: Not enough space on this page on input line 7044.
+Package mdframed Info: mdframed works in twoside mode on input line 7026.
+Package mdframed Info: Not enough space on this page on input line 7033.
  [103]
-Package mdframed Info: Not enough space on this page on input line 7044.
-Package mdframed Info: mdframed works in twoside mode on input line 7065.
+Package mdframed Info: Not enough space on this page on input line 7033.
+Package mdframed Info: mdframed works in twoside mode on input line 7054.
  [104]
-Package mdframed Info: mdframed works in twoside mode on input line 7129.
-Package mdframed Info: mdframed works in twoside mode on input line 7169.
-Package mdframed Info: Not enough space on this page on input line 7174.
+Package mdframed Info: mdframed works in twoside mode on input line 7118.
+Package mdframed Info: mdframed works in twoside mode on input line 7158.
+Package mdframed Info: Not enough space on this page on input line 7163.
  [105]
-Package mdframed Info: Not enough space on this page on input line 7174.
-Package mdframed Info: mdframed works in twoside mode on input line 7186.
-Package mdframed Info: mdframed works in twoside mode on input line 7193.
+Package mdframed Info: Not enough space on this page on input line 7163.
+Package mdframed Info: mdframed works in twoside mode on input line 7175.
+Package mdframed Info: mdframed works in twoside mode on input line 7182.
  [106]
-Package mdframed Info: mdframed works in twoside mode on input line 7250.
-Package mdframed Info: mdframed works in twoside mode on input line 7255.
+Package mdframed Info: mdframed works in twoside mode on input line 7239.
+Package mdframed Info: mdframed works in twoside mode on input line 7244.
  [107]
-Package mdframed Info: mdframed works in twoside mode on input line 7276.
-Package mdframed Info: mdframed works in twoside mode on input line 7282.
+Package mdframed Info: mdframed works in twoside mode on input line 7265.
+Package mdframed Info: mdframed works in twoside mode on input line 7271.
  [108]
-Package mdframed Info: mdframed works in twoside mode on input line 7376.
-Package mdframed Info: mdframed works in twoside mode on input line 7399.
+Package mdframed Info: mdframed works in twoside mode on input line 7365.
+Package mdframed Info: mdframed works in twoside mode on input line 7388.
 Package mdframed Info: Box was splittet wrong
  starting loop to iterate the splitting point
-(mdframed)              on input line 7418.
+(mdframed)              on input line 7407.
 Package mdframed Info: You first box width is to small
  mdframed fixed it
-(mdframed)              on input line 7418.
+(mdframed)              on input line 7407.
  [109]
-Package mdframed Info: mdframed works in twoside mode on input line 7457.
-Package mdframed Info: mdframed works in twoside mode on input line 7493.
+Package mdframed Info: mdframed works in twoside mode on input line 7446.
+Package mdframed Info: mdframed works in twoside mode on input line 7482.
  [110]
-Package mdframed Info: Not enough space on this page on input line 7501.
+Package mdframed Info: Not enough space on this page on input line 7490.
  [111]
-Package mdframed Info: mdframed works in twoside mode on input line 7607.
-Package mdframed Info: mdframed works in twoside mode on input line 7616.
+Package mdframed Info: mdframed works in twoside mode on input line 7596.
+Package mdframed Info: mdframed works in twoside mode on input line 7605.
 Package mdframed Info: Box was splittet wrong
  starting loop to iterate the splitting point
-(mdframed)              on input line 7632.
+(mdframed)              on input line 7621.
 Package mdframed Info: You first box width is to small
  mdframed fixed it
-(mdframed)              on input line 7632.
+(mdframed)              on input line 7621.
 
 [112]
-Package mdframed Info: mdframed works in twoside mode on input line 7667.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.7690 \$\$ df = \frac{\partial f}{\partial x}
-                                              ,dx
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.7690 \$\$ df = \frac{\partial f}{\partial x}
-                                              ,dx
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.7690 \$\$ df = \frac{\partial f}{\partial x}
-                                              ,dx
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-\frac  #1#2->{\begingroup #1\endgroup \@@over #2}
-                                                 
-l.7690 \$\$ df = \frac{\partial f}{\partial x}
-                                              ,dx
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.7691 
-       
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.7694   \frac{\partial f}{\partial y}
-                                      ,dy
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.7694   \frac{\partial f}{\partial y}
-                                      ,dy
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.7694   \frac{\partial f}{\partial y}
-                                      ,dy
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-\frac  #1#2->{\begingroup #1\endgroup \@@over #2}
-                                                 
-l.7694   \frac{\partial f}{\partial y}
-                                      ,dy
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-
-! LaTeX Error: Command \item invalid in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.7695 \item
-            
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.7696   \frac
-              {\partial f}{\partial z},dz \$\$
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.7696   \frac
-              {\partial f}{\partial z},dz \$\$
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Command \end{itemize} invalid in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.7697 \end{itemize}
-                    
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.7697 \end{itemize}
-                    
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.7697 \end{itemize}
-                    
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.7697 \end{itemize}
-                    
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.7697 \end{itemize}
-                    
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-[113] [114]
-Package mdframed Info: mdframed works in twoside mode on input line 7852.
+Package mdframed Info: mdframed works in twoside mode on input line 7656.
+ [113] [114]
+Package mdframed Info: mdframed works in twoside mode on input line 7838.
 Package mdframed Info: You first box width is to small
  mdframed fixed it
-(mdframed)              on input line 7863.
+(mdframed)              on input line 7849.
  [115]
-Package mdframed Info: mdframed works in twoside mode on input line 7867.
+Package mdframed Info: mdframed works in twoside mode on input line 7853.
  [116]
-Package mdframed Info: mdframed works in twoside mode on input line 8027.
+Package mdframed Info: mdframed works in twoside mode on input line 8013.
  [117]
-Package mdframed Info: mdframed works in twoside mode on input line 8086.
-Package mdframed Info: mdframed works in twoside mode on input line 8099.
-Package mdframed Info: mdframed works in twoside mode on input line 8109.
+Package mdframed Info: mdframed works in twoside mode on input line 8072.
+Package mdframed Info: mdframed works in twoside mode on input line 8085.
+Package mdframed Info: mdframed works in twoside mode on input line 8095.
  [118]
-Overfull \hbox (48.8711pt too wide) detected at line 8215
+Overfull \hbox (48.8711pt too wide) detected at line 8201
 [][]
  []
 
 [119]
-Package mdframed Info: mdframed works in twoside mode on input line 8283.
+Package mdframed Info: mdframed works in twoside mode on input line 8269.
 
-Overfull \hbox (1.61804pt too wide) detected at line 8331
+Overfull \hbox (1.61804pt too wide) detected at line 8317
 \OT1/cmr/m/n/12 (\OMS/cmsy/m/n/12 ^^C[]\OT1/cmr/m/n/12 )[] = [] \OML/cmm/m/it/1
 2 ;  \OT1/cmr/m/n/12 (\OMS/cmsy/m/n/12 ^^C[]\OT1/cmr/m/n/12 )[] = [] \OML/cmm/m
 /it/12 ;  \OT1/cmr/m/n/12 (\OMS/cmsy/m/n/12 ^^C[]\OT1/cmr/m/n/12 )[] = [] \OML/
@@ -1915,7 +1390,7 @@ cmm/m/it/12 :
  []
 
 [120]
-Overfull \hbox (42.23431pt too wide) detected at line 8408
+Overfull \hbox (42.23431pt too wide) detected at line 8394
 \OT1/cmr/m/n/12 (\OMS/cmsy/m/n/12 ^^C[]\OT1/cmr/m/n/12 )[] = [] [] \OML/cmm/m/i
 t/12 ;  \OT1/cmr/m/n/12 (\OMS/cmsy/m/n/12 ^^C[]\OT1/cmr/m/n/12 )[] = [] [] \OML
 /cmm/m/it/12 ;  \OT1/cmr/m/n/12 (\OMS/cmsy/m/n/12 ^^C[]\OT1/cmr/m/n/12 )[] = []
@@ -1923,231 +1398,235 @@ t/12 ;  \OT1/cmr/m/n/12 (\OMS/cmsy/m/n/12 ^^C[]\OT1/cmr/m/n/12 )[] = [] [] \OML
  []
 
 [121]
-Package mdframed Info: mdframed works in twoside mode on input line 8549.
+Package mdframed Info: mdframed works in twoside mode on input line 8535.
 Package mdframed Info: You first box width is to small
  mdframed fixed it
-(mdframed)              on input line 8586.
+(mdframed)              on input line 8572.
  [122] [123]
 Chapter 7.
-Package mdframed Info: mdframed works in twoside mode on input line 8616.
+Package mdframed Info: mdframed works in twoside mode on input line 8602.
 [124
 
 ]
-Package mdframed Info: mdframed works in twoside mode on input line 8715.
+Package mdframed Info: mdframed works in twoside mode on input line 8701.
  [125]
-Package mdframed Info: mdframed works in twoside mode on input line 8772.
+Package mdframed Info: mdframed works in twoside mode on input line 8758.
  [126] [127]
-Package mdframed Info: mdframed works in twoside mode on input line 8934.
+Package mdframed Info: mdframed works in twoside mode on input line 8920.
  [128] [129]
-Package mdframed Info: mdframed works in twoside mode on input line 9018.
+Package mdframed Info: mdframed works in twoside mode on input line 9004.
  [130]
-Package mdframed Info: mdframed works in twoside mode on input line 9116.
-Package mdframed Info: mdframed works in twoside mode on input line 9134.
+Package mdframed Info: mdframed works in twoside mode on input line 9102.
+Package mdframed Info: mdframed works in twoside mode on input line 9120.
 Package mdframed Info: You first box width is to small
  mdframed fixed it
-(mdframed)              on input line 9152.
+(mdframed)              on input line 9138.
  [131]
-Package mdframed Info: mdframed works in twoside mode on input line 9177.
+Package mdframed Info: mdframed works in twoside mode on input line 9163.
  [132]
-Package mdframed Info: mdframed works in twoside mode on input line 9239.
-Package mdframed Info: mdframed works in twoside mode on input line 9274.
+Package mdframed Info: mdframed works in twoside mode on input line 9225.
+Package mdframed Info: mdframed works in twoside mode on input line 9260.
 Package mdframed Info: You first box width is to small
  mdframed fixed it
-(mdframed)              on input line 9294.
+(mdframed)              on input line 9280.
  [133] [134]
 Chapter 8.
 [135
 
 ]
-Package mdframed Info: mdframed works in twoside mode on input line 9405.
+Package mdframed Info: mdframed works in twoside mode on input line 9391.
  [136]
-Package mdframed Info: Not enough space on this page on input line 9415.
+Package mdframed Info: Not enough space on this page on input line 9401.
  [137]
-Package mdframed Info: mdframed works in twoside mode on input line 9545.
+Package mdframed Info: mdframed works in twoside mode on input line 9531.
  [138]
-Package mdframed Info: mdframed works in twoside mode on input line 9614.
-Package mdframed Info: mdframed works in twoside mode on input line 9622.
+Package mdframed Info: mdframed works in twoside mode on input line 9600.
+Package mdframed Info: mdframed works in twoside mode on input line 9608.
  [139]
-Package mdframed Info: mdframed works in twoside mode on input line 9690.
+Package mdframed Info: mdframed works in twoside mode on input line 9676.
  [140]
-Package mdframed Info: mdframed works in twoside mode on input line 9755.
-Package mdframed Info: mdframed works in twoside mode on input line 9763.
+Package mdframed Info: mdframed works in twoside mode on input line 9741.
+Package mdframed Info: mdframed works in twoside mode on input line 9749.
  [141]
-Package mdframed Info: mdframed works in twoside mode on input line 9836.
-Package mdframed Info: mdframed works in twoside mode on input line 9859.
+Package mdframed Info: mdframed works in twoside mode on input line 9822.
+Package mdframed Info: mdframed works in twoside mode on input line 9845.
  [142] [143]
-Package mdframed Info: mdframed works in twoside mode on input line 9955.
+Package mdframed Info: mdframed works in twoside mode on input line 9941.
  [144]
 Chapter 9.
-Package mdframed Info: mdframed works in twoside mode on input line 9997.
+Package mdframed Info: mdframed works in twoside mode on input line 9983.
 [145
 
 ]
-Package mdframed Info: mdframed works in twoside mode on input line 10049.
-Package mdframed Info: mdframed works in twoside mode on input line 10072.
-Package mdframed Info: mdframed works in twoside mode on input line 10104.
-Package mdframed Info: Not enough space on this page on input line 10127.
+Package mdframed Info: mdframed works in twoside mode on input line 10035.
+Package mdframed Info: mdframed works in twoside mode on input line 10058.
+Package mdframed Info: mdframed works in twoside mode on input line 10090.
+Package mdframed Info: Not enough space on this page on input line 10113.
  [146]
-Package mdframed Info: Not enough space on this page on input line 10127.
-Package mdframed Info: mdframed works in twoside mode on input line 10165.
+Package mdframed Info: Not enough space on this page on input line 10113.
+Package mdframed Info: mdframed works in twoside mode on input line 10151.
 Package mdframed Info: Box was splittet wrong
  starting loop to iterate the splitting point
-(mdframed)              on input line 10179.
+(mdframed)              on input line 10165.
 Package mdframed Info: You first box width is to small
  mdframed fixed it
-(mdframed)              on input line 10179.
+(mdframed)              on input line 10165.
  [147] [148]
-Package mdframed Info: mdframed works in twoside mode on input line 10248.
+Package mdframed Info: mdframed works in twoside mode on input line 10234.
  [149] [150]
-Package mdframed Info: mdframed works in twoside mode on input line 10416.
+Package mdframed Info: mdframed works in twoside mode on input line 10402.
  [151]
-Package mdframed Info: mdframed works in twoside mode on input line 10452.
-Package mdframed Info: mdframed works in twoside mode on input line 10476.
+Package mdframed Info: mdframed works in twoside mode on input line 10438.
+Package mdframed Info: mdframed works in twoside mode on input line 10462.
 Package mdframed Info: You first box width is to small
  mdframed fixed it
-(mdframed)              on input line 10494.
+(mdframed)              on input line 10480.
  [152] [153]
 Chapter 10.
-Package mdframed Info: mdframed works in twoside mode on input line 10512.
-Package mdframed Info: mdframed works in twoside mode on input line 10519.
+Package mdframed Info: mdframed works in twoside mode on input line 10498.
+Package mdframed Info: mdframed works in twoside mode on input line 10505.
 [154
 
 ] [155]
-Package mdframed Info: mdframed works in twoside mode on input line 10648.
-Package mdframed Info: mdframed works in twoside mode on input line 10680.
-Package mdframed Info: mdframed works in twoside mode on input line 10690.
-Package mdframed Info: Not enough space on this page on input line 10695.
+Package mdframed Info: mdframed works in twoside mode on input line 10634.
+Package mdframed Info: mdframed works in twoside mode on input line 10666.
+Package mdframed Info: mdframed works in twoside mode on input line 10676.
+Package mdframed Info: Not enough space on this page on input line 10681.
  [156]
-Package mdframed Info: Not enough space on this page on input line 10695.
+Package mdframed Info: Not enough space on this page on input line 10681.
  [157] [158]
-Package mdframed Info: mdframed works in twoside mode on input line 10846.
-Package mdframed Info: mdframed works in twoside mode on input line 10855.
+Package mdframed Info: mdframed works in twoside mode on input line 10832.
+Package mdframed Info: mdframed works in twoside mode on input line 10841.
  [159]
-Package mdframed Info: mdframed works in twoside mode on input line 10959.
+Package mdframed Info: mdframed works in twoside mode on input line 10945.
  [160]
-Overfull \hbox (2.34373pt too wide) detected at line 11129
+Overfull \hbox (2.34373pt too wide) detected at line 11115
 [][]
  []
 
 [161] [162]
-Package mdframed Info: mdframed works in twoside mode on input line 11271.
-Package mdframed Info: mdframed works in twoside mode on input line 11325.
+Package mdframed Info: mdframed works in twoside mode on input line 11257.
+Package mdframed Info: mdframed works in twoside mode on input line 11311.
  [163]
-Package mdframed Info: mdframed works in twoside mode on input line 11368.
-Package mdframed Info: mdframed works in twoside mode on input line 11378.
+Package mdframed Info: mdframed works in twoside mode on input line 11354.
+Package mdframed Info: mdframed works in twoside mode on input line 11364.
  [164]
-Overfull \hbox (62.02022pt too wide) detected at line 11448
-\OT1/cmr/bx/n/12 S[] \OT1/cmr/m/n/12 = [] \OML/cmm/m/it/12 ;  \OT1/cmr/bx/n/12 
+Overfull \hbox (62.02022pt too wide) detected at line 11434
+\OT1/cmr/bx/n/12 S[] \OT1/cmr/m/n/12 = [] \OML/cmm/m/it/12 ;  \OT1/cmr/bx/n/12
 S[] \OT1/cmr/m/n/12 = [] \OML/cmm/m/it/12 ;  \OT1/cmr/bx/n/12 S[] \OT1/cmr/m/n/
 12 = [] \OML/cmm/m/it/12 ;  \OT1/cmr/bx/n/12 S[] \OT1/cmr/m/n/12 = []
  []
 
 
-Overfull \hbox (62.02022pt too wide) detected at line 11457
-\OT1/cmr/bx/n/12 S[] \OT1/cmr/m/n/12 = [] \OML/cmm/m/it/12 ;  \OT1/cmr/bx/n/12 
+Overfull \hbox (62.02022pt too wide) detected at line 11443
+\OT1/cmr/bx/n/12 S[] \OT1/cmr/m/n/12 = [] \OML/cmm/m/it/12 ;  \OT1/cmr/bx/n/12
 S[] \OT1/cmr/m/n/12 = [] \OML/cmm/m/it/12 ;  \OT1/cmr/bx/n/12 S[] \OT1/cmr/m/n/
 12 = [] \OML/cmm/m/it/12 ;  \OT1/cmr/bx/n/12 S[] \OT1/cmr/m/n/12 = []
  []
 
 
-Overfull \hbox (62.02022pt too wide) detected at line 11466
-\OT1/cmr/bx/n/12 S[] \OT1/cmr/m/n/12 = [] \OML/cmm/m/it/12 ;  \OT1/cmr/bx/n/12 
+Overfull \hbox (62.02022pt too wide) detected at line 11452
+\OT1/cmr/bx/n/12 S[] \OT1/cmr/m/n/12 = [] \OML/cmm/m/it/12 ;  \OT1/cmr/bx/n/12
 S[] \OT1/cmr/m/n/12 = [] \OML/cmm/m/it/12 ;  \OT1/cmr/bx/n/12 S[] \OT1/cmr/m/n/
 12 = [] \OML/cmm/m/it/12 ;  \OT1/cmr/bx/n/12 S[] \OT1/cmr/m/n/12 = []
  []
 
 
-Overfull \hbox (62.02022pt too wide) detected at line 11475
-\OT1/cmr/bx/n/12 S[] \OT1/cmr/m/n/12 = [] \OML/cmm/m/it/12 ;  \OT1/cmr/bx/n/12 
+Overfull \hbox (62.02022pt too wide) detected at line 11461
+\OT1/cmr/bx/n/12 S[] \OT1/cmr/m/n/12 = [] \OML/cmm/m/it/12 ;  \OT1/cmr/bx/n/12
 S[] \OT1/cmr/m/n/12 = [] \OML/cmm/m/it/12 ;  \OT1/cmr/bx/n/12 S[] \OT1/cmr/m/n/
 12 = [] \OML/cmm/m/it/12 ;  \OT1/cmr/bx/n/12 S[] \OT1/cmr/m/n/12 = []
  []
 
 [165]
-Package mdframed Info: mdframed works in twoside mode on input line 11538.
+Package mdframed Info: mdframed works in twoside mode on input line 11524.
  [166] [167] [168] [169]
-Package mdframed Info: mdframed works in twoside mode on input line 11837.
+Package mdframed Info: mdframed works in twoside mode on input line 11823.
  [170] [171] [172] [173] [174]
 Chapter 11.
-Package mdframed Info: mdframed works in twoside mode on input line 12127.
-Package mdframed Info: mdframed works in twoside mode on input line 12135.
-Package mdframed Info: mdframed works in twoside mode on input line 12143.
+Package mdframed Info: mdframed works in twoside mode on input line 12113.
+Package mdframed Info: mdframed works in twoside mode on input line 12121.
+Package mdframed Info: mdframed works in twoside mode on input line 12129.
 Package mdframed Info: You first box width is to small
  mdframed fixed it
-(mdframed)              on input line 12153.
+(mdframed)              on input line 12139.
 [175
 
 ]
-Package mdframed Info: mdframed works in twoside mode on input line 12179.
-Package mdframed Info: mdframed works in twoside mode on input line 12195.
+Package mdframed Info: mdframed works in twoside mode on input line 12165.
+Package mdframed Info: mdframed works in twoside mode on input line 12181.
  [176] [177]
-Package mdframed Info: mdframed works in twoside mode on input line 12293.
+Package mdframed Info: mdframed works in twoside mode on input line 12279.
  [178] [179] [180] [181]
-Package mdframed Info: mdframed works in twoside mode on input line 12572.
-Package mdframed Info: mdframed works in twoside mode on input line 12585.
-Package mdframed Info: Not enough space on this page on input line 12593.
+Package mdframed Info: mdframed works in twoside mode on input line 12558.
+Package mdframed Info: mdframed works in twoside mode on input line 12571.
+Package mdframed Info: Not enough space on this page on input line 12579.
  [182]
-Package mdframed Info: Not enough space on this page on input line 12593.
-Package mdframed Info: mdframed works in twoside mode on input line 12604.
+Package mdframed Info: Not enough space on this page on input line 12579.
+Package mdframed Info: mdframed works in twoside mode on input line 12590.
  [183] [184]
 Chapter 12.
-Package mdframed Info: mdframed works in twoside mode on input line 12656.
+Package mdframed Info: mdframed works in twoside mode on input line 12642.
 [185
 
 ] [186]
-Package mdframed Info: mdframed works in twoside mode on input line 12824.
+Package mdframed Info: mdframed works in twoside mode on input line 12810.
  [187]
-Package mdframed Info: mdframed works in twoside mode on input line 12851.
-Package mdframed Info: mdframed works in twoside mode on input line 12857.
-Package mdframed Info: mdframed works in twoside mode on input line 12868.
-Package mdframed Info: mdframed works in twoside mode on input line 12875.
-Package mdframed Info: Not enough space on this page on input line 12883.
+Package mdframed Info: mdframed works in twoside mode on input line 12837.
+Package mdframed Info: mdframed works in twoside mode on input line 12843.
+Package mdframed Info: mdframed works in twoside mode on input line 12854.
+Package mdframed Info: mdframed works in twoside mode on input line 12861.
+Package mdframed Info: Not enough space on this page on input line 12869.
  [188]
-Package mdframed Info: Not enough space on this page on input line 12883.
-Package mdframed Info: mdframed works in twoside mode on input line 12885.
+Package mdframed Info: Not enough space on this page on input line 12869.
+Package mdframed Info: mdframed works in twoside mode on input line 12871.
  [189]
-Package mdframed Info: mdframed works in twoside mode on input line 12950.
+Package mdframed Info: mdframed works in twoside mode on input line 12936.
  [190]
-Package mdframed Info: mdframed works in twoside mode on input line 13047.
+Package mdframed Info: mdframed works in twoside mode on input line 13033.
  [191]
-Package mdframed Info: mdframed works in twoside mode on input line 13090.
+Package mdframed Info: mdframed works in twoside mode on input line 13076.
  [192]
 Runaway argument?
 {
 ! Paragraph ended before \hypertarget was complete.
-<to be read again> 
-                   \par 
-l.13131 
-        
+<to be read again>
+                   \par
+l.13117
+
 I suspect you've forgotten a `}', causing me to apply this
 control sequence to too much text. How can we recover?
 My plan is to forget the whole thing and hope for the best.
 
+! Too many }'s.
+l.13119 ...7ux3066ux751fux307eux308cux305fux304b}}
+
+You've closed more groups than you opened.
+Such booboos are generally harmless, so keep going.
+
 [193
 
 
-] [194]
-Chapter 13.
-[195
+] [194] [195
 
 ] [196]
-Chapter 14.
-Package mdframed Info: mdframed works in twoside mode on input line 13250.
-Package mdframed Info: mdframed works in twoside mode on input line 13257.
+Package mdframed Info: mdframed works in twoside mode on input line 13236.
+Package mdframed Info: mdframed works in twoside mode on input line 13243.
 Package mdframed Info: You first box width is to small
  mdframed fixed it
-(mdframed)              on input line 13269.
-[197
+(mdframed)              on input line 13255.
+ [197
 
 ]
-Package mdframed Info: mdframed works in twoside mode on input line 13271.
-Package mdframed Info: mdframed works in twoside mode on input line 13282.
+Package mdframed Info: mdframed works in twoside mode on input line 13257.
+Package mdframed Info: mdframed works in twoside mode on input line 13268.
  [198] [199] [200]
-Package mdframed Info: mdframed works in twoside mode on input line 13446.
+Package mdframed Info: mdframed works in twoside mode on input line 13432.
 Package mdframed Info: You first box width is to small
  mdframed fixed it
-(mdframed)              on input line 13453.
- [201] [202] (exports/manuscript.aux)
+(mdframed)              on input line 13439.
+ [201] [202]
+(exports/manuscript.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -2156,14 +1635,14 @@ L3 programming layer <2024-01-22>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
- ) 
+ )
 Here is how much of TeX's memory you used:
  16915 strings out of 476878
  334094 string characters out of 5805249
- 1962627 words of memory out of 5000000
+ 1961627 words of memory out of 5000000
  38525 multiletter control sequences out of 15000+600000
  583576 words of font info for 163 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 79i,14n,93p,653b,648s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 79i,14n,93p,653b,589s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on exports/manuscript.pdf (214 pages).

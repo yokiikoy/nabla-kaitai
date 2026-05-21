@@ -2264,10 +2264,8 @@ $$\begin{aligned}
 dS(\Delta\mathbf{x}_S,\Delta\mathbf{y}_S)
 &= \sqrt{
 \Bigl(\frac{x}{\sqrt{R^2-x^2-y^2}}\Delta x\,\Delta y\Bigr)^2
-
-+ \Bigl(\frac{y}{\sqrt{R^2-x^2-y^2}}\Delta x\,\Delta y\Bigr)^2
-
-+ (\Delta x\,\Delta y)^2} \\[4pt]
+{}+ \Bigl(\frac{y}{\sqrt{R^2-x^2-y^2}}\Delta x\,\Delta y\Bigr)^2
+{}+ (\Delta x\,\Delta y)^2} \\[4pt]
 &= \sqrt{\frac{x^2+y^2}{R^2-x^2-y^2}+1}\;\Delta x\,\Delta y \\[4pt]
 &= \frac{R}{\sqrt{R^2-x^2-y^2}}\,\Delta x\,\Delta y
 \end{aligned}$$
@@ -2515,10 +2513,8 @@ $$\eta = P\,dy \wedge dz + Q\,dz \wedge dx + R\,dx \wedge dy$$
 
 $$\eta(\Delta\mathbf{a},\Delta\mathbf{b})
 = P\,(dy \wedge dz)(\Delta\mathbf{a},\Delta\mathbf{b})
-
-+ Q\,(dz \wedge dx)(\Delta\mathbf{a},\Delta\mathbf{b})
-
-+ R\,(dx \wedge dy)(\Delta\mathbf{a},\Delta\mathbf{b})$$
+{}+ Q\,(dz \wedge dx)(\Delta\mathbf{a},\Delta\mathbf{b})
+{}+ R\,(dx \wedge dy)(\Delta\mathbf{a},\Delta\mathbf{b})$$
 
 全区画で足し上げて極限をとる。この極限を
 
@@ -5034,10 +5030,8 @@ $0$-form（スカラー場）$f$ の外微分 $df$ は $1$-form である。
 
 $$
 df = \frac{\partial f}{\partial x}\,dx
-
-+ \frac{\partial f}{\partial y}\,dy
-
-+ \frac{\partial f}{\partial z}\,dz
+{}+ \frac{\partial f}{\partial y}\,dy
+{}+ \frac{\partial f}{\partial z}\,dz
 $$
 
 本書ではこれを、勾配の $1$-form 表示と呼び、

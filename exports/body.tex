@@ -3289,21 +3289,15 @@ dS(\Delta\mathbf{x}_S,\Delta\mathbf{y}_S)
 
 である。先ほど計算した三つの出力を代入すると、
 
-\$\$
-
-\begin{aligned}
+\[\begin{aligned}
 dS(\Delta\mathbf{x}_S,\Delta\mathbf{y}_S)
 &= \sqrt{
 \Bigl(\frac{x}{\sqrt{R^2-x^2-y^2}}\Delta x\,\Delta y\Bigr)^2
-
-+ \Bigl(\frac{y}{\sqrt{R^2-x^2-y^2}}\Delta x\,\Delta y\Bigr)^2
-
-+ (\Delta x\,\Delta y)^2} \\[4pt]
+{}+ \Bigl(\frac{y}{\sqrt{R^2-x^2-y^2}}\Delta x\,\Delta y\Bigr)^2
+{}+ (\Delta x\,\Delta y)^2} \\[4pt]
 &= \sqrt{\frac{x^2+y^2}{R^2-x^2-y^2}+1}\;\Delta x\,\Delta y \\[4pt]
 &= \frac{R}{\sqrt{R^2-x^2-y^2}}\,\Delta x\,\Delta y
-\end{aligned}
-
-\$\$
+\end{aligned}\]
 
 つまり、上半球が \(xy\) 平面に落とす円板 \(x^2+y^2 \le R^2\)
 を小区画に刻むと、面積のリーマン和は
@@ -3683,15 +3677,10 @@ dS(\Delta\mathbf{x}_S,\Delta\mathbf{y}_S)
 のリーマン和に係数を乗せるだけだ。各小区画の代表点で係数を評価し、その小片を張る二本の変位ベクトル
 \(\Delta\mathbf{a},\Delta\mathbf{b}\) に \(\eta\) を食わせる：
 
-\$\$\eta(\Delta\mathbf{a},\Delta\mathbf{b}) = P,(dy
-\wedge dz)(\Delta\mathbf{a},\Delta\mathbf{b})
-
-\begin{itemize}
-\item
-  Q,(dz \wedge dx)(\Delta\mathbf{a},\Delta\mathbf{b})
-\item
-  R,(dx \wedge dy)(\Delta\mathbf{a},\Delta\mathbf{b})\$\$
-\end{itemize}
+\[\eta(\Delta\mathbf{a},\Delta\mathbf{b})
+= P\,(dy \wedge dz)(\Delta\mathbf{a},\Delta\mathbf{b})
+{}+ Q\,(dz \wedge dx)(\Delta\mathbf{a},\Delta\mathbf{b})
+{}+ R\,(dx \wedge dy)(\Delta\mathbf{a},\Delta\mathbf{b})\]
 
 全区画で足し上げて極限をとる。この極限を
 
@@ -7570,14 +7559,11 @@ div}\label{ux4e09ux3064ux306eux6f14ux7b97ux306eux578bgrad-rot-div}}
 
 \(0\)-form（スカラー場）\(f\) の外微分 \(df\) は \(1\)-form である。
 
-\$\$ df = \frac{\partial f}{\partial x},dx
-
-\begin{itemize}
-\item
-  \frac{\partial f}{\partial y},dy
-\item
-  \frac{\partial f}{\partial z},dz \$\$
-\end{itemize}
+\[
+df = \frac{\partial f}{\partial x}\,dx
+{}+ \frac{\partial f}{\partial y}\,dy
+{}+ \frac{\partial f}{\partial z}\,dz
+\]
 
 本書ではこれを、勾配の \(1\)-form 表示と呼び、
 
