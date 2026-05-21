@@ -9,7 +9,7 @@
 本書は無料で公開しています。明らかな誤植レベルの指摘は GitHub Issues でも受け付けます。
 
 > <strong>注</strong>（名称について）  
-> ちなみに、*covector space*、ましてや *Co-Vector Space* という語はあまり一般的ではありません。数学では *dual space* などと言う方が普通です。
+> ちなみに、*covector space*、あるいは *Co-Vector Space* という語はあまり一般的ではありません。数学では *dual space* などと言う方が普通です。
 
 ### Discord サーバー
 
@@ -18,3 +18,6 @@
 これから整備していく想定で、現状は本当に「空き部屋」に近い状態です。理工系に関心のある人たちが、本書の内容に限らず、ほどよい距離感で場所を目指しています。
 
 興味のある方は、ポータルサイトから覗いてみてください。
+招待リンクはこちらです。
+
+[https://discord.gg/NCffyR9gj](https://discord.gg/NCffyR9gj)
