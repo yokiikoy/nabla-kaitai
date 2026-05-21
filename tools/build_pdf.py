@@ -226,7 +226,7 @@ def main():
 
     def hide_appendix_from_toc(text):
         for cmd in ('subsection', 'subsubsection', 'paragraph'):
-            for letter in 'ABCDE':
+            for letter in 'ABCDEF':
                 text = re.sub(rf'\\{cmd}\{{({letter}\.)', rf'\\{cmd}*{{\1', text)
                 text = re.sub(rf'\\{cmd}\{{(\\\\texorpdfstring\{{{letter}\.)', rf'\\{cmd}*{{\1', text)
         return text
@@ -456,7 +456,7 @@ def main():
             idx = line.find(marker)
             if idx >= 0:
                 rest = line[idx + len(marker):]
-                m = re.search(rf'(\\\\texorpdfstring' + '{' + r')?[A-E]\.\d', rest)
+                m = re.search(rf'(\\\\texorpdfstring' + '{' + r')?[A-F]\.\d', rest)
                 if m:
                     line = line.replace(marker, rf'\{cmd}*' + '{', 1)
         new_lines.append(line)

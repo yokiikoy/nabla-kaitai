@@ -1,11 +1,11 @@
-\contentsline {chapter}{ごあいさつ：かつての私への贈り物、あるいはSNS時代の予防線}{v}{chapter*.1}%
-\contentsline {chapter}{はじめに：\(dx\)とは何か・ナブラとは何か}{vii}{chapter*.2}%
-\contentsline {section}{前提知識}{vii}{section*.3}%
-\contentsline {section}{\(dx\)とは何か}{vii}{section*.4}%
-\contentsline {section}{ナブラとは何か}{viii}{section*.5}%
-\contentsline {chapter}{ポータルサイトとちょっとした試み}{ix}{chapter*.6}%
-\contentsline {subsection}{ポータルサイト}{ix}{section*.7}%
-\contentsline {subsection}{Discord サーバー}{ix}{section*.8}%
+\contentsline {chapter}{ごあいさつ：かつての私への贈り物、あるいはSNS時代の予防線}{iv}{chapter*.1}%
+\contentsline {chapter}{はじめに：\(dx\)とは何か・ナブラとは何か}{vi}{chapter*.2}%
+\contentsline {section}{前提知識}{vi}{section*.3}%
+\contentsline {section}{\(dx\)とは何か}{vi}{section*.4}%
+\contentsline {section}{ナブラとは何か}{vii}{section*.5}%
+\contentsline {chapter}{ポータルサイトとちょっとした試み}{viii}{chapter*.6}%
+\contentsline {subsection}{ポータルサイト}{viii}{section*.7}%
+\contentsline {subsection}{Discord サーバー}{viii}{section*.8}%
 \contentsline {chapter}{\numberline {1}第1章：\(dx\) とは何か —— ベクトルを食べる測定器、あるいは横ベクトル}{1}{chapter.1}%
 \contentsline {subsection}{§1.0 数学者の1次元、物理学者の1次元}{1}{section*.9}%
 \contentsline {subsection}{§1.1 リーマン和と行列の積}{3}{section*.10}%
@@ -240,11 +240,6 @@
 \contentsline {subsubsection}{残るのは、もう1本の方程式である}{165}{section*.251}%
 \contentsline {section}{付録E：\(dF\) と \(d(\ast F)\) のスライス行列表示 —— \(4\times 4\times 4\) 配列で見るマクスウェル方程式}{166}{section*.252}%
 \contentsline {section}{付録F：第5章の4本の式と、第10章の2本の式}{170}{section*.258}%
-\contentsline {subsection}{F.1 空間上の \((E,B,J,\rho _{\mathrm e})\)}{170}{section*.259}%
-\contentsline {subsection}{F.2 空間上の4本の式}{171}{section*.260}%
-\contentsline {subsection}{F.3 \(d_4F=0\) から2本が出る}{172}{section*.261}%
-\contentsline {subsection}{F.4 \(d_4(\ast _4F)=\mu _0(\ast _4\mathcal J)\) から残り2本が出る}{173}{section*.262}%
-\contentsline {subsection}{F.5 まとめ}{175}{section*.263}%
 \contentsline {chapter}{\numberline {11}第11章：曲がった空間へ —— 本書の先にあるもの}{176}{chapter.11}%
 \contentsline {subsection}{§11.0 この章の立ち位置 —— さらに先を見たい読者のための道標}{176}{section*.264}%
 \contentsline {subsection}{§11.1 多様体 —— \(\mathbf {g}(x)\) から始める}{177}{section*.265}%

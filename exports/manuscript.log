@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.4.30)  22 MAY 2026 00:33
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.4.30)  22 MAY 2026 01:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -904,37 +904,36 @@ File: exports/icons/nabla_icon_inflate_65.png Graphic file (type bmp)
 
 
 ]
-(exports/manuscript.toc [1] [2] [3])
+(exports/manuscript.toc [1] [2])
 \tf@toc=\write3
 \openout3 = `manuscript.toc'.
 
- [4]
+ [3]
 Package mdframed Info: mdframed works in twoside mode on input line 131.
 Package mdframed Info: mdframed works in twoside mode on input line 146.
 Package mdframed Info: You first box width is to small
  mdframed fixed it
 (mdframed)              on input line 149.
- [5
+ [4
 
 ]
 Package mdframed Info: mdframed works in twoside mode on input line 151.
- [6] [7
+ [5] [6
 
-] [8]
+] [7]
 Package mdframed Info: mdframed works in twoside mode on input line 265.
 
 
 LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/it' undefined
 (Font)              using `TU/IPAexMincho(0)/m/n' instead on input line 267.
 
-[9
-
-] [10
+[8
 
 ]
 Chapter 1.
 Package mdframed Info: mdframed works in twoside mode on input line 308.
 [1
+
 
 ]
 Package mdframed Info: mdframed works in twoside mode on input line 337.
@@ -1482,14 +1481,17 @@ L3 programming layer <2024-01-22>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 16916 strings out of 476878
- 334102 string characters out of 5805249
+ 16911 strings out of 476878
+ 334067 string characters out of 5805249
  1960627 words of memory out of 5000000
- 38526 multiletter control sequences out of 15000+600000
+ 38521 multiletter control sequences out of 15000+600000
  583576 words of font info for 163 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  79i,14n,93p,651b,591s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on exports/manuscript.pdf (217 pages).
+Output written on exports/manuscript.pdf (215 pages).
