@@ -225,7 +225,11 @@ dx := \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}
 $$
 <p><!-- endscalebox -->
 </p>
-<p>と<strong>定義する</strong>。これは、入力された縦ベクトルから $x$ 成分だけを抜き出して返す線形演算子の行列表現である。
+<p>と<strong>定義する</strong>。
+</p>
+<p>そして、実はこれは標準的な考え方から外れた独自記法ではない。標準的な線形代数・テンソル解析・多様体論で現れる対象を、$\mathbb R^3$ の標準座標に固定して、最初から行列として書き下したものである。詳しくは、すぐ下の注釈で示しておく。
+</p>
+<p>より進んだ数学に詳しい読者向けに釈明しておくと、これは入力された縦ベクトルから $x$ 成分だけを抜き出して返す線形演算子の行列表現であり、$\mathbb R^3$ の標準座標における $dx$ の表示である。
 </p>
 <blockquote>
 <p><strong>注</strong>（$dx = (1\ 0\ 0)$ と教科書との対応）</p>
@@ -311,7 +315,7 @@ $$
 </p>
 $$
 \bigl(f(\xi_i)\,dx\bigr)
-=
+:=
 f(\xi_i)\,dx
 =
 \begin{pmatrix}
@@ -362,7 +366,7 @@ $$
 <p><strong>注</strong>（仕事の積分）</p>
 <p>力学で現れる $W=\int F(x)\,dx$ も、同じ読み方ができる。各小区間では、横ベクトル $F(\xi_i)\,dx$ が変位ベクトル $\mathbf v_i$ を食べて $F(\xi_i)\Delta x_i$ を返す。その和の極限が仕事である。</p>
 </blockquote>
-<h4 id="1.1.5-一次形式（__MATH_BLOCK_190__-form）">1.1.5 一次形式（$1$-form）</h4>
+<h4 id="1.1.5-一次形式（__MATH_BLOCK_193__-form）">1.1.5 一次形式（$1$-form）</h4>
 <p>ここまで、我々は $dx$ を「変位ベクトルに作用して特定の成分を抽出し、スカラー（実数）を返す横ベクトル」として定義してきた。このような、ベクトルを食べてスカラーを吐き出す<strong>線形</strong>な測定器のことを、専門的には<strong>一次形式（</strong>$1$<strong>-form）</strong>と呼ぶ。本稿で「行列としての $dx$」と呼んできたものは、まさにこの一次形式に他ならない。
 </p>
 <blockquote>
@@ -401,7 +405,7 @@ $$
 <p>- 積分記号 $\int_a^b f(x)\,dx$ の末尾の $dx$ は慣用記法であり、変位そのものは $\Delta x$ や $dx(\mathbf{v})$ で書く（§1.1.6 の契約）。</p>
 </blockquote>
 <hr />
-<h3 id="§1.2-全微分-__MATH_BLOCK_230__-—-変化率を行列にまとめた演算子">§1.2 全微分 $df$ — 変化率を行列にまとめた演算子</h3>
+<h3 id="§1.2-全微分-__MATH_BLOCK_233__-—-変化率を行列にまとめた演算子">§1.2 全微分 $df$ — 変化率を行列にまとめた演算子</h3>
 <p>前節では、リーマン積分を「行列 $f(x)\,dx$ の変位ベクトルへの作用の和の極限」として解体した。この節では、その考え方を関数自体の微分へと拡張し、<strong>全微分 </strong>$df$<strong> を横ベクトル（行列）として定義する</strong>。「微分」は、単なる数値の変化率ではなく、<strong>変位ベクトルに掛けて初めて「変化量の一次部分」が出てくる演算子</strong>として扱う。
 </p>
 <h4 id="1.2.1-微分可能性の行列表現">1.2.1 微分可能性の行列表現</h4>
@@ -416,7 +420,7 @@ $$\Delta f = f(x + \Delta x) - f(x) = f'(x) \Delta x + o(|\Delta x|) \quad (|\De
 $$\mathbf{v} = \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix}$$
 <p>すると、関数の変化 $\Delta f$ は、この $\mathbf{v}$ によって引き起こされる効果と見なせる。
 </p>
-<h4 id="1.2.2-__MATH_BLOCK_243__-の行列としての定義と-__MATH_BLOCK_244__">1.2.2 $df$ の行列としての定義と $df(\mathbf{v})$</h4>
+<h4 id="1.2.2-__MATH_BLOCK_246__-の行列としての定義と-__MATH_BLOCK_247__">1.2.2 $df$ の行列としての定義と $df(\mathbf{v})$</h4>
 <p>点 $x$ における関数 $f$ の<strong>全微分</strong> $df$ を、次の $1 \times 3$ 横ベクトルとして定義する：
 </p>
 $$df := f'(x) \, dx = \begin{pmatrix} f'(x) & 0 & 0 \end{pmatrix}$$
@@ -434,7 +438,7 @@ $$df(\mathbf{v}) = \begin{pmatrix} f'(x) & 0 & 0 \end{pmatrix} \begin{pmatrix} \
 <blockquote>
 <p><strong>注</strong> （$df$ は演算子、$df(\mathbf{v})$ が変化量）§1.1.6 の記号契約と同じ区別を、ここでもう一度述べる。くどいと感じるかもしれないが、<strong>ここを誤読すると以降すべてがずれる</strong>ので、繰り返しに価値がある。</p>
 </blockquote>
-<h4 id="1.2.3-__MATH_BLOCK_260__-方向と-__MATH_BLOCK_261__-方向の測定器-__MATH_BLOCK_262__,-__MATH_BLOCK_263__">1.2.3 $y$ 方向と $z$ 方向の測定器 $dy$, $dz$</h4>
+<h4 id="1.2.3-__MATH_BLOCK_263__-方向と-__MATH_BLOCK_264__-方向の測定器-__MATH_BLOCK_265__,-__MATH_BLOCK_266__">1.2.3 $y$ 方向と $z$ 方向の測定器 $dy$, $dz$</h4>
 <p>この視点の強みを、§1.1.5 の力学の例に戻せば、<strong>力が </strong>$y$<strong> 方向にも成分を持つ一般的な場合に自然に拡張できる</strong>点だ。
  <strong>いま定める </strong>$dy$を使えば、$F_x dx + F_y dy$ という形で2次元の仕事を統一的に扱える。
  $dx$ が $x$ 成分を抜き出すのと同様に、実空間では $dy$<strong> は </strong>$y$<strong> 成分</strong>、$dz$<strong> は </strong>$z$<strong> 成分</strong>を抜き出す横ベクトル（一次形式）と定める。行列表現は
@@ -448,7 +452,7 @@ $$dy := \begin{pmatrix} 0 & 1 & 0 \end{pmatrix}, \qquad dz := \begin{pmatrix} 0 
 <p>3次元の空間には、<strong>三つの測定器</strong>がそろった。本章では説明の主線として $x$ 方向の断面に寄せてきたが、座標 $y,z$ と測定子 $dy,dz$ は最初からそろっている、と考えてほしい。
  いま、一変数の $df=f'(x)\,dx$ に $dy$, $dz$ を同じ型の測定器として足しそろえた。以下の具体例と §1.2.6 での三次元への拡張で、この三つがどう効いてくるかを追う。
 </p>
-<h4 id="1.2.4-具体例：-__MATH_BLOCK_296__-の場合">1.2.4 具体例： $f(x) = x^2$ の場合</h4>
+<h4 id="1.2.4-具体例：-__MATH_BLOCK_299__-の場合">1.2.4 具体例： $f(x) = x^2$ の場合</h4>
 <p>$f(x) = x^2$ とする。$f'(x) = 2x$ である。
 </p>
 <p>たとえば $x=3$<strong> において</strong>全微分を具体的に書き下ろす。横ベクトルと縦ベクトルを並べて、
@@ -547,7 +551,16 @@ $$
 </blockquote>
 <p>その $f(x,y,z)$ が点 $(x,y,z)$ で<strong>（全）微分可能である</strong>とは、変位 $\mathbf{v}=\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$ に対して
 </p>
-$$\Delta f = f(x+\Delta x,\,y+\Delta y,\,z+\Delta z) - f(x,y,z) = \frac{\partial f}{\partial x}\,\Delta x + \frac{\partial f}{\partial y}\,\Delta y + \frac{\partial f}{\partial z}\,\Delta z + o(\|\mathbf{v}\|) \quad (\|\mathbf{v}\|\to 0)$$
+$$
+\begin{aligned}
+\Delta f
+&= f(x+\Delta x,\,y+\Delta y,\,z+\Delta z) - f(x,y,z) \\
+&= \frac{\partial f}{\partial x}\,\Delta x
+{}+ \frac{\partial f}{\partial y}\,\Delta y
+{}+ \frac{\partial f}{\partial z}\,\Delta z
+{}+ o(\|\mathbf{v}\|) \quad (\|\mathbf{v}\|\to 0)
+\end{aligned}
+$$
 <p>が成り立つことである。§1.2.1 の1変数の定義と形式がそろっている。$o(\|\mathbf{v}\|)$ は余り項の略記（$o(|\Delta x|)$ と同趣旨）であり、ここでは深追いしないが、理解に支障はないであろう。
 </p>
 <p>§1.2.3 の測定器 $dx,dy,dz$ を使い、§1.2.2 と同じ型の演算子として
@@ -579,7 +592,7 @@ $$\int_\gamma df$$
 <p><strong>【ここまでのチェックポイント】</strong></p>
 <p>- 微分可能性は $\Delta f = f'(x)\Delta x + o(|\Delta x|)$（$o$ はランダウのオーダー記法）で表される一次近似として捉えられる。</p>
 <p>- $df = f'(x)\,dx$ は横ベクトル；数値の変化量は $df(\mathbf{v})$ として読む。</p>
-<p>- 置換積分は、連鎖律による標準的な入口を一度だけ見るが、本書では「測定器のつじつま合わせ」として読み直す（§1.2.5）。</p>
+<p>- 置換積分の標準的な入口を一度だけ見るが、本書では「測定器のつじつま合わせ」として読み直す（§1.2.5）。</p>
 </blockquote>
 <hr />
 <h3 id="§1.3-ライプニッツの記法と代数的直感">§1.3 ライプニッツの記法と代数的直感</h3>
@@ -656,7 +669,7 @@ $$
 </p>
 <p>いま知りたいのは、実空間で $x$ 成分を測る測定器 $dx$ が、パラメータ空間側ではどのような測定器として見えるかである。
 </p>
-<h4 id="1.4.2-小さな一歩を写して-__MATH_BLOCK_405__-で測る">1.4.2 小さな一歩を写して $dx$ で測る</h4>
+<h4 id="1.4.2-小さな一歩を写して-__MATH_BLOCK_408__-で測る">1.4.2 小さな一歩を写して $dx$ で測る</h4>
 <p>パラメータ空間の点
 </p>
 $$
@@ -911,7 +924,7 @@ $$
 </p>
 <blockquote>
 <p><strong>注</strong>（ここでは有限の一歩から作った）</p>
-<p>ここでは、いわゆる連鎖律の公式をいきなり使って $dx=\frac{\partial x}{\partial r}dr+\frac{\partial x}{\partial\theta}d\theta+\frac{\partial x}{\partial z}dz$ と書いたのではない。</p>
+<p>ここでは、既知の公式として $dx=\frac{\partial x}{\partial r}dr+\frac{\partial x}{\partial\theta}d\theta+\frac{\partial x}{\partial z}dz$ をいきなり使ったのではない。</p>
 <p>まず、パラメータ空間の小さな一歩を実空間へ写し、その像を実空間の $dx$ で測った。その一次の値と同じ値を返すように、パラメータ空間側の測定器を作ったのである。</p>
 <p>第4章では、これと同じ考え方を有限区間、有限マス目、有限箱へ拡張する。そこで、区間の長さ、面積、体積を保つために測定器がどう作り替わるかを見る。</p>
 </blockquote>

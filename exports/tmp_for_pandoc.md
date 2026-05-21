@@ -12,9 +12,6 @@
 
 みなさんは、$dx$ とは何かを説明できるでしょうか。
 
-> \textbf{注}（歴史順と分かる順）
-> 現代の読者は、行列、線型代数、微分形式、ベクトル解析を、すでに整備された道具として学ぶことができます。少なくとも筆者の受けた教育では、行列はまず、高校生時代に手で計算できる代数的な道具として現れました。しかし、実際の歴史では、これらの道具は互いに影響し合いながら、行きつ戻りつ発展してきたように見えます。そのため、教育現場にも歴史的経緯による混乱が残っているように筆者には思えます。本書は物理数学の歴史を再現する本ではありません。むしろ、現代の読者がすでに持っている行列代数の言葉を使って、多変数微積分とベクトル解析を別の順序でほどき直す試みという側面があります。
-
 > \textbf{注}（注釈について）
 > 本書には注釈が多くあります。読者によっては、本文の流れを止める不親切なものに見えるかもしれません。
 >
@@ -27,6 +24,12 @@
 > 第三に、ミステリ小説の回想のような効果です。最初は断片的にしか見えなかった注釈が、読み進めるにつれて少しずつ意味を持ち、あとから「あれはこのためだったのか」と分かる。そういう読み味も、少しだけ狙っています。
 >
 > 注釈は、すべてをその場で理解するためのものではありません。読めるところだけ拾って、分からないところは通り過ぎてもらって構いません。
+
+> \textbf{注}（歴史順と分かる順）
+> 現代の読者は、行列、線型代数、微分形式、ベクトル解析を、すでに整備された道具として学ぶことができます。少なくとも筆者の受けた教育では、行列はまず、高校生時代に手で計算できる代数的な道具として現れました。しかし、実際の歴史では、これらの道具は互いに影響し合いながら、行きつ戻りつ発展してきたように見えます。そのため、教育現場にも歴史的経緯による混乱が残っているように筆者には思えます。本書は物理数学の歴史を再現する本ではありません。むしろ、現代の読者がすでに持っている行列代数の言葉を使って、多変数微積分とベクトル解析を別の順序でほどき直す試みという側面があります。
+
+> \textbf{注}（本書には怒りがある）
+> それは、ある特定の人物への怒りではなく、見えているはずの問題が、私の学生時代にも、そして現代に至るまで、十分には解決されていないことへの怒りです。ベクトル解析は、計量・向き・双対性・外微分を暗黙に含んでいるにもかかわらず、それらを隠したまま公式として教えられる。一方で、微分形式は多様体論の高みに置かれ、初学者がベクトル解析を理解するための道具としては降ろされてこなかった。本書は、その断絶に対する攻撃であり、同時に対案でもあります。
 
 \newpage
 
@@ -53,7 +56,7 @@
 
 さらに、特に物理学や工学系の専門課程では、当然のように微小量 $dx$ や $\delta x$ という実体が操作されます。
 
-筆者の個人的な経験では、大学院一年生（M1)の頃に、数学系の友人に聞いたところ、「$dx$ は接ベクトル空間に対する線形汎関数、あるいは余接空間の元」と、分かるような分からないような説明をされた覚えがあります。
+筆者の個人的な経験では、大学院一年生（M1）の頃に、数学系の友人に聞いたところ、「$dx$ は接ベクトル空間に対する線形汎関数、あるいは余接空間の元」と、分かるような分からないような説明をされた覚えがあります。
 
 さて、結局 $dx$ とは何でしょうか。進んだ専門課程でないと、深入りしないか、微小量として理解するしかないのでしょうか。
 
@@ -113,7 +116,7 @@ $$
 本書は無料で公開しています。明らかな誤植レベルの指摘は GitHub Issues でも受け付けます。
 
 > \textbf{注}（名称について）  
-> ちなみに、*covector space*、ましてや *Co-Vector Space* という語はあまり一般的ではありません。数学では *dual space* などと言う方が普通です。
+> ちなみに、*covector space*、あるいは *Co-Vector Space* という語はあまり一般的ではありません。数学では *dual space* などと言う方が普通です。
 
 ### Discord サーバー
 
@@ -122,6 +125,9 @@ $$
 これから整備していく想定で、現状は本当に「空き部屋」に近い状態です。理工系に関心のある人たちが、本書の内容に限らず、ほどよい距離感で場所を目指しています。
 
 興味のある方は、ポータルサイトから覗いてみてください。
+招待リンクはこちらです。
+
+[https://discord.gg/NCffyR9gj](https://discord.gg/NCffyR9gj)
 
 \newpage
 
@@ -236,7 +242,11 @@ $$\mathbf{v}_i = \begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix}$$
 dx := \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}
 $}\end{center}
 
-と\textbf{定義する}。これは、入力された縦ベクトルから $x$ 成分だけを抜き出して返す線形演算子の行列表現である。
+と\textbf{定義する}。
+
+そして、実はこれは標準的な考え方から外れた独自記法ではない。標準的な線形代数・テンソル解析・多様体論で現れる対象を、$\mathbb R^3$ の標準座標に固定して、最初から行列として書き下したものである。詳しくは、すぐ下の注釈で示しておく。
+
+より進んだ数学に詳しい読者向けに釈明しておくと、これは入力された縦ベクトルから $x$ 成分だけを抜き出して返す線形演算子の行列表現であり、$\mathbb R^3$ の標準座標における $dx$ の表示である。
 
 > \textbf{注}（$dx = (1\ 0\ 0)$ と教科書との対応）  
 > この表記は通常の教科書ではあまり前面に出てこないが、実は暗に含まれている。
@@ -332,7 +342,7 @@ $$
 
 $$
 \bigl(f(\xi_i)\,dx\bigr)
-=
+:=
 f(\xi_i)\,dx
 =
 \begin{pmatrix}
@@ -585,7 +595,16 @@ $t$ が少し変わったとき、$x=\gamma(t)$ はその $\gamma'(t)$ 倍だけ
 > \textbf{注} （スカラー場）物理学ではこのような関数を\textbf{スカラー場}と呼ぶことが多い。
 
 その $f(x,y,z)$ が点 $(x,y,z)$ で\textbf{（全）微分可能である}とは、変位 $\mathbf{v}=\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$ に対して
-$$\Delta f = f(x+\Delta x,\,y+\Delta y,\,z+\Delta z) - f(x,y,z) = \frac{\partial f}{\partial x}\,\Delta x + \frac{\partial f}{\partial y}\,\Delta y + \frac{\partial f}{\partial z}\,\Delta z + o(\|\mathbf{v}\|) \quad (\|\mathbf{v}\|\to 0)$$
+$$
+\begin{aligned}
+\Delta f
+&= f(x+\Delta x,\,y+\Delta y,\,z+\Delta z) - f(x,y,z) \\
+&= \frac{\partial f}{\partial x}\,\Delta x
+{}+ \frac{\partial f}{\partial y}\,\Delta y
+{}+ \frac{\partial f}{\partial z}\,\Delta z
+{}+ o(\|\mathbf{v}\|) \quad (\|\mathbf{v}\|\to 0)
+\end{aligned}
+$$
 が成り立つことである。§1.2.1 の1変数の定義と形式がそろっている。$o(\|\mathbf{v}\|)$ は余り項の略記（$o(|\Delta x|)$ と同趣旨）であり、ここでは深追いしないが、理解に支障はないであろう。
 
 
@@ -618,7 +637,7 @@ $$\int_\gamma df$$
 >
 > - $df = f'(x)\,dx$ は横ベクトル；数値の変化量は $df(\mathbf{v})$ として読む。
 >
-> - 置換積分は、連鎖律による標準的な入口を一度だけ見るが、本書では「測定器のつじつま合わせ」として読み直す（§1.2.5）。
+> - 置換積分の標準的な入口を一度だけ見るが、本書では「測定器のつじつま合わせ」として読み直す（§1.2.5）。
 
 ---
 
@@ -989,7 +1008,7 @@ $$
 
 > \textbf{注}（ここでは有限の一歩から作った）  
 >
-> ここでは、いわゆる連鎖律の公式をいきなり使って $dx=\frac{\partial x}{\partial r}dr+\frac{\partial x}{\partial\theta}d\theta+\frac{\partial x}{\partial z}dz$ と書いたのではない。
+> ここでは、既知の公式として $dx=\frac{\partial x}{\partial r}dr+\frac{\partial x}{\partial\theta}d\theta+\frac{\partial x}{\partial z}dz$ をいきなり使ったのではない。
 >
 > まず、パラメータ空間の小さな一歩を実空間へ写し、その像を実空間の $dx$ で測った。その一次の値と同じ値を返すように、パラメータ空間側の測定器を作ったのである。
 >
@@ -1840,7 +1859,7 @@ $$\mathbf{v}_1 \cdot (\mathbf{v}_2 \times \mathbf{v}_3) = \det\begin{pmatrix}x_1
 | :--- | :--- | :--- | :--- | :--- |
 | \textbf{0次元} | $0$-form（スカラー場 $f$） | 点 | 1成分（$f$） | $\sqrt{f^2}$  |
 | \textbf{1次元} | $1$-form（$dx, dy, dz$） | ベクトル（線分） | 3成分（$x, y, z$） | $\sqrt{x^2 + y^2 + z^2}$ |
-| \textbf{2次元} | $2$-form（$dy \wedge dz$ 等） | 2本のベクトルが張る平行四辺形 | 係数3つ（$A_{yz}, A_{zx}, A_{xy}$） | $\sqrt{A_{yz}^2 + A_{zx}^2 + A_{xy}^2}$ |
+| \textbf{2次元} | $2$-form（$dy \wedge dz$ 等） | 平行四辺形 | 3成分 | 係数の二乗和平方根 |
 | \textbf{3次元} | $3$-form（$dx \wedge dy \wedge dz$） | 3本のベクトルが張る平行六面体 | 1成分（$V$） | $\sqrt{V^2}$ |
 
 > \textbf{【ここまでのチェックポイント】}
@@ -2254,10 +2273,8 @@ $$\begin{aligned}
 dS(\Delta\mathbf{x}_S,\Delta\mathbf{y}_S)
 &= \sqrt{
 \Bigl(\frac{x}{\sqrt{R^2-x^2-y^2}}\Delta x\,\Delta y\Bigr)^2
-
-+ \Bigl(\frac{y}{\sqrt{R^2-x^2-y^2}}\Delta x\,\Delta y\Bigr)^2
-
-+ (\Delta x\,\Delta y)^2} \\[4pt]
+{}+ \Bigl(\frac{y}{\sqrt{R^2-x^2-y^2}}\Delta x\,\Delta y\Bigr)^2
+{}+ (\Delta x\,\Delta y)^2} \\[4pt]
 &= \sqrt{\frac{x^2+y^2}{R^2-x^2-y^2}+1}\;\Delta x\,\Delta y \\[4pt]
 &= \frac{R}{\sqrt{R^2-x^2-y^2}}\,\Delta x\,\Delta y
 \end{aligned}$$
@@ -2397,7 +2414,13 @@ $$\begin{aligned}
 
 しかし、この円の弧長が $2\pi R$ であることも我々は知っている。係数1の $dx, dy$ だけではゼロになってしまうが、では\textbf{どうすれば弧長が出るのか}。
 
-各番号 $t$ で $dx, dy$ が測った値はすでに手元にある。$dx(\gamma'(t)) = -R\sin t$、$dy(\gamma'(t)) = R\cos t$。これらはスカラーだから、二乗して足すことができる：
+各番号 $t$ で $dx, dy$ が測った値はすでに手元にある。
+
+$$
+dx(\gamma'(t)) = -R\sin t,\qquad dy(\gamma'(t)) = R\cos t
+$$
+
+これらはスカラーだから、二乗して足すことができる：
 
 $$dx(\gamma'(t))^2 + dy(\gamma'(t))^2 = R^2\sin^2 t + R^2\cos^2 t = R^2$$
 
@@ -2505,10 +2528,8 @@ $$\eta = P\,dy \wedge dz + Q\,dz \wedge dx + R\,dx \wedge dy$$
 
 $$\eta(\Delta\mathbf{a},\Delta\mathbf{b})
 = P\,(dy \wedge dz)(\Delta\mathbf{a},\Delta\mathbf{b})
-
-+ Q\,(dz \wedge dx)(\Delta\mathbf{a},\Delta\mathbf{b})
-
-+ R\,(dx \wedge dy)(\Delta\mathbf{a},\Delta\mathbf{b})$$
+{}+ Q\,(dz \wedge dx)(\Delta\mathbf{a},\Delta\mathbf{b})
+{}+ R\,(dx \wedge dy)(\Delta\mathbf{a},\Delta\mathbf{b})$$
 
 全区画で足し上げて極限をとる。この極限を
 
@@ -3184,11 +3205,18 @@ $$\Phi^*\bigl(\rho(x,y,z)\,dx \wedge dy \wedge dz\bigr) = \rho(r\cos\theta,\, r\
 
 その体積値を $\Delta u\,\Delta v\,\Delta w$ で割り、分割を細かくしていく。すると差分比は偏微分係数へ移り、$3\times3$ の行列式が現れる。したがって、$h\to0$ 後の引き戻しは：
 
-$$\Phi^*\bigl(\rho(x,y,z)\,dx \wedge dy \wedge dz\bigr) = \rho(x(u,v,w), y(u,v,w), z(u,v,w))\ \det\!\begin{pmatrix}
+$$
+\begin{aligned}
+&\Phi^*\bigl(\rho(x,y,z)\,dx \wedge dy \wedge dz\bigr) \\
+&= \rho(x(u,v,w), y(u,v,w), z(u,v,w))\,
+\det\!\begin{pmatrix}
 \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} & \frac{\partial x}{\partial w} \\[6pt]
 \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} & \frac{\partial y}{\partial w} \\[6pt]
 \frac{\partial z}{\partial u} & \frac{\partial z}{\partial v} & \frac{\partial z}{\partial w}
-\end{pmatrix}\,du \wedge dv \wedge dw$$
+\end{pmatrix} \\
+&\qquad\qquad {}\wedge du \wedge dv \wedge dw
+\end{aligned}
+$$
 
 この $3 \times 3$ 行列式を $J(u,v,w)$ と書けば
 
@@ -4171,21 +4199,28 @@ $$\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial
 
 $\eta$ の反対称成分は $\eta_{yz}=A,\; \eta_{zx}=B,\; \eta_{xy}=C$（他は符号反転または $0$）である。$d\eta$ の成分を $(d\eta)_{abc} = \partial_a \eta_{bc}$ と書く。ここで $\partial_x=\frac{\partial}{\partial x}$、$\partial_y=\frac{\partial}{\partial y}$、$\partial_z=\frac{\partial}{\partial z}$ であり、$a,b,c \in \{x,y,z\}$ だから成分は $3^3=27$ 個ある。$a$ を固定した $3 \times 3$ 行列3枚に並べると：
 
-$$d\eta_{x,\cdot,\cdot} = \begin{pmatrix}
+$$
+\begin{aligned}
+d\eta_{x,\cdot,\cdot}
+&= \begin{pmatrix}
 0 & \frac{\partial C}{\partial x} & -\frac{\partial B}{\partial x} \\
 -\frac{\partial C}{\partial x} & 0 & \frac{\partial A}{\partial x} \\
 \frac{\partial B}{\partial x} & -\frac{\partial A}{\partial x} & 0
-\end{pmatrix}, \quad
-d\eta_{y,\cdot,\cdot} = \begin{pmatrix}
+\end{pmatrix}, \\
+d\eta_{y,\cdot,\cdot}
+&= \begin{pmatrix}
 0 & \frac{\partial C}{\partial y} & -\frac{\partial B}{\partial y} \\
 -\frac{\partial C}{\partial y} & 0 & \frac{\partial A}{\partial y} \\
 \frac{\partial B}{\partial y} & -\frac{\partial A}{\partial y} & 0
-\end{pmatrix}, \quad
-d\eta_{z,\cdot,\cdot} = \begin{pmatrix}
+\end{pmatrix}, \\
+d\eta_{z,\cdot,\cdot}
+&= \begin{pmatrix}
 0 & \frac{\partial C}{\partial z} & -\frac{\partial B}{\partial z} \\
 -\frac{\partial C}{\partial z} & 0 & \frac{\partial A}{\partial z} \\
 \frac{\partial B}{\partial z} & -\frac{\partial A}{\partial z} & 0
-\end{pmatrix}$$
+\end{pmatrix}
+\end{aligned}
+$$
 
 この $27$ 成分を、対応する基底 $1$-form のウェッジ積（たとえば $a=x,\;b=y,\;c=z$ なら $dx \wedge dy \wedge dz$）と縮約するとき、添字の重複がある項（対角成分や $b=c$ 等）は $dx \wedge dx = 0$ で消え、生き残るのは $a,b,c$ がすべて異なる $6$ 項（$3!$ の順列）だけ。それぞれを符号つきで和をとる。ここで各成分を反対称化して行列に並べて二重にカウントしているため、第2章 §2.4.4 や付録Dと同様に因子 $\frac{1}{2}$ の補正が入り：
 
@@ -4629,7 +4664,7 @@ $$J\mathbf{v} = \begin{pmatrix}
 
 $$\mathbf{g}_{\text{球座標}} = \begin{pmatrix} 1 & 0 & 0 \\ 0 & r^2 & 0 \\ 0 & 0 & r^2\sin^2\theta \end{pmatrix}$$
 
-対角成分に $r^2$ と $r^2\sin^2\theta$ が現れるが、これらもすべて連鎖律だけから機械的に導かれる換算係数である。
+対角成分に $r^2$ と $r^2\sin^2\theta$ が現れるが、これらもすべて座標変換の一次係数を並べた $J$ から機械的に導かれる換算係数である。
 
 この $g$ を仲立ちにすることで、どの座標系でも一貫して内積（長さ・角度）を計算できる。また、後半で扱うホッジ・スター $\ast$ の働きも、この内積のルールから自然に読み解ける。
 
@@ -5024,10 +5059,8 @@ $0$-form（スカラー場）$f$ の外微分 $df$ は $1$-form である。
 
 $$
 df = \frac{\partial f}{\partial x}\,dx
-
-+ \frac{\partial f}{\partial y}\,dy
-
-+ \frac{\partial f}{\partial z}\,dz
+{}+ \frac{\partial f}{\partial y}\,dy
+{}+ \frac{\partial f}{\partial z}\,dz
 $$
 
 本書ではこれを、勾配の $1$-form 表示と呼び、
@@ -5164,7 +5197,7 @@ $$
 >
 > - 内積とは、同種のベクトル間（横×横、または縦×縦）で成分の積和をとる演算。横×縦の計算とは別物である。
 >
-> - 実空間では内積の行列は単位行列 $I$。パラメータ空間では $\mathbf{g}=J^T J$ により連鎖律だけから求まる。すなわち計量 $g$ とは、実空間へ引き戻して内積をとったとき、中央に現れる行列に他ならない。
+> - 実空間では内積の行列は単位行列 $I$。パラメータ空間では $\mathbf{g}=J^T J$ により、座標変換の一次係数から求まる。すなわち計量 $g$ とは、実空間へ引き戻して内積をとったとき、中央に現れる行列に他ならない。
 >
 > - $\mathbf{v}^T \mathbf{g}$ は縦ベクトルを横ベクトルに変換し、$\mathbf{g}^{-1}\omega^T$ は横ベクトルを縦ベクトル表示へ戻す。$g$ がなければ物体と計器は互いに変換不能である。
 >
@@ -5416,10 +5449,10 @@ $$
 \ast_{2\to1}(\ast_{1\to2}(\omega))
 &=
 \begin{pmatrix}
-E_1\cdot (P E_1+Q E_2+R E_3) &
-E_2\cdot (P E_1+Q E_2+R E_3) &
+E_1\cdot (P E_1+Q E_2+R E_3) \\
+E_2\cdot (P E_1+Q E_2+R E_3) \\
 E_3\cdot (P E_1+Q E_2+R E_3)
-\end{pmatrix} \\
+\end{pmatrix}^{T} \\
 &=
 \begin{pmatrix}
 P & Q & R
@@ -5503,7 +5536,9 @@ $$
 0&0&1\\
 0&-1&0
 \end{pmatrix},
-\qquad
+$$
+
+$$
 (\ast_{0\to3})_{2jk}
 =
 \begin{pmatrix}
@@ -5511,7 +5546,9 @@ $$
 0&0&0\\
 1&0&0
 \end{pmatrix},
-\qquad
+$$
+
+$$
 (\ast_{0\to3})_{3jk}
 =
 \begin{pmatrix}
@@ -5568,7 +5605,9 @@ $$
 0&0&1\\
 0&-1&0
 \end{pmatrix},
-\qquad
+$$
+
+$$
 (\ast_{3\to0})_{2jk}
 =
 \frac{1}{3!}
@@ -5577,7 +5616,9 @@ $$
 0&0&0\\
 1&0&0
 \end{pmatrix},
-\qquad
+$$
+
+$$
 (\ast_{3\to0})_{3jk}
 =
 \frac{1}{3!}
@@ -7226,99 +7267,470 @@ $$dF = 0, \qquad d(\ast F) = \mu_0(\ast\mathcal{J})$$
 
 ### §10.6 ポテンシャル構成——$F=-d\mathcal{A}$ から始める
 
-§10.2 では $F$ を「$\mathbf{E}$ と $\mathbf{B}$ の寄せ集め」として天下り的に定義した。しかし実は、$F$ はもっと根源的な量——\textbf{4元ポテンシャル $\mathcal{A}$}——から機械的に導かれる。こちらが出発点として自然なのは、\textbf{$dF=0$ が「$dd=0$」の一言で証明される}からだ。
+§10.2 では、電磁場 $F$ を $\mathbf{E}$ と $\mathbf{B}$ の寄せ集めとして定義した。
 
-4元ポテンシャル $\mathcal{A}$ は $1$-form である。電磁気学ではスカラーポテンシャル $\phi$ とベクトルポテンシャル $\mathbf{A} = (A_x, A_y, A_z)$ が組になる。本章では §10.2 の $F$ と標準的な
+しかし、ここにはもう一段深い見方がある。
+
+$F$ は、ある $1$-form から外微分によって作ることができる。
+
+その $1$-form を $\mathcal{A}$ と書く。もし
+
 $$
-\mathbf{E}=-\nabla\phi-\frac{\partial\mathbf{A}}{\partial t},\qquad
-\mathbf{B}=\nabla\times\mathbf{A}
+F=-d\mathcal{A}
 $$
+
+と置けるなら、
+
+$$
+dF
+=
+d(-d\mathcal{A})
+=
+-d(d\mathcal{A})
+=
+0
+$$
+
+である。
+
+つまり、§10.4 で成分を全部書き下して得た
+
+$$
+\mathrm{div}\,\mathbf{B}=0,
+\qquad
+\mathrm{rot}\,\mathbf{E}
+=
+-\frac{\partial\mathbf{B}}{\partial t}
+$$
+
+は、外微分の恒等式
+
+$$
+dd=0
+$$
+
+の中にすでに入っていたことになる。
+
+これがポテンシャル表示の核心である。
+
+§10.4 では、$dF=0$ を4つの基底 $3$-form の係数として展開した。しかし、$F$ を $-d\mathcal{A}$ として作れば、その4本は一行で自動的に従う。
+
+では、そのような $\mathcal{A}$ を実際に書いてみよう。
+
+#### 4元ポテンシャルを置く
+
+4元ポテンシャル $\mathcal{A}$ は $1$-form である。電磁気学では、スカラーポテンシャル $\phi$ とベクトルポテンシャル $\mathbf{A}$ が組になる。
+
+本章では、§10.2 の $F$ と、標準的な
+
+$$
+\mathbf{E}
+=
+-\nabla\phi
+-
+\frac{\partial\mathbf{A}}{\partial t},
+\qquad
+\mathbf{B}
+=
+\nabla\times\mathbf{A}
+$$
+
 を同時に満たすため、ポテンシャル $1$-form を次の符号で置く。
 
-ここでの $\mathbf{A}$ も、本章の正規化に合わせた量として読む。すなわち、第10章の $\mathbf{B}$ が本来の磁束密度ではなく $c\mathbf{B}_{\mathrm{SI}}$ であるのと同様に、$\mathbf{A}$ も必要なら $c\mathbf{A}_{\mathrm{SI}}$ として正規化されたベクトルポテンシャルだと思えばよい。この約束のもとで、$\mathbf{B}=\nabla\times\mathbf{A}$ と $\mathbf{E}=-\nabla\phi-\partial\mathbf{A}/\partial t$ が同時に成り立つ。
-
-$$\mathcal{A} = \phi\,dt - A_x\,dx - A_y\,dy - A_z\,dz$$
-
-と書く。$\phi, A_x, A_y, A_z$ はいずれも $(t,x,y,z)$ の関数である。
-
-$d\mathcal{A}$ の計算は第5章以来の手順そのものだ。$\mathcal{A}$ の4項それぞれに $d$ を作用させる。
-
-$$\begin{aligned}
-d(\phi\,dt) &= \frac{\partial\phi}{\partial x}\,dx\wedge dt + \frac{\partial\phi}{\partial y}\,dy\wedge dt + \frac{\partial\phi}{\partial z}\,dz\wedge dt \\
-d(-A_x\,dx) &= -\frac{\partial A_x}{\partial t}\,dt\wedge dx - \frac{\partial A_x}{\partial y}\,dy\wedge dx - \frac{\partial A_x}{\partial z}\,dz\wedge dx \\
-d(-A_y\,dy) &= -\frac{\partial A_y}{\partial t}\,dt\wedge dy - \frac{\partial A_y}{\partial x}\,dx\wedge dy - \frac{\partial A_y}{\partial z}\,dz\wedge dy \\
-d(-A_z\,dz) &= -\frac{\partial A_z}{\partial t}\,dt\wedge dz - \frac{\partial A_z}{\partial x}\,dx\wedge dz - \frac{\partial A_z}{\partial y}\,dy\wedge dz
-\end{aligned}$$
-
-（$\phi$ の時間微分は $dt\wedge dt = 0$ で消える。$A_x$ の $x$ 微分も $dx\wedge dx = 0$ で消える。以下同様。）
-
-これらを足し合わせ、ウェッジ積の反対称性（$dx\wedge dt = -dt\wedge dx$ など）で基底 $2$-form ごとに整理する。
-
-$dt\wedge dx$ の係数を見よう。$d(\phi\,dt)$ から $\frac{\partial\phi}{\partial x}\,dx\wedge dt = -\frac{\partial\phi}{\partial x}\,dt\wedge dx$。$d(-A_x\,dx)$ から $-\frac{\partial A_x}{\partial t}\,dt\wedge dx$。よって $d\mathcal{A}$ の $dt\wedge dx$ 係数は $\displaystyle -\frac{\partial\phi}{\partial x} - \frac{\partial A_x}{\partial t}$。
-
-$dy\wedge dz$ の係数は、$d(-A_y\,dy)$ から $-\frac{\partial A_y}{\partial z}\,dz\wedge dy = \frac{\partial A_y}{\partial z}\,dy\wedge dz$。$d(-A_z\,dz)$ から $-\frac{\partial A_z}{\partial y}\,dy\wedge dz$。よって $d\mathcal{A}$ の $dy\wedge dz$ 係数は $\displaystyle -\frac{\partial A_z}{\partial y} + \frac{\partial A_y}{\partial z}$。
-
-全6基底について同様に整理すると、$d\mathcal{A}$ は次のようになる。
-
-$$\begin{aligned}
-d\mathcal{A} &= \left(-\frac{\partial\phi}{\partial x} - \frac{\partial A_x}{\partial t}\right)dt\wedge dx + \left(-\frac{\partial\phi}{\partial y} - \frac{\partial A_y}{\partial t}\right)dt\wedge dy + \left(-\frac{\partial\phi}{\partial z} - \frac{\partial A_z}{\partial t}\right)dt\wedge dz \\
-&\quad+ \left(-\frac{\partial A_z}{\partial y} + \frac{\partial A_y}{\partial z}\right)dy\wedge dz + \left(-\frac{\partial A_x}{\partial z} + \frac{\partial A_z}{\partial x}\right)dz\wedge dx + \left(-\frac{\partial A_y}{\partial x} + \frac{\partial A_x}{\partial y}\right)dx\wedge dy
-\end{aligned}$$
-
-ここで $d\mathcal{A}$ の $dt\wedge dx$ 係数は
 $$
--\frac{\partial\phi}{\partial x} - \frac{\partial A_x}{\partial t}
+\mathcal{A}
+=
+\phi\,dt
+-
+A_x\,dx
+-
+A_y\,dy
+-
+A_z\,dz
 $$
-である。一方、§10.2 で定義した $F$ の $dt\wedge dx$ 係数は $-E_x$ である。
 
-もし $F=d\mathcal{A}$ と置くなら、
+ここで $\phi,A_x,A_y,A_z$ は、いずれも $(t,x,y,z)$ の関数である。
+
+> \textbf{注}（ポテンシャルの正規化）
+> ここでの $\mathbf{A}$ も、本章の正規化に合わせた量として読む。第10章の $\mathbf{B}$ が本来の磁束密度ではなく $c\mathbf{B}_{\mathrm{SI}}$ であるのと同様に、$\mathbf{A}$ も必要なら $c\mathbf{A}_{\mathrm{SI}}$ として正規化されたベクトルポテンシャルだと思えばよい。この約束のもとで、$\mathbf{B}=\nabla\times\mathbf{A}$ と $\mathbf{E}=-\nabla\phi-\partial\mathbf{A}/\partial t$ が同時に成り立つ。
+
+ここから $d\mathcal{A}$ を計算し、最後に $F=-d\mathcal{A}$ と置く。
+
+この計算の目的は、§10.2 で定義した $F$ の成分と、通常のポテンシャル公式が同時に整合することを確認することである。
+
+#### $d\mathcal{A}$ を成分で計算する
+
+$d\mathcal{A}$ の計算は、第5章以来の手順そのものである。$\mathcal{A}$ の4項それぞれに $d$ を作用させる。
+
 $$
--E_x = -\frac{\partial\phi}{\partial x} - \frac{\partial A_x}{\partial t}
+\begin{aligned}
+d(\phi\,dt)
+&=
+\frac{\partial\phi}{\partial x}\,dx\wedge dt
++
+\frac{\partial\phi}{\partial y}\,dy\wedge dt
++
+\frac{\partial\phi}{\partial z}\,dz\wedge dt,
+\\[0.5em]
+d(-A_x\,dx)
+&=
+-\frac{\partial A_x}{\partial t}\,dt\wedge dx
+-
+\frac{\partial A_x}{\partial y}\,dy\wedge dx
+-
+\frac{\partial A_x}{\partial z}\,dz\wedge dx,
+\\[0.5em]
+d(-A_y\,dy)
+&=
+-\frac{\partial A_y}{\partial t}\,dt\wedge dy
+-
+\frac{\partial A_y}{\partial x}\,dx\wedge dy
+-
+\frac{\partial A_y}{\partial z}\,dz\wedge dy,
+\\[0.5em]
+d(-A_z\,dz)
+&=
+-\frac{\partial A_z}{\partial t}\,dt\wedge dz
+-
+\frac{\partial A_z}{\partial x}\,dx\wedge dz
+-
+\frac{\partial A_z}{\partial y}\,dy\wedge dz.
+\end{aligned}
 $$
-となるため、
+
+$\phi$ の時間微分は $dt\wedge dt=0$ で消える。
+
+同様に、$A_x$ の $x$ 微分、$A_y$ の $y$ 微分、$A_z$ の $z$ 微分も、それぞれ $dx\wedge dx=0$、$dy\wedge dy=0$、$dz\wedge dz=0$ によって消える。
+
+これらを足し合わせ、ウェッジ積の反対称性で基底 $2$-form ごとに整理する。
+
+まず、$dt\wedge dx$ の係数を見よう。
+
+$d(\phi\,dt)$ から
+
 $$
-E_x = \frac{\partial\phi}{\partial x} + \frac{\partial A_x}{\partial t}
+\frac{\partial\phi}{\partial x}\,dx\wedge dt
+=
+-\frac{\partial\phi}{\partial x}\,dt\wedge dx
 $$
+
+が出る。また、$d(-A_x\,dx)$ から
+
+$$
+-\frac{\partial A_x}{\partial t}\,dt\wedge dx
+$$
+
+が出る。したがって、$d\mathcal{A}$ の $dt\wedge dx$ 係数は
+
+$$
+-\frac{\partial\phi}{\partial x}
+-
+\frac{\partial A_x}{\partial t}
+$$
+
+である。
+
+次に、$dy\wedge dz$ の係数を見よう。
+
+$d(-A_y\,dy)$ から
+
+$$
+-\frac{\partial A_y}{\partial z}\,dz\wedge dy
+=
+\frac{\partial A_y}{\partial z}\,dy\wedge dz
+$$
+
+が出る。また、$d(-A_z\,dz)$ から
+
+$$
+-\frac{\partial A_z}{\partial y}\,dy\wedge dz
+$$
+
+が出る。したがって、$d\mathcal{A}$ の $dy\wedge dz$ 係数は
+
+$$
+-\frac{\partial A_z}{\partial y}
++
+\frac{\partial A_y}{\partial z}
+$$
+
+である。
+
+全6基底について同様に整理すると、
+
+$$
+\begin{aligned}
+d\mathcal{A}
+&=
+\left(
+-\frac{\partial\phi}{\partial x}
+-
+\frac{\partial A_x}{\partial t}
+\right)
+dt\wedge dx
+\\[0.5em]
+&\quad+
+\left(
+-\frac{\partial\phi}{\partial y}
+-
+\frac{\partial A_y}{\partial t}
+\right)
+dt\wedge dy
+\\[0.5em]
+&\quad+
+\left(
+-\frac{\partial\phi}{\partial z}
+-
+\frac{\partial A_z}{\partial t}
+\right)
+dt\wedge dz
+\\[0.5em]
+&\quad+
+\left(
+-\frac{\partial A_z}{\partial y}
++
+\frac{\partial A_y}{\partial z}
+\right)
+dy\wedge dz
+\\[0.5em]
+&\quad+
+\left(
+-\frac{\partial A_x}{\partial z}
++
+\frac{\partial A_z}{\partial x}
+\right)
+dz\wedge dx
+\\[0.5em]
+&\quad+
+\left(
+-\frac{\partial A_y}{\partial x}
++
+\frac{\partial A_x}{\partial y}
+\right)
+dx\wedge dy.
+\end{aligned}
+$$
+
+#### 符号の理由
+
+§10.2 で定義した $F$ は
+
+$$
+F
+=
+-E_x\,dt\wedge dx
+-
+E_y\,dt\wedge dy
+-
+E_z\,dt\wedge dz
++
+B_x\,dy\wedge dz
++
+B_y\,dz\wedge dx
++
+B_z\,dx\wedge dy
+$$
+
+であった。
+
+ここで、もし $F=d\mathcal{A}$ と置くと、$dt\wedge dx$ 係数の比較から
+
+$$
+-E_x
+=
+-\frac{\partial\phi}{\partial x}
+-
+\frac{\partial A_x}{\partial t}
+$$
+
+となり、
+
+$$
+E_x
+=
+\frac{\partial\phi}{\partial x}
++
+\frac{\partial A_x}{\partial t}
+$$
+
 を得てしまう。これは標準的な
+
 $$
-E_x = -\frac{\partial\phi}{\partial x} - \frac{\partial A_x}{\partial t}
+E_x
+=
+-\frac{\partial\phi}{\partial x}
+-
+\frac{\partial A_x}{\partial t}
 $$
-とは逆符号である。そこで本章ではこれを避け、次の規約を採る。
 
-$$F = -d\mathcal{A}$$
+とは逆符号である。
 
-である。$\mathbf{E}$ の全成分と $\mathbf{B}$ の全成分を、ポテンシャルで書き下すと次のとおり。
+そこで本章では
 
-$$\begin{aligned}
-\mathbf{E} &= -\nabla\phi - \frac{\partial\mathbf{A}}{\partial t} \\[0.3em]
-\mathbf{B} &= \nabla\times\mathbf{A}
-\end{aligned}$$
+$$
+F=-d\mathcal{A}
+$$
 
-$dt\wedge dx$ の係数 $-E_x$ が $\frac{\partial\phi}{\partial x} + \frac{\partial A_x}{\partial t}$、$dy\wedge dz$ の係数 $B_x$ が $\frac{\partial A_z}{\partial y} - \frac{\partial A_y}{\partial z}$ となり、§10.2 の $F$ の係数表示と標準的なポテンシャル公式が同時に整合する。
+と置く。
 
-> \textbf{注} （$F$ とポテンシャルの符号規約）$F = -d\mathcal{A}$ という定義は、§10.2 の $F$ の $dt\wedge dx$ 係数が $-E_x$ であることと、$\mathbf{E} = -\nabla\phi - \partial\mathbf{A}/\partial t$、$\mathbf{B}=\nabla\times\mathbf{A}$ を同時に満たすために採用している。$F = +d\mathcal{A}$、$\mathcal{A} = -\phi\,dt + \cdots$ など、異なる符号の組み合わせを使う流儀も存在する。
+このとき、$dt\wedge dx$ の係数は
+
+$$
+-E_x
+=
+\frac{\partial\phi}{\partial x}
++
+\frac{\partial A_x}{\partial t}
+$$
+
+となるので、
+
+$$
+E_x
+=
+-\frac{\partial\phi}{\partial x}
+-
+\frac{\partial A_x}{\partial t}
+$$
+
+が得られる。
+
+同様に、$dy\wedge dz$ の係数を見ると、$-d\mathcal{A}$ の $dy\wedge dz$ 係数は
+
+$$
+\frac{\partial A_z}{\partial y}
+-
+\frac{\partial A_y}{\partial z}
+$$
+
+である。したがって、
+
+$$
+B_x
+=
+\frac{\partial A_z}{\partial y}
+-
+\frac{\partial A_y}{\partial z}
+$$
+
+が得られる。
+
+全成分をまとめると、
+
+$$
+\mathbf{E}
+=
+-\nabla\phi
+-
+\frac{\partial\mathbf{A}}{\partial t},
+\qquad
+\mathbf{B}
+=
+\nabla\times\mathbf{A}.
+$$
+
+つまり、
+
+$$
+\mathcal{A}
+=
+\phi\,dt
+-
+A_x\,dx
+-
+A_y\,dy
+-
+A_z\,dz,
+\qquad
+F=-d\mathcal{A}
+$$
+
+と置けば、§10.2 の $F$ の係数表示と、標準的なポテンシャル公式が同時に整合する。
+
+> \textbf{注}（$F$ とポテンシャルの符号規約）
+> $F=-d\mathcal{A}$ という定義は、§10.2 の $F$ の $dt\wedge dx$ 係数が $-E_x$ であることと、$\mathbf{E}=-\nabla\phi-\partial\mathbf{A}/\partial t$、$\mathbf{B}=\nabla\times\mathbf{A}$ を同時に満たすために採用している。$F=+d\mathcal{A}$、$\mathcal{A}=-\phi\,dt+\cdots$ など、異なる符号の組み合わせを使う流儀も存在する。
+
 
 #### $dd=0$ が $dF=0$ を証明する
 
-§10.4 の主結果——$dF=0$ が $\mathrm{div}\,\mathbf{B}=0$ と $\mathrm{rot}\,\mathbf{E}=-\partial\mathbf{B}/\partial t$ に等しい——の証明は一瞬である。$F=-d\mathcal{A}$ だから、
+ここで、冒頭の話に戻ろう。
 
-$$dF = d(-d\mathcal{A}) = -d(d\mathcal{A}) = 0$$
+$F=-d\mathcal{A}$ だから、
 
-$dd=0$ は第5章 §5.8 で証明した外微分の基本性質だ。$F$ が「何かの外微分」（定数倍を除いて）で書ける以上、その外微分は自動的にゼロになる。§10.4 で4つの基底 $3$-form の係数をゼロとおいて得た4本の式は、すべてこの一行に集約されている。
+$$
+dF
+=
+d(-d\mathcal{A})
+=
+-d(d\mathcal{A})
+=
+0.
+$$
 
-$dd=0$ が物理法則を導く——この事実こそ、微分形式が電磁気学で「美しい」と言われる最大の理由である。
+これは、第5章 §5.8 で見た外微分の基本性質
 
-> \textbf{注} （$\mathbf{B}$ と $\mathrm{div}\,\mathbf{B}=0$）ベクトル解析でも「$\mathbf{B}$ が何かの回転で書けるなら $\mathrm{div}\,\mathbf{B}=0$」は公式として知られている。$\mathrm{div}\,\mathrm{rot} \equiv 0$ である。これが $dd=0$ の $3$ 次元ベクトル解析版だ。
+$$
+dd=0
+$$
 
-#### もう1本の式——ポテンシャルで書く
+そのものである。
 
-$d(\ast F) = \mu_0(\ast\mathcal{J})$ の側も、$F=-d\mathcal{A}$ を代入すればポテンシャル $\mathcal{A}$ に対する方程式になる。
+したがって、§10.4 で成分展開して得た
 
-$$-d(\ast d\mathcal{A}) = \mu_0(\ast\mathcal{J})$$
+$$
+\mathrm{div}\,\mathbf{B}=0,
+\qquad
+\mathrm{rot}\,\mathbf{E}
+=
+-\frac{\partial\mathbf{B}}{\partial t}
+$$
 
-ここから先は、上付き成分・下付き成分、ゲージ条件、ダランベルシアンの符号規約が絡む。本書ではこの導出には踏み込まず、「ポテンシャル表示にすると波動方程式へ進む」という見取り図を述べるに留める。
+は、$F=-d\mathcal{A}$ と置いた瞬間に自動的に従う。
 
-> \textbf{注} （ゲージ自由度）$\mathcal{A}' = \mathcal{A} + d\chi$（$\chi$ は任意の $0$-form）と変換する。このとき $F' = -d\mathcal{A}' = -d\mathcal{A} - d(d\chi) = -d\mathcal{A} = F$ となり、物理的な電磁場 $F$ は不変である。これがゲージ変換であり、$dd=0$ のもう一つの現れだ。電磁気学ではスカラーポテンシャル $\phi$ とベクトルポテンシャル $\mathbf{A}$ を同時に調整することで、$F$ を変えずに計算に都合のよいゲージを選ぶことができる。
+ここで起きていることは、単なる記法の圧縮ではない。
+
+第5章で見た $dd=0$ が、ここではマクスウェル方程式の半分として現れている。
+
+$F$ を $-d\mathcal{A}$ として作った瞬間、$dF=0$ は証明すべき法則ではなく、外微分の構造から自動的に従う恒等式になる。
+
+> \textbf{注}（$\mathbf{B}$ と $\mathrm{div}\,\mathbf{B}=0$）
+> ベクトル解析でも「$\mathbf{B}$ が何かの回転で書けるなら $\mathrm{div}\,\mathbf{B}=0$」は公式として知られている。$\mathrm{div}\,\mathrm{rot}\equiv0$ である。これが $dd=0$ の3次元ベクトル解析版だ。
+
+#### 残るのは、もう1本の方程式である
+
+$dF=0$ は、$F=-d\mathcal{A}$ から自動的に従う。
+
+では、もう1本
+
+$$
+d(\ast F)
+=
+\mu_0(\ast\mathcal{J})
+$$
+
+はどうなるだろうか。
+
+こちらは、自動的にゼロになるわけではない。$F=-d\mathcal{A}$ を代入すると、
+
+$$
+d(\ast(-d\mathcal{A}))
+=
+\mu_0(\ast\mathcal{J})
+$$
+
+すなわち
+
+$$
+-d(\ast d\mathcal{A})
+=
+\mu_0(\ast\mathcal{J})
+$$
+
+となる。
+
+これが、ポテンシャル $\mathcal{A}$ が満たす方程式である。
+
+> \textbf{注}（ゲージ自由度）$\mathcal{A}'=\mathcal{A}+d\chi$（$\chi$ は任意の $0$-form）と変換する。このとき$F'=-d\mathcal{A}'=-d\mathcal{A}-d(d\chi)=-d\mathcal{A}=F$となり、物理的な電磁場 $F$ は不変である。これがゲージ変換であり、$dd=0$ のもう一つの現れだ。電磁気学では、スカラーポテンシャル $\phi$ とベクトルポテンシャル $\mathbf{A}$ を同時に調整することで、$F$ を変えずに計算に都合のよいゲージを選ぶことができる。
 
 > \textbf{【ここまでのチェックポイント — 第10章全体】}
 >
@@ -7328,7 +7740,9 @@ $$-d(\ast d\mathcal{A}) = \mu_0(\ast\mathcal{J})$$
 >
 > - この章のシグネチャ・向きの規約のもとでは、$\ast F$ は $E$ と $B$ を入れ替える形に見える。$d(\ast F)=\mu_0(\ast\mathcal{J})$ から残りの2本が出る。
 >
-> - \textbf{ポテンシャル構成}：$\mathcal{A} = \phi\,dt - A_x\,dx - A_y\,dy - A_z\,dz$ から $F=-d\mathcal{A}$（§10.2 の行列規約と整合）。$dF=0$ は $dd=0$ より自動的。$\mathbf{E}=-\nabla\phi-\partial\mathbf{A}/\partial t$ と $\mathbf{B}=\nabla\times\mathbf{A}$ が自然に出る。
+> - \textbf{ポテンシャル構成}：$\mathcal{A}=\phi\,dt-A_x\,dx-A_y\,dy-A_z\,dz$ から $F=-d\mathcal{A}$ が得られる。すると $dF=0$ は $dd=0$ より自動的に成り立つ。これは $\mathrm{div}\,\mathbf{B}=0$ と $\mathrm{rot}\,\mathbf{E}=-\partial\mathbf{B}/\partial t$ が外微分の構造に含まれている、ということである。
+>
+> - もう1本の方程式 $d(\ast F)=\mu_0(\ast\mathcal{J})$ は、$F=-d\mathcal{A}$ を代入すると、ポテンシャル $\mathcal{A}$ が満たす方程式になる。
 
 ---
 
@@ -7354,36 +7768,48 @@ $$
 \textbf{（1）} $\omega_1 = dt\wedge dx\wedge dy$ のスライス：
 
 $$
-\mathbf{S}_{t}^{(\omega_1)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&1&0\\[2pt]0&-1&0&0\\[2pt]0&0&0&0\end{pmatrix},\;
-\mathbf{S}_{x}^{(\omega_1)}=\begin{pmatrix}0&0&-1&0\\[2pt]0&0&0&0\\[2pt]1&0&0&0\\[2pt]0&0&0&0\end{pmatrix},\;
-\mathbf{S}_{y}^{(\omega_1)}=\begin{pmatrix}0&1&0&0\\[2pt]-1&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix},\;
+\mathbf{S}_{t}^{(\omega_1)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&1&0\\[2pt]0&-1&0&0\\[2pt]0&0&0&0\end{pmatrix},\qquad
+\mathbf{S}_{x}^{(\omega_1)}=\begin{pmatrix}0&0&-1&0\\[2pt]0&0&0&0\\[2pt]1&0&0&0\\[2pt]0&0&0&0\end{pmatrix}
+$$
+
+$$
+\mathbf{S}_{y}^{(\omega_1)}=\begin{pmatrix}0&1&0&0\\[2pt]-1&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix},\qquad
 \mathbf{S}_{z}^{(\omega_1)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix}
 $$
 
 \textbf{（2）} $\omega_2 = dt\wedge dx\wedge dz$ のスライス：
 
 $$
-\mathbf{S}_{t}^{(\omega_2)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&1\\[2pt]0&0&0&0\\[2pt]0&-1&0&0\end{pmatrix},\;
-\mathbf{S}_{x}^{(\omega_2)}=\begin{pmatrix}0&0&0&-1\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]1&0&0&0\end{pmatrix},\;
-\mathbf{S}_{y}^{(\omega_2)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix},\;
+\mathbf{S}_{t}^{(\omega_2)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&1\\[2pt]0&0&0&0\\[2pt]0&-1&0&0\end{pmatrix},\qquad
+\mathbf{S}_{x}^{(\omega_2)}=\begin{pmatrix}0&0&0&-1\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]1&0&0&0\end{pmatrix}
+$$
+
+$$
+\mathbf{S}_{y}^{(\omega_2)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix},\qquad
 \mathbf{S}_{z}^{(\omega_2)}=\begin{pmatrix}0&1&0&0\\[2pt]-1&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix}
 $$
 
 \textbf{（3）} $\omega_3 = dt\wedge dy\wedge dz$ のスライス：
 
 $$
-\mathbf{S}_{t}^{(\omega_3)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&1\\[2pt]0&0&-1&0\end{pmatrix},\;
-\mathbf{S}_{x}^{(\omega_3)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix},\;
-\mathbf{S}_{y}^{(\omega_3)}=\begin{pmatrix}0&0&0&-1\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]1&0&0&0\end{pmatrix},\;
+\mathbf{S}_{t}^{(\omega_3)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&1\\[2pt]0&0&-1&0\end{pmatrix},\qquad
+\mathbf{S}_{x}^{(\omega_3)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix}
+$$
+
+$$
+\mathbf{S}_{y}^{(\omega_3)}=\begin{pmatrix}0&0&0&-1\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]1&0&0&0\end{pmatrix},\qquad
 \mathbf{S}_{z}^{(\omega_3)}=\begin{pmatrix}0&0&-1&0\\[2pt]0&0&0&0\\[2pt]1&0&0&0\\[2pt]0&0&0&0\end{pmatrix}
 $$
 
 \textbf{（4）} $\omega_4 = dx\wedge dy\wedge dz$ のスライス：
 
 $$
-\mathbf{S}_{t}^{(\omega_4)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix},\;
-\mathbf{S}_{x}^{(\omega_4)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&1\\[2pt]0&0&-1&0\end{pmatrix},\;
-\mathbf{S}_{y}^{(\omega_4)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&-1\\[2pt]0&0&0&0\\[2pt]0&1&0&0\end{pmatrix},\;
+\mathbf{S}_{t}^{(\omega_4)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix},\qquad
+\mathbf{S}_{x}^{(\omega_4)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&1\\[2pt]0&0&-1&0\end{pmatrix}
+$$
+
+$$
+\mathbf{S}_{y}^{(\omega_4)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&-1\\[2pt]0&0&0&0\\[2pt]0&1&0&0\end{pmatrix},\qquad
 \mathbf{S}_{z}^{(\omega_4)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&-1&0\\[2pt]0&1&0&0\\[2pt]0&0&0&0\end{pmatrix}
 $$
 
@@ -7935,7 +8361,7 @@ $$
 
 > \textbf{注} （建前と本音）
 > 「さらに先を見たい読者のための道標」というのは、一応の建前である。
-> 本音を言えば、数学者に「こいつは本質を分かっていないな」と思われてしまうことへの、著者なりの先回りした回答でもある。
+> 本音を言えば、詳しい読者に「こいつは抽象数学を分かっていないな」と思われてしまうことへの、著者なりの先回りした回答でもある。
 > だが同時に、厳密な抽象論をそのまま最初から並べても、初心者の手には負えないだろうという確信もある。
 > 本章はそのような「理解のステップ」としての妥協と、標準的な数学への敬意が混ざった場所である。
 
@@ -7950,8 +8376,8 @@ $$
 > しかし振り返ってみると、本書は実質的に「成分を直接扱う」という点で、副次的にテンソル解析を行っていたのかもしれない。
 > テンソル解析の弱点は、計算の過程で $k$-form としての幾何学的な「型」の直感が失われがちなことにある。
 > 本書が行列表示を採用したのは、逆にその型——次数、反対称性、横ベクトルと縦ベクトルの区別——を視覚的に保ちながら、成分計算を可能にするためだった。
-> つまり本書は、「微分形式の幾何学的直感」と「テンソル解析の計算力」の両方を手に入れるための、中間的なアプローチだったのだ。
-> ——ただし、どちらの伝統から見ても中途半端な側面は否めない。
+> つまり本書は、「微分形式の幾何学的直感」と「テンソル解析の計算力」の両方を手に入れるための、中間的なアプローチだった、と言えるかもしれない。
+> ——ただし、どちらの伝統から見ても中途半端な側面は否めないことも認めざるを得ない。
 
 ### §11.1 多様体 —— $\mathbf{g}(x)$ から始める
 
@@ -7963,11 +8389,9 @@ $\ast$ の辞書は $\mathbf{g}$ から作られる。$\mathbf{g}$ が場所ご�
 
 > \textbf{注} （計量の場所依存と曲率の関係）計量成分 $g_{ij}(x)$ が場所に依存すること自体は、ただちに空間が曲がっていることを意味しない。ユークリッド空間を曲線座標（極座標・球座標など）で書けば、平坦な空間でも $g_{ij}(x)$ は場所に依存する。曲がっているかどうかは、計量成分そのものや特定の座標での接続係数 $\Gamma^i_{jk}$ の見た目ではなく、そこから構成される曲率テンソル $R^i{}_{mjk}$ が消えるかどうかで判定される。
 
-> \textbf{注} （計量遅延の果てに）本書は第6章まで計量の形式的定義を意図的に後回しにしてきた。これは物理学者 W. L. Burke の "put the metric later and later into the course" という教育哲学に倣ったものである。計量を遅延させたからこそ、$d$（計量不要）と $\ast$（計量依存）の役割分担がくっきりと見える——この章は、その分離の果てに広がる風景を眺める場所だ。
-
 この「場所ごとに座標や計量を扱う」世界を数学的に整理する枠組みが\textbf{多様体（manifold）}である。多様体そのものは、まず局所的に $\mathbb{R}^n$ と見なせる滑らかな空間として定義される。その上に、各点の接空間に非退化な対称双線形形式 $g_p$ を滑らかに与えたものが\textbf{計量付き多様体}であり、特に $g_p$ が正定値なら\textbf{リーマン多様体}、ローレンツ符号なら\textbf{ローレンツ多様体}になる。
 
-> \textbf{注} （「曲がった時空」という言葉について）一般相対性理論の解説では「時空が曲がる」と表現される。個人的なこだわりではあるが、筆者はこの言い回しが好きではない。というのも、任意の一点では局所慣性系を選んで計量をミンコフスキー計量にし、接続係数を消すことができるが、曲率は一般には消えず、有限の近傍全体が平坦になるわけではない。曲率は、まさにその局所慣性系を二階以上で貼り合わせるときのずれとして現れるからだ。つまり、単体の「曲がったゴム膜」のようなお絵かきでは不十分で、むしろ「計量と接続を通じて、異なる点の接空間をどう比べるかが問題になる」と捉えたほうが正確だと感じている。とはいえこれは筆者が偏屈なのであり、事実として「曲がっている」と考えたほうが直感的だろう。
+> \textbf{注} （「曲がった時空」という言葉について）一般相対性理論の解説では「時空が曲がる」と表現される。個人的なこだわりではあるが、筆者はこの言い回しがあまり好きではない。というのも、任意の一点では局所慣性系を選び、その点で計量をミンコフスキー計量にし、接続係数を消すことができるが、曲率は一般には消えず、有限の近傍全体が平坦になるわけではないからである。曲率は、まさにその局所慣性系を二階以上で貼り合わせるときのずれとして現れる。つまり、単体の「曲がったゴム膜」のようなお絵かきだけでは不十分で、むしろ「計量と接続を通じて、異なる点の接空間をどう比べるかが問題になる」と捉えたほうが正確だと感じている。とはいえこれは筆者が偏屈なのであり、素直に「曲がっている」と考えたほうが直感的だろう。
 
 #### 11.1.1 定義 —— チャートとアトラス
 
@@ -8005,7 +8429,7 @@ $$\left.\frac{\partial}{\partial x^i}\right|_p (f) = \left.\frac{\partial (f \ci
 
 $$\frac{\partial}{\partial y^j} = \sum_i \frac{\partial x^i}{\partial y^j}\,\frac{\partial}{\partial x^i}$$
 
-と変換される。この変換行列 $\partial x^i/\partial y^j$ は、本書第3章で座標変換のヤコビ行列として繰り返し登場したものだ。接ベクトルの成分はこのヤコビ行列の逆行列で変換される（反変ベクトル）。これに対し、1-form の成分はヤコビ行列そのもので変換される（共変ベクトル）。この「反変」と「共変」の区別——本書ではベクトルが「縦」、1-form が「横」として視覚化されてきた——が、多様体論におけるテンソル解析の出発点である。
+と変換される。この変換行列 $\partial x^i/\partial y^j$ は、本書第4章で座標変換のヤコビ行列として繰り返し登場したものだ。接ベクトルの成分はこのヤコビ行列の逆行列で変換される（反変ベクトル）。これに対し、1-form の成分はヤコビ行列そのもので変換される（共変ベクトル）。この「反変」と「共変」の区別——本書ではベクトルが「縦」、1-form が「横」として視覚化されてきた——が、多様体論におけるテンソル解析の出発点である。
 
 #### 11.1.3 微分形式 —— 余接束とテンソル場
 
@@ -8025,7 +8449,7 @@ $$\omega_p: \underbrace{T_p M \times \cdots \times T_p M}_{k\ \text{個}} \to \m
 
 $$(f^*\omega)_p(v_1, \dots, v_k) = \omega_{f(p)}(df_p(v_1), \dots, df_p(v_k))$$
 
-で定義される。$df_p: T_p M \to T_{f(p)} N$ は $f$ の微分（接写像）である。本書第3章で座標変換のヤコビアンとして計算した引き戻しは、この一般公式において $f$ をチャート間の座標変換とし、局所座標で成分表示したものに一致する。
+で定義される。$df_p: T_p M \to T_{f(p)} N$ は $f$ の微分（接写像）である。本書第4章で座標変換のヤコビアンとして計算した引き戻しは、この一般公式において $f$ をチャート間の座標変換とし、局所座標で成分表示したものに一致する。
 
 本書が一貫して使ってきた「$dx$ は横ベクトル」という記法は、実は多様体論の標準言語では $dx^i$ たちが余接空間の基底であるという事実にほかならない。$\omega = \sum_i \omega_i\,dx^i$ と書いたとき、係数 $\omega_i$ は本書の言葉では「横ベクトルの第 $i$ 成分」であり、多様体論の言葉では「1-form の局所座標に関する成分」である。$\omega(v) = \sum_i \omega_i\,dx^i(v) = \sum_i \omega_i v^i$ という計算は、本書第1章の行列の積 $\begin{pmatrix}\omega_1&\omega_2&\omega_3\end{pmatrix}\begin{pmatrix}v^1\\v^2\\v^3\end{pmatrix}$ に完全に対応する。
 
@@ -8101,7 +8525,7 @@ $$\ast: \Omega^k(M) \to \Omega^{n-k}(M)$$
 \textbf{反変ベクトル} $V^i$ は $\bar{V}^i = \sum_j \frac{\partial \bar{x}^i}{\partial x^j} V^j$ と変換され、
 \textbf{共変ベクトル} $\omega_i$ は $\bar{\omega}_i = \sum_j \frac{\partial x^j}{\partial \bar{x}^i} \omega_j$ と変換される。
 
-この区別は本書第3章で既に出会っている。変位ベクトル $\mathbf{v}$ の成分 $v^i$ は反変（ヤコビ行列の逆行列で変換）、1-form $\omega$ の係数 $\omega_i$ は共変（ヤコビ行列で変換）だった。一般の $(r,s)$-テンソル $T^{i_1\cdots i_r}_{j_1\cdots j_s}$ は、$r$ 個の反変添字と $s$ 個の共変添字を持ち、添字ごとに上記の変換則を適用する。
+この区別は本書第4章で既に出会っている。変位ベクトル $\mathbf{v}$ の成分 $v^i$ は反変（ヤコビ行列の逆行列で変換）、1-form $\omega$ の係数 $\omega_i$ は共変（ヤコビ行列で変換）だった。一般の $(r,s)$-テンソル $T^{i_1\cdots i_r}_{j_1\cdots j_s}$ は、$r$ 個の反変添字と $s$ 個の共変添字を持ち、添字ごとに上記の変換則を適用する。
 
 本書で計量を表す行列 $\mathbf{g}$ の成分 $g_{ij}$ は $(0,2)$-テンソル（二階共変テンソル）である。座標変換に対して $g_{ij}$ は
 
@@ -8139,11 +8563,9 @@ $$R_{abcd}=-R_{bacd},\qquad R_{abcd}=-R_{abdc},\qquad R_{abcd}=R_{cdab}$$
 
 > \textbf{注}（曲率テンソルの符号と添字順序）
 > 曲率テンソルの符号と添字順序には複数の規約がある。本項では一つの代表的な規約を示したが、他の文献では添字の順序や符号が異なる場合がある。
->
 > $$
 > \nabla_i R_{mjkl}+\nabla_j R_{mkil}+\nabla_k R_{mijl}=0
 > $$
->
 > この恒等式は、外微分の $d^2=0$ と同じ「二度境界を取ると消える」型の構造を思わせるが、厳密には接続を含む外共変微分 $D$ に関する恒等式であり、単なる $d^2=0$ ではない。
 
 リッチテンソルは曲率テンソルの一組の添字を縮約して得られる。縮約の具体的な位置や符号は曲率テンソルの規約に依存する。ここでは詳細な規約の固定には立ち入らない。これと\textbf{スカラー曲率} $R = \sum_i\sum_j g^{ij} \mathrm{Ric}_{ij}$ が、アインシュタイン方程式の左辺を構成する。方程式は
@@ -8221,7 +8643,7 @@ $d$ と $\ast$ を組み合わせたとき、grad（$0\to1$）、rot（$1\to1$�
 
 ### §12.2 パウリ行列 —— 異なる次数を足す魔法
 
-実はある。物理学者たちが量子力学のために発見した道具が、そのままこの魔法の箱として使える。パウリ行列だ。より正確には、ここで見ているのは 3次元ユークリッド空間のクリフォード代数を、パウリ行列で表現したものである。微分形式そのものではなく、各次数（0〜3次）の基底をこの代数の中に（本章の規約に沿って）対応させている。
+「魔法の箱」が、実はある。物理学者たちが量子力学のために発見した道具が、そのままこの魔法の箱として使える。パウリ行列だ。より正確には、ここで見るのは 3次元ユークリッド空間のクリフォード代数を、パウリ行列で表現したものである。微分形式そのものではなく、各次数（0〜3次）の基底をこの代数の中に（本章の規約に沿って）対応させている。
 
 #### 12.2.1 パウリ行列の定義と掛け算
 
@@ -8476,24 +8898,49 @@ $$
 
 本書を閉じるにあたり、この奇妙で、いささか強引な構成を持つ『ナブラ解体新書』がいかにして生まれたのか、少しだけ舞台裏の話をさせてください。
 
-ことの発端は、私自身の苦い記憶にあります。多くの物理学徒と同じように、私もまた「ベクトル解析」の泥沼で溺れかけた一人でした。円柱座標や球座標の $\mathrm{rot}$ や $\mathrm{div}$ を前に、「なぜこんな形になるのか」という問いは「とにかく公式を暗記せよ」という圧力に封殺されました。微分形式がその特効薬であることは知っていましたが、数学書の公理的アプローチは初学者の私には抽象度が高すぎました。
+ことの発端は、私自身の苦い記憶にあります。多くの物理学徒と同じように、私もまた「ベクトル解析」の泥沼で溺れかけた一人でした。円柱座標や球座標の $\mathrm{rot}$ や $\mathrm{div}$ を前に、「なぜこんな形になるのか」という問いは「とにかく公式を暗記せよ」という圧力に封殺されました。微分形式がその特効薬になりうることは耳にしていましたが、数学書の公理的アプローチは当時の私には抽象度が高すぎました。
 
-「旧体制の泥沼から抜け出す、『銀の弾丸』はないものか」——そう考えていた私に、第一のブレイクスルーが訪れました。個人的な話になりますが、当時の私は量子力学の勉強になかなかのめり込んでおり、ディラックの「ブラ・ケット記法」の扱いに慣れ親しんでいました。状態ベクトル（タテベクトル）を双対ベクトル（ヨコベクトル）として寝かせ、行列の積として颯爽と計算していく、あの感覚です。ふと、この私の中にあった量子力学の直観を、古典的な3次元ユークリッド空間の $dx, dy, dz$ にそのままパッチ当てしてみたらどうだろうかと考えました。積分記号の尻尾の $dx$ を「変位ベクトルから成分を抽出するヨコベクトル（行列）」として定義し直せば、「ベクトルを食べる関数（1-form）」という抽象概念を、誰もが知る「行列の掛け算」へと瞬時に変換できるのです。
+「この消化不良を一発で解決する、なにか小ずるい、『銀の弾丸』はないものか」——そう考えていた私に、第一のブレイクスルーが訪れました。個人的な話になりますが、当時の私は量子力学の勉強になかなかのめり込んでおり、Dirac の「ブラ・ケット記法」の扱いに慣れ親しんでいました。状態ベクトル（縦ベクトル）を双対ベクトル（横ベクトル）として寝かせ、行列の積として自然に計算していく、あの感覚です。
 
-しかし、これだけではまだ足りませんでした。そこで第二のブレイクスルーをもたらしてくれたのが、W. L. Burke が提唱した「計量導入の遅延（put the metric later and later into the course）」という強烈な教育的哲学でした。私は決意しました。この高度な哲学を、読者を巻き込む「目次構成の教育的エンターテインメント」にしてやろう、と。
+ただし、私にとって重要だったのは、ブラ・ケット記法が「内積を計算する便利な記号」だったことではありません。むしろ逆です。ブラは本来、ケットを食べる双対ベクトルです。横ベクトルが縦ベクトルを食べるという双対ペアリングと、計量によって二つのベクトルを比べる内積は、本来は別の操作です。ところが物理数学の記法では、この二つがしばしば同じような見た目で現れ、いつのまにか区別が潰れてしまう。Dirac 自身も、そのあまりにも有名な著作で、“set up a second set of vectors, which mathematicians call the \textbf{dual} vectors” と述べています。にもかかわらず、教育の現場では、ブラはしばしば「内積記号の左半分」のように扱われてしまう。私はここに、当時は憤りを覚えていたほどです。
 
-第1章から第5章までは、計量という概念を形式的に定義せず、実空間 $(x,y,z)$ における素朴な長さ・面積の直観に基づいた代数で押し通しました。数学者向けの数学書から見れば「面積には計量が必要だ」と言いたくなる場面でしょうが、本書の序盤では $xyz$ のデカルト座標に固定し、ピタゴラスの定理が成り立つ範囲で、素朴な面積・体積の直観をあえて使いました。計量 $g = J^T J$ が真に必要になるのは、パラメータ空間のような目盛りの歪んだ座標系へ一般化するときである——その事実を、第6章で行列計算を通じて発見的に導き出しました。
+そんな折、ふと、この感覚を古典的な3次元ユークリッド空間の $dx,dy,dz$ にそのまま応用してみたらどうだろうか、と考えました。そう考えたとき、本書の最初の核が定まりました。積分記号の尻尾の $dx$ を「変位ベクトルから成分を抽出する横ベクトル（行列）」として定義し直せば、「ベクトルを食べる関数（1-form）」という抽象概念を、誰もが知る「行列の掛け算」へと瞬時に変換できるのです。少なくとも、学生時代の筆者にとっては、これがベクトル解析を理解するための決定的な足場になりました。
 
-そして迎えた第6章の冒頭。「筆者もそろそろ飽きてきた」と、数学者へのエクスキューズを打ち切り、内積を正式に定義しました。同時に、計量 $g = J^T J$ の意味を明らかにし、ホッジ・スター $\ast$ を「微分形式とベクトル解析を繫ぐ型変換アダプタ」として位置づけました。この発見的構成を通じて、「勾配（ $d$ ）は計量に依存しないが、回転や発散（ $\ast d$ や $\ast d \ast$ ）は計量に依存している」という構造を、読者に納得してもらうための仕掛けでした。
+これは内積ではありません。変位ベクトルを食べる測定器です。計量による同一視は、そのあとに来るべきものです。これは私個人の理解にとっては、まさに『銀の弾丸』でした。ベクトル解析の公式が、行列の足し引きや掛け算のルールから、すべて手を動かして導き出せるようになったのです。
 
-これらのアイデアのうち、Burke の「計量遅延」哲学や Flanders の微分形式の物理応用は、いずれも既存の英語文献に書かれています。本書の内容に数学的な新規性はありません。ただ、$dx$ を行列として定義し全編を通じて行列計算で押し切るこの構成は、筆者の知る限り洋書にも見当たりません。東アジアの学生が行列計算に異様に訓練されているだけなのだろうか——などと茶化しつつ、いずれにせよ筆者が自分自身のために書いたものを整理したに過ぎません。本書が立っている巨人たちの肩については、巻末の参考文献を見ていただければと思います。
+しかし、これだけでは本書を書き始める動機にはまだ足りませんでした。そこで第二のブレイクスルーをもたらしてくれたのが、W. L. Burke が提唱した「計量導入の遅延（put the metric later and later into the course）」という教育的哲学でした。
 
-本書は、ベクトル解析に挫折したかつての私自身に向けて書いた「サバイバルガイド」です。もはやベクトル解析を飛び越え、「外微分」「引き戻し」「計量」「ホッジ・スター $\ast$」といった強力なツールと、デカルト座標の限界を知ったあなたなら、すでに次の世界への扉を開いています。
+Burke の意図は、おそらく、長さ・角度・内積を入れる前から成立する構造を、計量に依存する構造から切り離して見せることにあったのだと思います。外微分 $d$、ウェッジ積、境界、ストークス型の構造は、計量を入れる前からかなりのところまで動きます。一般相対論やベクトル解析では、最初から計量を前面に出すと、外微分、境界、保存則、座標変換、そしてホッジ・スターによる計量依存の変換が一つに混ざって見えます。Burke はそこに、かなり早い段階で問題意識を抱いていたのだろうと思います。
 
-ここで、本書を読破したあなたに最後に伝えたいことがあります。本書は「計量」と「トポロジー」を分離する方針で始まりましたが、正直なところ、計量は随所でこっそり漏れ出ています。このあたりの徹底ぶりは Burke の原著には及びません。ほどほどに分離しつつ、行きつ戻りつしながらようやく辿り着いたのが本書の姿です。しかし、この不完全さには思いがけない効用があります。骨の髄まで分離の苦しみを味わったあなたは、次に出会う「統合」に備えています。C. Doran と A. Lasenby らが提唱する「幾何代数（Geometric Algebra）」——そこでは、我々が引き裂いてきた内積と外積が、最初から「幾何積」として一つに融合しています。抽象的な理論としてではなく、長年の煩わしさからの解放として、それは感じられるはずです。
-筆者も未だその全容を掴めず、しかしその魅力に惹かれて探求中です。この苦しみを共有した読者の中から、この先、同じように強く惹きつけられる人が少なからず現れるのではないかと思います。
+もちろん、これは筆者なりの受け取り方です。Burke 自身の問題意識が、私の「双対と内積を分けたい」という要求と同じだったとは思いません。それでも、計量を急いで導入すると、本来別々に見えるはずの構造が一つに潰れてしまう、という点で、私は Burke の問題意識に強く共感しました。
 
-『ナブラ解体新書』が、あなたの物理学の旅において、より高く、より遠くへ飛ぶための強靭な足場となることを、著者として心から願っています。
+Dirac から受け取ったのは、「双対を内積に潰すな」という感覚でした。Burke から受け取ったのは、「計量を急いで入れると、計量なしで見える構造まで見えなくなる」という感覚でした。本書は、この二つの感覚が私の中で結びつき、$dx$ を測定器として置き、引き戻しを計量から分離し、その後で計量とホッジ・スターを導入する、という形に落ち着いたものです。
+
+私にとって、とりわけ重要だったのは、まず座標変換と引き戻しを、長さや角度の話から切り離して扱えると示すことでした。座標変換こそ、ベクトル解析の鬼門です。そこに単位ベクトル、スケール因子、面積要素、計量を一度に流し込むから、何が何に由来するのかが見えなくなる。本書では、まず引き戻しをヤコビアンの行列計算として処理し、その後で計量とホッジ・スターを導入する、という順序を選びました。そして私は、この順序そのものを、読者を巻き込む「目次構成の教育的エンターテインメント」にしてやろう、と決意しました。
+
+第1章から第5章までは、計量という概念を形式的に定義せず、実空間 $(x,y,z)$ における素朴な長さ・面積の直観に基づいた代数で押し通しました。より進んだ立場から見れば「面積には計量が必要だ」と言いたくなる場面でしょうが、本書の序盤では $xyz$ のデカルト座標に固定し、ピタゴラスの定理が成り立つ範囲で、素朴な面積・体積の直観をあえて使いました。計量 $g = J^T J$ が真に必要になるのは、パラメータ空間のような目盛りの歪んだ座標系へ一般化するときである——その事実を、第6章で行列計算を通じて発見的に導き出しました。
+
+そして迎えた第6章の冒頭。「筆者もそろそろ飽きてきた」と冗談めかして、内積を正式に定義しました。同時に、計量 $g = J^T J$ の意味を明らかにし、ホッジ・スター $\ast$ を「微分形式とベクトル解析を繫ぐ型変換アダプタ」として位置づけました。この発見的構成を通じて、「$df$ は計量に依存しないが、通常の勾配ベクトル・回転・発散として読むには計量やホッジ・スターが必要である」という構造を、読者に納得してもらうための仕掛けでした。
+
+これらのアイデアのうち、Burke の「計量遅延」哲学や Flanders の微分形式の物理応用は、いずれも既存の英語文献に書かれています。本書の内容に数学的な新規性はありません。ただ、$dx$ を行列として定義し全編を通じて行列計算で押し切るこの構成は、筆者の知る限り洋書にも見当たりません。東アジアの学生が記号計算に妙に訓練されているだけなのだろうか——などと茶化しつつ、いずれにせよ筆者が自分自身のために書いたものを整理したに過ぎません。本書が立っている巨人たちの肩については、巻末の参考文献を見ていただければと思います。
+
+本書は、ベクトル解析に挫折したかつての私自身に向けて書いた「サバイバルガイド」です。もはやベクトル解析を飛び越え、「双対」「外微分」「引き戻し」「計量」「ホッジ・スター $\ast$」といった強力なツールと、デカルト座標の限界を知ったあなたなら、すでに次の世界への扉を開いています。
+
+ここから先は蛇足です。けれども、本書を閉じる前に、どうしても表明しておきたい筆者の信念があります。
+
+本書は、微分形式という一見すると抽象的な道具を、できるかぎり行列計算へ落とし込むことで進んできました。$dx$ を横ベクトルとして読むことも、ウェッジ積を反対称な行列の計算として扱うことも、ホッジ・スターを計量行列から作る辞書として読むことも、すべてそのための仕掛けでした。
+
+振り返ってみると、これは単なる筆者個人の便法ではなく、少なくとも入試数学をかなり本気で通過してきた理系学生がすでに身につけている代数的訓練を、大学数学の入口で「悪用」する試みでもあったのかもしれません。日本の難関入試は、良くも悪くも、式を変形し、文字を置き換え、パラメータを追い、条件を整理する能力を学生に叩き込みます。微分積分学ですら例外ではありません。典型的には、置換積分や媒介変数表示の処理は、ほとんど代数的な記号操作として訓練されます。
+
+そのような訓練はしばしば過剰で、無意味な技巧にも見えるでしょう。けれども、これを無意味だ、抽象論への妨げだ、と嘆くのではなく、身体化された強力な武器として活用する余地があるのです。
+
+その表れとして、本書は読者にかなり多くの手計算を求めます。しかもその多くは、極限を評価したり、関数の収束を調べたりする解析的な計算というより、記号を並べ替え、成分を追い、行列を掛け、外積を展開する代数的な計算です。これは、読者を低く見積もっていないということでもあります。読者はこの程度の記号操作には耐えられるはずだ、と筆者は期待しています。あるいは、少し買いかぶっているのかもしれません。
+
+大学数学は、あまりにも早く集合論的「定義」へ飛ぶことがあります。もちろん、抽象的な定義には強さがあります。ブルバキ的な構造の整理には、今でも学ぶべきものがあります。しかし、すでに手に入れている代数的な身体を使って、抽象概念を一度、具体的な操作として掴む道もあるはずです。本書は、その道をかなり極端な形で試したものでした。$dx=(1\ 0\ 0)$ という断言は、その象徴です。
+
+本書の構成は、決して唯一の正解ではありません。おそらく不格好で、ところどころ強引で、標準的な教科書から見れば遠回りに見えるでしょう。それでも、もし読者がこの本を通じて、抽象的な記号を自分の手で動かせるものとして感じられたなら、本書の役目は果たされたことになります。
+
+『ナブラ解体新書』が、あなたの物理学と数学の旅において、すでに持っている代数的な手を捨てず、より高く、より遠くへ進むための強靭な足場となることを、著者として心から願っています。
 
 \newpage
 
@@ -8551,18 +8998,18 @@ $$
 本書は、一般多様体上の微分形式論を公理的に展開する本ではありません。3次元デカルト空間におけるベクトル解析を、行列表示の微分形式を通して再構成するための教育的な本です。したがって、本書で採用した記法や説明順序は、標準的な数学書の記述と一致しない箇所があります。それらは原則として意図的な選択であり、必要に応じて第11章で標準的理論への接続を示しました。
 
 > \textbf{注}（本音）
-> 「はじめに」ではこのセクションを「本書で語らなかったもの」と穏やかに紹介しましたが、それは建前です。本音を言えば、これは本書の射程を読まずに投げられる典型的な批判への対応集です。
+> このセクションのタイトルは「本書で語らなかったもの」と穏やかなものにしてみましたが、それは建前です。本音を言えば、これは本書の射程を読まずに投げられる典型的な批判への対応集です。
 > 
 > ただし、そう書いてしまえば、本当に応援したい読者が怖がって逃げ出してしまうでしょう。だから、表向きは穏やかな名前をつけました。
 
 > \textbf{注}（「私」は怒っている）
 > 筆者は若いころ、本書と同じ方向を向いた一連の SNS 投稿を公開し、立場のある方も含む「数学に詳しい」人々から手ひどく批判されたことがあります。もちろん、当時の草稿には未熟な点が多かったと思います。あれから10年経っても未だにこんな調子の文章を書く筆者の、若かりし時代です。それはもう、「勢いのある」投稿だったに違いありません。だが、そのとき筆者が受け取ったものは、定義を読み、射程を確認し、どう直せばよいかを示す批評というより、専門的な立場から未完成な試みを一方的に裁く態度でした。
 > 
-> それは、SNS のエンゲージメントとサピエンスの習性が生み出す、ある種の必然でもあったのでしょう。無料で文章を公開することには、想像以上の消耗が伴うと身をもって知りました。
+> それは、SNSのエンゲージメント構造と、人間の群集心理が生み出す、ある種の必然でもあったのでしょう。無料で文章を公開することには、想像以上の消耗が伴うと身をもって知りました。
 > 
 > その構造を理解したうえで、なお筆者はいまでも怒っています。厳密性を掲げながら、相手が何を定義し、どの射程で語っているかを読まない態度は、少なくとも筆者の考える数学的態度ではありません。
 > 
-> それでも、本書に限っては無料公開することに決めました。ある意味では、くだらない代償行為です。その上で、本来の読者を守るために——いえ、ごめんなさい、これも少し建前です。私自身の自尊心を守るためにも、精一杯の予防線を張ることにしました。
+> それでも、本書に限っては無料公開することに決めました。ある意味では、私的な代償行為でもあります。その上で、本来の読者を守るために——いえ、ごめんなさい、これも少し建前です。私自身の自尊心を守るためにも、精一杯の予防線を張ることにしました。
 > 
 > 本書の定義が数学者向けの教科書と異なるように見える箇所があるなら、まず本書内の定義を読んでほしいと思います。そのうえで、本当に矛盾しているのか、単に異なる文脈の記号を持ち込んでいるだけなのかを峻別してほしいのです。その後には遠慮なく、私を今一度、手ひどく批判してほしい。定義を読んだうえで、筆者の間違いを指摘してほしいのです。
 
@@ -8586,7 +9033,7 @@ $$
   → 本書は一般多様体上の微分形式の教科書ではなく、3次元ユークリッド空間上でベクトル解析へ到達するための導入書です。一般多様体への移行については第11章で道標を示します。
 
 - \textbf{反変ベクトルと共変ベクトル（双対空間）の区別を序盤で明確にすべきだ}
-  → 第1章 §1.1.6 で「縦ベクトル（変位）」と「横ベクトル（測定器）」の区別を導入しており、これは双対空間の概念の具体的な実装です。より抽象的な双対空間の定式化については第6章および第11章で接続します。
+  → 第1章 §1.1.6 で「縦ベクトル（変位）」と「横ベクトル（測定器）」の区別を導入しており、これは双対空間の概念の具体的な表現です。より抽象的な双対空間の定式化については第6章および第11章で接続します。
 
 - \textbf{$dx$ を横ベクトルとして扱う記法は数学書の標準的な表記ではない}
   → 意図的な選択です。第1章 §1.1 で定義し、全章で一貫して使用しています。この記法の狙いは「1-form = ベクトルを食べる関数」という抽象概念を、読者が既知の「行列の掛け算」に翻訳することにあります。標準的な微分形式の記法との対応は第11章で示します。
@@ -8598,7 +9045,7 @@ $$
   → 本書では3次元ユークリッド空間での具体的なケース（ガウスの定理・ストークスの定理・グリーンの定理）を積分の定義から直接導出します（第5章、第8章）。一般次元のストークスの定理の証明は本書の射程外であり、第11章で道標のみ示します。
 
 - \textbf{ウェッジ積の定義において外積代数の普遍性質を用いた公理的アプローチを経由していない}
-  → 本書では §2.4 でテンソル積の反対称化としてウェッジ積を構築しています。これは公理的アプローチの最も具体的な実装であり、読者が行列の引き算として手を動かせるようにするための意図的な選択です。普遍性質による定義は第11章で紹介します。
+  → 本書では §2.4 でテンソル積の反対称化としてウェッジ積を構築しています。これは公理的アプローチの最も具体的な実践であり、読者が行列の引き算として手を動かせるようにするための意図的な選択です。普遍性質による定義は第11章で紹介します。
 
 - \textbf{幾何学的な対象そのものに絶対的な座標表示はないのに成分表示に依存しすぎている}
   → 意図的な選択です。本書の主題は「微分形式をどう使うか」であり、「座標に依存しない幾何学的主体としての微分形式」の哲学は目的としていません。本書は標準的なベクトル解析の教科書と同様に、実用的な計算手段として成分表示を採用しています。座標不変な視点は第11章で接続します。
@@ -8632,7 +9079,7 @@ $$
   → 本書では幾何を隠蔽しているのではなく、アトミックな行列操作と幾何学的直感を常に対応させて与えています。たとえば第6章 §6.1 では、パラメータ空間の計量 $\mathbf{g}=J^T J$ の各成分が「軸方向の目盛りの伸び縮み」を直接表現していることを、行列の対角成分を見ながら確認できます。
 
 - \textbf{微分形式を行列表示した際、成分がどの基底に関するものかが判別できない}
-  → 記法上の限界であることは認めます。熱力学の偏微分のように独自記法で常に明示しようかとも思ったが、これでも一般記法と乖離しすぎないよう気を付けているので受け入れました。本書では第1章 §1.1.6 と §1.4 から「どの座標系の基底で書いているか」を毎回文中で明示する方針をとっています。ただし、標準的な $dx^i$ のような上付き添字による基底の明示はむしろ相性が悪いと考えて割愛しました。添字記法との対応は第11章を参照してください。
+  → 記法上の限界であることは認めます。熱力学の偏微分で固定する変数を下付きにするように、座標系や基底を記号に埋め込む独自記法も考えましたが、一般記法との乖離をこれ以上広げないため採用しませんでした。本書では第1章 §1.1.6 と §1.4 以降、「どの座標系の基底で書いているか」を毎回本文中で明示する方針をとっています。標準的な $dx^i$ 記法との対応は第11章を参照してください。
 
 - \textbf{外微分 $d$ と共変微分 $\nabla$ は別物であり、本書の $d$ の説明だけでは曲がった空間での微分が扱えないのではないか}
   → その通りであり、意図的な分離です。本書の $d$ は反対称微分（外微分）であり、計量に依存しないトポロジカルな操作です。一方、共変微分 $\nabla$ は計量に依存する対称微分であり、曲がった空間で必要になります。この分離（$d$ と $\nabla$）は Burke の「計量遅延」から強い影響を受けた筆者の解釈であり、第6章と第11章で扱います。

@@ -193,17 +193,30 @@ def main():
         chapter_positions = [m.start() for m in re.finditer(r'\\chapter\{', text)]
         if not chapter_positions:
             return text
+
+        def matter_insert_pos(chapter_pos):
+            target_pos = text.rfind(r'\hypertarget{', 0, chapter_pos)
+            if target_pos == -1:
+                return chapter_pos
+
+            wrapper = text[target_pos:chapter_pos]
+            if r'}{%' not in wrapper:
+                return chapter_pos
+            if re.search(r'\\(?:chapter|section|subsection|subsubsection)\{', wrapper):
+                return chapter_pos
+
+            return target_pos
         
         fm_count = len(model.front_matter)
         bm_count = sum(1 for ch in content_chapters if ch.id in ('afterword', 'references', 'appendix'))
         main_start = fm_count
         back_start = len(chapter_positions) - bm_count
         
-        insertions = [(chapter_positions[0], '\n\\frontmatter\n')]
+        insertions = [(matter_insert_pos(chapter_positions[0]), '\n\\frontmatter\n')]
         if main_start < len(chapter_positions):
-            insertions.append((chapter_positions[main_start], '\n\\mainmatter\n'))
+            insertions.append((matter_insert_pos(chapter_positions[main_start]), '\n\\mainmatter\n'))
         if 0 < back_start < len(chapter_positions) and back_start != main_start:
-            insertions.append((chapter_positions[back_start], '\n\\backmatter\n'))
+            insertions.append((matter_insert_pos(chapter_positions[back_start]), '\n\\backmatter\n'))
         
         for pos, cmd in reversed(insertions):
             text = text[:pos] + cmd + text[pos:]
@@ -333,7 +346,7 @@ def main():
         r'v0.x.0         & 章の追加・章構成の変更・大幅な書き直し\\ \hline' '\n'
         r'v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline' '\n'
         r'\end{tabular}\par\bigskip' '\n'
-        r'\begin{tabular}{|p{\textwidth}|}\hline' '\n'
+        r'\begin{tabular}{|p{\dimexpr\textwidth-2\tabcolsep-2\arrayrulewidth\relax}|}\hline' '\n'
         r'\multicolumn{1}{|c|}{\textbf{直近の改定履歴}}\\ \hline' '\n'
         + ''.join(
             r'{\small ' + latex_escape(line) + r'}\\ \hline' '\n'

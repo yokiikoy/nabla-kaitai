@@ -261,7 +261,7 @@ $$(dx \wedge dy)(\Delta\mathbf{a},\Delta\mathbf{b})
 $$\iint_S dx \wedge dy$$
 <p>と<strong>書くことにする</strong>。これが $2$-form の積分——面積分——の定義である。構成は §3.1 の体積分と同じ型で、食わせるベクトルが2本になっただけだ。
 </p>
-<h4 id="3.2.2-__MATH_BLOCK_187__-が測るもの——球面で試す">3.2.2 $dx \wedge dy$ が測るもの——球面で試す</h4>
+<h4 id="3.2.2-__MATH_BLOCK_188__-が測るもの——球面で試す">3.2.2 $dx \wedge dy$ が測るもの——球面で試す</h4>
 <p>実際に球面で計算してみよう。半径 $R$ の球面の上半分（$z \ge 0$）を考える。球面上の点 $(x,y,z)$ は
 </p>
 $$x^2+y^2+z^2=R^2,\qquad z=\sqrt{R^2-x^2-y^2}$$
@@ -368,8 +368,8 @@ $$\begin{aligned}
 dS(\Delta\mathbf{x}_S,\Delta\mathbf{y}_S)
 &= \sqrt{
 \Bigl(\frac{x}{\sqrt{R^2-x^2-y^2}}\Delta x\,\Delta y\Bigr)^2
-+ \Bigl(\frac{y}{\sqrt{R^2-x^2-y^2}}\Delta x\,\Delta y\Bigr)^2
-+ (\Delta x\,\Delta y)^2} \\[4pt]
+{}+ \Bigl(\frac{y}{\sqrt{R^2-x^2-y^2}}\Delta x\,\Delta y\Bigr)^2
+{}+ (\Delta x\,\Delta y)^2} \\[4pt]
 &= \sqrt{\frac{x^2+y^2}{R^2-x^2-y^2}+1}\;\Delta x\,\Delta y \\[4pt]
 &= \frac{R}{\sqrt{R^2-x^2-y^2}}\,\Delta x\,\Delta y
 \end{aligned}$$
@@ -482,7 +482,12 @@ $$\begin{aligned}
 </p>
 <p>しかし、この円の弧長が $2\pi R$ であることも我々は知っている。係数1の $dx, dy$ だけではゼロになってしまうが、では<strong>どうすれば弧長が出るのか</strong>。
 </p>
-<p>各番号 $t$ で $dx, dy$ が測った値はすでに手元にある。$dx(\gamma'(t)) = -R\sin t$、$dy(\gamma'(t)) = R\cos t$。これらはスカラーだから、二乗して足すことができる：
+<p>各番号 $t$ で $dx, dy$ が測った値はすでに手元にある。
+</p>
+$$
+dx(\gamma'(t)) = -R\sin t,\qquad dy(\gamma'(t)) = R\cos t
+$$
+<p>これらはスカラーだから、二乗して足すことができる：
 </p>
 $$dx(\gamma'(t))^2 + dy(\gamma'(t))^2 = R^2\sin^2 t + R^2\cos^2 t = R^2$$
 <p>その平方根をとれば、その小片あたりの長さの換算率 $|\gamma'(t)| = R$ が得られる。全区間で積分すれば：
@@ -500,7 +505,7 @@ $$ds(\mathbf{v}) = \sqrt{dx(\mathbf{v})^2 + dy(\mathbf{v})^2 + dz(\mathbf{v})^2}
 </blockquote>
 <p>この $ds$ は弧長を測るための便利な記法だが、本書でいう $1$-form そのものではない。$1$-form は変位 $\mathbf{v}$ に対して線形に作用する測定器であるのに対し、$ds(\mathbf{v})$ は二乗和の平方根を含むため、一般に $ds(\mathbf{v}+\mathbf{w}) = ds(\mathbf{v})+ds(\mathbf{w})$ を満たさない。したがって $ds$ を $dx,dy,dz$ の線形結合——$P\,dx+Q\,dy+R\,dz$ の形——で書くことはできない。
 </p>
-<h4 id="3.3.3-では-__MATH_BLOCK_330__-form-で何が測れるのか">3.3.3 では $1$-form で何が測れるのか</h4>
+<h4 id="3.3.3-では-__MATH_BLOCK_329__-form-で何が測れるのか">3.3.3 では $1$-form で何が測れるのか</h4>
 <p>弧長は $ds(\mathbf{v}) = \sqrt{dx(\mathbf{v})^2 + dy(\mathbf{v})^2 + dz(\mathbf{v})^2}$ という線素を積分して測れた。ただし、この $ds$ は $dx,dy,dz$ の線形結合では書けず、二乗和の平方根を必要とする。ここではまず、このような二乗和平方根を使わない $1$-form——すなわち $dx, dy, dz$ の線形結合で書ける $1$-form——が、いったい何を測るのかを見ていこう。
 </p>
 <p>空間の各点に力の場 $\mathbf{F}(x,y,z) = (F_x, F_y, F_z)$ が働いている。曲線に沿って質点を動かすとき、各小区間で力がする微小仕事は、力の変位方向成分と変位の大きさの積——すなわち $F_x\,\Delta x + F_y\,\Delta y + F_z\,\Delta z$——である。これを全区間で足し上げたものが仕事 $W = \int_\gamma \mathbf{F}\cdot d\mathbf{r}$ だ。
@@ -529,7 +534,7 @@ $$ds(\mathbf{v}) = \sqrt{dx(\mathbf{v})^2 + dy(\mathbf{v})^2 + dz(\mathbf{v})^2}
 </p>
 <p>以下、1次元・2次元・3次元の順に、係数付き形式の積分を定義していく。
 </p>
-<h4 id="3.4.1-一般の-__MATH_BLOCK_358__-form-の線積分（仕事）">3.4.1 一般の $1$-form の線積分（仕事）</h4>
+<h4 id="3.4.1-一般の-__MATH_BLOCK_357__-form-の線積分（仕事）">3.4.1 一般の $1$-form の線積分（仕事）</h4>
 <p>実空間で、係数が点 $(x,y,z)$ に依存する三つのスカラー場 $P,Q,R$ をとり、
 </p>
 $$\omega = P(x,y,z)\,dx + Q(x,y,z)\,dy + R(x,y,z)\,dz$$
@@ -564,7 +569,7 @@ $$\omega(\gamma'(t)) = (\sin t)(-\sin t) + (\cos t)(\cos t) = -\sin^2\!t + \cos^
 $$\int_\gamma \omega = \int_0^{2\pi} \cos 2t\,dt = \Bigl[\frac{1}{2}\sin 2t\Bigr]_0^{2\pi} = 0$$
 <p>仕事がゼロになった。この力場は単位円に沿って正味の仕事をしないのである。
 </p>
-<h4 id="3.4.2-一般の-__MATH_BLOCK_394__-form-の面積分（流量）">3.4.2 一般の $2$-form の面積分（流量）</h4>
+<h4 id="3.4.2-一般の-__MATH_BLOCK_393__-form-の面積分（流量）">3.4.2 一般の $2$-form の面積分（流量）</h4>
 <p>同様に、三つのスカラー場 $P, Q, R$ を係数とする一般の $2$-form：
 </p>
 $$\eta = P\,dy \wedge dz + Q\,dz \wedge dx + R\,dx \wedge dy$$
@@ -572,8 +577,8 @@ $$\eta = P\,dy \wedge dz + Q\,dz \wedge dx + R\,dx \wedge dy$$
 </p>
 $$\eta(\Delta\mathbf{a},\Delta\mathbf{b})
 = P\,(dy \wedge dz)(\Delta\mathbf{a},\Delta\mathbf{b})
-+ Q\,(dz \wedge dx)(\Delta\mathbf{a},\Delta\mathbf{b})
-+ R\,(dx \wedge dy)(\Delta\mathbf{a},\Delta\mathbf{b})$$
+{}+ Q\,(dz \wedge dx)(\Delta\mathbf{a},\Delta\mathbf{b})
+{}+ R\,(dx \wedge dy)(\Delta\mathbf{a},\Delta\mathbf{b})$$
 <p>全区画で足し上げて極限をとる。この極限を
 </p>
 $$\iint_S \eta$$
@@ -584,7 +589,7 @@ $$\iint_S \eta$$
 <blockquote>
 <p><strong>注</strong> （ここではベクトル解析との対応は補助線）流量との対応は、既にベクトル解析を知っている読者のための橋渡しにすぎない。本書の本線はあくまで「$2$-form を食わせて集計する」という操作であり、ベクトル解析の知識がなくともこの先の議論に支障はない。</p>
 </blockquote>
-<h4 id="3.4.3-一般の-__MATH_BLOCK_405__-form-の体積分（総質量）">3.4.3 一般の $3$-form の体積分（総質量）</h4>
+<h4 id="3.4.3-一般の-__MATH_BLOCK_404__-form-の体積分（総質量）">3.4.3 一般の $3$-form の体積分（総質量）</h4>
 <p>$3$-form の一般形は、スカラー場 $\rho(x,y,z)$ を係数として：
 </p>
 $$\Omega = \rho(x,y,z)\,dx \wedge dy \wedge dz$$
