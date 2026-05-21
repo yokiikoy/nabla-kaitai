@@ -232,47 +232,47 @@
 \contentsline {subsection}{§10.3 ミンコフスキー計量——\(\mathbb {R}^3\) から4次元へ}{157}{section*.243}%
 \contentsline {subsection}{§10.4 \(dF=0\) を全部書き下す}{158}{section*.244}%
 \contentsline {subsection}{§10.5 \(\ast F\) と残りの2本}{159}{section*.245}%
-\contentsline {subsection}{§10.6 ポテンシャル構成——\(F=-d\mathcal {A}\) から始める}{160}{section*.246}%
-\contentsline {subsubsection}{4元ポテンシャルを置く}{161}{section*.247}%
+\contentsline {subsection}{§10.6 ポテンシャル構成——\(F=-d\mathcal {A}\) から始める}{161}{section*.246}%
+\contentsline {subsubsection}{4元ポテンシャルを置く}{162}{section*.247}%
 \contentsline {subsubsection}{\(d\mathcal {A}\) を成分で計算する}{162}{section*.248}%
 \contentsline {subsubsection}{符号の理由}{163}{section*.249}%
-\contentsline {subsubsection}{\(dd=0\) が \(dF=0\) を証明する}{164}{section*.250}%
+\contentsline {subsubsection}{\(dd=0\) が \(dF=0\) を証明する}{165}{section*.250}%
 \contentsline {subsubsection}{残るのは、もう1本の方程式である}{165}{section*.251}%
-\contentsline {section}{付録E：\(dF\) と \(d(\ast F)\) のスライス行列表示 —— \(4\times 4\times 4\) 配列で見るマクスウェル方程式}{166}{section*.252}%
+\contentsline {section}{付録E：\(d_4F\) と \(d_4(\ast _4F)\) のスライス行列表示 —— \(4\times 4\times 4\) 配列で見るマクスウェル方程式}{166}{section*.252}%
 \contentsline {section}{付録F：第5章の4本の式と、第10章の2本の式}{170}{section*.258}%
-\contentsline {chapter}{\numberline {11}第11章：曲がった空間へ —— 本書の先にあるもの}{176}{chapter.11}%
-\contentsline {subsection}{§11.0 この章の立ち位置 —— さらに先を見たい読者のための道標}{176}{section*.264}%
-\contentsline {subsection}{§11.1 多様体 —— \(\mathbf {g}(x)\) から始める}{177}{section*.265}%
-\contentsline {subsubsection}{11.1.1 定義 —— チャートとアトラス}{178}{section*.266}%
-\contentsline {subsubsection}{11.1.2 接空間 —— 「曲がった空間での微分」の定義}{178}{section*.267}%
-\contentsline {subsubsection}{11.1.3 微分形式 —— 余接束とテンソル場}{179}{section*.268}%
-\contentsline {subsubsection}{11.1.4 外微分 \(d\) —— 多様体上で変わらないもの}{180}{section*.269}%
-\contentsline {subsubsection}{11.1.5 計量とホッジ・スター —— 場所ごとに変わるもの}{180}{section*.270}%
-\contentsline {subsubsection}{11.1.6 積分 —— 1の分割と向き付け可能性}{181}{section*.271}%
-\contentsline {subsubsection}{11.1.7 接続と曲率 —— 一言だけ}{181}{section*.272}%
-\contentsline {subsubsection}{11.1.8 本書との対応}{181}{section*.273}%
-\contentsline {subsection}{§11.2 リーマン幾何学 —— テンソル解析のスタイル}{182}{section*.274}%
-\contentsline {subsubsection}{11.2.1 テンソル —— 変換則による定義}{182}{section*.275}%
-\contentsline {subsubsection}{11.2.2 クリストッフェル記号 —— 微分がテンソルでなくなる問題}{182}{section*.276}%
-\contentsline {subsubsection}{11.2.3 リーマン曲率テンソル}{183}{section*.277}%
-\contentsline {subsubsection}{11.2.4 二つのスタイル —— 本書との関係}{184}{section*.278}%
-\contentsline {subsection}{§11.3 その先へ}{184}{section*.279}%
-\contentsline {chapter}{\numberline {12}第12章：真のナブラ —— クリフォード・パウリ・ディラック・ハミルトン}{186}{chapter.12}%
-\contentsline {subsection}{§12.0 2本を1本に}{186}{section*.280}%
-\contentsline {subsection}{§12.1 虚数で一本に —— マクスウェル方程式の統合}{186}{section*.281}%
-\contentsline {subsection}{§12.2 パウリ行列 —— 異なる次数を足す魔法}{187}{section*.282}%
-\contentsline {subsubsection}{12.2.1 パウリ行列の定義と掛け算}{187}{section*.283}%
-\contentsline {subsubsection}{12.2.2 ベクトルをパウリ行列で書く}{188}{section*.284}%
-\contentsline {subsubsection}{12.2.3 スカラーも混ぜて足す}{189}{section*.285}%
-\contentsline {subsection}{§12.3 ディラック演算子と「真のナブラ」}{190}{section*.286}%
-\contentsline {subsubsection}{12.3.1 \(\bm {\sigma }\!\cdot \!\nabla \) —— 統合的な微分演算子}{190}{section*.287}%
-\contentsline {subsubsection}{12.3.2 \(D^2\) —— ラプラシアン}{191}{section*.288}%
-\contentsline {subsubsection}{12.3.3 マクスウェルを一本に —— 再訪}{192}{section*.289}%
-\contentsline {subsubsection}{12.3.4 \(\cancel {\partial } F = J\) —— 4次元時空のディラック演算子}{193}{section*.290}%
-\contentsline {subsection}{§12.4 演算子\(\nabla \)}{193}{section*.291}%
-\contentsline {chapter}{おわりに：『ナブラ解体新書』はいかにして生まれたか}{194}{chapter*.292}%
-\contentsline {chapter}{参考文献（と著者からのコメント）}{198}{chapter*.293}%
-\contentsline {chapter}{付録：本書で語らなかったもの}{200}{chapter*.294}%
-\contentsline {section}{I. 理論的枠組みと厳密性について}{201}{section*.295}%
-\contentsline {section}{II. 手法の選択と適用限界について}{202}{section*.296}%
-\contentsline {section}{III. 物理的定義と教育的配慮について}{204}{section*.297}%
+\contentsline {chapter}{\numberline {11}第11章：曲がった空間へ —— 本書の先にあるもの}{177}{chapter.11}%
+\contentsline {subsection}{§11.0 この章の立ち位置 —— さらに先を見たい読者のための道標}{177}{section*.264}%
+\contentsline {subsection}{§11.1 多様体 —— \(\mathbf {g}(x)\) から始める}{178}{section*.265}%
+\contentsline {subsubsection}{11.1.1 定義 —— チャートとアトラス}{179}{section*.266}%
+\contentsline {subsubsection}{11.1.2 接空間 —— 「曲がった空間での微分」の定義}{179}{section*.267}%
+\contentsline {subsubsection}{11.1.3 微分形式 —— 余接束とテンソル場}{180}{section*.268}%
+\contentsline {subsubsection}{11.1.4 外微分 \(d\) —— 多様体上で変わらないもの}{181}{section*.269}%
+\contentsline {subsubsection}{11.1.5 計量とホッジ・スター —— 場所ごとに変わるもの}{181}{section*.270}%
+\contentsline {subsubsection}{11.1.6 積分 —— 1の分割と向き付け可能性}{182}{section*.271}%
+\contentsline {subsubsection}{11.1.7 接続と曲率 —— 一言だけ}{182}{section*.272}%
+\contentsline {subsubsection}{11.1.8 本書との対応}{182}{section*.273}%
+\contentsline {subsection}{§11.2 リーマン幾何学 —— テンソル解析のスタイル}{183}{section*.274}%
+\contentsline {subsubsection}{11.2.1 テンソル —— 変換則による定義}{183}{section*.275}%
+\contentsline {subsubsection}{11.2.2 クリストッフェル記号 —— 微分がテンソルでなくなる問題}{183}{section*.276}%
+\contentsline {subsubsection}{11.2.3 リーマン曲率テンソル}{184}{section*.277}%
+\contentsline {subsubsection}{11.2.4 二つのスタイル —— 本書との関係}{185}{section*.278}%
+\contentsline {subsection}{§11.3 その先へ}{185}{section*.279}%
+\contentsline {chapter}{\numberline {12}第12章：真のナブラ —— クリフォード・パウリ・ディラック・ハミルトン}{187}{chapter.12}%
+\contentsline {subsection}{§12.0 2本を1本に}{187}{section*.280}%
+\contentsline {subsection}{§12.1 虚数で一本に —— マクスウェル方程式の統合}{187}{section*.281}%
+\contentsline {subsection}{§12.2 パウリ行列 —— 異なる次数を足す魔法}{188}{section*.282}%
+\contentsline {subsubsection}{12.2.1 パウリ行列の定義と掛け算}{188}{section*.283}%
+\contentsline {subsubsection}{12.2.2 ベクトルをパウリ行列で書く}{189}{section*.284}%
+\contentsline {subsubsection}{12.2.3 スカラーも混ぜて足す}{190}{section*.285}%
+\contentsline {subsection}{§12.3 ディラック演算子と「真のナブラ」}{191}{section*.286}%
+\contentsline {subsubsection}{12.3.1 \(\bm {\sigma }\!\cdot \!\nabla \) —— 統合的な微分演算子}{191}{section*.287}%
+\contentsline {subsubsection}{12.3.2 \(D^2\) —— ラプラシアン}{192}{section*.288}%
+\contentsline {subsubsection}{12.3.3 マクスウェルを一本に —— 再訪}{193}{section*.289}%
+\contentsline {subsubsection}{12.3.4 \(\cancel {\partial } F = J\) —— 4次元時空のディラック演算子}{194}{section*.290}%
+\contentsline {subsection}{§12.4 演算子\(\nabla \)}{194}{section*.291}%
+\contentsline {chapter}{おわりに：『ナブラ解体新書』はいかにして生まれたか}{195}{chapter*.292}%
+\contentsline {chapter}{参考文献（と著者からのコメント）}{199}{chapter*.293}%
+\contentsline {chapter}{付録：本書で語らなかったもの}{201}{chapter*.294}%
+\contentsline {section}{I. 理論的枠組みと厳密性について}{202}{section*.295}%
+\contentsline {section}{II. 手法の選択と適用限界について}{203}{section*.296}%
+\contentsline {section}{III. 物理的定義と教育的配慮について}{205}{section*.297}%
