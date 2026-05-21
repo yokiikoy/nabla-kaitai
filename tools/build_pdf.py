@@ -212,7 +212,7 @@ def main():
         main_start = fm_count
         back_start = len(chapter_positions) - bm_count
         
-        insertions = [(matter_insert_pos(chapter_positions[0]), '\n\\frontmatter\n')]
+        insertions = []
         if main_start < len(chapter_positions):
             insertions.append((matter_insert_pos(chapter_positions[main_start]), '\n\\mainmatter\n'))
         if 0 < back_start < len(chapter_positions) and back_start != main_start:
@@ -291,6 +291,7 @@ def main():
         r'\usepackage{etoolbox}' '\n'
         r'\usepackage{tocloft}' '\n'
         r'\usepackage{indentfirst}' '\n'
+        r'\setcounter{secnumdepth}{0}' '\n'
         r'\renewcommand{\cftchapdotsep}{\cftdotsep}' '\n'
         r'\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}' '\n'
         r'\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}' '\n'
@@ -360,6 +361,7 @@ def main():
         r'{\footnotesize ' + latex_escape(build_datetime) + r' --- 著者：' + latex_escape(author_name) + r'\par}' '\n'
         r'\restoregeometry' '\n'
         r'\end{titlepage}' '\n'
+        r'\frontmatter' '\n'
         r'\tableofcontents' '\n'
         r'\newpage' '\n'
     )
