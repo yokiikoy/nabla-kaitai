@@ -276,8 +276,8 @@
 \contentsline {subsubsection}{12.3.4 \(\cancel {\partial } F = J\) —— 4次元時空のディラック演算子}{193}{section*.190}%
 \contentsline {subsection}{\numberline {12.0.5}§12.4 演算子\(\nabla \)}{193}{subsection.12.0.5}%
 \contentsline {chapter}{おわりに：『ナブラ解体新書』はいかにして生まれたか}{194}{chapter*.191}%
-\contentsline {chapter}{参考文献（と著者からのコメント）}{196}{chapter*.192}%
-\contentsline {chapter}{付録：本書で語らなかったもの}{198}{chapter*.193}%
-\contentsline {section}{\numberline {12.1}I. 理論的枠組みと厳密性について}{199}{section.12.1}%
-\contentsline {section}{\numberline {12.2}II. 手法の選択と適用限界について}{200}{section.12.2}%
-\contentsline {section}{\numberline {12.3}III. 物理的定義と教育的配慮について}{202}{section.12.3}%
+\contentsline {chapter}{参考文献（と著者からのコメント）}{197}{chapter*.192}%
+\contentsline {chapter}{付録：本書で語らなかったもの}{199}{chapter*.193}%
+\contentsline {section}{\numberline {12.1}I. 理論的枠組みと厳密性について}{200}{section.12.1}%
+\contentsline {section}{\numberline {12.2}II. 手法の選択と適用限界について}{201}{section.12.2}%
+\contentsline {section}{\numberline {12.3}III. 物理的定義と教育的配慮について}{203}{section.12.3}%
