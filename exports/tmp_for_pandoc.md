@@ -595,7 +595,16 @@ $t$ が少し変わったとき、$x=\gamma(t)$ はその $\gamma'(t)$ 倍だけ
 > \textbf{注} （スカラー場）物理学ではこのような関数を\textbf{スカラー場}と呼ぶことが多い。
 
 その $f(x,y,z)$ が点 $(x,y,z)$ で\textbf{（全）微分可能である}とは、変位 $\mathbf{v}=\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$ に対して
-$$\Delta f = f(x+\Delta x,\,y+\Delta y,\,z+\Delta z) - f(x,y,z) = \frac{\partial f}{\partial x}\,\Delta x + \frac{\partial f}{\partial y}\,\Delta y + \frac{\partial f}{\partial z}\,\Delta z + o(\|\mathbf{v}\|) \quad (\|\mathbf{v}\|\to 0)$$
+$$
+\begin{aligned}
+\Delta f
+&= f(x+\Delta x,\,y+\Delta y,\,z+\Delta z) - f(x,y,z) \\
+&= \frac{\partial f}{\partial x}\,\Delta x
+{}+ \frac{\partial f}{\partial y}\,\Delta y
+{}+ \frac{\partial f}{\partial z}\,\Delta z
+{}+ o(\|\mathbf{v}\|) \quad (\|\mathbf{v}\|\to 0)
+\end{aligned}
+$$
 が成り立つことである。§1.2.1 の1変数の定義と形式がそろっている。$o(\|\mathbf{v}\|)$ は余り項の略記（$o(|\Delta x|)$ と同趣旨）であり、ここでは深追いしないが、理解に支障はないであろう。
 
 
@@ -1850,7 +1859,7 @@ $$\mathbf{v}_1 \cdot (\mathbf{v}_2 \times \mathbf{v}_3) = \det\begin{pmatrix}x_1
 | :--- | :--- | :--- | :--- | :--- |
 | \textbf{0次元} | $0$-form（スカラー場 $f$） | 点 | 1成分（$f$） | $\sqrt{f^2}$  |
 | \textbf{1次元} | $1$-form（$dx, dy, dz$） | ベクトル（線分） | 3成分（$x, y, z$） | $\sqrt{x^2 + y^2 + z^2}$ |
-| \textbf{2次元} | $2$-form（$dy \wedge dz$ 等） | 2本のベクトルが張る平行四辺形 | 係数3つ（$A_{yz}, A_{zx}, A_{xy}$） | $\sqrt{A_{yz}^2 + A_{zx}^2 + A_{xy}^2}$ |
+| \textbf{2次元} | $2$-form（$dy \wedge dz$ 等） | 平行四辺形 | 3成分 | 係数の二乗和平方根 |
 | \textbf{3次元} | $3$-form（$dx \wedge dy \wedge dz$） | 3本のベクトルが張る平行六面体 | 1成分（$V$） | $\sqrt{V^2}$ |
 
 > \textbf{【ここまでのチェックポイント】}
@@ -2405,7 +2414,13 @@ $$\begin{aligned}
 
 しかし、この円の弧長が $2\pi R$ であることも我々は知っている。係数1の $dx, dy$ だけではゼロになってしまうが、では\textbf{どうすれば弧長が出るのか}。
 
-各番号 $t$ で $dx, dy$ が測った値はすでに手元にある。$dx(\gamma'(t)) = -R\sin t$、$dy(\gamma'(t)) = R\cos t$。これらはスカラーだから、二乗して足すことができる：
+各番号 $t$ で $dx, dy$ が測った値はすでに手元にある。
+
+$$
+dx(\gamma'(t)) = -R\sin t,\qquad dy(\gamma'(t)) = R\cos t
+$$
+
+これらはスカラーだから、二乗して足すことができる：
 
 $$dx(\gamma'(t))^2 + dy(\gamma'(t))^2 = R^2\sin^2 t + R^2\cos^2 t = R^2$$
 
@@ -3190,11 +3205,18 @@ $$\Phi^*\bigl(\rho(x,y,z)\,dx \wedge dy \wedge dz\bigr) = \rho(r\cos\theta,\, r\
 
 その体積値を $\Delta u\,\Delta v\,\Delta w$ で割り、分割を細かくしていく。すると差分比は偏微分係数へ移り、$3\times3$ の行列式が現れる。したがって、$h\to0$ 後の引き戻しは：
 
-$$\Phi^*\bigl(\rho(x,y,z)\,dx \wedge dy \wedge dz\bigr) = \rho(x(u,v,w), y(u,v,w), z(u,v,w))\ \det\!\begin{pmatrix}
+$$
+\begin{aligned}
+&\Phi^*\bigl(\rho(x,y,z)\,dx \wedge dy \wedge dz\bigr) \\
+&= \rho(x(u,v,w), y(u,v,w), z(u,v,w))\,
+\det\!\begin{pmatrix}
 \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} & \frac{\partial x}{\partial w} \\[6pt]
 \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} & \frac{\partial y}{\partial w} \\[6pt]
 \frac{\partial z}{\partial u} & \frac{\partial z}{\partial v} & \frac{\partial z}{\partial w}
-\end{pmatrix}\,du \wedge dv \wedge dw$$
+\end{pmatrix} \\
+&\qquad\qquad {}\wedge du \wedge dv \wedge dw
+\end{aligned}
+$$
 
 この $3 \times 3$ 行列式を $J(u,v,w)$ と書けば
 
@@ -4177,21 +4199,28 @@ $$\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial
 
 $\eta$ の反対称成分は $\eta_{yz}=A,\; \eta_{zx}=B,\; \eta_{xy}=C$（他は符号反転または $0$）である。$d\eta$ の成分を $(d\eta)_{abc} = \partial_a \eta_{bc}$ と書く。ここで $\partial_x=\frac{\partial}{\partial x}$、$\partial_y=\frac{\partial}{\partial y}$、$\partial_z=\frac{\partial}{\partial z}$ であり、$a,b,c \in \{x,y,z\}$ だから成分は $3^3=27$ 個ある。$a$ を固定した $3 \times 3$ 行列3枚に並べると：
 
-$$d\eta_{x,\cdot,\cdot} = \begin{pmatrix}
+$$
+\begin{aligned}
+d\eta_{x,\cdot,\cdot}
+&= \begin{pmatrix}
 0 & \frac{\partial C}{\partial x} & -\frac{\partial B}{\partial x} \\
 -\frac{\partial C}{\partial x} & 0 & \frac{\partial A}{\partial x} \\
 \frac{\partial B}{\partial x} & -\frac{\partial A}{\partial x} & 0
-\end{pmatrix}, \quad
-d\eta_{y,\cdot,\cdot} = \begin{pmatrix}
+\end{pmatrix}, \\
+d\eta_{y,\cdot,\cdot}
+&= \begin{pmatrix}
 0 & \frac{\partial C}{\partial y} & -\frac{\partial B}{\partial y} \\
 -\frac{\partial C}{\partial y} & 0 & \frac{\partial A}{\partial y} \\
 \frac{\partial B}{\partial y} & -\frac{\partial A}{\partial y} & 0
-\end{pmatrix}, \quad
-d\eta_{z,\cdot,\cdot} = \begin{pmatrix}
+\end{pmatrix}, \\
+d\eta_{z,\cdot,\cdot}
+&= \begin{pmatrix}
 0 & \frac{\partial C}{\partial z} & -\frac{\partial B}{\partial z} \\
 -\frac{\partial C}{\partial z} & 0 & \frac{\partial A}{\partial z} \\
 \frac{\partial B}{\partial z} & -\frac{\partial A}{\partial z} & 0
-\end{pmatrix}$$
+\end{pmatrix}
+\end{aligned}
+$$
 
 この $27$ 成分を、対応する基底 $1$-form のウェッジ積（たとえば $a=x,\;b=y,\;c=z$ なら $dx \wedge dy \wedge dz$）と縮約するとき、添字の重複がある項（対角成分や $b=c$ 等）は $dx \wedge dx = 0$ で消え、生き残るのは $a,b,c$ がすべて異なる $6$ 項（$3!$ の順列）だけ。それぞれを符号つきで和をとる。ここで各成分を反対称化して行列に並べて二重にカウントしているため、第2章 §2.4.4 や付録Dと同様に因子 $\frac{1}{2}$ の補正が入り：
 
@@ -5420,10 +5449,10 @@ $$
 \ast_{2\to1}(\ast_{1\to2}(\omega))
 &=
 \begin{pmatrix}
-E_1\cdot (P E_1+Q E_2+R E_3) &
-E_2\cdot (P E_1+Q E_2+R E_3) &
+E_1\cdot (P E_1+Q E_2+R E_3) \\
+E_2\cdot (P E_1+Q E_2+R E_3) \\
 E_3\cdot (P E_1+Q E_2+R E_3)
-\end{pmatrix} \\
+\end{pmatrix}^{T} \\
 &=
 \begin{pmatrix}
 P & Q & R
@@ -5507,7 +5536,9 @@ $$
 0&0&1\\
 0&-1&0
 \end{pmatrix},
-\qquad
+$$
+
+$$
 (\ast_{0\to3})_{2jk}
 =
 \begin{pmatrix}
@@ -5515,7 +5546,9 @@ $$
 0&0&0\\
 1&0&0
 \end{pmatrix},
-\qquad
+$$
+
+$$
 (\ast_{0\to3})_{3jk}
 =
 \begin{pmatrix}
@@ -5572,7 +5605,9 @@ $$
 0&0&1\\
 0&-1&0
 \end{pmatrix},
-\qquad
+$$
+
+$$
 (\ast_{3\to0})_{2jk}
 =
 \frac{1}{3!}
@@ -5581,7 +5616,9 @@ $$
 0&0&0\\
 1&0&0
 \end{pmatrix},
-\qquad
+$$
+
+$$
 (\ast_{3\to0})_{3jk}
 =
 \frac{1}{3!}
@@ -7431,14 +7468,16 @@ d\mathcal{A}
 \frac{\partial A_x}{\partial t}
 \right)
 dt\wedge dx
-+
+\\[0.5em]
+&\quad+
 \left(
 -\frac{\partial\phi}{\partial y}
 -
 \frac{\partial A_y}{\partial t}
 \right)
 dt\wedge dy
-+
+\\[0.5em]
+&\quad+
 \left(
 -\frac{\partial\phi}{\partial z}
 -
@@ -7453,14 +7492,16 @@ dt\wedge dz
 \frac{\partial A_y}{\partial z}
 \right)
 dy\wedge dz
-+
+\\[0.5em]
+&\quad+
 \left(
 -\frac{\partial A_x}{\partial z}
 +
 \frac{\partial A_z}{\partial x}
 \right)
 dz\wedge dx
-+
+\\[0.5em]
+&\quad+
 \left(
 -\frac{\partial A_y}{\partial x}
 +
@@ -7470,7 +7511,7 @@ dx\wedge dy.
 \end{aligned}
 $$
 
-#### なぜ $F=-d\mathcal{A}$ なのか
+#### 符号の理由
 
 §10.2 で定義した $F$ は
 
@@ -7727,36 +7768,48 @@ $$
 \textbf{（1）} $\omega_1 = dt\wedge dx\wedge dy$ のスライス：
 
 $$
-\mathbf{S}_{t}^{(\omega_1)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&1&0\\[2pt]0&-1&0&0\\[2pt]0&0&0&0\end{pmatrix},\;
-\mathbf{S}_{x}^{(\omega_1)}=\begin{pmatrix}0&0&-1&0\\[2pt]0&0&0&0\\[2pt]1&0&0&0\\[2pt]0&0&0&0\end{pmatrix},\;
-\mathbf{S}_{y}^{(\omega_1)}=\begin{pmatrix}0&1&0&0\\[2pt]-1&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix},\;
+\mathbf{S}_{t}^{(\omega_1)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&1&0\\[2pt]0&-1&0&0\\[2pt]0&0&0&0\end{pmatrix},\qquad
+\mathbf{S}_{x}^{(\omega_1)}=\begin{pmatrix}0&0&-1&0\\[2pt]0&0&0&0\\[2pt]1&0&0&0\\[2pt]0&0&0&0\end{pmatrix}
+$$
+
+$$
+\mathbf{S}_{y}^{(\omega_1)}=\begin{pmatrix}0&1&0&0\\[2pt]-1&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix},\qquad
 \mathbf{S}_{z}^{(\omega_1)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix}
 $$
 
 \textbf{（2）} $\omega_2 = dt\wedge dx\wedge dz$ のスライス：
 
 $$
-\mathbf{S}_{t}^{(\omega_2)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&1\\[2pt]0&0&0&0\\[2pt]0&-1&0&0\end{pmatrix},\;
-\mathbf{S}_{x}^{(\omega_2)}=\begin{pmatrix}0&0&0&-1\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]1&0&0&0\end{pmatrix},\;
-\mathbf{S}_{y}^{(\omega_2)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix},\;
+\mathbf{S}_{t}^{(\omega_2)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&1\\[2pt]0&0&0&0\\[2pt]0&-1&0&0\end{pmatrix},\qquad
+\mathbf{S}_{x}^{(\omega_2)}=\begin{pmatrix}0&0&0&-1\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]1&0&0&0\end{pmatrix}
+$$
+
+$$
+\mathbf{S}_{y}^{(\omega_2)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix},\qquad
 \mathbf{S}_{z}^{(\omega_2)}=\begin{pmatrix}0&1&0&0\\[2pt]-1&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix}
 $$
 
 \textbf{（3）} $\omega_3 = dt\wedge dy\wedge dz$ のスライス：
 
 $$
-\mathbf{S}_{t}^{(\omega_3)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&1\\[2pt]0&0&-1&0\end{pmatrix},\;
-\mathbf{S}_{x}^{(\omega_3)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix},\;
-\mathbf{S}_{y}^{(\omega_3)}=\begin{pmatrix}0&0&0&-1\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]1&0&0&0\end{pmatrix},\;
+\mathbf{S}_{t}^{(\omega_3)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&1\\[2pt]0&0&-1&0\end{pmatrix},\qquad
+\mathbf{S}_{x}^{(\omega_3)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix}
+$$
+
+$$
+\mathbf{S}_{y}^{(\omega_3)}=\begin{pmatrix}0&0&0&-1\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]1&0&0&0\end{pmatrix},\qquad
 \mathbf{S}_{z}^{(\omega_3)}=\begin{pmatrix}0&0&-1&0\\[2pt]0&0&0&0\\[2pt]1&0&0&0\\[2pt]0&0&0&0\end{pmatrix}
 $$
 
 \textbf{（4）} $\omega_4 = dx\wedge dy\wedge dz$ のスライス：
 
 $$
-\mathbf{S}_{t}^{(\omega_4)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix},\;
-\mathbf{S}_{x}^{(\omega_4)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&1\\[2pt]0&0&-1&0\end{pmatrix},\;
-\mathbf{S}_{y}^{(\omega_4)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&-1\\[2pt]0&0&0&0\\[2pt]0&1&0&0\end{pmatrix},\;
+\mathbf{S}_{t}^{(\omega_4)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix},\qquad
+\mathbf{S}_{x}^{(\omega_4)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&1\\[2pt]0&0&-1&0\end{pmatrix}
+$$
+
+$$
+\mathbf{S}_{y}^{(\omega_4)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&-1\\[2pt]0&0&0&0\\[2pt]0&1&0&0\end{pmatrix},\qquad
 \mathbf{S}_{z}^{(\omega_4)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&-1&0\\[2pt]0&1&0&0\\[2pt]0&0&0&0\end{pmatrix}
 $$
 

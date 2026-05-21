@@ -618,11 +618,18 @@ $$\Phi^*\bigl(\rho(x,y,z)\,dx \wedge dy \wedge dz\bigr) = \rho(r\cos\theta,\, r\
 </p>
 <p>その体積値を $\Delta u\,\Delta v\,\Delta w$ で割り、分割を細かくしていく。すると差分比は偏微分係数へ移り、$3\times3$ の行列式が現れる。したがって、$h\to0$ 後の引き戻しは：
 </p>
-$$\Phi^*\bigl(\rho(x,y,z)\,dx \wedge dy \wedge dz\bigr) = \rho(x(u,v,w), y(u,v,w), z(u,v,w))\ \det\!\begin{pmatrix}
+$$
+\begin{aligned}
+&\Phi^*\bigl(\rho(x,y,z)\,dx \wedge dy \wedge dz\bigr) \\
+&= \rho(x(u,v,w), y(u,v,w), z(u,v,w))\,
+\det\!\begin{pmatrix}
 \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} & \frac{\partial x}{\partial w} \\[6pt]
 \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} & \frac{\partial y}{\partial w} \\[6pt]
 \frac{\partial z}{\partial u} & \frac{\partial z}{\partial v} & \frac{\partial z}{\partial w}
-\end{pmatrix}\,du \wedge dv \wedge dw$$
+\end{pmatrix} \\
+&\qquad\qquad {}\wedge du \wedge dv \wedge dw
+\end{aligned}
+$$
 <p>この $3 \times 3$ 行列式を $J(u,v,w)$ と書けば
 </p>
 $$\Phi^*(\rho\,dx \wedge dy \wedge dz) = \rho(\Phi(u,v,w))\,J\,du \wedge dv \wedge dw$$

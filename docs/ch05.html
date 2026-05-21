@@ -809,21 +809,28 @@ $$\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial
 <h4 id="B.4.1-__MATH_BLOCK_704__-の27成分——3枚の行列に展開する">B.4.1 $d\eta$ の27成分——3枚の行列に展開する</h4>
 <p>$\eta$ の反対称成分は $\eta_{yz}=A,\; \eta_{zx}=B,\; \eta_{xy}=C$（他は符号反転または $0$）である。$d\eta$ の成分を $(d\eta)_{abc} = \partial_a \eta_{bc}$ と書く。ここで $\partial_x=\frac{\partial}{\partial x}$、$\partial_y=\frac{\partial}{\partial y}$、$\partial_z=\frac{\partial}{\partial z}$ であり、$a,b,c \in \{x,y,z\}$ だから成分は $3^3=27$ 個ある。$a$ を固定した $3 \times 3$ 行列3枚に並べると：
 </p>
-$$d\eta_{x,\cdot,\cdot} = \begin{pmatrix}
+$$
+\begin{aligned}
+d\eta_{x,\cdot,\cdot}
+&= \begin{pmatrix}
 0 & \frac{\partial C}{\partial x} & -\frac{\partial B}{\partial x} \\
 -\frac{\partial C}{\partial x} & 0 & \frac{\partial A}{\partial x} \\
 \frac{\partial B}{\partial x} & -\frac{\partial A}{\partial x} & 0
-\end{pmatrix}, \quad
-d\eta_{y,\cdot,\cdot} = \begin{pmatrix}
+\end{pmatrix}, \\
+d\eta_{y,\cdot,\cdot}
+&= \begin{pmatrix}
 0 & \frac{\partial C}{\partial y} & -\frac{\partial B}{\partial y} \\
 -\frac{\partial C}{\partial y} & 0 & \frac{\partial A}{\partial y} \\
 \frac{\partial B}{\partial y} & -\frac{\partial A}{\partial y} & 0
-\end{pmatrix}, \quad
-d\eta_{z,\cdot,\cdot} = \begin{pmatrix}
+\end{pmatrix}, \\
+d\eta_{z,\cdot,\cdot}
+&= \begin{pmatrix}
 0 & \frac{\partial C}{\partial z} & -\frac{\partial B}{\partial z} \\
 -\frac{\partial C}{\partial z} & 0 & \frac{\partial A}{\partial z} \\
 \frac{\partial B}{\partial z} & -\frac{\partial A}{\partial z} & 0
-\end{pmatrix}$$
+\end{pmatrix}
+\end{aligned}
+$$
 <p>この $27$ 成分を、対応する基底 $1$-form のウェッジ積（たとえば $a=x,\;b=y,\;c=z$ なら $dx \wedge dy \wedge dz$）と縮約するとき、添字の重複がある項（対角成分や $b=c$ 等）は $dx \wedge dx = 0$ で消え、生き残るのは $a,b,c$ がすべて異なる $6$ 項（$3!$ の順列）だけ。それぞれを符号つきで和をとる。ここで各成分を反対称化して行列に並べて二重にカウントしているため、第2章 §2.4.4 や付録Dと同様に因子 $\frac{1}{2}$ の補正が入り：
 </p>
 $$d\eta = \left( \frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z} \right) dx \wedge dy \wedge dz$$

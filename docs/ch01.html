@@ -551,7 +551,16 @@ $$
 </blockquote>
 <p>その $f(x,y,z)$ が点 $(x,y,z)$ で<strong>（全）微分可能である</strong>とは、変位 $\mathbf{v}=\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$ に対して
 </p>
-$$\Delta f = f(x+\Delta x,\,y+\Delta y,\,z+\Delta z) - f(x,y,z) = \frac{\partial f}{\partial x}\,\Delta x + \frac{\partial f}{\partial y}\,\Delta y + \frac{\partial f}{\partial z}\,\Delta z + o(\|\mathbf{v}\|) \quad (\|\mathbf{v}\|\to 0)$$
+$$
+\begin{aligned}
+\Delta f
+&= f(x+\Delta x,\,y+\Delta y,\,z+\Delta z) - f(x,y,z) \\
+&= \frac{\partial f}{\partial x}\,\Delta x
+{}+ \frac{\partial f}{\partial y}\,\Delta y
+{}+ \frac{\partial f}{\partial z}\,\Delta z
+{}+ o(\|\mathbf{v}\|) \quad (\|\mathbf{v}\|\to 0)
+\end{aligned}
+$$
 <p>が成り立つことである。§1.2.1 の1変数の定義と形式がそろっている。$o(\|\mathbf{v}\|)$ は余り項の略記（$o(|\Delta x|)$ と同趣旨）であり、ここでは深追いしないが、理解に支障はないであろう。
 </p>
 <p>§1.2.3 の測定器 $dx,dy,dz$ を使い、§1.2.2 と同じ型の演算子として
