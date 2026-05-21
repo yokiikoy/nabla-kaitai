@@ -7059,7 +7059,7 @@ $$\begin{aligned}
 
 $$dF = 0, \qquad d(\ast F) = \mu_0(\ast\mathcal{J})$$
 
-本章の規約では、以下では $\mu_0\ast\mathcal{J}$ を成分で直接定義していく。
+ここでは、物理法則としての形を見せるために、ホッジ・スターを添字なしの $\ast$ で書いている。成分計算に入るときは、4次元時空上の外微分とホッジ・スターを $d_4,\ast_4$ と書き、各時刻の空間3次元上の外微分とホッジ・スターを $d_3,\ast_3$ と書き分ける。なお、本章の規約では $\mu_0\ast\mathcal{J}$ を成分で直接定義していく。
 
 以上である。4本が2本に——この簡潔さは、微分形式の記述能力を象徴するものだ。
 
@@ -7125,32 +7125,32 @@ $$\mathbf{g} = \begin{pmatrix}
 > \textbf{注} （正定値性からの離脱）本書の計量はこれまでつねに正定値（$\mathbf{v}^T\mathbf{g}\,\mathbf{v} > 0$ for $\mathbf{v}\neq\mathbf{0}$）だった。ミンコフスキー計量は正定値ではなく、これまでの $\mathbf{g}=J^T J$ 型の計量とは異なる。ここでは「計量行列から $\ast$ の辞書を作る」という手順だけを引き継いでいる。この違いは $\ast$ の辞書に符号の変化として現れるが、計算手順そのものは変わらない。この点は、次章で多様体や計量を眺めるときの伏線になる。
 
 > \textbf{注} （4次元ホッジ・スターの規約）
-> 本章では向き（基底の順序）を $dt\wedge dx\wedge dy\wedge dz$ とし、時空の計量符号を $(-,+,+,+)$ とする。この規約のもとで、以下の $\ast F$ や $\ast\mathcal{J}$ を用いる。異なるシグネチャや向きの規約では、いくつかの符号が反転することに注意されたい。
+> 本章では向き（基底の順序）を $dt\wedge dx\wedge dy\wedge dz$ とし、時空の計量符号を $(-,+,+,+)$ とする。この規約のもとで、以下の $\ast F$ や $\ast\mathcal{J}$ を用いる。マクスウェル方程式を象徴的に書くときは従来どおり $\ast$ と書くが、成分計算では4次元時空上のホッジ・スターを $\ast_4$、空間3次元上のホッジ・スターを $\ast_3$ と書き分ける。異なるシグネチャや向きの規約では、いくつかの符号が反転することに注意されたい。
 
 ---
 
 
 ### §10.4 $dF=0$ を全部書き下す
 
-$F$ は $2$-form だから、$dF$ は $3$-form になる。4次元空間での $3$-form の独立成分は4つ。§10.2 で再定義した $F$（電場項に負号を含む）について $d$ を作用させ、同じ基底 $3$-form の係数をまとめる。
+$F$ は $2$-form だから、$dF$ は $3$-form になる。ここからの成分計算では、4次元時空上の外微分であることを明示して $d_4F$ と書く。4次元空間での $3$-form の独立成分は4つ。§10.2 で再定義した $F$（電場項に負号を含む）について $d_4$ を作用させ、同じ基底 $3$-form の係数をまとめる。
 
 $$F = -E_x\,dt\wedge dx - E_y\,dt\wedge dy - E_z\,dt\wedge dz + B_x\,dy\wedge dz + B_y\,dz\wedge dx + B_z\,dx\wedge dy$$
 
-各項に $d$ を作用させる。電場項は次のようになる（符号の変化に注意）：
+各項に $d_4$ を作用させる。電場項は次のようになる（符号の変化に注意）：
 
 $$\begin{aligned}
-d\!\left(-E_x\,dt\wedge dx\right) &= -\frac{\partial E_x}{\partial y}\,dy\wedge dt\wedge dx - \frac{\partial E_x}{\partial z}\,dz\wedge dt\wedge dx \\
+d_4\!\left(-E_x\,dt\wedge dx\right) &= -\frac{\partial E_x}{\partial y}\,dy\wedge dt\wedge dx - \frac{\partial E_x}{\partial z}\,dz\wedge dt\wedge dx \\
 &= -\frac{\partial E_x}{\partial y}\,dt\wedge dx\wedge dy + \frac{\partial E_x}{\partial z}\,dt\wedge dz\wedge dx \\
-d\!\left(-E_y\,dt\wedge dy\right) &= -\frac{\partial E_y}{\partial z}\,dt\wedge dy\wedge dz + \frac{\partial E_y}{\partial x}\,dt\wedge dx\wedge dy \\
-d\!\left(-E_z\,dt\wedge dz\right) &= -\frac{\partial E_z}{\partial x}\,dt\wedge dz\wedge dx + \frac{\partial E_z}{\partial y}\,dt\wedge dy\wedge dz
+d_4\!\left(-E_y\,dt\wedge dy\right) &= -\frac{\partial E_y}{\partial z}\,dt\wedge dy\wedge dz + \frac{\partial E_y}{\partial x}\,dt\wedge dx\wedge dy \\
+d_4\!\left(-E_z\,dt\wedge dz\right) &= -\frac{\partial E_z}{\partial x}\,dt\wedge dz\wedge dx + \frac{\partial E_z}{\partial y}\,dt\wedge dy\wedge dz
 \end{aligned}$$
 
 磁場項は時間微分 $t$ も含み、次のようになる：
 
 $$\begin{aligned}
-d(B_x\,dy\wedge dz) &= \frac{\partial B_x}{\partial t}\,dt\wedge dy\wedge dz + \frac{\partial B_x}{\partial x}\,dx\wedge dy\wedge dz \\
-d(B_y\,dz\wedge dx) &= \frac{\partial B_y}{\partial t}\,dt\wedge dz\wedge dx + \frac{\partial B_y}{\partial y}\,dy\wedge dz\wedge dx \\
-d(B_z\,dx\wedge dy) &= \frac{\partial B_z}{\partial t}\,dt\wedge dx\wedge dy + \frac{\partial B_z}{\partial z}\,dz\wedge dx\wedge dy
+d_4(B_x\,dy\wedge dz) &= \frac{\partial B_x}{\partial t}\,dt\wedge dy\wedge dz + \frac{\partial B_x}{\partial x}\,dx\wedge dy\wedge dz \\
+d_4(B_y\,dz\wedge dx) &= \frac{\partial B_y}{\partial t}\,dt\wedge dz\wedge dx + \frac{\partial B_y}{\partial y}\,dy\wedge dz\wedge dx \\
+d_4(B_z\,dx\wedge dy) &= \frac{\partial B_z}{\partial t}\,dt\wedge dx\wedge dy + \frac{\partial B_z}{\partial z}\,dz\wedge dx\wedge dy
 \end{aligned}$$
 
 これらをすべて足し合わせ、基底 $3$-form ごとに整理する。たとえば $dt\wedge dy\wedge dz$ の係数は次のようになる：
@@ -7159,16 +7159,16 @@ $$
 \left(\frac{\partial B_x}{\partial t} + \frac{\partial E_z}{\partial y} - \frac{\partial E_y}{\partial z}\right) dt\wedge dy\wedge dz = \left(\frac{\partial B_x}{\partial t} + (\mathrm{rot}\,\mathbf{E})_x\right) dt\wedge dy\wedge dz
 $$
 
-各基底係数をゼロとおくと、$dF=0$ は次の 4 本の式と同値になる。
+各基底係数をゼロとおくと、成分計算としての $d_4F=0$ は次の 4 本の式と同値になる。象徴的には、これを $dF=0$ と書いている。
 
-$$dF = 0 \Longleftrightarrow \begin{cases}
+$$d_4F = 0 \Longleftrightarrow \begin{cases}
 \displaystyle \frac{\partial B_x}{\partial x} + \frac{\partial B_y}{\partial y} + \frac{\partial B_z}{\partial z} = 0 & (\mathrm{div}\,\mathbf{B} = 0) \\[1em]
 \displaystyle (\mathrm{rot}\,\mathbf{E})_x = -\frac{\partial B_x}{\partial t} & \\[0.5em]
 \displaystyle (\mathrm{rot}\,\mathbf{E})_y = -\frac{\partial B_y}{\partial t} & (\mathrm{rot}\,\mathbf{E} = -\frac{\partial\mathbf{B}}{\partial t}) \\[0.5em]
 \displaystyle (\mathrm{rot}\,\mathbf{E})_z = -\frac{\partial B_z}{\partial t} & 
 \end{cases}$$
 
-1行目は磁場に関するガウスの法則、2〜4行目はファラデーの電磁誘導の法則である。電場項に負号を置いたことにより、微分形式の一本の方程式 $dF=0$ から、ベクトル解析でおなじみの正しい符号の公式が導き出された。
+1行目は磁場に関するガウスの法則、2〜4行目はファラデーの電磁誘導の法則である。電場項に負号を置いたことにより、微分形式の一本の方程式 $dF=0$（計算上は $d_4F=0$）から、ベクトル解析でおなじみの正しい符号の公式が導き出された。
 
 
 ---
@@ -7177,90 +7177,110 @@ $$dF = 0 \Longleftrightarrow \begin{cases}
 
 ### §10.5 $\ast F$ と残りの2本
 
-もう一つの式 $d(\ast F) = \mu_0(\ast\mathcal{J})$ も、§10.4 と同じ手順で全部書き下そう。
+もう一つの式 $d(\ast F) = \mu_0(\ast\mathcal{J})$ も、§10.4 と同じ手順で全部書き下そう。象徴的には $\ast$ と書くが、ここからの成分計算では4次元時空上のホッジ・スターを明示して、$d_4(\ast_4F)=\mu_0(\ast_4\mathcal{J})$ と書く。
 
-まず、§10.2 で再定義した $F$ から $\ast F$ を求める。§10.3 のミンコフスキー計量シグネチャ $(-,+,+,+)$ と向き $dt\wedge dx\wedge dy\wedge dz$ のもとでホッジ・スターを作用させると、$\ast F$ は次のようになる。
+まず、§10.2 で再定義した $F$ から $\ast_4F$ を求める。§10.3 のミンコフスキー計量シグネチャ $(-,+,+,+)$ と向き $dt\wedge dx\wedge dy\wedge dz$ のもとで4次元ホッジ・スターを作用させると、$\ast_4F$ は次のようになる。
 
 $$
-\ast F = B_x\,dt\wedge dx + B_y\,dt\wedge dy + B_z\,dt\wedge dz + E_x\,dy\wedge dz + E_y\,dz\wedge dx + E_z\,dx\wedge dy
+\ast_4F = B_x\,dt\wedge dx + B_y\,dt\wedge dy + B_z\,dt\wedge dz + E_x\,dy\wedge dz + E_y\,dz\wedge dx + E_z\,dx\wedge dy
 $$
 
 行列表示では次の通りだ。
 
-$$\ast F = \begin{pmatrix}
+$$\ast_4F = \begin{pmatrix}
 0 & B_x & B_y & B_z \\
 -B_x & 0 & E_z & -E_y \\
 -B_y & -E_z & 0 & E_x \\
 -B_z & E_y & -E_x & 0
 \end{pmatrix}$$
 
-電場項の符号を反転させた $F$ を出発点としたことで、$\ast$ 作用後の $\ast F$ では逆に磁場項が $dt$ を含む項になり、電場項が空間のみの項（$2$-form）へ移動している。
+電場項の符号を反転させた $F$ を出発点としたことで、$\ast_4$ 作用後の $\ast_4F$ では逆に磁場項が $dt$ を含む項になり、電場項が空間のみの項（$2$-form）へ移動している。
 
-次に、$d(\ast F)$ を展開する。基底 $3$-form ごとに整理すると、次のようになる。
+次に、$d_4(\ast_4F)$ を展開する。基底 $3$-form ごとに整理すると、次のようになる。
 
 $$\begin{aligned}
-d(\ast F) = &\left(\frac{\partial E_x}{\partial x} + \frac{\partial E_y}{\partial y} + \frac{\partial E_z}{\partial z}\right) dx\wedge dy\wedge dz \\
+d_4(\ast_4F) = &\left(\frac{\partial E_x}{\partial x} + \frac{\partial E_y}{\partial y} + \frac{\partial E_z}{\partial z}\right) dx\wedge dy\wedge dz \\
 {+} &\left(\frac{\partial E_x}{\partial t} - \left(\frac{\partial B_z}{\partial y} - \frac{\partial B_y}{\partial z}\right)\right) dt\wedge dy\wedge dz \\
 {+} &\left(\frac{\partial E_y}{\partial t} - \left(\frac{\partial B_x}{\partial z} - \frac{\partial B_z}{\partial x}\right)\right) dt\wedge dz\wedge dx \\
 {+} &\left(\frac{\partial E_z}{\partial t} - \left(\frac{\partial B_y}{\partial x} - \frac{\partial B_x}{\partial y}\right)\right) dt\wedge dx\wedge dy
 \end{aligned}$$
 
-1行目は、空間上の $2$-form $\ast_3E$ に $d_3$ を作用させた $d_3(\ast_3E)$ である。ベクトル解析の辞書で読めば、この係数が $\mathrm{div}\,\mathbf{E}$ になる。2〜4行目では、係数全体が $\partial_t(\ast_3E)-d_3(\ast_3B)$ に対応している。
-
-右辺の $\mu_0(\ast\mathcal{J})$ は、電荷密度 $\rho_{\mathrm e}$ と電流密度 $\mathbf{J}$ を含む $3$-form である。§10.1 の正規化のもとで次のように書ける。
+右辺の $\mu_0(\ast_4\mathcal{J})$ は、電荷密度 $\rho_{\mathrm e}$ と電流密度 $\mathbf{J}$ を含む $3$-form である。§10.1 の正規化のもとで次のように書ける。
 
 $$
-\mu_0(\ast\mathcal{J}) = \ast_3\left(\frac{\rho_{\mathrm e}}{\varepsilon_0}\right) - \mu_0 c J_x\,dt\wedge dy\wedge dz - \mu_0 c J_y\,dt\wedge dz\wedge dx - \mu_0 c J_z\,dt\wedge dx\wedge dy
+\mu_0(\ast_4\mathcal{J}) = \frac{\rho_{\mathrm e}}{\varepsilon_0}\,dx\wedge dy\wedge dz - \mu_0 c J_x\,dt\wedge dy\wedge dz - \mu_0 c J_y\,dt\wedge dz\wedge dx - \mu_0 c J_z\,dt\wedge dx\wedge dy
 $$
 
-第1項は、各時刻の空間上でスカラー場 $\rho_{\mathrm e}/\varepsilon_0$ を $3$-form にしたものである。デカルト座標では
+ここでは、まだ $\ast_3$ を使っていない。両辺を4次元の基底 $3$-form の係数としてそのまま比較すると、まず $dx\wedge dy\wedge dz$ の係数から
 
 $$
-\ast_3\left(\frac{\rho_{\mathrm e}}{\varepsilon_0}\right)=\frac{\rho_{\mathrm e}}{\varepsilon_0}\,dx\wedge dy\wedge dz
+\frac{\partial E_x}{\partial x}+\frac{\partial E_y}{\partial y}+\frac{\partial E_z}{\partial z}=\frac{\rho_{\mathrm e}}{\varepsilon_0}
 $$
 
-である。
-
-両辺の係数を比較すれば、まず空間上の微分形式として
+が得られる。これはガウスの法則 $\mathrm{div}\,\mathbf E=\rho_{\mathrm e}/\varepsilon_0$ である。残りの3つの基底 $3$-form からは
 
 $$
-d_3(\ast_3E)=\ast_3\left(\frac{\rho_{\mathrm e}}{\varepsilon_0}\right)
+\begin{aligned}
+\frac{\partial E_x}{\partial t}-\left(\frac{\partial B_z}{\partial y}-\frac{\partial B_y}{\partial z}\right)&=-\mu_0 cJ_x,\\
+\frac{\partial E_y}{\partial t}-\left(\frac{\partial B_x}{\partial z}-\frac{\partial B_z}{\partial x}\right)&=-\mu_0 cJ_y,\\
+\frac{\partial E_z}{\partial t}-\left(\frac{\partial B_y}{\partial x}-\frac{\partial B_x}{\partial y}\right)&=-\mu_0 cJ_z
+\end{aligned}
 $$
 
-および
-
-$$
-d_3(\ast_3B)=\mu_0 c\,J+\frac{\partial(\ast_3E)}{\partial t}
-$$
-
-が得られる。
-
-特に1本目は、さらに両辺に $\ast_3$ を作用させて
-
-$$
-\ast_3d_3(\ast_3E)=\frac{\rho_{\mathrm e}}{\varepsilon_0}
-$$
-
-と読む。左辺が、本書の辞書でいう $\mathrm{div}\,\mathbf E$ である。
-
-同様に、2本目をベクトル解析の記法に戻せば、
+が得られる。移項すれば、
 
 $$
 \mathrm{rot}\,\mathbf{B} = \mu_0 c \mathbf{J} + \frac{\partial \mathbf{E}}{\partial t}
 $$
 
-これによって、4 本すべてのマクスウェル方程式が、微分形式の 2 本の式から正しい符号と係数で導かれることが完全に確認できた。
+である。ここまでで、4次元の式 $d_4(\ast_4F)=\mu_0(\ast_4\mathcal{J})$ から、残りの2本が成分として出た。
+
+同じ内容を、空間3次元の微分形式として圧縮して書くこともできる。いま得た $\ast_4F$ は、各時刻の空間上のホッジ・スター $\ast_3$ を使えば
+
+$$
+\ast_4F=dt\wedge(\ast_3B)+\ast_3E
+$$
+
+と書ける。ここで
+
+$$
+\ast_3B=B_x\,dx+B_y\,dy+B_z\,dz,
+\qquad
+\ast_3E=E_x\,dy\wedge dz+E_y\,dz\wedge dx+E_z\,dx\wedge dy
+$$
+
+である。この分解を使えば、上の4次元計算は
+
+$$
+d_4(\ast_4F)=dt\wedge\left(\frac{\partial(\ast_3E)}{\partial t}-d_3(\ast_3B)\right)+d_3(\ast_3E)
+$$
+
+と読める。右辺も空間3次元の記法では
+
+$$
+\mu_0(\ast_4\mathcal J)=\ast_3\left(\frac{\rho_{\mathrm e}}{\varepsilon_0}\right)-\mu_0 c\,dt\wedge J
+$$
+
+と書ける。ただしここでの $J=J_x\,dy\wedge dz+J_y\,dz\wedge dx+J_z\,dx\wedge dy$ は、空間上の電流密度 $2$-form である。したがって、$dt$ を含まない部分と含む部分を比較すれば、
+
+$$
+d_3(\ast_3E)=\ast_3\left(\frac{\rho_{\mathrm e}}{\varepsilon_0}\right),
+\qquad
+d_3(\ast_3B)=\mu_0 c\,J+\frac{\partial(\ast_3E)}{\partial t}
+$$
+
+が得られる。両辺に必要に応じて $\ast_3$ を作用させれば、これは先ほどの $\mathrm{div}\,\mathbf E$ と $\mathrm{rot}\,\mathbf B$ の式に戻る。これによって、4 本すべてのマクスウェル方程式が、微分形式の 2 本の式から正しい符号と係数で導かれることが完全に確認できた。
 
 
 つまり、マクスウェル方程式の4本は、微分形式では
 
 $$dF = 0, \qquad d(\ast F) = \mu_0(\ast\mathcal{J})$$
 
-の2本に集約される。そして、この2本を実際に行列と偏微分で展開すれば、見慣れたベクトル解析の式がすべて再現される。美しさの裏に、ちゃんと泥臭い計算が息づいている——それを見届けたことが、本章の成果である。
+の2本に集約される。そして、この2本を実際に行列と偏微分で展開するときは $d_4,\ast_4$ を使い、空間3次元の辞書に戻すときは $d_3,\ast_3$ を使う。見慣れたベクトル解析の式は、この二つの階層を行き来することで再現される。美しさの裏に、ちゃんと泥臭い計算が息づいている——それを見届けたことが、本章の成果である。
 
 > \textbf{注} （なぜ2本なのか）鋭い読者ならこう思うかもしれない——「結局2本か。$dF=0$ と $d(\ast F)=\mu_0(\ast\mathcal{J})$ を、\textbf{1行}にまとめられないのか」と。できる。第12章では $\mathbf{E}$ と $\mathbf{B}$ をひとまとめにした複素ベクトルと、パウリ行列から作られるディラック演算子によって、マクスウェル方程式をたったの一撃に統合する。楽しみにしていてほしい。
 
-> \textbf{注} （なぜここで終わるのか）多くの教科書は $dF=0$ を示した時点で「かくしてマクスウェル方程式は幾何学である」と締める。しかし本書の流儀は違う。行列の成分を全部書き下し、$d$ と $\ast$ の辞書を通じてベクトル解析の式を再現する——その往復ができることこそ、第1章から積み上げてきた「測定器」の枠組みの到達点だ。
+> \textbf{注} （なぜここで終わるのか）多くの教科書は $dF=0$ を示した時点で「かくしてマクスウェル方程式は幾何学である」と締める。しかし本書の流儀は違う。行列の成分を全部書き下し、計算では $d_4,\ast_4$ を使い、空間の辞書では $d_3,\ast_3$ に戻してベクトル解析の式を再現する——その往復ができることこそ、第1章から積み上げてきた「測定器」の枠組みの到達点だ。
 
 ---
 
@@ -7710,7 +7730,7 @@ $$
 
 はどうなるだろうか。
 
-こちらは、自動的にゼロになるわけではない。$F=-d\mathcal{A}$ を代入すると、
+ここでは構造を見るため、象徴表記のまま書く。成分計算をするなら $d_4(\ast_4F)=\mu_0(\ast_4\mathcal{J})$ と読む箇所である。こちらは、自動的にゼロになるわけではない。$F=-d\mathcal{A}$ を代入すると、
 
 $$
 d(\ast(-d\mathcal{A}))
@@ -7736,21 +7756,23 @@ $$
 >
 > - 電磁場 $F$ は $4\times4$ 反対称行列。6つの独立成分に $E_x,E_y,E_z,B_x,B_y,B_z$ が収まる。
 >
-> - $dF=0$ を成分展開すると $\mathrm{div}\,\mathbf{B}=0$ と $\mathrm{rot}\,\mathbf{E}=-\partial\mathbf{B}/\partial t$ が現れる。
+> - 象徴的には $dF=0,\;d(\ast F)=\mu_0(\ast\mathcal{J})$ と書く。成分計算では、4次元時空上の演算を $d_4,\ast_4$、空間3次元上の演算を $d_3,\ast_3$ と書き分ける。
 >
-> - この章のシグネチャ・向きの規約のもとでは、$\ast F$ は $E$ と $B$ を入れ替える形に見える。$d(\ast F)=\mu_0(\ast\mathcal{J})$ から残りの2本が出る。
+> - $d_4F=0$ を成分展開すると $\mathrm{div}\,\mathbf{B}=0$ と $\mathrm{rot}\,\mathbf{E}=-\partial\mathbf{B}/\partial t$ が現れる。
+>
+> - この章のシグネチャ・向きの規約のもとでは、$\ast_4F$ は $E$ と $B$ を入れ替える形に見える。$d_4(\ast_4F)=\mu_0(\ast_4\mathcal{J})$ から残りの2本が出る。
 >
 > - \textbf{ポテンシャル構成}：$\mathcal{A}=\phi\,dt-A_x\,dx-A_y\,dy-A_z\,dz$ から $F=-d\mathcal{A}$ が得られる。すると $dF=0$ は $dd=0$ より自動的に成り立つ。これは $\mathrm{div}\,\mathbf{B}=0$ と $\mathrm{rot}\,\mathbf{E}=-\partial\mathbf{B}/\partial t$ が外微分の構造に含まれている、ということである。
 >
-> - もう1本の方程式 $d(\ast F)=\mu_0(\ast\mathcal{J})$ は、$F=-d\mathcal{A}$ を代入すると、ポテンシャル $\mathcal{A}$ が満たす方程式になる。
+> - もう1本の方程式 $d(\ast F)=\mu_0(\ast\mathcal{J})$ は、$F=-d\mathcal{A}$ を代入すると、ポテンシャル $\mathcal{A}$ が満たす方程式になる。成分計算ではこれを $d_4(\ast_4F)=\mu_0(\ast_4\mathcal{J})$ と読む。
 
 ---
 
 
 
-## 付録E：$dF$ と $d(\ast F)$ のスライス行列表示 —— $4\times4\times4$ 配列で見るマクスウェル方程式
+## 付録E：$d_4F$ と $d_4(\ast_4F)$ のスライス行列表示 —— $4\times4\times4$ 配列で見るマクスウェル方程式
 
-§10.4・§10.5 では $dF$ と $d(\ast F)$ を基底 $3$-form の係数として展開した。付録Eでは、同じ計算を \textbf{$4\times4$ スライス行列の束}——実質的には $4\times4\times4$ の3階テンソル——で可視化する。付録Aの延長線上にあり、本書の「全部行列に載せる」流儀の到達点でもある。
+§10.4・§10.5 では、象徴的な式 $dF=0,\;d(\ast F)=\mu_0(\ast\mathcal J)$ を、計算用の記法 $d_4F,\;d_4(\ast_4F)$ に直して基底 $3$-form の係数として展開した。付録Eでは、同じ計算を \textbf{$4\times4$ スライス行列の束}——実質的には $4\times4\times4$ の3階テンソル——で可視化する。付録Aの延長線上にあり、本書の「全部行列に載せる」流儀の到達点でもある。
 
 ### E.1 基底 $3$-form とそのスライス行列 —— 全16枚
 
@@ -7897,11 +7919,11 @@ $t$-スライス（上記）の非ゼロ成分を読めば、
 
 これら3つは $\mathrm{rot}\,\mathbf{E} = -\partial\mathbf{B}/\partial t$ にほかならない。$z$-スライス（$\mathbf{S}_{z}^{(\omega_4)}$ 由来）の非ゼロ成分からは $\mathrm{div}\,\mathbf{B} = 0$ が現れる。見かけは巨大だが、中身は §10.4 の4本の係数比較式の繰り返しにすぎない。
 
-### E.5 $d(\ast F) = \mu_0(\ast\mathcal{J})$ のスライス表示
+### E.5 $d_4(\ast_4F) = \mu_0(\ast_4\mathcal{J})$ のスライス表示
 
-有源側も同型の構造を持つ。$\ast F$ と $\ast\mathcal{J}$ は §10.5 で展開済みであり、$d(\ast F)$ は $dF$ と同型のスライス行列になる——$\mathbf{E}$ と $\mathbf{B}$ の係数位置が入れ替わるだけだ。
+有源側も同型の構造を持つ。$\ast_4F$ と $\ast_4\mathcal{J}$ は §10.5 で展開済みであり、$d_4(\ast_4F)$ は $d_4F$ と同型のスライス行列になる——$\mathbf{E}$ と $\mathbf{B}$ の係数位置が入れ替わるだけだ。
 
-$d(\ast F)$ の $\omega_1\sim\omega_4$ 係数を $B_{txy}, B_{txz}, B_{tyz}, B_{xyz}$ と書く。
+$d_4(\ast_4F)$ の $\omega_1\sim\omega_4$ 係数を $B_{txy}, B_{txz}, B_{tyz}, B_{xyz}$ と書く。
 
 $$
 \begin{aligned}
@@ -7914,11 +7936,11 @@ B_{xyz} &= \frac{\partial E_x}{\partial x} + \frac{\partial E_y}{\partial y} + \
 \end{aligned}
 $$
 
-$d(\ast F)$ の各スライスも $dF$ と同様に、4つの係数 $B_{\cdots}$ で基底スライス行列を線形結合すればよい。$t$-スライスを項別に書く。
+$d_4(\ast_4F)$ の各スライスも $d_4F$ と同様に、4つの係数 $B_{\cdots}$ で基底スライス行列を線形結合すればよい。$t$-スライスを項別に書く。
 
 $$
 \begin{aligned}
-\mathbf{S}_{t}^{(d(\ast F))}
+\mathbf{S}_{t}^{(d_4(\ast_4F))}
 &= \left(\frac{\partial B_x}{\partial y} - \frac{\partial B_y}{\partial x} + \frac{\partial E_z}{\partial t}\right)
 \begin{pmatrix}0&0&0&0\\[2pt]0&0&1&0\\[2pt]0&-1&0&0\\[2pt]0&0&0&0\end{pmatrix} \\[10pt]
 &\quad+ \left(\frac{\partial B_x}{\partial z} - \frac{\partial B_z}{\partial x} - \frac{\partial E_y}{\partial t}\right)
@@ -7930,10 +7952,10 @@ $$
 \end{aligned}
 $$
 
-同じ位置の成分を一枚の行列に足し合わせる。$dF$ の $t$-スライスと見比べてほしい——$\mathbf{E}$ と $\mathbf{B}$（および添字の巡回）がきれいに入れ替わっている。
+同じ位置の成分を一枚の行列に足し合わせる。$d_4F$ の $t$-スライスと見比べてほしい——$\mathbf{E}$ と $\mathbf{B}$（および添字の巡回）がきれいに入れ替わっている。
 
 $$
-\mathbf{S}_{t}^{(d(\ast F))}
+\mathbf{S}_{t}^{(d_4(\ast_4F))}
 {=}
 \left(\begin{array}{c|cccc}
  & t & x & y & z \\\hline
@@ -7952,13 +7974,13 @@ z & 0 &
 \end{array}\right)
 $$
 
-右辺 $\mu_0(\ast\mathcal{J})$ も同じ4枚のスライス行列の線形結合で書ける。$\ast\mathcal{J}$ を本付録の基底順に展開し直すと（§10.5 参照）、$\omega_1\!\sim\!\omega_4$ の係数は順に $-\mu_0 c J_z,\; +\mu_0 c J_y,\; -\mu_0 c J_x,\; \rho_{\mathrm e}/\varepsilon_0$ となる。すなわち
+右辺 $\mu_0(\ast_4\mathcal{J})$ も同じ4枚のスライス行列の線形結合で書ける。$\ast_4\mathcal{J}$ を本付録の基底順に展開し直すと（§10.5 参照）、$\omega_1\!\sim\!\omega_4$ の係数は順に $-\mu_0 c J_z,\; +\mu_0 c J_y,\; -\mu_0 c J_x,\; \rho_{\mathrm e}/\varepsilon_0$ となる。すなわち
 
 $$
-\mathbf{S}_{t}^{(d(\ast F))} = \mathbf{S}_{t}^{(\mu_0\ast\mathcal{J})},\quad
-\mathbf{S}_{x}^{(d(\ast F))} = \mathbf{S}_{x}^{(\mu_0\ast\mathcal{J})},\quad
-\mathbf{S}_{y}^{(d(\ast F))} = \mathbf{S}_{y}^{(\mu_0\ast\mathcal{J})},\quad
-\mathbf{S}_{z}^{(d(\ast F))} = \mathbf{S}_{z}^{(\mu_0\ast\mathcal{J})}
+\mathbf{S}_{t}^{(d_4(\ast_4F))} = \mathbf{S}_{t}^{(\mu_0\ast_4\mathcal{J})},\quad
+\mathbf{S}_{x}^{(d_4(\ast_4F))} = \mathbf{S}_{x}^{(\mu_0\ast_4\mathcal{J})},\quad
+\mathbf{S}_{y}^{(d_4(\ast_4F))} = \mathbf{S}_{y}^{(\mu_0\ast_4\mathcal{J})},\quad
+\mathbf{S}_{z}^{(d_4(\ast_4F))} = \mathbf{S}_{z}^{(\mu_0\ast_4\mathcal{J})}
 $$
 
 $t$-スライスの非ゼロ成分を読めば $-\mathrm{rot}\,\mathbf{B} + \partial\mathbf{E}/\partial t = -c\mu_0\mathbf{J}$、すなわち $\mathrm{rot}\,\mathbf{B} = c\mu_0\mathbf{J} + \partial\mathbf{E}/\partial t$ の各成分。$z$-スライスの $(x,y)$ 成分からは $\mathrm{div}\,\mathbf{E} = \rho_{\mathrm e}/\varepsilon_0$ が現れる。
@@ -7966,13 +7988,13 @@ $t$-スライスの非ゼロ成分を読めば $-\mathrm{rot}\,\mathbf{B} + \par
 ---
 
 
-以上で、マクスウェル方程式の全容が $4\times4\times4$ のスライス行列の束として可視化された。この「巨大配列」の各マス目に書かれているのは偏微分の組み合わせにすぎず、外微分 $d$ とホッジ・スター $\ast$ という二つの代数操作が、いかに整然とした行列の文法で物理法則を記述しているか——それを見届けたことが、本付録の成果である。
+以上で、マクスウェル方程式の全容が $4\times4\times4$ のスライス行列の束として可視化された。この「巨大配列」の各マス目に書かれているのは偏微分の組み合わせにすぎず、4次元の外微分 $d_4$ とホッジ・スター $\ast_4$ という二つの代数操作が、いかに整然とした行列の文法で物理法則を記述しているか——それを見届けたことが、本付録の成果である。
 
 ---
 
 ## 付録F：第5章の4本の式と、第10章の2本の式
 
-第10章本文では、マクスウェル方程式を4次元時空上の2本の式
+第10章本文では、マクスウェル方程式を4次元時空上の2本の式として、象徴的には
 
 $$
 dF=0,
@@ -7980,7 +8002,7 @@ dF=0,
 d(\ast F)=\mu_0(\ast\mathcal{J})
 $$
 
-として書いた。
+と書いた。成分計算では、これを $d_4F=0,\;d_4(\ast_4F)=\mu_0(\ast_4\mathcal J)$ と読んでいる。
 
 しかし第5章では、いきなり4次元時空上の $2$-form にまとめるのではなく、各時刻の空間上で、電場・磁場・電流・電荷をそれぞれ微分形式として扱う見方をしていた。
 
