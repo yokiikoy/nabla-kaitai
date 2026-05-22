@@ -121,7 +121,7 @@ def main():
                     and prev.strip() != '>'):
                 result.append('>')
 
-            if stripped.startswith(('# ', '## ', '### ')) and prev_stripped != '':
+            if re.match(r'#{1,6}\s+', stripped) and prev_stripped != '':
                 result.append('')
 
             result.append(line)
