@@ -23,7 +23,7 @@ When I was a first-year master’s student, I once asked a mathematics friend wh
 
 So what is $dx$, in the end? Unless we are already in an advanced course, must we either avoid the question or treat $dx$ as an infinitesimal?
 
-From the more advanced mathematical point of view, my friend was overwhelmingly right. It is better if one can understand $dx$ that way. But it is hard.
+From a more advanced mathematical point of view, my friend was overwhelmingly right. It is better if one can understand $dx$ that way. But it is hard.
 
 So this book asks a more practical question: what would it take to lead a high-school student toward that understanding? The foothold I use is matrix algebra, which, at least in my case, had already been drilled into me in high school.
 
@@ -33,7 +33,7 @@ $$
 dx=\begin{pmatrix}1&0&0\end{pmatrix}
 $$
 
-The question is what the $dx$ at the tail of the integral sign is actually doing. This book first makes that operation visible.
+The question is what the $dx$ at the tail of the integral sign is actually doing. This book begins by making that operation visible.
 
 $dx$ eats a displacement and returns its $x$-component. $dx\wedge dy$ measures the oriented area spanned by two displacements. $dx\wedge dy\wedge dz$ measures the oriented volume spanned by three displacements.
 
@@ -45,7 +45,7 @@ The other symbol this book wants to confront is $\nabla$.
 
 In English, $\nabla$ is usually called **del**; it is also called **nabla**. Japanese textbooks often use the name *nabla*. This book is not really about the name of the symbol. It is about what div, grad, and curl are actually doing.
 
-When studying vector analysis, there may come a point when the whole system suddenly begins to look like a collection of formulas. At least that was my experience. Cartesian coordinates may be fine. But once cylindrical or spherical coordinates enter the stage, $r$ and $\sin\theta$ appear, and one has to memorize coefficients whose origin is not clear.
+When you study vector analysis, the whole subject may suddenly start to look like a collection of formulas. At least that was my experience. In Cartesian coordinates, things may still look manageable. But once cylindrical or spherical coordinates enter the stage, $r$ and $\sin\theta$ appear, and one has to memorize coefficients whose origin is not clear.
 
 For example, in two dimensions, one encounters
 
@@ -55,7 +55,7 @@ $$
 \frac{1}{r}\frac{\partial (r F_\theta)}{\partial r}-\frac{1}{r}\frac{\partial F_r}{\partial \theta}
 $$
 
-The left-hand side is written in Cartesian coordinates. The right-hand side is the same quantity written in polar coordinates. With a midterm tomorrow, it is not especially easy to feel satisfied about why this deserves to be called “curl.”
+The left-hand side is written in Cartesian coordinates. The right-hand side is the same quantity written in polar coordinates. With a midterm tomorrow, it is not especially easy to feel convinced that this deserves to be called “curl.”
 
 Of course, this point is explained in supplementary books on mathematical physics and in careful recent books as well. But as far as I know, books in Japanese that build this up heuristically within the structure of a textbook are still rare.
 
@@ -72,8 +72,8 @@ It will not help you in time for tomorrow’s midterm. But perhaps it will make 
 This book has twelve chapters, divided into three large parts.
 
 1. <strong>Part I: Differential Forms on $\mathbb{R}^3$ (Chapters 1–5)</strong>  
-   We redefine $dx$ as a “matrix” and algebraically build the mechanism that measures area and volume. We obtain two powerful tools: the exterior derivative $d$ and the Hodge star $\ast$.
+   We redefine $dx$ as a “matrix” and algebraically build the mechanism that measures area and volume. We then reach the exterior derivative $d$, the tool that turns integral quantities into local laws.
 2. <strong>Part II: Vector Analysis (Chapters 6–9)</strong>  
-   This is the core of the book. We dismantle grad, curl, and div in vector analysis, and we take on Stokes’ theorem and curvilinear coordinates.
+   This is the core of the book. We introduce the metric and the Hodge star $\ast$, dismantle grad, curl, and div, and take on Stokes’ theorem and curvilinear coordinates.
 3. <strong>Part III: Development and Integration (Chapters 10–12)</strong>  
    We look at applications to electromagnetism, namely Maxwell’s equations, and then glance toward the worlds of manifolds and Geometric Algebra.
