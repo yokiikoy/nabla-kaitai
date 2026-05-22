@@ -51,7 +51,8 @@ Per-section Pass status (all included in chapter-wide Pass 2 and Pass 3):
 | Wave | Branch | Items | Log |
 |------|--------|-------|-----|
 | **1** | #177 | BP-001, BP-002 |
-| **2** | `edit/ja-backport-wave2` | BP-013, BP-021; triage BP-010–012 | `backport-log.md`, `backport-rubric.md` |
+| **2** | #178 | BP-013, BP-021 |
+| **3** | `edit/ja-backport-wave3` | BP-022–023; BP-017 wontfix (author) | `backport-log.md`, `backport-rubric.md` |
 
 ---
 
