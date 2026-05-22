@@ -44,22 +44,41 @@ Reason:
 
 ### 3. `curl` / `rot`
 
-Decision: use **curl** in English prose unless specifically discussing notation.
+Decision: use **curl** consistently in the English edition.
 
 Reason:
 
-- `rot` is understandable in some mathematical traditions, but `curl` is the ordinary English vector-analysis term.
+- `curl` is the ordinary English vector-analysis term.
 - The Japanese `回転` maps naturally to `curl` for English readers.
-- The occurrence of `grad, rot, div` in the current TOC is retained only where it mirrors the Japanese operator triad and may be revisited at the chapter level.
+- Even where the Japanese source uses the operator triad `grad, rot, div`, the English edition should normalize it to `grad, curl, div` unless a passage is explicitly discussing notation in different traditions.
+
+Files updated:
+
+- `translation/glossary.md`
+- `translation/style-guide.md`
+- `manuscript/en/toc.md`
 
 ### 4. Portal URL
 
-Decision: keep `/jp/` for now.
+Decision: use the English portal URL.
+
+Final URL:
+
+[https://covectorspace.xyz/en/](https://covectorspace.xyz/en/)
+
+Files updated:
+
+- `manuscript/en/ch00/03_portal.md`
+- `translation/style-guide.md`
+
+### 5. English Front Matter
+
+Decision: English chapter files do not need YAML front matter for now.
 
 Reason:
 
-- There is no confirmed English portal URL yet.
-- The review notes record this as a future publication issue.
+- There is no immediate build requirement for English chapter front matter.
+- This can be revisited later if the build system or site generator requires it.
 
 ---
 
@@ -69,7 +88,7 @@ Reason:
 |---|---|---|
 | `manuscript/en/ch00/01_preface.md` | passed | English heading set to `Preface`; voice acceptable. |
 | `manuscript/en/ch00/02_introduction.md` | passed | `del/nabla` explanation polished; math unchanged. |
-| `manuscript/en/ch00/03_portal.md` | passed with note | English portal URL decision deferred. |
+| `manuscript/en/ch00/03_portal.md` | passed | English portal URL applied. |
 
 ---
 
@@ -81,6 +100,5 @@ It is now suitable as the first polished English sample for the project, subject
 
 Remaining global issues:
 
-- Decide whether English chapter files should include YAML front matter.
-- Decide whether the English edition will have its own portal URL.
-- Revisit `grad, rot, div` vs `grad, curl, div` when translating Chapters 6–8.
+- Revisit YAML front matter only if the build system or site generator requires it.
+- Apply `curl`, not `rot`, throughout future English chapters.
