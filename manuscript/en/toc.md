@@ -82,7 +82,7 @@ order: 0
 - §6.2 Converting Between Column Vectors and Row Vectors Using $g$
 - §6.3 The Hodge Star $\ast$ — The Correspondence Connecting Two Methods
 - §6.4 Examples of the Correspondence — Differential Forms and Vector Analysis
-- §6.5 The Types of the Three Operations — grad, rot, div
+- §6.5 The Types of the Three Operations — grad, curl, div
 - §6.6 Toward Vector Analysis
 - Appendix D: Array Representation of the Hodge Star
 
