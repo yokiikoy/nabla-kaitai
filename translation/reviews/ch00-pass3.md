@@ -89,6 +89,7 @@ The follow-up review issues from the manual ch00 review were fixed on this branc
 - #138: Polish English rhythm in ch00 preface.
 - #140: Polish English rhythm in ch00 introduction.
 - #144: Align ch00 roadmap with current chapter structure.
+- #145: Polish English rhythm in ch00 portal page.
 
 Changes made:
 
@@ -98,6 +99,7 @@ Changes made:
 - Replaced `a visible problem` with `a problem that should have been visible`.
 - Smoothed several English rhythm issues in `02_introduction.md`.
 - Updated the roadmap in both Japanese and English so the Hodge star belongs to Part II / Chapter 6.
+- Smoothed the Discord invitation language in `03_portal.md`.
 
 ---
 
@@ -107,7 +109,7 @@ Changes made:
 |---|---|---|
 | `manuscript/en/ch00/01_preface.md` | passed | English heading set to `Preface`; voice polished after manual review. |
 | `manuscript/en/ch00/02_introduction.md` | passed | `del/nabla` explanation polished; roadmap aligned with current chapter structure. |
-| `manuscript/en/ch00/03_portal.md` | passed | English portal URL applied. |
+| `manuscript/en/ch00/03_portal.md` | passed | English portal URL applied; Discord invitation language polished. |
 
 ---
 
