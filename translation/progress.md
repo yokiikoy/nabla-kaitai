@@ -71,6 +71,23 @@ Per-section Pass status (all included in chapter-wide Pass 2 and Pass 3):
 | English ch01 in HTML/PDF build | Wire into build when English edition is published |
 | Chapter 2+ translation | New issues; Pass 1 per section |
 
+### English Chapter 2 — `manuscript/en/ch02/ch02.md` (branch `ai/english-translation-ch02`, PR [#165](https://github.com/yokiikoy/nabla-kaitai/pull/165))
+
+| Scope | Pass | Notes |
+|-------|------|-------|
+| §2.0–§2.6 + Appendix A | **1 → 2 → 3** | `ch02-pass3.md`, `ch02-close-reading-polish.md` (#157, #172) |
+| `translation/reviews/ch02-pass3.md` | complete | resolves #157 |
+| `translation/reviews/ch02-close-reading-polish.md` | complete | #172 close-reading polish |
+| §2.0 | 3 | bridge from ch01 |
+| §2.1 | 3 | elementary vs 3D area |
+| §2.2 | 3 | three rules, signed area |
+| §2.3 | 3 | antisymmetric matrix / $2$-form |
+| §2.4 | 3 | wedge product, projections |
+| §2.5 | 3 | determinant / $3$-form |
+| §2.6 | 3 | chapter summary |
+| `translation/reviews/ch02-pass2.md` | complete | Pass 2 all stages |
+| `translation/drafts/ch02-*.md` | integrated | optional cleanup after PR |
+
 ---
 
 ## History (closed issues on this branch)
