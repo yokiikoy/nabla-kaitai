@@ -11,8 +11,10 @@
 | manuscript/en/ch00/03_portal.md | Pass 3 passed | English portal URL applied; Discord invitation language polished; final readthrough polish applied |
 | manuscript/en/ch01/ch01.md §1.0 | Pass 3 passed | old outdated draft replaced; current-style translation reviewed and polished |
 | manuscript/en/ch01/ch01.md §1.1 | Pass 1 / local polish complete | Riemann sums and matrix products translated; whole-chapter Pass 2/3 pending |
+| manuscript/en/ch01/ch01.md §1.2 | Pass 1 / local polish complete | total differential df translated; whole-chapter Pass 2/3 pending |
 | translation/reviews/ch00-pass1.md | complete | records Pass 1 scores and remaining Pass 2 issues |
 | translation/reviews/ch00-pass2.md | complete | records Pass 2 edits and remaining Pass 3 issues |
 | translation/reviews/ch00-pass3.md | complete | records Pass 3 decisions and resolved issues #138, #140, #144, #145 |
 | translation/reviews/ch01-1.0-review.md | complete | records review and resolved issue #147 |
 | translation/reviews/ch01-1.1-review.md | complete | records local review and remaining whole-chapter watch points |
+| translation/reviews/ch01-1.2-review.md | complete | records local review and remaining whole-chapter watch points |
