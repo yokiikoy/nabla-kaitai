@@ -11,7 +11,7 @@ order: 0
 
 ---
 
-<strong>Greeting: A Gift to My Former Self, or a Line of Defense in the Age of Social Media</strong>
+<strong>Preface: A Gift to My Former Self, or a Line of Defense in the Age of Social Media</strong>
 
 <strong>Introduction: What Is $dx$? What Is Nabla?</strong>
 
