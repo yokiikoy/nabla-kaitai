@@ -1857,7 +1857,7 @@ $$\mathbf{v}_1 \cdot (\mathbf{v}_2 \times \mathbf{v}_3) = \det\begin{pmatrix}x_1
 | :--- | :--- | :--- | :--- | :--- |
 | \textbf{0次元} | $0$-form（スカラー場 $f$） | 点 | 1成分（$f$） | $\sqrt{f^2}$  |
 | \textbf{1次元} | $1$-form（$dx, dy, dz$） | ベクトル（線分） | 3成分（$x, y, z$） | $\sqrt{x^2 + y^2 + z^2}$ |
-| \textbf{2次元} | $2$-form（$dy \wedge dz$ 等） | 平行四辺形 | 3成分 | 係数の二乗和平方根 |
+| \textbf{2次元} | $2$-form（$dy \wedge dz$ 等） | 平行四辺形 | 3成分 | $\sqrt{A_{yz}^2 + A_{zx}^2 + A_{xy}^2}$ |
 | \textbf{3次元} | $3$-form（$dx \wedge dy \wedge dz$） | 3本のベクトルが張る平行六面体 | 1成分（$V$） | $\sqrt{V^2}$ |
 
 > \textbf{【ここまでのチェックポイント】}
@@ -6771,7 +6771,7 @@ $\theta$ 成分に $\frac{1}{r}$ がつくのは、$\nabla f$ が正規直交基
 正規直交成分が $F_r,F_\theta,F_z$ であるベクトル場 $\mathbf{F}$ に対応する $1$-form は、以下に述べる「式に現れるスケール因子によって $1$-form としての係数を明示する」という約束に基づき、$\omega = F_r\,dr + rF_\theta\,d\theta + F_z\,dz$ である。
 
 > \textbf{注} （$\tilde{\omega}$ のチルダについて）
-第8章 §8.6.2 では、正規直交成分 $F_\theta$ と $1$-form としての係数 $rF_\theta$ を区別するために $\tilde{\omega}$ という記法を使った。本章では記号を軽くするため、以下ではチルダを省いて $\omega$ と書く。ただし、$F_r,F_\theta,F_z$ は常に正規直交ベクトル成分を表すものとする。対応する $1$-form は、その都度スケール因子を含めて明示する。円柱座標では
+> 第8章 §8.6.2 では、正規直交成分 $F_\theta$ と $1$-form としての係数 $rF_\theta$ を区別するために $\tilde{\omega}$ という記法を使った。本章では記号を軽くするため、以下ではチルダを省いて $\omega$ と書く。ただし、$F_r,F_\theta,F_z$ は常に正規直交ベクトル成分を表すものとする。対応する $1$-form は、その都度スケール因子を含めて明示する。円柱座標では
 > $$
 > \omega = F_r\,dr + rF_\theta\,d\theta + F_z\,dz
 > $$

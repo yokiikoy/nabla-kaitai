@@ -148,7 +148,12 @@ class MathProtector:
     def protect(self, text):
         def repl(match):
             key = f"__MATH_BLOCK_{self.counter}__"
-            self.math_blocks[key] = match.group(0)
+            value = match.group(0)
+            line_start = match.string.rfind('\n', 0, match.start()) + 1
+            prefix = match.string[line_start:match.start()]
+            if value.startswith('$$') and prefix.strip() == '>':
+                value = re.sub(r'\n>\s?', '\n', value)
+            self.math_blocks[key] = value
             self.counter += 1
             return key
         text = re.sub(r'\$\$(.*?)\$\$', repl, text, flags=re.DOTALL)
@@ -278,7 +283,10 @@ def process_markdown(md_text):
             if content:
                 processed_inner = protector.restore(apply_inline_formatting(content))
                 processed_inner = re.sub(r'\[\^(.+?)\]', r'<sup>[\1]</sup>', processed_inner)
-                result.append(f'<p>{processed_inner}</p>')
+                if processed_inner.strip().startswith('$$'):
+                    result.append(processed_inner)
+                else:
+                    result.append(f'<p>{processed_inner}</p>')
             continue
         elif in_quote:
             if line.strip() == '':
