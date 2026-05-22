@@ -16,6 +16,6 @@
 | 縦ベクトル | column vector | do not use vertical vector |
 | つじつま合わせ | making the measurement consistent / consistency adjustment | context-dependent |
 | 抜け道 | route / bypass / shortcut | title uses route |
-| 回転 | curl | not rot in English prose unless discussing notation |
+| 回転 | curl | use curl consistently in English; do not use rot |
 | 発散 | divergence / div | noun vs operator |
 | 勾配 | gradient / grad | noun vs operator |
