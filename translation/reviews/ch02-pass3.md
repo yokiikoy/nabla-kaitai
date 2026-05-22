@@ -23,7 +23,7 @@ Reason: Aligned with `manuscript/en/toc.md`; no genre mismatch like ch00 Preface
 
 Decision: **keep** throughout (§2.3, §2.4.6, checkpoints).
 
-Reason: Book-specific metaphor parallel to ch01 “scale marks”; flattening to “coordinate projection” would lose voice.
+Reason: Book-specific metaphor parallel to ch01’s coordinate-rebuilding voice; flattening to “coordinate projection” would lose voice.
 
 ### 3. Authorial asides
 

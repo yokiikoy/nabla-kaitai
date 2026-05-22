@@ -71,7 +71,7 @@ Per-section Pass status (all included in chapter-wide Pass 2 and Pass 3):
 | English ch01 in HTML/PDF build | Wire into build when English edition is published |
 | Chapter 2+ translation | New issues; Pass 1 per section |
 
-### English Chapter 2 — `manuscript/en/ch02/ch02.md` (branch `ai/english-translation-ch02`)
+### English Chapter 2 — `manuscript/en/ch02/ch02.md` (branch `ai/english-translation-ch02`, PR [#159](https://github.com/yokiikoy/nabla-kaitai/pull/159))
 
 | Scope | Pass | Notes |
 |-------|------|-------|
