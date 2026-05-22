@@ -76,7 +76,8 @@ Per-section Pass status (all included in chapter-wide Pass 2 and Pass 3):
 | Scope | Pass | Notes |
 |-------|------|-------|
 | §2.0 | **1** | Old draft replaced; `ch02-2.0-review.md`; issue #154 |
-| §2.1–§2.6 | — | pending |
+| §2.1 | **1** | `ch02-2.1-review.md`; issue #155 |
+| §2.2–§2.6 | — | pending |
 
 ---
 
