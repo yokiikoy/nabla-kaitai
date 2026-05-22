@@ -82,12 +82,31 @@ Reason:
 
 ---
 
+## Review Issues Resolved
+
+The follow-up review issues from the manual ch00 review were fixed on this branch.
+
+- #138: Polish English rhythm in ch00 preface.
+- #140: Polish English rhythm in ch00 introduction.
+- #144: Align ch00 roadmap with current chapter structure.
+
+Changes made:
+
+- Smoothed `back then` → `at the time`.
+- Smoothed `they train the reader’s nose` → `they help train the reader’s nose`.
+- Replaced `developed back and forth` with `developed in a much less linear way`.
+- Replaced `a visible problem` with `a problem that should have been visible`.
+- Smoothed several English rhythm issues in `02_introduction.md`.
+- Updated the roadmap in both Japanese and English so the Hodge star belongs to Part II / Chapter 6.
+
+---
+
 ## File Status
 
 | File | Pass 3 Status | Notes |
 |---|---|---|
-| `manuscript/en/ch00/01_preface.md` | passed | English heading set to `Preface`; voice acceptable. |
-| `manuscript/en/ch00/02_introduction.md` | passed | `del/nabla` explanation polished; math unchanged. |
+| `manuscript/en/ch00/01_preface.md` | passed | English heading set to `Preface`; voice polished after manual review. |
+| `manuscript/en/ch00/02_introduction.md` | passed | `del/nabla` explanation polished; roadmap aligned with current chapter structure. |
 | `manuscript/en/ch00/03_portal.md` | passed | English portal URL applied. |
 
 ---
