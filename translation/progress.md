@@ -1,35 +1,85 @@
 # Translation Progress
 
-| File | Status | Notes |
-|---|---|---|
-| manuscript/en/README.md | initial draft | boilerplate |
-| manuscript/ja/toc.md | updated | regenerated manually from current chapter headings |
-| manuscript/en/toc.md | initial draft | updated from current Japanese chapter headings; Preface and curl decisions applied |
-| manuscript/ja/ch00/02_introduction.md | updated | roadmap aligned with current chapter structure |
-| manuscript/en/ch00/01_preface.md | Pass 3 passed | English heading set to Preface; voice and rhythm polished after manual review |
-| manuscript/en/ch00/02_introduction.md | Pass 3 passed | del/nabla explanation polished; roadmap aligned with current chapter structure |
-| manuscript/en/ch00/03_portal.md | Pass 3 passed | English portal URL applied; Discord invitation language polished; final readthrough polish applied |
-| manuscript/en/ch01/ch01.md §1.0 | Pass 3 passed | old outdated draft replaced; current-style translation reviewed and polished |
-| manuscript/en/ch01/ch01.md §1.1 | Pass 1 / local polish complete | Riemann sums and matrix products translated; whole-chapter Pass 2/3 pending |
-| manuscript/en/ch01/ch01.md §1.2 | Pass 1 / local polish complete | total differential df translated; whole-chapter Pass 2/3 pending |
-| manuscript/en/ch01/ch01.md §1.3 | Pass 1 / local polish complete | Leibniz notation translated; whole-chapter Pass 2/3 pending |
-| manuscript/en/ch01/ch01.md §1.4 | Pass 1 passed | integrated from draft; review ch01-1.4-review.md; issue #148; Pass 2/3 pending |
-| manuscript/en/ch01/ch01.md §1.5 | Pass 1 passed | coordinate exercises translated; review ch01-1.5-review.md; issue #149; Pass 2/3 pending |
-| manuscript/en/ch01/ch01.md §1.6 | Pass 1 passed | chapter summary and roadmap; review ch01-1.6-review.md; issue #150; Pass 2/3 pending |
-| translation/reviews/ch01-1.5-review.md | complete | Pass 1; resolves #149 |
-| translation/reviews/ch01-1.6-review.md | complete | Pass 1; resolves #150 |
-| manuscript/en/ch01/ch01.md (whole) | Pass 3 passed | Pass 1–3 complete §1.0–§1.6; ch01-pass3.md; issue #152 |
-| translation/reviews/ch01-pass2.md | complete | all 5 stages; resolves #151 |
-| translation/reviews/ch01-pass3.md | complete | recommended decisions; resolves #152 |
-| manuscript/en/ch01/ch01.md §1.0 | Pass 3 passed | maintained from #147; confirmed in Pass 3 |
-| manuscript/en/ch01/ch01.md §1.1–§1.6 | Pass 1–3 passed | English ch01 body ready for build/next chapter |
-| translation/drafts/ch01-1.4.md | integrated (draft retained) | mirror of §1.4 body; remove after whole-chapter Pass 2 if no drift |
-| translation/reviews/ch01-1.4-review.md | complete | Pass 1 post-integration; resolves #148 |
-| translation/reviews/ch00-pass1.md | complete | records Pass 1 scores and remaining Pass 2 issues |
-| translation/reviews/ch00-pass2.md | complete | records Pass 2 edits and remaining Pass 3 issues |
-| translation/reviews/ch00-pass3.md | complete | records Pass 3 decisions and resolved issues #138, #140, #144, #145 |
-| translation/reviews/ch01-1.0-review.md | complete | records review and resolved issue #147 |
-| translation/reviews/ch01-1.1-review.md | complete | records local review and remaining whole-chapter watch points |
-| translation/reviews/ch01-1.2-review.md | complete | records local review and remaining whole-chapter watch points |
-| translation/reviews/ch01-1.3-review.md | complete | records local review and remaining whole-chapter watch points |
-| translation/reviews/ch01-1.4-review.md | complete | records standalone draft review and integration note |
+Branch: `ai/english-translation-start` · PR [#153](https://github.com/yokiikoy/nabla-kaitai/pull/153)
+
+---
+
+## Current status (authoritative)
+
+### English front matter — ch00
+
+| File | Pass | Notes |
+|------|------|-------|
+| `manuscript/en/ch00/01_preface.md` | **3** | Heading: Preface; see `ch00-pass3.md` |
+| `manuscript/en/ch00/02_introduction.md` | **3** | del/nabla; roadmap aligned with Japanese |
+| `manuscript/en/ch00/03_portal.md` | **3** | English portal URL |
+
+### English Chapter 1 — `manuscript/en/ch01/ch01.md`
+
+| Scope | Pass | Review record |
+|-------|------|----------------|
+| **Chapter 1 (§1.0–§1.6)** | **1 → 2 → 3** | `translation/reviews/ch01-pass2.md`, `ch01-pass3.md` |
+
+Per-section Pass status (all included in chapter-wide Pass 2 and Pass 3):
+
+| Section | Pass | Section review |
+|---------|------|----------------|
+| §1.0 | **3** | `ch01-1.0-review.md` (#147) |
+| §1.1 | **3** | `ch01-1.1-review.md` |
+| §1.2 | **3** | `ch01-1.2-review.md` |
+| §1.3 | **3** | `ch01-1.3-review.md` |
+| §1.4 | **3** | `ch01-1.4-review.md` (#148) |
+| §1.5 | **3** | `ch01-1.5-review.md` (#149) |
+| §1.6 | **3** | `ch01-1.6-review.md` (#150) |
+
+### Supporting English files
+
+| File | Status |
+|------|--------|
+| `manuscript/en/toc.md` | draft (Preface, curl normalized) |
+| `manuscript/en/README.md` | boilerplate |
+
+### Japanese files touched for alignment
+
+| File | Status |
+|------|--------|
+| `manuscript/ja/toc.md` | updated from current chapter headings |
+| `manuscript/ja/ch00/02_introduction.md` | roadmap aligned with current structure |
+
+---
+
+## Workflow artifacts
+
+| Path | Role |
+|------|------|
+| `translation/style-guide.md` | English edition conventions |
+| `translation/evaluation-rubric.md` | Pass 1 / 2 / 3 criteria |
+| `translation/glossary.md` | Fixed term choices (e.g. curl not rot) |
+| `translation/reviews/ch00-pass{1,2,3}.md` | ch00 pass logs |
+| `translation/reviews/ch01-1.*-review.md` | ch01 per-section Pass 1 (+ notes) |
+| `translation/reviews/ch01-pass2.md` | ch01 Pass 2 (staged §1.0–§1.6) |
+| `translation/reviews/ch01-pass3.md` | ch01 Pass 3 decisions |
+
+---
+
+## Follow-up (not blocking merge)
+
+| Item | Action |
+|------|--------|
+| `translation/drafts/ch01-1.4.md` | Integrated into `ch01.md`; safe to delete after optional diff check |
+| English ch01 in HTML/PDF build | Wire into build when English edition is published |
+| Chapter 2+ translation | New issues; Pass 1 per section |
+
+---
+
+## History (closed issues on this branch)
+
+| Issue | Work |
+|-------|------|
+| #138–#145, #147 | ch00 rhythm / structure |
+| #146 | Replace outdated English ch01; restart §1.0 workflow |
+| #148 | Integrate §1.4 into `ch01.md` |
+| #149 | Translate §1.5 |
+| #150 | Translate §1.6 |
+| #151 | Chapter 1 Pass 2 |
+| #152 | Chapter 1 Pass 3 |
