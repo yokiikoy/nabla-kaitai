@@ -44,7 +44,13 @@ Per-section Pass status (all included in chapter-wide Pass 2 and Pass 3):
 | File | Status |
 |------|--------|
 | `manuscript/ja/toc.md` | updated from current chapter headings |
-| `manuscript/ja/ch00/02_introduction.md` | roadmap aligned with current structure |
+| `manuscript/ja/ch00/02_introduction.md` | roadmap aligned with `toc.md` (backport Wave 1) |
+
+### Japanese backport — `translation/backport/`
+
+| Wave | Branch | Items | Log |
+|------|--------|-------|-----|
+| **1** | `edit/ja-backport-wave1` | BP-001, BP-002 | `backport-log.md`, `backport-rubric.md` |
 
 ---
 
@@ -52,6 +58,8 @@ Per-section Pass status (all included in chapter-wide Pass 2 and Pass 3):
 
 | Path | Role |
 |------|------|
+| `translation/backport/backport-log.md` | JA reverse-import candidate tracker |
+| `translation/backport/backport-rubric.md` | P0–P2 triage rules |
 | `translation/style-guide.md` | English edition conventions |
 | `translation/evaluation-rubric.md` | Pass 1 / 2 / 3 criteria |
 | `translation/glossary.md` | Fixed term choices (e.g. curl not rot) |
