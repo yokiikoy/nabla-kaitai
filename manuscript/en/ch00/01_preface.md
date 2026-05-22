@@ -1,4 +1,4 @@
-# Greeting: A Gift to My Former Self, or a Line of Defense in the Age of Social Media
+# Preface: A Gift to My Former Self, or a Line of Defense in the Age of Social Media
 
 I wrote this book to answer the questions I had as an undergraduate. It assumes, roughly, the background I had back then.
 
