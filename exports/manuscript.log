@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.4.30)  22 MAY 2026 01:44
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.4.30)  22 MAY 2026 10:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1062,9 +1062,13 @@ Package mdframed Info: mdframed works in twoside mode on input line 2743.
 Package mdframed Info: mdframed works in twoside mode on input line 2772.
 
 [38]
+Overfull \hbox (14.55122pt too wide) in paragraph at lines 2819--2820
+[]|$[]$|  
+ []
+
 Package mdframed Info: mdframed works in twoside mode on input line 2824.
 Package mdframed Info: mdframed works in twoside mode on input line 2845.
- [39]
+[39]
 Package mdframed Info: mdframed works in twoside mode on input line 2912.
  [40] [41] [42]
 Chapter 3.

@@ -99,15 +99,15 @@ v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline
 \end{tabular}\par\bigskip
 \begin{tabular}{|p{\dimexpr\textwidth-2\tabcolsep-2\arrayrulewidth\relax}|}\hline
 \multicolumn{1}{|c|}{\textbf{直近の改定履歴}}\\ \hline
+{\small dc03f7b (2026-05-22)  Merge pull request \#130 from yokiikoy/release/v1.0.0}\\ \hline
+{\small 4d0f26c (2026-05-22)  Clarify Hodge star notation in chapter 10}\\ \hline
 {\small fcda994 (2026-05-22)  Merge main into v1.0.0 release branch}\\ \hline
-{\small 44f4910 (2026-05-22)  Fix PDF TOC section numbering}\\ \hline
-{\small 34fb86f (2026-05-22)  Fix PDF TOC section numbering}\\ \hline
 \end{tabular}
 \end{minipage}\par
 \vfill
 {\includegraphics[height=0.28\textheight]{exports/icons/nabla_icon_inflate_65.png}\par}
 \vfill
-{\footnotesize 2026-05-22 01:44 JST --- 著者：yokiikoy\par}
+{\footnotesize 2026-05-22 10:19 JST --- 著者：yokiikoy\par}
 \restoregeometry
 \end{titlepage}
 \frontmatter
@@ -2816,7 +2816,7 @@ V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = \sum_i\sum_j\sum_k \epsilon_{ijk}\
 \textbf{1次元} & \(1\)-form（\(dx, dy, dz\)） & ベクトル（線分） &
 3成分（\(x, y, z\)） & \(\sqrt{x^2 + y^2 + z^2}\) \\
 \textbf{2次元} & \(2\)-form（\(dy \wedge dz\) 等） & 平行四辺形 & 3成分
-& 係数の二乗和平方根 \\
+& \(\sqrt{A_{yz}^2 + A_{zx}^2 + A_{xy}^2}\) \\
 \textbf{3次元} & \(3\)-form（\(dx \wedge dy \wedge dz\)） &
 3本のベクトルが張る平行六面体 & 1成分（\(V\)） & \(\sqrt{V^2}\) \\
 \end{longtable}
