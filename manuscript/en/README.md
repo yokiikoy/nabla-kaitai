@@ -1,5 +1,9 @@
 # English Manuscript
 
-Place the English translation chapters here.
+Place the English source chapters here.
 
-Keep chapter numbers aligned with `manuscript/ja/`.
+Recommended chapter file:
+
+```text
+chNN/main.md
+```
