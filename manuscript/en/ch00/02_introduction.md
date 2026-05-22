@@ -71,9 +71,9 @@ It will not help you in time for tomorrow’s midterm. But perhaps it will make 
 
 This book has twelve chapters, divided into three large parts.
 
-1. <strong>Part I: Differential Forms on $\mathbb{R}^3$ (Chapters 1–5)</strong>  
-   We redefine $dx$ as a “matrix” and algebraically build the mechanism that measures area and volume. We then reach the exterior derivative $d$, the tool that turns integral quantities into local laws.
-2. <strong>Part II: Vector Analysis (Chapters 6–9)</strong>  
-   This is the core of the book. We introduce the metric and the Hodge star $\ast$, dismantle grad, curl, and div, and take on Stokes’ theorem and curvilinear coordinates.
+1. <strong>Part I: Differential Forms on $\mathbb{R}^3$ (Chapters 1–4)</strong>  
+   We redefine $dx$ as a “matrix” and algebraically build the mechanism that measures area and volume, then reach integration and the pullback.
+2. <strong>Part II: Vector Analysis (Chapters 5–9)</strong>  
+   This is the core of the book. We treat the exterior derivative $d$, the metric and Hodge star $\ast$, vector analysis via nabla, translation between the two languages, and curvilinear coordinates in practice.
 3. <strong>Part III: Development and Integration (Chapters 10–12)</strong>  
    We look at applications to electromagnetism, namely Maxwell’s equations, and then glance toward the worlds of manifolds and Geometric Algebra.
