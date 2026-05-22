@@ -26,7 +26,7 @@ order: 0
 - §1.1 Riemann Sums and Matrix Products
 - §1.2 The Total Differential $df$ — An Operator That Packs Rates of Change into a Matrix
 - §1.3 Leibniz Notation and Algebraic Intuition
-- §1.4 Coordinate Transformations — Rebuilding Measuring Devices on Another Scale
+- §1.4 Coordinate Transformations — Rebuilding Measuring Devices in New Coordinates
 - §1.5 Writing in Another Coordinate System — Exercises
 - §1.6 Summary of This Chapter and Outlook Toward the Next
 
