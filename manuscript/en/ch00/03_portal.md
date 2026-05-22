@@ -4,7 +4,7 @@ The PDF version of this book, errata, revision history, GitHub repository, and l
 
 ### Portal Site
 
-[https://covectorspace.xyz/jp/](https://covectorspace.xyz/jp/)
+[https://covectorspace.xyz/en/](https://covectorspace.xyz/en/)
 
 This book is published for free. Obvious typo-level corrections are also accepted through GitHub Issues.
 
