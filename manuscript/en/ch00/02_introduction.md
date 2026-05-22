@@ -43,7 +43,7 @@ Instead of immediately placing abstract terminology between the $dx$ of high-sch
 
 The other symbol this book wants to confront is $\nabla$.
 
-In English, the symbol $\nabla$ is called **del**, and also **nabla**. In Japanese textbooks, it is often called *nabla*. This book is not really about the name of the symbol. It is about what div, grad, and curl are actually doing.
+In English, $\nabla$ is usually called **del**; it is also called **nabla**. Japanese textbooks often use the name *nabla*. This book is not really about the name of the symbol. It is about what div, grad, and curl are actually doing.
 
 When studying vector analysis, there may come a point when the whole system suddenly begins to look like a collection of formulas. At least that was my experience. Cartesian coordinates may be fine. But once cylindrical or spherical coordinates enter the stage, $r$ and $\sin\theta$ appear, and one has to memorize coefficients whose origin is not clear.
 
