@@ -75,16 +75,17 @@ Per-section Pass status (all included in chapter-wide Pass 2 and Pass 3):
 
 | Scope | Pass | Notes |
 |-------|------|-------|
-| §2.0–§2.6 + Appendix A | **1 → 2** | Full body integrated; `ch02-pass2.md`; Pass 3 pending |
-| §2.0 | 2 | bridge from ch01 |
-| §2.1 | 2 | elementary vs 3D area |
-| §2.2 | 2 | three rules, signed area |
-| §2.3 | 2 | antisymmetric matrix / $2$-form |
-| §2.4 | 2 | wedge product, projections |
-| §2.5 | 2 | determinant / $3$-form |
-| §2.6 | 2 | chapter summary |
-| `translation/drafts/ch02-*.md` | integrated | mirrors in ch02.md; optional cleanup |
+| §2.0–§2.6 + Appendix A | **1 → 2 → 3** | `ch02-pass3.md`; issue #157; English ch02 body complete |
+| `translation/reviews/ch02-pass3.md` | complete | resolves #157 |
+| §2.0 | 3 | bridge from ch01 |
+| §2.1 | 3 | elementary vs 3D area |
+| §2.2 | 3 | three rules, signed area |
+| §2.3 | 3 | antisymmetric matrix / $2$-form |
+| §2.4 | 3 | wedge product, projections |
+| §2.5 | 3 | determinant / $3$-form |
+| §2.6 | 3 | chapter summary |
 | `translation/reviews/ch02-pass2.md` | complete | Pass 2 all stages |
+| `translation/drafts/ch02-*.md` | integrated | optional cleanup after PR |
 
 ---
 
