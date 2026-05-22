@@ -60,6 +60,9 @@ Per-section Pass status (all included in chapter-wide Pass 2 and Pass 3):
 | `translation/reviews/ch01-pass2.md` | ch01 Pass 2 (staged §1.0–§1.6) |
 | `translation/reviews/ch01-pass3.md` | ch01 Pass 3 decisions |
 | `translation/reviews/ch01-close-reading-polish.md` | ch01 close-reading polish (#161) |
+| `translation/reviews/ch03-3.*-review.md` | ch03 per-section Pass 1 |
+| `translation/reviews/ch03-pass2.md` | ch03 Pass 2 |
+| `translation/reviews/ch03-pass3.md` | ch03 Pass 3 |
 
 ---
 
@@ -87,6 +90,29 @@ Per-section Pass status (all included in chapter-wide Pass 2 and Pass 3):
 | §2.6 | 3 | chapter summary |
 | `translation/reviews/ch02-pass2.md` | complete | Pass 2 all stages |
 | `translation/drafts/ch02-*.md` | integrated | optional cleanup after PR |
+
+### English Chapter 3 — `manuscript/en/ch03/ch03.md` (branch `ai/english-translation-ch03`, PR [#162](https://github.com/yokiikoy/nabla-kaitai/pull/162))
+
+| Scope | Pass | Notes |
+|-------|------|-------|
+| **Chapter 3 (§3.0–§3.5)** | **1 → 2 → 3** | `ch03-pass2.md`, `ch03-pass3.md` |
+
+Per-section Pass status:
+
+| Section | Pass | Section review |
+|---------|------|----------------|
+| §3.0 | **3** | `ch03-3.0-review.md` (#158) |
+| §3.1 | **3** | `ch03-3.1-review.md` (#160) |
+| §3.2 | **3** | `ch03-3.2-review.md` |
+| §3.3 | **3** | `ch03-3.3-review.md` |
+| §3.4 | **3** | `ch03-3.4-review.md` |
+| §3.5 | **3** | `ch03-3.5-review.md` |
+
+| Artifact | Status |
+|----------|--------|
+| `translation/drafts/ch03-3.*.md` | integrated into `ch03.md` |
+| `translation/reviews/ch03-pass2.md` | complete |
+| `translation/reviews/ch03-pass3.md` | complete |
 
 ---
 
