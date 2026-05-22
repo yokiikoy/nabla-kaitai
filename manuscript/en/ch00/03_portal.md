@@ -13,7 +13,7 @@ This book is published for free. Obvious typo-level corrections are also accepte
 
 ### Discord Server
 
-As a small experiment, I have opened a Discord server as a slightly more closed place where people can bring unorganized ideas and elementary questions that are hard to throw onto public social media.
+As a small experiment, I have opened a Discord server as a somewhat more closed place for unorganized ideas and elementary questions that are hard to throw onto public social media.
 
 The plan is to develop it gradually. At present, it is honestly close to an “empty room.” I hope it can become a place where people interested in science and engineering can gather at a comfortable distance, not limited to the contents of this book.
 
