@@ -18,9 +18,11 @@
 | manuscript/en/ch01/ch01.md §1.6 | Pass 1 passed | chapter summary and roadmap; review ch01-1.6-review.md; issue #150; Pass 2/3 pending |
 | translation/reviews/ch01-1.5-review.md | complete | Pass 1; resolves #149 |
 | translation/reviews/ch01-1.6-review.md | complete | Pass 1; resolves #150 |
-| manuscript/en/ch01/ch01.md (whole) | Pass 2 passed | staged Pass 2 §1.0–§1.6; ch01-pass2.md; issue #151; Pass 3 pending |
+| manuscript/en/ch01/ch01.md (whole) | Pass 3 passed | Pass 1–3 complete §1.0–§1.6; ch01-pass3.md; issue #152 |
 | translation/reviews/ch01-pass2.md | complete | all 5 stages; resolves #151 |
-| manuscript/en/ch01/ch01.md §1.1–§1.6 | Pass 1 passed / Pass 2 passed | Pass 3 pending (whole-chapter) |
+| translation/reviews/ch01-pass3.md | complete | recommended decisions; resolves #152 |
+| manuscript/en/ch01/ch01.md §1.0 | Pass 3 passed | maintained from #147; confirmed in Pass 3 |
+| manuscript/en/ch01/ch01.md §1.1–§1.6 | Pass 1–3 passed | English ch01 body ready for build/next chapter |
 | translation/drafts/ch01-1.4.md | integrated (draft retained) | mirror of §1.4 body; remove after whole-chapter Pass 2 if no drift |
 | translation/reviews/ch01-1.4-review.md | complete | Pass 1 post-integration; resolves #148 |
 | translation/reviews/ch00-pass1.md | complete | records Pass 1 scores and remaining Pass 2 issues |
