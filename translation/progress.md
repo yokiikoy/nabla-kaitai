@@ -71,6 +71,13 @@ Per-section Pass status (all included in chapter-wide Pass 2 and Pass 3):
 | English ch01 in HTML/PDF build | Wire into build when English edition is published |
 | Chapter 2+ translation | New issues; Pass 1 per section |
 
+### English Chapter 2 — `manuscript/en/ch02/ch02.md` (branch `ai/english-translation-ch02`)
+
+| Scope | Pass | Notes |
+|-------|------|-------|
+| §2.0 | **1** | Old draft replaced; `ch02-2.0-review.md`; issue #154 |
+| §2.1–§2.6 | — | pending |
+
 ---
 
 ## History (closed issues on this branch)
