@@ -18,7 +18,7 @@ Branch: `ai/english-translation-start` · PR [#153](https://github.com/yokiikoy/
 
 | Scope | Pass | Review record |
 |-------|------|----------------|
-| **Chapter 1 (§1.0–§1.6)** | **1 → 2 → 3** | `translation/reviews/ch01-pass2.md`, `ch01-pass3.md`; close-reading polish (#161) |
+| **Chapter 1 (§1.0–§1.6)** | **1 → 2 → 3** | `ch01-pass2.md`, `ch01-pass3.md`, `ch01-close-reading-polish.md` (#161, closed) |
 
 Per-section Pass status (all included in chapter-wide Pass 2 and Pass 3):
 
@@ -59,6 +59,7 @@ Per-section Pass status (all included in chapter-wide Pass 2 and Pass 3):
 | `translation/reviews/ch01-1.*-review.md` | ch01 per-section Pass 1 (+ notes) |
 | `translation/reviews/ch01-pass2.md` | ch01 Pass 2 (staged §1.0–§1.6) |
 | `translation/reviews/ch01-pass3.md` | ch01 Pass 3 decisions |
+| `translation/reviews/ch01-close-reading-polish.md` | ch01 close-reading polish (#161) |
 
 ---
 
@@ -83,4 +84,4 @@ Per-section Pass status (all included in chapter-wide Pass 2 and Pass 3):
 | #150 | Translate §1.6 |
 | #151 | Chapter 1 Pass 2 |
 | #152 | Chapter 1 Pass 3 |
-| #161 | Chapter 1 close-reading polish (B/C items) |
+| #161 | Chapter 1 close-reading polish (closed) |

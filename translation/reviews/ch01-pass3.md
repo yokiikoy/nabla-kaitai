@@ -119,3 +119,9 @@ Next recommended step:
 
 - Optional: remove `translation/drafts/ch01-1.4.md` after diff check.
 - Begin Chapter 2 translation (Pass 1 per section) or run HTML/PDF build smoke test for English ch01 if/when wired into the build.
+
+---
+
+## Addendum (issue #161, 2026-05-22)
+
+Close-reading polish in `4bb50c0` **supersedes decision 5** (`scale marks` kept): §1.4 heading and body now use `in New Coordinates` / `viewed through cylindrical coordinates`. See `ch01-close-reading-polish.md`.
