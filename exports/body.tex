@@ -656,7 +656,12 @@ R_n
 
 前節では、リーマン積分を「行列 \(f(x)\,dx\)
 の変位ベクトルへの作用の和の極限」として解体した。この節では、その考え方を関数自体の微分へと拡張し、\textbf{全微分}\(df\)\textbf{を横ベクトル（行列）として定義する}。「微分」は、単なる数値の変化率ではなく、\textbf{変位ベクトルに掛けて初めて「変化量の一次部分」が出てくる演算子}として扱う。
-\#\#\#\# 1.2.1 微分可能性の行列表現 関数 \(f(x)\) が点 \(x\)
+
+\hypertarget{ux5faeux5206ux53efux80fdux6027ux306eux884cux5217ux8868ux73fe}{%
+\subsubsection{1.2.1
+微分可能性の行列表現}\label{ux5faeux5206ux53efux80fdux6027ux306eux884cux5217ux8868ux73fe}}
+
+関数 \(f(x)\) が点 \(x\)
 で微分可能であるとは、次の一次近似が成り立つことである：
 \[\Delta f = f(x + \Delta x) - f(x) = f'(x) \Delta x + o(|\Delta x|) \quad (|\Delta x| \to 0)\]
 
@@ -1839,13 +1844,17 @@ S = \sqrt{|\mathbf{v}_1|^2 |\mathbf{v}_2|^2 - (\mathbf{v}_1 \cdot \mathbf{v}_2)^
 \textbf{注}（面積の符号2）1変数でも、\(f(x)<0\) の区間では
 \(\displaystyle\int_a^b f(x)\,dx<0\)
 となり得る------符号付き「面積」はそこで既に現れている。向き付き面積は、その考え方を2次元に持ち上げたものだ。
-\#\#\#\# 2.2.3 ルール3：基準の決定（規格化）
+\end{quote}
+
+\hypertarget{ux30ebux30fcux30eb3ux57faux6e96ux306eux6c7aux5b9aux898fux683cux5316}{%
+\subsubsection{2.2.3
+ルール3：基準の決定（規格化）}\label{ux30ebux30fcux30eb3ux57faux6e96ux306eux6c7aux5b9aux898fux683cux5316}}
+
 最後に、「どのくらいの大きさを1とするか」を決めなければならない。ここでは素直に、\(x\)方向の\textbf{基底ベクトル}（標準基底の一つ）\(\hat{e}_x\)
 と \(y\)方向の基底ベクトル \(\hat{e}_y\) が作る正方形の面積を \(1\)
 としよう。本書の慣例どおり\textbf{縦ベクトル}で書けば
 \[\hat{e}_x = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \quad \hat{e}_y = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}\]
 である。
-\end{quote}
 
 \[S(\hat{e}_x, \hat{e}_y) = 1\]
 
@@ -2124,8 +2133,11 @@ M = \begin{pmatrix}
 \begin{quote}
 \textbf{注}（テンソル積の行列表現）数式が好きな読者のために書いておくと、\(dx = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}\)、\(dy = \begin{pmatrix} 0 & 1 & 0 \end{pmatrix}\)
 としたとき、「前のベクトルを転置して縦にし、後ろの横ベクトルと隣り合わせに置き（\(dx^T dy\)）、縦と横の成分を総当たりで掛け合わせて行列のマス目に配置する」という操作で\(dx \otimes dy\)の行列表現が機械的に得られる。おそらく手元の線形代数の教科書にも書いてあるだろう。
-\#\#\#\# 2.4.5 ウェッジ積の完成
 \end{quote}
+
+\hypertarget{ux30a6ux30a7ux30c3ux30b8ux7a4dux306eux5b8cux6210}{%
+\subsubsection{2.4.5
+ウェッジ積の完成}\label{ux30a6ux30a7ux30c3ux30b8ux7a4dux306eux5b8cux6210}}
 
 これで準備は整った。 我々が導き出した \(xy\)
 平面の面積測定器行列は、「\(x_1 y_2\) のスイッチ」から「\(y_1 x_2\)
