@@ -47,7 +47,7 @@ Legend: `pending` | `done` | `wontfix` | `P2-hold` | `out-of-scope`
 |------|-----|--------|
 | 1 | #177 | open |
 | 2 | #178 | open |
-| 3 | (this branch) | ready |
+| 3 | [#180](https://github.com/yokiikoy/nabla-kaitai/pull/180) | open |
 
 ## Wave 4 candidates
 
