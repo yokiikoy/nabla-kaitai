@@ -44,7 +44,7 @@ Scope: publication polish after Pass 3 — Markdown cleanup, mathematical safety
 - **C12** §5.9 `does no harm` — preserved looser voice
 - **C15** `Stokes's` — none found; already `Stokes'`
 - **C16** §5.11 Hodge dictionary sentence — kept approachable wording
-- **C24** §5.4 wedge compatibility sentence — kept as-is
+- optional §5.4 wedge-compatibility wording — kept as-is
 - `mismatch`, `balance the books`, tiny-loop derivation, tiling/cancellation, Kelvin–Stokes naming, full $d(d\omega)$ calculation, general $k$-form formula, pullback commutation note, EM examples / Appendix C, Hodge foreshadow, Appendix B expansions, same-symbol $\rho$, EM current $J$ vs matrix $\mathbf{J}$
 
 ---
