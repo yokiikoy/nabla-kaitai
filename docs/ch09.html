@@ -192,12 +192,30 @@ $$\begin{aligned}
 <blockquote>
 <p><strong>注</strong>（円柱座標で区別すべき4つのもの）</p>
 <p>ベクトル場を正しく微分形式として扱うために、以下の 4 つのレイヤーを区別しよう。</p>
-<p>| 名称 | 円柱座標での具体例 |</p>
-<p>| :--- | :--- |</p>
-<p>| <strong>座標に対応する $1$-form</strong> | $dr, d\theta, dz$ |</p>
-<p>| <strong>長さ1の目盛りに対応する $1$-form</strong> | $dr, r\,d\theta, dz$ |</p>
-<p>| <strong>ベクトル解析で使う成分</strong> | $F_r, F_\theta, F_z$ |</p>
-<p>| <strong>$1$-form としての係数</strong> | $F_r, rF_\theta, F_z$ |</p>
+<div class="table-wrapper"><table>
+<thead><tr>
+<th>名称</th>
+<th>円柱座標での具体例</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>座標に対応する $1$-form</strong></td>
+<td>$dr, d\theta, dz$</td>
+</tr>
+<tr>
+<td><strong>長さ1の目盛りに対応する $1$-form</strong></td>
+<td>$dr, r\,d\theta, dz$</td>
+</tr>
+<tr>
+<td><strong>ベクトル解析で使う成分</strong></td>
+<td>$F_r, F_\theta, F_z$</td>
+</tr>
+<tr>
+<td><strong>$1$-form としての係数</strong></td>
+<td>$F_r, rF_\theta, F_z$</td>
+</tr>
+</tbody>
+</table></div>
 <p>ベクトル解析で使う単位ベクトル方向の成分を $F_r,F_\theta,F_z$ と書くなら、対応する $1$-form は $F_r dr + F_\theta (r d\theta) + F_z dz$、すなわち $1$-form としての係数は $F_r,rF_\theta,F_z$ となる。本章の $F_\theta$ はつねに「ベクトル解析で使う成分」を指す。</p>
 </blockquote>
 <h4 id="9.2.2-勾配">9.2.2 勾配</h4>
@@ -278,12 +296,30 @@ $$\begin{aligned}
 \end{aligned}$$
 <blockquote>
 <p><strong>注</strong>（球座標で区別すべき4つのもの）</p>
-<p>| 名称 | 球座標での具体例 |</p>
-<p>| :--- | :--- |</p>
-<p>| <strong>座標に対応する $1$-form</strong> | $d\rho, d\theta, d\phi$ |</p>
-<p>| <strong>長さ1の目盛りに対応する $1$-form</strong> | $d\rho, \rho\,d\theta, \rho\sin\theta\,d\phi$ |</p>
-<p>| <strong>ベクトル解析で使う成分</strong> | $F_\rho, F_\theta, F_\phi$ |</p>
-<p>| <strong>$1$-form としての係数</strong> | $F_\rho, \rho F_\theta, \rho\sin\theta F_\phi$ |</p>
+<div class="table-wrapper"><table>
+<thead><tr>
+<th>名称</th>
+<th>球座標での具体例</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>座標に対応する $1$-form</strong></td>
+<td>$d\rho, d\theta, d\phi$</td>
+</tr>
+<tr>
+<td><strong>長さ1の目盛りに対応する $1$-form</strong></td>
+<td>$d\rho, \rho\,d\theta, \rho\sin\theta\,d\phi$</td>
+</tr>
+<tr>
+<td><strong>ベクトル解析で使う成分</strong></td>
+<td>$F_\rho, F_\theta, F_\phi$</td>
+</tr>
+<tr>
+<td><strong>$1$-form としての係数</strong></td>
+<td>$F_\rho, \rho F_\theta, \rho\sin\theta F_\phi$</td>
+</tr>
+</tbody>
+</table></div>
 <p>正規直交成分 $F_\rho,F_\theta,F_\phi$ に対する $1$-form は $\omega = F_\rho d\rho + \rho F_\theta d\theta + \rho\sin\theta F_\phi d\phi$ となる。</p>
 </blockquote>
 <p>ここでは $\rho>0$ かつ $0<\theta<\pi$ の座標パッチで計算している。原点 $\rho=0$ と極軸 $\sin\theta=0$ では球座標そのものが特異になり、$1/\rho$ や $1/\sin\theta$ を含む公式をそのまま使うことはできない。特異点をまたぐ問題では、別の座標パッチを使うか、特異点を除いた領域で計算してから境界条件として扱う。
