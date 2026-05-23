@@ -1,0 +1,71 @@
+name: Build manuscript
+
+on:
+  pull_request:
+    paths:
+      - 'manuscript/**'
+      - 'tools/**'
+      - '.github/workflows/build-manuscript.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'manuscript/**'
+      - 'tools/**'
+      - '.github/workflows/build-manuscript.yml'
+
+concurrency:
+  group: build-manuscript-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            pandoc \
+            texlive-xetex \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            fonts-ipaexfont
+
+      - name: Build release artifacts
+        run: python3 tools/build_release.py
+
+      - name: Commit rebuilt artifacts to main
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add \
+            docs/*.html \
+            docs/en/*.html \
+            exports/manuscript.pdf \
+            exports/manuscript-en.pdf \
+            exports/manuscript_combined.md \
+            exports/manuscript-en_combined.md \
+            exports/body.tex \
+            exports/manuscript.tex \
+            exports/manuscript-en.tex \
+            manuscript.pdf
+
+          if git diff --staged --quiet; then
+            echo "No artifact changes to commit."
+            exit 0
+          fi
+
+          git commit -m "chore: rebuild release artifacts (automated)"
+          git push
