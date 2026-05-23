@@ -191,6 +191,25 @@ Per-section Pass status:
 | `translation/reviews/ch06-pass3.md` | complete |
 | `translation/reviews/ch06-close-reading-polish.md` | complete (#184) |
 
+### English Chapter 7 — `manuscript/en/ch07/ch07.md` (branch `ai/english-translation-ch07`, PR [#168](https://github.com/yokiikoy/nabla-kaitai/pull/168))
+
+| Scope | Pass | Notes |
+|-------|------|-------|
+| **Chapter 7 (§7.0–§7.9)** | **1 → 2 → 3** | `ch07-pass2.md`, `ch07-pass3.md`; new file |
+
+| Block | Pass | Review |
+|-------|------|--------|
+| §7.0–§7.2 | **3** | `ch07-7.0-7.2-review.md` |
+| §7.3–§7.4 | **3** | `ch07-7.3-7.4-review.md` |
+| §7.5–§7.7 | **3** | `ch07-7.5-7.7-review.md` |
+| §7.8–§7.9 | **3** | `ch07-7.8-7.9-review.md` |
+
+| Artifact | Status |
+|----------|--------|
+| `translation/drafts/ch07-*.md` | integrated into `ch07.md` |
+| `translation/reviews/ch07-pass2.md` | complete |
+| `translation/reviews/ch07-pass3.md` | complete |
+
 ---
 
 ## History (closed issues on this branch)
