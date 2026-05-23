@@ -249,6 +249,7 @@ Per-section Pass status:
 | `translation/drafts/ch09-*.md` | integrated into `ch09.md` |
 | `translation/reviews/ch09-pass2.md` | complete |
 | `translation/reviews/ch09-pass3.md` | complete |
+| `translation/reviews/ch09-close-reading-polish.md` | complete (#187) |
 
 ---
 
