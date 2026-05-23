@@ -99,15 +99,15 @@ v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline
 \end{tabular}\par\bigskip
 \begin{tabular}{|p{\dimexpr\textwidth-2\tabcolsep-2\arrayrulewidth\relax}|}\hline
 \multicolumn{1}{|c|}{\textbf{直近の改定履歴}}\\ \hline
-{\small 5d3cfb8 (2026-05-23)  Release v1.0.1: English edition and bilingual GitHub Pages.}\\ \hline
-{\small 114c741 (2026-05-23)  Merge pull request \#179 from yokiikoy/fix/ch02-typo-176}\\ \hline
-{\small f8d6eb4 (2026-05-23)  Merge pull request \#175 from yokiikoy/ai/english-translation-backmatter}\\ \hline
+{\small 3d8ba35 (2026-05-24)  Merge pull request \#212 from yokiikoy/fix/appendix-kihaji-grammar}\\ \hline
+{\small e64827c (2026-05-24)  Polish EN appendix kihaji note grammar after \#209.}\\ \hline
+{\small 4e82b81 (2026-05-24)  Merge pull request \#210 from yokiikoy/fix/appendix-kihaji-thirty}\\ \hline
 \end{tabular}
 \end{minipage}\par
 \vfill
 {\includegraphics[height=0.28\textheight]{exports/icons/nabla_icon_inflate_65.png}\par}
 \vfill
-{\footnotesize 2026-05-23 14:37 JST --- 著者：yokiikoy\par}
+{\footnotesize 2026-05-24 01:00 JST --- 著者：yokiikoy\par}
 \restoregeometry
 \end{titlepage}
 \frontmatter
@@ -245,6 +245,30 @@ dx=\begin{pmatrix}1&0&0\end{pmatrix}
 から、面積とは何か、体積とは何かを考え直します。それから、積分、変数変換、外微分、ホッジスターへ進みます。そのあとで、ようやくナブラに戻ってきます。
 
 明日の中間テストには間に合いませんが、期末テストなら間に合うのではないでしょうか。
+
+\par\vspace{0.35em}\par
+
+\hypertarget{ux672cux66f8ux306eux30edux30fcux30c9ux30deux30c3ux30d7}{%
+\section{本書のロードマップ}\label{ux672cux66f8ux306eux30edux30fcux30c9ux30deux30c3ux30d7}}
+
+本書は全12章で、大きく3つの部に分かれています。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{第I部：$\mathbb{R}^3$ 上の微分形式（第1章〜第4章）}\\
+  \(dx\)
+  を「行列」として定義し直し、面積や体積を測る仕組みを代数的に組み上げ、積分と引き戻しまで進めます。
+\item
+  \textbf{第II部：ベクトル解析（第5章〜第9章）}\\
+  本書の核心部です。外微分 \(d\)、計量とホッジ・スター
+  \(\ast\)、ナブラによるベクトル解析、二つの言語の翻訳、曲線座標での実戦までを扱います。
+\item
+  \textbf{第III部：発展と統合（第10章〜第12章）}\\
+  電磁気学（マクスウェル方程式）への応用と、多様体や幾何代数（Geometric
+  Algebra）の世界を展望します。
+\end{enumerate}
 
 \newpage
 
@@ -3298,7 +3322,7 @@ V(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3) = \sum_i\sum_j\sum_k \epsilon_{ijk}\
 \[dF=2x\,dx+2y\,dy+2z\,dz\]
 
 である。第1章の約束どおり、これは変位ベクトルを食べて \(F\)
-の変化を読み取る横ベクトルである。球面に接する変位ベクトルなら、一次の変化としては
+の\textbf{一次の}変化を読み取る横ベクトルである。球面に接する変位ベクトルなら、一次の変化としては
 \(F=x^2+y^2+z^2\) の値を変えない。したがって、その変位ベクトル
 \(\mathbf{v}\) は \(dF(\mathbf{v})=0\)
 を満たす。球面小片を張る二本の変位ベクトルも、この条件を満たすように選ぶ。
@@ -3595,14 +3619,15 @@ dS(\Delta\mathbf{x}_S,\Delta\mathbf{y}_S)
 
 第1章で扱った置換積分は、まさにこのような和の整理だった。ここでも同じことをする。曲線上の小片を
 \(t\) で番号づけし、各成分の変化を「変化率 \(\times\)
-小区間幅」として整理するのである。刻みを無限に細かくすると、換算率は導関数に収束する：\(\Delta x_i/\Delta t \to dx/dt\)。
+小区間幅」として整理するのである。刻みを無限に細かくすると、換算率は\textbf{座標関数の導関数}に収束する：\(\Delta x_i/\Delta t \to x'(t)\)（\(y'(t), z'(t)\)
+も同様）。
 
 この計算は第1章 §1.2.5 の置換積分とまったく同じ形であり：
 
-\[\int_\gamma dx = \int_{t_0}^{t_1} \frac{dx}{dt}\,dt = x(t_1) - x(t_0)\]
+\[\int_\gamma dx = \int_{t_0}^{t_1} x'(t)\,dt = x(t_1) - x(t_0)\]
 
 同様に
-\(\int_\gamma dy = y(t_1) - y(t_0)\)、\(\int_\gamma dz = z(t_1) - z(t_0)\)。すなわち\textbf{$dx, dy, dz$ という $1$-form の線積分は、曲線の正味の変位——始点と終点の座標の差——を返す。}
+\(\int_\gamma dy = \int_{t_0}^{t_1} y'(t)\,dt = y(t_1) - y(t_0)\)、\(\int_\gamma dz = \int_{t_0}^{t_1} z'(t)\,dt = z(t_1) - z(t_0)\)。すなわち\textbf{$dx, dy, dz$ という $1$-form の線積分は、曲線の正味の変位——始点と終点の座標の差——を返す。}
 
 \hypertarget{ux5186ux5468ux3067ux8a66ux3059ux5f27ux9577ux306fux51faux306aux3044}{%
 \subsubsection{3.3.2
@@ -3773,13 +3798,12 @@ dx(\gamma'(t)) = -R\sin t,\qquad dy(\gamma'(t)) = R\cos t
 
 各成分の変化を「有限の比 \(\times \Delta t\)」の形に整理する：
 
-\[\omega(\Delta\mathbf{r}_i) = \bigl(P\frac{\Delta x_i}{\Delta t} + Q\frac{\Delta y_i}{\Delta t} + R\frac{\Delta z_i}{\Delta t}\bigr)\,\Delta t\]
+\[\omega_{\gamma(t_i)}(\Delta\mathbf{r}_i) = \bigl(P(\gamma(t_i))\frac{\Delta x_i}{\Delta t} + Q(\gamma(t_i))\frac{\Delta y_i}{\Delta t} + R(\gamma(t_i))\frac{\Delta z_i}{\Delta t}\bigr)\,\Delta t\]
 
-\(P,Q,R\) は点 \(\gamma(t_i)\)
-での値。全区間で足し上げて極限をとる。\(\Delta x_i/\Delta t \to dx/dt,\; \Delta y_i/\Delta t \to dy/dt,\; \Delta z_i/\Delta t \to dz/dt\)
+全区間で足し上げて極限をとる。\(\Delta x_i/\Delta t \to x'(t)\)、\(\Delta y_i/\Delta t \to y'(t)\)、\(\Delta z_i/\Delta t \to z'(t)\)
 だから：
 
-\[\sum_i \omega(\Delta\mathbf{r}_i) \;\xrightarrow{\Delta t \to 0}\; \int_{t_0}^{t_1} \bigl(P\frac{dx}{dt} + Q\frac{dy}{dt} + R\frac{dz}{dt}\bigr)\,dt\]
+\[\sum_i \omega_{\gamma(t_i)}(\Delta\mathbf{r}_i) \;\xrightarrow{\Delta t \to 0}\; \int_{t_0}^{t_1} \bigl(P(\gamma(t))x'(t)+Q(\gamma(t))y'(t)+R(\gamma(t))z'(t)\bigr)\,dt\]
 
 この極限を
 
@@ -3801,8 +3825,8 @@ dx(\gamma'(t)) = -R\sin t,\qquad dy(\gamma'(t)) = R\cos t
 に沿ってする仕事を計算する。
 
 \(\omega = y\,dx + x\,dy\) だから、係数は
-\(P=y,\;Q=x,\;R=0\)。曲線上では \(P=\sin t,\;Q=\cos t\)。また
-\(dx/dt = -\sin t,\; dy/dt = \cos t\) より：
+\(P=y,\;Q=x,\;R=0\)。曲線上では
+\(P=\sin t,\;Q=\cos t\)。\(x'(t)=-\sin t,\; y'(t)=\cos t\) より：
 
 \[\omega(\gamma'(t)) = (\sin t)(-\sin t) + (\cos t)(\cos t) = -\sin^2\!t + \cos^2\!t = \cos 2t\]
 
@@ -4117,9 +4141,9 @@ dx(\gamma'(t)) = -R\sin t,\qquad dy(\gamma'(t)) = R\cos t
 が出る。本節ではこの導出を、「測定器をどう作り替えれば同じ仕事が出るか」という目で読み直す。有限区間ごとに、時間側の測定器に必要な係数を求めるところから始める。
 
 \textbf{② 素朴な置き換え——そのままでは合わない。} 質点の位置を
-\(x = \gamma(t)\) と書く。速度は \(v(t)=\frac{d\gamma}{dt}(t)\)
-である。仕事の測定器は \(F\,dx\)
-——これは実空間の変位を食べて仕事の小片を返す \(1\)-form だ。
+\(x = \gamma(t)\) と書く。速度は \(v(t)=x'(t)\) である。仕事の測定器は
+\(F\,dx\) ——これは実空間の変位を食べて仕事の小片を返す \(1\)-form
+だ。
 
 しかし運動は時刻 \(t\)
 によって与えられている。そこで、仕事を時間で計算したい。
@@ -4180,7 +4204,7 @@ dx(\gamma'(t)) = -R\sin t,\qquad dy(\gamma'(t)) = R\cos t
 
 分割を細かくすると、有限比は速度
 
-\[\frac{\Delta x_i}{\Delta t_i}\to \frac{d\gamma}{dt}(t)\]
+\[\frac{\Delta x_i}{\Delta t_i}\to x'(t)\]
 
 へ近づく。したがって極限では
 
@@ -4189,13 +4213,12 @@ dx(\gamma'(t)) = -R\sin t,\qquad dy(\gamma'(t)) = R\cos t
 \xrightarrow{h\to0}
 \gamma^*(dx)
 =
-\frac{d\gamma}{dt}(t)\,dt
+x'(t)\,dt
 \]
 
-が得られる。この極限後の測定器を
-\(\gamma^*(dx)=\frac{d\gamma}{dt}(t)\,dt\)
+が得られる。この極限後の測定器を \(\gamma^*(dx)=x'(t)\,dt\)
 と書く。有限区間で見つけた係数 \(\Delta x_i/\Delta t_i\) が、極限で速度
-\(\frac{d\gamma}{dt}(t)\) に変わったのである。
+\(x'(t)\) に変わったのである。
 
 以後、有限のマス目や箱に対する同じ作り替えを、まとめて
 \(\Phi_h^\square\) と書く。
@@ -4232,7 +4255,7 @@ dx(\gamma'(t)) = -R\sin t,\qquad dy(\gamma'(t)) = R\cos t
 \[
 \gamma^*(F(x)\,dx)
 =
-F(\gamma(t))\,\frac{d\gamma}{dt}(t)\,dt
+F(\gamma(t))\,x'(t)\,dt
 \]
 
 である。
@@ -4245,13 +4268,13 @@ F(\gamma(t))\,\frac{d\gamma}{dt}(t)\,dt
 \[
 \gamma^*(F(x)\,dx)
 =
-F(\gamma(t))\,\frac{d\gamma}{dt}(t)\,dt
+F(\gamma(t))\,x'(t)\,dt
 \]
 
 で定義する。この式が、時間側で使う \(1\)-form の引き戻しである。速度
-\(\frac{d\gamma}{dt}(t)\) は、有限区間で見つけた
-\(\Delta x_i/\Delta t_i\) の極限であり、「実空間の測定器 \(dx\)
-を時間軸の測定器 \(dt\) に焼き直す」ためのつじつま係数になっている。
+\(x'(t)\) は、有限区間で見つけた \(\Delta x_i/\Delta t_i\)
+の極限であり、「実空間の測定器 \(dx\) を時間軸の測定器 \(dt\)
+に焼き直す」ためのつじつま係数になっている。
 
 次は同じ手順を、2次元の面積測定器 \(dx\wedge dy\)
 で繰り返す。1次元では有限区間を写して、その像の変位を測った。2次元では有限四角を写して、その像の二本の差分ベクトルが張る面積を測る。
@@ -4490,7 +4513,7 @@ r\,dr\wedge d\theta
 
 これが、有限セル版 \(\Phi_h^\square\) から \(h\to0\) で得られる
 \(2\)-form の作り替えである。この極限で得られた作り替えを \(\Phi^*\)
-と書く。この \(r\) が、§4.1 の速度 \(d\gamma/dt\)
+と書く。この \(r\) が、§4.1 の速度 \(x'(t)\)
 に対応するつじつま係数である。
 
 \textbf{⑤ 係数付き $2$-form の引き戻し。} 任意の係数 \(G(x,y)\) を持つ
@@ -4574,7 +4597,7 @@ d\theta
 \[
 \frac{dA}{dt}
 =
-\frac{1}{2}r(t)^2\,\frac{d\theta}{dt}(t)
+\frac{1}{2}r(t)^2\,\theta'(t)
 \]
 
 角運動量の定義
@@ -4582,7 +4605,7 @@ d\theta
 \[
 L
 =
-m r^2\frac{d\theta}{dt}
+m r^2\theta'(t)
 \]
 
 より、面積速度は
@@ -4591,7 +4614,7 @@ m r^2\frac{d\theta}{dt}
 
 中心力場では \(L\)
 が保存されるから、面積速度も一定——これがケプラーの第二法則であり、角運動量保存則の幾何学的表現である。§4.1
-で \(1\)-form のつじつま係数 \(d\gamma/dt\)
+で \(1\)-form のつじつま係数 \(x'(t)\)
 がエネルギー保存を記述したのとまったく同じ構造が、\(2\)-form
 のつじつま係数 \(r\) を通じて角運動量保存を記述している。
 
@@ -4807,8 +4830,9 @@ r\,dr \wedge d\theta \wedge dz
 をそのまま使う。一方、「正の体積」や密度を積分するときには、向きを忘れた大きさが必要になるため
 \(|J|\) が現れる。ここで \(J\) と \(|J|\) を混同しないことが重要である。
 
-\(1\)-form なら \(1 \times 1\) 行列式（速度 \(dx/dt\)）、\(2\)-form なら
-\(2 \times 2\) 行列式、\(3\)-form なら \(3 \times 3\)
+\(1\)-form なら \(1 \times 1\) 行列式（座標関数の微分 \(x'(t)\)
+等）、\(2\)-form なら \(2 \times 2\) 行列式、\(3\)-form なら
+\(3 \times 3\)
 行列式（\(J\)）——次数が上がるごとに、つじつま係数を司る行列式のサイズが一つずつ大きくなる。上の偏微分行列式の式こそが
 \textbf{$3$-form の引き戻しの一般的な定義} である。
 
@@ -4849,7 +4873,7 @@ dz
 正しい値に一致した。積分値を保つために、測定器
 \(dx \wedge dy \wedge dz\) は \((r,\theta,z)\) 空間では
 \(r\,dr \wedge d\theta \wedge dz\)
-に作り替えられなければならなかったのである。§4.1 の速度 \(d\gamma/dt\)
+に作り替えられなければならなかったのである。§4.1 の速度 \(x'(t)\)
 がエネルギー保存を、§4.2 の \(r\)
 が角運動量保存を記述したのとまったく同じ構造で、§4.3 の \(r\)（一般には
 \(J\)）が質量保存を記述している。
@@ -5036,8 +5060,8 @@ J
 で一般形を得る」という流れである。有限セル版 \(\Phi_h^\square\)
 では、有限差分ベクトルの行列式をセル幅で割ったものが係数になり、\(\Phi^*\)
 ではその極限として偏微分係数やヤコビアンが現れる。\(1\)-form では速度
-\(d\gamma/dt\)、\(2\)-form では \(r\)、\(3\)-form では \(3\times3\)
-行列式 \(J\) が、有限セルを測る計算の中から現れた。
+\(x'(t)\)、\(2\)-form では \(r\)、\(3\)-form では \(3\times3\) 行列式
+\(J\) が、有限セルを測る計算の中から現れた。
 
 \begin{quote}
 \textbf{【ここまでのチェックポイント——第4章】}
@@ -5048,9 +5072,9 @@ J
   は、積分値が変わらないように、実空間側の測定器を計算側の変数で使える形へ焼き直す操作である。
 \item
   \(1\)-form では、実空間の測定器 \(F(x)\,dx\) が、時間側では
-  \(\gamma^*(F(x)\,dx)=F(\gamma(t))\,\frac{d\gamma}{dt}(t)\,dt\)
+  \(\gamma^*(F(x)\,dx)=F(\gamma(t))\,x'(t)\,dt\)
   に作り替えられる。有限区間では \(\Delta x/\Delta t\)、極限では速度
-  \(d\gamma/dt\) がつじつま係数になる。
+  \(x'(t)\) がつじつま係数になる。
 \item
   \(2\)-form では、\(dx\wedge dy\) が極座標側で
   \(\Phi^*(dx\wedge dy)=r\,dr\wedge d\theta\)
@@ -9387,7 +9411,9 @@ rot \\
 \[d\eta = \left(\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z}\right) dx\wedge dy\wedge dz\]
 
 このように、\(d\) が作用するたびに測定器の次数が \(0\to1\to2\to3\)
-と一つずつ上がっていく。核心は\textbf{場はそのまま、測定器の側が変化する}ことだ。\(f\)
+と一つずつ上がっていく。核心は、\(d\)
+が変えるのは\textbf{測定器側（微分形式側）}であって、スカラー場 \(f\)
+そのものを別の矢印の場へ送るわけではない、ということだ。\(f\)
 はスカラー場のままだが、\(d\)
 が作用するたびに新しい測定器——\(df\)（\(1\)-form）、\(d\omega\)（\(2\)-form）、\(d\eta\)（\(3\)-form）——が生み出される。
 
@@ -9446,8 +9472,10 @@ rot \\
 
 \begin{itemize}
 \item
-  \(d\)
-  の立場：場はそのまま、測定器の側が変化する。新しい測定器が生まれる。
+  \(d\) の立場：\(d\)
+  は測定器側（微分形式側）を変える。新しい測定器が生まれる。計量 \(g\)
+  と \(\ast\)
+  を通じて初めて、見慣れたベクトル解析の矢印として読み返せる。
 \item
   \(\nabla\) の立場：形式的な微分演算子は同じまま、新たな場が生まれる。
 \end{itemize}
@@ -9879,7 +9907,7 @@ df = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy + \frac{\
 \((x,y)\) とその極座標 \((r,\theta)\) だけで話を進める。
 \end{quote}
 
-\textbf{方法①——場はそのまま、測定器を変える。}
+\textbf{方法①——測定器側を変える。}
 
 パラメータ空間 \((r,\theta)\) と実空間
 \((x,y)\)、二枚のデカルト座標を用意する。パラメータ空間の用紙には、どこも同じ大きさの正方形グリッドが敷き詰められている。この正方形グリッドの上で、我々は測定を行う。
@@ -9916,7 +9944,7 @@ df = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy + \frac{\
 などを挟み込む必要は一切ない。
 
 \[\begin{aligned}
-\ast\tilde{\omega} &= F_r \cdot r\,d\theta + (r F_\theta) \cdot \left(-\frac{1}{r}\,dr\right) = r F_r\,d\theta - F_\theta\,dr \\[0.3em]
+\ast\tilde{\omega} &= F_r(r\,d\theta) + (r F_\theta)\!\left(-\frac{1}{r}\,dr\right) = r F_r\,d\theta - F_\theta\,dr \\[0.3em]
 d\ast\tilde{\omega} &= \left(\frac{\partial}{\partial r}(r F_r) + \frac{\partial F_\theta}{\partial \theta}\right) dr \wedge d\theta \\[0.3em]
 \ast d\ast\tilde{\omega} &= \frac{1}{r}\frac{\partial}{\partial r}(r F_r) + \frac{1}{r}\frac{\partial F_\theta}{\partial \theta}
 \end{aligned}\]
@@ -10876,21 +10904,39 @@ d_4(\ast_4F) = &\left(\frac{\partial E_x}{\partial x} + \frac{\partial E_y}{\par
 \(\ast_4F\) は、各時刻の空間上のホッジ・スター \(\ast_3\) を使えば
 
 \[
-\ast_4F=dt\wedge(\ast_3B)+\ast_3E
+\ast_4F=dt\wedge(\mathbf{B}^T g_3)+\ast_3(\mathbf{E}^T g_3)
 \]
 
-と書ける。ここで
+と書ける。ここで、デカルト座標では \(g_3=I\) なので
 
 \[
-\ast_3B=B_x\,dx+B_y\,dy+B_z\,dz,
+\mathbf{B}^T g_3
+=
+B_x\,dx+B_y\,dy+B_z\,dz,
 \qquad
-\ast_3E=E_x\,dy\wedge dz+E_y\,dz\wedge dx+E_z\,dx\wedge dy
+\ast_3(\mathbf{E}^T g_3)
+=
+E_x\,dy\wedge dz+E_y\,dz\wedge dx+E_z\,dx\wedge dy
 \]
 
-である。この分解を使えば、上の4次元計算は
+である。\(\mathbf{B}^T g_3\) は、ベクトル場 \(\mathbf{B}\) を空間計量
+\(g_3\) で \(1\)-form
+として読み直したものである。\(\ast_3(\mathbf{E}^T g_3)\)
+も同様に、\(\mathbf{E}\) から作る空間上の \(2\)-form である。
+
+\begin{quote}
+\textbf{注} （\(\flat\)
+記法を使わない理由）微分幾何では、計量を通じてベクトル場を \(1\)-form
+に対応させる操作を、しばしば \(\mathbf{B}^\flat\)
+のような記号で書く。本書では意図的にそれを避け、第8章と同じく
+\(\mathbf{B}^T g_3\)
+と明示する。新しい操作を導入しているわけではなく、第6章以降の計量対応と同じである。
+\end{quote}
+
+この分解を使えば、上の4次元計算は
 
 \[
-d_4(\ast_4F)=dt\wedge\left(\frac{\partial(\ast_3E)}{\partial t}-d_3(\ast_3B)\right)+d_3(\ast_3E)
+d_4(\ast_4F)=dt\wedge\left(\frac{\partial(\ast_3(\mathbf{E}^T g_3))}{\partial t}-d_3(\mathbf{B}^T g_3)\right)+d_3(\ast_3(\mathbf{E}^T g_3))
 \]
 
 と読める。右辺も空間3次元の記法では
@@ -10905,9 +10951,9 @@ d_4(\ast_4F)=dt\wedge\left(\frac{\partial(\ast_3E)}{\partial t}-d_3(\ast_3B)\rig
 を含まない部分と含む部分を比較すれば、
 
 \[
-d_3(\ast_3E)=\ast_3\left(\frac{\rho_{\mathrm e}}{\varepsilon_0}\right),
+d_3(\ast_3(\mathbf{E}^T g_3))=\ast_3\left(\frac{\rho_{\mathrm e}}{\varepsilon_0}\right),
 \qquad
-d_3(\ast_3B)=\mu_0 c\,J+\frac{\partial(\ast_3E)}{\partial t}
+d_3(\mathbf{B}^T g_3)=\mu_0 c\,J+\frac{\partial(\ast_3(\mathbf{E}^T g_3))}{\partial t}
 \]
 
 が得られる。両辺に必要に応じて \(\ast_3\) を作用させれば、これは先ほどの
@@ -12921,7 +12967,11 @@ I\text{ の係数（内積）} &: v_1w_1 + v_2w_2 + v_3w_3 \;=\; \mathbf{v}\!\cd
 \[VW = (\mathbf{v}\!\cdot\!\mathbf{w})\,I \;+\; i\,(\mathbf{v}\times\mathbf{w})\!\cdot\!\bm{\sigma}\]
 
 と、内積 \(+\)
-ウェッジ積の形にまとまる。内積と外積が、\textbf{一つの積 $VW$ から同時に}現れた。
+ウェッジ積の形にまとまる。内積と外積が、\textbf{一つの積 $VW$ から同時に}現れた。右辺の
+\((\mathbf{v}\times\mathbf{w})\)
+は、第2章の向き付き面積規約（デカルト右手系）と整合するクロス積であり、対応する
+\(2\)-form 成分 \(\mathbf{v}\wedge\mathbf{w}\)
+と同じ情報を別表現で運んでいる——同一視ではなく、3次元・右手系での対応である。
 
 これが「魔法の箱」の正体だ。より正確には、ここで見ているのは3次元ユークリッド空間のクリフォード代数を、パウリ行列で表現したものである。その積は、内積（\(0\)-form
 に相当するスカラー）と外積（\(2\)-form
@@ -13045,8 +13095,9 @@ I\text{ の係数} &: \frac{\partial A_1}{\partial x} + \frac{\partial A_2}{\par
 \]
 
 \(\sigma_k\) の係数カッコ内は \(\mathrm{rot}\,\mathbf{A}\)
-の各成分——外微分 \(d\) が \(1\)-form \(\mathbf{A}\) から生み出す
-\(2\)-form \(d\mathbf{A}\) の成分——にほかならない。したがって
+の各成分——第8章の辞書で \(\mathbf{A}\) に対応する \(1\)-form
+\(\alpha\) に \(d\) を作用させて得られる \(2\)-form \(d\alpha\)
+の成分——にほかならない。したがって
 
 \[D(\mathbf{A}\!\cdot\!\bm{\sigma}) = (\mathrm{div}\,\mathbf{A})\,I \;+\; i\,(\mathrm{rot}\,\mathbf{A})\!\cdot\!\bm{\sigma}\]
 
@@ -13381,7 +13432,8 @@ LLM ではなく、筆者の責任です。
 は「計量をコースのどんどん後の方に遅らせる（put the metric later and
 later into the
 course）」という教育的哲学を提唱しました。計量なしでも外微分
-\(d\)（トポロジー）で語れる部分があまりに多いことを明示したこの哲学は、本書の第5章までの構成を支えています。
+\(d\)（トポロジー）で語れる部分があまりに多いことを明示したこの哲学は、本書の第6章で計量とホッジ・スター
+\(\ast\) を導入するまでの構成を支えています。
 
 \par\vspace{0.35em}\par
 
@@ -13501,8 +13553,9 @@ course）」という教育的哲学を提唱しました。計量なしでも�
 \item
   \textbf{最初からクリフォード代数（幾何代数）を教えれば外積も内積も統合できる}
   →
-  本書はあえて「分離」の道を選びました。第1章〜第5章で外積（\(\wedge\)）を、第6章で内積（計量）を構成し、その後に
-  第6章 §6.3 でホッジ・スター \(\ast\)
+  本書はあえて「分離」の道を選びました。第I部（第1章〜第4章）で外積（\(\wedge\)）を、第5章で外微分
+  \(d\) を、第6章で内積（計量）を構成し、その後に 第6章 §6.3
+  でホッジ・スター \(\ast\)
   を導入することで「なぜ統合が必要になるのか」を読者が実感できるようにしています。幾何代数による統合は第12章で紹介します。
 \item
   \textbf{定数行列の計量 $\mathbf{g}$ を前提としているため、空間が曲がった場合に破綻するのではないかという懸念がある}
