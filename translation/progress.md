@@ -305,6 +305,7 @@ Per-section Pass status:
 | `translation/drafts/ch12-*.md` | integrated into `ch12.md` |
 | `translation/reviews/ch12-pass2.md` | complete |
 | `translation/reviews/ch12-pass3.md` | complete |
+| `translation/reviews/ch12-close-reading-polish.md` | complete (#190) |
 
 **English manuscript translation complete (ch00–ch12).**
 
