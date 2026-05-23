@@ -271,6 +271,23 @@ Per-section Pass status:
 | `translation/reviews/ch10-pass3.md` | complete |
 | `translation/reviews/ch10-close-reading-polish.md` | complete (#188) |
 
+### English Chapter 11 — `manuscript/en/ch11/ch11.md` (branch `ai/english-translation-ch11`, PR [#173](https://github.com/yokiikoy/nabla-kaitai/pull/173))
+
+| Scope | Pass | Notes |
+|-------|------|-------|
+| **Chapter 11 (§11.0–§11.3)** | **1 → 2 → 3** | Outlook / manifolds |
+
+| Block | Pass | Review |
+|-------|------|--------|
+| §11.0–§11.1 | **3** | `ch11-11.0-11.1-review.md` |
+| §11.2–§11.3 | **3** | `ch11-11.2-11.3-review.md` |
+
+| Artifact | Status |
+|----------|--------|
+| `translation/drafts/ch11-*.md` | integrated into `ch11.md` |
+| `translation/reviews/ch11-pass2.md` | complete |
+| `translation/reviews/ch11-pass3.md` | complete |
+
 ---
 
 ## History (closed issues on this branch)
