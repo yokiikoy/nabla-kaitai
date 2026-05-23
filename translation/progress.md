@@ -170,6 +170,26 @@ Per-section Pass status:
 | `translation/reviews/ch05-pass3.md` | complete |
 | `translation/reviews/ch05-close-reading-polish.md` | complete (#183) |
 
+### English Chapter 6 — `manuscript/en/ch06/ch06.md` (branch `ai/english-translation-ch06`, PR [#167](https://github.com/yokiikoy/nabla-kaitai/pull/167))
+
+| Scope | Pass | Notes |
+|-------|------|-------|
+| **Chapter 6 (§6.0–§6.6 + App. D)** | **1 → 2 → 3** | `ch06-pass2.md`, `ch06-pass3.md`; old YAML draft replaced |
+
+| Block | Pass | Review |
+|-------|------|--------|
+| §6.0–§6.2 | **3** | `ch06-6.0-6.2-review.md` |
+| §6.3 | **3** | `ch06-6.3-review.md` |
+| §6.4–§6.5 | **3** | `ch06-6.4-6.5-review.md` |
+| §6.6 | **3** | `ch06-6.6-review.md` |
+| Appendix D | **3** | `ch06-appendix-D-review.md` |
+
+| Artifact | Status |
+|----------|--------|
+| `translation/drafts/ch06-*.md` | integrated into `ch06.md` |
+| `translation/reviews/ch06-pass2.md` | complete |
+| `translation/reviews/ch06-pass3.md` | complete |
+
 ---
 
 ## History (closed issues on this branch)
