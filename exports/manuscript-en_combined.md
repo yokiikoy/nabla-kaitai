@@ -6863,7 +6863,7 @@ The four fundamental equations of vector analysis collapse to two in differentia
 
 # Chapter 10: Maxwell's Equations — Beyond Beauty
 
-### §10.0 The Usual Caveat
+### §10.0 The Obligatory Maxwell Chapter
 
 Well, the end of this book is finally in sight. Apparently it is conventional for textbooks on the physical mathematics of differential forms to close by rewriting Maxwell's equations in differential forms. The author will follow this custom as well.
 
