@@ -192,12 +192,30 @@ $$\begin{aligned}
 <blockquote>
 <p><strong>Note</strong> (Four things to distinguish in cylindrical coordinates)</p>
 <p>To treat vector fields correctly as differential forms, let us distinguish the following four layers:</p>
-<p>| Name | Concrete example in cylindrical coordinates |</p>
-<p>| :--- | :--- |</p>
-<p>| <strong>Coordinate $1$-forms</strong> | $dr, d\theta, dz$ |</p>
-<p>| <strong>$1$-forms corresponding to unit-length ticks</strong> | $dr, r\,d\theta, dz$ |</p>
-<p>| <strong>Components used in vector analysis</strong> | $F_r, F_\theta, F_z$ |</p>
-<p>| <strong>Coefficients as $1$-forms</strong> | $F_r, rF_\theta, F_z$ |</p>
+<div class="table-wrapper"><table>
+<thead><tr>
+<th>Name</th>
+<th>Concrete example in cylindrical coordinates</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>Coordinate $1$-forms</strong></td>
+<td>$dr, d\theta, dz$</td>
+</tr>
+<tr>
+<td><strong>$1$-forms corresponding to unit-length ticks</strong></td>
+<td>$dr, r\,d\theta, dz$</td>
+</tr>
+<tr>
+<td><strong>Components used in vector analysis</strong></td>
+<td>$F_r, F_\theta, F_z$</td>
+</tr>
+<tr>
+<td><strong>Coefficients as $1$-forms</strong></td>
+<td>$F_r, rF_\theta, F_z$</td>
+</tr>
+</tbody>
+</table></div>
 <p>If we write the components in the unit-vector directions used in vector analysis as $F_r,F_\theta,F_z$, the corresponding $1$-form is $F_r dr + F_\theta (r d\theta) + F_z dz$—that is, the coefficients as $1$-forms are $F_r,rF_\theta,F_z$. Throughout this chapter, $F_\theta$ always refers to the "components used in vector analysis."</p>
 </blockquote>
 <h4 id="9.2.2-Gradient">9.2.2 Gradient</h4>
@@ -278,12 +296,30 @@ $$\begin{aligned}
 \end{aligned}$$
 <blockquote>
 <p><strong>Note</strong> (Four things to distinguish in spherical coordinates)</p>
-<p>| Name | Concrete example in spherical coordinates |</p>
-<p>| :--- | :--- |</p>
-<p>| <strong>Coordinate $1$-forms</strong> | $d\rho, d\theta, d\phi$ |</p>
-<p>| <strong>$1$-forms for unit-length scales</strong> | $d\rho, \rho\,d\theta, \rho\sin\theta\,d\phi$ |</p>
-<p>| <strong>Components used in vector analysis</strong> | $F_\rho, F_\theta, F_\phi$ |</p>
-<p>| <strong>Coefficients as $1$-forms</strong> | $F_\rho, \rho F_\theta, \rho\sin\theta F_\phi$ |</p>
+<div class="table-wrapper"><table>
+<thead><tr>
+<th>Name</th>
+<th>Concrete example in spherical coordinates</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>Coordinate $1$-forms</strong></td>
+<td>$d\rho, d\theta, d\phi$</td>
+</tr>
+<tr>
+<td><strong>$1$-forms for unit-length scales</strong></td>
+<td>$d\rho, \rho\,d\theta, \rho\sin\theta\,d\phi$</td>
+</tr>
+<tr>
+<td><strong>Components used in vector analysis</strong></td>
+<td>$F_\rho, F_\theta, F_\phi$</td>
+</tr>
+<tr>
+<td><strong>Coefficients as $1$-forms</strong></td>
+<td>$F_\rho, \rho F_\theta, \rho\sin\theta F_\phi$</td>
+</tr>
+</tbody>
+</table></div>
 <p>The $1$-form for orthonormal components $F_\rho,F_\theta,F_\phi$ is $\omega = F_\rho d\rho + \rho F_\theta d\theta + \rho\sin\theta F_\phi d\phi$.</p>
 </blockquote>
 <p>Here we compute on the coordinate patch $\rho>0$ and $0<\theta<\pi$. At the origin $\rho=0$ and on the polar axis $\sin\theta=0$, spherical coordinates themselves become singular, and formulas containing $1/\rho$ or $1/\sin\theta$ cannot be used as written. For problems spanning singular points, use a different coordinate patch, or compute in a region excluding the singularities and then treat them via boundary conditions.

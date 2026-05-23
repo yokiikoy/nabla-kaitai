@@ -226,7 +226,7 @@ $$
 <p>$\sigma_1,\sigma_2,\sigma_3$ の係数カッコ内は、第2章で定義したウェッジ積 $\mathbf{v}\wedge\mathbf{w}$ の各成分そのものである。したがって
 </p>
 $$VW = (\mathbf{v}\!\cdot\!\mathbf{w})\,I \;+\; i\,(\mathbf{v}\times\mathbf{w})\!\cdot\!\bm{\sigma}$$
-<p>と、内積 $+$ ウェッジ積の形にまとまる。内積と外積が、<strong>一つの積 $VW$ から同時に</strong>現れた。
+<p>と、内積 $+$ ウェッジ積の形にまとまる。内積と外積が、<strong>一つの積 $VW$ から同時に</strong>現れた。右辺の $(\mathbf{v}\times\mathbf{w})$ は、第2章の向き付き面積規約（デカルト右手系）と整合するクロス積であり、対応する $2$-form 成分 $\mathbf{v}\wedge\mathbf{w}$ と同じ情報を別表現で運んでいる——同一視ではなく、3次元・右手系での対応である。
 </p>
 <p>これが「魔法の箱」の正体だ。より正確には、ここで見ているのは3次元ユークリッド空間のクリフォード代数を、パウリ行列で表現したものである。その積は、内積（$0$-form に相当するスカラー）と外積（$2$-form に相当するウェッジ積）を、<strong>一つの演算で同時に</strong>生み出す。通常の微分形式では別々の次数に属していたものが、この行列表現の中では一つの $2\times2$ 行列として共存している。
 </p>
@@ -258,7 +258,7 @@ $$\psi = \varphi\,I + A_1\sigma_1 + A_2\sigma_2 + A_3\sigma_3$$
 </blockquote>
 <hr />
 <h3 id="§12.3-ディラック演算子と「真のナブラ」">§12.3 ディラック演算子と「真のナブラ」</h3>
-<h4 id="12.3.1-__MATH_BLOCK_139__-——-統合的な微分演算子">12.3.1 $\bm{\sigma}\!\cdot\!\nabla$ —— 統合的な微分演算子</h4>
+<h4 id="12.3.1-__MATH_BLOCK_142__-——-統合的な微分演算子">12.3.1 $\bm{\sigma}\!\cdot\!\nabla$ —— 統合的な微分演算子</h4>
 <p>パウリ行列とナブラ $\nabla = (\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z})$ を組み合わせて、次の演算子を定義する。
 </p>
 $$D = \sigma_1\frac{\partial}{\partial x} + \sigma_2\frac{\partial}{\partial y} + \sigma_3\frac{\partial}{\partial z} = \bm{\sigma}\!\cdot\!\nabla$$
@@ -287,7 +287,7 @@ I\text{ の係数} &: \frac{\partial A_1}{\partial x} + \frac{\partial A_2}{\par
 \sigma_3\text{ の係数（$\wedge$）} &: i\,\left(\frac{\partial A_2}{\partial x} - \frac{\partial A_1}{\partial y}\right)
 \end{aligned}
 $$
-<p>$\sigma_k$ の係数カッコ内は $\mathrm{rot}\,\mathbf{A}$ の各成分——外微分 $d$ が $1$-form $\mathbf{A}$ から生み出す $2$-form $d\mathbf{A}$ の成分——にほかならない。したがって
+<p>$\sigma_k$ の係数カッコ内は $\mathrm{rot}\,\mathbf{A}$ の各成分——第8章の辞書で $\mathbf{A}$ に対応する $1$-form $\alpha$ に $d$ を作用させて得られる $2$-form $d\alpha$ の成分——にほかならない。したがって
 </p>
 $$D(\mathbf{A}\!\cdot\!\bm{\sigma}) = (\mathrm{div}\,\mathbf{A})\,I \;+\; i\,(\mathrm{rot}\,\mathbf{A})\!\cdot\!\bm{\sigma}$$
 <p><strong>一つの演算子 $D$ が、$\mathrm{grad}$（$D\varphi$）、$\mathrm{div}$（$DA$ の実部）、$\mathrm{rot}$（$DA$ の虚部）を同時に導き出す。</strong> これこそが、$\nabla$ を $d$ と $\ast$ に分解して理解を深めてきた旅の、一つの終着点——統合——にほかならない。
@@ -295,7 +295,7 @@ $$D(\mathbf{A}\!\cdot\!\bm{\sigma}) = (\mathrm{div}\,\mathbf{A})\,I \;+\; i\,(\m
 <blockquote>
 <p><strong>注</strong> （$d$ と $\ast$ で書くと）$D$ は本書の言葉でも表現できる。符号規約を別にすれば、$D$ は $d$（次数を上げる）と $\ast d\ast$（次数を下げる）を合わせた演算子として理解できる。$\ast d\ast$ は<strong>余微分（codifferential）</strong> $\delta$ と呼ばれ、$\delta = \pm\ast d\ast$（符号は次元と次数に依存）と定義される。ここでは厳密な符号には立ち入らず、$D \sim d + \delta$ という構造だけを押さえておく。$d$ が次数を上げ、$\delta$ が次数を下げる——この二つを足した $D$ が、grad・rot・div を一つの演算子に束ねているのだ。</p>
 </blockquote>
-<h4 id="12.3.2-__MATH_BLOCK_181__-——-ラプラシアン">12.3.2 $D^2$ —— ラプラシアン</h4>
+<h4 id="12.3.2-__MATH_BLOCK_185__-——-ラプラシアン">12.3.2 $D^2$ —— ラプラシアン</h4>
 <p>さらに $D$ を二度作用させるとどうなるか。
 </p>
 $$D^2 = (\bm{\sigma}\!\cdot\!\nabla)(\bm{\sigma}\!\cdot\!\nabla) = (\sigma_1\frac{\partial}{\partial x} + \sigma_2\frac{\partial}{\partial y} + \sigma_3\frac{\partial}{\partial z})(\sigma_1\frac{\partial}{\partial x} + \sigma_2\frac{\partial}{\partial y} + \sigma_3\frac{\partial}{\partial z})$$
@@ -349,7 +349,7 @@ $$(D + \frac{\partial}{\partial t})F = \frac{\rho_{\mathrm e}}{\varepsilon_0} - 
 </blockquote>
 <p>$dF=0$ と $d(\ast F)=\mu_0(\ast\mathcal{J})$ の2本が、$D$ の前ではたった一本の複素方程式に統合された。§12.1 の4次元トリックが特殊な次元に依存していたのに対し、こちらは $D$ という統合された演算子そのものが統合を実現している。
 </p>
-<h4 id="12.3.4-__MATH_BLOCK_215__-——-4次元時空のディラック演算子">12.3.4 $\cancel{\partial} F = J$ —— 4次元時空のディラック演算子</h4>
+<h4 id="12.3.4-__MATH_BLOCK_219__-——-4次元時空のディラック演算子">12.3.4 $\cancel{\partial} F = J$ —— 4次元時空のディラック演算子</h4>
 <p>§12.3.3 の $(D + \frac{\partial}{\partial t})F = \rho_{\mathrm e}/\varepsilon_0 - \mu_0 c \mathbf{J}\!\cdot\!\bm{\sigma}$ には、時間と空間が分離して現れている。これは3次元のパウリ行列 $\sigma_1,\sigma_2,\sigma_3$ をベースに組み立てたからだ。4次元時空を最初から扱えば、この分離すら消える。
 </p>
 <p>パウリ行列を $4\times4$ に拡張したものが<strong>ガンマ行列</strong> $\gamma^0,\gamma^1,\gamma^2,\gamma^3$ である。これらは反可換性 $\gamma^\mu\gamma^\nu + \gamma^\nu\gamma^\mu = 2g^{\mu\nu}I$ を満たす（$g^{\mu\nu}$ はミンコフスキー計量）。この式に現れる実数係数の符号は、選んだ計量シグネチャや添字の上下の規約に依存する。本章では、第10章と同じく時空計量のシグネチャを $(-,+,+,+)$ とした規約を採用する。このガンマ行列を用いて、4次元のディラック演算子を
@@ -365,7 +365,7 @@ $$\cancel{\partial} F = J$$
 </blockquote>
 <p>§12.1 の $F + i\ast F$ も、§12.3.3 の $(D + \frac{\partial}{\partial t})F$ も、すべてこの一行に吸収される。これが、$\nabla$ の解体から始まった旅の、最も遠くにある風景である。ディラックが1928年に電子の方程式を導くために発見したこの演算子は、時空の幾何と物理法則を一つの代数で記述する<strong>幾何代数（Geometric Algebra）</strong>の核であり、Doran & Lasenby の Geometric Algebra for Physicists に詳しい。
 </p>
-<h3 id="§12.4-演算子__MATH_BLOCK_237__">§12.4 演算子$\nabla$</h3>
+<h3 id="§12.4-演算子__MATH_BLOCK_241__">§12.4 演算子$\nabla$</h3>
 <p>さあ、ここで最初の問いに戻ろう。$\nabla$ とは何だったのか。
 </p>
 <p>ベクトル解析では、$\nabla$ は「偏微分を並べた形式的なベクトル」として導入され、grad・rot・div の三つの顔を持つ謎めいた記号だった。本書はそれを $d$ と $\ast$ に<strong>解体</strong>することで、各演算の正体を明らかにしてきた。

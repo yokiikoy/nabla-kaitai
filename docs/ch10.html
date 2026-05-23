@@ -324,19 +324,28 @@ $$
 <p>同じ内容を、空間3次元の微分形式として圧縮して書くこともできる。いま得た $\ast_4F$ は、各時刻の空間上のホッジ・スター $\ast_3$ を使えば
 </p>
 $$
-\ast_4F=dt\wedge(\ast_3B)+\ast_3E
+\ast_4F=dt\wedge(\mathbf{B}^T g_3)+\ast_3(\mathbf{E}^T g_3)
 $$
-<p>と書ける。ここで
+<p>と書ける。ここで、デカルト座標では $g_3=I$ なので
 </p>
 $$
-\ast_3B=B_x\,dx+B_y\,dy+B_z\,dz,
+\mathbf{B}^T g_3
+=
+B_x\,dx+B_y\,dy+B_z\,dz,
 \qquad
-\ast_3E=E_x\,dy\wedge dz+E_y\,dz\wedge dx+E_z\,dx\wedge dy
+\ast_3(\mathbf{E}^T g_3)
+=
+E_x\,dy\wedge dz+E_y\,dz\wedge dx+E_z\,dx\wedge dy
 $$
-<p>である。この分解を使えば、上の4次元計算は
+<p>である。$\mathbf{B}^T g_3$ は、ベクトル場 $\mathbf{B}$ を空間計量 $g_3$ で $1$-form として読み直したものである。$\ast_3(\mathbf{E}^T g_3)$ も同様に、$\mathbf{E}$ から作る空間上の $2$-form である。
+</p>
+<blockquote>
+<p><strong>注</strong> （$\flat$ 記法を使わない理由）微分幾何では、計量を通じてベクトル場を $1$-form に対応させる操作を、しばしば $\mathbf{B}^\flat$ のような記号で書く。本書では意図的にそれを避け、第8章と同じく $\mathbf{B}^T g_3$ と明示する。新しい操作を導入しているわけではなく、第6章以降の計量対応と同じである。</p>
+</blockquote>
+<p>この分解を使えば、上の4次元計算は
 </p>
 $$
-d_4(\ast_4F)=dt\wedge\left(\frac{\partial(\ast_3E)}{\partial t}-d_3(\ast_3B)\right)+d_3(\ast_3E)
+d_4(\ast_4F)=dt\wedge\left(\frac{\partial(\ast_3(\mathbf{E}^T g_3))}{\partial t}-d_3(\mathbf{B}^T g_3)\right)+d_3(\ast_3(\mathbf{E}^T g_3))
 $$
 <p>と読める。右辺も空間3次元の記法では
 </p>
@@ -346,9 +355,9 @@ $$
 <p>と書ける。ただしここでの $J=J_x\,dy\wedge dz+J_y\,dz\wedge dx+J_z\,dx\wedge dy$ は、空間上の電流密度 $2$-form である。したがって、$dt$ を含まない部分と含む部分を比較すれば、
 </p>
 $$
-d_3(\ast_3E)=\ast_3\left(\frac{\rho_{\mathrm e}}{\varepsilon_0}\right),
+d_3(\ast_3(\mathbf{E}^T g_3))=\ast_3\left(\frac{\rho_{\mathrm e}}{\varepsilon_0}\right),
 \qquad
-d_3(\ast_3B)=\mu_0 c\,J+\frac{\partial(\ast_3E)}{\partial t}
+d_3(\mathbf{B}^T g_3)=\mu_0 c\,J+\frac{\partial(\ast_3(\mathbf{E}^T g_3))}{\partial t}
 $$
 <p>が得られる。両辺に必要に応じて $\ast_3$ を作用させれば、これは先ほどの $\mathrm{div}\,\mathbf E$ と $\mathrm{rot}\,\mathbf B$ の式に戻る。これによって、4 本すべてのマクスウェル方程式が、微分形式の 2 本の式から正しい符号と係数で導かれることが完全に確認できた。
 </p>
@@ -364,7 +373,7 @@ $$dF = 0, \qquad d(\ast F) = \mu_0(\ast\mathcal{J})$$
 <p><strong>注</strong> （なぜここで終わるのか）多くの教科書は $dF=0$ を示した時点で「かくしてマクスウェル方程式は幾何学である」と締める。しかし本書の流儀は違う。行列の成分を全部書き下し、計算では $d_4,\ast_4$ を使い、空間の辞書では $d_3,\ast_3$ に戻してベクトル解析の式を再現する——その往復ができることこそ、第1章から積み上げてきた「測定器」の枠組みの到達点だ。</p>
 </blockquote>
 <hr />
-<h3 id="§10.6-ポテンシャル構成——__MATH_BLOCK_277__-から始める">§10.6 ポテンシャル構成——$F=-d\mathcal{A}$ から始める</h3>
+<h3 id="§10.6-ポテンシャル構成——__MATH_BLOCK_289__-から始める">§10.6 ポテンシャル構成——$F=-d\mathcal{A}$ から始める</h3>
 <p>§10.2 では、電磁場 $F$ を $\mathbf{E}$ と $\mathbf{B}$ の寄せ集めとして定義した。
 </p>
 <p>しかし、ここにはもう一段深い見方がある。
@@ -450,7 +459,7 @@ $$
 </p>
 <p>この計算の目的は、§10.2 で定義した $F$ の成分と、通常のポテンシャル公式が同時に整合することを確認することである。
 </p>
-<h4 id="__MATH_BLOCK_308__-を成分で計算する">$d\mathcal{A}$ を成分で計算する</h4>
+<h4 id="__MATH_BLOCK_320__-を成分で計算する">$d\mathcal{A}$ を成分で計算する</h4>
 <p>$d\mathcal{A}$ の計算は、第5章以来の手順そのものである。$\mathcal{A}$ の4項それぞれに $d$ を作用させる。
 </p>
 $$
@@ -722,7 +731,7 @@ $$
 <p><strong>注</strong>（$F$ とポテンシャルの符号規約）</p>
 <p>$F=-d\mathcal{A}$ という定義は、§10.2 の $F$ の $dt\wedge dx$ 係数が $-E_x$ であることと、$\mathbf{E}=-\nabla\phi-\partial\mathbf{A}/\partial t$、$\mathbf{B}=\nabla\times\mathbf{A}$ を同時に満たすために採用している。$F=+d\mathcal{A}$、$\mathcal{A}=-\phi\,dt+\cdots$ など、異なる符号の組み合わせを使う流儀も存在する。</p>
 </blockquote>
-<h4 id="__MATH_BLOCK_351__-が-__MATH_BLOCK_352__-を証明する">$dd=0$ が $dF=0$ を証明する</h4>
+<h4 id="__MATH_BLOCK_363__-が-__MATH_BLOCK_364__-を証明する">$dd=0$ が $dF=0$ を証明する</h4>
 <p>ここで、冒頭の話に戻ろう。
 </p>
 <p>$F=-d\mathcal{A}$ だから、
@@ -807,10 +816,10 @@ $$
 <p>- もう1本の方程式 $d(\ast F)=\mu_0(\ast\mathcal{J})$ は、$F=-d\mathcal{A}$ を代入すると、ポテンシャル $\mathcal{A}$ が満たす方程式になる。成分計算ではこれを $d_4(\ast_4F)=\mu_0(\ast_4\mathcal{J})$ と読む。</p>
 </blockquote>
 <hr />
-<h2 id="付録E：__MATH_BLOCK_402__-と-__MATH_BLOCK_403__-のスライス行列表示-——-__MATH_BLOCK_404__-配列で見るマクスウェル方程式">付録E：$d_4F$ と $d_4(\ast_4F)$ のスライス行列表示 —— $4\times4\times4$ 配列で見るマクスウェル方程式</h2>
+<h2 id="付録E：__MATH_BLOCK_414__-と-__MATH_BLOCK_415__-のスライス行列表示-——-__MATH_BLOCK_416__-配列で見るマクスウェル方程式">付録E：$d_4F$ と $d_4(\ast_4F)$ のスライス行列表示 —— $4\times4\times4$ 配列で見るマクスウェル方程式</h2>
 <p>§10.4・§10.5 では、象徴的な式 $dF=0,\;d(\ast F)=\mu_0(\ast\mathcal J)$ を、計算用の記法 $d_4F,\;d_4(\ast_4F)$ に直して基底 $3$-form の係数として展開した。付録Eでは、同じ計算を <strong>$4\times4$ スライス行列の束</strong>——実質的には $4\times4\times4$ の3階テンソル——で可視化する。付録Aの延長線上にあり、本書の「全部行列に載せる」流儀の到達点でもある。
 </p>
-<h3 id="E.1-基底-__MATH_BLOCK_410__-form-とそのスライス行列-——-全16枚">E.1 基底 $3$-form とそのスライス行列 —— 全16枚</h3>
+<h3 id="E.1-基底-__MATH_BLOCK_422__-form-とそのスライス行列-——-全16枚">E.1 基底 $3$-form とそのスライス行列 —— 全16枚</h3>
 <p>4次元の基底 $3$-form は次の4つである（§10.4 の並びと比べると、$\omega_2$ と $\omega_3$ の符号・順序が異なるが、内容は同じ4つである）。
 </p>
 $$
@@ -863,7 +872,7 @@ $$
 $$
 <p>16枚のうち、$\mathbf{S}_{z}^{(\omega_1)}, \mathbf{S}_{y}^{(\omega_2)}, \mathbf{S}_{x}^{(\omega_3)}, \mathbf{S}_{t}^{(\omega_4)}$ の4枚はゼロ行列である。残る12枚に $\pm1$ が一つずつ（と反対称のペアが一つずつ）入っている。これが $4\times4\times4$ テンソルの正体だ。
 </p>
-<h3 id="E.2-__MATH_BLOCK_433__-をスライス行列で書く">E.2 $dF$ をスライス行列で書く</h3>
+<h3 id="E.2-__MATH_BLOCK_445__-をスライス行列で書く">E.2 $dF$ をスライス行列で書く</h3>
 <p>§10.4 の展開により、$dF$ の各基底係数は次で与えられる。
 </p>
 $$
@@ -919,7 +928,7 @@ $$
 </p>
 <p>同様に、<strong>すべての係数は対応する基底スライスとのフロベニウス積で得られる</strong>。この構造は、付録Dで $\ast_{2\to1}(\mathbf{M}) = (E_1\!\cdot\!\mathbf{M},\;E_2\!\cdot\!\mathbf{M},\;E_3\!\cdot\!\mathbf{M})$ が $2$-form $\mathbf{M}$ の各成分を抽出したのと完全に相似である。次数が $1\to2$ から $2\to3$ に上がり、内積をとる相手が縦ベクトルから $4\times4$ 行列の束に変わっただけだ。
 </p>
-<h3 id="E.4-__MATH_BLOCK_458__-をスライスで読む">E.4 $dF=0$ をスライスで読む</h3>
+<h3 id="E.4-__MATH_BLOCK_470__-をスライスで読む">E.4 $dF=0$ をスライスで読む</h3>
 <p>$dF=0$ とは、4枚のスライス行列すべてがゼロ行列になることである。
 </p>
 $$
@@ -937,7 +946,7 @@ $$
 </ul>
 <p>これら3つは $\mathrm{rot}\,\mathbf{E} = -\partial\mathbf{B}/\partial t$ にほかならない。$z$-スライス（$\mathbf{S}_{z}^{(\omega_4)}$ 由来）の非ゼロ成分からは $\mathrm{div}\,\mathbf{B} = 0$ が現れる。見かけは巨大だが、中身は §10.4 の4本の係数比較式の繰り返しにすぎない。
 </p>
-<h3 id="E.5-__MATH_BLOCK_474__-のスライス表示">E.5 $d_4(\ast_4F) = \mu_0(\ast_4\mathcal{J})$ のスライス表示</h3>
+<h3 id="E.5-__MATH_BLOCK_486__-のスライス表示">E.5 $d_4(\ast_4F) = \mu_0(\ast_4\mathcal{J})$ のスライス表示</h3>
 <p>有源側も同型の構造を持つ。$\ast_4F$ と $\ast_4\mathcal{J}$ は §10.5 で展開済みであり、$d_4(\ast_4F)$ は $d_4F$ と同型のスライス行列になる——$\mathbf{E}$ と $\mathbf{B}$ の係数位置が入れ替わるだけだ。
 </p>
 <p>$d_4(\ast_4F)$ の $\omega_1\sim\omega_4$ 係数を $B_{txy}, B_{txz}, B_{tyz}, B_{xyz}$ と書く。
@@ -1016,7 +1025,7 @@ $$
 </p>
 <p>この付録では、第5章で見た「空間上の4本の式」と、第10章本文で見た「時空上の2本の式」が、同じマクスウェル方程式を別の切り方で書いているだけであることを確認する。
 </p>
-<h3 id="F.1-空間上の-__MATH_BLOCK_507__">F.1 空間上の $(E,B,J,\rho_{\mathrm e})$</h3>
+<h3 id="F.1-空間上の-__MATH_BLOCK_519__">F.1 空間上の $(E,B,J,\rho_{\mathrm e})$</h3>
 <p>各時刻 $t$ ごとの空間 $(x,y,z)$ を考える。
 </p>
 <p>電場を空間上の $1$-form として
@@ -1116,7 +1125,7 @@ $$
 <blockquote>
 <p><strong>注</strong> （計量を使わない書き方もある） 本書では、ベクトル解析の $\mathrm{div}$ を基本演算として出発点にするのではなく、これまで作ってきた辞書に合わせて $\mathrm{div}=\ast d\ast$ と読む。ガウスの法則も $d_3(\ast_3E) = \ast_3\left(\frac{\rho_{\mathrm e}}{\varepsilon_0}\right)$ と書いてから、必要に応じて $\mathrm{div}\,\mathbf E=\rho_{\mathrm e}/\varepsilon_0$ と読む。つまり、計量から作った $\ast$ を使って、スカラー場・ベクトル場・form を行き来している。しかし、マクスウェル方程式には「計量を使わない」立場もある。Hehl–Obukhov の <em>Foundations of Classical Electrodynamics: Charge, Flux, and Metric</em> で強調されるような見方では、まず $F$ と $H$ という二つの form を分け、$dF=0, dH=J$ と書く。ここでは、方程式そのものにはホッジ・スターを入れない。計量や媒質の性質は、あとから $H$ と $F$ を結びつける関係として入る。本書では、この方向には深入りしない。目的はあくまで、これまで作ってきた $d$ と $\ast$ の辞書を使い、通常のベクトル解析の式がどう成分として現れるかを見届けることである。</p>
 </blockquote>
-<h3 id="F.3-__MATH_BLOCK_544__-から2本が出る">F.3 $d_4F=0$ から2本が出る</h3>
+<h3 id="F.3-__MATH_BLOCK_556__-から2本が出る">F.3 $d_4F=0$ から2本が出る</h3>
 <p>第10章本文では、電磁場 $F$ を
 </p>
 $$
@@ -1188,7 +1197,7 @@ d_3E+\frac{\partial B}{\partial t}=0
 $$
 <p>という2本の式に分かれる。
 </p>
-<h3 id="F.4-__MATH_BLOCK_550__-から残り2本が出る">F.4 $d_4(\ast_4F)=\mu_0(\ast_4\mathcal J)$ から残り2本が出る</h3>
+<h3 id="F.4-__MATH_BLOCK_562__-から残り2本が出る">F.4 $d_4(\ast_4F)=\mu_0(\ast_4\mathcal J)$ から残り2本が出る</h3>
 <p>次に、有源側を見る。
 </p>
 <p>第10章本文の規約では、

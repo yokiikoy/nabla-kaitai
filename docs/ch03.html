@@ -282,7 +282,7 @@ $$F(x,y,z)=x^2+y^2+z^2$$
 <p>の全微分は
 </p>
 $$dF=2x\,dx+2y\,dy+2z\,dz$$
-<p>である。第1章の約束どおり、これは変位ベクトルを食べて $F$ の変化を読み取る横ベクトルである。球面に接する変位ベクトルなら、一次の変化としては $F=x^2+y^2+z^2$ の値を変えない。したがって、その変位ベクトル $\mathbf{v}$ は $dF(\mathbf{v})=0$ を満たす。球面小片を張る二本の変位ベクトルも、この条件を満たすように選ぶ。
+<p>である。第1章の約束どおり、これは変位ベクトルを食べて $F$ の<strong>一次の</strong>変化を読み取る横ベクトルである。球面に接する変位ベクトルなら、一次の変化としては $F=x^2+y^2+z^2$ の値を変えない。したがって、その変位ベクトル $\mathbf{v}$ は $dF(\mathbf{v})=0$ を満たす。球面小片を張る二本の変位ベクトルも、この条件を満たすように選ぶ。
 </p>
 <p>たとえば、$y$ を止めて $x$ 方向へ微小幅 $\Delta x$ だけ進む変位ベクトルを
 </p>
@@ -474,12 +474,12 @@ $$dx(\Delta\mathbf{r}_i) = \begin{pmatrix}1&0&0\end{pmatrix} \begin{pmatrix}\Del
 <p>ここで等式なのは、固定した $1$-form $dx$ を変位ベクトル $\Delta\mathbf{r}_i$ に作用させれば、成分 $\Delta x_i$ が正確に返る、という意味である。一方で、曲線全体の積分は、小区間ごとの代表点で測定器を評価して足し上げるリーマン和の極限として定義される。
 </p>
 $$\sum_i dx(\Delta\mathbf{r}_i) = \sum_i \frac{\Delta x_i}{\Delta t}\,\Delta t$$
-<p>第1章で扱った置換積分は、まさにこのような和の整理だった。ここでも同じことをする。曲線上の小片を $t$ で番号づけし、各成分の変化を「変化率 $\times$ 小区間幅」として整理するのである。刻みを無限に細かくすると、換算率は導関数に収束する：$\Delta x_i/\Delta t \to dx/dt$。
+<p>第1章で扱った置換積分は、まさにこのような和の整理だった。ここでも同じことをする。曲線上の小片を $t$ で番号づけし、各成分の変化を「変化率 $\times$ 小区間幅」として整理するのである。刻みを無限に細かくすると、換算率は<strong>座標関数の導関数</strong>に収束する：$\Delta x_i/\Delta t \to x'(t)$（$y'(t), z'(t)$ も同様）。
 </p>
 <p>この計算は第1章 §1.2.5 の置換積分とまったく同じ形であり：
 </p>
-$$\int_\gamma dx = \int_{t_0}^{t_1} \frac{dx}{dt}\,dt = x(t_1) - x(t_0)$$
-<p>同様に $\int_\gamma dy = y(t_1) - y(t_0)$、$\int_\gamma dz = z(t_1) - z(t_0)$。すなわち<strong>$dx, dy, dz$ という $1$-form の線積分は、曲線の正味の変位——始点と終点の座標の差——を返す。</strong>
+$$\int_\gamma dx = \int_{t_0}^{t_1} x'(t)\,dt = x(t_1) - x(t_0)$$
+<p>同様に $\int_\gamma dy = \int_{t_0}^{t_1} y'(t)\,dt = y(t_1) - y(t_0)$、$\int_\gamma dz = \int_{t_0}^{t_1} z'(t)\,dt = z(t_1) - z(t_0)$。すなわち<strong>$dx, dy, dz$ という $1$-form の線積分は、曲線の正味の変位——始点と終点の座標の差——を返す。</strong>
 </p>
 <h4 id="3.3.2-円周で試す——弧長は出ない">3.3.2 円周で試す——弧長は出ない</h4>
 <p>確認しよう。円周の場合も、まず考えているのは円を細かい弧に刻み、各小片の変位を足し上げる操作である。ただし、実際に一周分の和を計算するには、小片を順番に並べる番号が必要になる。ここではその番号として、角度 $t$ を使う。半径 $R$ の円を
@@ -518,7 +518,7 @@ $$ds(\mathbf{v}) = \sqrt{dx(\mathbf{v})^2 + dy(\mathbf{v})^2 + dz(\mathbf{v})^2}
 </blockquote>
 <p>この $ds$ は弧長を測るための便利な記法だが、本書でいう $1$-form そのものではない。$1$-form は変位 $\mathbf{v}$ に対して線形に作用する測定器であるのに対し、$ds(\mathbf{v})$ は二乗和の平方根を含むため、一般に $ds(\mathbf{v}+\mathbf{w}) = ds(\mathbf{v})+ds(\mathbf{w})$ を満たさない。したがって $ds$ を $dx,dy,dz$ の線形結合——$P\,dx+Q\,dy+R\,dz$ の形——で書くことはできない。
 </p>
-<h4 id="3.3.3-では-__MATH_BLOCK_326__-form-で何が測れるのか">3.3.3 では $1$-form で何が測れるのか</h4>
+<h4 id="3.3.3-では-__MATH_BLOCK_327__-form-で何が測れるのか">3.3.3 では $1$-form で何が測れるのか</h4>
 <p>弧長は $ds(\mathbf{v}) = \sqrt{dx(\mathbf{v})^2 + dy(\mathbf{v})^2 + dz(\mathbf{v})^2}$ という線素を積分して測れた。ただし、この $ds$ は $dx,dy,dz$ の線形結合では書けず、二乗和の平方根を必要とする。ここではまず、このような二乗和平方根を使わない $1$-form——すなわち $dx, dy, dz$ の線形結合で書ける $1$-form——が、いったい何を測るのかを見ていこう。
 </p>
 <p>空間の各点に力の場 $\mathbf{F}(x,y,z) = (F_x, F_y, F_z)$ が働いている。曲線に沿って質点を動かすとき、各小区間で力がする微小仕事は、力の変位方向成分と変位の大きさの積——すなわち $F_x\,\Delta x + F_y\,\Delta y + F_z\,\Delta z$——である。これを全区間で足し上げたものが仕事 $W = \int_\gamma \mathbf{F}\cdot d\mathbf{r}$ だ。
@@ -547,7 +547,7 @@ $$ds(\mathbf{v}) = \sqrt{dx(\mathbf{v})^2 + dy(\mathbf{v})^2 + dz(\mathbf{v})^2}
 </p>
 <p>以下、1次元・2次元・3次元の順に、係数付き形式の積分を定義していく。
 </p>
-<h4 id="3.4.1-一般の-__MATH_BLOCK_354__-form-の線積分（仕事）">3.4.1 一般の $1$-form の線積分（仕事）</h4>
+<h4 id="3.4.1-一般の-__MATH_BLOCK_355__-form-の線積分（仕事）">3.4.1 一般の $1$-form の線積分（仕事）</h4>
 <p>実空間で、係数が点 $(x,y,z)$ に依存する三つのスカラー場 $P,Q,R$ をとり、
 </p>
 $$\omega = P(x,y,z)\,dx + Q(x,y,z)\,dy + R(x,y,z)\,dz$$
@@ -560,10 +560,10 @@ $$\omega_{\gamma(t_i)}(\Delta\mathbf{r}_i) = P(\gamma(t_i))\,\Delta x_i + Q(\gam
 </p>
 <p>各成分の変化を「有限の比 $\times \Delta t$」の形に整理する：
 </p>
-$$\omega(\Delta\mathbf{r}_i) = \bigl(P\frac{\Delta x_i}{\Delta t} + Q\frac{\Delta y_i}{\Delta t} + R\frac{\Delta z_i}{\Delta t}\bigr)\,\Delta t$$
-<p>$P,Q,R$ は点 $\gamma(t_i)$ での値。全区間で足し上げて極限をとる。$\Delta x_i/\Delta t \to dx/dt,\; \Delta y_i/\Delta t \to dy/dt,\; \Delta z_i/\Delta t \to dz/dt$ だから：
+$$\omega_{\gamma(t_i)}(\Delta\mathbf{r}_i) = \bigl(P(\gamma(t_i))\frac{\Delta x_i}{\Delta t} + Q(\gamma(t_i))\frac{\Delta y_i}{\Delta t} + R(\gamma(t_i))\frac{\Delta z_i}{\Delta t}\bigr)\,\Delta t$$
+<p>全区間で足し上げて極限をとる。$\Delta x_i/\Delta t \to x'(t)$、$\Delta y_i/\Delta t \to y'(t)$、$\Delta z_i/\Delta t \to z'(t)$ だから：
 </p>
-$$\sum_i \omega(\Delta\mathbf{r}_i) \;\xrightarrow{\Delta t \to 0}\; \int_{t_0}^{t_1} \bigl(P\frac{dx}{dt} + Q\frac{dy}{dt} + R\frac{dz}{dt}\bigr)\,dt$$
+$$\sum_i \omega_{\gamma(t_i)}(\Delta\mathbf{r}_i) \;\xrightarrow{\Delta t \to 0}\; \int_{t_0}^{t_1} \bigl(P(\gamma(t))x'(t)+Q(\gamma(t))y'(t)+R(\gamma(t))z'(t)\bigr)\,dt$$
 <p>この極限を
 </p>
 $$\int_\gamma \omega$$
@@ -574,7 +574,7 @@ $$\int_\gamma \omega$$
 </blockquote>
 <p>具体例を見よう。力場 $\mathbf{F} = (y,\; x,\; 0)$ が、単位円 $\gamma(t) = (\cos t,\; \sin t,\; 0),\; t \in [0, 2\pi]$ に沿ってする仕事を計算する。
 </p>
-<p>$\omega = y\,dx + x\,dy$ だから、係数は $P=y,\;Q=x,\;R=0$。曲線上では $P=\sin t,\;Q=\cos t$。また $dx/dt = -\sin t,\; dy/dt = \cos t$ より：
+<p>$\omega = y\,dx + x\,dy$ だから、係数は $P=y,\;Q=x,\;R=0$。曲線上では $P=\sin t,\;Q=\cos t$。$x'(t)=-\sin t,\; y'(t)=\cos t$ より：
 </p>
 $$\omega(\gamma'(t)) = (\sin t)(-\sin t) + (\cos t)(\cos t) = -\sin^2\!t + \cos^2\!t = \cos 2t$$
 <p>したがって：
@@ -582,7 +582,7 @@ $$\omega(\gamma'(t)) = (\sin t)(-\sin t) + (\cos t)(\cos t) = -\sin^2\!t + \cos^
 $$\int_\gamma \omega = \int_0^{2\pi} \cos 2t\,dt = \Bigl[\frac{1}{2}\sin 2t\Bigr]_0^{2\pi} = 0$$
 <p>仕事がゼロになった。この力場は単位円に沿って正味の仕事をしないのである。
 </p>
-<h4 id="3.4.2-一般の-__MATH_BLOCK_390__-form-の面積分（流量）">3.4.2 一般の $2$-form の面積分（流量）</h4>
+<h4 id="3.4.2-一般の-__MATH_BLOCK_391__-form-の面積分（流量）">3.4.2 一般の $2$-form の面積分（流量）</h4>
 <p>同様に、三つのスカラー場 $P,Q,R$ を係数とする
 </p>
 $$
@@ -606,7 +606,7 @@ $$\iint_S \eta$$
 <blockquote>
 <p><strong>注</strong> （ここではベクトル解析との対応は補助線）流量との対応は、既にベクトル解析を知っている読者のための橋渡しにすぎない。本書の本線はあくまで「$2$-form を食わせて集計する」という操作であり、ベクトル解析の知識がなくともこの先の議論に支障はない。</p>
 </blockquote>
-<h4 id="3.4.3-一般の-__MATH_BLOCK_401__-form-の体積分（総質量）">3.4.3 一般の $3$-form の体積分（総質量）</h4>
+<h4 id="3.4.3-一般の-__MATH_BLOCK_402__-form-の体積分（総質量）">3.4.3 一般の $3$-form の体積分（総質量）</h4>
 <p>$3$-form の一般形は、スカラー場 $\rho(x,y,z)$ を係数として：
 </p>
 $$\Omega = \rho(x,y,z)\,dx \wedge dy \wedge dz$$

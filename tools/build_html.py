@@ -174,6 +174,19 @@ def apply_inline_formatting(text):
     text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', text)
     return text
 
+def _table_row_line(line):
+    """Return markdown table row text, including rows prefixed with '> ' inside blockquotes."""
+    stripped = line.strip()
+    if stripped.startswith('>'):
+        inner = stripped[1:].strip()
+        if inner.startswith('|'):
+            return inner
+        return None
+    if stripped.startswith('|'):
+        return stripped
+    return None
+
+
 def process_markdown(md_text):
     protector = MathProtector()
     md_text = protector.protect(md_text)
@@ -242,14 +255,16 @@ def process_markdown(md_text):
             continue
 
     for i, line in enumerate(lines):
-        if line.strip().startswith('|'):
+        table_row = _table_row_line(line)
+        if table_row is not None:
             if not in_table:
                 close_para()
-                close_quote()
                 close_list()
+                if not in_quote:
+                    close_quote()
                 in_table = True
                 table_lines = []
-            table_lines.append(line.strip())
+            table_lines.append(table_row)
             continue
         elif in_table:
             flush_table()

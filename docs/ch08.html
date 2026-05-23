@@ -151,9 +151,9 @@ $$d\omega = \left(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\ri
 <p>$\eta = A\,dy\wedge dz + B\,dz\wedge dx + C\,dx\wedge dy$ が $2$-form のとき、$d\eta$ は $3$-form（三階反対称テンソル）になる。
 </p>
 $$d\eta = \left(\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z}\right) dx\wedge dy\wedge dz$$
-<p>このように、$d$ が作用するたびに測定器の次数が $0\to1\to2\to3$ と一つずつ上がっていく。核心は<strong>場はそのまま、測定器の側が変化する</strong>ことだ。$f$ はスカラー場のままだが、$d$ が作用するたびに新しい測定器——$df$（$1$-form）、$d\omega$（$2$-form）、$d\eta$（$3$-form）——が生み出される。
+<p>このように、$d$ が作用するたびに測定器の次数が $0\to1\to2\to3$ と一つずつ上がっていく。核心は、$d$ が変えるのは<strong>測定器側（微分形式側）</strong>であって、スカラー場 $f$ そのものを別の矢印の場へ送るわけではない、ということだ。$f$ はスカラー場のままだが、$d$ が作用するたびに新しい測定器——$df$（$1$-form）、$d\omega$（$2$-form）、$d\eta$（$3$-form）——が生み出される。
 </p>
-<h4 id="8.1.2-形式的な微分演算子は同じまま、新たな場を考える——__MATH_BLOCK_66__-の立場">8.1.2 形式的な微分演算子は同じまま、新たな場を考える——$\nabla$ の立場</h4>
+<h4 id="8.1.2-形式的な微分演算子は同じまま、新たな場を考える——__MATH_BLOCK_68__-の立場">8.1.2 形式的な微分演算子は同じまま、新たな場を考える——$\nabla$ の立場</h4>
 <p>一方、第7章で導入した
 </p>
 $$
@@ -186,7 +186,7 @@ $$\nabla \times \mathbf{F} = \begin{pmatrix} \frac{\partial F_z}{\partial y} - \
 </p>
 <blockquote>
 <p><strong>【ここまでのチェックポイント — §8.1】</strong></p>
-<p>- $d$ の立場：場はそのまま、測定器の側が変化する。新しい測定器が生まれる。</p>
+<p>- $d$ の立場：$d$ は測定器側（微分形式側）を変える。新しい測定器が生まれる。計量 $g$ と $\ast$ を通じて初めて、見慣れたベクトル解析の矢印として読み返せる。</p>
 <p>- $\nabla$ の立場：形式的な微分演算子は同じまま、新たな場が生まれる。</p>
 </blockquote>
 <hr />
@@ -289,7 +289,7 @@ $$
 <h3 id="§8.3-ストークスの定理を翻訳する">§8.3 ストークスの定理を翻訳する</h3>
 <p>第5章 §5.6 で、我々はすでに $\int_{\partial S}\omega = \int_S d\omega$ という形のストークスの定理を導いた。第7章 §7.8.1 では、同じ定理を $\nabla$ の言葉で $\oint_C \mathbf{F}\cdot d\mathbf{r} = \iint_S (\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS$ と書いた。この二つが同じものであることを、§8.2 の辞書を使って確認する。
 </p>
-<h4 id="8.3.1-__MATH_BLOCK_147__-から-__MATH_BLOCK_148__-へ">8.3.1 $\nabla$ から $d$ へ</h4>
+<h4 id="8.3.1-__MATH_BLOCK_152__-から-__MATH_BLOCK_153__-へ">8.3.1 $\nabla$ から $d$ へ</h4>
 <p>$\nabla$ 表記のストークスの定理を出発点とする。
 </p>
 $$\oint_C \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdot \mathbf{n}\,dS$$
@@ -393,11 +393,30 @@ $$\int_C df = \int_C \nabla f \cdot d\mathbf{r} = f(B) - f(A)$$
 </blockquote>
 <blockquote>
 <p><strong>【ここまでのチェックポイント — §8.5】</strong></p>
-<p>| | <strong>$d$ の言語</strong> | <strong>$\nabla$ の言語</strong> |</p>
-<p>|:---|:---|:---|</p>
-<p>| <strong>操作</strong> | 外微分 $d$ | ナブラ $\nabla$ |</p>
-<p>| <strong>変化</strong> | 測定器の次数が変わる | 同じ形式的な微分演算子から新たな場が生まれる |</p>
-<p>| <strong>結果</strong> | $1$-form、$2$-form、$3$-form などの測定器 | スカラー場や縦ベクトル場 |</p>
+<div class="table-wrapper"><table>
+<thead><tr>
+<th></th>
+<th><strong>$d$ の言語</strong></th>
+<th><strong>$\nabla$ の言語</strong></th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>操作</strong></td>
+<td>外微分 $d$</td>
+<td>ナブラ $\nabla$</td>
+</tr>
+<tr>
+<td><strong>変化</strong></td>
+<td>測定器の次数が変わる</td>
+<td>同じ形式的な微分演算子から新たな場が生まれる</td>
+</tr>
+<tr>
+<td><strong>結果</strong></td>
+<td>$1$-form、$2$-form、$3$-form などの測定器</td>
+<td>スカラー場や縦ベクトル場</td>
+</tr>
+</tbody>
+</table></div>
 <p>積分での一致を支えるのが、計量 $g$ と $\ast$ による翻訳辞書である。$\ast\ast=\mathrm{id}$ により往復は自由。</p>
 </blockquote>
 <hr />
@@ -425,7 +444,7 @@ $$\begin{aligned}
 <blockquote>
 <p><strong>注</strong> （二次元で考える）第1章以来、二次元の問題を扱うときは $z=0$ と断ってきた。しかし本章まで読み進めた読者に、もはやそのような断りは不要だろう。以下では二次元平面 $(x,y)$ とその極座標 $(r,\theta)$ だけで話を進める。</p>
 </blockquote>
-<p><strong>方法①——場はそのまま、測定器を変える。</strong>
+<p><strong>方法①——測定器側を変える。</strong>
 </p>
 <p>パラメータ空間 $(r,\theta)$ と実空間 $(x,y)$、二枚のデカルト座標を用意する。パラメータ空間の用紙には、どこも同じ大きさの正方形グリッドが敷き詰められている。この正方形グリッドの上で、我々は測定を行う。
 </p>
