@@ -90,8 +90,9 @@ window.MathJax = {
 - `.codex`, `.env`, `__pycache__/`, `.venv/`
 
 ## Release Management
-- Current release: **v0.1.0** (https://github.com/yokiikoy/nabla-kaitai/releases/tag/v0.1.0)
-- Assets: `manuscript.pdf`, `manuscript.html`
+- Current release: **v1.0.1** (https://github.com/yokiikoy/nabla-kaitai/releases/tag/v1.0.1)
+- Assets: `manuscript.pdf`, `manuscript.html`, `manuscript-en.pdf`, `manuscript-en.html`
+- Build: `python3 tools/build_release.py`
 - After changes: update release assets via `gh release upload`
 
 ## Common Tasks

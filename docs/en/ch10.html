@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 10: Maxwell's Equations — Beyond Beauty | Unmasking Div, Grad, and Curl</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+<style>
+  :root { --sidebar-width: 320px; }
+  html { color-scheme: light; background: #fff; }
+  body { margin: 0; display: flex; background: #fff; color: #24292f; line-height: 1.7; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .sidebar { width: var(--sidebar-width); height: 100vh; position: sticky; top: 0; background: #f8f9fa; color: #24292f; border-right: 1px solid #d0d7de; overflow-y: auto; padding: 1.5rem; box-sizing: border-box; flex-shrink: 0; }
+  .sidebar h2 { font-size: 1.2rem; border: none; margin-bottom: 0.5rem; color: #24292f; }
+  .sidebar .author { font-size: 0.8rem; color: #666; margin-bottom: 1.5rem; }
+  .sidebar .toc { font-size: 0.85rem; }
+  .sidebar .toc ul { list-style: none; padding-left: 0; margin: 0; }
+  .sidebar .toc li { margin-bottom: 0.4rem; }
+  .sidebar .toc .level-1 { font-weight: bold; margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 2px; }
+  .sidebar .toc .sub-toc { font-size: 0.8rem; margin-top: 0.5rem; padding-left: 0.8rem; border-left: 2px solid #eee; }
+  .sidebar .toc .sub-toc li { margin-bottom: 0.2rem; font-weight: normal; }
+  .sidebar .toc .sub-toc .level-3 { padding-left: 0.8rem; font-size: 0.75rem; color: #666; }
+  .sidebar a { text-decoration: none; color: #0969da; }
+  .sidebar a:hover { text-decoration: underline; }
+  .sidebar .active { color: #cf222e; font-weight: bold; }
+  .sidebar .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
+  .mobile-current { display: none; }
+  .mobile-toc-button { display: none; }
+  .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; background: #fff; color: #24292f; }
+  .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; color-scheme: light; background: #fff; color: #24292f; }
+  .markdown-body p, .markdown-body li { color: #24292f; }
+  @media (max-width: 900px) { 
+    body { flex-direction: column; } 
+    .sidebar { width: 100%; height: auto; position: sticky; top: 0; z-index: 10; padding: 0.75rem 1rem; border-right: none; border-bottom: 1px solid #d0d7de; box-shadow: 0 1px 8px rgba(27, 31, 36, 0.08); }
+    .sidebar h2 { margin: 0; font-size: 1rem; }
+    .sidebar .author { display: none; }
+    .sidebar .toc { display: none; }
+    .mobile-current { display: block; margin-top: 0.35rem; font-size: 0.85rem; color: #57606a; }
+    .mobile-current strong { color: #cf222e; }
+    .mobile-toc-button { display: inline-block; margin-top: 0.35rem; font-size: 0.85rem; }
+    .main-content { padding: 1rem; } 
+    .markdown-body { padding: 0.5rem; }
+  }
+  blockquote { border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }
+  blockquote p { color: #57606a; }
+  .table-wrapper { overflow-x: auto; margin: 1.5em 0; }
+  .markdown-body table { border-collapse: collapse; width: 100%; font-size: 0.9em; background: #fff; }
+  .markdown-body th, .markdown-body td { border: 1px solid #d0d7de; padding: 6px 13px; color: #24292f !important; }
+  .markdown-body tr:nth-child(even) { background-color: #f6f8fa !important; }
+  th { font-weight: 600; background-color: #f6f8fa; }
+  code, pre { color: #24292f; background-color: #f6f8fa; }
+  .nav-buttons { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }
+  .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
+  .nav-buttons a:hover { background: #f6f8fa; }
+  strong { font-weight: 800 !important; color: #000; }
+  blockquote strong { color: #24292f !important; }
+  /* KaTeX responsiveness */
+  .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }
+  .full-toc h2 { font-size: 1.1rem; margin: 1.5em 0 0.3em; padding-bottom: 2px; border-bottom: 1px solid #d0d7de; }
+  .full-toc h2 a { color: #24292f; text-decoration: none; }
+  .full-toc h2 a:hover { color: #0969da; }
+  .full-toc h2 .disabled-link { color: #8c959f; cursor: not-allowed; }
+  .full-toc ul { list-style: none; padding-left: 1.5rem; margin: 0.3em 0 0; }
+  .full-toc li { margin-bottom: 0.2rem; font-size: 0.9rem; }
+  .full-toc .level-3 { padding-left: 1rem; font-size: 0.8rem; color: #57606a; }
+  .full-toc a { color: #0969da; text-decoration: none; }
+  .full-toc a:hover { text-decoration: underline; }
+  .full-toc .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
+  .full-toc .part-header { font-size: 1.1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }
+  .full-toc .toc-part-chapters { padding-left: 1.5rem; }
+  .full-toc .toc-part-chapters h3 { font-size: 0.95rem; margin: 0.5em 0 0.2em; }
+  .full-toc .toc-part-chapters h3 a { color: #24292f; }
+  .full-toc .toc-part-chapters ul { padding-left: 1.5rem; }
+  .site-footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #d0d7de; font-size: 0.8rem; color: #57606a; }
+  .site-footer a { color: #0969da; text-decoration: none; }
+  .site-footer a:hover { text-decoration: underline; }
+</style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ],
+            throwOnError : false
+        });
+    });
+</script>
+
+</head>
+<body>
+  <nav class="sidebar">
+    <h2><a href="index.html">Unmasking Div, Grad, and Curl</a></h2>
+    <div class="author">
+      Author: yokiikoy<br>
+      <a href="https://covectorspace.xyz/en/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a><br>
+      <a href="../index.html" style="font-size: 0.75rem; color: #666; text-decoration: none;">Japanese edition</a>
+    </div>
+    <div class="mobile-current">Current: <strong>Chapter 10: Maxwell's Equations — Beyond Beauty</strong></div>
+    <a class="mobile-toc-button" href="toc.html">Open contents</a>
+    <div class="toc">
+      <ul>
+<li class="level-1"><a href="toc.html" id="link-toc.html">Contents</a></li>
+<li class="level-1"><a href="index.html" id="link-index.html">Preface</a></li>
+<li class="level-1"><a href="intro.html" id="link-intro.html">Introduction</a></li>
+<li class="level-1"><a href="portal.html" id="link-portal.html">Portal Site and a Small Experiment</a></li>
+<li class="level-1"><a href="ch01.html" id="link-ch01.html">Chapter 1</a></li>
+<li class="level-1"><a href="ch02.html" id="link-ch02.html">Chapter 2</a></li>
+<li class="level-1"><a href="ch03.html" id="link-ch03.html">Chapter 3</a></li>
+<li class="level-1"><a href="ch04.html" id="link-ch04.html">Chapter 4</a></li>
+<li class="level-1"><a href="ch05.html" id="link-ch05.html">Chapter 5</a></li>
+<li class="level-1"><a href="ch06.html" id="link-ch06.html">Chapter 6</a></li>
+<li class="level-1"><a href="ch07.html" id="link-ch07.html">Chapter 7</a></li>
+<li class="level-1"><a href="ch08.html" id="link-ch08.html">Chapter 8</a></li>
+<li class="level-1"><a href="ch09.html" id="link-ch09.html">Chapter 9</a></li>
+<li class="level-1"><a href="ch10.html" class="active" id="link-ch10.html">Chapter 10</a><ul class="sub-toc"><li class="level-3"><a href="#§10.0-The-Usual-Caveat">§10.0 The Usual Caveat</a></li><li class="level-3"><a href="#§10.2-The-Electromagnetic-Field-$F$-and-Fixing-Sign-Conventions">§10.2 The Electromagnetic Field $F$ and Fixing Sign Conventions</a></li><li class="level-3"><a href="#§10.3-The-Minkowski-Metric-—-From-$\mathbb{R}^3$-to-Four-Dimensions">§10.3 The Minkowski Metric — From $\mathbb{R}^3$ to Four Dimensions</a></li><li class="level-3"><a href="#§10.4-Writing-Out-$dF=0$-in-Full">§10.4 Writing Out $dF=0$ in Full</a></li><li class="level-3"><a href="#§10.5-$\ast-F$-and-the-Remaining-Two-Equations">§10.5 $\ast F$ and the Remaining Two Equations</a></li><li class="level-3"><a href="#§10.6-Constructing-the-Potential-—-Starting-from-$F=-d\mathcal{A}$">§10.6 Constructing the Potential — Starting from $F=-d\mathcal{A}$</a></li><li class="level-2"><a href="#Appendix-E:-Slice-Matrix-Representation-of-$d_4F$-and-$d_4(\ast_4F)$-—-Seeing-Maxwell's-Equations-as-$4\times4\times4$-Arrays">Appendix E: Slice-Matrix Representation of $d_4F$ and $d_4(\ast_4F)$ — Seeing Maxwell's Equations as $4\times4\times4$ Arrays</a></li><li class="level-3"><a href="#E.1-Basis-$3$-forms-and-their-slice-matrices-—-all-16">E.1 Basis $3$-forms and their slice matrices — all 16</a></li><li class="level-3"><a href="#E.2-Writing-$dF$-with-slice-matrices">E.2 Writing $dF$ with slice matrices</a></li><li class="level-3"><a href="#E.3-Extracting-coefficients-by-the-Frobenius-product">E.3 Extracting coefficients by the Frobenius product</a></li><li class="level-3"><a href="#E.4-Reading-$dF=0$-through-the-slices">E.4 Reading $dF=0$ through the slices</a></li><li class="level-3"><a href="#E.5-Slice-representation-of-$d_4(\ast_4F)-=-\mu_0(\ast_4\mathcal{J})$">E.5 Slice representation of $d_4(\ast_4F) = \mu_0(\ast_4\mathcal{J})$</a></li><li class="level-2"><a href="#Appendix-F:-The-Four-Equations-of-Chapter-5-and-the-Two-Equations-of-Chapter-10">Appendix F: The Four Equations of Chapter 5 and the Two Equations of Chapter 10</a></li><li class="level-3"><a href="#F.1-$(E,B,J,\rho_{\mathrm-e})$-on-space">F.1 $(E,B,J,\rho_{\mathrm e})$ on space</a></li><li class="level-3"><a href="#F.2-The-four-equations-on-space">F.2 The four equations on space</a></li><li class="level-3"><a href="#F.3-Two-equations-emerge-from-$d_4F=0$">F.3 Two equations emerge from $d_4F=0$</a></li><li class="level-3"><a href="#F.4-The-remaining-two-emerge-from-$d_4(\ast_4F)=\mu_0(\ast_4\mathcal-J)$">F.4 The remaining two emerge from $d_4(\ast_4F)=\mu_0(\ast_4\mathcal J)$</a></li><li class="level-3"><a href="#F.5-Summary">F.5 Summary</a></li></ul></li>
+<li class="level-1"><a href="ch11.html" id="link-ch11.html">Chapter 11</a></li>
+<li class="level-1"><a href="ch12.html" id="link-ch12.html">Chapter 12</a></li>
+<li class="level-1"><a href="postscript.html" id="link-postscript.html">Afterword</a></li>
+<li class="level-1"><a href="refs.html" id="link-refs.html">References (with Comments from the Author)</a></li>
+<li class="level-1"><a href="appendix.html" id="link-appendix.html">Appendix</a></li>
+</ul>
+    </div>
+  </nav>
+  <main class="main-content">
+    <article class="markdown-body">
+<h1 id="Chapter-10:-Maxwell's-Equations-—-Beyond-Beauty">Chapter 10: Maxwell's Equations — Beyond Beauty</h1>
+<h3 id="§10.0-The-Usual-Caveat">§10.0 The Usual Caveat</h3>
+<p>Well, the end of this book is finally in sight. Apparently it is conventional for textbooks on the physical mathematics of differential forms to close by rewriting Maxwell's equations in differential forms. The author will follow this custom as well.
+</p>
+<p>However, one caveat. This book is not an electromagnetism textbook. If you know electromagnetism you can enjoy the physical interpretation, but we will write so that even without that background you can follow the component calculations. Here, six functions $E_x, E_y, E_z, B_x, B_y, B_z$ appear; they fit into a certain antisymmetric matrix, and when $d$ and $\ast$ act on it, the famous formulas of vector analysis emerge—we ask you to view this flow purely as algebraic manipulation.
+</p>
+<blockquote>
+<p><strong>Note</strong> (for readers who have not studied electromagnetism) All physical terminology in this chapter may be skipped. All you need is to see "what happens when you arrange six functions in a $4\times4$ matrix and apply $d$ and $\ast$." Even without knowledge of electromagnetism, readers who have made it this far should be able to enjoy the chapter by following the matrix components alone.</p>
+</blockquote>
+<blockquote>
+<p><strong>Note</strong> (the role of this chapter) The core of this book is complete by Chapter 9. This chapter is, so to speak, a bonus, or nearly a digression. Do not take it too seriously; read it at your leisure.</p>
+</blockquote>
+<h3 id="§10.2-The-Electromagnetic-Field-__MATH_BLOCK_127__-and-Fixing-Sign-Conventions">§10.2 The Electromagnetic Field $F$ and Fixing Sign Conventions</h3>
+<p>Before writing the electromagnetic field $F$ in explicit components, let us rigorously fix the sign conventions for spacetime used in this chapter. There are several traditions for sign choices, but this book adopts the following set.
+</p>
+<ul>
+<li><strong>Coordinate order</strong>: $(x^0, x^1, x^2, x^3) = (t, x, y, z)$</li>
+<li><strong>Time coordinate</strong>: $t = ct_{\text{SI}}$ (normalized to length dimension)</li>
+<li><strong>Magnetic field</strong>: $\mathbf{B} = c\mathbf{B}_{\text{SI}}$ (quantity aligned in dimension with the electric field)</li>
+<li><strong>Orientation (reference $4$-form)</strong>: $dt \wedge dx \wedge dy \wedge dz$</li>
+<li><strong>Metric signature</strong>: $(-, +, +, +)$</li>
+<li><strong>Matrix representation of $2$-forms</strong>: Following Chapter 2's convention, place the coefficients of basis $dx^\mu \wedge dx^\nu$ in the matrix $(\mu, \nu)$ components.</li>
+</ul>
+<p>Under this convention, define the electromagnetic field $2$-form $F$ as follows.
+</p>
+$$
+F = -E_x\,dt\wedge dx - E_y\,dt\wedge dy - E_z\,dt\wedge dz + B_x\,dy\wedge dz + B_y\,dz\wedge dx + B_z\,dx\wedge dy
+$$
+<p>The minus signs on the electric-field terms (those containing $dt$) are an intentional choice to maintain consistency with Faraday's law $\mathrm{curl}\,\mathbf{E} = -\frac{\partial\mathbf{B}}{\partial t}$ and the potential construction $F = -d\mathcal{A}$ described later.
+</p>
+<p>In a $4\times4$ antisymmetric matrix, this becomes
+</p>
+$$F = \begin{pmatrix}
+0 & -E_x & -E_y & -E_z \\
+E_x & 0 & B_z & -B_y \\
+E_y & -B_z & 0 & B_x \\
+E_z & B_y & -B_x & 0
+\end{pmatrix}$$
+<blockquote>
+<p><strong>Note</strong> (sign of electric-field terms and matrix)</p>
+<p>In this book's matrix convention, the coefficient $-E_x$ of $dt \wedge dx$ is placed in the matrix component $(t,x)$. Therefore $F_{tx}=-E_x,\;F_{xt}=E_x$. Many textbooks define $F_{t x}$ as positive $E_x$, but then one must either use $F = E_x dx \wedge dt + \dots$ (reversed order) or adjust the sign in the potential definition $F=d\mathcal{A}$. This book prioritizes $F=-d\mathcal{A}$ and the order $dt \wedge dx$, and adopts this sign.</p>
+</blockquote>
+<hr />
+<h3 id="§10.3-The-Minkowski-Metric-—-From-__MATH_BLOCK_154__-to-Four-Dimensions">§10.3 The Minkowski Metric — From $\mathbb{R}^3$ to Four Dimensions</h3>
+<p>Throughout this book we have consistently worked on $\mathbb{R}^3$ with Cartesian coordinates $(x,y,z)$. However, to treat $F$ we need four-dimensional spacetime $(t,x,y,z)$ with time $t$ adjoined.
+</p>
+<p>Fortunately, with the knowledge accumulated so far, the extension is easy. In Chapter 6 we derived $\mathbf{g} = J^T J$, and in Chapter 9 we practiced the procedure of building the $\ast$ dictionary from $\mathbf{g}$. We need only do the same in spacetime. The metric is as follows (the only new element is that the sign of the time component differs from that of the spatial components):
+</p>
+$$\mathbf{g} = \begin{pmatrix}
+-1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix}$$
+<blockquote>
+<p><strong>Note</strong> (Departure from positive definiteness) The metrics in this book have always been positive definite ($\mathbf{v}^T\mathbf{g}\,\mathbf{v} > 0$ for $\mathbf{v}\neq\mathbf{0}$). The Minkowski metric is not positive definite and differs from the $\mathbf{g}=J^T J$ type of metric used until now. Here we inherit only the procedure of "building the $\ast$ dictionary from the metric matrix." This difference appears as sign changes in the $\ast$ dictionary, but the computational procedure itself does not change. This point will be foreshadowing when we look at manifolds and metrics in the next chapter.</p>
+</blockquote>
+<blockquote>
+<p><strong>Note</strong> (Convention for the four-dimensional Hodge star)</p>
+<p>In this chapter we take the orientation (order of basis elements) to be $dt\wedge dx\wedge dy\wedge dz$ and the spacetime metric signature to be $(-,+,+,+)$. Under this convention we use the following $\ast F$ and $\ast\mathcal{J}$. When writing Maxwell's equations symbolically we still write $\ast$ as usual, but in component calculations we distinguish the Hodge star on four-dimensional spacetime as $\ast_4$ and the Hodge star on three-dimensional space as $\ast_3$. With different signatures or orientation conventions, note that several signs will flip.</p>
+</blockquote>
+<hr />
+<h3 id="§10.4-Writing-Out-__MATH_BLOCK_175__-in-Full">§10.4 Writing Out $dF=0$ in Full</h3>
+<p>Since $F$ is a $2$-form, $dF$ is a $3$-form. In the component calculations from here on, we write $d_4F$ to make explicit that the exterior derivative is on four-dimensional spacetime. A $3$-form in four dimensions has four independent components. Apply $d_4$ to the $F$ redefined in §10.2 (with the minus sign on the electric-field terms) and collect the coefficients on the same basis $3$-forms.
+</p>
+$$F = -E_x\,dt\wedge dx - E_y\,dt\wedge dy - E_z\,dt\wedge dz + B_x\,dy\wedge dz + B_y\,dz\wedge dx + B_z\,dx\wedge dy$$
+<p>Apply $d_4$ to each term. The electric-field terms become (note the sign changes):
+</p>
+$$\begin{aligned}
+d_4\!\left(-E_x\,dt\wedge dx\right) &= -\frac{\partial E_x}{\partial y}\,dy\wedge dt\wedge dx - \frac{\partial E_x}{\partial z}\,dz\wedge dt\wedge dx \\
+&= -\frac{\partial E_x}{\partial y}\,dt\wedge dx\wedge dy + \frac{\partial E_x}{\partial z}\,dt\wedge dz\wedge dx \\
+d_4\!\left(-E_y\,dt\wedge dy\right) &= -\frac{\partial E_y}{\partial z}\,dt\wedge dy\wedge dz + \frac{\partial E_y}{\partial x}\,dt\wedge dx\wedge dy \\
+d_4\!\left(-E_z\,dt\wedge dz\right) &= -\frac{\partial E_z}{\partial x}\,dt\wedge dz\wedge dx + \frac{\partial E_z}{\partial y}\,dt\wedge dy\wedge dz
+\end{aligned}$$
+<p>The magnetic-field terms also include time derivatives and become:
+</p>
+$$\begin{aligned}
+d_4(B_x\,dy\wedge dz) &= \frac{\partial B_x}{\partial t}\,dt\wedge dy\wedge dz + \frac{\partial B_x}{\partial x}\,dx\wedge dy\wedge dz \\
+d_4(B_y\,dz\wedge dx) &= \frac{\partial B_y}{\partial t}\,dt\wedge dz\wedge dx + \frac{\partial B_y}{\partial y}\,dy\wedge dz\wedge dx \\
+d_4(B_z\,dx\wedge dy) &= \frac{\partial B_z}{\partial t}\,dt\wedge dx\wedge dy + \frac{\partial B_z}{\partial z}\,dz\wedge dx\wedge dy
+\end{aligned}$$
+<p>Summing all of these and organizing by basis $3$-form, for example the coefficient of $dt\wedge dy\wedge dz$ becomes:
+</p>
+$$
+\left(\frac{\partial B_x}{\partial t} + \frac{\partial E_z}{\partial y} - \frac{\partial E_y}{\partial z}\right) dt\wedge dy\wedge dz = \left(\frac{\partial B_x}{\partial t} + (\mathrm{curl}\,\mathbf{E})_x\right) dt\wedge dy\wedge dz
+$$
+<p>Setting each basis coefficient to zero, the component calculation of $d_4F=0$ is equivalent to the following four equations. Symbolically, we write this as $dF=0$.
+</p>
+$$d_4F = 0 \Longleftrightarrow \begin{cases}
+\displaystyle \frac{\partial B_x}{\partial x} + \frac{\partial B_y}{\partial y} + \frac{\partial B_z}{\partial z} = 0 & (\mathrm{div}\,\mathbf{B} = 0) \\[1em]
+\displaystyle (\mathrm{curl}\,\mathbf{E})_x = -\frac{\partial B_x}{\partial t} & \\[0.5em]
+\displaystyle (\mathrm{curl}\,\mathbf{E})_y = -\frac{\partial B_y}{\partial t} & (\mathrm{curl}\,\mathbf{E} = -\frac{\partial\mathbf{B}}{\partial t}) \\[0.5em]
+\displaystyle (\mathrm{curl}\,\mathbf{E})_z = -\frac{\partial B_z}{\partial t} &
+\end{cases}$$
+<p>The first line is Gauss's law for magnetism; the second through fourth lines are Faraday's law of electromagnetic induction. By placing minus signs on the electric-field terms, the familiar vector-analysis formulas with the correct signs are derived from the single differential-form equation $dF=0$ (computationally $d_4F=0$).
+</p>
+<hr />
+<h3 id="§10.5-__MATH_BLOCK_192__-and-the-Remaining-Two-Equations">§10.5 $\ast F$ and the Remaining Two Equations</h3>
+<p>Let us also write out in full the other equation $d(\ast F) = \mu_0(\ast\mathcal{J})$ by the same procedure as §10.4. Symbolically we write $\ast$, but in the component calculations from here on we make explicit the Hodge star on four-dimensional spacetime and write $d_4(\ast_4F)=\mu_0(\ast_4\mathcal{J})$.
+</p>
+<p>First, compute $\ast_4F$ from the $F$ redefined in §10.2. Applying the four-dimensional Hodge star under the Minkowski metric signature $(-,+,+,+)$ and orientation $dt\wedge dx\wedge dy\wedge dz$ of §10.3, $\ast_4F$ becomes:
+</p>
+$$
+\ast_4F = B_x\,dt\wedge dx + B_y\,dt\wedge dy + B_z\,dt\wedge dz + E_x\,dy\wedge dz + E_y\,dz\wedge dx + E_z\,dx\wedge dy
+$$
+<p>In matrix form:
+</p>
+$$\ast_4F = \begin{pmatrix}
+0 & B_x & B_y & B_z \\
+-B_x & 0 & E_z & -E_y \\
+-B_y & -E_z & 0 & E_x \\
+-B_z & E_y & -E_x & 0
+\end{pmatrix}$$
+<p>Because we started from an $F$ with reversed signs on the electric terms, after the $\ast_4$ action the magnetic terms become those involving $dt$, while the electric terms move to purely spatial terms ($2$-forms).
+</p>
+<p>Next, expand $d_4(\ast_4F)$. Organizing by basis $3$-form, we obtain:
+</p>
+$$\begin{aligned}
+d_4(\ast_4F) = &\left(\frac{\partial E_x}{\partial x} + \frac{\partial E_y}{\partial y} + \frac{\partial E_z}{\partial z}\right) dx\wedge dy\wedge dz \\
+{+} &\left(\frac{\partial E_x}{\partial t} - \left(\frac{\partial B_z}{\partial y} - \frac{\partial B_y}{\partial z}\right)\right) dt\wedge dy\wedge dz \\
+{+} &\left(\frac{\partial E_y}{\partial t} - \left(\frac{\partial B_x}{\partial z} - \frac{\partial B_z}{\partial x}\right)\right) dt\wedge dz\wedge dx \\
+{+} &\left(\frac{\partial E_z}{\partial t} - \left(\frac{\partial B_y}{\partial x} - \frac{\partial B_x}{\partial y}\right)\right) dt\wedge dx\wedge dy
+\end{aligned}$$
+<p>The right-hand side $\mu_0(\ast_4\mathcal{J})$ is a $3$-form containing the charge density $\rho_{\mathrm e}$ and the current density $\mathbf{J}$. Under the normalization of §10.1 it can be written as:
+</p>
+$$
+\mu_0(\ast_4\mathcal{J}) = \frac{\rho_{\mathrm e}}{\varepsilon_0}\,dx\wedge dy\wedge dz - \mu_0 c J_x\,dt\wedge dy\wedge dz - \mu_0 c J_y\,dt\wedge dz\wedge dx - \mu_0 c J_z\,dt\wedge dx\wedge dy
+$$
+<p>Here we have not yet used $\ast_3$. Comparing both sides directly as coefficients of the four-dimensional basis $3$-forms, from the coefficient of $dx\wedge dy\wedge dz$ we first obtain
+</p>
+$$
+\frac{\partial E_x}{\partial x}+\frac{\partial E_y}{\partial y}+\frac{\partial E_z}{\partial z}=\frac{\rho_{\mathrm e}}{\varepsilon_0}
+$$
+<p>This is Gauss's law $\mathrm{div}\,\mathbf E=\rho_{\mathrm e}/\varepsilon_0$. From the remaining three basis $3$-forms we obtain
+</p>
+$$
+\begin{aligned}
+\frac{\partial E_x}{\partial t}-\left(\frac{\partial B_z}{\partial y}-\frac{\partial B_y}{\partial z}\right)&=-\mu_0 cJ_x,\\
+\frac{\partial E_y}{\partial t}-\left(\frac{\partial B_x}{\partial z}-\frac{\partial B_z}{\partial x}\right)&=-\mu_0 cJ_y,\\
+\frac{\partial E_z}{\partial t}-\left(\frac{\partial B_y}{\partial x}-\frac{\partial B_x}{\partial y}\right)&=-\mu_0 cJ_z
+\end{aligned}
+$$
+<p>Rearranging,
+</p>
+$$
+\mathrm{curl}\,\mathbf{B} = \mu_0 c \mathbf{J} + \frac{\partial \mathbf{E}}{\partial t}
+$$
+<p>Thus far, from the four-dimensional equation $d_4(\ast_4F)=\mu_0(\ast_4\mathcal{J})$, the remaining two equations have emerged as components.
+</p>
+<p>The same content can also be written in compressed form as spatial three-dimensional differential forms. The $\ast_4F$ we have just obtained can be written using the spatial metric correspondence at each instant of time as
+</p>
+$$
+\ast_4F
+=
+dt\wedge(\mathbf B^Tg_3)+\ast_3(\mathbf E^Tg_3).
+$$
+<p>Here, in Cartesian space $g_3=I$, so
+</p>
+$$
+\mathbf B^Tg_3
+=
+B_x\,dx+B_y\,dy+B_z\,dz,
+$$
+<p>and
+</p>
+$$
+\ast_3(\mathbf E^Tg_3)
+=
+E_x\,dy\wedge dz+E_y\,dz\wedge dx+E_z\,dx\wedge dy.
+$$
+<blockquote>
+<p><strong>Note</strong> (why we do not use $\flat$ notation) In differential geometry, the operation of turning a vector field into the corresponding $1$-form through the metric is often denoted by a musical symbol, for example $\mathbf B^\flat$. This book deliberately avoids that notation. Since we work throughout with row vectors, column vectors, and explicit metric matrices, we write the same operation as $\mathbf B^Tg_3$. No new operation is being introduced here; this is the same metric correspondence used in Chapter 8.</p>
+</blockquote>
+<p>Using this decomposition, the four-dimensional calculation above can be read as
+</p>
+$$
+d_4(\ast_4F)
+=
+dt\wedge\left(
+\frac{\partial(\ast_3(\mathbf E^Tg_3))}{\partial t}
+-
+d_3(\mathbf B^Tg_3)
+\right)
++
+d_3(\ast_3(\mathbf E^Tg_3)).
+$$
+<p>The right-hand side can also be written in spatial three-dimensional notation as
+</p>
+$$
+\mu_0(\ast_4\mathcal J)=\ast_3\left(\frac{\rho_{\mathrm e}}{\varepsilon_0}\right)-\mu_0 c\,dt\wedge J
+$$
+<p>Here $J=J_x\,dy\wedge dz+J_y\,dz\wedge dx+J_z\,dx\wedge dy$ is the spatial current-density $2$-form. Here $\ast_3\left(\frac{\rho_{\mathrm e}}{\varepsilon_0}\right)$ is the spatial $3$-form corresponding to the charge density. Therefore, comparing the parts that do and do not contain $dt$, we obtain
+</p>
+$$
+d_3(\ast_3(\mathbf E^Tg_3))=\ast_3\left(\frac{\rho_{\mathrm e}}{\varepsilon_0}\right),
+\qquad
+d_3(\mathbf B^Tg_3)=\mu_0 c\,J+\frac{\partial(\ast_3(\mathbf E^Tg_3))}{\partial t}
+$$
+<p>Reading these forms back through the Chapter 8 spatial dictionary, these reduce to the earlier formulas for $\mathrm{div}\,\mathbf E$ and $\mathrm{curl}\,\mathbf B$. In this way it is fully confirmed that all four Maxwell equations are derived from the two differential-form equations with the correct signs and coefficients.
+</p>
+<p>In other words, the four Maxwell equations are consolidated into the two differential-form equations
+</p>
+$$dF = 0, \qquad d(\ast F) = \mu_0(\ast\mathcal{J})$$
+<p>When actually expanding these two equations with matrices and partial derivatives, we use $d_4$ and $\ast_4$; when returning to the spatial three-dimensional dictionary, we use $d_3$ and $\ast_3$. The familiar vector-analysis formulas are reproduced by moving back and forth between these two levels. Behind the beauty lies genuinely gritty computation—and witnessing that is the achievement of this chapter.
+</p>
+<blockquote>
+<p><strong>Note</strong> (Why only two equations?) A sharp reader may wonder: "So in the end there are only two? Can $dF=0$ and $d(\ast F)=\mu_0(\ast\mathcal{J})$ not be combined into a <strong>single line</strong>?" They can. In Chapter 12, using a complex vector that bundles $\mathbf{E}$ and $\mathbf{B}$ together and a Dirac operator built from Pauli matrices, Maxwell's equations will be unified in a single stroke. Look forward to it.</p>
+</blockquote>
+<blockquote>
+<p><strong>Note</strong> (Why stop here?) Many textbooks close at the point where $dF=0$ has been shown, with "and thus Maxwell's equations are geometric." But this book's approach is different. Writing out every matrix component in full, using $d_4$ and $\ast_4$ in the calculations, and returning to $d_3$ and $\ast_3$ in the spatial dictionary to reproduce the vector-analysis formulas—the ability to make that round trip is precisely the destination of the "measuring device" framework built up from Chapter 1.</p>
+</blockquote>
+<hr />
+<h3 id="§10.6-Constructing-the-Potential-—-Starting-from-__MATH_BLOCK_243__">§10.6 Constructing the Potential — Starting from $F=-d\mathcal{A}$</h3>
+<p>In §10.2, we defined the electromagnetic field $F$ as an assembly of $\mathbf{E}$ and $\mathbf{B}$.
+</p>
+<p>But there is a deeper way to look at it.
+</p>
+<p>$F$ can be built from a certain $1$-form by taking its exterior derivative.
+</p>
+<p>Call that $1$-form $\mathcal{A}$. If we can set
+</p>
+$$
+F=-d\mathcal{A},
+$$
+<p>then
+</p>
+$$
+dF
+=
+d(-d\mathcal{A})
+=
+-d(d\mathcal{A})
+=
+0
+$$
+<p>holds.
+</p>
+<p>In other words, the two equations we obtained in §10.4 by writing out every component,
+</p>
+$$
+\mathrm{div}\,\mathbf{B}=0,
+\qquad
+\mathrm{curl}\,\mathbf{E}
+=
+-\frac{\partial\mathbf{B}}{\partial t}
+$$
+<p>were already contained inside the identity of the exterior derivative
+</p>
+$$
+dd=0.
+$$
+<p>That is the heart of the potential representation.
+</p>
+<p>In §10.4, we expanded $dF=0$ into the coefficients of four basis $3$-forms. But if we build $F$ as $-d\mathcal{A}$, those four conditions follow automatically in a single line.
+</p>
+<p>So let us actually write down such an $\mathcal{A}$.
+</p>
+<h4 id="Setting-up-the-four-potential">Setting up the four-potential</h4>
+<p>The four-potential $\mathcal{A}$ is a $1$-form. In electromagnetism, the scalar potential $\phi$ and the vector potential $\mathbf{A}$ come as a pair.
+</p>
+<p>In this chapter, to satisfy both the $F$ of §10.2 and the standard formulas
+</p>
+$$
+\mathbf{E}
+=
+-\nabla\phi
+-
+\frac{\partial\mathbf{A}}{\partial t},
+\qquad
+\mathbf{B}
+=
+\nabla\times\mathbf{A}
+$$
+<p>at once, we adopt the following sign convention for the potential $1$-form:
+</p>
+$$
+\mathcal{A}
+=
+\phi\,dt
+-
+A_x\,dx
+-
+A_y\,dy
+-
+A_z\,dz
+$$
+<p>Here $\phi,A_x,A_y,A_z$ are all functions of $(t,x,y,z)$.
+</p>
+<blockquote>
+<p><strong>Note</strong> (normalization of the potential)</p>
+<p>Read $\mathbf{A}$ here in the same normalized units used throughout this chapter. Just as the $\mathbf{B}$ of Chapter 10 is not the physical magnetic flux density but $c\mathbf{B}_{\mathrm{SI}}$, think of $\mathbf{A}$ as the normalized vector potential $c\mathbf{A}_{\mathrm{SI}}$ when needed. Under this convention, $\mathbf{B}=\nabla\times\mathbf{A}$ and $\mathbf{E}=-\nabla\phi-\partial\mathbf{A}/\partial t$ hold simultaneously.</p>
+</blockquote>
+<p>From here we compute $d\mathcal{A}$, and finally set $F=-d\mathcal{A}$.
+</p>
+<p>The point of this calculation is to confirm that the components of $F$ defined in §10.2 agree at the same time with the usual potential formulas.
+</p>
+<h4 id="Computing-__MATH_BLOCK_274__-component-by-component">Computing $d\mathcal{A}$ component by component</h4>
+<p>The computation of $d\mathcal{A}$ is exactly the procedure we have followed since Chapter 5. Apply $d$ to each of the four terms of $\mathcal{A}$.
+</p>
+$$
+\begin{aligned}
+d(\phi\,dt)
+&=
+\frac{\partial\phi}{\partial x}\,dx\wedge dt
++
+\frac{\partial\phi}{\partial y}\,dy\wedge dt
++
+\frac{\partial\phi}{\partial z}\,dz\wedge dt,
+\\[0.5em]
+d(-A_x\,dx)
+&=
+-\frac{\partial A_x}{\partial t}\,dt\wedge dx
+-
+\frac{\partial A_x}{\partial y}\,dy\wedge dx
+-
+\frac{\partial A_x}{\partial z}\,dz\wedge dx,
+\\[0.5em]
+d(-A_y\,dy)
+&=
+-\frac{\partial A_y}{\partial t}\,dt\wedge dy
+-
+\frac{\partial A_y}{\partial x}\,dx\wedge dy
+-
+\frac{\partial A_y}{\partial z}\,dz\wedge dy,
+\\[0.5em]
+d(-A_z\,dz)
+&=
+-\frac{\partial A_z}{\partial t}\,dt\wedge dz
+-
+\frac{\partial A_z}{\partial x}\,dx\wedge dz
+-
+\frac{\partial A_z}{\partial y}\,dy\wedge dz.
+\end{aligned}
+$$
+<p>The time derivative of $\phi$ vanishes because $dt\wedge dt=0$.
+</p>
+<p>Likewise, the $x$ derivative of $A_x$, the $y$ derivative of $A_y$, and the $z$ derivative of $A_z$ each vanish by $dx\wedge dx=0$, $dy\wedge dy=0$, and $dz\wedge dz=0$.
+</p>
+<p>Add these together and collect by basis $2$-form using the antisymmetry of the wedge product.
+</p>
+<p>First, look at the coefficient of $dt\wedge dx$.
+</p>
+<p>From $d(\phi\,dt)$ we get
+</p>
+$$
+\frac{\partial\phi}{\partial x}\,dx\wedge dt
+=
+-\frac{\partial\phi}{\partial x}\,dt\wedge dx.
+$$
+<p>From $d(-A_x\,dx)$ we also get
+</p>
+$$
+-\frac{\partial A_x}{\partial t}\,dt\wedge dx.
+$$
+<p>Therefore the $dt\wedge dx$ coefficient of $d\mathcal{A}$ is
+</p>
+$$
+-\frac{\partial\phi}{\partial x}
+-
+\frac{\partial A_x}{\partial t}.
+$$
+<p>Next, look at the coefficient of $dy\wedge dz$.
+</p>
+<p>From $d(-A_y\,dy)$ we get
+</p>
+$$
+-\frac{\partial A_y}{\partial z}\,dz\wedge dy
+=
+\frac{\partial A_y}{\partial z}\,dy\wedge dz.
+$$
+<p>From $d(-A_z\,dz)$ we also get
+</p>
+$$
+-\frac{\partial A_z}{\partial y}\,dy\wedge dz.
+$$
+<p>Therefore the $dy\wedge dz$ coefficient of $d\mathcal{A}$ is
+</p>
+$$
+-\frac{\partial A_z}{\partial y}
++
+\frac{\partial A_y}{\partial z}.
+$$
+<p>Collecting all six basis elements in the same way,
+</p>
+$$
+\begin{aligned}
+d\mathcal{A}
+&=
+\left(
+-\frac{\partial\phi}{\partial x}
+-
+\frac{\partial A_x}{\partial t}
+\right)
+dt\wedge dx
+\\[0.5em]
+&\quad+
+\left(
+-\frac{\partial\phi}{\partial y}
+-
+\frac{\partial A_y}{\partial t}
+\right)
+dt\wedge dy
+\\[0.5em]
+&\quad+
+\left(
+-\frac{\partial\phi}{\partial z}
+-
+\frac{\partial A_z}{\partial t}
+\right)
+dt\wedge dz
+\\[0.5em]
+&\quad+
+\left(
+-\frac{\partial A_z}{\partial y}
++
+\frac{\partial A_y}{\partial z}
+\right)
+dy\wedge dz
+\\[0.5em]
+&\quad+
+\left(
+-\frac{\partial A_x}{\partial z}
++
+\frac{\partial A_z}{\partial x}
+\right)
+dz\wedge dx
+\\[0.5em]
+&\quad+
+\left(
+-\frac{\partial A_y}{\partial x}
++
+\frac{\partial A_x}{\partial y}
+\right)
+dx\wedge dy.
+\end{aligned}
+$$
+<h4 id="On-the-Signs">On the Signs</h4>
+<p>The $F$ defined in §10.2 was
+</p>
+$$
+F
+=
+-E_x\,dt\wedge dx
+-
+E_y\,dt\wedge dy
+-
+E_z\,dt\wedge dz
++
+B_x\,dy\wedge dz
++
+B_y\,dz\wedge dx
++
+B_z\,dx\wedge dy
+$$
+<p>If we set $F=d\mathcal{A}$ here, comparing the $dt\wedge dx$ coefficients yields
+</p>
+$$
+-E_x
+=
+-\frac{\partial\phi}{\partial x}
+-
+\frac{\partial A_x}{\partial t}
+$$
+<p>so we obtain
+</p>
+$$
+E_x
+=
+\frac{\partial\phi}{\partial x}
++
+\frac{\partial A_x}{\partial t}
+$$
+<p>This has the opposite sign from the standard
+</p>
+$$
+E_x
+=
+-\frac{\partial\phi}{\partial x}
+-
+\frac{\partial A_x}{\partial t}
+$$
+<p>Therefore in this chapter we set
+</p>
+$$
+F=-d\mathcal{A}
+$$
+<p>With this choice, the $dt\wedge dx$ coefficient becomes
+</p>
+$$
+-E_x
+=
+\frac{\partial\phi}{\partial x}
++
+\frac{\partial A_x}{\partial t}
+$$
+<p>so we obtain
+</p>
+$$
+E_x
+=
+-\frac{\partial\phi}{\partial x}
+-
+\frac{\partial A_x}{\partial t}
+$$
+<p>Similarly, looking at the $dy\wedge dz$ coefficient, the $dy\wedge dz$ coefficient of $-d\mathcal{A}$ is
+</p>
+$$
+\frac{\partial A_z}{\partial y}
+-
+\frac{\partial A_y}{\partial z}
+$$
+<p>Therefore we obtain
+</p>
+$$
+B_x
+=
+\frac{\partial A_z}{\partial y}
+-
+\frac{\partial A_y}{\partial z}
+$$
+<p>Collecting all components,
+</p>
+$$
+\mathbf{E}
+=
+-\nabla\phi
+-
+\frac{\partial\mathbf{A}}{\partial t},
+\qquad
+\mathbf{B}
+=
+\nabla\times\mathbf{A}.
+$$
+<p>In other words, if we set
+</p>
+$$
+\mathcal{A}
+=
+\phi\,dt
+-
+A_x\,dx
+-
+A_y\,dy
+-
+A_z\,dz,
+\qquad
+F=-d\mathcal{A}
+$$
+<p>then the coefficient representation of $F$ in §10.2 and the standard potential formulas are reconciled at once.
+</p>
+<blockquote>
+<p><strong>Note</strong> ($F$ and sign conventions for potentials)</p>
+<p>The definition $F=-d\mathcal{A}$ is adopted so that simultaneously: the $dt\wedge dx$ coefficient of $F$ in §10.2 is $-E_x$; and $\mathbf{E}=-\nabla\phi-\partial\mathbf{A}/\partial t$, $\mathbf{B}=\nabla\times\mathbf{A}$ hold. Other sign conventions exist, such as $F=+d\mathcal{A}$, $\mathcal{A}=-\phi\,dt+\cdots$, and so on.</p>
+</blockquote>
+<h4 id="__MATH_BLOCK_317__-Proves-__MATH_BLOCK_318__">$dd=0$ Proves $dF=0$</h4>
+<p>Now let us return to the opening discussion.
+</p>
+<p>Since $F=-d\mathcal{A}$,
+</p>
+$$
+dF
+=
+d(-d\mathcal{A})
+=
+-d(d\mathcal{A})
+=
+0.
+$$
+<p>This is exactly the fundamental property of the exterior derivative seen in Chapter 5 §5.8:
+</p>
+$$
+dd=0
+$$
+<p>Therefore, the component expansions obtained in §10.4,
+</p>
+$$
+\mathrm{div}\,\mathbf{B}=0,
+\qquad
+\mathrm{curl}\,\mathbf{E}
+=
+-\frac{\partial\mathbf{B}}{\partial t}
+$$
+<p>follow automatically the moment we set $F=-d\mathcal{A}$.
+</p>
+<p>What is happening here is not mere notational compression.
+</p>
+<p>The $dd=0$ seen in Chapter 5 appears here as half of Maxwell's equations.
+</p>
+<p>The moment $F$ is built as $-d\mathcal{A}$, $dF=0$ is no longer a law to be proved but an identity that follows automatically from the structure of the exterior derivative.
+</p>
+<blockquote>
+<p><strong>Note</strong> ($\mathbf{B}$ and $\mathrm{div}\,\mathbf{B}=0$)</p>
+<p>In vector analysis too, it is known as a formula that if $\mathbf{B}$ can be written as the curl of something then $\mathrm{div}\,\mathbf{B}=0$. This is the familiar identity $\mathrm{div}\,\mathrm{curl}\equiv0$, the three-dimensional vector-analysis version of $dd=0$.</p>
+</blockquote>
+<h4 id="What-Remains-Is-the-Other-Equation">What Remains Is the Other Equation</h4>
+<p>$dF=0$ follows automatically from $F=-d\mathcal{A}$.
+</p>
+<p>What about the other equation
+</p>
+$$
+d(\ast F)
+=
+\mu_0(\ast\mathcal{J})
+$$
+<p>Here we write it in symbolic notation to see the structure. In component calculations, read this as $d_4(\ast_4F)=\mu_0(\ast_4\mathcal{J})$. This one does not automatically become zero. Substituting $F=-d\mathcal{A}$,
+</p>
+$$
+d(\ast(-d\mathcal{A}))
+=
+\mu_0(\ast\mathcal{J})
+$$
+<p>that is,
+</p>
+$$
+-d(\ast d\mathcal{A})
+=
+\mu_0(\ast\mathcal{J})
+$$
+<p>This is the equation that the potential $\mathcal{A}$ satisfies.
+</p>
+<blockquote>
+<p><strong>Note</strong> (gauge freedom) Transform as $\mathcal{A}'=\mathcal{A}+d\chi$ ($\chi$ is an arbitrary $0$-form). Then $F'=-d\mathcal{A}'=-d\mathcal{A}-d(d\chi)=-d\mathcal{A}=F$, so the physical electromagnetic field $F$ is invariant. This is a gauge transformation—another manifestation of $dd=0$. In electromagnetism, by adjusting the scalar potential $\phi$ and vector potential $\mathbf{A}$ together, one can choose a gauge convenient for calculation without changing $F$. Under the component convention $\mathcal{A}=\phi\,dt-A_i\,dx^i$, this means $\phi'=\phi+\partial_t\chi$ and $\mathbf{A}'=\mathbf{A}-\nabla\chi$; the sign difference from some physics texts comes from our choice of spatial signs in $\mathcal{A}$.</p>
+</blockquote>
+<blockquote>
+<p><strong>Checkpoint so far — Chapter 10 as a whole</strong></p>
+<p>- The electromagnetic field $F$ is a $4\times4$ antisymmetric matrix. Its six independent components accommodate $E_x,E_y,E_z,B_x,B_y,B_z$.</p>
+<p>- Symbolically we write $dF=0,\;d(\ast F)=\mu_0(\ast\mathcal{J})$. In component calculations, distinguish four-dimensional spacetime operators as $d_4,\ast_4$ and three-dimensional spatial operators as $d_3,\ast_3$.</p>
+<p>- Expanding $d_4F=0$ in components yields $\mathrm{div}\,\mathbf{B}=0$ and $\mathrm{curl}\,\mathbf{E}=-\partial\mathbf{B}/\partial t$.</p>
+<p>- Under this chapter's signature and orientation conventions, $\ast_4F$ appears to swap $E$ and $B$. The remaining two equations come from $d_4(\ast_4F)=\mu_0(\ast_4\mathcal{J})$.</p>
+<p>- <strong>Potential construction</strong>: From $\mathcal{A}=\phi\,dt-A_x\,dx-A_y\,dy-A_z\,dz$ we obtain $F=-d\mathcal{A}$. Then $dF=0$ holds automatically from $dd=0$. This means $\mathrm{div}\,\mathbf{B}=0$ and $\mathrm{curl}\,\mathbf{E}=-\partial\mathbf{B}/\partial t$ are contained in the structure of the exterior derivative.</p>
+<p>- The other equation $d(\ast F)=\mu_0(\ast\mathcal{J})$ becomes, upon substituting $F=-d\mathcal{A}$, an equation satisfied by the potential $\mathcal{A}$. In component calculations, read this as $d_4(\ast_4F)=\mu_0(\ast_4\mathcal{J})$.</p>
+</blockquote>
+<hr />
+<h2 id="Appendix-E:-Slice-Matrix-Representation-of-__MATH_BLOCK_372__-and-__MATH_BLOCK_373__-—-Seeing-Maxwell's-Equations-as-__MATH_BLOCK_374__-Arrays">Appendix E: Slice-Matrix Representation of $d_4F$ and $d_4(\ast_4F)$ — Seeing Maxwell's Equations as $4\times4\times4$ Arrays</h2>
+<p>In §10.4 and §10.5 we rewrote the symbolic equations $dF=0,\;d(\ast F)=\mu_0(\ast\mathcal J)$ into the computational notation $d_4F,\;d_4(\ast_4F)$ and expanded them as coefficients of basis $3$-forms. In this appendix we visualize the same calculation as a <strong>bundle of $4\times4$ slice matrices</strong>—essentially a third-order $4\times4\times4$ tensor. It extends Appendix A and is the culmination of this book's practice of "putting everything into matrices."
+</p>
+<h3 id="E.1-Basis-__MATH_BLOCK_380__-forms-and-their-slice-matrices-—-all-16">E.1 Basis $3$-forms and their slice matrices — all 16</h3>
+<p>The four basis $3$-forms in four dimensions are (compared with the ordering in §10.4, the signs and order of $\omega_2$ and $\omega_3$ differ, but the four forms themselves are the same):
+</p>
+$$
+\omega_1 = dt\wedge dx\wedge dy,\qquad
+\omega_2 = dt\wedge dx\wedge dz,\qquad
+\omega_3 = dt\wedge dy\wedge dz,\qquad
+\omega_4 = dx\wedge dy\wedge dz
+$$
+<p>For each $\omega_i$, we define <strong>slice matrices</strong> $\mathbf{S}_{t}^{(\omega_i)}, \mathbf{S}_{x}^{(\omega_i)}, \mathbf{S}_{y}^{(\omega_i)}, \mathbf{S}_{z}^{(\omega_i)}$ in the coordinate directions $t,x,y,z$. A slice matrix is the $3$-form formed by the three remaining directions after omitting that coordinate direction, recast as a $4\times4$ antisymmetric matrix. Rows and columns are ordered $(t,x,y,z)$. Nonzero entries are $\pm1$. Four bases $\times$ four slices $=$ all $16$ matrices.
+</p>
+<p><strong>(1)</strong> Slices of $\omega_1 = dt\wedge dx\wedge dy$:
+</p>
+$$
+\mathbf{S}_{t}^{(\omega_1)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&1&0\\[2pt]0&-1&0&0\\[2pt]0&0&0&0\end{pmatrix},\qquad
+\mathbf{S}_{x}^{(\omega_1)}=\begin{pmatrix}0&0&-1&0\\[2pt]0&0&0&0\\[2pt]1&0&0&0\\[2pt]0&0&0&0\end{pmatrix}
+$$
+$$
+\mathbf{S}_{y}^{(\omega_1)}=\begin{pmatrix}0&1&0&0\\[2pt]-1&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix},\qquad
+\mathbf{S}_{z}^{(\omega_1)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix}
+$$
+<p><strong>(2)</strong> Slices of $\omega_2 = dt\wedge dx\wedge dz$:
+</p>
+$$
+\mathbf{S}_{t}^{(\omega_2)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&1\\[2pt]0&0&0&0\\[2pt]0&-1&0&0\end{pmatrix},\qquad
+\mathbf{S}_{x}^{(\omega_2)}=\begin{pmatrix}0&0&0&-1\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]1&0&0&0\end{pmatrix}
+$$
+$$
+\mathbf{S}_{y}^{(\omega_2)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix},\qquad
+\mathbf{S}_{z}^{(\omega_2)}=\begin{pmatrix}0&1&0&0\\[2pt]-1&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix}
+$$
+<p><strong>(3)</strong> Slices of $\omega_3 = dt\wedge dy\wedge dz$:
+</p>
+$$
+\mathbf{S}_{t}^{(\omega_3)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&1\\[2pt]0&0&-1&0\end{pmatrix},\qquad
+\mathbf{S}_{x}^{(\omega_3)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix}
+$$
+$$
+\mathbf{S}_{y}^{(\omega_3)}=\begin{pmatrix}0&0&0&-1\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]1&0&0&0\end{pmatrix},\qquad
+\mathbf{S}_{z}^{(\omega_3)}=\begin{pmatrix}0&0&-1&0\\[2pt]0&0&0&0\\[2pt]1&0&0&0\\[2pt]0&0&0&0\end{pmatrix}
+$$
+<p><strong>(4)</strong> Slices of $\omega_4 = dx\wedge dy\wedge dz$:
+</p>
+$$
+\mathbf{S}_{t}^{(\omega_4)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix},\qquad
+\mathbf{S}_{x}^{(\omega_4)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&1\\[2pt]0&0&-1&0\end{pmatrix}
+$$
+$$
+\mathbf{S}_{y}^{(\omega_4)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&-1\\[2pt]0&0&0&0\\[2pt]0&1&0&0\end{pmatrix},\qquad
+\mathbf{S}_{z}^{(\omega_4)}=\begin{pmatrix}0&0&0&0\\[2pt]0&0&-1&0\\[2pt]0&1&0&0\\[2pt]0&0&0&0\end{pmatrix}
+$$
+<p>Of the 16 matrices, $\mathbf{S}_{z}^{(\omega_1)}, \mathbf{S}_{y}^{(\omega_2)}, \mathbf{S}_{x}^{(\omega_3)}, \mathbf{S}_{t}^{(\omega_4)}$ are zero matrices. The remaining 12 each contain one $\pm1$ (and one antisymmetric partner). This is the substance of the $4\times4\times4$ tensor.
+</p>
+<h3 id="E.2-Writing-__MATH_BLOCK_401__-with-slice-matrices">E.2 Writing $dF$ with slice matrices</h3>
+<p>From the expansion in §10.4, the basis coefficients of $dF$ are given by
+</p>
+$$
+\begin{aligned}
+A_{txy} &= \frac{\partial E_y}{\partial x} - \frac{\partial E_x}{\partial y} + \frac{\partial B_z}{\partial t} = (\mathrm{curl}\,\mathbf{E})_z + \frac{\partial B_z}{\partial t}
+\quad (\text{coefficient of } \omega_1 = dt\wedge dx\wedge dy) \\[6pt]
+A_{txz} &= \frac{\partial E_z}{\partial x} - \frac{\partial E_x}{\partial z} - \frac{\partial B_y}{\partial t} = -(\mathrm{curl}\,\mathbf{E})_y - \frac{\partial B_y}{\partial t}
+\quad (\text{coefficient of } \omega_2 = dt\wedge dx\wedge dz) \\[6pt]
+A_{tyz} &= \frac{\partial E_z}{\partial y} - \frac{\partial E_y}{\partial z} + \frac{\partial B_x}{\partial t} = (\mathrm{curl}\,\mathbf{E})_x + \frac{\partial B_x}{\partial t}
+\quad (\text{coefficient of } \omega_3 = dt\wedge dy\wedge dz) \\[6pt]
+A_{xyz} &= \frac{\partial B_x}{\partial x} + \frac{\partial B_y}{\partial y} + \frac{\partial B_z}{\partial z} = \mathrm{div}\,\mathbf{B}
+\quad (\text{coefficient of } \omega_4 = dx\wedge dy\wedge dz)
+\end{aligned}
+$$
+<p>Each slice of $dF$ is a linear combination of the four basis slice matrices with coefficients $A_{\cdots}$. For example, the $t$-slice $\mathbf{S}_{t}^{(dF)}$ collapses into a single $4\times4$ antisymmetric matrix with all 16 entries displayed explicitly:
+</p>
+$$
+\mathbf{S}_{t}^{(dF)}
+{=}
+\left(\begin{array}{c|cccc}
+ & t & x & y & z \\\hline
+t & 0 & 0 & 0 & 0 \\[6pt]
+x & 0 & 0 &
+\displaystyle \frac{\partial E_y}{\partial x} - \frac{\partial E_x}{\partial y} + \frac{\partial B_z}{\partial t} &
+\displaystyle \frac{\partial E_z}{\partial x} - \frac{\partial E_x}{\partial z} - \frac{\partial B_y}{\partial t} \\[14pt]
+y & 0 &
+\displaystyle \frac{\partial E_x}{\partial y} - \frac{\partial E_y}{\partial x} - \frac{\partial B_z}{\partial t} &
+0 &
+\displaystyle \frac{\partial E_z}{\partial y} - \frac{\partial E_y}{\partial z} + \frac{\partial B_x}{\partial t} \\[14pt]
+z & 0 &
+\displaystyle \frac{\partial E_x}{\partial z} - \frac{\partial E_z}{\partial x} + \frac{\partial B_y}{\partial t} &
+\displaystyle \frac{\partial E_y}{\partial z} - \frac{\partial E_z}{\partial y} - \frac{\partial B_x}{\partial t} &
+0
+\end{array}\right)
+$$
+<p>The $x,y,z$ slices $\mathbf{S}_{x}^{(dF)}, \mathbf{S}_{y}^{(dF)}, \mathbf{S}_{z}^{(dF)}$ are obtained similarly from four-term linear combinations. The whole of $dF$ is this bundle of four slice matrices.
+</p>
+<h3 id="E.3-Extracting-coefficients-by-the-Frobenius-product">E.3 Extracting coefficients by the Frobenius product</h3>
+<p>The Frobenius product introduced in Appendix D extends directly to $4\times4$ matrices.
+</p>
+<blockquote>
+<p><strong>Note</strong> (not the metric-induced inner product) The Frobenius product here is not the spacetime inner product induced by the Minkowski metric. It is a pairing on arrays for extracting coefficients from the antisymmetric matrix representation. We use it as a coefficient-extraction operation against basis slice matrices; $\frac{1}{2}\operatorname{tr}(A^T B)$ is the computational device for that purpose.</p>
+</blockquote>
+$$
+A \cdot B = \frac{1}{2}\operatorname{tr}(A^T B) = \frac{1}{2}\sum_{i=1}^{4}\sum_{j=1}^{4} A_{ij}B_{ij}
+$$
+<p>With this inner product, each coefficient can be <strong>extracted in one line</strong> from each slice. For example,
+</p>
+$$
+A_{txy} = \mathbf{S}_{t}^{(\omega_1)} \cdot \mathbf{S}_{t}^{(dF)}
+$$
+<p>The only nonzero entries of $\mathbf{S}_{t}^{(\omega_1)}$ are $(x,y)=+1$ and $(y,x)=-1$, so the Frobenius product gives $(1 \cdot S_{xy} + (-1) \cdot S_{yx})/2 = (S_{xy} - S_{yx})/2 = S_{xy}$ (because $\mathbf{S}_{t}^{(dF)}$ is antisymmetric, $S_{yx}=-S_{xy}$). The coefficient pops out immediately.
+</p>
+<p>Similarly, <strong>every coefficient is obtained by the Frobenius product with the corresponding basis slice</strong>. This structure is completely analogous to Appendix D, where $\ast_{2\to1}(\mathbf{M}) = (E_1\!\cdot\!\mathbf{M},\;E_2\!\cdot\!\mathbf{M},\;E_3\!\cdot\!\mathbf{M})$ extracted the components of a $2$-form $\mathbf{M}$. Only the degree has risen from $1\to2$ to $2\to3$, and the inner-product partner has changed from a column vector to a bundle of $4\times4$ matrices.
+</p>
+<h3 id="E.4-Reading-__MATH_BLOCK_425__-through-the-slices">E.4 Reading $dF=0$ through the slices</h3>
+<p>$dF=0$ means that all four slice matrices are zero matrices:
+</p>
+$$
+\mathbf{S}_{t}^{(dF)} = \mathbf{0},\quad
+\mathbf{S}_{x}^{(dF)} = \mathbf{0},\quad
+\mathbf{S}_{y}^{(dF)} = \mathbf{0},\quad
+\mathbf{S}_{z}^{(dF)} = \mathbf{0}
+$$
+<p>Reading the nonzero entries of the $t$-slice (above),
+</p>
+<ul>
+<li>from the $(x,y)$ entry $=0$: $(\mathrm{curl}\,\mathbf{E})_z + \partial B_z/\partial t = 0$</li>
+<li>from the $(x,z)$ entry $=0$: $-(\mathrm{curl}\,\mathbf{E})_y - \partial B_y/\partial t = 0$</li>
+<li>from the $(y,z)$ entry $=0$: $(\mathrm{curl}\,\mathbf{E})_x + \partial B_x/\partial t = 0$</li>
+</ul>
+<p>These three are nothing but $\mathrm{curl}\,\mathbf{E} = -\partial\mathbf{B}/\partial t$. From the nonzero entries of the $z$-slice (arising from $\mathbf{S}_{z}^{(\omega_4)}$) we obtain $\mathrm{div}\,\mathbf{B} = 0$. The appearance is huge, but the content is merely the repetition of the four coefficient comparisons from §10.4.
+</p>
+<h3 id="E.5-Slice-representation-of-__MATH_BLOCK_441__">E.5 Slice representation of $d_4(\ast_4F) = \mu_0(\ast_4\mathcal{J})$</h3>
+<p>The source side has the same structure. $\ast_4F$ and $\ast_4\mathcal{J}$ were expanded in §10.5, and $d_4(\ast_4F)$ becomes slice matrices of the same type as $d_4F$—only the positions of the $\mathbf{E}$ and $\mathbf{B}$ coefficients are swapped.
+</p>
+<p>Write the $\omega_1\sim\omega_4$ coefficients of $d_4(\ast_4F)$ as $B_{txy}, B_{txz}, B_{tyz}, B_{xyz}$.
+</p>
+$$
+\begin{aligned}
+B_{txy} &= \frac{\partial B_x}{\partial y} - \frac{\partial B_y}{\partial x} + \frac{\partial E_z}{\partial t}
+\quad (\text{coefficient of } dt\wedge dx\wedge dy \text{ in §10.5}) \\[6pt]
+B_{txz} &= \frac{\partial B_x}{\partial z} - \frac{\partial B_z}{\partial x} - \frac{\partial E_y}{\partial t} \\[6pt]
+B_{tyz} &= \frac{\partial B_y}{\partial z} - \frac{\partial B_z}{\partial y} + \frac{\partial E_x}{\partial t} \\[6pt]
+B_{xyz} &= \frac{\partial E_x}{\partial x} + \frac{\partial E_y}{\partial y} + \frac{\partial E_z}{\partial z}
+\quad (= \mathrm{div}\,\mathbf{E})
+\end{aligned}
+$$
+<p>Each slice of $d_4(\ast_4F)$ is likewise a linear combination of the basis slice matrices with the four coefficients $B_{\cdots}$, just as for $d_4F$. Writing the $t$-slice term by term:
+</p>
+$$
+\begin{aligned}
+\mathbf{S}_{t}^{(d_4(\ast_4F))}
+&= \left(\frac{\partial B_x}{\partial y} - \frac{\partial B_y}{\partial x} + \frac{\partial E_z}{\partial t}\right)
+\begin{pmatrix}0&0&0&0\\[2pt]0&0&1&0\\[2pt]0&-1&0&0\\[2pt]0&0&0&0\end{pmatrix} \\[10pt]
+&\quad+ \left(\frac{\partial B_x}{\partial z} - \frac{\partial B_z}{\partial x} - \frac{\partial E_y}{\partial t}\right)
+\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&1\\[2pt]0&0&0&0\\[2pt]0&-1&0&0\end{pmatrix} \\[10pt]
+&\quad+ \left(\frac{\partial B_y}{\partial z} - \frac{\partial B_z}{\partial y} + \frac{\partial E_x}{\partial t}\right)
+\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&1\\[2pt]0&0&-1&0\end{pmatrix}
+{+} B_{xyz}
+\begin{pmatrix}0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\\[2pt]0&0&0&0\end{pmatrix}
+\end{aligned}
+$$
+<p>Add corresponding entries into a single matrix. Compare with the $t$-slice of $d_4F$—$\mathbf{E}$ and $\mathbf{B}$ (and the cyclic permutations of indices) swap cleanly.
+</p>
+$$
+\mathbf{S}_{t}^{(d_4(\ast_4F))}
+{=}
+\left(\begin{array}{c|cccc}
+ & t & x & y & z \\\hline
+t & 0 & 0 & 0 & 0 \\[6pt]
+x & 0 & 0 &
+\displaystyle\frac{\partial B_x}{\partial y} {-} \frac{\partial B_y}{\partial x} {+} \frac{\partial E_z}{\partial t} &
+\displaystyle\frac{\partial B_x}{\partial z} {-} \frac{\partial B_z}{\partial x} {-} \frac{\partial E_y}{\partial t} \\[14pt]
+y & 0 &
+\displaystyle{-}\frac{\partial B_x}{\partial y} {+} \frac{\partial B_y}{\partial x} {-} \frac{\partial E_z}{\partial t} &
+0 &
+\displaystyle\frac{\partial B_y}{\partial z} {-} \frac{\partial B_z}{\partial y} {+} \frac{\partial E_x}{\partial t} \\[14pt]
+z & 0 &
+\displaystyle{-}\frac{\partial B_x}{\partial z} {+} \frac{\partial B_z}{\partial x} {+} \frac{\partial E_y}{\partial t} &
+\displaystyle{-}\frac{\partial B_y}{\partial z} {+} \frac{\partial B_z}{\partial y} {-} \frac{\partial E_x}{\partial t} &
+0
+\end{array}\right)
+$$
+<p>The right-hand side $\mu_0(\ast_4\mathcal{J})$ can also be written as the same linear combination of four slice matrices. Re-expanding $\ast_4\mathcal{J}$ in the basis order of this appendix (see §10.5), the coefficients of $\omega_1\!\sim\!\omega_4$ are, in order, $-\mu_0 c J_z,\; +\mu_0 c J_y,\; -\mu_0 c J_x,\; \rho_{\mathrm e}/\varepsilon_0$. That is,
+</p>
+$$
+\mathbf{S}_{t}^{(d_4(\ast_4F))} = \mathbf{S}_{t}^{(\mu_0\ast_4\mathcal{J})},\quad
+\mathbf{S}_{x}^{(d_4(\ast_4F))} = \mathbf{S}_{x}^{(\mu_0\ast_4\mathcal{J})},\quad
+\mathbf{S}_{y}^{(d_4(\ast_4F))} = \mathbf{S}_{y}^{(\mu_0\ast_4\mathcal{J})},\quad
+\mathbf{S}_{z}^{(d_4(\ast_4F))} = \mathbf{S}_{z}^{(\mu_0\ast_4\mathcal{J})}
+$$
+<p>Reading the nonzero entries of the $t$-slice gives $-\mathrm{curl}\,\mathbf{B} + \partial\mathbf{E}/\partial t = -c\mu_0\mathbf{J}$, i.e. the components of $\mathrm{curl}\,\mathbf{B} = c\mu_0\mathbf{J} + \partial\mathbf{E}/\partial t$. From the $(x,y)$ entry of the $z$-slice we obtain $\mathrm{div}\,\mathbf{E} = \rho_{\mathrm e}/\varepsilon_0$.
+</p>
+<hr />
+<p>Thus the full content of Maxwell's equations has been visualized as a bundle of $4\times4\times4$ slice matrices. What is written in each cell of this "giant array" is nothing but a combination of partial derivatives—and we have seen how the two algebraic operations of four-dimensional exterior differentiation $d_4$ and the Hodge star $\ast_4$ describe physical laws in the tidy grammar of matrices. That is the achievement of this appendix.
+</p>
+<hr />
+<h2 id="Appendix-F:-The-Four-Equations-of-Chapter-5-and-the-Two-Equations-of-Chapter-10">Appendix F: The Four Equations of Chapter 5 and the Two Equations of Chapter 10</h2>
+<p>In the main text of Chapter 10, Maxwell's equations were written symbolically as two equations on four-dimensional spacetime:
+</p>
+$$
+dF=0,
+\qquad
+d(\ast F)=\mu_0(\ast\mathcal{J})
+$$
+<p>In component calculations, we read this as $d_4F=0,\;d_4(\ast_4F)=\mu_0(\ast_4\mathcal J)$.
+</p>
+<p>However, in Chapter 5, rather than bundling everything at once into a $2$-form on four-dimensional spacetime, we worked with a viewpoint that treats the electric field, magnetic field, current, and charge at each instant as differential forms on space.
+</p>
+<p>This appendix confirms that the "four equations on space" from Chapter 5 and the "two equations on spacetime" from the main text of Chapter 10 are simply the same Maxwell equations written in different splittings.
+</p>
+<h3 id="F.1-__MATH_BLOCK_474__-on-space">F.1 $(E,B,J,\rho_{\mathrm e})$ on space</h3>
+<p>Consider space $(x,y,z)$ at each instant $t$.
+</p>
+<p>Place the electric field as a $1$-form on space:
+</p>
+$$
+E = E_x\,dx + E_y\,dy + E_z\,dz
+$$
+<p>Place the magnetic field as a $2$-form on space:
+</p>
+$$
+B = B_x\,dy\wedge dz + B_y\,dz\wedge dx + B_z\,dx\wedge dy
+$$
+<p>The current density is also represented as a $2$-form, as a quantity that passes through space:
+</p>
+$$
+J = J_x\,dy\wedge dz + J_y\,dz\wedge dx + J_z\,dx\wedge dy
+$$
+<p>The charge density is written as a $3$-form on space:
+</p>
+$$
+\rho_{\mathrm e}\,dx\wedge dy\wedge dz
+$$
+<p>The $d$ and $\ast$ used here are the three-dimensional spatial $d$ and $\ast$. When we wish to distinguish them from the four-dimensional spacetime $d$ and $\ast$ used in the main text of Chapter 10, we write
+</p>
+$$
+d_3,\quad \ast_3,
+\qquad
+d_4,\quad \ast_4
+$$
+<h3 id="F.2-The-four-equations-on-space">F.2 The four equations on space</h3>
+<p>In this notation, Maxwell's equations become the following four:
+</p>
+$$
+d_3B=0
+$$
+$$
+d_3E+\frac{\partial B}{\partial t}=0
+$$
+$$
+d_3(\ast_3E)=\ast_3\left(\frac{\rho_{\mathrm e}}{\varepsilon_0}\right)
+$$
+$$
+d_3(\ast_3B)=\mu_0 c\,J+\frac{\partial(\ast_3E)}{\partial t}
+$$
+<p>These are the four equations in differential-form style from Chapter 5.
+</p>
+<p>Here the right-hand side has $\ast_3$ applied to read the scalar field $\rho_{\mathrm e}/\varepsilon_0$ as a $3$-form on space. In Cartesian coordinates,
+</p>
+$$
+\ast_3\left(\frac{\rho_{\mathrm e}}{\varepsilon_0}\right)=\frac{\rho_{\mathrm e}}{\varepsilon_0}\,dx\wedge dy\wedge dz
+$$
+<p>In this book we do not place the vector-analytic $\mathrm{div}$ as a basic operation from the outset, but read it as the composite of $d$ and $\ast$:
+</p>
+$$
+\mathrm{div}=\ast_3 d_3\ast_3
+$$
+<p>Therefore, even for a scalar field such as charge density, on the right-hand side of an equation to be integrated we convert it to a $3$-form via $\ast_3$ before comparing. In particular, for the third equation we act with $\ast_3$ on both sides to read
+</p>
+$$
+\ast_3d_3(\ast_3E)=\frac{\rho_{\mathrm e}}{\varepsilon_0}
+$$
+<p>The left-hand side is what this book's dictionary calls $\mathrm{div}\,\mathbf E$.
+</p>
+<p>Translating back to vector-analytic notation, these are respectively
+</p>
+$$
+\mathrm{div}\,\mathbf B=0,
+\qquad
+\mathrm{curl}\,\mathbf E=-\frac{\partial\mathbf B}{\partial t},
+$$
+$$
+\mathrm{div}\,\mathbf E=\frac{\rho_{\mathrm e}}{\varepsilon_0},
+\qquad
+\mathrm{curl}\,\mathbf B=\mu_0 c\,\mathbf J+\frac{\partial\mathbf E}{\partial t}
+$$
+<p>Here $t$ and $\mathbf B$ are, as in the main text of Chapter 10, already normalized quantities with
+</p>
+$$
+t=ct_{\mathrm{SI}},
+\qquad
+\mathbf B=c\mathbf B_{\mathrm{SI}}
+$$
+<blockquote>
+<p><strong>Note</strong> (There is also a way to write without the metric) In this book we do not take the vector-analytic $\mathrm{div}$ as our starting basic operation, but read $\mathrm{div}=\ast d\ast$ to match the dictionary built up so far. Gauss's law is also written as $d_3(\ast_3E) = \ast_3\left(\frac{\rho_{\mathrm e}}{\varepsilon_0}\right)$ and then, when needed, read as $\mathrm{div}\,\mathbf E=\rho_{\mathrm e}/\varepsilon_0$. That is, we move back and forth among scalar fields, vector fields, and forms using the $\ast$ built from the metric. Maxwell's equations, however, also admit a standpoint that does not use the metric. In the view emphasized in Hehl–Obukhov's <em>Foundations of Classical Electrodynamics: Charge, Flux, and Metric</em>, one first separates two forms $F$ and $H$ and writes $dF=0, dH=J$. Here the Hodge star does not enter the equations themselves. The metric and properties of the medium enter later as a relation linking $H$ and $F$. This book does not go deep in that direction. The purpose is strictly to use the dictionary of $d$ and $\ast$ built up so far and see how the usual vector-analytic equations appear as components.</p>
+</blockquote>
+<h3 id="F.3-Two-equations-emerge-from-__MATH_BLOCK_511__">F.3 Two equations emerge from $d_4F=0$</h3>
+<p>In the main text of Chapter 10, the electromagnetic field $F$ was defined by
+</p>
+$$
+F=-E_x\,dt\wedge dx-E_y\,dt\wedge dy-E_z\,dt\wedge dz+B_x\,dy\wedge dz+B_y\,dz\wedge dx+B_z\,dx\wedge dy
+$$
+<p>Using the spatial $E$ and $B$, this can be written as
+</p>
+$$
+F=-dt\wedge E+B
+$$
+<p>For a spatial form $\alpha(t)$,
+</p>
+$$
+d_4\alpha = dt\wedge\frac{\partial\alpha}{\partial t}+d_3\alpha
+$$
+<p>Therefore, computing
+</p>
+$$
+d_4F=d_4(-dt\wedge E+B)
+$$
+<p>we have
+</p>
+$$
+d_4(-dt\wedge E)=dt\wedge d_3E
+$$
+<p>and
+</p>
+$$
+d_4B=dt\wedge\frac{\partial B}{\partial t}+d_3B
+$$
+<p>Hence
+</p>
+$$
+d_4F=dt\wedge\left(d_3E+\frac{\partial B}{\partial t}\right)+d_3B.
+$$
+<p>Therefore,
+</p>
+$$
+d_4F=0
+$$
+<p>is the same as setting to zero separately the part that contains $dt$ and the part that does not, giving
+</p>
+$$
+d_3E+\frac{\partial B}{\partial t}=0,
+\qquad
+d_3B=0
+$$
+<p>In other words, the first equation of the main text of Chapter 10,
+</p>
+$$
+d_4F=0
+$$
+<p>splits in Chapter 5 style into the two equations
+</p>
+$$
+d_3B=0,
+\qquad
+d_3E+\frac{\partial B}{\partial t}=0
+$$
+<h3 id="F.4-The-remaining-two-emerge-from-__MATH_BLOCK_517__">F.4 The remaining two emerge from $d_4(\ast_4F)=\mu_0(\ast_4\mathcal J)$</h3>
+<p>Next we look at the source side.
+</p>
+<p>Under the conventions of the main text of Chapter 10,
+</p>
+$$
+\ast_4F= B_x\,dt\wedge dx+B_y\,dt\wedge dy+B_z\,dt\wedge dz+E_x\,dy\wedge dz+E_y\,dz\wedge dx+E_z\,dx\wedge dy.
+$$
+<p>In spatial notation, this is
+</p>
+$$
+\ast_4F=dt\wedge(\ast_3B)+\ast_3E
+$$
+<p>Here $B$ is the spatial magnetic $2$-form defined in F.1, not the column-vector field $\mathbf{B}$. Thus $\ast_3B$ is a spatial $1$-form. Indeed,
+</p>
+$$
+\ast_3B=B_x\,dx+B_y\,dy+B_z\,dz
+$$
+<p>so
+</p>
+$$
+dt\wedge(\ast_3B)=B_x\,dt\wedge dx+B_y\,dt\wedge dy+B_z\,dt\wedge dz
+$$
+<p>Also,
+</p>
+$$
+\ast_3E=E_x\,dy\wedge dz+E_y\,dz\wedge dx+E_z\,dx\wedge dy
+$$
+<p>Apply $d_4$ to this.
+</p>
+<p>First,
+</p>
+$$
+d_4\bigl(dt\wedge(\ast_3B)\bigr)=-dt\wedge d_3(\ast_3B)
+$$
+<p>On the other hand,
+</p>
+$$
+d_4(\ast_3E)=dt\wedge\frac{\partial(\ast_3E)}{\partial t}+d_3(\ast_3E).
+$$
+<p>Therefore,
+</p>
+$$
+d_4(\ast_4F)=dt\wedge\left(\frac{\partial(\ast_3E)}{\partial t}-d_3(\ast_3B)\right)+d_3(\ast_3E).
+$$
+<p>The right-hand side, under the conventions of the main text of Chapter 10, is
+</p>
+$$
+\mu_0(\ast_4\mathcal J)=\ast_3\left(\frac{\rho_{\mathrm e}}{\varepsilon_0}\right)-\mu_0 c\,dt\wedge J
+$$
+<p>where
+</p>
+$$
+J=J_x\,dy\wedge dz+J_y\,dz\wedge dx+J_z\,dx\wedge dy
+$$
+<p>Therefore, comparing the part that does not contain $dt$,
+</p>
+$$
+d_3(\ast_3E)=\ast_3\left(\frac{\rho_{\mathrm e}}{\varepsilon_0}\right).
+$$
+<p>And comparing the part that contains $dt$,
+</p>
+$$
+\frac{\partial(\ast_3E)}{\partial t}-d_3(\ast_3B)=-\mu_0 c\,J.
+$$
+<p>Rearranging,
+</p>
+$$
+d_3(\ast_3B)=\mu_0 c\,J+\frac{\partial(\ast_3E)}{\partial t}.
+$$
+<p>Therefore, the second equation of the main text of Chapter 10,
+</p>
+$$
+d_4(\ast_4F)=\mu_0(\ast_4\mathcal J)
+$$
+<p>splits in Chapter 5 style into the two equations
+</p>
+$$
+d_3(\ast_3E)=\ast_3\left(\frac{\rho_{\mathrm e}}{\varepsilon_0}\right)
+$$
+<p>and
+</p>
+$$
+d_3(\ast_3B)=\mu_0 c\,J+\frac{\partial(\ast_3E)}{\partial t}
+$$
+<h3 id="F.5-Summary">F.5 Summary</h3>
+<p>In the differential-form style of Chapter 5, Maxwell's equations appear as four equations on space:
+</p>
+$$
+d_3B=0
+$$
+$$
+d_3E+\frac{\partial B}{\partial t}=0
+$$
+$$
+d_3(\ast_3E)=\ast_3\left(\frac{\rho_{\mathrm e}}{\varepsilon_0}\right)
+$$
+$$
+d_3(\ast_3B)=\mu_0 c\,J+\frac{\partial(\ast_3E)}{\partial t}
+$$
+<p>On the other hand, in the main text of Chapter 10, time is treated as one coordinate on the same footing as space, and the electric and magnetic fields are bundled into $F$:
+</p>
+$$
+F=-dt\wedge E+B
+$$
+<p>Then the four equations above consolidate into the two
+</p>
+$$
+d_4F=0
+$$
+<p>and
+</p>
+$$
+d_4(\ast_4F)=\mu_0(\ast_4\mathcal J)
+$$
+<p>In other words, the fact that four become two is not so much compressing the equations as reassembling what was viewed with space and time separated into a single spacetime $2$-form measuring device.
+</p>
+<p>The four equations of Chapter 5 are the way of writing that looks at space and time separately.
+ The two equations of Chapter 10 are the way of writing that looks at a spacetime $2$-form.
+</p>
+<p>Both are looking at the same Maxwell equations. What differs is what one treats as a single bundled measuring device.
+</p>
+      <div class="nav-buttons">
+        <a href="ch09.html">← Chapter 9...</a>
+        <a href="ch11.html">Chapter 11... →</a>
+      </div>
+    </article>
+    <footer class="site-footer">
+      <p>&copy; 2026 yokiikoy. CC BY-NC 4.0. For the latest edition, PDF, revision history, related information, and content beyond this book, see the portal site <a href="https://covectorspace.xyz/en/">Project Co-Vector Space</a>.</p>
+    </footer>
+  </main>
+</body>
+</html>

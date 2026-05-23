@@ -13,6 +13,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).parent))
 from core.profile import get_profile
 from core.manuscript import ManuscriptModel
+from core.locale import get_locale
 
 # --- Configuration ---
 KATEX_CDN = '''
@@ -33,11 +34,11 @@ KATEX_CDN = '''
 '''
 
 HTML_TEMPLATE = '''<!DOCTYPE html>
-<html lang="ja">
+<html lang="{html_lang}">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{title} | ナブラ解体新書</title>
+<title>{title} | {site_title}</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
 <style>
   :root {{ --sidebar-width: 320px; }}
@@ -112,13 +113,14 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
 </head>
 <body>
   <nav class="sidebar">
-    <h2><a href="index.html">ナブラ解体新書</a></h2>
+    <h2><a href="index.html">{book_link_text}</a></h2>
     <div class="author">
-      著者: yokiikoy<br>
-      <a href="http://covectorspace.xyz/jp/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a>
+      {author_line}<br>
+      <a href="{portal_url}" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a><br>
+      {lang_switch}
     </div>
-    <div class="mobile-current">現在: <strong>{title}</strong></div>
-    <a class="mobile-toc-button" href="toc.html">目次を開く</a>
+    <div class="mobile-current">{mobile_current_label} <strong>{title}</strong></div>
+    <a class="mobile-toc-button" href="toc.html">{mobile_toc_label}</a>
     <div class="toc">
       {toc}
     </div>
@@ -132,7 +134,7 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
       </div>
     </article>
     <footer class="site-footer">
-      <p>&copy; 2026 yokiikoy. CC BY-NC 4.0.</p>
+      <p>{html_footer}</p>
     </footer>
   </main>
 </body>
@@ -362,13 +364,24 @@ def process_markdown(md_text):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--profile", default="full", choices=["full", "preview"])
+    parser.add_argument("--lang", default="ja", choices=["ja", "en"])
     args = parser.parse_args()
 
+    locale = get_locale(args.lang)
     profile = get_profile(args.profile)
-    model = ManuscriptModel(profile)
+    model = ManuscriptModel(profile, base_dir=locale['base_dir'])
 
-    docs_dir = Path('preview' if profile.is_preview else 'docs')
-    docs_dir.mkdir(exist_ok=True)
+    docs_dir = Path('preview' if profile.is_preview else locale['docs_dir'])
+    docs_dir.mkdir(parents=True, exist_ok=True)
+
+    if args.lang == 'ja':
+        lang_switch = '<a href="en/index.html" style="font-size: 0.75rem; color: #666; text-decoration: none;">English edition</a>'
+    else:
+        lang_switch = '<a href="../index.html" style="font-size: 0.75rem; color: #666; text-decoration: none;">Japanese edition</a>'
+    portal_url = locale['portal_url']
+    mobile_current_label = locale['mobile_current_label']
+    mobile_toc_label = locale['mobile_toc_label']
+    html_footer = locale['html_footer']
 
     preview_notice = ""
     if profile.is_preview:
@@ -380,7 +393,7 @@ def main():
 
     # --- Build Sidebar TOC ---
     toc_html_parts = ["<ul>"]
-    toc_html_parts.append('<li class="level-1"><a href="toc.html" id="link-toc.html">目次</a></li>')
+    toc_html_parts.append(f'<li class="level-1"><a href="toc.html" id="link-toc.html">{locale["toc_label"]}</a></li>')
     for ch in all_chapters_for_nav:
         css_class = "" if ch.is_included_in_content else ' class="disabled-link" title="完結版に収録予定"'
         href = ch.filename if ch.is_included_in_content else '#'
@@ -419,12 +432,21 @@ def main():
             page_toc = page_toc.replace(find_str, find_str.replace('</li>', local_toc + '</li>'))
 
         final_html = HTML_TEMPLATE.format(
-            title=(ch.title + " (先行公開版)" if profile.is_preview else ch.title),
+            title=(ch.title + " (Preview)" if profile.is_preview and args.lang == 'en' else (ch.title + " (先行公開版)" if profile.is_preview else ch.title)),
             toc=page_toc,
             KATEX_CDN=KATEX_CDN,
             content=(preview_notice + "\n" + content_html if profile.is_preview and not ch.is_front_matter else content_html),
             prev_button=prev_btn,
-            next_button=next_btn
+            next_button=next_btn,
+            html_lang=locale['html_lang'],
+            site_title=locale['site_title'],
+            book_link_text=locale['book_link_text'],
+            author_line=locale['author_line'],
+            portal_url=portal_url,
+            lang_switch=lang_switch,
+            mobile_current_label=mobile_current_label,
+            mobile_toc_label=mobile_toc_label,
+            html_footer=html_footer,
         )
         with open(docs_dir / ch.filename, 'w', encoding='utf-8') as f:
             f.write(final_html)
@@ -432,19 +454,15 @@ def main():
 
     # --- Build Full TOC Page (toc.html) ---
     toc_page_parts = []
-    toc_page_parts.append('<h1>目次</h1>')
+    toc_page_parts.append(f'<h1>{locale["toc_page_title"]}</h1>')
     if profile.is_preview:
-        toc_page_parts.append('<p style="color: #666;">※ 先行公開版では第1章のみ公開しています。リンクのない章は完結版にて収録予定です。</p>')
+        toc_page_parts.append('<p style="color: #666;">※ Preview edition: only front matter, Chapter 1, and back matter are published.</p>')
     else:
-        toc_page_parts.append('<p>各見出しはリンクになっており、クリックすると該当章の該当位置にジャンプします。</p>')
+        toc_page_parts.append(f'<p>{locale["toc_intro"]}</p>')
     
     toc_page_parts.append('<div class="full-toc">')
 
-    part_info = {
-        'I': ('ch01.html', 'ch05.html', '第I部：$\\mathbb{R}^3$ 上の微分形式（第1章〜第5章）'),
-        'II': ('ch06.html', 'ch09.html', '第II部：ベクトル解析（第6章〜第9章）'),
-        'III': ('ch10.html', 'ch12.html', '第III部：発展と統合（第10章〜第12章）'),
-    }
+    part_info = locale['part_labels']
     
     in_part = None
     for ch in model.get_full_toc_chapters():
@@ -487,19 +505,30 @@ def main():
 
     toc_page_toc = base_toc_html.replace('id="link-toc.html"', 'class="active" id="link-toc.html"')
     toc_page_html = HTML_TEMPLATE.format(
-        title=('目次 (先行公開版)' if profile.is_preview else '目次'), 
-        toc=toc_page_toc, 
+        title=(locale['toc_page_title'] + " (Preview)" if profile.is_preview and args.lang == 'en' else (locale['toc_page_title'] + " (先行公開版)" if profile.is_preview else locale['toc_page_title'])),
+        toc=toc_page_toc,
         KATEX_CDN=KATEX_CDN,
-        content='\n'.join(toc_page_parts), 
-        prev_button='<span></span>', 
-        next_button='<span></span>'
+        content='\n'.join(toc_page_parts),
+        prev_button='<span></span>',
+        next_button='<span></span>',
+        html_lang=locale['html_lang'],
+        site_title=locale['site_title'],
+        book_link_text=locale['book_link_text'],
+        author_line=locale['author_line'],
+        portal_url=portal_url,
+        lang_switch=lang_switch,
+        mobile_current_label=mobile_current_label,
+        mobile_toc_label=mobile_toc_label,
+        html_footer=html_footer,
     )
     with open(docs_dir / 'toc.html', 'w', encoding='utf-8') as f:
         f.write(toc_page_html)
     print(f"Generated {docs_dir / 'toc.html'}")
 
     # For compatibility with legacy processes, output combined MD of content scope
-    combined_md_path = Path('exports/manuscript_preview_combined.md' if profile.is_preview else 'exports/manuscript_combined.md')
+    combined_md_path = Path(
+        'exports/manuscript_preview_combined.md' if profile.is_preview else locale['combined_md']
+    )
     combined_md_path.parent.mkdir(exist_ok=True)
     with open(combined_md_path, 'w', encoding='utf-8') as f:
         for ch in content_chapters:

@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 3: What Does It Mean to Integrate? — Count Finite Masses, Then Take the Limit | Unmasking Div, Grad, and Curl</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+<style>
+  :root { --sidebar-width: 320px; }
+  html { color-scheme: light; background: #fff; }
+  body { margin: 0; display: flex; background: #fff; color: #24292f; line-height: 1.7; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .sidebar { width: var(--sidebar-width); height: 100vh; position: sticky; top: 0; background: #f8f9fa; color: #24292f; border-right: 1px solid #d0d7de; overflow-y: auto; padding: 1.5rem; box-sizing: border-box; flex-shrink: 0; }
+  .sidebar h2 { font-size: 1.2rem; border: none; margin-bottom: 0.5rem; color: #24292f; }
+  .sidebar .author { font-size: 0.8rem; color: #666; margin-bottom: 1.5rem; }
+  .sidebar .toc { font-size: 0.85rem; }
+  .sidebar .toc ul { list-style: none; padding-left: 0; margin: 0; }
+  .sidebar .toc li { margin-bottom: 0.4rem; }
+  .sidebar .toc .level-1 { font-weight: bold; margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 2px; }
+  .sidebar .toc .sub-toc { font-size: 0.8rem; margin-top: 0.5rem; padding-left: 0.8rem; border-left: 2px solid #eee; }
+  .sidebar .toc .sub-toc li { margin-bottom: 0.2rem; font-weight: normal; }
+  .sidebar .toc .sub-toc .level-3 { padding-left: 0.8rem; font-size: 0.75rem; color: #666; }
+  .sidebar a { text-decoration: none; color: #0969da; }
+  .sidebar a:hover { text-decoration: underline; }
+  .sidebar .active { color: #cf222e; font-weight: bold; }
+  .sidebar .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
+  .mobile-current { display: none; }
+  .mobile-toc-button { display: none; }
+  .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; background: #fff; color: #24292f; }
+  .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; color-scheme: light; background: #fff; color: #24292f; }
+  .markdown-body p, .markdown-body li { color: #24292f; }
+  @media (max-width: 900px) { 
+    body { flex-direction: column; } 
+    .sidebar { width: 100%; height: auto; position: sticky; top: 0; z-index: 10; padding: 0.75rem 1rem; border-right: none; border-bottom: 1px solid #d0d7de; box-shadow: 0 1px 8px rgba(27, 31, 36, 0.08); }
+    .sidebar h2 { margin: 0; font-size: 1rem; }
+    .sidebar .author { display: none; }
+    .sidebar .toc { display: none; }
+    .mobile-current { display: block; margin-top: 0.35rem; font-size: 0.85rem; color: #57606a; }
+    .mobile-current strong { color: #cf222e; }
+    .mobile-toc-button { display: inline-block; margin-top: 0.35rem; font-size: 0.85rem; }
+    .main-content { padding: 1rem; } 
+    .markdown-body { padding: 0.5rem; }
+  }
+  blockquote { border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }
+  blockquote p { color: #57606a; }
+  .table-wrapper { overflow-x: auto; margin: 1.5em 0; }
+  .markdown-body table { border-collapse: collapse; width: 100%; font-size: 0.9em; background: #fff; }
+  .markdown-body th, .markdown-body td { border: 1px solid #d0d7de; padding: 6px 13px; color: #24292f !important; }
+  .markdown-body tr:nth-child(even) { background-color: #f6f8fa !important; }
+  th { font-weight: 600; background-color: #f6f8fa; }
+  code, pre { color: #24292f; background-color: #f6f8fa; }
+  .nav-buttons { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }
+  .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
+  .nav-buttons a:hover { background: #f6f8fa; }
+  strong { font-weight: 800 !important; color: #000; }
+  blockquote strong { color: #24292f !important; }
+  /* KaTeX responsiveness */
+  .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }
+  .full-toc h2 { font-size: 1.1rem; margin: 1.5em 0 0.3em; padding-bottom: 2px; border-bottom: 1px solid #d0d7de; }
+  .full-toc h2 a { color: #24292f; text-decoration: none; }
+  .full-toc h2 a:hover { color: #0969da; }
+  .full-toc h2 .disabled-link { color: #8c959f; cursor: not-allowed; }
+  .full-toc ul { list-style: none; padding-left: 1.5rem; margin: 0.3em 0 0; }
+  .full-toc li { margin-bottom: 0.2rem; font-size: 0.9rem; }
+  .full-toc .level-3 { padding-left: 1rem; font-size: 0.8rem; color: #57606a; }
+  .full-toc a { color: #0969da; text-decoration: none; }
+  .full-toc a:hover { text-decoration: underline; }
+  .full-toc .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
+  .full-toc .part-header { font-size: 1.1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }
+  .full-toc .toc-part-chapters { padding-left: 1.5rem; }
+  .full-toc .toc-part-chapters h3 { font-size: 0.95rem; margin: 0.5em 0 0.2em; }
+  .full-toc .toc-part-chapters h3 a { color: #24292f; }
+  .full-toc .toc-part-chapters ul { padding-left: 1.5rem; }
+  .site-footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #d0d7de; font-size: 0.8rem; color: #57606a; }
+  .site-footer a { color: #0969da; text-decoration: none; }
+  .site-footer a:hover { text-decoration: underline; }
+</style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ],
+            throwOnError : false
+        });
+    });
+</script>
+
+</head>
+<body>
+  <nav class="sidebar">
+    <h2><a href="index.html">Unmasking Div, Grad, and Curl</a></h2>
+    <div class="author">
+      Author: yokiikoy<br>
+      <a href="https://covectorspace.xyz/en/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a><br>
+      <a href="../index.html" style="font-size: 0.75rem; color: #666; text-decoration: none;">Japanese edition</a>
+    </div>
+    <div class="mobile-current">Current: <strong>Chapter 3: What Does It Mean to Integrate? — Count Finite Masses, Then Take the Limit</strong></div>
+    <a class="mobile-toc-button" href="toc.html">Open contents</a>
+    <div class="toc">
+      <ul>
+<li class="level-1"><a href="toc.html" id="link-toc.html">Contents</a></li>
+<li class="level-1"><a href="index.html" id="link-index.html">Preface</a></li>
+<li class="level-1"><a href="intro.html" id="link-intro.html">Introduction</a></li>
+<li class="level-1"><a href="portal.html" id="link-portal.html">Portal Site and a Small Experiment</a></li>
+<li class="level-1"><a href="ch01.html" id="link-ch01.html">Chapter 1</a></li>
+<li class="level-1"><a href="ch02.html" id="link-ch02.html">Chapter 2</a></li>
+<li class="level-1"><a href="ch03.html" class="active" id="link-ch03.html">Chapter 3</a><ul class="sub-toc"><li class="level-3"><a href="#§3.0-Measuring-Curved-Things-—-Paying-Back-a-Debt-from-Elementary-School">§3.0 Measuring Curved Things — Paying Back a Debt from Elementary School</a></li><li class="level-3"><a href="#§3.2-Surface-Area-—-The-Limit-of-Two-Dimensions,-Coefficient-1">§3.2 Surface Area — The Limit of Two Dimensions, Coefficient 1</a></li><li class="level-3"><a href="#§3.3-Curves-—-The-Limit-of-One-Dimension,-Coefficient-1,-Revealed">§3.3 Curves — The Limit of One Dimension, Coefficient 1, Revealed</a></li><li class="level-3"><a href="#§3.4-Adding-Coefficients-—-Density-Times-Geometry">§3.4 Adding Coefficients — Density Times Geometry</a></li><li class="level-3"><a href="#§3.5-Summary-of-This-Chapter-and-Outlook-Toward-the-Next">§3.5 Summary of This Chapter and Outlook Toward the Next</a></li></ul></li>
+<li class="level-1"><a href="ch04.html" id="link-ch04.html">Chapter 4</a></li>
+<li class="level-1"><a href="ch05.html" id="link-ch05.html">Chapter 5</a></li>
+<li class="level-1"><a href="ch06.html" id="link-ch06.html">Chapter 6</a></li>
+<li class="level-1"><a href="ch07.html" id="link-ch07.html">Chapter 7</a></li>
+<li class="level-1"><a href="ch08.html" id="link-ch08.html">Chapter 8</a></li>
+<li class="level-1"><a href="ch09.html" id="link-ch09.html">Chapter 9</a></li>
+<li class="level-1"><a href="ch10.html" id="link-ch10.html">Chapter 10</a></li>
+<li class="level-1"><a href="ch11.html" id="link-ch11.html">Chapter 11</a></li>
+<li class="level-1"><a href="ch12.html" id="link-ch12.html">Chapter 12</a></li>
+<li class="level-1"><a href="postscript.html" id="link-postscript.html">Afterword</a></li>
+<li class="level-1"><a href="refs.html" id="link-refs.html">References (with Comments from the Author)</a></li>
+<li class="level-1"><a href="appendix.html" id="link-appendix.html">Appendix</a></li>
+</ul>
+    </div>
+  </nav>
+  <main class="main-content">
+    <article class="markdown-body">
+<h1 id="Chapter-3:-What-Does-It-Mean-to-Integrate?-—-Count-Finite-Masses,-Then-Take-the-Limit">Chapter 3: What Does It Mean to Integrate? — Count Finite Masses, Then Take the Limit</h1>
+<h3 id="§3.0-Measuring-Curved-Things-—-Paying-Back-a-Debt-from-Elementary-School">§3.0 Measuring Curved Things — Paying Back a Debt from Elementary School</h3>
+<p>In Chapter 2, we defined how to measure <strong>flat figures</strong> such as the area of a parallelogram and the volume of a parallelepiped.
+</p>
+<p>If we feed two vectors to the area-measuring device $dx \wedge dy$, we get a signed area; if we feed three vectors to the volume-measuring device $dx \wedge dy \wedge dz$, we get a signed volume. We redesigned the elementary-school intuition of “how many $1\times 1$ squares fit inside” as algebraic measuring devices.
+</p>
+<p>However, a debt from elementary school still remains.
+</p>
+<p>We have used the circumference $2\pi r$, the surface area of a sphere $4\pi r^2$, and the volume of a sphere $\frac{4}{3}\pi r^3$ for a long time as “formulas of that kind.” But where do they actually come from?
+</p>
+<p>There is only one answer.
+</p>
+<p><strong>Chop into finite small pieces, measure each one, add them up, and finally make the mesh infinitely fine.</strong>
+</p>
+<p>That is integration.
+</p>
+<p>The purpose of this chapter is not to memorize the formulas for a sphere again. Rather, using the familiar sphere as our example, we confirm at the level of Riemann sums what it means to “integrate.”
+</p>
+<p>Therefore, we deliberately do not escape immediately into polar or spherical coordinates. We count small pieces in $x,y,z$, decide which pieces belong to the target, and organize the sum. It is messy — but this messiness is the substance of integration.
+</p>
+<p>Now, on our desk we have the measuring devices built in Chapters 1 and 2: $0$-forms, $1$-forms, $2$-forms, and $3$-forms. The job of this chapter is to <strong>apply them to curves, surfaces, and regions and aggregate the results</strong>.
+</p>
+<p>The principle is the same at every degree. We begin with the case where a volume-measuring device with coefficient $1$ returns the volume of a region directly, then step down in dimension and check “what does the form measure, and what does it not measure?”
+</p>
+<blockquote>
+<p><strong>Note</strong> (ground rules)</p>
+<p>We state this up front as a promise. Below, we treat curves and surfaces as sufficiently smooth, and cases where chopping into small pieces and adding converges in a straightforward way. Details such as orientation reversal and self-intersection are kept at the level of “they do not cause trouble in situations commonly used in physics.” A rigorous theory of integrability is outside the scope of this book.</p>
+</blockquote>
+<blockquote>
+<p><strong>Checkpoint so far</strong></p>
+<p>- The integral of $dx \wedge dy \wedge dz$ is the limit of a Riemann sum that chops a region into small boxes and adds the values obtained by feeding each volume element to the volume-measuring device. $\iiint_V$ is the symbol this book gives to that limit.</p>
+<p>- With coefficient $1$, volume is measured directly. The sphere volume $\frac{4}{3}\pi R^3$ is obtained by organizing the Riemann sum in the order $x \to y \to z$. No special coordinate system is needed.</p>
+<p>- In the next section we drop one dimension and measure the area of a surface.</p>
+</blockquote>
+<hr />
+<h3 id="§3.2-Surface-Area-—-The-Limit-of-Two-Dimensions,-Coefficient-1">§3.2 Surface Area — The Limit of Two Dimensions, Coefficient 1</h3>
+<h4 id="3.2.1-From-Parallelograms-to-Surfaces">3.2.1 From Parallelograms to Surfaces</h4>
+<p>In Chapter 2 §2.4, we assembled the area-measuring device $dx \wedge dy$. If we feed it two vectors $\mathbf{v}_1, \mathbf{v}_2$, we get the signed area of the shadow they cast onto the $xy$ plane. Likewise, $dy \wedge dz$ measures the shadow onto the $yz$ plane, and $dz \wedge dx$ measures the shadow onto the $zx$ plane.
+</p>
+<p>So how do we measure the area of a surface? Let us first check the flat case. Take a unit square lying in the $xy$ plane and chop it into fine small squares. The two edges of one small square are
+</p>
+$$\Delta\mathbf{x}=\begin{pmatrix}\Delta x\\0\\0\end{pmatrix},\qquad
+\Delta\mathbf{y}=\begin{pmatrix}0\\\Delta y\\0\end{pmatrix}.$$
+<p>Feed these to $dx \wedge dy$:
+</p>
+$$(dx \wedge dy)(\Delta\mathbf{x},\Delta\mathbf{y})=\Delta x\,\Delta y.$$
+<p>Adding over all small squares gives area $1$. This is nothing more than the extension of the flat parallelogram from Chapter 2. What we are confirming here is that the $2$-form $dx\wedge dy$ returns the signed area of a small piece on the $xy$ plane directly.
+</p>
+<p>What if the surface is curved? Chop the surface into sufficiently fine small pieces. On each piece, write the displacement vectors in two adjacent directions as $\Delta\mathbf{a},\Delta\mathbf{b}$. In this chapter we call these two displacement vectors, or the oriented infinitesimal parallelogram they span, a <strong>surface element</strong> of the surface. The finer we chop the surface, the more closely the aggregate of these surface elements approximates the surface itself.
+</p>
+<p>Feed the two displacement vectors $\Delta\mathbf{a},\Delta\mathbf{b}$ that span this small piece of surface to the area-measuring device $dx \wedge dy$. From the definition in Chapter 2 §2.4.4, if
+</p>
+$$\Delta\mathbf{a}=\begin{pmatrix}\Delta a_x\\\Delta a_y\\\Delta a_z\end{pmatrix},\qquad
+\Delta\mathbf{b}=\begin{pmatrix}\Delta b_x\\\Delta b_y\\\Delta b_z\end{pmatrix},$$
+<p>then
+</p>
+$$(dx \wedge dy)(\Delta\mathbf{a},\Delta\mathbf{b})
+=\Delta a_x\Delta b_y-\Delta a_y\Delta b_x.$$
+<p>This is the signed area of the shadow that small piece casts onto the $xy$ plane.
+</p>
+<p>We <strong>write</strong> the limit as the mesh becomes infinitely fine as
+</p>
+$$\iint_S dx \wedge dy.$$
+<p>This is the definition of integration of a $2$-form — a surface integral. The structure is the same type as the volume integral in §3.1; only the number of vectors fed in has dropped from three to two.
+</p>
+<h4 id="3.2.2-What-__MATH_BLOCK_95__-Measures-—-A-Test-on-the-Sphere">3.2.2 What $dx \wedge dy$ Measures — A Test on the Sphere</h4>
+<p>Let us actually compute on a sphere. Consider the upper half of a sphere of radius $R$ ($z \ge 0$). A point $(x,y,z)$ on the sphere satisfies
+</p>
+$$x^2+y^2+z^2=R^2,\qquad z=\sqrt{R^2-x^2-y^2}.$$
+<p>Here we use the total differential defined in Chapter 1. The total differential of the function
+</p>
+$$F(x,y,z)=x^2+y^2+z^2$$
+<p>is
+</p>
+$$dF=2x\,dx+2y\,dy+2z\,dz.$$
+<p>As promised in Chapter 1, this is a row vector that eats a displacement vector and reads off the first-order change in $F$. If the displacement vector is tangent to the sphere, then to first order it does not change the value of $F=x^2+y^2+z^2$. Therefore that displacement vector $\mathbf{v}$ satisfies $dF(\mathbf{v})=0$. We choose the two displacement vectors that span a small piece of the sphere to satisfy this condition as well.
+</p>
+<p>For example, take the displacement vector that holds $y$ fixed and advances a small amount $\Delta x$ in the $x$ direction:
+</p>
+$$\Delta\mathbf{x}_S=\begin{pmatrix}\Delta x\\[2pt]0\\[2pt]\Delta z\end{pmatrix}.$$
+<p>Feed this to $dF$:
+</p>
+$$dF(\Delta\mathbf{x}_S)=2x\,\Delta x+2z\,\Delta z.$$
+<p>Choosing this as a tangent displacement along the sphere, so that $dF(\Delta\mathbf{x}_S)=0$, gives $\Delta z=-(x/z)\Delta x$. Likewise, for the displacement vector that holds $x$ fixed and advances a small amount $\Delta y$ in the $y$ direction, we get $\Delta z=-(y/z)\Delta y$.
+</p>
+<p>Therefore the two displacement vectors that span a small piece of the sphere can be written as
+</p>
+$$\Delta\mathbf{x}_S=\begin{pmatrix}\Delta x\\[2pt]0\\[2pt]-\dfrac{x}{z}\Delta x\end{pmatrix},\qquad
+\Delta\mathbf{y}_S=\begin{pmatrix}0\\[2pt]\Delta y\\[2pt]-\dfrac{y}{z}\Delta y\end{pmatrix}.$$
+<p>If we chop the surface sufficiently finely, the aggregation of the parallelograms spanned by these two vectors approaches the aggregation of the sphere itself.
+</p>
+<p>Let us first feed only $dx \wedge dy$ to the surface:
+</p>
+$$(dx \wedge dy)(\Delta\mathbf{x}_S,\Delta\mathbf{y}_S)=\Delta x\,\Delta y.$$
+<p>Therefore the integral over the upper hemisphere,
+</p>
+$$
+\iint_{S_{\text{upper}}} dx \wedge dy,
+$$
+<p>can be computed by the same method as the $y$ integral in §3.1.2, and the result is $\pi R^2$. This is nothing other than the area of the shadow cast by the upper hemisphere onto the $xy$ plane — a disk of radius $R$.
+</p>
+<p>The same calculation works for the lower hemisphere ($z = -\sqrt{R^2 - x^2 - y^2}$). However, if we measure the entire sphere with outward orientation, the orientation of the surface flips on the lower hemisphere and the sign reverses, so the integral becomes $-\pi R^2$.
+</p>
+<p>Therefore the integral of $dx \wedge dy$ over the entire sphere is $\pi R^2 + (-\pi R^2) = 0$. The shadow of the upper hemisphere and the shadow of the lower hemisphere cancel each other. This tells us exactly what $dx \wedge dy$ measures: <strong>the signed area of the shadow onto the $xy$ plane, not the scalar area of the surface.</strong> Likewise, $dy \wedge dz$ measures the shadow onto the $yz$ plane, and $dz \wedge dx$ measures the shadow onto the $zx$ plane.
+</p>
+<h4 id="3.2.3-From-Three-Shadows-to-Scalar-Area">3.2.3 From Three Shadows to Scalar Area</h4>
+<p>So how do we measure the scalar area of a surface (the area we learned in elementary school)? On each small patch, feed the two displacement vectors that form the surface element to all three area-measuring devices, and combine the results.
+</p>
+<p>Let us compute the remaining two on the upper hemisphere as well. Feeding the two displacement vectors from above,
+</p>
+$$\Delta\mathbf{x}_S=\begin{pmatrix}\Delta x\\0\\-\dfrac{x}{z}\Delta x\end{pmatrix},\qquad
+\Delta\mathbf{y}_S=\begin{pmatrix}0\\\Delta y\\-\dfrac{y}{z}\Delta y\end{pmatrix},$$
+<p>to the three area-measuring devices gives:
+</p>
+$$\begin{aligned}
+(dy \wedge dz)(\Delta\mathbf{x}_S,\Delta\mathbf{y}_S) &= \frac{x}{z}\,\Delta x\,\Delta y
+= \frac{x}{\sqrt{R^2-x^2-y^2}}\,\Delta x\,\Delta y \\[4pt]
+(dz \wedge dx)(\Delta\mathbf{x}_S,\Delta\mathbf{y}_S) &= \frac{y}{z}\,\Delta x\,\Delta y
+= \frac{y}{\sqrt{R^2-x^2-y^2}}\,\Delta x\,\Delta y \\[4pt]
+(dx \wedge dy)(\Delta\mathbf{x}_S,\Delta\mathbf{y}_S) &= \Delta x\,\Delta y
+\end{aligned}$$
+<p>The three readings $A_{yz},A_{zx},A_{xy}$ are the signed projected areas of the surface element onto the three coordinate planes. Taken together, these three components record the information of the oriented infinitesimal area. This is the surface version of the story from Chapter 2 §2.4.6, where we read the oriented area of a parallelogram as three projected areas.
+</p>
+<p>From here we want to extract the positive area with orientation discarded. So in this chapter we call
+</p>
+$$
+dS(\Delta\mathbf{a},\Delta\mathbf{b})
+= \sqrt{A_{yz}^2+A_{zx}^2+A_{xy}^2}
+$$
+<p>the <strong>scalar surface element</strong> of that small patch.
+</p>
+<p>This is not a $2$-form. Whereas $dx\wedge dy$ eats the two displacement vectors that form a surface element and returns a single projected area, $dS$ is notation that combines the three projected areas by the familiar square root of a sum of squares in orthogonal Cartesian coordinates and returns a positive area with orientation discarded.
+</p>
+<p>However, before we simply add up $dS$, let us see what happens if we integrate each of the three area-measuring devices separately over the entire upper hemisphere. Writing the disk $D=\{(x,y)\mid x^2+y^2\le R^2\}$ that is the shadow of the upper hemisphere onto the $xy$ plane, the three signed shadow areas become the following three integrals:
+</p>
+$$\begin{aligned}
+\iint_{S_{\text{upper}}} dy\wedge dz
+&= \int_{-R}^{R}\int_{-\sqrt{R^2-x^2}}^{\sqrt{R^2-x^2}}
+\frac{x}{\sqrt{R^2-x^2-y^2}}\,dy\,dx, \\[4pt]
+\iint_{S_{\text{upper}}} dz\wedge dx
+&= \int_{-R}^{R}\int_{-\sqrt{R^2-x^2}}^{\sqrt{R^2-x^2}}
+\frac{y}{\sqrt{R^2-x^2-y^2}}\,dy\,dx, \\[4pt]
+\iint_{S_{\text{upper}}} dx\wedge dy
+&= \int_{-R}^{R}\int_{-\sqrt{R^2-x^2}}^{\sqrt{R^2-x^2}}
+1\,dy\,dx.
+\end{aligned}$$
+<p>These three integrals measure the signed shadow areas onto the $yz$ plane, the $zx$ plane, and the $xy$ plane, respectively. In fact, by symmetry the first two are $0$ and the last is $\pi R^2$:
+</p>
+$$
+\iint_{S_{\text{upper}}} dy\wedge dz=0,\qquad
+\iint_{S_{\text{upper}}} dz\wedge dx=0,\qquad
+\iint_{S_{\text{upper}}} dx\wedge dy=\pi R^2.
+$$
+<p>Note: taking the square root of the sum of squares of these three integral values afterward does <strong>not</strong> give the area of the upper hemisphere. We must combine the three shadows <strong>on each small patch</strong> before adding them up; otherwise the information about the tilt of the surface is lost along the way.
+</p>
+<p>Therefore, to obtain surface area, on each small patch we find the three projected areas, build the scalar surface element $dS$ from them, and add those up. Writing the three projected areas from above as
+</p>
+$$\begin{aligned}
+A_{yz} &= (dy \wedge dz)(\Delta\mathbf{x}_S,\Delta\mathbf{y}_S) \\
+A_{zx} &= (dz \wedge dx)(\Delta\mathbf{x}_S,\Delta\mathbf{y}_S) \\
+A_{xy} &= (dx \wedge dy)(\Delta\mathbf{x}_S,\Delta\mathbf{y}_S)
+\end{aligned}$$
+<p>the scalar surface element is
+</p>
+$$
+dS(\Delta\mathbf{x}_S,\Delta\mathbf{y}_S)
+= \sqrt{A_{yz}^2+A_{zx}^2+A_{xy}^2}.
+$$
+<p>Substituting the three outputs we computed above,
+</p>
+$$\begin{aligned}
+dS(\Delta\mathbf{x}_S,\Delta\mathbf{y}_S)
+&= \sqrt{
+\Bigl(\frac{x}{\sqrt{R^2-x^2-y^2}}\Delta x\,\Delta y\Bigr)^2
+{}+ \Bigl(\frac{y}{\sqrt{R^2-x^2-y^2}}\Delta x\,\Delta y\Bigr)^2
+{}+ (\Delta x\,\Delta y)^2} \\[4pt]
+&= \sqrt{\frac{x^2+y^2}{R^2-x^2-y^2}+1}\;\Delta x\,\Delta y \\[4pt]
+&= \frac{R}{\sqrt{R^2-x^2-y^2}}\,\Delta x\,\Delta y
+\end{aligned}$$
+<p>That is, if we chop the disk $x^2+y^2 \le R^2$ — the shadow of the upper hemisphere onto the $xy$ plane — into small patches, the Riemann sum for the area becomes
+</p>
+$$\sum_i\sum_j
+\frac{R}{\sqrt{R^2-x_i^2-y_j^2}}\,
+\Delta x_i\,\Delta y_j.$$
+<p>In other words, we are simply adding up the scalar surface element on each small patch in the form
+</p>
+$$\sum_i\sum_j dS(\Delta\mathbf{x}_{S,ij},\Delta\mathbf{y}_{S,ij}).$$
+<p>In the limit as the mesh becomes fine:
+</p>
+$$
+\operatorname{Area}(S_{\text{upper}})
+= R\int_{-R}^{R}\biggl(\int_{-\sqrt{R^2-x^2}}^{\sqrt{R^2-x^2}}
+\frac{dy}{\sqrt{R^2 - x^2 - y^2}}\biggr)\;dx.
+$$
+<p>The inner $y$ integral. Set $a = \sqrt{R^2 - x^2}$:
+</p>
+$$\int_{-a}^{a} \frac{dy}{\sqrt{a^2 - y^2}}.$$
+<p>Use the substitution $y = a\sin t$ (the same procedure as in §3.1.2). We have $dy = a\cos t\,dt$, $\sqrt{a^2 - y^2} = a\cos t$, and as $y$ goes from $-a$ to $a$, $t$ goes from $-\pi/2$ to $\pi/2$:
+</p>
+$$\int_{-a}^{a} \frac{dy}{\sqrt{a^2 - y^2}} = \int_{-\pi/2}^{\pi/2} \frac{a\cos t}{a\cos t}\,dt = \int_{-\pi/2}^{\pi/2} dt = \pi.$$
+<p>The integral is $\pi$ regardless of $a$. Therefore:
+</p>
+$$R\int_{-R}^{R} \pi\,dx = R \cdot \pi \cdot 2R = 2\pi R^2.$$
+<p>This is the area of the upper hemisphere. On the lower hemisphere as well, some projected-area signs flip under the outward orientation, but the sum of squares is the same, so again we get $2\pi R^2$. Therefore the area of the entire sphere is:
+</p>
+$$2\pi R^2 + 2\pi R^2 = 4\pi R^2.$$
+<p>Splendid — $4\pi R^2$ appears. It is <strong>exactly the same pattern</strong> as when we recovered the area of a parallelogram from three shadows in Chapter 2 §2.4.7.
+</p>
+<h4 id="3.2.4-What-We-Have-Learned-So-Far">3.2.4 What We Have Learned So Far</h4>
+<p>A basis $2$-form with coefficient $1$ does not, by itself, directly return the scalar area of a surface. $dx \wedge dy$ measures the signed projected area of a small piece of surface onto the $xy$ plane. To obtain the scalar area of a surface, we must combine the three projected components on each small piece to build the scalar surface element $dS$, and then add those up. This is exactly the same situation as for the area of a parallelogram in Chapter 2.
+</p>
+<p>However, in physics we often want to control “which shadow to emphasize, and by how much, at each point.” For example, when measuring fluid flow through a surface, if the flow is strong in the $x$ direction we want to put a large weight on $dy \wedge dz$ (the shadow onto the $yz$ plane). The need for such <strong>weights that vary from place to place</strong> — coefficients — naturally appears here. This is foreshadowing for §3.4.
+</p>
+<blockquote>
+<p><strong>Checkpoint so far</strong></p>
+<p>- A surface integral is the operation of feeding the two displacement vectors that form a surface element on each small patch to an area-measuring device and aggregating the scalars obtained.</p>
+<p>- $dx \wedge dy$ by itself measures the signed area of the shadow onto the $xy$ plane. Over the entire sphere the net result is zero (the shadows of the upper and lower hemispheres cancel).</p>
+<p>- Combining the readings of the three basis $2$-forms by the square root of a sum of squares on each small piece gives the scalar surface element $dS$. Adding these up yields the scalar area of the surface. For a sphere, $4\pi R^2$.</p>
+<p>- In the next section we drop the dimension further and measure the length of a curve. There the limit of coefficient $1$ appears most clearly.</p>
+</blockquote>
+<hr />
+<h3 id="§3.3-Curves-—-The-Limit-of-One-Dimension,-Coefficient-1,-Revealed">§3.3 Curves — The Limit of One Dimension, Coefficient 1, Revealed</h3>
+<h4 id="3.3.1-From-Straight-Lines-to-Curves-—-Defined-by-Riemann-Sums">3.3.1 From Straight Lines to Curves — Defined by Riemann Sums</h4>
+<p>In Chapter 1, we defined $dx, dy, dz$ as $1$-forms (measuring devices) that eat a vector and return each component. When $dx = \begin{pmatrix}1&0&0\end{pmatrix}$ and $\mathbf{v} = \begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$, we have $dx(\mathbf{v}) = \Delta x$. The same holds for $dy$ and $dz$.
+</p>
+<p>So what do we get if we apply these along a curve and aggregate the results?
+</p>
+<p>First, chop the curve into small subintervals. To each subinterval there corresponds a displacement vector from start to end,
+</p>
+$$
+\Delta\mathbf{r}_i=(\Delta x_i,\Delta y_i,\Delta z_i)
+$$
+<p>At this stage we do not yet need to write the curve as a formula. On each subinterval, if we feed $dx$ this displacement vector,
+</p>
+$$dx(\Delta\mathbf{r}_i)=\Delta x_i$$
+<p>Similarly, $dy(\Delta\mathbf{r}_i)=\Delta y_i$ and $dz(\Delta\mathbf{r}_i)=\Delta z_i$.
+</p>
+<p>Summing over all subintervals gives
+</p>
+$$
+\sum_i dx(\Delta\mathbf{r}_i)=\sum_i \Delta x_i
+$$
+<p>This is nothing but the straightforward sum of the $x$-direction displacements of each small piece along the curve. We <strong>write</strong> the limit as the mesh is made infinitely fine as
+</p>
+$$\int_\gamma dx$$
+<p>This is the definition of integration of a $1$-form — a line integral.
+</p>
+<p>So the definition is in place. How do we actually compute this sum?
+</p>
+<p>Introducing $t$ here is not abandoning our policy so far. In §3.1 we organized small rectangular boxes inside a sphere in the order $z,y,x$; in §3.2 we organized small pieces on a sphere by projection onto the $xy$ plane. Likewise, on a curve we need a label to arrange the small pieces in order from start to end. We simply call that label $t$.
+</p>
+<p>So we assign a continuous index $t$ to each small piece along the curve and write
+</p>
+$$\gamma(t) = \bigl(x(t),\, y(t),\, z(t)\bigr),\qquad t \in [t_0, t_1]$$
+<p>Here $t$ is not a new spatial coordinate. It is a label for arranging the small pieces along the curve from start to end. With this label, the displacement on the $i$th subinterval can be written as
+</p>
+$$
+\Delta\mathbf{r}_i = \gamma(t_i+\Delta t)-\gamma(t_i)
+$$
+<p>On each subinterval, <strong>apply the matrix $dx$ to the displacement vector $\Delta\mathbf{r}_i$</strong>:
+</p>
+$$dx(\Delta\mathbf{r}_i) = \begin{pmatrix}1&0&0\end{pmatrix} \begin{pmatrix}\Delta x_i \\ \Delta y_i \\ \Delta z_i\end{pmatrix} = \Delta x_i = \frac{\Delta x_i}{\Delta t}\,\Delta t$$
+<p>The equality here means that applying the fixed $1$-form $dx$ to the displacement vector $\Delta\mathbf{r}_i$ returns the component $\Delta x_i$ exactly. On the other hand, the integral over the whole curve is defined as the limit of a Riemann sum in which the measuring device is evaluated at a representative point on each subinterval and the results are added.
+</p>
+$$\sum_i dx(\Delta\mathbf{r}_i) = \sum_i \frac{\Delta x_i}{\Delta t}\,\Delta t$$
+<p>The substitution integrals treated in Chapter 1 were precisely this kind of reorganization of a sum. We do the same here. Number the small pieces along the curve by $t$, and organize the change in each component as “rate of change $\times$ subinterval width.” As the mesh is made infinitely fine, the conversion factor converges to the ordinary derivative of the coordinate function: $\Delta x_i/\Delta t \to x'(t)$.
+</p>
+<p>This computation has exactly the same form as the substitution integral in Chapter 1 §1.2.5:
+</p>
+$$\int_\gamma dx = \int_{t_0}^{t_1} x'(t)\,dt = x(t_1)-x(t_0).$$
+<p>Similarly, $\int_\gamma dy = y(t_1) - y(t_0)$ and $\int_\gamma dz = z(t_1) - z(t_0)$. In other words, <strong>the line integrals of the $1$-forms $dx, dy, dz$ return the net displacement of the curve — the difference between the coordinates at the end point and those at the start point.</strong>
+</p>
+<h4 id="3.3.2-Trying-It-on-a-Circle-—-Arc-Length-Does-Not-Appear">3.3.2 Trying It on a Circle — Arc Length Does Not Appear</h4>
+<p>Let us check. For a circle too, what we have in mind first is the operation of chopping the circle into fine arcs and summing the displacements of each small piece. To compute the sum over one full revolution, however, we need a label that arranges the small pieces in order. Here we use the angle $t$ as that label. A circle of radius $R$ is represented as
+</p>
+$$\gamma(t) = (R\cos t,\; R\sin t,\; 0),\qquad t \in [0, 2\pi]$$
+<p>Since $\gamma'(t) = (-R\sin t,\; R\cos t,\; 0)$:
+</p>
+$$\begin{aligned}
+\int_\gamma dx &= \int_0^{2\pi} dx(\gamma'(t))\,dt = \int_0^{2\pi} (-R\sin t)\,dt = R\bigl[\cos t\bigr]_0^{2\pi} = 0 \\[4pt]
+\int_\gamma dy &= \int_0^{2\pi} dy(\gamma'(t))\,dt = \int_0^{2\pi} (R\cos t)\,dt = R\bigl[\sin t\bigr]_0^{2\pi} = 0
+\end{aligned}$$
+<p>Both are zero. It is a closed curve, so the start and end points coincide and the component displacements cancel over one full turn — a natural result.
+</p>
+<p>However, we also know that the arc length of this circle is $2\pi R$. With coefficient-$1$ $dx$ and $dy$ alone we get zero — so <strong>how do we obtain arc length?</strong>
+</p>
+<p>At each label $t$, the values measured by $dx$ and $dy$ are already at hand:
+</p>
+$$
+dx(\gamma'(t)) = -R\sin t,\qquad dy(\gamma'(t)) = R\cos t
+$$
+<p>These are scalars, so we can square them and add:
+</p>
+$$dx(\gamma'(t))^2 + dy(\gamma'(t))^2 = R^2\sin^2 t + R^2\cos^2 t = R^2$$
+<p>Taking the square root gives the conversion factor for length per small piece, $|\gamma'(t)| = R$. Integrating over the whole interval:
+</p>
+$$\int_0^{2\pi} \!\sqrt{dx(\gamma'(t))^2 + dy(\gamma'(t))^2}\;dt = \int_0^{2\pi} \!R\,dt = 2\pi R$$
+<p>Arc length $2\pi R$ has appeared. What is happening here is important — $dx$ and $dy$ each gave zero on the closed curve by themselves, yet when we take the square root of the sum of their squares and integrate, the correct arc length emerges. The “power to measure length” that coefficient-$1$ $1$-forms lacked was recovered by the algebraic rearrangement called the sum of squares.
+</p>
+<p>Let us organize what is happening here. At each label $t$ we obtain two scalars, $dx(\gamma'(t))$ and $dy(\gamma'(t))$, take the square root of their sum of squares, $\sqrt{dx(\gamma'(t))^2 + dy(\gamma'(t))^2}$, and integrate with respect to $t$. This is nothing other than integrating length measurement in Cartesian coordinates along the curve. In three dimensions, we write this line element as
+</p>
+$$ds(\mathbf{v}) = \sqrt{dx(\mathbf{v})^2 + dy(\mathbf{v})^2 + dz(\mathbf{v})^2}$$
+<p>The circle we are considering now lies in the plane $z=0$, so $dz(\gamma'(t))=0$, and only the two components $dx, dy$ remain in the calculation above.
+</p>
+<blockquote>
+<p><strong>Note</strong> (on notation) By the convention of Chapter 1 §1.1.6, a standalone $dx$ is a row vector (operator), and it cannot be squared by itself. $dx(\mathbf{v})^2$ means the square of the <strong>scalar obtained by applying the $1$-form $dx$ to the vector $\mathbf{v}$</strong>. Preserving this distinction is what keeps the notation of this book consistent.</p>
+</blockquote>
+<p>This $ds$ is a convenient notation for measuring arc length, but it is not itself a $1$-form in the sense of this book. A $1$-form is a measuring device that acts linearly on a displacement $\mathbf{v}$, whereas $ds(\mathbf{v})$ contains a square root of a sum of squares, so in general $ds(\mathbf{v}+\mathbf{w}) = ds(\mathbf{v})+ds(\mathbf{w})$ does not hold. Therefore $ds$ cannot be written as a linear combination of $dx, dy, dz$ — in the form $P\,dx+Q\,dy+R\,dz$.
+</p>
+<h4 id="3.3.3-What-Can-a-__MATH_BLOCK_242__-Form-Measure?">3.3.3 What Can a $1$-Form Measure?</h4>
+<p>Arc length could be measured by integrating the line element $ds(\mathbf{v}) = \sqrt{dx(\mathbf{v})^2 + dy(\mathbf{v})^2 + dz(\mathbf{v})^2}$. However, this $ds$ cannot be written as a linear combination of $dx, dy, dz$; it requires a square root of a sum of squares. Here we first ask: what does a $1$-form that does not use such a square root of a sum of squares — that is, a $1$-form that can be written as a linear combination of $dx, dy, dz$ — actually measure?
+</p>
+<p>Suppose a force field $\mathbf{F}(x,y,z) = (F_x, F_y, F_z)$ acts at each point in space. When we move a particle along a curve, the infinitesimal work done by the force on each subinterval is the product of the component of the force in the direction of displacement and the magnitude of the displacement — namely, $F_x\,\Delta x + F_y\,\Delta y + F_z\,\Delta z$. Summing this over the whole interval gives the work $W = \int_\gamma \mathbf{F}\cdot d\mathbf{r}$.
+</p>
+<p>What matters here is that the components $F_x, F_y, F_z$ of the force <strong>vary from place to place</strong>. For the geometric examples in §3.1 and §3.2, coefficient $1$ carried much of the story; to measure work, coefficients that vary from place to place are indispensable. This is what most vividly shows the necessity of coefficients.
+</p>
+<p>This is the motivation for introducing coefficients in the next section.
+</p>
+<blockquote>
+<p><strong>Checkpoint so far</strong></p>
+<p>- Line integrals of $dx, dy, dz$ return “net displacement.” On a closed curve they are zero.</p>
+<p>- Arc length can be computed by integrating the line element $ds(\mathbf{v}) = \sqrt{dx(\mathbf{v})^2 + dy(\mathbf{v})^2 + dz(\mathbf{v})^2}$. $ds$ is not a $1$-form and cannot be written as a linear combination of $dx, dy, dz$ (it requires a square root of a sum of squares).</p>
+<p>- What a $1$-form that can be written as a linear combination of $dx, dy, dz$ measures is a quantity such as “work.” → §3.4.</p>
+</blockquote>
+<hr />
+<h3 id="§3.4-Adding-Coefficients-—-Density-Times-Geometry">§3.4 Adding Coefficients — Density Times Geometry</h3>
+<h4 id="3.4.0-Why-Coefficients?-—-Physics-Demands-Them">3.4.0 Why Coefficients? — Physics Demands Them</h4>
+<p>In §3.1–§3.3, we measured curved shapes using forms with coefficient $1$. But in real physics, there are countless situations where we want to multiply a measuring device by a <strong>weight that varies from place to place</strong>:
+</p>
+<ul>
+<li><strong>Force field</strong> (varying with location) $\times$ <strong>displacement</strong> $=$ <strong>work</strong></li>
+<li><strong>Velocity field</strong> (varying with location) $\times$ <strong>oriented cross-section</strong> $=$ <strong>flux</strong></li>
+<li><strong>Density field</strong> (varying with location) $\times$ <strong>volume</strong> $=$ <strong>mass</strong></li>
+</ul>
+<p>The common structure is obvious. The product of <strong>"a weight that varies from place to place ($0$-form $=$ scalar field)"</strong> and <strong>"a geometric way of measuring ($k$-form)"</strong> gives a general $k$-form. In Chapter 2 §2.4.8 we said that "$0$-form is a measuring device that eats zero vectors, namely a scalar field" — precisely this setup.
+</p>
+<p>Below, we define the integrals of forms with coefficients, in order from one to two to three dimensions.
+</p>
+<h4 id="3.4.1-Line-Integral-of-a-General-__MATH_BLOCK_273__-Form-(Work)">3.4.1 Line Integral of a General $1$-Form (Work)</h4>
+<p>In real space, take three scalar fields $P, Q, R$ that depend on the point $(x,y,z)$, and call
+</p>
+$$\omega = P(x,y,z)\,dx + Q(x,y,z)\,dy + R(x,y,z)\,dz$$
+<p>the <strong>general form of a $1$-form</strong>. Each $dx, dy, dz$ is, as in Chapter 1, a row vector that reads off components from a column vector. The coefficients $P,Q,R$ are weights that vary from place to place — $0$-forms. If $P=\partial f/\partial x,\;Q=\partial f/\partial y,\;R=\partial f/\partial z$ come from a single function $f$, we get the special case $\omega=df$; in general, this need not be so.
+</p>
+<p>The integral along a curve $\gamma(t)$ is simply the Riemann sum from §3.3.1 with coefficients multiplied in. Take the representative point of each small segment to be $\gamma(t_i)$, evaluate the coefficients there to get $\omega_{\gamma(t_i)}$, and feed it the displacement $\Delta\mathbf{r}_i$. At the fixed point $\gamma(t_i)$, $\omega_{\gamma(t_i)}$ is a row vector and $\Delta\mathbf{r}_i$ is a column vector, and their contraction can be written as
+</p>
+$$\omega_{\gamma(t_i)}(\Delta\mathbf{r}_i) = P(\gamma(t_i))\,\Delta x_i + Q(\gamma(t_i))\,\Delta y_i + R(\gamma(t_i))\,\Delta z_i$$
+<p>Here "equals" means the contraction of the row vector $\omega_{\gamma(t_i)}$ fixed at one point and the displacement vector $\Delta\mathbf{r}_i$. As the contribution of the whole small segment, this is one term of a Riemann sum with coefficients frozen at the representative point; in the limit as the mesh becomes fine, it becomes a line integral.
+</p>
+<p>Organize the change in each component in the form "finite ratio $\times \Delta t$":
+</p>
+$$
+\omega_{\gamma(t_i)}(\Delta\mathbf{r}_i)
+= \bigl(P(\gamma(t_i))\frac{\Delta x_i}{\Delta t}
++ Q(\gamma(t_i))\frac{\Delta y_i}{\Delta t}
++ R(\gamma(t_i))\frac{\Delta z_i}{\Delta t}\bigr)\,\Delta t.
+$$
+<p>Sum over the whole interval and take the limit. Since $\Delta x_i/\Delta t \to x'(t)$, $\Delta y_i/\Delta t \to y'(t)$, and $\Delta z_i/\Delta t \to z'(t)$:
+</p>
+$$
+\sum_i \omega_{\gamma(t_i)}(\Delta\mathbf{r}_i)
+\;\xrightarrow{\Delta t \to 0}\;
+\int_{t_0}^{t_1}
+\bigl(P(\gamma(t))x'(t)+Q(\gamma(t))y'(t)+R(\gamma(t))z'(t)\bigr)\,dt
+$$
+<p>We write this limit as
+</p>
+$$\int_\gamma \omega$$
+<p>Exactly the same pattern as the coefficient-$1$ case in §3.3.1: at each instant, a <strong>row vector (coefficient-weighted $1$-form)</strong> eats a <strong>column vector ($\gamma'(t)$)</strong>, returns a scalar, and we aggregate. This is nothing but the natural three-dimensional extension of $F(x)\,dx$ from Chapter 1 §1.2.5.
+</p>
+<blockquote>
+<p><strong>Note</strong> (correspondence with vector analysis)</p>
+<p>In vector analysis, this quantity is written $\int_\gamma \mathbf{F}\cdot d\mathbf{r}$. Our $\int_\gamma \omega$ is the same thing, yet <strong>the field $\omega$</strong> and <strong>the path $\gamma$</strong> are clearly separated in the notation.</p>
+</blockquote>
+<p>Let us look at a concrete example. Compute the work done by the force field $\mathbf{F} = (y,\; x,\; 0)$ along the unit circle $\gamma(t) = (\cos t,\; \sin t,\; 0),\; t \in [0, 2\pi]$.
+</p>
+<p>Since $\omega = y\,dx + x\,dy$, the coefficients are $P=y,\;Q=x,\;R=0$. On the curve, $P=\sin t,\;Q=\cos t$. Also, $x'(t)=-\sin t$ and $y'(t)=\cos t$:
+</p>
+$$\omega(\gamma'(t)) = (\sin t)(-\sin t) + (\cos t)(\cos t) = -\sin^2\!t + \cos^2\!t = \cos 2t$$
+<p>Therefore:
+</p>
+$$\int_\gamma \omega = \int_0^{2\pi} \cos 2t\,dt = \Bigl[\frac{1}{2}\sin 2t\Bigr]_0^{2\pi} = 0$$
+<p>The work is zero. This force field does no net work along the unit circle.
+</p>
+<h4 id="3.4.2-Surface-Integral-of-a-General-__MATH_BLOCK_311__-Form-(Flux)">3.4.2 Surface Integral of a General $2$-Form (Flux)</h4>
+<p>Similarly, with three scalar fields $P,Q,R$ as coefficients,
+</p>
+$$
+\eta = P\,dy \wedge dz + Q\,dz \wedge dx + R\,dx \wedge dy
+$$
+<p>we call $\eta$ a general $2$-form.
+</p>
+<p>The integral over a surface is again just the Riemann sum from §3.2.1 with coefficients multiplied in. At the representative point of each small patch, evaluate the coefficients and feed $\eta$ the two displacement vectors $\Delta\mathbf{a},\Delta\mathbf{b}$ that span the patch:
+</p>
+$$\eta(\Delta\mathbf{a},\Delta\mathbf{b})
+= P\,(dy \wedge dz)(\Delta\mathbf{a},\Delta\mathbf{b})
+{}+ Q\,(dz \wedge dx)(\Delta\mathbf{a},\Delta\mathbf{b})
+{}+ R\,(dx \wedge dy)(\Delta\mathbf{a},\Delta\mathbf{b})$$
+<p>Sum over all patches and take the limit. We denote this limit by
+</p>
+$$\iint_S \eta$$
+<p>At each point, the area-measuring device $\eta$ eats the two displacement vectors that form a surface element and returns a scalar; we aggregate over the whole surface — the same point as in §3.2.
+</p>
+<p>That $dy \wedge dz,\; dz \wedge dx,\; dx \wedge dy$ each measure the "shadow area" onto the corresponding plane was seen in §3.2. The coefficients $P, Q, R$ attach a <strong>weight that varies from place to place</strong> to those shadows. Physically, $(P, Q, R)$ are the components of a velocity field, and $\iint_S \eta$ corresponds to the flux through the surface — but translating this rigorously into the language of vector analysis requires additional correspondence relations. We will do that in a later chapter.
+</p>
+<blockquote>
+<p><strong>Note</strong> (correspondence with vector analysis is only a guidepost here)</p>
+<p>The connection with flux is nothing more than a bridge for readers who already know vector analysis. The main line of this book remains the operation of "feeding a $2$-form and aggregating." Lack of vector-analysis background will not hinder the discussion from here on.</p>
+</blockquote>
+<h4 id="3.4.3-Volume-Integral-of-a-General-__MATH_BLOCK_323__-Form-(Total-Mass)">3.4.3 Volume Integral of a General $3$-Form (Total Mass)</h4>
+<p>The general form of a $3$-form, with scalar field $\rho(x,y,z)$ as coefficient, is
+</p>
+$$\Omega = \rho(x,y,z)\,dx \wedge dy \wedge dz$$
+<p>We need only multiply the Riemann sum from §3.1.1 by the density $\rho$. At the representative point of each small box, evaluate $\rho$ and feed the volume element to $\Omega$:
+</p>
+$$\Omega(\Delta x_i\,\hat{e}_x,\; \Delta y_i\,\hat{e}_y,\; \Delta z_i\,\hat{e}_z) = \rho(x_i,y_i,z_i)\,\Delta x_i\,\Delta y_i\,\Delta z_i$$
+<p>Sum over the whole region and take the limit. We write this limit as
+</p>
+$$\iiint_V \Omega$$
+<p>If $\rho=1$, we return to the coefficient-$1$ case from §3.1. If $\rho$ is mass density, we get total mass; if charge density, total charge. A $3$-form has only one independent component, $dx \wedge dy \wedge dz$, so <strong>"density ($\rho$)" and "the way of measuring volume ($dx \wedge dy \wedge dz$)" separate cleanly</strong> and the picture is clear.
+</p>
+<h4 id="3.4.4-A-Unified-Picture-of-Line,-Surface,-and-Volume">3.4.4 A Unified Picture of Line, Surface, and Volume</h4>
+<p>Let us look back at what we have done.
+</p>
+<div class="table-wrapper"><table>
+<thead><tr>
+<th>Object</th>
+<th>Form</th>
+<th>Integral notation</th>
+<th>Example physical meaning</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Curve $\gamma$</td>
+<td>$1$-form $\omega$</td>
+<td>$\displaystyle\int_\gamma \omega$</td>
+<td>Work</td>
+</tr>
+<tr>
+<td>Surface $S$</td>
+<td>$2$-form $\eta$</td>
+<td>$\displaystyle\iint_S \eta$</td>
+<td>Flux</td>
+</tr>
+<tr>
+<td>Region $V$</td>
+<td>$3$-form $\Omega$</td>
+<td>$\displaystyle\iiint_V \Omega$</td>
+<td>Total mass</td>
+</tr>
+</tbody>
+</table></div>
+<p>Written as Riemann sums, they are
+</p>
+$$
+\int_\gamma \omega
+= \lim_{\text{mesh}\to 0}
+\sum_i \omega(\Delta\mathbf{r}_i),
+$$
+$$
+\iint_S \eta
+= \lim_{\text{mesh}\to 0}
+\sum_i\sum_j\eta(\Delta\mathbf{a}_{ij},\Delta\mathbf{b}_{ij}),
+$$
+$$
+\iiint_V \Omega
+= \lim_{\text{mesh}\to 0}
+\sum_i\sum_j\sum_k
+\Omega(\Delta\mathbf{a}_{ijk},\Delta\mathbf{b}_{ijk},\Delta\mathbf{c}_{ijk})
+$$
+<p>Here "mesh $\to 0$" means making the size of the coarsest small piece that makes up the curve, surface, or region approach $0$.
+</p>
+<p>All follow the same pattern: a <strong>$k$-form (measuring device) eats $k$ displacement vectors — that is, a $k$-dimensional small piece — returns a scalar, and we aggregate over the whole domain</strong>. As the degree rises, the number of vectors fed in increases, and antisymmetry governs the orientation of area and volume. Only the degree differs; the principle is the same throughout.
+</p>
+<blockquote>
+<p><strong>Checkpoint so far</strong></p>
+<p>- A general $k$-form is a linear combination of "basis $k$-forms" with "weights that vary from place to place ($0$-form)."</p>
+<p>- The line integral $\int_\gamma \omega$ corresponds to work, the surface integral $\iint_S \eta$ to flux, and the volume integral $\iiint_V \Omega$ to total mass.</p>
+<p>- All follow the same principle: "contraction of measuring device and figure → aggregation." In the next chapter we introduce pullback — the method of recomputing these integrals in different coordinates.</p>
+</blockquote>
+<h4 id="3.4.5-The-General-Form-of-Integration">3.4.5 The General Form of Integration</h4>
+<p>The line, surface, and volume integrals defined separately in §3.1–§3.3 actually fit one pattern. The operation of integrating a $k$-form $\omega$ over a $k$-dimensional region $M$ is written, regardless of dimension, as
+</p>
+$$\int_M \omega$$
+<p>If $M$ is a curve ($k=1$), we write $\int_\gamma$; if a surface ($k=2$), $\iint_S$; if a solid ($k=3$), $\iiint_V$ — the number of integral signs is determined only by the dimension of $M$. The content is always "chop into small pieces → feed $k$ displacement vectors to the $k$-form → sum $\sum$ → limit."
+</p>
+<p>The stage of this book is three-dimensional space, so $k=1,2,3$ suffices; but it does no harm to keep in the back of your mind that this formula holds regardless of $k$. When we introduce the exterior derivative $d$ in Chapter 5, this unified viewpoint will bear fruit in the general form of Stokes's theorem, $\int_{\partial M} \omega = \int_M d\omega$.
+</p>
+<hr />
+<h3 id="§3.5-Summary-of-This-Chapter-and-Outlook-Toward-the-Next">§3.5 Summary of This Chapter and Outlook Toward the Next</h3>
+<p>Over the past three chapters, we have assembled the following three things:
+</p>
+<ol>
+<li><strong>Chapter 1</strong>: View $dx$ as a matrix ($1$-form), and read integration as the limit of matrix action</li>
+<li><strong>Chapter 2</strong>: Construct $2$-forms and $3$-forms via the wedge product $\wedge$, and measure area and volume algebraically</li>
+<li><strong>Chapter 3 (this chapter)</strong>: Apply forms to curves, surfaces, and regions, and establish the operation of aggregating their output</li>
+</ol>
+<p>What this chapter established is the following unified principle:
+</p>
+<p><strong>A $k$-form (measuring device) eats $k$ displacement vectors—that is, a $k$-dimensional small piece—and returns a scalar, which is then aggregated over the entire region.</strong> Across degrees $0,1,2,3$, the picture remains the same. Work along a curve, flux across a surface, total mass in a region—all can be written in the same language.
+</p>
+<blockquote>
+<p><strong>Checkpoint so far — Chapter 3</strong></p>
+<p>- The integral $\int_M \omega$ of a $k$-form $\omega$ is defined by “chop into small pieces → feed $k$ displacement vectors to the $k$-form → sum → limit.”</p>
+<p>- The line integral $\int_\gamma \omega$ of a $1$-form is the operation of feeding each small curve segment’s displacement vector to $\omega$ and aggregating. Work is written as $\int_\gamma \omega$, corresponding to the vector-analysis notation $\int_\gamma \mathbf{F}\cdot d\mathbf{r}$.</p>
+<p>- The surface integral $\iint_S \eta$ of a $2$-form $\eta$ is the operation of feeding the two displacement vectors that span each small piece to $\eta$ and aggregating. With coefficient $1$, it measures the “shadow” onto each plane; adding up scalar area elements $dS$ built from the three shadows gives scalar area.</p>
+<p>- The volume integral $\iiint_V \Omega$ of a $3$-form $\Omega$ is the operation of feeding the three displacement vectors that span each small rectangular box to $\Omega$ and aggregating. With coefficient $1$ this is volume directly; with coefficient $\rho$ it is total mass or total charge.</p>
+<p>- A general $k$-form can be written as a combination of coefficients ($0$-forms) that vary from point to point and basis $k$-forms.</p>
+</blockquote>
+<p>However, an important problem remains.
+</p>
+<p>Up to here, we counted small pieces while keeping the measuring devices of standard Cartesian coordinates $x, y, z$ as much as possible. But in actual calculations, counting in other variables is often overwhelmingly easier. Trace a circle by angle. View a sphere by radius and angles. In physics problems, you cannot get away without such variable changes.
+</p>
+<p>Then what should we change, and what should we keep?
+</p>
+<p>In the next chapter (Chapter 4), we reread variable change not as a matter of “moving points,” but as an <strong>operation that rebuilds measuring devices</strong>. This is the <strong>pullback</strong>.
+</p>
+      <div class="nav-buttons">
+        <a href="ch02.html">← Chapter 2...</a>
+        <a href="ch04.html">Chapter 4... →</a>
+      </div>
+    </article>
+    <footer class="site-footer">
+      <p>&copy; 2026 yokiikoy. CC BY-NC 4.0. For the latest edition, PDF, revision history, related information, and content beyond this book, see the portal site <a href="https://covectorspace.xyz/en/">Project Co-Vector Space</a>.</p>
+    </footer>
+  </main>
+</body>
+</html>

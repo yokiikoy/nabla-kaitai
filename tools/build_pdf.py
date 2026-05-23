@@ -39,6 +39,7 @@ def latex_escape(value):
 sys.path.append(str(Path(__file__).parent))
 from core.profile import get_profile
 from core.manuscript import ManuscriptModel
+from core.locale import RELEASE_VERSION, get_locale
 
 def strip_yaml(content):
     if content.startswith('---'):
@@ -50,15 +51,17 @@ def strip_yaml(content):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--profile", default="full", choices=["full", "preview"])
+    parser.add_argument("--lang", default="ja", choices=["ja", "en"])
     args = parser.parse_args()
 
+    locale = get_locale(args.lang)
     profile = get_profile(args.profile)
-    model = ManuscriptModel(profile)
+    model = ManuscriptModel(profile, base_dir=locale['base_dir'])
 
     # Git metadata for title page
     build_datetime = datetime.now().strftime('%Y-%m-%d %H:%M JST')
     author_name = 'yokiikoy'
-    git_log = git_text(['log', '-3', '--format=%h (%ad)  %s', '--date=short'], '未取得')
+    git_log = git_text(['log', '-3', '--format=%h (%ad)  %s', '--date=short'], locale['git_log_fallback'])
     log_lines = [l.strip() for l in git_log.split('\n') if l.strip()]
     while len(log_lines) < 3:
         log_lines.append('')
@@ -243,6 +246,10 @@ def main():
 
     latex_body = fix_dashes(latex_body)
 
+    pdf_footer = locale['pdf_footer']
+    contents_name = locale['contents_name']
+    xetex_locale = locale['xetex_linebreak_locale']
+
     # --- Preamble ---
     preamble = (
         r'\documentclass[a4paper,12pt,openany]{book}' '\n'
@@ -253,7 +260,7 @@ def main():
         r'\setsansfont{IPAexGothic}[Ligatures=TeX]' '\n'
         r'\setmonofont{IPAexGothic}[Ligatures=TeX]' '\n'
         r'\newfontface\strongface{IPAexGothic}[AutoFakeBold=4.0]' '\n'
-        r'\XeTeXlinebreaklocale "ja"' '\n'
+        rf'\XeTeXlinebreaklocale "{xetex_locale}"' '\n'
         r'\XeTeXlinebreakskip=0pt plus 1pt minus 0.1pt' '\n'
         r'\usepackage{geometry}' '\n'
         r'\geometry{margin=25mm}' '\n'
@@ -264,7 +271,7 @@ def main():
         r'  \tiny' '\n'
         r'  \parbox{\textwidth}{%' '\n'
         r'    \raggedright' '\n'
-        r'    \textcopyright\ yokiikoy (CC BY-NC 4.0). 本書の最新版・PDF・改訂履歴・関連情報・本書以外のコンテンツはポータルサイト \href{https://covectorspace.xyz/jp/}{Project Co-Vector Space} をご確認ください。\\[2pt]' '\n'
+        f'    {pdf_footer}' '\n'
         r'    \centering\thepage' '\n'
         r'  }%' '\n'
         r'}' '\n'
@@ -273,7 +280,7 @@ def main():
         r'  \tiny' '\n'
         r'  \parbox{\textwidth}{%' '\n'
         r'    \raggedright' '\n'
-        r'    \textcopyright\ yokiikoy (CC BY-NC 4.0). 本書の最新版・PDF・改訂履歴・関連情報・本書以外のコンテンツはポータルサイト \href{https://covectorspace.xyz/jp/}{Project Co-Vector Space} をご確認ください。\\[2pt]' '\n'
+        f'    {pdf_footer}' '\n'
         r'    \centering\thepage' '\n'
         r'  }%' '\n'
         r'}\renewcommand{\headrulewidth}{0pt}}' '\n'
@@ -281,7 +288,7 @@ def main():
         r'\usepackage{hyperref}' '\n'
         r'\usepackage{bookmark}' '\n'
         r'\hypersetup{colorlinks=true,linkcolor=blue}' '\n'
-        r'\renewcommand{\contentsname}{目次}' '\n'
+        rf'\renewcommand{{\contentsname}}{{{contents_name}}}' '\n'
         r'\usepackage{longtable,booktabs,array,calc,multirow,colortbl}' '\n'
         r'\usepackage{graphicx}' '\n'
         r'\usepackage{adjustbox}' '\n'
@@ -324,46 +331,44 @@ def main():
         r'\begin{document}' '\n'
     )
 
+    tp = locale['title_page']
     title_page = (
         r'\begin{titlepage}' '\n'
         r'\newgeometry{top=25mm,bottom=20mm,left=40mm,right=40mm}' '\n'
         r'\pagestyle{empty}' '\n'
         r'\centering' '\n'
         r'\vspace*{20mm}' '\n'
-        r'{\fontsize{34}{42}\selectfont\bfseries ナブラ解体新書\par}' '\n'
-        r'\vspace{7mm}' '\n'
-        r'{\Large 行列表示の微分形式による\par}' '\n'
-        r'{\Large ベクトル解析の抜け道\par}' '\n'
-        r'\vspace{0mm}' '\n'
-        r'{\normalsize v1.0.0\par}' '\n'
-        r'\vspace{1mm}' '\n'
-        r'\begin{minipage}{0.78\textwidth}' '\n'
-        r'\centering' '\n'
-        r'\small' '\n'
-        r'\begin{tabular}{|l|p{0.6\textwidth}|}\hline' '\n'
-        r'\multicolumn{2}{|c|}{\textbf{Versioning Policy}}\\ \hline' '\n'
-        r'\textbf{v1.0.0} & 全12章の内容確定・相互参照の整合性完了・手計算による検算完了\\ \hline' '\n'
-        r'\textbf{v2.0.0} & 図表の作成と配置完了・組版完了・印刷用データの出力\\ \hline' '\n'
-        r'v0.x.0         & 章の追加・章構成の変更・大幅な書き直し\\ \hline' '\n'
-        r'v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline' '\n'
-        r'\end{tabular}\par\bigskip' '\n'
-        r'\begin{tabular}{|p{\dimexpr\textwidth-2\tabcolsep-2\arrayrulewidth\relax}|}\hline' '\n'
-        r'\multicolumn{1}{|c|}{\textbf{直近の改定履歴}}\\ \hline' '\n'
+        + tp['main_title'] + '\n'
+        + r'\vspace{7mm}' '\n'
+        + tp['subtitle'] + '\n'
+        + r'\vspace{0mm}' '\n'
+        + rf'{{\normalsize {RELEASE_VERSION}\par}}' '\n'
+        + r'\vspace{1mm}' '\n'
+        + r'\begin{minipage}{0.78\textwidth}' '\n'
+        + r'\centering' '\n'
+        + r'\small' '\n'
+        + r'\begin{tabular}{|l|p{0.6\textwidth}|}\hline' '\n'
+        + r'\multicolumn{2}{|c|}{\textbf{Versioning Policy}}\\ \hline' '\n'
+        + tp['version_note']
+        + tp['policy_tail']
+        + r'\end{tabular}\par\bigskip' '\n'
+        + r'\begin{tabular}{|p{\dimexpr\textwidth-2\tabcolsep-2\arrayrulewidth\relax}|}\hline' '\n'
+        + tp['history_heading'] + '\n'
         + ''.join(
             r'{\small ' + latex_escape(line) + r'}\\ \hline' '\n'
             for line in log_lines if line
         )
         + r'\end{tabular}' '\n'
-        r'\end{minipage}\par' '\n'
-        r'\vfill' '\n'
-        r'{\includegraphics[height=0.28\textheight]{exports/icons/nabla_icon_inflate_65.png}\par}' '\n'
-        r'\vfill' '\n'
-        r'{\footnotesize ' + latex_escape(build_datetime) + r' --- 著者：' + latex_escape(author_name) + r'\par}' '\n'
-        r'\restoregeometry' '\n'
-        r'\end{titlepage}' '\n'
-        r'\frontmatter' '\n'
-        r'\tableofcontents' '\n'
-        r'\newpage' '\n'
+        + r'\end{minipage}\par' '\n'
+        + r'\vfill' '\n'
+        + r'{\includegraphics[height=0.28\textheight]{exports/icons/nabla_icon_inflate_65.png}\par}' '\n'
+        + r'\vfill' '\n'
+        + r'{\footnotesize ' + latex_escape(build_datetime) + tp['author_suffix'] + latex_escape(author_name) + r'\par}' '\n'
+        + r'\restoregeometry' '\n'
+        + r'\end{titlepage}' '\n'
+        + r'\frontmatter' '\n'
+        + r'\tableofcontents' '\n'
+        + r'\newpage' '\n'
     )
     
     # PDF TOC Scope: Inject virtual TOC entries for chapters that are in toc_scope but not in content_scope
@@ -441,7 +446,10 @@ def main():
 
     latex_doc = preamble + title_page + latex_body + '\n' + r'\end{document}' + '\n'
 
-    tex_filename = 'manuscript-preview.tex' if profile.is_preview else 'manuscript.tex'
+    tex_filename = (
+        'manuscript-preview.tex' if profile.is_preview
+        else f"{locale['pdf_stem']}.tex"
+    )
     with open(f'exports/{tex_filename}', 'w') as f:
         f.write(latex_doc)
     print(f'LaTeX source → exports/{tex_filename}')
@@ -465,7 +473,10 @@ def main():
         f.writelines(new_lines)
 
     # Compile with xelatex
-    pdf_path = 'preview/manuscript-preview.pdf' if profile.is_preview else 'exports/manuscript.pdf'
+    pdf_path = (
+        'preview/manuscript-preview.pdf' if profile.is_preview
+        else f"exports/{locale['pdf_stem']}.pdf"
+    )
     
     # Remove old PDF to avoid false success on xelatex failure
     if os.path.exists(pdf_path):

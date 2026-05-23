@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 8: Two Languages — Differentiating Measuring Devices and Differentiating Fields | Unmasking Div, Grad, and Curl</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+<style>
+  :root { --sidebar-width: 320px; }
+  html { color-scheme: light; background: #fff; }
+  body { margin: 0; display: flex; background: #fff; color: #24292f; line-height: 1.7; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .sidebar { width: var(--sidebar-width); height: 100vh; position: sticky; top: 0; background: #f8f9fa; color: #24292f; border-right: 1px solid #d0d7de; overflow-y: auto; padding: 1.5rem; box-sizing: border-box; flex-shrink: 0; }
+  .sidebar h2 { font-size: 1.2rem; border: none; margin-bottom: 0.5rem; color: #24292f; }
+  .sidebar .author { font-size: 0.8rem; color: #666; margin-bottom: 1.5rem; }
+  .sidebar .toc { font-size: 0.85rem; }
+  .sidebar .toc ul { list-style: none; padding-left: 0; margin: 0; }
+  .sidebar .toc li { margin-bottom: 0.4rem; }
+  .sidebar .toc .level-1 { font-weight: bold; margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 2px; }
+  .sidebar .toc .sub-toc { font-size: 0.8rem; margin-top: 0.5rem; padding-left: 0.8rem; border-left: 2px solid #eee; }
+  .sidebar .toc .sub-toc li { margin-bottom: 0.2rem; font-weight: normal; }
+  .sidebar .toc .sub-toc .level-3 { padding-left: 0.8rem; font-size: 0.75rem; color: #666; }
+  .sidebar a { text-decoration: none; color: #0969da; }
+  .sidebar a:hover { text-decoration: underline; }
+  .sidebar .active { color: #cf222e; font-weight: bold; }
+  .sidebar .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
+  .mobile-current { display: none; }
+  .mobile-toc-button { display: none; }
+  .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; background: #fff; color: #24292f; }
+  .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; color-scheme: light; background: #fff; color: #24292f; }
+  .markdown-body p, .markdown-body li { color: #24292f; }
+  @media (max-width: 900px) { 
+    body { flex-direction: column; } 
+    .sidebar { width: 100%; height: auto; position: sticky; top: 0; z-index: 10; padding: 0.75rem 1rem; border-right: none; border-bottom: 1px solid #d0d7de; box-shadow: 0 1px 8px rgba(27, 31, 36, 0.08); }
+    .sidebar h2 { margin: 0; font-size: 1rem; }
+    .sidebar .author { display: none; }
+    .sidebar .toc { display: none; }
+    .mobile-current { display: block; margin-top: 0.35rem; font-size: 0.85rem; color: #57606a; }
+    .mobile-current strong { color: #cf222e; }
+    .mobile-toc-button { display: inline-block; margin-top: 0.35rem; font-size: 0.85rem; }
+    .main-content { padding: 1rem; } 
+    .markdown-body { padding: 0.5rem; }
+  }
+  blockquote { border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }
+  blockquote p { color: #57606a; }
+  .table-wrapper { overflow-x: auto; margin: 1.5em 0; }
+  .markdown-body table { border-collapse: collapse; width: 100%; font-size: 0.9em; background: #fff; }
+  .markdown-body th, .markdown-body td { border: 1px solid #d0d7de; padding: 6px 13px; color: #24292f !important; }
+  .markdown-body tr:nth-child(even) { background-color: #f6f8fa !important; }
+  th { font-weight: 600; background-color: #f6f8fa; }
+  code, pre { color: #24292f; background-color: #f6f8fa; }
+  .nav-buttons { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }
+  .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
+  .nav-buttons a:hover { background: #f6f8fa; }
+  strong { font-weight: 800 !important; color: #000; }
+  blockquote strong { color: #24292f !important; }
+  /* KaTeX responsiveness */
+  .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }
+  .full-toc h2 { font-size: 1.1rem; margin: 1.5em 0 0.3em; padding-bottom: 2px; border-bottom: 1px solid #d0d7de; }
+  .full-toc h2 a { color: #24292f; text-decoration: none; }
+  .full-toc h2 a:hover { color: #0969da; }
+  .full-toc h2 .disabled-link { color: #8c959f; cursor: not-allowed; }
+  .full-toc ul { list-style: none; padding-left: 1.5rem; margin: 0.3em 0 0; }
+  .full-toc li { margin-bottom: 0.2rem; font-size: 0.9rem; }
+  .full-toc .level-3 { padding-left: 1rem; font-size: 0.8rem; color: #57606a; }
+  .full-toc a { color: #0969da; text-decoration: none; }
+  .full-toc a:hover { text-decoration: underline; }
+  .full-toc .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
+  .full-toc .part-header { font-size: 1.1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }
+  .full-toc .toc-part-chapters { padding-left: 1.5rem; }
+  .full-toc .toc-part-chapters h3 { font-size: 0.95rem; margin: 0.5em 0 0.2em; }
+  .full-toc .toc-part-chapters h3 a { color: #24292f; }
+  .full-toc .toc-part-chapters ul { padding-left: 1.5rem; }
+  .site-footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #d0d7de; font-size: 0.8rem; color: #57606a; }
+  .site-footer a { color: #0969da; text-decoration: none; }
+  .site-footer a:hover { text-decoration: underline; }
+</style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ],
+            throwOnError : false
+        });
+    });
+</script>
+
+</head>
+<body>
+  <nav class="sidebar">
+    <h2><a href="index.html">Unmasking Div, Grad, and Curl</a></h2>
+    <div class="author">
+      Author: yokiikoy<br>
+      <a href="https://covectorspace.xyz/en/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a><br>
+      <a href="../index.html" style="font-size: 0.75rem; color: #666; text-decoration: none;">Japanese edition</a>
+    </div>
+    <div class="mobile-current">Current: <strong>Chapter 8: Two Languages — Differentiating Measuring Devices and Differentiating Fields</strong></div>
+    <a class="mobile-toc-button" href="toc.html">Open contents</a>
+    <div class="toc">
+      <ul>
+<li class="level-1"><a href="toc.html" id="link-toc.html">Contents</a></li>
+<li class="level-1"><a href="index.html" id="link-index.html">Preface</a></li>
+<li class="level-1"><a href="intro.html" id="link-intro.html">Introduction</a></li>
+<li class="level-1"><a href="portal.html" id="link-portal.html">Portal Site and a Small Experiment</a></li>
+<li class="level-1"><a href="ch01.html" id="link-ch01.html">Chapter 1</a></li>
+<li class="level-1"><a href="ch02.html" id="link-ch02.html">Chapter 2</a></li>
+<li class="level-1"><a href="ch03.html" id="link-ch03.html">Chapter 3</a></li>
+<li class="level-1"><a href="ch04.html" id="link-ch04.html">Chapter 4</a></li>
+<li class="level-1"><a href="ch05.html" id="link-ch05.html">Chapter 5</a></li>
+<li class="level-1"><a href="ch06.html" id="link-ch06.html">Chapter 6</a></li>
+<li class="level-1"><a href="ch07.html" id="link-ch07.html">Chapter 7</a></li>
+<li class="level-1"><a href="ch08.html" class="active" id="link-ch08.html">Chapter 8</a><ul class="sub-toc"><li class="level-3"><a href="#§8.0-The-Highlight-of-This-Book">§8.0 The Highlight of This Book</a></li><li class="level-3"><a href="#§8.2-Completing-the-Translation-Dictionary">§8.2 Completing the Translation Dictionary</a></li><li class="level-3"><a href="#§8.3-Translating-Stokes'-Theorem">§8.3 Translating Stokes' Theorem</a></li><li class="level-3"><a href="#§8.4-Translating-Gauss'-Theorem">§8.4 Translating Gauss' Theorem</a></li><li class="level-3"><a href="#§8.5-Why-the-Two-Languages-Agree">§8.5 Why the Two Languages Agree</a></li><li class="level-3"><a href="#§8.6-Curvilinear-Coordinates-and-the-Two-Routes">§8.6 Curvilinear Coordinates and the Two Routes</a></li></ul></li>
+<li class="level-1"><a href="ch09.html" id="link-ch09.html">Chapter 9</a></li>
+<li class="level-1"><a href="ch10.html" id="link-ch10.html">Chapter 10</a></li>
+<li class="level-1"><a href="ch11.html" id="link-ch11.html">Chapter 11</a></li>
+<li class="level-1"><a href="ch12.html" id="link-ch12.html">Chapter 12</a></li>
+<li class="level-1"><a href="postscript.html" id="link-postscript.html">Afterword</a></li>
+<li class="level-1"><a href="refs.html" id="link-refs.html">References (with Comments from the Author)</a></li>
+<li class="level-1"><a href="appendix.html" id="link-appendix.html">Appendix</a></li>
+</ul>
+    </div>
+  </nav>
+  <main class="main-content">
+    <article class="markdown-body">
+<h1 id="Chapter-8:-Two-Languages-—-Differentiating-Measuring-Devices-and-Differentiating-Fields">Chapter 8: Two Languages — Differentiating Measuring Devices and Differentiating Fields</h1>
+<h3 id="§8.0-The-Highlight-of-This-Book">§8.0 The Highlight of This Book</h3>
+<p>It has been a long road. In Chapter 1 we defined $dx$ as a row vector; in Chapter 2 we built area-measuring devices and volume-measuring devices; in Chapter 3 we rebuilt integration; in Chapter 5 we obtained the exterior derivative $d$; in Chapter 6 we acquired the metric $g$ and the Hodge star $\ast$; and in Chapter 7 we finally defined $\nabla$ head-on and unfolded vector analysis all at once.
+</p>
+<p>From here on, there is no holding back. $d$, $\ast$, and $\nabla$—all the tools are in hand. We no longer need to warn, “for readers who already know vector analysis,” whenever we invoke the vocabulary of vector analysis. $\nabla$ became a proper resident of this book in Chapter 7.
+</p>
+<p>This chapter is the <strong>highlight</strong> of the book. The central translation itself is surprisingly short. At the end, however, to move on to the practical chapter that follows, we will take a single look at how this dictionary behaves in curvilinear coordinates. The painstaking preparation from Chapters 1 through 7—matrices, wedge products, the exterior derivative, the metric, the Hodge star, and vector analysis—was all for that purpose. Because all these tools are now assembled, in this chapter we need only “translate,” and two worlds fit into one picture. We have acquired two languages—the differential of measuring devices ($d$) and the differential of fields ($\nabla$). These two do fundamentally different things. Yet when they are linked through integration, they give exactly the same results. We will now dig thoroughly into how that works.
+</p>
+<h3 id="§8.2-Completing-the-Translation-Dictionary">§8.2 Completing the Translation Dictionary</h3>
+<p>In Chapter 6 §6.5 we introduced the correspondences $\mathrm{grad}=d$, $\mathrm{curl}=\ast d$, and $\mathrm{div}=\ast d\ast$. Here we align this dictionary with the language of $\nabla$ and organize it in complete form. What we complete here is the translation dictionary used within three-dimensional Euclidean space and the matrix representation of this book.
+</p>
+<p>In the dictionary below, the $1$-form corresponding to a vector field
+</p>
+$$
+\mathbf{F}
+=
+\begin{pmatrix}
+F_x\\
+F_y\\
+F_z
+\end{pmatrix}
+$$
+<p>is read using the metric $g$ as
+</p>
+$$
+\omega=\mathbf{F}^T g
+$$
+<p>In Cartesian coordinates $g=I$, so
+</p>
+$$
+\omega
+=
+\begin{pmatrix}
+F_x & F_y & F_z
+\end{pmatrix}
+=
+F_x\,dx+F_y\,dy+F_z\,dz
+$$
+<p>In orthogonal Cartesian coordinates the components look the same, but this does not mean they are the same object. A vector field is a column vector; a $1$-form is a row vector; and the correspondence between them involves the metric $g$.
+</p>
+<h4 id="8.2.1-Gradient">8.2.1 Gradient</h4>
+$$
+\mathrm{grad}\,f = \nabla f
+\quad\longleftrightarrow\quad
+df = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy + \frac{\partial f}{\partial z}dz
+$$
+<p>$\nabla f$ is a <strong>column vector</strong>; $df$ is a <strong>row vector</strong>. In Cartesian coordinates the components look the same, but the types differ. In the notation of Chapter 6, to read $df$ as the corresponding column vector we use $g^{-1}(df)^T$. In Cartesian coordinates $g=I$, so its components agree with the usual $\nabla f$.
+</p>
+<h4 id="8.2.2-Curl">8.2.2 Curl</h4>
+$$
+\mathrm{curl}\,\mathbf{F} = \nabla \times \mathbf{F}
+\quad\longleftrightarrow\quad
+\ast d\omega
+$$
+<p>$\nabla\times\mathbf{F}$ is a <strong>column vector</strong>; $d\omega$ is a <strong>$2$-form (antisymmetric matrix)</strong>; and $\ast d\omega$ is a <strong>$1$-form (row vector)</strong>. To compare it directly with the column-vector display of $\nabla\times\mathbf F$, we again read the $1$-form $\ast d\omega$ back through the metric as $g^{-1}(\ast d\omega)^T$. Curl is a two-stage operation: "raise the degree by the exterior derivative, then bring the degree back down with the Hodge star."
+</p>
+<p>The $x$-component $\frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z}$ of $\nabla\times\mathbf{F}$ agrees with the coefficient of $dx$ in $\ast d\omega$. This is exactly the correspondence confirmed in Chapter 6.
+</p>
+<h4 id="8.2.3-Divergence">8.2.3 Divergence</h4>
+$$
+\mathrm{div}\,\mathbf{F} = \nabla \cdot \mathbf{F}
+\quad\longleftrightarrow\quad
+\ast d \ast \omega
+$$
+<p>$\nabla\cdot\mathbf{F}$ is a <strong>scalar field</strong>; $\ast d\ast\omega$ is also a <strong>$0$-form (scalar field)</strong>. Divergence is a three-stage operation: "turn it into a $2$-form with the Hodge star, raise it to a $3$-form by the exterior derivative, then drop it back to a scalar with the Hodge star again."
+</p>
+<h4 id="8.2.4-Summary-Table-of-the-Dictionary">8.2.4 Summary Table of the Dictionary</h4>
+<div class="table-wrapper"><table>
+<thead><tr>
+<th>Operation</th>
+<th>Vector analysis side</th>
+<th>Differential forms (measuring device) side</th>
+<th>To read back as a vector field</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Gradient</td>
+<td>$\mathrm{grad}\,f$</td>
+<td>$df$</td>
+<td>$g^{-1}(df)^T$</td>
+</tr>
+<tr>
+<td>Curl</td>
+<td>$\mathrm{curl}\,\mathbf{F}$</td>
+<td>$\ast d\omega$</td>
+<td>$g^{-1}(\ast d\omega)^T$</td>
+</tr>
+<tr>
+<td>Divergence</td>
+<td>$\mathrm{div}\,\mathbf{F}$</td>
+<td>$\ast d\ast\omega$</td>
+<td>as-is $0$-form</td>
+</tr>
+</tbody>
+</table></div>
+<p>The more times $\ast$ is used, the higher the "translation cost" between $\nabla$ notation and $d,\ast$ notation.
+ Here $\omega=\mathbf{F}^Tg$. For the gradient, $\ast$ appears zero times, but converting $df$ to the usual gradient vector requires the metric conversion $g^{-1}(df)^T$. For curl, $\ast$ appears once; for divergence, twice. This translation dictionary built from the metric $g$ and $\ast$ was the reason we felt in Chapter 7 §7.7 that "differential forms are messy."
+</p>
+<blockquote>
+<p><strong>Checkpoint so far — §8.2</strong></p>
+<p>- $\nabla f \leftrightarrow df$, $\nabla\times\mathbf{F} \leftrightarrow \ast d\omega$, $\nabla\cdot\mathbf{F} \leftrightarrow \ast d\ast\omega$.</p>
+<p>- Number of $\ast$ uses: gradient $0$, curl $1$, divergence $2$. This translation cost is the real source of the impression that "differential forms are messy."</p>
+</blockquote>
+<hr />
+<h3 id="§8.3-Translating-Stokes'-Theorem">§8.3 Translating Stokes' Theorem</h3>
+<p>In Chapter 5 §5.6 we already derived Stokes' theorem in the form $\int_{\partial S}\omega = \int_S d\omega$. In Chapter 7 §7.8.1 we wrote the same theorem in the language of $\nabla$ as $\oint_C \mathbf{F}\cdot d\mathbf{r} = \iint_S (\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS$. We now confirm that these two are the same thing, using the dictionary of §8.2.
+</p>
+<h4 id="8.3.1-From-__MATH_BLOCK_95__-to-__MATH_BLOCK_96__">8.3.1 From $\nabla$ to $d$</h4>
+<p>Start with Stokes' theorem in $\nabla$ notation.
+</p>
+$$\oint_C \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdot \mathbf{n}\,dS$$
+<p>The left-hand side $\oint_C \mathbf{F}\cdot d\mathbf{r}$ is the line integral of the vector field $\mathbf{F}$ along the curve $C$. If we let the $1$-form corresponding to $\mathbf{F}$ be $\omega = F_x\,dx + F_y\,dy + F_z\,dz$, then by the definition of Chapter 3 this equals $\int_C \omega$.
+</p>
+$$\oint_C \mathbf{F} \cdot d\mathbf{r} = \int_{\partial S} \omega$$
+<p>The right-hand side $\iint_S (\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS$ is the surface integral of the normal component of the curl. Here we read a surface integral of the normal component of a vector field as the surface integral of the corresponding $2$-form. Using the dictionary $\nabla\times\mathbf{F} \leftrightarrow \ast d\omega$, $(\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS$ corresponds to the surface integral of the $2$-form $\ast(\ast d\omega) = d\omega$ (the $\ast$'s cancel by $\ast\ast = \mathrm{id}$).
+</p>
+$$\iint_S (\nabla \times \mathbf{F}) \cdot \mathbf{n}\,dS = \int_S d\omega$$
+<p>Therefore,
+</p>
+$$\int_{\partial S} \omega = \int_S d\omega$$
+<p>This is exactly the formula obtained in Chapter 5 §5.6. Stokes' theorem in the world of $\nabla$, once translated through the dictionary into the language of $d$, becomes nothing but $\int_{\partial M}\omega = \int_M d\omega$.
+</p>
+<h4 id="8.3.2-Round-Trip-Translation-—-Either-Direction-Works">8.3.2 Round-Trip Translation — Either Direction Works</h4>
+<p>The reverse direction works too. Apply the dictionary in reverse to an expression written in the language of $d$, and we return to the language of $\nabla$. That this bidirectional translation is free is precisely the greatest achievement of introducing $\ast$ in Chapter 6.
+</p>
+<blockquote>
+<p><strong>Note</strong> (Which language should you think in?) The short answer: it depends on the problem. When the boundary shape is simple and the field has high symmetry, $\nabla$ notation gives better visibility. On the other hand, when coordinates are distorted or you want to keep the "type" of the field clearly separated, $d,\ast$ notation has the advantage. What matters is being able to use both languages.</p>
+</blockquote>
+<blockquote>
+<p><strong>Aside</strong> (My honest opinion) In the main text I wrote that "one should use the two languages as the problem demands." That is the public line for the reader. Personally, I think in the language of $d,\ast$ whenever I can. The reason is that $\nabla$ notation is convenient for calculation, but it collapses the type differences among gradient, curl, and divergence into the same arrows and scalars. The aim of this book is not to ban vector analysis, but to bring the type conversions that go on implicitly behind it out into the open.</p>
+</blockquote>
+<hr />
+<h3 id="§8.4-Translating-Gauss'-Theorem">§8.4 Translating Gauss' Theorem</h3>
+<p>Gauss' theorem from Chapter 7 §7.8.2 can likewise be translated.
+</p>
+$$\oiint_{\partial V} \mathbf{F} \cdot \mathbf{n}\,dS = \iiint_V (\nabla \cdot \mathbf{F})\,dV$$
+<p>The surface integral on the left can be written as $\int_{\partial V} \ast\omega$ using the $1$-form $\omega$ corresponding to $\mathbf{F}$ ($\ast\omega$ is a $2$-form and is the object of the surface integral on a closed surface).
+</p>
+<p>By the dictionary, the divergence itself corresponds to the $0$-form $\ast d\ast\omega$. To integrate it over $V$, we must read this scalar as the corresponding $3$-form. Applying $\ast$ once more gives $d\ast\omega$, so the volume integral is $\int_V d\ast\omega$.
+</p>
+<p>In the end, Gauss' theorem is translated into the following form.
+</p>
+$$\int_{\partial V} \ast\omega = \int_V d\ast\omega$$
+<p>Setting $\eta = \ast\omega$ ($2$-form),
+</p>
+$$\int_{\partial V} \eta = \int_V d\eta$$
+<p>This is exactly the expression of Gauss' theorem obtained in Chapter 5 §5.7 written in the language of $d$. And this formula is already consolidated in §5.9.1 as the $k=2$ case of $\int_{\partial M}\omega = \int_M d\omega$.
+</p>
+<h4 id="8.4.1-Three-Theorems,-One-Formula">8.4.1 Three Theorems, One Formula</h4>
+<p>The three integral theorems arranged separately in Chapter 7—Green, Stokes, and Gauss—indeed had different faces in the language of $\nabla$. But translated into the language of $d$, all become the same formula, with only the value of $k$ differing in $\int_{\partial M}\omega = \int_M d\omega$.
+</p>
+<div class="table-wrapper"><table>
+<thead><tr>
+<th>$k$</th>
+<th>$\partial M$</th>
+<th>$M$</th>
+<th>Theorem</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$0$</td>
+<td>$B-A$ (two points)</td>
+<td>curve</td>
+<td>fundamental theorem of calculus</td>
+</tr>
+<tr>
+<td>$1$</td>
+<td>closed curve</td>
+<td>surface</td>
+<td>Stokes (including Green)</td>
+</tr>
+<tr>
+<td>$2$</td>
+<td>closed surface</td>
+<td>solid</td>
+<td>Gauss</td>
+</tr>
+</tbody>
+</table></div>
+<p>$k$ is all that differs. There is no longer any reason to memorize three theorems separately. Remember only $\int_{\partial M}\omega = \int_M d\omega$, and then apply it according to the dimension of $M$.
+</p>
+<blockquote>
+<p><strong>Checkpoint so far — §8.3–§8.4</strong></p>
+<p>- Stokes' theorem in $\nabla$ notation reduces to $\int_{\partial S}\omega = \int_S d\omega$ once the dictionary is applied.</p>
+<p>- Gauss' theorem in $\nabla$ notation reduces to $\int_{\partial V}\eta = \int_V d\eta$ once the dictionary is applied.</p>
+<p>- Both are merely the same $\int_{\partial M}\omega = \int_M d\omega$ with different $k$. The three theorems are different manifestations of one formula.</p>
+</blockquote>
+<hr />
+<h3 id="§8.5-Why-the-Two-Languages-Agree">§8.5 Why the Two Languages Agree</h3>
+<p>In Chapter 6 §6.3.1 we introduced two ways to obtain scalars. In §8.1 we contrasted them as the world of $d$ and the world of $\nabla$. Here we do not repeat that explanation. Building on the translations seen in §8.2–§8.4, we organize why the two languages give the same values upon integration.
+</p>
+<h4 id="8.5.1-The-Difference-Between-the-Two-Routes">8.5.1 The Difference Between the Two Routes</h4>
+<p>As seen in §8.1, $d$ and $\nabla$ are not doing the same thing. $d$ raises the degree of measuring devices, moving among $0$-forms, $1$-forms, $2$-forms, and $3$-forms. On the other hand, $\nabla$ produces scalar fields or column-vector fields from the same formal differential operator.
+</p>
+<p>That is, in the world of $d$, the degree of the measuring device changes, and in the world of $\nabla$ "what kind of field is produced" changes. This difference is the true nature of the problem seen in Chapter 7—that "everything looks like the same arrow."
+</p>
+<h4 id="8.5.2-Why-They-Agree">8.5.2 Why They Agree</h4>
+<p>Routes ① and ② are <strong>fundamentally different</strong> in what they do. One changes the measuring-device side; the other creates new fields. The operations differ, and so do the kinds of objects that appear.
+</p>
+<p>Yet they agree upon integration. For example, when line-integrating the change of a scalar field $f$, whether we use $df$ (a row-vector measuring device) or $\nabla f$ (a column-vector arrow), the result in both cases is $f(B)-f(A)$.
+</p>
+$$\int_C df = \int_C \nabla f \cdot d\mathbf{r} = f(B) - f(A)$$
+<p>The middle equality uses the metric identification between $df$ and $\nabla f$ discussed in §8.2.
+</p>
+<p>Why? Because the metric $g$ and $\ast$ connect the two. An "arrow" like $\nabla f$ and a "measuring device" like $df$ are different types. In Cartesian coordinates $g=I$, so they look like the same components, but in general they are paired via the row/column conversion induced by $g$. Passing through this conversion is what makes the corresponding integral quantities agree.
+</p>
+<p>And because $\ast\ast = \mathrm{id}$, no information is lost no matter how many times we go back and forth through the conversion. This freedom of round-trip translation is precisely the power of being able to speak both languages.
+</p>
+<blockquote>
+<p><strong>Remark</strong> (Choosing between the two routes — my position) I go back and forth between both routes according to the problem. In highly symmetric systems I use $\nabla$ for clarity; in systems where coordinates are distorted or field types are entangled, I translate into $d,\ast$ to check type consistency. There is no need to fixate on one or the other. What matters is keeping the translation dictionary in mind.</p>
+</blockquote>
+<blockquote>
+<p><strong>Checkpoint so far — §8.5</strong></p>
+<p>| | <strong>Language of $d$</strong> | <strong>Language of $\nabla$</strong> |</p>
+<p>|:---|:---|:---|</p>
+<p>| <strong>Operation</strong> | exterior derivative $d$ | nabla $\nabla$ |</p>
+<p>| <strong>Change</strong> | the degree of measuring devices changes | new fields arise from the same formal differential operator |</p>
+<p>| <strong>Result</strong> | measuring devices such as $1$-forms, $2$-forms, $3$-forms | scalar fields and column-vector fields |</p>
+<p>What supports agreement upon integration is the translation dictionary built from the metric $g$ and $\ast$. Round-trip translation is free thanks to $\ast\ast=\mathrm{id}$.</p>
+</blockquote>
+<hr />
+<h3 id="§8.6-Curvilinear-Coordinates-and-the-Two-Routes">§8.6 Curvilinear Coordinates and the Two Routes</h3>
+<p>From here on is the gateway to the practical part of Chapter 9. The full computational exercises come in the next chapter, but first we confirm once that the dictionary can be built mechanically even when it leaves Cartesian coordinates.
+</p>
+<p>The dictionary of §8.2 assumed Cartesian coordinates $(x,y,z)$ with $\mathbf{g}=I$. In a general coordinate system the metric $g = J^T J$ is no longer the identity matrix, and the $\ast$ dictionary changes as well. Here we use cylindrical coordinates as an example to see how the dictionary changes, and then run through the difference between the two languages organized in §8.5. We first state the three-dimensional cylindrical dictionary, then restrict to the two-dimensional polar plane for the worked divergence example.
+</p>
+<h4 id="8.6.1-The-Dictionary-Changes-with-the-Metric">8.6.1 The Dictionary Changes with the Metric</h4>
+<p>In Chapter 6 §6.1.3 we derived the metric for cylindrical coordinates.
+</p>
+$$\mathbf{g} = \begin{pmatrix} 1 & 0 & 0 \\ 0 & r^2 & 0 \\ 0 & 0 & 1 \end{pmatrix}$$
+<p>How does this $\mathbf{g} \neq I$ affect the $\ast$ dictionary? In Cartesian coordinates we had $\ast(dx) = dy \wedge dz$. Taking the basis $1$-forms of cylindrical coordinates as $(dr, d\theta, dz)$, the $\ast$ dictionary changes as follows:
+</p>
+$$\begin{aligned}
+\ast(dr) &= r\,d\theta \wedge dz \\
+\ast(d\theta) &= \frac{1}{r}\,dz \wedge dr \\
+\ast(dz) &= r\,dr \wedge d\theta
+\end{aligned}$$
+<p>The coefficients $r$ and $1/r$ are determined from the diagonal components $1, r^2, 1$ of $\mathbf{g} = J^T J$. The $\ast$ dictionary carries location-dependent coefficients that reflect the metric at each point.
+</p>
+<h4 id="8.6.2-Trying-Out-the-Two-Routes">8.6.2 Trying Out the Two Routes</h4>
+<p>That the dictionary changes means the difference between the two routes contrasted in §8.1 shows up in concrete calculations. Here we actually solve the same problem by both routes. The problem is "find the divergence at a point in the plane."
+</p>
+<blockquote>
+<p><strong>Note</strong> (Thinking in two dimensions) Since Chapter 1, whenever we treated two-dimensional problems we stated $z=0$. By now, readers who have come this far probably no longer need such a disclaimer. Below we proceed using only the plane $(x,y)$ and its polar coordinates $(r,\theta)$.</p>
+</blockquote>
+<p><strong>Route ①—pull back the measuring device and let the form side carry the coordinate change.</strong>
+</p>
+<p>Prepare parameter space $(r,\theta)$ and physical space $(x,y)$—two sheets of Cartesian coordinate paper. On the parameter-space sheet, an identical square grid is laid out everywhere. On this square grid we perform our measurements.
+</p>
+<p>A vector field $\mathbf{F}$ with components $F_x,F_y$ lives in physical space. We <strong>pull back</strong> its measuring device $\omega = F_x\,dx + F_y\,dy$ onto the parameter-space sheet. Pullback is the operation of recasting a physical-space measuring device into the language of parameter space. It goes opposite to the map $\phi: (r,\theta) \to (x,y)$ that sends into physical space—bringing the measuring device back. Using $dx = \cos\theta\,dr - r\sin\theta\,d\theta$, $dy = \sin\theta\,dr + r\cos\theta\,d\theta$,
+</p>
+$$\tilde{\omega} = F_r\,dr + (r F_\theta)\,d\theta$$
+<p>is obtained.
+</p>
+<blockquote>
+<p><strong>Note</strong> (Orthonormal components and form coefficients) In vector analysis, $\mathbf{F}$ is expressed by components $(F_r, F_\theta)$ with respect to unit arrows. But the natural basis of differential forms is the coordinate differentials $(dr, d\theta)$, and the tick spacing in the $d\theta$ direction differs by a factor of $r$ from place to place. Hereafter in this section, when we write $F_\theta$ we mean the component in the orthonormal direction used in vector analysis—not the coefficient on $d\theta$ itself. When we write $\tilde{\omega} = F_r\,dr + \tilde{F}_\theta\,d\theta$, the form coefficient $\tilde{F}_\theta$ is $r F_\theta$, which differs in both dimension and value from the vector-analysis component $F_\theta$. This difference is what produces the visual gap between the formulas of Route ① and Route ②.</p>
+</blockquote>
+<p>From here on it is the mechanical computation of $\ast d\ast$. From the polar metric $\mathbf{g} = \begin{pmatrix} 1 & 0 \\ 0 & r^2 \end{pmatrix}$, the $\ast$ dictionary becomes $\ast(dr) = r\,d\theta$, $\ast(d\theta) = -\frac{1}{r}\,dr$ (the two-dimensional version of §8.6.1). $d$ simply picks up partial-derivative coefficients as they are; the metric factors are handled by $\ast$, not inserted into $d$ by hand.
+</p>
+$$\begin{aligned}
+\ast\tilde{\omega} &= F_r \cdot r\,d\theta + (r F_\theta) \cdot \left(-\frac{1}{r}\,dr\right) = r F_r\,d\theta - F_\theta\,dr \\[0.3em]
+d\ast\tilde{\omega} &= \left(\frac{\partial}{\partial r}(r F_r) + \frac{\partial F_\theta}{\partial \theta}\right) dr \wedge d\theta \\[0.3em]
+\ast d\ast\tilde{\omega} &= \frac{1}{r}\frac{\partial}{\partial r}(r F_r) + \frac{1}{r}\frac{\partial F_\theta}{\partial \theta}
+\end{aligned}$$
+<p>The $\frac{1}{r}$ appeared only in the single place $\ast(dr\wedge d\theta) = \frac{1}{r}$ at the end. The $r$ and $\frac{1}{r}$ in the middle cancel—the $r$ attached to the $d\theta$ coefficient and the $\frac{1}{r}$ in $\ast(d\theta)$. $\ast$ takes on all the metric information at once, and $d$ is responsible purely for partial differentiation—this division of labor is the greatest strength of Route ①.
+</p>
+<p>In parameter space we can keep thinking of the measurement grid as uniform. Differences in conversion factors from place to place are woven in by the pullback, and $\ast$ sorts them out. Limit operations can be carried out all at once at the end.
+</p>
+<p><strong>Route ②—draw the physical infinitesimal piece and count flux directly.</strong>
+</p>
+<p>This time use a single sheet of graph paper in physical space. On polar coordinates $(r,\theta)$, draw a small area element centered at the point $(r,\theta)$ directly. It is a small piece with width $\Delta r$ in the $r$ direction and $\Delta\theta$ in the $\theta$ direction. Here <strong>$\Delta r$ and $\Delta\theta$ must be infinitesimal</strong>—because of the angle, a finite $\Delta\theta$ would make the radial edges non-parallel, so the piece would not be a simple rectangle.
+</p>
+<p>This small piece is part of a sector. The length of the inner edge in the $\theta$ direction is $r\Delta\theta$, the outer edge is $(r+\Delta r)\Delta\theta$, and the edges grow longer as $r$ grows larger. A vector field $\mathbf{F}$ with components $F_r,F_\theta$ passes through the four sides of this piece; we account for the flux through each side one by one.
+</p>
+<p>$r$ direction: from the inner edge $-F_r(r,\theta) \cdot r\Delta\theta$ flows in, from the outer edge $+F_r(r+\Delta r,\theta) \cdot (r+\Delta r)\Delta\theta$ flows out. Dividing the difference by $\Delta r$ and then by the area $r\Delta r\Delta\theta$ and taking the limit yields $\frac{1}{r}\frac{\partial}{\partial r}(rF_r)$.
+</p>
+<p>$\theta$ direction: from the $\theta$ side $-F_\theta(r,\theta) \cdot \Delta r$ flows in, from the $\theta+\Delta\theta$ side $+F_\theta(r,\theta+\Delta\theta) \cdot \Delta r$ flows out. Processing similarly yields $\frac{1}{r}\frac{\partial F_\theta}{\partial\theta}$.
+</p>
+$$\nabla \cdot \mathbf{F} = \frac{1}{r}\frac{\partial}{\partial r}(r F_r) + \frac{1}{r}\frac{\partial F_\theta}{\partial \theta}$$
+<p>Draw the small piece directly in physical space and count the flow through the walls—the picture is intuitive. But whenever the coordinate system changes, the shape of the small piece changes and we are forced into a different accounting each time. The $\frac{1}{r}$ in $\frac{1}{r}\frac{\partial}{\partial r}(rF_r)$ appears because we divide by the sector area $r\Delta r\Delta\theta$, but this term did not appear when we did the same calculation in Cartesian coordinates.
+</p>
+<p><strong>Neither is superior</strong>
+</p>
+<p>Route ① measures on a uniform square grid; Route ② draws a sector piece and counts flow. What they do is completely different. Yet the answer is the same: $\frac{1}{r}\frac{\partial}{\partial r}(rF_r) + \frac{1}{r}\frac{\partial F_\theta}{\partial\theta}$. And this agreement is not limited to divergence. Gradient, curl, and Laplacian—all differential operators can be built by these two routes. For a simple coordinate change, Route ② may be faster, but when the coordinate system is distorted or the types of fields become intertwined, switch to Route ①.
+</p>
+<h4 id="8.6.3-Divergence-and-Curl-in-Curvilinear-Coordinates">8.6.3 Divergence and Curl in Curvilinear Coordinates</h4>
+<p>Combining the dictionary of §8.6.1 with Route ① of §8.6.2, the formulas for divergence and curl in cylindrical coordinates can be derived mechanically. Here $F_r,F_\theta,F_z$ are the orthonormal components in cylindrical coordinates. We show only the results.
+</p>
+$$\nabla \cdot \mathbf{F} = \frac{1}{r}\frac{\partial}{\partial r}(r F_r) + \frac{1}{r}\frac{\partial F_\theta}{\partial \theta} + \frac{\partial F_z}{\partial z}$$
+$$\nabla \times \mathbf{F} = \begin{pmatrix}
+\frac{1}{r}\frac{\partial F_z}{\partial \theta} - \frac{\partial F_\theta}{\partial z} \\[0.3em]
+\frac{\partial F_r}{\partial z} - \frac{\partial F_z}{\partial r} \\[0.3em]
+\frac{1}{r}\frac{\partial}{\partial r}(r F_\theta) - \frac{1}{r}\frac{\partial F_r}{\partial \theta}
+\end{pmatrix}$$
+<p>Memorizing these formulas is exhausting. But if we think in terms of the combination of $d$ and $\ast$ in $\ast d\ast\omega$, we can derive the $\ast$ dictionary on the spot from $g = J^T J$ and compute mechanically. In Chapter 9 we put this technique of "building the dictionary on the spot" into practice.
+</p>
+<blockquote>
+<p><strong>Checkpoint so far — Chapter 8 as a whole</strong></p>
+<p>- $d$ and $\nabla$ stand on fundamentally different worldviews, but they agree in integration. $d$ changes the degree of measuring devices; $\nabla$ builds scalar fields and column vector fields from the same formal differential operator.</p>
+<p>- Through the dictionary $\nabla f \leftrightarrow df$, $\nabla\times\mathbf{F} \leftrightarrow \ast d\omega$, $\nabla\cdot\mathbf{F} \leftrightarrow \ast d\ast\omega$, the two can be translated freely.</p>
+<p>- With the single formula $\int_{\partial M}\omega = \int_M d\omega$, we can unify the fundamental theorem of calculus, Stokes, and Gauss.</p>
+<p>- The $\ast$ dictionary depends on the metric $g = J^T J$; in curvilinear coordinates, coefficients such as $r$ and $1/r$ appear.</p>
+<p>- What matters is not clinging to one language but using the two languages as the problem demands. You already have the dictionary for that. In Chapter 9 we build this dictionary on the spot and apply it to real problems.</p>
+</blockquote>
+      <div class="nav-buttons">
+        <a href="ch07.html">← Chapter 7...</a>
+        <a href="ch09.html">Chapter 9... →</a>
+      </div>
+    </article>
+    <footer class="site-footer">
+      <p>&copy; 2026 yokiikoy. CC BY-NC 4.0. For the latest edition, PDF, revision history, related information, and content beyond this book, see the portal site <a href="https://covectorspace.xyz/en/">Project Co-Vector Space</a>.</p>
+    </footer>
+  </main>
+</body>
+</html>

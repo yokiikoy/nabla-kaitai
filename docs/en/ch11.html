@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 11: Toward Curved Spaces — What Lies Beyond This Book | Unmasking Div, Grad, and Curl</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+<style>
+  :root { --sidebar-width: 320px; }
+  html { color-scheme: light; background: #fff; }
+  body { margin: 0; display: flex; background: #fff; color: #24292f; line-height: 1.7; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .sidebar { width: var(--sidebar-width); height: 100vh; position: sticky; top: 0; background: #f8f9fa; color: #24292f; border-right: 1px solid #d0d7de; overflow-y: auto; padding: 1.5rem; box-sizing: border-box; flex-shrink: 0; }
+  .sidebar h2 { font-size: 1.2rem; border: none; margin-bottom: 0.5rem; color: #24292f; }
+  .sidebar .author { font-size: 0.8rem; color: #666; margin-bottom: 1.5rem; }
+  .sidebar .toc { font-size: 0.85rem; }
+  .sidebar .toc ul { list-style: none; padding-left: 0; margin: 0; }
+  .sidebar .toc li { margin-bottom: 0.4rem; }
+  .sidebar .toc .level-1 { font-weight: bold; margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 2px; }
+  .sidebar .toc .sub-toc { font-size: 0.8rem; margin-top: 0.5rem; padding-left: 0.8rem; border-left: 2px solid #eee; }
+  .sidebar .toc .sub-toc li { margin-bottom: 0.2rem; font-weight: normal; }
+  .sidebar .toc .sub-toc .level-3 { padding-left: 0.8rem; font-size: 0.75rem; color: #666; }
+  .sidebar a { text-decoration: none; color: #0969da; }
+  .sidebar a:hover { text-decoration: underline; }
+  .sidebar .active { color: #cf222e; font-weight: bold; }
+  .sidebar .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
+  .mobile-current { display: none; }
+  .mobile-toc-button { display: none; }
+  .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; background: #fff; color: #24292f; }
+  .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; color-scheme: light; background: #fff; color: #24292f; }
+  .markdown-body p, .markdown-body li { color: #24292f; }
+  @media (max-width: 900px) { 
+    body { flex-direction: column; } 
+    .sidebar { width: 100%; height: auto; position: sticky; top: 0; z-index: 10; padding: 0.75rem 1rem; border-right: none; border-bottom: 1px solid #d0d7de; box-shadow: 0 1px 8px rgba(27, 31, 36, 0.08); }
+    .sidebar h2 { margin: 0; font-size: 1rem; }
+    .sidebar .author { display: none; }
+    .sidebar .toc { display: none; }
+    .mobile-current { display: block; margin-top: 0.35rem; font-size: 0.85rem; color: #57606a; }
+    .mobile-current strong { color: #cf222e; }
+    .mobile-toc-button { display: inline-block; margin-top: 0.35rem; font-size: 0.85rem; }
+    .main-content { padding: 1rem; } 
+    .markdown-body { padding: 0.5rem; }
+  }
+  blockquote { border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }
+  blockquote p { color: #57606a; }
+  .table-wrapper { overflow-x: auto; margin: 1.5em 0; }
+  .markdown-body table { border-collapse: collapse; width: 100%; font-size: 0.9em; background: #fff; }
+  .markdown-body th, .markdown-body td { border: 1px solid #d0d7de; padding: 6px 13px; color: #24292f !important; }
+  .markdown-body tr:nth-child(even) { background-color: #f6f8fa !important; }
+  th { font-weight: 600; background-color: #f6f8fa; }
+  code, pre { color: #24292f; background-color: #f6f8fa; }
+  .nav-buttons { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }
+  .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
+  .nav-buttons a:hover { background: #f6f8fa; }
+  strong { font-weight: 800 !important; color: #000; }
+  blockquote strong { color: #24292f !important; }
+  /* KaTeX responsiveness */
+  .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }
+  .full-toc h2 { font-size: 1.1rem; margin: 1.5em 0 0.3em; padding-bottom: 2px; border-bottom: 1px solid #d0d7de; }
+  .full-toc h2 a { color: #24292f; text-decoration: none; }
+  .full-toc h2 a:hover { color: #0969da; }
+  .full-toc h2 .disabled-link { color: #8c959f; cursor: not-allowed; }
+  .full-toc ul { list-style: none; padding-left: 1.5rem; margin: 0.3em 0 0; }
+  .full-toc li { margin-bottom: 0.2rem; font-size: 0.9rem; }
+  .full-toc .level-3 { padding-left: 1rem; font-size: 0.8rem; color: #57606a; }
+  .full-toc a { color: #0969da; text-decoration: none; }
+  .full-toc a:hover { text-decoration: underline; }
+  .full-toc .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
+  .full-toc .part-header { font-size: 1.1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }
+  .full-toc .toc-part-chapters { padding-left: 1.5rem; }
+  .full-toc .toc-part-chapters h3 { font-size: 0.95rem; margin: 0.5em 0 0.2em; }
+  .full-toc .toc-part-chapters h3 a { color: #24292f; }
+  .full-toc .toc-part-chapters ul { padding-left: 1.5rem; }
+  .site-footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #d0d7de; font-size: 0.8rem; color: #57606a; }
+  .site-footer a { color: #0969da; text-decoration: none; }
+  .site-footer a:hover { text-decoration: underline; }
+</style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ],
+            throwOnError : false
+        });
+    });
+</script>
+
+</head>
+<body>
+  <nav class="sidebar">
+    <h2><a href="index.html">Unmasking Div, Grad, and Curl</a></h2>
+    <div class="author">
+      Author: yokiikoy<br>
+      <a href="https://covectorspace.xyz/en/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a><br>
+      <a href="../index.html" style="font-size: 0.75rem; color: #666; text-decoration: none;">Japanese edition</a>
+    </div>
+    <div class="mobile-current">Current: <strong>Chapter 11: Toward Curved Spaces — What Lies Beyond This Book</strong></div>
+    <a class="mobile-toc-button" href="toc.html">Open contents</a>
+    <div class="toc">
+      <ul>
+<li class="level-1"><a href="toc.html" id="link-toc.html">Contents</a></li>
+<li class="level-1"><a href="index.html" id="link-index.html">Preface</a></li>
+<li class="level-1"><a href="intro.html" id="link-intro.html">Introduction</a></li>
+<li class="level-1"><a href="portal.html" id="link-portal.html">Portal Site and a Small Experiment</a></li>
+<li class="level-1"><a href="ch01.html" id="link-ch01.html">Chapter 1</a></li>
+<li class="level-1"><a href="ch02.html" id="link-ch02.html">Chapter 2</a></li>
+<li class="level-1"><a href="ch03.html" id="link-ch03.html">Chapter 3</a></li>
+<li class="level-1"><a href="ch04.html" id="link-ch04.html">Chapter 4</a></li>
+<li class="level-1"><a href="ch05.html" id="link-ch05.html">Chapter 5</a></li>
+<li class="level-1"><a href="ch06.html" id="link-ch06.html">Chapter 6</a></li>
+<li class="level-1"><a href="ch07.html" id="link-ch07.html">Chapter 7</a></li>
+<li class="level-1"><a href="ch08.html" id="link-ch08.html">Chapter 8</a></li>
+<li class="level-1"><a href="ch09.html" id="link-ch09.html">Chapter 9</a></li>
+<li class="level-1"><a href="ch10.html" id="link-ch10.html">Chapter 10</a></li>
+<li class="level-1"><a href="ch11.html" class="active" id="link-ch11.html">Chapter 11</a><ul class="sub-toc"><li class="level-3"><a href="#§11.0-The-Position-of-This-Chapter-—-A-Guidepost-for-Readers-Who-Want-to-Look-Further-Ahead">§11.0 The Position of This Chapter — A Guidepost for Readers Who Want to Look Further Ahead</a></li><li class="level-3"><a href="#§11.1-Manifolds-—-Starting-from-$\mathbf{g}(x)$">§11.1 Manifolds — Starting from $\mathbf{g}(x)$</a></li></ul></li>
+<li class="level-1"><a href="ch12.html" id="link-ch12.html">Chapter 12</a></li>
+<li class="level-1"><a href="postscript.html" id="link-postscript.html">Afterword</a></li>
+<li class="level-1"><a href="refs.html" id="link-refs.html">References (with Comments from the Author)</a></li>
+<li class="level-1"><a href="appendix.html" id="link-appendix.html">Appendix</a></li>
+</ul>
+    </div>
+  </nav>
+  <main class="main-content">
+    <article class="markdown-body">
+<h1 id="Chapter-11:-Toward-Curved-Spaces-—-What-Lies-Beyond-This-Book">Chapter 11: Toward Curved Spaces — What Lies Beyond This Book</h1>
+<h3 id="§11.0-The-Position-of-This-Chapter-—-A-Guidepost-for-Readers-Who-Want-to-Look-Further-Ahead">§11.0 The Position of This Chapter — A Guidepost for Readers Who Want to Look Further Ahead</h3>
+<p>The purpose of this book was to dismantle $\nabla$ into $d$ and $\ast$, and to rebuild the formulas of vector analysis in a transparent way. Chapters 8 and 9 achieved that purpose. Chapter 10 was an "extra," showing how concisely this framework describes Maxwell's equations.
+</p>
+<p>This chapter goes further still—it is a <strong>guidepost</strong> for readers who finish this book and wonder, "How can these tools $d$ and $\ast$ be used in a wider world?" It does not aim to be a self-contained account. As a bridge to specialist texts, it offers only a sketch of what changes and what stays the same. And one more thing—in this chapter I will use, without stopping as carefully for the reader as before, the sorts of mathematical wording I have deliberately avoided until now, even without pausing to define every term. I want you to feel how vast the world still is.
+</p>
+<blockquote>
+<p><strong>Note</strong> (pretense and sincerity)</p>
+<p>"A guidepost for readers who want to look further ahead" is, in a way, the official line.</p>
+<p>If I am honest, it is also my preemptive answer to knowledgeable readers who might think, "This person does not really understand abstract mathematics."</p>
+<p>At the same time, I am convinced that lining up rigorous abstract theory from the start would be too much for a beginner's hands.</p>
+<p>This chapter is a place where a compromise as a "step in understanding" mixes with respect for standard mathematics.</p>
+</blockquote>
+<blockquote>
+<p><strong>Note</strong> (an easy chapter for me)</p>
+<p>In this chapter, I do not need to weigh metaphors carefully, or balance rigor and clarity, or allocate information density.</p>
+<p>I need not worry much about the reader's cognitive load here either.</p>
+<p>On top of that, the logical flow is clear, so it was very easy to write.</p>
+<p>—I express nothing but respect for Bourbaki-style logical solidity.</p>
+</blockquote>
+<blockquote>
+<p><strong>Note</strong> (an unexpected consequence of this book)</p>
+<p>The direct purpose of this book was to rewrite vector analysis in matrix form and to rebuild it transparently through the dictionary of $d$ and $\ast$.</p>
+<p>Looking back, however, this book may in a secondary way have been doing tensor analysis, in the sense of "handling components directly."</p>
+<p>A weakness of tensor analysis is that in the course of calculation one tends to lose the geometric "type" intuition of $k$-forms.</p>
+<p>This book adopted matrix notation precisely to preserve that type—degree, antisymmetry, the distinction between row and column vectors—visually, while still enabling component calculation.</p>
+<p>In other words, this book may be called an intermediate approach for gaining both "the geometric intuition of differential forms" and "the computational power of tensor analysis."</p>
+<p>—though I must admit that, seen from either tradition, it has unavoidably halfway aspects.</p>
+</blockquote>
+<h3 id="§11.1-Manifolds-—-Starting-from-__MATH_BLOCK_16__">§11.1 Manifolds — Starting from $\mathbf{g}(x)$</h3>
+<p>In this book we introduced the metric $\mathbf{g}$ in Chapter 6, and in Chapter 9 we practiced building the dictionary for $\ast$ from $\mathbf{g}$. In Cartesian coordinates in Chapter 6, $\mathbf{g} = I$ was a constant matrix, but in cylindrical and spherical coordinates in Chapter 9, the components of $\mathbf{g}$ already depended on $r, \rho, \theta$. What happens, then, if we view this not as a matter of coordinate representation but as a metric $\mathbf{g}(p)$ assigned to each point of space itself?
+</p>
+<p>The dictionary for $\ast$ is built from $\mathbf{g}$. If $\mathbf{g}$ changes from place to place, the dictionary for $\ast$ changes from place to place as well. The correspondence table $dx \mapsto \ast(dx) = \cdots\, dy \wedge dz$ comes to have different coefficients at each point in space.
+</p>
+<p>This viewpoint—"at each point we have a metric $\mathbf{g}(p)$, and from that metric we build $\ast$ at each point"—is the first model for moving on to Riemannian manifolds. In flat $\mathbb{R}^3$, $\mathbf{g}$ was the identity matrix, so the dictionary for $\ast$ was utterly simple. In a general coordinate representation, $\mathbf{g}$ is no longer necessarily the identity matrix and appears as a function of position. Even so, the procedure for writing down the dictionary for $\ast$ from $\mathbf{g}$ is the same as what we did in Chapter 9—only now we must look up the dictionary anew at each point.
+</p>
+<blockquote>
+<p><strong>Note</strong> (position dependence of the metric and curvature) That the metric components $g_{ij}(x)$ depend on position does not by itself mean that space is curved. If we write Euclidean space in curvilinear coordinates (polar, spherical, and so on), $g_{ij}(x)$ depends on position even in a flat space. Whether space is curved is judged not by the metric components themselves or by the appearance of Christoffel symbols $\Gamma^i_{jk}$ in a particular coordinate system, but by whether the curvature tensor $R^i{}_{mjk}$ constructed from them vanishes.</p>
+</blockquote>
+<p>The mathematical framework that organizes this world of "handling coordinates and the metric point by point" is the <strong>manifold</strong>. A manifold itself is defined first as a smooth space that is locally indistinguishable from $\mathbb{R}^n$. On top of that, smoothly assigning to the tangent space at each point a nondegenerate symmetric bilinear form $g_p$ gives a <strong>manifold with metric</strong>; if $g_p$ is positive definite, we get a <strong>Riemannian manifold</strong>, and if the signature is Lorentzian, a <strong>Lorentzian manifold</strong>.
+</p>
+<blockquote>
+<p><strong>Note</strong> (on the phrase "curved spacetime") In expositions of general relativity, one often hears that "spacetime curves." As a personal preference, I am not very fond of this wording. At any single point one can choose a local inertial frame, set the metric to the Minkowski metric at that point, and make the Christoffel symbols vanish, but curvature generally does not vanish, and a finite neighborhood does not become flat as a whole. Curvature appears precisely as the mismatch when gluing local inertial frames together beyond first order. In other words, a single picture of a "curved rubber sheet" is not enough; it is more accurate, I feel, to view the issue as "through the metric and the connection, the question becomes how to compare tangent spaces at different points." That said, I am being pedantic here, and it is probably more intuitive to think plainly that spacetime "is curved."</p>
+</blockquote>
+<h4 id="11.1.1-Definition-—-Charts-and-an-Atlas">11.1.1 Definition — Charts and an Atlas</h4>
+<p>An $n$-dimensional <strong>topological manifold</strong> $M$ is a Hausdorff, second-countable topological space such that for every point $p \in M$ there exists an open set $U \subset M$ containing $p$ and a homeomorphism $\varphi: U \to \varphi(U) \subset \mathbb{R}^n$. The pair $(U, \varphi)$ is called a <strong>chart</strong> (coordinate neighborhood). When we write $\varphi(p) = (x^1(p), \dots, x^n(p))$, the $x^i$ are called <strong>local coordinates</strong>.
+</p>
+<p>When a family of charts $\{(U_\alpha, \varphi_\alpha)\}$ covers $M$ and for every pair of overlapping charts the <strong>coordinate change</strong>
+</p>
+$$\varphi_\beta \circ \varphi_\alpha^{-1}: \varphi_\alpha(U_\alpha \cap U_\beta) \to \varphi_\beta(U_\alpha \cap U_\beta)$$
+<p>is $C^\infty$, we call this a <strong>smooth atlas</strong>, and $M$ becomes a <strong>smooth manifold ($C^\infty$ manifold)</strong>. That the coordinate changes are smooth—this single point is what makes calculus on manifolds possible.
+</p>
+<p>The $\mathbb{R}^3$ that this book has used as its stage throughout is the most trivial example of a manifold: the whole space is covered by a single chart, the identity map $\mathrm{id}: \mathbb{R}^3 \to \mathbb{R}^3$.
+</p>
+<p>As another well-known example, there is the $n$-dimensional sphere $S^n = \{x \in \mathbb{R}^{n+1} \mid \|x\| = 1\}$. $S^n$ cannot be covered by one chart, but an atlas can be built from two charts (stereographic projection) omitting the north and south poles. Spacetime in general relativity is formulated as a Lorentzian manifold—a 4-dimensional manifold whose metric signature is $(-,+,+,+)$.
+</p>
+<h4 id="11.1.2-Tangent-Spaces-—-Defining-"Differentiation-on-Curved-Space"">11.1.2 Tangent Spaces — Defining "Differentiation on Curved Space"</h4>
+<p>In $\mathbb{R}^n$ we could naively define a "vector" as an arrow extending from the origin. On a manifold we cannot do that. Try to draw an arrow on the surface of a sphere and the arrow sticks out of the surface.
+</p>
+<p>There are two equivalent ways to construct tangent spaces.
+</p>
+<p><strong>Definition by equivalence classes of curves.</strong> For a smooth curve $\gamma: (-\varepsilon, \varepsilon) \to M$ through $p$ ($\gamma(0)=p$), choose one chart $(U, \varphi)$ and compute the velocity vector $(\varphi \circ \gamma)'(0)$ in $\mathbb{R}^n$. Even if we choose another chart $(V, \psi)$, we have $(\psi \circ \gamma)'(0) = D(\psi \circ \varphi^{-1})_{\varphi(p)} \cdot (\varphi \circ \gamma)'(0)$, transformed by the Jacobian matrix. Thus the relation "having the same velocity in one chart" is preserved under change of chart, and the resulting equivalence class is independent of the chart. This equivalence class $[\gamma]$ is the <strong>tangent vector</strong> at $p$.
+</p>
+<p><strong>Definition by directional derivatives (derivations).</strong> We define a tangent vector $v \in T_p M$ as a linear map that assigns to each smooth function $f$ in a neighborhood of $p$ a real number $v(f)$ and satisfies the Leibniz rule $v(fg) = v(f)\,g(p) + f(p)\,v(g)$. This definition is intrinsic and independent of charts, and it survives generalization to algebraic geometry and elsewhere. Given a chart $(U, \varphi)$ and local coordinates $x^i$,
+</p>
+$$\left.\frac{\partial}{\partial x^i}\right|_p (f) = \left.\frac{\partial (f \circ \varphi^{-1})}{\partial x^i}\right|_{\varphi(p)}$$
+<p>forms a basis of $T_p M$. We have $\dim T_p M = \dim M = n$.
+</p>
+<p>When two vector fields $X, Y$ are given, their <strong>Lie bracket</strong> $[X, Y] = XY - YX$ is again a vector field. We have $[X,Y]^i = \sum_j (X^j \partial_j Y^i - Y^j \partial_j X^i)$; we did not treat it explicitly in this book, but it is the operation at the root of Frobenius's theorem (integrability of distributions) and Lie group theory.
+</p>
+<p>The disjoint union of tangent spaces at all points is the <strong>tangent bundle</strong> $TM = \bigsqcup_{p \in M} T_p M$. $TM$ itself is a $2n$-dimensional manifold. A <strong>vector field</strong> $X$ on $M$ is nothing but a smooth assignment of a tangent vector $X_p \in T_p M$ to each point $p \in M$—a <strong>section</strong> of the tangent bundle, $X: M \to TM$.
+</p>
+<p>Let us also touch on coordinate change and the transformation law for bases. When two charts $(U, x^i)$ and $(V, y^j)$ overlap, the basis of the tangent space transforms as
+</p>
+$$\frac{\partial}{\partial y^j} = \sum_i \frac{\partial x^i}{\partial y^j}\,\frac{\partial}{\partial x^i}$$
+<p>The transformation matrix $\partial x^i/\partial y^j$ is exactly the Jacobian matrix of coordinate change that appeared repeatedly in Chapter 4 of this book. The basis transforms by the Jacobian of the coordinate change, and the components of a tangent vector transform by the inverse matrix so that the vector itself is unchanged (contravariant vector). By contrast, the components of a 1-form transform by the Jacobian matrix itself (covariant vector). This distinction between "contravariant" and "covariant"—in this book visualized as vectors as "columns" and 1-forms as "rows"—is the starting point of tensor analysis in manifold theory.
+</p>
+<h4 id="11.1.3-Differential-Forms-—-The-Cotangent-Bundle-and-Tensor-Fields">11.1.3 Differential Forms — The Cotangent Bundle and Tensor Fields</h4>
+<p>The dual space of the tangent space $T_p M$ is called the <strong>cotangent space</strong> $T_p^* M$. An element $\omega_p \in T_p^* M$ is a linear map $\omega_p: T_p M \to \mathbb{R}$ that eats tangent vectors and returns a real number—a <strong>1-form</strong>. Defining $dx$ in Chapter 1 as "the row vector that extracts the $x$ component from a displacement vector" was precisely an embodiment of this duality.
+</p>
+<blockquote>
+<p><strong>Note</strong> (correspondence with the main text) This is a restatement of the promise in Chapter 1 that $dx = \begin{pmatrix}1&0&0\end{pmatrix}$, now as the component representation of the cotangent basis $dx^1|_p$ in standard Cartesian coordinates. In Chapter 1 we suppressed dependence on the point $p$, but in manifold theory we treat these as objects belonging to the cotangent space $T_p^* M$ at each point.</p>
+</blockquote>
+<p>For local coordinates $x^i$, define $dx^i|_p \in T_p^* M$ by $dx^i|_p(\partial/\partial x^j|_p) = \delta^i_j$; then $\{dx^i|_p\}$ is the dual basis to $\{\partial/\partial x^i|_p\}$ of $T_p^* M$. Any 1-form $\omega$ can be expanded locally as $\omega = \sum_i \omega_i\,dx^i$.
+</p>
+<p>Extending this $k$-fold gives <strong>$k$-forms</strong>. A $k$-form on a manifold is a section that smoothly assigns to each point $p$ an element of $\Lambda^k T_p^* M$. At each point it is an alternating multilinear map
+</p>
+$$\omega_p: \underbrace{T_p M \times \cdots \times T_p M}_{k\ \text{ copies}} \to \mathbb{R}$$
+<p>whose components vary smoothly in local coordinates. The wedge product $\wedge$ is defined as the operation that takes the signed sum over all permutations of the arguments of two forms. The wedge product introduced in Chapter 2 of this book as component calculation for antisymmetric matrices is reproduced naturally under this abstract definition.
+</p>
+<p><strong>Pullback</strong> is also generalized to maps between manifolds. For a smooth map $f: M \to N$, the pullback $f^*\omega$ of a $k$-form $\omega$ on $N$ is a $k$-form on $M$ defined by
+</p>
+$$(f^*\omega)_p(v_1, \dots, v_k) = \omega_{f(p)}(df_p(v_1), \dots, df_p(v_k))$$
+<p>Here $df_p: T_p M \to T_{f(p)} N$ is the differential (derivative map) of $f$. The pullback computed in Chapter 4 as the Jacobian of a coordinate change agrees, in local coordinates, with this general formula when $f$ is the coordinate change between charts.
+</p>
+<p>The notation this book has used consistently—"$dx$ is a row vector"—is in the standard language of manifold theory nothing but the fact that the $dx^i$ are a basis of the cotangent space. When we write $\omega = \sum_i \omega_i\,dx^i$, the coefficients $\omega_i$ are in this book's language "the $i$th component of the row vector," and in manifold language "the component of the 1-form with respect to local coordinates." The calculation $\omega(v) = \sum_i \omega_i\,dx^i(v) = \sum_i \omega_i v^i$ corresponds completely to the matrix product of Chapter 1, $\begin{pmatrix}\omega_1&\omega_2&\omega_3\end{pmatrix}\begin{pmatrix}v^1\\v^2\\v^3\end{pmatrix}$.
+</p>
+<p>This duality extends to higher-degree forms. Representing $k$-forms by matrices in Chapter 2 ($k=1$ as row vectors, $k=2$ as antisymmetric matrices, $k=3$ as antisymmetric third-order tensors) is nothing but the component representation of $k$-forms as alternating multilinear maps. When we handled $4\times4\times4$ slice matrices in Appendix E, we were already practicing component calculation for 3-forms on a manifold.
+</p>
+<h4 id="11.1.4-Exterior-Derivative-__MATH_BLOCK_145__-—-What-Does-Not-Change-on-a-Manifold">11.1.4 Exterior Derivative $d$ — What Does Not Change on a Manifold</h4>
+<p>The exterior derivative $d$ is one of the few differential operators that can be defined on a manifold <strong>without using the metric at all</strong>. For a $k$-form $\omega$, $d\omega$ is a $(k+1)$-form, and its definition agrees completely with what we learned in Chapter 5 as a combination of partial derivatives and the wedge product.
+</p>
+<p>The exterior derivative $d$ is a linear operator from $\Omega^k(M)$ to $\Omega^{k+1}(M)$; on functions it gives the ordinary total differential, it satisfies the graded Leibniz rule, and in local coordinates it is given by partial derivatives and the wedge product. For this operator, $d^2 = 0$ holds. The metric appears nowhere. Curved or flat, we can use the same computational rules for $d$ that we grew familiar with in this book.
+</p>
+<p>This universality is the greatest weapon of differential forms, and it is also the reason <strong>Stokes' theorem</strong>
+</p>
+$$\int_M d\omega = \int_{\partial M} \omega$$
+<p>holds for an oriented $n$-dimensional manifold $M$ and an $(n-1)$-form satisfying appropriate smoothness and support conditions. What we met in Chapter 8 as the "unified Stokes theorem" was the special case of this general formula ($M \subset \mathbb{R}^3$, $n \le 3$).
+</p>
+<h4 id="11.1.5-Metric-and-Hodge-Star-—-What-Changes-Point-by-Point">11.1.5 Metric and Hodge Star — What Changes Point by Point</h4>
+<p>Whereas $d$ is universal, $\ast$ is not. A <strong>Riemannian metric</strong> $g$ is a second-order covariant tensor field that smoothly assigns to each point $p \in M$ a positive definite inner product $g_p: T_p M \times T_p M \to \mathbb{R}$ on the tangent space. In local coordinates we can write
+</p>
+$$g = \sum_i\sum_j g_{ij}(x)\,dx^i \otimes dx^j$$
+<p>and $g_{ij}(x)$ are functions of position. In this book we have written the matrix whose entries are $g_{ij}$ as $\mathbf{g}$. In Cartesian coordinates on $\mathbb{R}^3$, $\mathbf{g}$ is the identity matrix; in Minkowski spacetime it is a constant diagonal matrix with entries $(-1,1,1,1)$; on a general manifold, $\mathbf{g}(x)$ differs from point to point.
+</p>
+<p>On an oriented Riemannian manifold, the metric determines a <strong>volume form</strong> $\mathrm{vol}_g = \sqrt{\det g}\;dx^1 \wedge \cdots \wedge dx^n$ (for a pseudo-Riemannian metric, $\sqrt{|\det g|}$ appears according to convention), and using this we define the <strong>Hodge star operator</strong>
+</p>
+$$\ast: \Omega^k(M) \to \Omega^{n-k}(M)$$
+<p>The defining equation $\omega \wedge \ast\eta = \langle\omega,\eta\rangle_g\,\mathrm{vol}_g$ explicitly involves $g$. If $\mathbf{g}(x)$ is a function of position, the dictionary for $\ast$ differs point by point—we must repeat at each point the procedure of "building the $\mathbf{g} \to \ast$ dictionary" practiced in Chapter 9. Similar construction is possible for a pseudo-Riemannian metric, but one must watch sign conventions.
+</p>
+<p>This asymmetry between $d$ and $\ast$—$d$ universal, $\ast$ metric-dependent—is precisely the structure toward which Burke's "metric deferral" ultimately points. In general relativity, the metric $g$ itself is determined dynamically as the solution of Einstein's equations. The electromagnetic field equations $dF = 0$, $d(\ast F) = \mu_0(\ast\mathcal{J})$ can be written in the same form even on curved spacetime if we use the Hodge star determined from the spacetime metric and an appropriate current form.
+</p>
+<h4 id="11.1.6-Integration-—-Partitions-of-Unity-and-Orientability">11.1.6 Integration — Partitions of Unity and Orientability</h4>
+<p>Integration on manifolds likewise lies on the extension of the Riemann sums from this book. In $\mathbb{R}^n$ we could naively define the integral of an $n$-form $\omega = f\,dx^1 \wedge \cdots \wedge dx^n$ as $\int f\,dx^1 \cdots dx^n$. To integrate an $n$-form on a manifold we must compute local integrals chart by chart and glue them together. What makes this gluing possible is a <strong>partition of unity</strong>—a family of smooth functions associated with a covering family of charts that sum to 1.
+</p>
+<p>Furthermore, for the integral of an $n$-form on a manifold not to depend on the choice of coordinates, the manifold must be <strong>orientable</strong>. Assuming throughout this book the right-handed system $(x,y,z)$ amounted to fixing an orientation on $\mathbb{R}^3$. On a non-orientable manifold such as the Möbius strip, a global volume form cannot be defined.
+</p>
+<p>Once integration theory on manifolds is in place, under appropriate smoothness and support conditions, Stokes' theorem $\int_M d\omega = \int_{\partial M} \omega$ holds for an oriented $n$-dimensional manifold and an $(n-1)$-form on it. The unified Stokes theorem our journey reached was an application of this general framework to $n \le 3$.
+</p>
+<h4 id="11.1.7-Connections-and-Curvature-—-In-a-Word">11.1.7 Connections and Curvature — In a Word</h4>
+<p>The additional structure needed to "parallel transport" vector fields on a manifold is a <strong>connection</strong>, or <strong>covariant derivative</strong> $\nabla$. Once a connection is given, the <strong>curvature tensor</strong> $R$ measuring the degree of bending is defined. In general relativity, the curvature obtained from the Levi-Civita connection (the unique connection compatible with the metric and torsion-free) describes the gravity of spacetime.
+</p>
+<p>In the language of differential forms, curvature appears as a <strong>curvature 2-form</strong> $\Omega$, and structures such as the Bianchi identity $D\Omega = 0$ ($\Omega$ is closed under the exterior covariant derivative) arise. Beyond this point I leave matters to specialist texts such as Flanders and Burke.
+</p>
+<h4 id="11.1.8-Correspondence-with-This-Book">11.1.8 Correspondence with This Book</h4>
+<p>Let us collect in one table where the concepts of this book sit in manifold theory.
+</p>
+<div class="table-wrapper"><table>
+<thead><tr>
+<th>This book</th>
+<th>Manifold theory</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$dx$ is a row vector (Chapter 1)</td>
+<td>$dx^i$ is a basis of the cotangent space $T_p^*M$</td>
+</tr>
+<tr>
+<td>$dx(v) = v_x$ (Chapter 1)</td>
+<td>Dual pairing $\langle\omega, v\rangle$ of a 1-form and a tangent vector</td>
+</tr>
+<tr>
+<td>Wedge product as antisymmetric matrix representation (Chapter 2)</td>
+<td>Component representation of a $k$-form as an alternating multilinear map</td>
+</tr>
+<tr>
+<td>Pullback = recalibrating the measuring device (Chapter 4)</td>
+<td>Pullback $f^*\omega$ of a $k$-form under a smooth map</td>
+</tr>
+<tr>
+<td>Partial derivatives + wedge product for $d$ (Chapter 5)</td>
+<td>Exterior derivative $d$ (no metric needed on a manifold)</td>
+</tr>
+<tr>
+<td>$\mathbf{g} = J^T J$ (Chapter 6)</td>
+<td>A concrete example of a metric induced from coordinate change or embedding in Euclidean space</td>
+</tr>
+<tr>
+<td>Dictionary for $\ast$ (Chapters 6, 9)</td>
+<td>Hodge star $\ast: \Omega^k(M) \to \Omega^{n-k}(M)$ (metric-dependent)</td>
+</tr>
+<tr>
+<td>Unified Stokes theorem (Chapter 8)</td>
+<td>$\int_M d\omega = \int_{\partial M} \omega$ (general dimension)</td>
+</tr>
+<tr>
+<td>$dF=0$, $d(\ast F)=\mu_0(\ast\mathcal{J})$ (Chapter 10)</td>
+<td>On curved spacetime as well, the same form if we use the Hodge star from the spacetime metric and an appropriate current form</td>
+</tr>
+<tr>
+<td>$4\times4\times4$ slices in Appendix E (Chapter 10)</td>
+<td>Component calculation for a 3-form on a 4-dimensional manifold</td>
+</tr>
+</tbody>
+</table></div>
+      <div class="nav-buttons">
+        <a href="ch10.html">← Chapter 10...</a>
+        <a href="ch12.html">Chapter 12... →</a>
+      </div>
+    </article>
+    <footer class="site-footer">
+      <p>&copy; 2026 yokiikoy. CC BY-NC 4.0. For the latest edition, PDF, revision history, related information, and content beyond this book, see the portal site <a href="https://covectorspace.xyz/en/">Project Co-Vector Space</a>.</p>
+    </footer>
+  </main>
+</body>
+</html>

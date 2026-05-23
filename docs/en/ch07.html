@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 7: Vector Analysis — Enter Nabla | Unmasking Div, Grad, and Curl</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+<style>
+  :root { --sidebar-width: 320px; }
+  html { color-scheme: light; background: #fff; }
+  body { margin: 0; display: flex; background: #fff; color: #24292f; line-height: 1.7; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .sidebar { width: var(--sidebar-width); height: 100vh; position: sticky; top: 0; background: #f8f9fa; color: #24292f; border-right: 1px solid #d0d7de; overflow-y: auto; padding: 1.5rem; box-sizing: border-box; flex-shrink: 0; }
+  .sidebar h2 { font-size: 1.2rem; border: none; margin-bottom: 0.5rem; color: #24292f; }
+  .sidebar .author { font-size: 0.8rem; color: #666; margin-bottom: 1.5rem; }
+  .sidebar .toc { font-size: 0.85rem; }
+  .sidebar .toc ul { list-style: none; padding-left: 0; margin: 0; }
+  .sidebar .toc li { margin-bottom: 0.4rem; }
+  .sidebar .toc .level-1 { font-weight: bold; margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 2px; }
+  .sidebar .toc .sub-toc { font-size: 0.8rem; margin-top: 0.5rem; padding-left: 0.8rem; border-left: 2px solid #eee; }
+  .sidebar .toc .sub-toc li { margin-bottom: 0.2rem; font-weight: normal; }
+  .sidebar .toc .sub-toc .level-3 { padding-left: 0.8rem; font-size: 0.75rem; color: #666; }
+  .sidebar a { text-decoration: none; color: #0969da; }
+  .sidebar a:hover { text-decoration: underline; }
+  .sidebar .active { color: #cf222e; font-weight: bold; }
+  .sidebar .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
+  .mobile-current { display: none; }
+  .mobile-toc-button { display: none; }
+  .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; background: #fff; color: #24292f; }
+  .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; color-scheme: light; background: #fff; color: #24292f; }
+  .markdown-body p, .markdown-body li { color: #24292f; }
+  @media (max-width: 900px) { 
+    body { flex-direction: column; } 
+    .sidebar { width: 100%; height: auto; position: sticky; top: 0; z-index: 10; padding: 0.75rem 1rem; border-right: none; border-bottom: 1px solid #d0d7de; box-shadow: 0 1px 8px rgba(27, 31, 36, 0.08); }
+    .sidebar h2 { margin: 0; font-size: 1rem; }
+    .sidebar .author { display: none; }
+    .sidebar .toc { display: none; }
+    .mobile-current { display: block; margin-top: 0.35rem; font-size: 0.85rem; color: #57606a; }
+    .mobile-current strong { color: #cf222e; }
+    .mobile-toc-button { display: inline-block; margin-top: 0.35rem; font-size: 0.85rem; }
+    .main-content { padding: 1rem; } 
+    .markdown-body { padding: 0.5rem; }
+  }
+  blockquote { border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }
+  blockquote p { color: #57606a; }
+  .table-wrapper { overflow-x: auto; margin: 1.5em 0; }
+  .markdown-body table { border-collapse: collapse; width: 100%; font-size: 0.9em; background: #fff; }
+  .markdown-body th, .markdown-body td { border: 1px solid #d0d7de; padding: 6px 13px; color: #24292f !important; }
+  .markdown-body tr:nth-child(even) { background-color: #f6f8fa !important; }
+  th { font-weight: 600; background-color: #f6f8fa; }
+  code, pre { color: #24292f; background-color: #f6f8fa; }
+  .nav-buttons { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }
+  .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
+  .nav-buttons a:hover { background: #f6f8fa; }
+  strong { font-weight: 800 !important; color: #000; }
+  blockquote strong { color: #24292f !important; }
+  /* KaTeX responsiveness */
+  .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }
+  .full-toc h2 { font-size: 1.1rem; margin: 1.5em 0 0.3em; padding-bottom: 2px; border-bottom: 1px solid #d0d7de; }
+  .full-toc h2 a { color: #24292f; text-decoration: none; }
+  .full-toc h2 a:hover { color: #0969da; }
+  .full-toc h2 .disabled-link { color: #8c959f; cursor: not-allowed; }
+  .full-toc ul { list-style: none; padding-left: 1.5rem; margin: 0.3em 0 0; }
+  .full-toc li { margin-bottom: 0.2rem; font-size: 0.9rem; }
+  .full-toc .level-3 { padding-left: 1rem; font-size: 0.8rem; color: #57606a; }
+  .full-toc a { color: #0969da; text-decoration: none; }
+  .full-toc a:hover { text-decoration: underline; }
+  .full-toc .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
+  .full-toc .part-header { font-size: 1.1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }
+  .full-toc .toc-part-chapters { padding-left: 1.5rem; }
+  .full-toc .toc-part-chapters h3 { font-size: 0.95rem; margin: 0.5em 0 0.2em; }
+  .full-toc .toc-part-chapters h3 a { color: #24292f; }
+  .full-toc .toc-part-chapters ul { padding-left: 1.5rem; }
+  .site-footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #d0d7de; font-size: 0.8rem; color: #57606a; }
+  .site-footer a { color: #0969da; text-decoration: none; }
+  .site-footer a:hover { text-decoration: underline; }
+</style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ],
+            throwOnError : false
+        });
+    });
+</script>
+
+</head>
+<body>
+  <nav class="sidebar">
+    <h2><a href="index.html">Unmasking Div, Grad, and Curl</a></h2>
+    <div class="author">
+      Author: yokiikoy<br>
+      <a href="https://covectorspace.xyz/en/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a><br>
+      <a href="../index.html" style="font-size: 0.75rem; color: #666; text-decoration: none;">Japanese edition</a>
+    </div>
+    <div class="mobile-current">Current: <strong>Chapter 7: Vector Analysis — Enter Nabla</strong></div>
+    <a class="mobile-toc-button" href="toc.html">Open contents</a>
+    <div class="toc">
+      <ul>
+<li class="level-1"><a href="toc.html" id="link-toc.html">Contents</a></li>
+<li class="level-1"><a href="index.html" id="link-index.html">Preface</a></li>
+<li class="level-1"><a href="intro.html" id="link-intro.html">Introduction</a></li>
+<li class="level-1"><a href="portal.html" id="link-portal.html">Portal Site and a Small Experiment</a></li>
+<li class="level-1"><a href="ch01.html" id="link-ch01.html">Chapter 1</a></li>
+<li class="level-1"><a href="ch02.html" id="link-ch02.html">Chapter 2</a></li>
+<li class="level-1"><a href="ch03.html" id="link-ch03.html">Chapter 3</a></li>
+<li class="level-1"><a href="ch04.html" id="link-ch04.html">Chapter 4</a></li>
+<li class="level-1"><a href="ch05.html" id="link-ch05.html">Chapter 5</a></li>
+<li class="level-1"><a href="ch06.html" id="link-ch06.html">Chapter 6</a></li>
+<li class="level-1"><a href="ch07.html" class="active" id="link-ch07.html">Chapter 7</a><ul class="sub-toc"><li class="level-3"><a href="#§7.0-Enter-Nabla">§7.0 Enter Nabla</a></li><li class="level-3"><a href="#§7.2-$\nabla$-and-the-Gradient">§7.2 $\nabla$ and the Gradient</a></li><li class="level-3"><a href="#§7.3-Divergence">§7.3 Divergence</a></li><li class="level-3"><a href="#§7.4-Curl">§7.4 Curl</a></li><li class="level-3"><a href="#§7.5-The-Laplacian">§7.5 The Laplacian</a></li><li class="level-3"><a href="#§7.6-Identities">§7.6 Identities</a></li><li class="level-3"><a href="#§7.7-A-Formula-Collection-for-Nabla">§7.7 A Formula Collection for Nabla</a></li><li class="level-3"><a href="#§7.8-Integral-Theorems-—-Stokes,-Gauss,-and-Green">§7.8 Integral Theorems — Stokes, Gauss, and Green</a></li><li class="level-3"><a href="#§7.9-Toward-Chapter-8-—-Do-Not-Look-at-the-Arrows;-Look-at-the-Measuring-Devices">§7.9 Toward Chapter 8 — Do Not Look at the Arrows; Look at the Measuring Devices</a></li></ul></li>
+<li class="level-1"><a href="ch08.html" id="link-ch08.html">Chapter 8</a></li>
+<li class="level-1"><a href="ch09.html" id="link-ch09.html">Chapter 9</a></li>
+<li class="level-1"><a href="ch10.html" id="link-ch10.html">Chapter 10</a></li>
+<li class="level-1"><a href="ch11.html" id="link-ch11.html">Chapter 11</a></li>
+<li class="level-1"><a href="ch12.html" id="link-ch12.html">Chapter 12</a></li>
+<li class="level-1"><a href="postscript.html" id="link-postscript.html">Afterword</a></li>
+<li class="level-1"><a href="refs.html" id="link-refs.html">References (with Comments from the Author)</a></li>
+<li class="level-1"><a href="appendix.html" id="link-appendix.html">Appendix</a></li>
+</ul>
+    </div>
+  </nav>
+  <main class="main-content">
+    <article class="markdown-body">
+<h1 id="Chapter-7:-Vector-Analysis-—-Enter-Nabla">Chapter 7: Vector Analysis — Enter Nabla</h1>
+<h3 id="§7.0-Enter-Nabla">§7.0 Enter Nabla</h3>
+<p>The title of this book is <em>Unmasking Nabla</em>—yet up to this point we have never once defined nabla $\nabla$ head-on, at least officially. In Chapter 6 we got a preview of the shapes of grad, curl, and div by combining $d$ and $\ast$. In this chapter we rewrite the same objects in the standard notation of vector analysis.
+</p>
+<p>What have we been doing instead? We have piled up the backstage tools: $dx$ as a row vector, $2$-forms as antisymmetric matrices, $d$ as the operation that raises degree—and so on. Some readers have surely been wondering, “When is $\nabla$ finally going to show up?”
+</p>
+<p>I have been worrying about false advertising in the title for quite a while myself.
+</p>
+<p>In this chapter we finally define $\nabla$. Then we unfold standard vector analysis—gradient, divergence, curl, the Laplacian, and the various identities—straight from the textbook, all at once. In the calculations in the main text, we set $d$, $\ast$, and $\wedge$ aside for now. This is the very vector analysis that many readers learned (probably while struggling) in their first or second year of university.
+</p>
+<blockquote>
+<p><strong>Note</strong> (Why now) In Chapter 6 we previewed the shapes of grad, curl, and div using $d$ and $\ast$. In this chapter we deliberately unfold the same objects in standard vector-analysis notation, formula after formula. If, when you finish this chapter, you feel that there are too many formulas, that is fine. That discomfort will be the driving force for matching the two notations in the next chapter.</p>
+</blockquote>
+<p>The tools used in this chapter are only those we have already assembled—column vectors, row vectors, matrices, inner products, the Jacobian matrix, and partial derivatives.
+</p>
+<h3 id="§7.2-__MATH_BLOCK_49__-and-the-Gradient">§7.2 $\nabla$ and the Gradient</h3>
+<h4 id="7.2.1-Definition-of-__MATH_BLOCK_50__">7.2.1 Definition of $\nabla$</h4>
+<p>English textbooks usually call the symbol $\nabla$ <strong>del</strong>; it is also called <strong>nabla</strong>, the name common in Japanese texts. This book is about what div, grad, and curl do—not primarily about what to call the symbol. We define nabla $\nabla$ as a formal column vector whose components are partial-derivative operators:
+</p>
+$$\nabla = \begin{pmatrix}
+\frac{\partial}{\partial x} \\[0.5em]
+\frac{\partial}{\partial y} \\[0.5em]
+\frac{\partial}{\partial z}
+\end{pmatrix}$$
+<p>$\nabla$ is a “vector,” but its components are not numbers—they are <strong>differential operators</strong>. $\nabla$ does not ordinarily have a value as a vector quantity on its own; it returns a concrete field only when it acts on something.
+</p>
+<h4 id="7.2.2-Gradient">7.2.2 Gradient</h4>
+<p>What we obtain by letting $\nabla$ act on a scalar field $f(x,y,z)$ is called the <strong>gradient</strong>, written $\mathrm{grad}\,f$ or $\nabla f$:
+</p>
+$$\mathrm{grad}\,f = \nabla f = \begin{pmatrix}
+\frac{\partial f}{\partial x} \\[0.5em]
+\frac{\partial f}{\partial y} \\[0.5em]
+\frac{\partial f}{\partial z}
+\end{pmatrix}$$
+<p>Each component of the gradient is the rate of change of $f$ in the corresponding coordinate direction. Geometrically, $\nabla f$ is the vector field pointing in the direction of steepest increase of $f$.
+</p>
+<blockquote>
+<p><strong>Note</strong> (Is the gradient a row vector or a column vector?) In §6.5 we wrote $\mathrm{grad}\,f = df$, and $df$ was a row vector of coefficients. In this chapter we treat $\nabla f$ as a column vector. Using the Euclidean metric introduced in Chapter 6, we read the $1$-form $df$ as the corresponding column vector and obtain $\nabla f$. In §6.5 we stood on the view that “the differential itself (the form) measures properties of space”; in this chapter we adopt the standard vector-analysis view that “at each point an arrow (a vector) stands.” The starting pictures differ, but if we aggregate by line integral we get the same scalar quantity. That agreement is no accident.</p>
+</blockquote>
+<p><strong>Example</strong>: the gradient of $f(x,y,z) = x^2 + y^2 + z^2$.
+</p>
+$$\nabla f = \begin{pmatrix} 2x \\ 2y \\ 2z \end{pmatrix}$$
+<p>This vector field points radially outward from the origin and grows larger as one moves away from the origin.
+</p>
+<hr />
+<h3 id="§7.3-Divergence">§7.3 Divergence</h3>
+<p>For a vector field
+</p>
+$$
+\mathbf{F}(x,y,z)
+=
+\begin{pmatrix}
+F_x\\
+F_y\\
+F_z
+\end{pmatrix}
+$$
+<p>we call the operation $\nabla\cdot\mathbf{F}$ the <strong>divergence</strong>.
+</p>
+$$\mathrm{div}\,\mathbf{F} = \nabla \cdot \mathbf{F} = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z}$$
+<p>Formally this is “the dot product of $\nabla$ and $\mathbf{F}$,” but since each component of $\nabla$ is a differential operator, the result is a scalar field.
+</p>
+<blockquote>
+<p><strong>Note</strong> (connection to Chapter 6) In Chapter 6 we defined divergence on a $1$-form as $\mathrm{div}\,\omega = \ast\,d\,\ast\,\omega$. The $\mathrm{div}\,\mathbf{F}$ above is the same operation, written here in nabla notation for the vector field corresponding to that $1$-form.</p>
+</blockquote>
+<p>Divergence can also be written in the language of matrices. Consider the Jacobian matrix $\mathbf{J}_\mathbf{F}$ of $\mathbf{F}$.
+</p>
+$$\mathbf{J}_\mathbf{F} = \begin{pmatrix}
+\frac{\partial F_x}{\partial x} & \frac{\partial F_x}{\partial y} & \frac{\partial F_x}{\partial z} \\[0.3em]
+\frac{\partial F_y}{\partial x} & \frac{\partial F_y}{\partial y} & \frac{\partial F_y}{\partial z} \\[0.3em]
+\frac{\partial F_z}{\partial x} & \frac{\partial F_z}{\partial y} & \frac{\partial F_z}{\partial z}
+\end{pmatrix}$$
+<p>The <strong>trace</strong> (sum of the diagonal entries) of this matrix agrees with the divergence.
+</p>
+$$\mathrm{div}\,\mathbf{F} = \operatorname{tr}(\mathbf{J}_\mathbf{F}) = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z}$$
+<p>Physically, $\mathrm{div}\,\mathbf{F}$ measures the strength of outflow at that point. If it is positive, there is outflow; if negative, inflow; if zero, there is neither outflow nor inflow at that point.
+</p>
+<p><strong>Example</strong>:
+</p>
+$$
+\mathbf{F}
+=
+\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix}
+$$
+<p>The divergence of this field is
+</p>
+$$\nabla \cdot \mathbf{F} = \frac{\partial x}{\partial x} + \frac{\partial y}{\partial y} + \frac{\partial z}{\partial z} = 1 + 1 + 1 = 3$$
+<p><strong>Example</strong>:
+</p>
+$$
+\mathbf{F}
+=
+\begin{pmatrix}
+-y\\
+x\\
+0
+\end{pmatrix}
+$$
+<p>The divergence of this field is
+</p>
+$$\nabla \cdot \mathbf{F} = \frac{\partial (-y)}{\partial x} + \frac{\partial x}{\partial y} + \frac{\partial 0}{\partial z} = 0 + 0 + 0 = 0$$
+<p>This field rotates, but there is no outflow or inflow.
+</p>
+<hr />
+<h3 id="§7.4-Curl">§7.4 Curl</h3>
+<p>For a vector field $\mathbf{F}$, the operation $\nabla\times\mathbf{F}$ is called the <strong>curl</strong>.
+</p>
+$$\mathrm{curl}\,\mathbf{F} = \nabla \times \mathbf{F} = \begin{pmatrix}
+\frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z} \\[0.5em]
+\frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x} \\[0.5em]
+\frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y}
+\end{pmatrix}$$
+<p>Using the cross-product matrix, we can also write
+</p>
+$$\mathrm{curl}\,\mathbf{F} = (\nabla \times)\,\mathbf{F} = \begin{pmatrix}
+0 & -\frac{\partial}{\partial z} & \frac{\partial}{\partial y} \\[0.3em]
+\frac{\partial}{\partial z} & 0 & -\frac{\partial}{\partial x} \\[0.3em]
+-\frac{\partial}{\partial y} & \frac{\partial}{\partial x} & 0
+\end{pmatrix}\begin{pmatrix}
+F_x \\ F_y \\ F_z
+\end{pmatrix}$$
+<blockquote>
+<p><strong>Note</strong> (connection to Chapter 6) Chapter 6 defined curl on a $1$-form as $\mathrm{curl}\,\omega = \ast\,d\,\omega$. The $\mathrm{curl}\,\mathbf{F}$ above is the same operation, written here in nabla notation for the corresponding vector field.</p>
+</blockquote>
+<p>Physically, $\mathrm{curl}\,\mathbf{F}$ represents the strength and direction of the vortex at that point. It points along the axis of the vortex, and its magnitude corresponds to the strength of the vortex.
+</p>
+<p><strong>Example</strong>:
+</p>
+$$
+\mathbf{F}
+=
+\begin{pmatrix}
+-y\\
+x\\
+0
+\end{pmatrix}
+$$
+<p>The curl of this field is
+</p>
+$$\nabla \times \mathbf{F} = \begin{pmatrix}
+\frac{\partial 0}{\partial y} - \frac{\partial x}{\partial z} \\[0.3em]
+\frac{\partial (-y)}{\partial z} - \frac{\partial 0}{\partial x} \\[0.3em]
+\frac{\partial x}{\partial x} - \frac{\partial (-y)}{\partial y}
+\end{pmatrix} = \begin{pmatrix}
+0 - 0 \\ 0 - 0 \\ 1 - (-1)
+\end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 2 \end{pmatrix}$$
+<p>This field rotates uniformly about the $z$-axis, and the strength of the vortex is $2$.
+</p>
+<p><strong>Example</strong>:
+</p>
+$$
+\mathbf{F}
+=
+\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix}
+$$
+<p>The curl of this field is
+</p>
+$$\nabla \times \mathbf{F} = \begin{pmatrix}
+\frac{\partial z}{\partial y} - \frac{\partial y}{\partial z} \\[0.3em]
+\frac{\partial x}{\partial z} - \frac{\partial z}{\partial x} \\[0.3em]
+\frac{\partial y}{\partial x} - \frac{\partial x}{\partial y}
+\end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$$
+<p>A radial field has no vortex—consistent with intuition.
+</p>
+<blockquote>
+<p><strong>Checkpoint — §7.2–§7.4</strong></p>
+<p>- $\nabla$ is the formal vector obtained by stacking $\partial_x,\partial_y,\partial_z$ vertically.</p>
+<p>- $\mathrm{grad}\,f = \nabla f$ (gradient): scalar field → vector field.</p>
+<p>- $\mathrm{div}\,\mathbf{F} = \nabla \cdot \mathbf{F}$ (divergence): vector field → scalar field. Equal to the trace of the Jacobian matrix.</p>
+<p>- $\mathrm{curl}\,\mathbf{F} = \nabla \times \mathbf{F}$ (curl): vector field → vector field. Can be written using the cross-product matrix.</p>
+</blockquote>
+<hr />
+<h3 id="§7.5-The-Laplacian">§7.5 The Laplacian</h3>
+<p>Applying the gradient (scalar → vector) and then the divergence (vector → scalar) in succession yields an operation from a scalar field to a scalar field. This is called the <strong>Laplacian</strong>.
+</p>
+$$\nabla^2 f = \mathrm{div}(\mathrm{grad}\,f) = \nabla \cdot (\nabla f) = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2}$$
+<p>The notation $\nabla^2$ is shorthand for $\nabla \cdot \nabla$, and some authors write $\Delta f$ instead.
+</p>
+<p><strong>Example</strong>: The Laplacian of $f(x,y,z) = x^2 + y^2 + z^2$.
+</p>
+$$\nabla^2 f = \frac{\partial^2}{\partial x^2}(x^2) + \frac{\partial^2}{\partial y^2}(y^2) + \frac{\partial^2}{\partial z^2}(z^2) = 2 + 2 + 2 = 6$$
+<p>For a vector field $\mathbf{F}$ as well, applying the Laplacian to each component is called the <strong>vector Laplacian</strong>.
+</p>
+$$\nabla^2 \mathbf{F} = \begin{pmatrix} \nabla^2 F_x \\ \nabla^2 F_y \\ \nabla^2 F_z \end{pmatrix}$$
+<p>The Laplacian appears everywhere in physics. The heat equation, the wave equation, Poisson's equation—all are equations built around $\nabla^2$.
+</p>
+<hr />
+<h3 id="§7.6-Identities">§7.6 Identities</h3>
+<p>Among the three operations defined so far, two important identities hold. Both take the form "applying twice gives zero."
+</p>
+<h4 id="7.6.1-__MATH_BLOCK_99__">7.6.1 $\mathrm{curl}(\mathrm{grad}\,f) = \mathbf{0}$</h4>
+<p>If we take a vector field from a gradient and then take its curl, we always get the zero vector.
+</p>
+$$\nabla \times (\nabla f) = \begin{pmatrix}
+\frac{\partial}{\partial y}\frac{\partial f}{\partial z} - \frac{\partial}{\partial z}\frac{\partial f}{\partial y} \\[0.5em]
+\frac{\partial}{\partial z}\frac{\partial f}{\partial x} - \frac{\partial}{\partial x}\frac{\partial f}{\partial z} \\[0.5em]
+\frac{\partial}{\partial x}\frac{\partial f}{\partial y} - \frac{\partial}{\partial y}\frac{\partial f}{\partial x}
+\end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$$
+<p>In each component, terms cancel by exchanging the order of partial derivatives $\frac{\partial^2 f}{\partial y\partial z} = \frac{\partial^2 f}{\partial z\partial y}$. This always holds if $f$ is smooth (twice continuously differentiable).
+</p>
+<p>Physical meaning: "A gradient field has no vortex." Conservative gravitational and electrostatic fields fall into this category.
+</p>
+<h4 id="7.6.2-__MATH_BLOCK_102__">7.6.2 $\mathrm{div}(\mathrm{curl}\,\mathbf{F}) = 0$</h4>
+<p>If we take a vector field from a curl and then take its divergence, we always get zero.
+</p>
+$$\nabla \cdot (\nabla \times \mathbf{F}) = \frac{\partial}{\partial x}\!\left(\frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z}\right) + \frac{\partial}{\partial y}\!\left(\frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x}\right) + \frac{\partial}{\partial z}\!\left(\frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y}\right)$$
+<p>When expanded, terms pair up and cancel by exchanging the order of partial derivatives, as in $\frac{\partial^2 F_z}{\partial x\partial y}$ and $-\frac{\partial^2 F_z}{\partial y\partial x}$, so the sum is $0$.
+</p>
+<p>Physical meaning: "A curl field has no outflow or inflow." This is the identity reflected in Maxwell's equation $\nabla\cdot\mathbf B=0$, the mathematical expression of the absence of magnetic monopoles.
+</p>
+<blockquote>
+<p><strong>Checkpoint — §7.5–§7.6</strong></p>
+<p>- $\nabla^2 f = \mathrm{div}(\mathrm{grad}\,f)$ is the Laplacian of a scalar field. It describes heat conduction and waves.</p>
+<p>- $\mathrm{curl}(\mathrm{grad}\,f) = \mathbf{0}$: A gradient field has no vortex.</p>
+<p>- $\mathrm{div}(\mathrm{curl}\,\mathbf{F}) = 0$: A curl field has no outflow or inflow.</p>
+<p>- All follow from exchanging the order of partial derivatives $\partial_i\partial_j = \partial_j\partial_i$.</p>
+</blockquote>
+<hr />
+<h3 id="§7.7-A-Formula-Collection-for-Nabla">§7.7 A Formula Collection for Nabla</h3>
+<p>For practical calculation, we collect product rules involving $\nabla$ and representative vector identities for smooth scalar and vector fields. Below, $f, g$ denote scalar fields and $\mathbf{F}, \mathbf{G}$ denote vector fields.
+</p>
+<h4 id="7.7.1-Product-rules">7.7.1 Product rules</h4>
+<p><strong>Gradient of a product</strong>:
+</p>
+$$\nabla(fg) = f\,\nabla g + g\,\nabla f$$
+<p><strong>Divergence of a product</strong>:
+</p>
+$$\nabla \cdot (f\mathbf{F}) = (\nabla f) \cdot \mathbf{F} + f\,(\nabla \cdot \mathbf{F})$$
+<p><strong>Curl of a product</strong>:
+</p>
+$$\nabla \times (f\mathbf{F}) = (\nabla f) \times \mathbf{F} + f\,(\nabla \times \mathbf{F})$$
+<p><strong>Divergence of a cross product</strong>:
+</p>
+$$\nabla \cdot (\mathbf{F} \times \mathbf{G}) = (\nabla \times \mathbf{F}) \cdot \mathbf{G} - \mathbf{F} \cdot (\nabla \times \mathbf{G})$$
+<h4 id="7.7.2-Identities-for-double-application">7.7.2 Identities for double application</h4>
+<p>The curl of the gradient of a scalar field and the divergence of the curl of a vector field were derived in §7.6. We restate them here as part of the formula collection.
+</p>
+<p><strong>Curl of a gradient is zero</strong>:
+</p>
+$$\nabla \times (\nabla f) = \mathbf{0}$$
+<p><strong>Divergence of a curl is zero</strong>:
+</p>
+$$\nabla \cdot (\nabla \times \mathbf{F}) = 0$$
+<p><strong>Curl of a curl</strong>:
+</p>
+$$\nabla \times (\nabla \times \mathbf{F}) = \nabla(\nabla \cdot \mathbf{F}) - \nabla^2 \mathbf{F}$$
+<p>This is the formula that decomposes the Laplacian into divergence and curl. The derivation uses the BAC-CAB rule (§7.7.4).
+</p>
+<p><strong>Divergence of the gradient of a scalar field</strong> (= Laplacian):
+</p>
+$$\nabla \cdot (\nabla f) = \nabla^2 f$$
+<p>This is exactly the definition from §7.5.
+</p>
+<h4 id="7.7.3-Scalar-triple-product">7.7.3 Scalar triple product</h4>
+<p>The scalar triple product of three column vectors $\mathbf{A}, \mathbf{B}, \mathbf{C}$ is defined as the dot product of $\mathbf{A}$ with $\mathbf{B}\times\mathbf{C}$.
+</p>
+$$\mathbf{A} \cdot (\mathbf{B} \times \mathbf{C})$$
+<p>This value equals the signed volume of the parallelepiped spanned by $\mathbf{A}, \mathbf{B}, \mathbf{C}$. It is invariant under cyclic permutation, and swapping two vectors reverses the sign.
+</p>
+$$\mathbf{A} \cdot (\mathbf{B} \times \mathbf{C}) = \mathbf{B} \cdot (\mathbf{C} \times \mathbf{A}) = \mathbf{C} \cdot (\mathbf{A} \times \mathbf{B})$$
+<h4 id="7.7.4-Vector-triple-product-(BAC-CAB-rule)">7.7.4 Vector triple product (BAC-CAB rule)</h4>
+$$\mathbf{A} \times (\mathbf{B} \times \mathbf{C}) = \mathbf{B}(\mathbf{A} \cdot \mathbf{C}) - \mathbf{C}(\mathbf{A} \cdot \mathbf{B})$$
+<p>This appears when the cross product is used twice. Each term on the right is a vector scaled by a scalar, and the mnemonic is BAC-CAB.
+</p>
+<blockquote>
+<p><strong>Note</strong> (why we listed the formulas) The formulas listed here are typical of the ones students are forced to memorize on university vector-analysis exams. One might ask: if we rewrite everything with $d$ and $\ast$, does the number of formulas shrink dramatically? Not necessarily. On the differential-forms side too, there are rules such as $d(f\omega) = df\wedge\omega + f d\omega$ in comparable quantity.</p>
+<p>The real problem of vector analysis is not the number of formulas. <strong>Everything looks like the same "bundle of three-component arrows."</strong> $\nabla f$, $\nabla \times \mathbf{F}$, and $\nabla^2\mathbf{F}$ all look on the screen like nothing but bundles of arrows. Yet $\nabla f$ is the gradient (the slope of a potential), $\nabla \times \mathbf{F}$ is the axis of a vortex—the geometric meaning of the arrows is entirely different. If you rely on drawing pictures and intuition, the distinction vanishes the moment a problem gets complicated. Differential forms prevent this confusion in principle by making the degree of the measuring instrument explicit: $0$-form, $1$-form, $2$-form, $3$-form. $d$ always raises the degree by $1$, and $\ast$ always reverses the degree—because type information rides on a few rules, you can tell what an expression is doing from its form alone, without looking at arrows. This is why we return to the language of forms from Chapter 8 onward.</p>
+</blockquote>
+<blockquote>
+<p><strong>Note</strong> (just between us) Writing down the correspondences $\mathrm{grad}=d$, $\mathrm{curl}=\ast d$, $\mathrm{div}=\ast d\ast$ is, in fact, partly a compromise for dismantling vector analysis.</p>
+<p>In some introductory explanations of differential forms, what can be written neatly is often emphasized. But if you try seriously to translate vector analysis, $\ast$ keeps appearing and the appearance does not necessarily become simpler. For example, if we rewrite the vector triple product $\mathbf{A}\times(\mathbf{B}\times\mathbf{C})$ from §7.7.4 in this framework, nested $\ast$ appear as in $\ast(\alpha \wedge \ast(\beta \wedge \gamma))$, and it exposes a form more awkward than vector analysis itself.</p>
+<p>Even so, some introductory books emphasize beauty because the world before summoning the "strong constraint" called a metric—that is, the landscape woven only from $d$ and $\wedge$, without $\ast$—is so pure and beautiful. The fact that the skeleton of physical laws such as Maxwell's equations is fixed even before defining a metric (an inner product) is indeed striking.</p>
+<p>To head toward that "pure world of differential forms," we deliberately carry out once this awkward, $\ast$-covered translation work. That is the aim of this stage of the book. If you find these "vector analysis via differential forms" calculations dirty and unnatural, that reaction is correct. At that moment, you have already graduated from being a beginner in vector analysis.</p>
+</blockquote>
+<hr />
+<h3 id="§7.8-Integral-Theorems-—-Stokes,-Gauss,-and-Green">§7.8 Integral Theorems — Stokes, Gauss, and Green</h3>
+<p>The most important job of vector analysis is to connect differential operators (grad, div, curl) with integration. Below we state the three integral theorems in the language of $\nabla$.
+</p>
+<h4 id="7.8.1-Stokes'-Theorem">7.8.1 Stokes' Theorem</h4>
+<p>For a surface $S$ and its boundary, the closed curve $C = \partial S$,
+</p>
+$$\oint_C \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdot \mathbf{n}\,dS$$
+<p>The left-hand side is the line integral (circulation) of $\mathbf{F}$ along the curve $C$; the right-hand side is the surface integral of the normal component of the curl on the surface $S$. It means that "circulation on the boundary equals the total vorticity inside." Here $\mathbf{n}$ is the unit normal vector to the surface, chosen in the right-hand-screw relation to the orientation of $C$.
+</p>
+<blockquote>
+<p><strong>Note</strong> (Green's theorem) When $S$ is a region $D$ in the $xy$ plane and the components of $\mathbf{F}$ are $F_x=P,\;F_y=Q,\;F_z=0$, Stokes' theorem takes the following form, with the positive orientation on $\partial D$. This is called Green's theorem.</p>
+$$\oint_{\partial D} (P\,dx + Q\,dy) = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dx\,dy$$
+</blockquote>
+<h4 id="7.8.2-Gauss'-Theorem">7.8.2 Gauss' Theorem</h4>
+<p>For a solid $V$ and its boundary, the closed surface $S = \partial V$,
+</p>
+$$\oiint_S \mathbf{F} \cdot \mathbf{n}\,dS = \iiint_V (\nabla \cdot \mathbf{F})\,dV$$
+<p>The left-hand side is the outward flux of $\mathbf{F}$ through the closed surface $S$; the right-hand side is the volume integral of the divergence inside the solid $V$. It means that "the total flow through the boundary equals the total sources inside."
+</p>
+<h4 id="7.8.3-Common-Structure-of-the-Integral-Theorems">7.8.3 Common Structure of the Integral Theorems</h4>
+<p>Placed side by side, Stokes' theorem and Gauss' theorem reveal a common pattern.
+</p>
+<div class="table-wrapper"><table>
+<thead><tr>
+<th>Theorem</th>
+<th>Integral on the boundary</th>
+<th>Integral in the interior</th>
+<th>Differential operator</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Stokes</td>
+<td>$\displaystyle\oint_C \mathbf{F}\cdot d\mathbf{r}$</td>
+<td>$\displaystyle\iint_S (\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS$</td>
+<td>curl</td>
+</tr>
+<tr>
+<td>Gauss</td>
+<td>$\displaystyle\oiint_S \mathbf{F}\cdot\mathbf{n}\,dS$</td>
+<td>$\displaystyle\iiint_V (\nabla\cdot\mathbf{F})\,dV$</td>
+<td>div</td>
+</tr>
+</tbody>
+</table></div>
+<p>Each has the form "quantity measured on the boundary = sum of differential quantities in the interior." In this framework, §7.6's $\mathrm{div}(\mathrm{curl})=0$ can be read as "a curl field has no divergence, so nothing emerges from a closed surface that encloses it."
+</p>
+<p>Yet one dissatisfaction remains. Because the vector-analysis language splits the same pattern across different operators such as curl and div, these formulas are usually <strong>memorized as separate theorems</strong>. Recall that in Chapter 5, a single formula $\int_{\partial M}\omega = \int_M d\omega$ unified all of these. In Chapter 8 we will organize the correspondence that rewrites the integral theorems of the $\nabla$ world into this single form.
+</p>
+<blockquote>
+<p><strong>Checkpoint so far — §7.8</strong></p>
+<p>- Stokes' theorem: $\oint_C \mathbf{F}\cdot d\mathbf{r} = \iint_S (\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS$</p>
+<p>- Gauss' theorem: $\oiint_S \mathbf{F}\cdot\mathbf{n}\,dS = \iiint_V (\nabla\cdot\mathbf{F})\,dV$</p>
+<p>- Green's theorem is the planar version of Stokes' theorem.</p>
+<p>- These integral theorems share the common structure "integral on the boundary = integral of a differential in the interior," but in the language of $\nabla$ they must be treated as separate theorems.</p>
+</blockquote>
+<hr />
+<h3 id="§7.9-Toward-Chapter-8-—-Do-Not-Look-at-the-Arrows;-Look-at-the-Measuring-Devices">§7.9 Toward Chapter 8 — Do Not Look at the Arrows; Look at the Measuring Devices</h3>
+<p>In Chapter 6 we saw that by combining the exterior derivative $d$ and the Hodge star $\ast$, three types appear: $\mathrm{grad}=d$, $\mathrm{curl}=\ast d$, and $\mathrm{div}=\ast d\ast$.
+</p>
+<p>In this chapter we rewrote the same objects in the language of standard vector analysis. $\nabla f$, $\nabla\times\mathbf F$, and $\nabla\cdot\mathbf F$ are convenient, but on the screen they all look like arrows and scalars. Yet the geometric meaning each one carries is entirely different. And the more complex the problem becomes, the harder it is to distinguish them by looking at arrows alone.
+</p>
+<p>In the next chapter we will align the $d$ and $\ast$ types obtained in Chapter 6 with the $\nabla$ notation introduced in this chapter. By reading $\nabla f$ as $df$, and for the $1$-form $\omega$ corresponding to $\mathbf F$, reading $\nabla\times\mathbf F$ as $\ast d\omega$ and $\nabla\cdot\mathbf F$ as $\ast d\ast\omega$, the formulas of standard vector analysis are organized as equations that carry the degree of measuring devices. Think in the algebra of measuring devices, not in pictures of arrows—that viewpoint will be connected to standard vector-analytic notation in the next chapter.
+</p>
+<blockquote>
+<p><strong>Checkpoint so far — Chapter 7</strong></p>
+<p>- We defined $\nabla$ as a formal vector with partial-derivative operators stacked vertically, and introduced gradient, divergence, curl, and the Laplacian.</p>
+<p>- $\mathrm{grad}\,f = \nabla f$, $\mathrm{div}\,\mathbf{F} = \nabla \cdot \mathbf{F} = \operatorname{tr}(\mathbf{J}_\mathbf{F})$, $\mathrm{curl}\,\mathbf{F} = \nabla \times \mathbf{F}$.</p>
+<p>- $\nabla^2 = \mathrm{div}\,\mathrm{grad}$, $\mathrm{curl}(\mathrm{grad}) = 0$, $\mathrm{div}(\mathrm{curl}) = 0$.</p>
+<p>- We confirmed the cross-product matrix as the antisymmetric-matrix representation connected to exterior products, and reviewed the BAC-CAB rule.</p>
+<p>- The difficulty of vector analysis lies not only in the number of formulas but in the fact that everything looks like the same arrow. Differential forms distinguish objects by the degree of measuring devices ($n$-forms). Chapter 8 will connect these two languages.</p>
+</blockquote>
+      <div class="nav-buttons">
+        <a href="ch06.html">← Chapter 6...</a>
+        <a href="ch08.html">Chapter 8... →</a>
+      </div>
+    </article>
+    <footer class="site-footer">
+      <p>&copy; 2026 yokiikoy. CC BY-NC 4.0. For the latest edition, PDF, revision history, related information, and content beyond this book, see the portal site <a href="https://covectorspace.xyz/en/">Project Co-Vector Space</a>.</p>
+    </footer>
+  </main>
+</body>
+</html>

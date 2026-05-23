@@ -95,8 +95,9 @@
   <nav class="sidebar">
     <h2><a href="index.html">ナブラ解体新書</a></h2>
     <div class="author">
-      著者: yokiikoy<br>
-      <a href="http://covectorspace.xyz/jp/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a>
+      著者：yokiikoy<br>
+      <a href="https://covectorspace.xyz/jp/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a><br>
+      <a href="en/index.html" style="font-size: 0.75rem; color: #666; text-decoration: none;">English edition</a>
     </div>
     <div class="mobile-current">現在: <strong>第5章：微分するとは何か —— 外微分 $d$：積分量と局所法則</strong></div>
     <a class="mobile-toc-button" href="toc.html">目次を開く</a>
@@ -618,7 +619,7 @@ $$d\omega = \eta$$
 <p><strong>注</strong> （電磁気学を未習の読者へ）この節では、電磁気学の詳しい内容ではなく、積分形の法則が局所形へ変わるしくみを見る。$E,D,B,H,J,\rho$ は、ここでは物理量の名前というより、「線で測る量」「面で測る量」「体積で測る量」を表す記号だと思って読めばよい。</p>
 </blockquote>
 <blockquote>
-<p><strong>注</strong> （ベクトル解析で電磁気学を学んだ読者へ）ここでは、通常の三成分ベクトルとしての場ではなく、どの次元の対象に積分するかに合わせて形式の次数を選んでいる。$E,H$ は線に沿って積分されるので $1$-form、$D,B,J$ は面を貫いて積分されるので $2$-form、$\rho$ は体積にわたって積分されるので $3$-form として扱う。通常のベクトル解析記法との対応は、ホッジ・スターを導入した後で整理する。</p>
+<p><strong>注</strong> （ベクトル解析で電磁気学を学んだ読者へ）ここでは、通常の三成分ベクトルとしての場ではなく、どの次元の対象に積分するかに合わせて形式の次数を選んでいる。$E,H$ は線に沿って積分されるので $1$-form、$D,B,J$ は面を貫いて積分されるので $2$-form、$\rho$ は体積にわたって積分されるので $3$-form として扱う。通常のベクトル解析記法との対応は、ホッジ・スターを導入した後で整理する。第9章 §9.5・第10章以降では、球座標の動径 $\rho$ と混同しないよう、電荷密度を $\rho_{\mathrm e}$ と書く。</p>
 </blockquote>
 <p>電磁気では、量の種類によって積分する対象が異なる。線に沿って測る量、面を貫いて測る量、体積にわたって測る量がある。そこで模式的に、次のように読むことができる。
 </p>
@@ -768,7 +769,7 @@ $$
 <h2 id="付録B：外微分の行列表示">付録B：外微分の行列表示</h2>
 <p>本章本文は基底 $dx, dy, dz$ とウェッジ積の代数で進めた。ここでは第2章以来の本書の流儀——<strong>成分をひとつ残らず行列に並べる</strong>——によって、外微分を行列表示の言葉で書き直す。
 </p>
-<h3 id="B.1-__MATH_BLOCK_679__-form：__MATH_BLOCK_680__-の-__MATH_BLOCK_681__-行ベクトル">B.1 $0$-form：$df$ の $1 \times 3$ 行ベクトル</h3>
+<h3 id="B.1-__MATH_BLOCK_681__-form：__MATH_BLOCK_682__-の-__MATH_BLOCK_683__-行ベクトル">B.1 $0$-form：$df$ の $1 \times 3$ 行ベクトル</h3>
 <p>$f = f(x,y,z)$ に対し、第1章 §1.2 の定義どおり：
 </p>
 $$df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz$$
@@ -777,7 +778,7 @@ $$df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \
 $$df = \begin{pmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & \frac{\partial f}{\partial z} \end{pmatrix}$$
 <p>である。
 </p>
-<h3 id="B.2-__MATH_BLOCK_684__-form：係数のヤコビ行列-__MATH_BLOCK_685__">B.2 $1$-form：係数のヤコビ行列 $\mathbf{J}$</h3>
+<h3 id="B.2-__MATH_BLOCK_686__-form：係数のヤコビ行列-__MATH_BLOCK_687__">B.2 $1$-form：係数のヤコビ行列 $\mathbf{J}$</h3>
 <p>$\omega = P\,dx + Q\,dy + R\,dz$ に対し、係数 $(P,Q,R)$ の偏微分を<strong>すべて</strong>並べた $3 \times 3$ 行列を：
 </p>
 $$\mathbf{J} := \begin{pmatrix}
@@ -787,7 +788,7 @@ $$\mathbf{J} := \begin{pmatrix}
 \end{pmatrix}$$
 <p>とする。これは $(P,Q,R)$ を「縦に積んだ」ベクトル場のヤコビ行列にあたる。§5.1 で「単なる偏微分の行列では足りない」と述べたのは、まさにこの $\mathbf{J}$ が反対称でないからだ。
 </p>
-<h3 id="B.3-__MATH_BLOCK_691__">B.3 $d\omega = \mathbf{J}^T - \mathbf{J}$</h3>
+<h3 id="B.3-__MATH_BLOCK_693__">B.3 $d\omega = \mathbf{J}^T - \mathbf{J}$</h3>
 <p>§5.5 の結果は：
 </p>
 $$d\omega = (\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z})\,dy \wedge dz + (\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x})\,dz \wedge dx + (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,dx \wedge dy$$
@@ -805,7 +806,7 @@ $$\mathbf{J}^T - \mathbf{J} = \begin{pmatrix}
 $$d\omega = \mathbf{J}^T - \mathbf{J}$$
 <p>となり、<strong>外微分 $d\omega$ の行列表示は、転置から係数のヤコビ行列を引いた反対称行列である。</strong>
 </p>
-<h3 id="B.4-__MATH_BLOCK_698__-form：__MATH_BLOCK_699__-とヤコビ行列のトレース">B.4 $2$-form：$d\eta$ とヤコビ行列のトレース</h3>
+<h3 id="B.4-__MATH_BLOCK_700__-form：__MATH_BLOCK_701__-とヤコビ行列のトレース">B.4 $2$-form：$d\eta$ とヤコビ行列のトレース</h3>
 <p>$\eta = A\,dy \wedge dz + B\,dz \wedge dx + C\,dx \wedge dy$ に対し、係数 $(A,B,C)$ のヤコビ行列を：
 </p>
 $$\mathbf{J}_\eta := \begin{pmatrix}
@@ -816,7 +817,7 @@ $$\mathbf{J}_\eta := \begin{pmatrix}
 <p>とすると、§5.7 の結果 $d\eta = (\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z})\,dx \wedge dy \wedge dz$ の係数は $\mathbf{J}_\eta$ の<strong>トレース</strong>（対角成分の和）に一致する：
 </p>
 $$\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z} = \operatorname{tr}(\mathbf{J}_\eta)$$
-<h4 id="B.4.1-__MATH_BLOCK_704__-の27成分——3枚の行列に展開する">B.4.1 $d\eta$ の27成分——3枚の行列に展開する</h4>
+<h4 id="B.4.1-__MATH_BLOCK_706__-の27成分——3枚の行列に展開する">B.4.1 $d\eta$ の27成分——3枚の行列に展開する</h4>
 <p>$\eta$ の反対称成分は $\eta_{yz}=A,\; \eta_{zx}=B,\; \eta_{xy}=C$（他は符号反転または $0$）である。$d\eta$ の成分を $(d\eta)_{abc} = \partial_a \eta_{bc}$ と書く。ここで $\partial_x=\frac{\partial}{\partial x}$、$\partial_y=\frac{\partial}{\partial y}$、$\partial_z=\frac{\partial}{\partial z}$ であり、$a,b,c \in \{x,y,z\}$ だから成分は $3^3=27$ 個ある。$a$ を固定した $3 \times 3$ 行列3枚に並べると：
 </p>
 $$
@@ -848,7 +849,7 @@ $$d\eta = \left( \frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} +
 </p>
 <p>$3$-form は基底が $dx \wedge dy \wedge dz$ の 1 つだけなので、行列としてはスカラー係数に縮退している。
 </p>
-<h3 id="B.5-__MATH_BLOCK_733__-とヘッセ行列">B.5 $d^2 f = 0$ とヘッセ行列</h3>
+<h3 id="B.5-__MATH_BLOCK_735__-とヘッセ行列">B.5 $d^2 f = 0$ とヘッセ行列</h3>
 <p>$0$-form $f$ のヘッセ行列：
 </p>
 $$\mathbf{H}_f := \begin{pmatrix}
@@ -877,7 +878,7 @@ $$J = J_x\,dy\wedge dz + J_y\,dz\wedge dx + J_z\,dx\wedge dy$$
 $$
 \rho = \rho\,dx\wedge dy\wedge dz
 $$
-<p>ここでは記号を簡単にするため、電荷密度を表す係数と、それを体積形式に乗せた $3$-form の両方を同じ $\rho$ で書いている。
+<p>ここでは記号を簡単にするため、電荷密度を表す係数と、それを体積形式に乗せた $3$-form の両方を同じ $\rho$ で書いている。第9章 §9.5・第10章以降では動径座標 $\rho$ との混同を避けるため、電荷密度を $\rho_{\mathrm e}$ と表記する。
 </p>
 <p>$E,H$ は線に沿って測る $1$-form、$D,B,J$ は面を貫いて測る $2$-form、$\rho$ は体積にわたって測る $3$-form である。
 </p>
@@ -1075,7 +1076,7 @@ $$
       </div>
     </article>
     <footer class="site-footer">
-      <p>&copy; 2026 yokiikoy. CC BY-NC 4.0.</p>
+      <p>&copy; 2026 yokiikoy. CC BY-NC 4.0. 本書の最新版・PDF・改訂履歴・関連情報・本書以外のコンテンツはポータルサイト <a href="https://covectorspace.xyz/jp/">Project Co-Vector Space</a> をご確認ください。</p>
     </footer>
   </main>
 </body>

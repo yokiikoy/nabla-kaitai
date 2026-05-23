@@ -6,6 +6,10 @@
 
 [https://covectorspace.xyz/jp/](https://covectorspace.xyz/jp/)
 
+### GitHub Pages（日本語）
+
+[https://yokiikoy.github.io/nabla-kaitai/](https://yokiikoy.github.io/nabla-kaitai/) · [English edition](https://yokiikoy.github.io/nabla-kaitai/en/)
+
 本書は無料で公開しています。明らかな誤植レベルの指摘は GitHub Issues でも受け付けます。
 
 > <strong>注</strong>（名称について）  

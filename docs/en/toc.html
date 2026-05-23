@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contents | Unmasking Div, Grad, and Curl</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+<style>
+  :root { --sidebar-width: 320px; }
+  html { color-scheme: light; background: #fff; }
+  body { margin: 0; display: flex; background: #fff; color: #24292f; line-height: 1.7; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .sidebar { width: var(--sidebar-width); height: 100vh; position: sticky; top: 0; background: #f8f9fa; color: #24292f; border-right: 1px solid #d0d7de; overflow-y: auto; padding: 1.5rem; box-sizing: border-box; flex-shrink: 0; }
+  .sidebar h2 { font-size: 1.2rem; border: none; margin-bottom: 0.5rem; color: #24292f; }
+  .sidebar .author { font-size: 0.8rem; color: #666; margin-bottom: 1.5rem; }
+  .sidebar .toc { font-size: 0.85rem; }
+  .sidebar .toc ul { list-style: none; padding-left: 0; margin: 0; }
+  .sidebar .toc li { margin-bottom: 0.4rem; }
+  .sidebar .toc .level-1 { font-weight: bold; margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 2px; }
+  .sidebar .toc .sub-toc { font-size: 0.8rem; margin-top: 0.5rem; padding-left: 0.8rem; border-left: 2px solid #eee; }
+  .sidebar .toc .sub-toc li { margin-bottom: 0.2rem; font-weight: normal; }
+  .sidebar .toc .sub-toc .level-3 { padding-left: 0.8rem; font-size: 0.75rem; color: #666; }
+  .sidebar a { text-decoration: none; color: #0969da; }
+  .sidebar a:hover { text-decoration: underline; }
+  .sidebar .active { color: #cf222e; font-weight: bold; }
+  .sidebar .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
+  .mobile-current { display: none; }
+  .mobile-toc-button { display: none; }
+  .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; background: #fff; color: #24292f; }
+  .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; color-scheme: light; background: #fff; color: #24292f; }
+  .markdown-body p, .markdown-body li { color: #24292f; }
+  @media (max-width: 900px) { 
+    body { flex-direction: column; } 
+    .sidebar { width: 100%; height: auto; position: sticky; top: 0; z-index: 10; padding: 0.75rem 1rem; border-right: none; border-bottom: 1px solid #d0d7de; box-shadow: 0 1px 8px rgba(27, 31, 36, 0.08); }
+    .sidebar h2 { margin: 0; font-size: 1rem; }
+    .sidebar .author { display: none; }
+    .sidebar .toc { display: none; }
+    .mobile-current { display: block; margin-top: 0.35rem; font-size: 0.85rem; color: #57606a; }
+    .mobile-current strong { color: #cf222e; }
+    .mobile-toc-button { display: inline-block; margin-top: 0.35rem; font-size: 0.85rem; }
+    .main-content { padding: 1rem; } 
+    .markdown-body { padding: 0.5rem; }
+  }
+  blockquote { border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }
+  blockquote p { color: #57606a; }
+  .table-wrapper { overflow-x: auto; margin: 1.5em 0; }
+  .markdown-body table { border-collapse: collapse; width: 100%; font-size: 0.9em; background: #fff; }
+  .markdown-body th, .markdown-body td { border: 1px solid #d0d7de; padding: 6px 13px; color: #24292f !important; }
+  .markdown-body tr:nth-child(even) { background-color: #f6f8fa !important; }
+  th { font-weight: 600; background-color: #f6f8fa; }
+  code, pre { color: #24292f; background-color: #f6f8fa; }
+  .nav-buttons { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }
+  .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
+  .nav-buttons a:hover { background: #f6f8fa; }
+  strong { font-weight: 800 !important; color: #000; }
+  blockquote strong { color: #24292f !important; }
+  /* KaTeX responsiveness */
+  .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }
+  .full-toc h2 { font-size: 1.1rem; margin: 1.5em 0 0.3em; padding-bottom: 2px; border-bottom: 1px solid #d0d7de; }
+  .full-toc h2 a { color: #24292f; text-decoration: none; }
+  .full-toc h2 a:hover { color: #0969da; }
+  .full-toc h2 .disabled-link { color: #8c959f; cursor: not-allowed; }
+  .full-toc ul { list-style: none; padding-left: 1.5rem; margin: 0.3em 0 0; }
+  .full-toc li { margin-bottom: 0.2rem; font-size: 0.9rem; }
+  .full-toc .level-3 { padding-left: 1rem; font-size: 0.8rem; color: #57606a; }
+  .full-toc a { color: #0969da; text-decoration: none; }
+  .full-toc a:hover { text-decoration: underline; }
+  .full-toc .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
+  .full-toc .part-header { font-size: 1.1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }
+  .full-toc .toc-part-chapters { padding-left: 1.5rem; }
+  .full-toc .toc-part-chapters h3 { font-size: 0.95rem; margin: 0.5em 0 0.2em; }
+  .full-toc .toc-part-chapters h3 a { color: #24292f; }
+  .full-toc .toc-part-chapters ul { padding-left: 1.5rem; }
+  .site-footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #d0d7de; font-size: 0.8rem; color: #57606a; }
+  .site-footer a { color: #0969da; text-decoration: none; }
+  .site-footer a:hover { text-decoration: underline; }
+</style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ],
+            throwOnError : false
+        });
+    });
+</script>
+
+</head>
+<body>
+  <nav class="sidebar">
+    <h2><a href="index.html">Unmasking Div, Grad, and Curl</a></h2>
+    <div class="author">
+      Author: yokiikoy<br>
+      <a href="https://covectorspace.xyz/en/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a><br>
+      <a href="../index.html" style="font-size: 0.75rem; color: #666; text-decoration: none;">Japanese edition</a>
+    </div>
+    <div class="mobile-current">Current: <strong>Contents</strong></div>
+    <a class="mobile-toc-button" href="toc.html">Open contents</a>
+    <div class="toc">
+      <ul>
+<li class="level-1"><a href="toc.html" class="active" id="link-toc.html">Contents</a></li>
+<li class="level-1"><a href="index.html" id="link-index.html">Preface</a></li>
+<li class="level-1"><a href="intro.html" id="link-intro.html">Introduction</a></li>
+<li class="level-1"><a href="portal.html" id="link-portal.html">Portal Site and a Small Experiment</a></li>
+<li class="level-1"><a href="ch01.html" id="link-ch01.html">Chapter 1</a></li>
+<li class="level-1"><a href="ch02.html" id="link-ch02.html">Chapter 2</a></li>
+<li class="level-1"><a href="ch03.html" id="link-ch03.html">Chapter 3</a></li>
+<li class="level-1"><a href="ch04.html" id="link-ch04.html">Chapter 4</a></li>
+<li class="level-1"><a href="ch05.html" id="link-ch05.html">Chapter 5</a></li>
+<li class="level-1"><a href="ch06.html" id="link-ch06.html">Chapter 6</a></li>
+<li class="level-1"><a href="ch07.html" id="link-ch07.html">Chapter 7</a></li>
+<li class="level-1"><a href="ch08.html" id="link-ch08.html">Chapter 8</a></li>
+<li class="level-1"><a href="ch09.html" id="link-ch09.html">Chapter 9</a></li>
+<li class="level-1"><a href="ch10.html" id="link-ch10.html">Chapter 10</a></li>
+<li class="level-1"><a href="ch11.html" id="link-ch11.html">Chapter 11</a></li>
+<li class="level-1"><a href="ch12.html" id="link-ch12.html">Chapter 12</a></li>
+<li class="level-1"><a href="postscript.html" id="link-postscript.html">Afterword</a></li>
+<li class="level-1"><a href="refs.html" id="link-refs.html">References (with Comments from the Author)</a></li>
+<li class="level-1"><a href="appendix.html" id="link-appendix.html">Appendix</a></li>
+</ul>
+    </div>
+  </nav>
+  <main class="main-content">
+    <article class="markdown-body">
+<h1>Contents</h1>
+<p>Each heading is a link to the corresponding section in its chapter.</p>
+<div class="full-toc">
+<div class="toc-part"><h2 class="part-header">Part I: Differential Forms on $\mathbb{R}^3$ (Chapters 1–5)</h2><div class="toc-part-chapters">
+<h3><a href="ch01.html">Chapter 1: What Is $dx$? — A Measuring Device That Eats Vectors, or a Row Vector</a></h3>
+<ul>
+<li class="level-3"><a href="ch01.html#§1.0-The-Mathematician’s-One-Dimension,-the-Physicist’s-One-Dimension">§1.0 The Mathematician’s One Dimension, the Physicist’s One Dimension</a></li>
+<li class="level-3"><a href="ch01.html#§1.2-The-Total-Differential-$df$-—-An-Operator-That-Packs-Rates-of-Change-into-a-Matrix">§1.2 The Total Differential $df$ — An Operator That Packs Rates of Change into a Matrix</a></li>
+<li class="level-3"><a href="ch01.html#§1.3-Leibniz-Notation-and-Algebraic-Intuition">§1.3 Leibniz Notation and Algebraic Intuition</a></li>
+<li class="level-3"><a href="ch01.html#§1.4-Coordinate-Transformations-—-Rebuilding-Measuring-Devices-in-New-Coordinates">§1.4 Coordinate Transformations — Rebuilding Measuring Devices in New Coordinates</a></li>
+<li class="level-3"><a href="ch01.html#§1.5-Writing-in-Another-Coordinate-System-—-Exercises">§1.5 Writing in Another Coordinate System — Exercises</a></li>
+<li class="level-3"><a href="ch01.html#§1.6-Summary-of-This-Chapter-and-Outlook-Toward-the-Next">§1.6 Summary of This Chapter and Outlook Toward the Next</a></li>
+</ul>
+<h3><a href="ch02.html">Chapter 2: What Is Area? — The Sign Rule Hidden in Parallelepipeds</a></h3>
+<ul>
+<li class="level-3"><a href="ch02.html#§2.0-Measuring-Devices,-Area,-Volume,-and-Length">§2.0 Measuring Devices, Area, Volume, and Length</a></li>
+<li class="level-3"><a href="ch02.html#§2.2-The-Three-Rules-an-Area-Measuring-Device-Must-Satisfy">§2.2 The Three Rules an Area-Measuring Device Must Satisfy</a></li>
+<li class="level-3"><a href="ch02.html#§2.3-An-Area-Measuring-Device-Is-an-"Antisymmetric-Matrix"">§2.3 An Area-Measuring Device Is an "Antisymmetric Matrix"</a></li>
+<li class="level-3"><a href="ch02.html#§2.4-Internal-Structure-of-the-Area-Measuring-Device">§2.4 Internal Structure of the Area-Measuring Device</a></li>
+<li class="level-3"><a href="ch02.html#§2.5-Volume-Measuring-Devices-and-Determinants">§2.5 Volume-Measuring Devices and Determinants</a></li>
+<li class="level-3"><a href="ch02.html#§2.6-Summary-of-This-Chapter-and-Outlook-Toward-Chapter-3">§2.6 Summary of This Chapter and Outlook Toward Chapter 3</a></li>
+<li class="level-2"><a href="ch02.html#Appendix-A:-Tensor-Product-Representation-of-the-Volume-Measuring-Device-—-Full-Component-Calculation">Appendix A: Tensor-Product Representation of the Volume-Measuring Device — Full Component Calculation</a></li>
+</ul>
+<h3><a href="ch03.html">Chapter 3: What Does It Mean to Integrate? — Count Finite Masses, Then Take the Limit</a></h3>
+<ul>
+<li class="level-3"><a href="ch03.html#§3.0-Measuring-Curved-Things-—-Paying-Back-a-Debt-from-Elementary-School">§3.0 Measuring Curved Things — Paying Back a Debt from Elementary School</a></li>
+<li class="level-3"><a href="ch03.html#§3.2-Surface-Area-—-The-Limit-of-Two-Dimensions,-Coefficient-1">§3.2 Surface Area — The Limit of Two Dimensions, Coefficient 1</a></li>
+<li class="level-3"><a href="ch03.html#§3.3-Curves-—-The-Limit-of-One-Dimension,-Coefficient-1,-Revealed">§3.3 Curves — The Limit of One Dimension, Coefficient 1, Revealed</a></li>
+<li class="level-3"><a href="ch03.html#§3.4-Adding-Coefficients-—-Density-Times-Geometry">§3.4 Adding Coefficients — Density Times Geometry</a></li>
+<li class="level-3"><a href="ch03.html#§3.5-Summary-of-This-Chapter-and-Outlook-Toward-the-Next">§3.5 Summary of This Chapter and Outlook Toward the Next</a></li>
+</ul>
+<h3><a href="ch04.html">Chapter 4: What Is a Change of Variables? — The Pullback $\Phi^*$: Making Measuring Devices Consistent</a></h3>
+<ul>
+<li class="level-3"><a href="ch04.html#§4.0-Physics-Curves;-Computation-Uses-Boxes">§4.0 Physics Curves; Computation Uses Boxes</a></li>
+<li class="level-3"><a href="ch04.html#§4.1-Pullback-of-a-1-Form-—-Work-and-the-Work-Energy-Theorem">§4.1 Pullback of a 1-Form — Work and the Work-Energy Theorem</a></li>
+<li class="level-3"><a href="ch04.html#§4.3-Pullback-of-a-3-Form-—-Conservation-of-Mass-and-Volume-Integrals">§4.3 Pullback of a 3-Form — Conservation of Mass and Volume Integrals</a></li>
+<li class="level-3"><a href="ch04.html#§4.4-Properties-of-the-Pullback-—-What-We-Have-Established-So-Far">§4.4 Properties of the Pullback — What We Have Established So Far</a></li>
+<li class="level-3"><a href="ch04.html#§4.5-Summary-of-This-Chapter-and-Outlook-Toward-Chapter-5,-the-Exterior-Derivative">§4.5 Summary of This Chapter and Outlook Toward Chapter 5, the Exterior Derivative</a></li>
+</ul>
+<h3><a href="ch05.html">Chapter 5: What Does It Mean to Differentiate? — The Exterior Derivative $d$: Integral Quantities and Local Laws</a></h3>
+<ul>
+<li class="level-3"><a href="ch05.html#§5.0-The-Bridge-to-Differentiation-—-Observation-Is-Integral,-Law-Is-Differential">§5.0 The Bridge to Differentiation — Observation Is Integral, Law Is Differential</a></li>
+<li class="level-3"><a href="ch05.html#§5.2-The-"Mismatch"-Revealed-by-a-Closed-Loop">§5.2 The "Mismatch" Revealed by a Closed Loop</a></li>
+<li class="level-3"><a href="ch05.html#§5.3-Dismantling-an-Infinitesimal-Loop-—-The-Mismatch-Is-Proportional-to-Area">§5.3 Dismantling an Infinitesimal Loop — The Mismatch Is Proportional to Area</a></li>
+<li class="level-3"><a href="ch05.html#§5.4-The-Birth-of-$d$-—-A-New-Measuring-Device-for-Mismatch-per-Unit-Area">§5.4 The Birth of $d$ — A New Measuring Device for Mismatch per Unit Area</a></li>
+<li class="level-3"><a href="ch05.html#§5.5-The-Exterior-Derivative-of-a-General-$1$-Form-—-Extension-to-Three-Dimensions">§5.5 The Exterior Derivative of a General $1$-Form — Extension to Three Dimensions</a></li>
+<li class="level-3"><a href="ch05.html#§5.6-Accumulate-It,-and-Only-the-Boundary-Remains-—-Stokes'-Theorem">§5.6 Accumulate It, and Only the Boundary Remains — Stokes' Theorem</a></li>
+<li class="level-3"><a href="ch05.html#§5.7-The-Same-Thing-One-Degree-Higher-—-Exterior-Derivative-of-a-$2$-Form-and-Divergence">§5.7 The Same Thing One Degree Higher — Exterior Derivative of a $2$-Form and Divergence</a></li>
+<li class="level-3"><a href="ch05.html#§5.8-$d^2-=-0$-—-The-Mismatch-of-a-Mismatch-Leaves-Nothing-Behind">§5.8 $d^2 = 0$ — The Mismatch of a Mismatch Leaves Nothing Behind</a></li>
+<li class="level-3"><a href="ch05.html#§5.9-Unifying-the-Exterior-Derivative-—-One-Formula,-One-Rule">§5.9 Unifying the Exterior Derivative — One Formula, One Rule</a></li>
+<li class="level-3"><a href="ch05.html#§5.10-From-Integrals-to-Differential-Equations-—-Localizing-Physical-Laws">§5.10 From Integrals to Differential Equations — Localizing Physical Laws</a></li>
+<li class="level-3"><a href="ch05.html#§5.11-Outlook-Toward-Part-II-—-Foreshadowing-the-Hodge-Star">§5.11 Outlook Toward Part II — Foreshadowing the Hodge Star</a></li>
+<li class="level-2"><a href="ch05.html#Appendix-B:-Matrix-Representation-of-the-Exterior-Derivative">Appendix B: Matrix Representation of the Exterior Derivative</a></li>
+<li class="level-3"><a href="ch05.html#B.1-$0$-form:-the-$1-\times-3$-row-vector-of-$df$">B.1 $0$-form: the $1 \times 3$ row vector of $df$</a></li>
+<li class="level-3"><a href="ch05.html#B.2-$1$-form:-the-Jacobian-matrix-$\mathbf{J}$-of-the-coefficients">B.2 $1$-form: the Jacobian matrix $\mathbf{J}$ of the coefficients</a></li>
+<li class="level-3"><a href="ch05.html#B.3-$d\omega-=-\mathbf{J}^T---\mathbf{J}$">B.3 $d\omega = \mathbf{J}^T - \mathbf{J}$</a></li>
+<li class="level-3"><a href="ch05.html#B.4-$2$-form:-$d\eta$-and-the-trace-of-the-Jacobian-matrix">B.4 $2$-form: $d\eta$ and the trace of the Jacobian matrix</a></li>
+<li class="level-3"><a href="ch05.html#B.5-$d^2-f-=-0$-and-the-Hessian">B.5 $d^2 f = 0$ and the Hessian</a></li>
+<li class="level-2"><a href="ch05.html#Appendix-C:-Integral-Forms-of-Electromagnetism-and-Differential-Forms">Appendix C: Integral Forms of Electromagnetism and Differential Forms</a></li>
+<li class="level-3"><a href="ch05.html#C.1-Degrees-of-physical-quantities">C.1 Degrees of physical quantities</a></li>
+<li class="level-3"><a href="ch05.html#C.2-Gauss's-law-for-charge">C.2 Gauss's law for charge</a></li>
+<li class="level-3"><a href="ch05.html#C.3-The-law-of-magnetic-flux">C.3 The law of magnetic flux</a></li>
+<li class="level-3"><a href="ch05.html#C.4-Faraday's-law">C.4 Faraday's law</a></li>
+<li class="level-3"><a href="ch05.html#C.5-Ampère–Maxwell's-law">C.5 Ampère–Maxwell's law</a></li>
+<li class="level-3"><a href="ch05.html#C.6-Where-a-metric-is-needed">C.6 Where a metric is needed</a></li>
+</ul>
+</div></div>
+<div class="toc-part"><h2 class="part-header">Part II: Vector Analysis (Chapters 6–9)</h2><div class="toc-part-chapters">
+<h3><a href="ch06.html">Chapter 6: The Metric $g$ and the Hodge Star $\ast$ — Summoning the Inner Product and Reversing Degree</a></h3>
+<ul>
+<li class="level-3"><a href="ch06.html#§6.0-The-End-of-Excuses-—-Releasing-the-Inner-Product">§6.0 The End of Excuses — Releasing the Inner Product</a></li>
+<li class="level-3"><a href="ch06.html#§6.2-Converting-Between-Column-Vectors-and-Row-Vectors-Using-$g$">§6.2 Converting Between Column Vectors and Row Vectors Using $g$</a></li>
+<li class="level-3"><a href="ch06.html#§6.3-The-Hodge-Star-$\ast$-—-The-Correspondence-Connecting-Two-Routes">§6.3 The Hodge Star $\ast$ — The Correspondence Connecting Two Routes</a></li>
+<li class="level-3"><a href="ch06.html#§6.4-Examples-of-the-Correspondence-—-Differential-Forms-and-Vector-Analysis">§6.4 Examples of the Correspondence — Differential Forms and Vector Analysis</a></li>
+<li class="level-3"><a href="ch06.html#§6.5-The-Types-of-the-Three-Operations-—-grad,-curl,-div">§6.5 The Types of the Three Operations — grad, curl, div</a></li>
+<li class="level-3"><a href="ch06.html#§6.6-Toward-Vector-Analysis">§6.6 Toward Vector Analysis</a></li>
+<li class="level-2"><a href="ch06.html#Appendix-D:-Array-Representation-of-the-Hodge-Star">Appendix D: Array Representation of the Hodge Star</a></li>
+<li class="level-3"><a href="ch06.html#D.1-$\ast_{1\to2}$-—-placing-three-coefficients-into-an-antisymmetric-matrix">D.1 $\ast_{1\to2}$ — placing three coefficients into an antisymmetric matrix</a></li>
+<li class="level-3"><a href="ch06.html#D.2-$\ast_{2\to1}$-—-extracting-coefficients-by-the-Frobenius-product">D.2 $\ast_{2\to1}$ — extracting coefficients by the Frobenius product</a></li>
+<li class="level-3"><a href="ch06.html#D.3-$\ast\ast=\mathrm{id}$-in-the-$1$-form-and-$2$-form-case">D.3 $\ast\ast=\mathrm{id}$ in the $1$-form and $2$-form case</a></li>
+<li class="level-3"><a href="ch06.html#D.4-Array-representation-of-$\ast_{0\to3}$-and-$\ast_{3\to0}$">D.4 Array representation of $\ast_{0\to3}$ and $\ast_{3\to0}$</a></li>
+<li class="level-3"><a href="ch06.html#D.5-Summary">D.5 Summary</a></li>
+</ul>
+<h3><a href="ch07.html">Chapter 7: Vector Analysis — Enter Nabla</a></h3>
+<ul>
+<li class="level-3"><a href="ch07.html#§7.0-Enter-Nabla">§7.0 Enter Nabla</a></li>
+<li class="level-3"><a href="ch07.html#§7.2-$\nabla$-and-the-Gradient">§7.2 $\nabla$ and the Gradient</a></li>
+<li class="level-3"><a href="ch07.html#§7.3-Divergence">§7.3 Divergence</a></li>
+<li class="level-3"><a href="ch07.html#§7.4-Curl">§7.4 Curl</a></li>
+<li class="level-3"><a href="ch07.html#§7.5-The-Laplacian">§7.5 The Laplacian</a></li>
+<li class="level-3"><a href="ch07.html#§7.6-Identities">§7.6 Identities</a></li>
+<li class="level-3"><a href="ch07.html#§7.7-A-Formula-Collection-for-Nabla">§7.7 A Formula Collection for Nabla</a></li>
+<li class="level-3"><a href="ch07.html#§7.8-Integral-Theorems-—-Stokes,-Gauss,-and-Green">§7.8 Integral Theorems — Stokes, Gauss, and Green</a></li>
+<li class="level-3"><a href="ch07.html#§7.9-Toward-Chapter-8-—-Do-Not-Look-at-the-Arrows;-Look-at-the-Measuring-Devices">§7.9 Toward Chapter 8 — Do Not Look at the Arrows; Look at the Measuring Devices</a></li>
+</ul>
+<h3><a href="ch08.html">Chapter 8: Two Languages — Differentiating Measuring Devices and Differentiating Fields</a></h3>
+<ul>
+<li class="level-3"><a href="ch08.html#§8.0-The-Highlight-of-This-Book">§8.0 The Highlight of This Book</a></li>
+<li class="level-3"><a href="ch08.html#§8.2-Completing-the-Translation-Dictionary">§8.2 Completing the Translation Dictionary</a></li>
+<li class="level-3"><a href="ch08.html#§8.3-Translating-Stokes'-Theorem">§8.3 Translating Stokes' Theorem</a></li>
+<li class="level-3"><a href="ch08.html#§8.4-Translating-Gauss'-Theorem">§8.4 Translating Gauss' Theorem</a></li>
+<li class="level-3"><a href="ch08.html#§8.5-Why-the-Two-Languages-Agree">§8.5 Why the Two Languages Agree</a></li>
+<li class="level-3"><a href="ch08.html#§8.6-Curvilinear-Coordinates-and-the-Two-Routes">§8.6 Curvilinear Coordinates and the Two Routes</a></li>
+</ul>
+<h3><a href="ch09.html">Chapter 9: In Practice — Build the Dictionary and Solve Hard Problems</a></h3>
+<ul>
+<li class="level-3"><a href="ch09.html#§9.0-The-Central-Tools-of-This-Book-Are-Now-in-Place">§9.0 The Central Tools of This Book Are Now in Place</a></li>
+<li class="level-3"><a href="ch09.html#§9.2-Cylindrical-Coordinates-$(r,\theta,z)$">§9.2 Cylindrical Coordinates $(r,\theta,z)$</a></li>
+<li class="level-3"><a href="ch09.html#§9.3-Spherical-Coordinates-$(\rho,\theta,\phi)$">§9.3 Spherical Coordinates $(\rho,\theta,\phi)$</a></li>
+<li class="level-3"><a href="ch09.html#§9.4-A-Hard-Problem-in-Calculus-—-The-Vector-Laplacian-in-Spherical-Coordinates">§9.4 A Hard Problem in Calculus — The Vector Laplacian in Spherical Coordinates</a></li>
+<li class="level-3"><a href="ch09.html#§9.5-A-Hard-Problem-in-Electromagnetism-—-Divergence-of-the-Point-Charge-Electric-Field">§9.5 A Hard Problem in Electromagnetism — Divergence of the Point-Charge Electric Field</a></li>
+<li class="level-3"><a href="ch09.html#§9.6-The-Dictionary-Ends;-the-Journey-Continues">§9.6 The Dictionary Ends; the Journey Continues</a></li>
+</ul>
+</div></div>
+<div class="toc-part"><h2 class="part-header">Part III: Extensions and Unification (Chapters 10–12)</h2><div class="toc-part-chapters">
+<h3><a href="ch10.html">Chapter 10: Maxwell's Equations — Beyond Beauty</a></h3>
+<ul>
+<li class="level-3"><a href="ch10.html#§10.0-The-Usual-Caveat">§10.0 The Usual Caveat</a></li>
+<li class="level-3"><a href="ch10.html#§10.2-The-Electromagnetic-Field-$F$-and-Fixing-Sign-Conventions">§10.2 The Electromagnetic Field $F$ and Fixing Sign Conventions</a></li>
+<li class="level-3"><a href="ch10.html#§10.3-The-Minkowski-Metric-—-From-$\mathbb{R}^3$-to-Four-Dimensions">§10.3 The Minkowski Metric — From $\mathbb{R}^3$ to Four Dimensions</a></li>
+<li class="level-3"><a href="ch10.html#§10.4-Writing-Out-$dF=0$-in-Full">§10.4 Writing Out $dF=0$ in Full</a></li>
+<li class="level-3"><a href="ch10.html#§10.5-$\ast-F$-and-the-Remaining-Two-Equations">§10.5 $\ast F$ and the Remaining Two Equations</a></li>
+<li class="level-3"><a href="ch10.html#§10.6-Constructing-the-Potential-—-Starting-from-$F=-d\mathcal{A}$">§10.6 Constructing the Potential — Starting from $F=-d\mathcal{A}$</a></li>
+<li class="level-2"><a href="ch10.html#Appendix-E:-Slice-Matrix-Representation-of-$d_4F$-and-$d_4(\ast_4F)$-—-Seeing-Maxwell's-Equations-as-$4\times4\times4$-Arrays">Appendix E: Slice-Matrix Representation of $d_4F$ and $d_4(\ast_4F)$ — Seeing Maxwell's Equations as $4\times4\times4$ Arrays</a></li>
+<li class="level-3"><a href="ch10.html#E.1-Basis-$3$-forms-and-their-slice-matrices-—-all-16">E.1 Basis $3$-forms and their slice matrices — all 16</a></li>
+<li class="level-3"><a href="ch10.html#E.2-Writing-$dF$-with-slice-matrices">E.2 Writing $dF$ with slice matrices</a></li>
+<li class="level-3"><a href="ch10.html#E.3-Extracting-coefficients-by-the-Frobenius-product">E.3 Extracting coefficients by the Frobenius product</a></li>
+<li class="level-3"><a href="ch10.html#E.4-Reading-$dF=0$-through-the-slices">E.4 Reading $dF=0$ through the slices</a></li>
+<li class="level-3"><a href="ch10.html#E.5-Slice-representation-of-$d_4(\ast_4F)-=-\mu_0(\ast_4\mathcal{J})$">E.5 Slice representation of $d_4(\ast_4F) = \mu_0(\ast_4\mathcal{J})$</a></li>
+<li class="level-2"><a href="ch10.html#Appendix-F:-The-Four-Equations-of-Chapter-5-and-the-Two-Equations-of-Chapter-10">Appendix F: The Four Equations of Chapter 5 and the Two Equations of Chapter 10</a></li>
+<li class="level-3"><a href="ch10.html#F.1-$(E,B,J,\rho_{\mathrm-e})$-on-space">F.1 $(E,B,J,\rho_{\mathrm e})$ on space</a></li>
+<li class="level-3"><a href="ch10.html#F.2-The-four-equations-on-space">F.2 The four equations on space</a></li>
+<li class="level-3"><a href="ch10.html#F.3-Two-equations-emerge-from-$d_4F=0$">F.3 Two equations emerge from $d_4F=0$</a></li>
+<li class="level-3"><a href="ch10.html#F.4-The-remaining-two-emerge-from-$d_4(\ast_4F)=\mu_0(\ast_4\mathcal-J)$">F.4 The remaining two emerge from $d_4(\ast_4F)=\mu_0(\ast_4\mathcal J)$</a></li>
+<li class="level-3"><a href="ch10.html#F.5-Summary">F.5 Summary</a></li>
+</ul>
+<h3><a href="ch11.html">Chapter 11: Toward Curved Spaces — What Lies Beyond This Book</a></h3>
+<ul>
+<li class="level-3"><a href="ch11.html#§11.0-The-Position-of-This-Chapter-—-A-Guidepost-for-Readers-Who-Want-to-Look-Further-Ahead">§11.0 The Position of This Chapter — A Guidepost for Readers Who Want to Look Further Ahead</a></li>
+<li class="level-3"><a href="ch11.html#§11.1-Manifolds-—-Starting-from-$\mathbf{g}(x)$">§11.1 Manifolds — Starting from $\mathbf{g}(x)$</a></li>
+</ul>
+<h3><a href="ch12.html">Chapter 12: The True Nabla — Clifford, Pauli, Dirac, and Hamilton</a></h3>
+<ul>
+<li class="level-3"><a href="ch12.html#§12.0-Combining-Two-Equations-into-One">§12.0 Combining Two Equations into One</a></li>
+<li class="level-3"><a href="ch12.html#§12.2-Pauli-Matrices-—-The-Magic-of-Adding-Different-Degrees">§12.2 Pauli Matrices — The Magic of Adding Different Degrees</a></li>
+<li class="level-3"><a href="ch12.html#§12.3-The-Dirac-Operator-and-the-"True-Nabla"">§12.3 The Dirac Operator and the "True Nabla"</a></li>
+<li class="level-3"><a href="ch12.html#§12.4-The-Operator-$\nabla$">§12.4 The Operator $\nabla$</a></li>
+</ul>
+</div></div>
+<h2><a href="postscript.html">Afterword: How *Unmasking Div, Grad, and Curl* Was Born</a></h2>
+<h2><a href="refs.html">References (with Comments from the Author)</a></h2>
+<h2><a href="appendix.html">Appendix: What This Book Did Not Discuss</a></h2>
+<ul>
+<li class="level-2"><a href="appendix.html#II.-On-Methodological-Choices-and-Limits-of-Application">II. On Methodological Choices and Limits of Application</a></li>
+<li class="level-2"><a href="appendix.html#III.-On-Physical-Definitions-and-Pedagogical-Choices">III. On Physical Definitions and Pedagogical Choices</a></li>
+</ul>
+</div>
+      <div class="nav-buttons">
+        <span></span>
+        <span></span>
+      </div>
+    </article>
+    <footer class="site-footer">
+      <p>&copy; 2026 yokiikoy. CC BY-NC 4.0. For the latest edition, PDF, revision history, related information, and content beyond this book, see the portal site <a href="https://covectorspace.xyz/en/">Project Co-Vector Space</a>.</p>
+    </footer>
+  </main>
+</body>
+</html>

@@ -94,7 +94,14 @@ class ManuscriptModel:
         if not title:
             title = f"Chapter {ch_id}"
 
-        short_title = title.split("：")[0] if "：" in title else title.split("——")[0]
+        if "：" in title:
+            short_title = title.split("：")[0]
+        elif "——" in title:
+            short_title = title.split("——")[0]
+        elif ": " in title:
+            short_title = title.split(": ", 1)[0]
+        else:
+            short_title = title
         
         is_included = ch_id in self.profile.content_scope or is_front
 

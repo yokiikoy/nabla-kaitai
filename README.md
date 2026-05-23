@@ -9,7 +9,7 @@
 ```
 manuscript/
   ja/          日本語原稿（全12章 + 前付け・付録・参考文献・おわりに）
-  en/          英訳版原稿（部分）
+  en/          英訳版原稿（全12章 + 前付け・付録・参考文献・おわりに）
   README.md
   ch0*_note.md 章別注釈メモ
 exports/
@@ -57,11 +57,20 @@ python3 tools/build_pdf.py
 
 ### GitHub Pages HTML
 ```bash
-python3 tools/build_html.py
+python3 tools/build_html.py              # Japanese → docs/
+python3 tools/build_html.py --lang en    # English → docs/en/
+# or both:
+python3 tools/build_release.py --html-only
 ```
-生成物：`docs/*.html`
+生成物：`docs/*.html`（日本語）、`docs/en/*.html`（英語）
 
 要環境：Python 3（KaTeXはCDN経由）
+
+### Release build (v1.0.1+)
+```bash
+python3 tools/build_release.py
+```
+生成物：`exports/manuscript.pdf`、`exports/manuscript-en.pdf`、`docs/`、`docs/en/`、`manuscript.pdf`
 
 ## ライセンス
 

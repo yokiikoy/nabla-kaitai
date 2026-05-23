@@ -1,9 +1,10 @@
 # English Manuscript
 
-Place the English source chapters here.
+Complete English edition source: ch00–ch12 + appendix, afterword, references.
 
-Recommended chapter file:
+Build:
 
-```text
-chNN/main.md
+```bash
+python3 tools/build_html.py --lang en   # → docs/en/
+python3 tools/build_pdf.py --lang en    # → exports/manuscript-en.pdf
 ```
