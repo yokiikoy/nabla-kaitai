@@ -21,8 +21,8 @@ This book is not an axiomatic development of differential forms on general manif
 > If a definition in this book looks different from a mathematician's textbook, I want you first to read the definition inside this book. Then please distinguish whether there is a real contradiction or whether someone has simply imported notation from a different context. After that, by all means criticize me harshly again. Having read the definitions, I want you to point out my mistakes.
 
 > <strong>Note</strong> (as advanced <em>kihaji</em>, or high-level rote mnemonics)
-> Here <em>kihaji</em> refers to a Japanese elementary-school style of memorizing a procedure by a surface mnemonic, without understanding the underlying structure.
-> As I read mathematics books, I have internalized, at least somewhat, the beauty and strength of abstract orders of definition. The result is that what this book does can suddenly look like nothing more than advanced <em>kihaji</em>: a high-level version of procedural mnemonic that works without grasping the underlying structure.
+> Here <em>kihaji</em> refers to a Japanese elementary-school style of memorizing a procedure through a surface mnemonic, without understanding the underlying structure.
+> As I read mathematics books, I have internalized, at least somewhat, the beauty and strength of abstract orders of definition. The result is that what this book does can suddenly look like nothing more than advanced <em>kihaji</em>: a high-level form of rote procedural mnemonics that works without grasping the underlying structure.
 >
 > If I put that into words it looks like an excuse; if I stay silent it will be misunderstood. Worse, I half believe such criticism myself, so I cannot speak about it well.
 >
