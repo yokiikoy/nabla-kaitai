@@ -125,6 +125,29 @@ Per-section Pass status:
 | `translation/reviews/ch03-pass3.md` | complete |
 | `translation/reviews/ch03-close-reading-polish.md` | complete (#181) |
 
+### English Chapter 4 — `manuscript/en/ch04/ch04.md` (branch `ai/english-translation-ch04`, PR [#163](https://github.com/yokiikoy/nabla-kaitai/pull/163))
+
+| Scope | Pass | Notes |
+|-------|------|-------|
+| **Chapter 4 (§4.0–§4.5)** | **1 → 2 → 3** | `ch04-pass2.md`, `ch04-pass3.md`; old YAML draft replaced |
+
+Per-section Pass status:
+
+| Section | Pass | Section review |
+|---------|------|----------------|
+| §4.0 | **3** | `ch04-4.0-review.md` |
+| §4.1 | **3** | `ch04-4.1-review.md` |
+| §4.2 | **3** | `ch04-4.2-review.md` |
+| §4.3 | **3** | `ch04-4.3-review.md` |
+| §4.4 | **3** | `ch04-4.4-review.md` |
+| §4.5 | **3** | `ch04-4.5-review.md` |
+
+| Artifact | Status |
+|----------|--------|
+| `translation/drafts/ch04-4.*.md` | integrated into `ch04.md` |
+| `translation/reviews/ch04-pass2.md` | complete |
+| `translation/reviews/ch04-pass3.md` | complete |
+
 ---
 
 ## History (closed issues on this branch)
