@@ -1,9 +1,9 @@
 # Close-Reading Polish: Chapter 4
 
-Review date: 2026-05-22  
-Branch: `ai/english-translation-ch04`  
-File: `manuscript/en/ch04/ch04.md`  
-GitHub issue: #182  
+Review date: 2026-05-22
+Branch: `ai/english-translation-ch04`
+File: `manuscript/en/ch04/ch04.md`
+GitHub issue: #182
 PR context: #163
 
 Scope: publication polish after Pass 3 — derivative notation (`\gamma'(t)`, `\theta'(t)`), modern English for derivatives, `J` vs `|J|` clarity, preservation of finite-cell discovery arc.
