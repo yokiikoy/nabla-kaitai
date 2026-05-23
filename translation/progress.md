@@ -231,6 +231,26 @@ Per-section Pass status:
 | `translation/reviews/ch08-pass3.md` | complete |
 | `translation/reviews/ch08-close-reading-polish.md` | complete (#186) |
 
+### English Chapter 9 — `manuscript/en/ch09/ch09.md` (branch `ai/english-translation-ch09`, PR [#170](https://github.com/yokiikoy/nabla-kaitai/pull/170))
+
+| Scope | Pass | Notes |
+|-------|------|-------|
+| **Chapter 9 (§9.0–§9.6)** | **1 → 2 → 3** | `ch09-pass2.md`, `ch09-pass3.md` |
+
+| Block | Pass | Review |
+|-------|------|--------|
+| §9.0–§9.1 | **3** | `ch09-9.0-9.1-review.md` |
+| §9.2 | **3** | `ch09-9.2-review.md` |
+| §9.3 | **3** | `ch09-9.3-review.md` |
+| §9.4–§9.6 | **3** | `ch09-9.4-9.6-review.md` |
+
+| Artifact | Status |
+|----------|--------|
+| `translation/drafts/ch09-*.md` | integrated into `ch09.md` |
+| `translation/reviews/ch09-pass2.md` | complete |
+| `translation/reviews/ch09-pass3.md` | complete |
+| `translation/reviews/ch09-close-reading-polish.md` | complete (#187) |
+
 ---
 
 ## History (closed issues on this branch)
