@@ -2563,12 +2563,7 @@ Here "equals" means the contraction of the row vector $\omega_{\gamma(t_i)}$ fix
 
 Organize the change in each component in the form "finite ratio $\times \Delta t$":
 
-$$
-\omega_{\gamma(t_i)}(\Delta\mathbf{r}_i)
-= \bigl(P(\gamma(t_i))\frac{\Delta x_i}{\Delta t}
-+ Q(\gamma(t_i))\frac{\Delta y_i}{\Delta t}
-+ R(\gamma(t_i))\frac{\Delta z_i}{\Delta t}\bigr)\,\Delta t.
-$$
+$$\omega_{\gamma(t_i)}(\Delta\mathbf{r}_i) = \bigl(P(\gamma(t_i))\frac{\Delta x_i}{\Delta t} + Q(\gamma(t_i))\frac{\Delta y_i}{\Delta t} + R(\gamma(t_i))\frac{\Delta z_i}{\Delta t}\bigr)\,\Delta t$$
 
 Sum over the whole interval and take the limit. Since $\Delta x_i/\Delta t \to x'(t)$, $\Delta y_i/\Delta t \to y'(t)$, and $\Delta z_i/\Delta t \to z'(t)$:
 
@@ -6488,7 +6483,7 @@ is obtained.
 From here on it is the mechanical computation of $\ast d\ast$. From the polar metric $\mathbf{g} = \begin{pmatrix} 1 & 0 \\ 0 & r^2 \end{pmatrix}$, the $\ast$ dictionary becomes $\ast(dr) = r\,d\theta$, $\ast(d\theta) = -\frac{1}{r}\,dr$ (the two-dimensional version of §8.6.1). $d$ simply picks up partial-derivative coefficients as they are; the metric factors are handled by $\ast$, not inserted into $d$ by hand.
 
 $$\begin{aligned}
-\ast\tilde{\omega} &= F_r \cdot r\,d\theta + (r F_\theta) \cdot \left(-\frac{1}{r}\,dr\right) = r F_r\,d\theta - F_\theta\,dr \\[0.3em]
+\ast\tilde{\omega} &= F_r(r\,d\theta) + (r F_\theta)\!\left(-\frac{1}{r}\,dr\right) = r F_r\,d\theta - F_\theta\,dr \\[0.3em]
 d\ast\tilde{\omega} &= \left(\frac{\partial}{\partial r}(r F_r) + \frac{\partial F_\theta}{\partial \theta}\right) dr \wedge d\theta \\[0.3em]
 \ast d\ast\tilde{\omega} &= \frac{1}{r}\frac{\partial}{\partial r}(r F_r) + \frac{1}{r}\frac{\partial F_\theta}{\partial \theta}
 \end{aligned}$$
@@ -8820,8 +8815,9 @@ This book is not an axiomatic development of differential forms on general manif
 >
 > If a definition in this book looks different from a mathematician's textbook, I want you first to read the definition inside this book. Then please distinguish whether there is a real contradiction or whether someone has simply imported notation from a different context. After that, by all means criticize me harshly again. Having read the definitions, I want you to point out my mistakes.
 
-> <strong>Note</strong> (as advanced "gatekeeping")
-> As I read mathematics books, I have internalized, at least somewhat, the beauty and strength of abstract orders of definition. The result is that what this book does can suddenly look like nothing more than sophisticated gatekeeping.
+> <strong>Note</strong> (as advanced <em>kihaji</em>, or high-level rote mnemonics)
+> Here <em>kihaji</em> refers to a Japanese elementary-school style of memorizing a procedure through a surface mnemonic, without understanding the underlying structure.
+> As I read mathematics books, I have internalized, at least somewhat, the beauty and strength of abstract orders of definition. The result is that what this book does can suddenly look like nothing more than advanced <em>kihaji</em>: a high-level form of rote procedural mnemonics that works without grasping the underlying structure.
 >
 > If I put that into words it looks like an excuse; if I stay silent it will be misunderstood. Worse, I half believe such criticism myself, so I cannot speak about it well.
 >
@@ -8830,7 +8826,7 @@ This book is not an axiomatic development of differential forms on general manif
 > Once again, the first purpose of this book is my own act of compensation. Even so, if a reader takes home one language they can move with their hands, that is an unexpected bonus.
 
 > <strong>Note</strong> (will the day come when I am not fooled?)
-> They say one stands at thirty; when I actually reached that milestone, I was still getting angry at formulas rather than standing upright. I have started making dad jokes.
+> They say, in an old East Asian classical phrase, that one should “stand” at thirty. In Japanese, “standing,” “setting up” an equation, and “getting angry” all echo the same verb. When I reached that age, I was still setting up formulas and getting angry at them rather than standing upright. I have started making dad jokes.
 
 ---
 
