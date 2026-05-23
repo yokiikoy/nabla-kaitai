@@ -289,6 +289,26 @@ Per-section Pass status:
 | `translation/reviews/ch11-pass3.md` | complete |
 | `translation/reviews/ch11-close-reading-polish.md` | complete (#189) |
 
+### English Chapter 12 — `manuscript/en/ch12/ch12.md` (branch `ai/english-translation-ch12`, PR [#174](https://github.com/yokiikoy/nabla-kaitai/pull/174))
+
+| Scope | Pass | Notes |
+|-------|------|-------|
+| **Chapter 12 (§12.0–§12.4)** | **1 → 2 → 3** | Final chapter; Pauli/Dirac unification |
+
+| Block | Pass | Review |
+|-------|------|--------|
+| §12.0–§12.2 | **3** | `ch12-12.0-12.2-review.md` |
+| §12.3–§12.4 | **3** | `ch12-12.3-12.4-review.md` |
+
+| Artifact | Status |
+|----------|--------|
+| `translation/drafts/ch12-*.md` | integrated into `ch12.md` |
+| `translation/reviews/ch12-pass2.md` | complete |
+| `translation/reviews/ch12-pass3.md` | complete |
+| `translation/reviews/ch12-close-reading-polish.md` | complete (#190) |
+
+**English manuscript translation complete (ch00–ch12).**
+
 ---
 
 ## History (closed issues on this branch)
