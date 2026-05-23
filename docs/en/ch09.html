@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 9: In Practice — Build the Dictionary and Solve Hard Problems | Unmasking Div, Grad, and Curl</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+<style>
+  :root { --sidebar-width: 320px; }
+  html { color-scheme: light; background: #fff; }
+  body { margin: 0; display: flex; background: #fff; color: #24292f; line-height: 1.7; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .sidebar { width: var(--sidebar-width); height: 100vh; position: sticky; top: 0; background: #f8f9fa; color: #24292f; border-right: 1px solid #d0d7de; overflow-y: auto; padding: 1.5rem; box-sizing: border-box; flex-shrink: 0; }
+  .sidebar h2 { font-size: 1.2rem; border: none; margin-bottom: 0.5rem; color: #24292f; }
+  .sidebar .author { font-size: 0.8rem; color: #666; margin-bottom: 1.5rem; }
+  .sidebar .toc { font-size: 0.85rem; }
+  .sidebar .toc ul { list-style: none; padding-left: 0; margin: 0; }
+  .sidebar .toc li { margin-bottom: 0.4rem; }
+  .sidebar .toc .level-1 { font-weight: bold; margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 2px; }
+  .sidebar .toc .sub-toc { font-size: 0.8rem; margin-top: 0.5rem; padding-left: 0.8rem; border-left: 2px solid #eee; }
+  .sidebar .toc .sub-toc li { margin-bottom: 0.2rem; font-weight: normal; }
+  .sidebar .toc .sub-toc .level-3 { padding-left: 0.8rem; font-size: 0.75rem; color: #666; }
+  .sidebar a { text-decoration: none; color: #0969da; }
+  .sidebar a:hover { text-decoration: underline; }
+  .sidebar .active { color: #cf222e; font-weight: bold; }
+  .sidebar .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
+  .mobile-current { display: none; }
+  .mobile-toc-button { display: none; }
+  .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; background: #fff; color: #24292f; }
+  .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; color-scheme: light; background: #fff; color: #24292f; }
+  .markdown-body p, .markdown-body li { color: #24292f; }
+  @media (max-width: 900px) { 
+    body { flex-direction: column; } 
+    .sidebar { width: 100%; height: auto; position: sticky; top: 0; z-index: 10; padding: 0.75rem 1rem; border-right: none; border-bottom: 1px solid #d0d7de; box-shadow: 0 1px 8px rgba(27, 31, 36, 0.08); }
+    .sidebar h2 { margin: 0; font-size: 1rem; }
+    .sidebar .author { display: none; }
+    .sidebar .toc { display: none; }
+    .mobile-current { display: block; margin-top: 0.35rem; font-size: 0.85rem; color: #57606a; }
+    .mobile-current strong { color: #cf222e; }
+    .mobile-toc-button { display: inline-block; margin-top: 0.35rem; font-size: 0.85rem; }
+    .main-content { padding: 1rem; } 
+    .markdown-body { padding: 0.5rem; }
+  }
+  blockquote { border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }
+  blockquote p { color: #57606a; }
+  .table-wrapper { overflow-x: auto; margin: 1.5em 0; }
+  .markdown-body table { border-collapse: collapse; width: 100%; font-size: 0.9em; background: #fff; }
+  .markdown-body th, .markdown-body td { border: 1px solid #d0d7de; padding: 6px 13px; color: #24292f !important; }
+  .markdown-body tr:nth-child(even) { background-color: #f6f8fa !important; }
+  th { font-weight: 600; background-color: #f6f8fa; }
+  code, pre { color: #24292f; background-color: #f6f8fa; }
+  .nav-buttons { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }
+  .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
+  .nav-buttons a:hover { background: #f6f8fa; }
+  strong { font-weight: 800 !important; color: #000; }
+  blockquote strong { color: #24292f !important; }
+  /* KaTeX responsiveness */
+  .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }
+  .full-toc h2 { font-size: 1.1rem; margin: 1.5em 0 0.3em; padding-bottom: 2px; border-bottom: 1px solid #d0d7de; }
+  .full-toc h2 a { color: #24292f; text-decoration: none; }
+  .full-toc h2 a:hover { color: #0969da; }
+  .full-toc h2 .disabled-link { color: #8c959f; cursor: not-allowed; }
+  .full-toc ul { list-style: none; padding-left: 1.5rem; margin: 0.3em 0 0; }
+  .full-toc li { margin-bottom: 0.2rem; font-size: 0.9rem; }
+  .full-toc .level-3 { padding-left: 1rem; font-size: 0.8rem; color: #57606a; }
+  .full-toc a { color: #0969da; text-decoration: none; }
+  .full-toc a:hover { text-decoration: underline; }
+  .full-toc .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
+  .full-toc .part-header { font-size: 1.1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }
+  .full-toc .toc-part-chapters { padding-left: 1.5rem; }
+  .full-toc .toc-part-chapters h3 { font-size: 0.95rem; margin: 0.5em 0 0.2em; }
+  .full-toc .toc-part-chapters h3 a { color: #24292f; }
+  .full-toc .toc-part-chapters ul { padding-left: 1.5rem; }
+  .site-footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #d0d7de; font-size: 0.8rem; color: #57606a; }
+  .site-footer a { color: #0969da; text-decoration: none; }
+  .site-footer a:hover { text-decoration: underline; }
+</style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ],
+            throwOnError : false
+        });
+    });
+</script>
+
+</head>
+<body>
+  <nav class="sidebar">
+    <h2><a href="index.html">Unmasking Div, Grad, and Curl</a></h2>
+    <div class="author">
+      Author: yokiikoy<br>
+      <a href="http://covectorspace.xyz/en/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a><br>
+      <a href="../index.html" style="font-size: 0.75rem; color: #666; text-decoration: none;">Japanese edition</a>
+    </div>
+    <div class="mobile-current">Current: <strong>Chapter 9: In Practice — Build the Dictionary and Solve Hard Problems</strong></div>
+    <a class="mobile-toc-button" href="toc.html">Open contents</a>
+    <div class="toc">
+      <ul>
+<li class="level-1"><a href="toc.html" id="link-toc.html">Contents</a></li>
+<li class="level-1"><a href="index.html" id="link-index.html">Preface</a></li>
+<li class="level-1"><a href="intro.html" id="link-intro.html">Introduction</a></li>
+<li class="level-1"><a href="portal.html" id="link-portal.html">Portal Site and a Small Experiment</a></li>
+<li class="level-1"><a href="ch01.html" id="link-ch01.html">Chapter 1</a></li>
+<li class="level-1"><a href="ch02.html" id="link-ch02.html">Chapter 2</a></li>
+<li class="level-1"><a href="ch03.html" id="link-ch03.html">Chapter 3</a></li>
+<li class="level-1"><a href="ch04.html" id="link-ch04.html">Chapter 4</a></li>
+<li class="level-1"><a href="ch05.html" id="link-ch05.html">Chapter 5</a></li>
+<li class="level-1"><a href="ch06.html" id="link-ch06.html">Chapter 6</a></li>
+<li class="level-1"><a href="ch07.html" id="link-ch07.html">Chapter 7</a></li>
+<li class="level-1"><a href="ch08.html" id="link-ch08.html">Chapter 8</a></li>
+<li class="level-1"><a href="ch09.html" class="active" id="link-ch09.html">Chapter 9</a><ul class="sub-toc"><li class="level-3"><a href="#§9.0-The-Central-Tools-of-This-Book-Are-Now-in-Place">§9.0 The Central Tools of This Book Are Now in Place</a></li><li class="level-3"><a href="#§9.2-Cylindrical-Coordinates-$(r,\theta,z)$">§9.2 Cylindrical Coordinates $(r,\theta,z)$</a></li><li class="level-3"><a href="#§9.3-Spherical-Coordinates-$(\rho,\theta,\phi)$">§9.3 Spherical Coordinates $(\rho,\theta,\phi)$</a></li><li class="level-3"><a href="#§9.4-A-Hard-Problem-in-Calculus-—-The-Vector-Laplacian-in-Spherical-Coordinates">§9.4 A Hard Problem in Calculus — The Vector Laplacian in Spherical Coordinates</a></li><li class="level-3"><a href="#§9.5-A-Hard-Problem-in-Electromagnetism-—-Divergence-of-the-Point-Charge-Electric-Field">§9.5 A Hard Problem in Electromagnetism — Divergence of the Point-Charge Electric Field</a></li><li class="level-3"><a href="#§9.6-The-Dictionary-Ends;-the-Journey-Continues">§9.6 The Dictionary Ends; the Journey Continues</a></li></ul></li>
+<li class="level-1"><a href="ch10.html" id="link-ch10.html">Chapter 10</a></li>
+<li class="level-1"><a href="ch11.html" id="link-ch11.html">Chapter 11</a></li>
+<li class="level-1"><a href="ch12.html" id="link-ch12.html">Chapter 12</a></li>
+<li class="level-1"><a href="postscript.html" id="link-postscript.html">Afterword</a></li>
+<li class="level-1"><a href="refs.html" id="link-refs.html">References (with Comments from the Author)</a></li>
+<li class="level-1"><a href="appendix.html" id="link-appendix.html">Appendix</a></li>
+</ul>
+    </div>
+  </nav>
+  <main class="main-content">
+    <article class="markdown-body">
+<h1 id="Chapter-9:-In-Practice-—-Build-the-Dictionary-and-Solve-Hard-Problems">Chapter 9: In Practice — Build the Dictionary and Solve Hard Problems</h1>
+<h3 id="§9.0-The-Central-Tools-of-This-Book-Are-Now-in-Place">§9.0 The Central Tools of This Book Are Now in Place</h3>
+<p>In Chapter 8 §8.0 we called that chapter the highlight of the book, and there we translated between the two languages, unified the integral theorems, and contrasted the two routes. The central tools of this book are now largely in place.
+</p>
+<p>But it would be a waste to assemble all these tools and never use them. In this chapter we apply the dictionary built so far to actual problems and show how to solve hard problems in vector analysis mechanically. Theory is sufficient through Chapter 8—what follows is <strong>exercise</strong>.
+</p>
+<p>The reader may simply watch the calculations below—or follow along by hand. Either way, what we show here is a demonstration of the fact that you need not memorize formulas; if you have the dictionary, everything can be derived.
+</p>
+<blockquote>
+<p><strong>Note</strong> (for readers who have not studied vector analysis) Among the calculations below, every derivation of grad, div, and curl takes only a few lines. Substitute the dictionary into $d$, $\ast d$, or $\ast d\ast$ as appropriate, and expand the partial derivatives—that is all. That is why it looks easy. But if you try to derive the same results in the style of vector analysis, you are forced through pages of manipulation while manually attaching factors such as $\frac{1}{r}\frac{\partial}{\partial r}(r\,\cdot\,)$ and $\frac{1}{\rho^2\sin\theta}$ to the $\nabla$ formulas. It looks easy because $\ast$ automatically organizes measuring devices of different degrees. The Laplacian in §9.4 is admittedly tough, but even there all you do is consult the dictionary and expand partial derivatives—the method does not change. This difference is exactly the value of the "measuring device" framework that this book has built up from Chapter 1.</p>
+</blockquote>
+<h3 id="§9.2-Cylindrical-Coordinates-__MATH_BLOCK_38__">§9.2 Cylindrical Coordinates $(r,\theta,z)$</h3>
+<h4 id="9.2.1-Deriving-the-Dictionary">9.2.1 Deriving the Dictionary</h4>
+<p>The coordinate transformation to cylindrical coordinates is $x = r\cos\theta$, $y = r\sin\theta$, $z = z$.
+</p>
+<blockquote>
+<p><strong>Note</strong> (Domain and singular points)</p>
+<p>Below we compute on the coordinate patch where $r > 0$. At $r = 0$, $\theta$ is not defined and cylindrical coordinates themselves become singular. Also, since $\theta$ is an angular coordinate with period $2\pi$, strictly speaking it should be treated as a local coordinate (for example $0 < \theta < 2\pi$). The formulas in this section are intended for use in regions that do not include this singular axis.</p>
+</blockquote>
+$$J = \begin{pmatrix}
+\cos\theta & -r\sin\theta & 0 \\
+\sin\theta & r\cos\theta & 0 \\
+0 & 0 & 1
+\end{pmatrix}, \qquad
+\mathbf{g} = J^T J = \begin{pmatrix}
+1 & 0 & 0 \\
+0 & r^2 & 0 \\
+0 & 0 & 1
+\end{pmatrix}$$
+<p>From $\mathbf{g}$ we derive the $\ast$ dictionary. By the same principle as the $\ast$ dictionary in Cartesian coordinates seen in Chapter 6, the square roots of the diagonal components of $\mathbf{g}$ appear as coefficients in $\ast$.
+</p>
+$$\begin{aligned}
+\ast(dr) &= r\,d\theta \wedge dz \\
+\ast(d\theta) &= \frac{1}{r}\,dz \wedge dr \\
+\ast(dz) &= r\,dr \wedge d\theta
+\end{aligned}$$
+<p>Also $\ast(1) = r\,dr\wedge d\theta\wedge dz$, $\ast(dr\wedge d\theta\wedge dz) = 1/r$.
+</p>
+<blockquote>
+<p><strong>Note</strong> (Four things to distinguish in cylindrical coordinates)</p>
+<p>To treat vector fields correctly as differential forms, let us distinguish the following four layers:</p>
+<p>| Name | Concrete example in cylindrical coordinates |</p>
+<p>| :--- | :--- |</p>
+<p>| <strong>Coordinate $1$-forms</strong> | $dr, d\theta, dz$ |</p>
+<p>| <strong>$1$-forms corresponding to unit-length ticks</strong> | $dr, r\,d\theta, dz$ |</p>
+<p>| <strong>Components used in vector analysis</strong> | $F_r, F_\theta, F_z$ |</p>
+<p>| <strong>Coefficients as $1$-forms</strong> | $F_r, rF_\theta, F_z$ |</p>
+<p>If we write the components in the unit-vector directions used in vector analysis as $F_r,F_\theta,F_z$, the corresponding $1$-form is $F_r dr + F_\theta (r d\theta) + F_z dz$—that is, the coefficients as $1$-forms are $F_r,rF_\theta,F_z$. Throughout this chapter, $F_\theta$ always refers to the "components used in vector analysis."</p>
+</blockquote>
+<h4 id="9.2.2-Gradient">9.2.2 Gradient</h4>
+<p>$\mathrm{grad}\,f = df$ does not use $\ast$. It simply places the partial-derivative coefficients on the basis $1$-forms.
+</p>
+$$df = \frac{\partial f}{\partial r}\,dr + \frac{\partial f}{\partial \theta}\,d\theta + \frac{\partial f}{\partial z}\,dz$$
+<p>In the notation of vector analysis (as a column vector),
+</p>
+$$
+\nabla f
+=
+\begin{pmatrix}
+\frac{\partial f}{\partial r}\\[0.4em]
+\frac{1}{r}\frac{\partial f}{\partial \theta}\\[0.4em]
+\frac{\partial f}{\partial z}
+\end{pmatrix}
+$$
+<p>The factor $\frac{1}{r}$ on the $\theta$ component appears because $\nabla f$ gives components with respect to an orthonormal basis. The coefficient of $d\theta$ in $df$, namely $\frac{\partial f}{\partial\theta}$, is the "rate of change per unit angle," whereas the $\mathbf{e}_\theta$ component of $\nabla f$ is the "rate of change per unit length." The conversion $\frac{1}{r}$ is needed because $d\theta$ corresponds to arc length $r\,d\theta$.
+</p>
+<h4 id="9.2.3-Divergence">9.2.3 Divergence</h4>
+<p>For a vector field $\mathbf{F}$ with orthonormal components $F_r,F_\theta,F_z$, the corresponding $1$-form is $\omega = F_r\,dr + rF_\theta\,d\theta + F_z\,dz$, following the convention that we always write the scale factors explicitly in the $1$-form coefficients.
+</p>
+<blockquote>
+<p><strong>Note</strong> (About the tilde on $\tilde{\omega}$)</p>
+<p>In Chapter 8 §8.6.2, we used the notation $\tilde{\omega}$ to distinguish the orthonormal component $F_\theta$ from the coefficient as a $1$-form, $rF_\theta$. In this chapter we lighten the notation and write $\omega$ without a tilde below. However, $F_r,F_\theta,F_z$ always denote orthonormal vector components. The corresponding $1$-form is made explicit on each occasion by including the scale factors. In cylindrical coordinates,</p>
+$$
+\omega = F_r\,dr + rF_\theta\,d\theta + F_z\,dz
+$$
+<p>and in spherical coordinates,</p>
+$$
+\omega = F_\rho\,d\rho + \rho F_\theta\,d\theta + \rho\sin\theta\,F_\phi\,d\phi
+$$
+<p>Read with the convention that the coefficients as $1$-forms are made explicit through the scale factors appearing in the formulas—not inferred by the reader from context.</p>
+</blockquote>
+$$\begin{aligned}
+\ast\omega &= F_r(r\,d\theta\wedge dz) + rF_\theta\!\left(\frac{1}{r}\,dz\wedge dr\right) + F_z(r\,dr\wedge d\theta) \\
+&= rF_r\,d\theta\wedge dz + F_\theta\,dz\wedge dr + rF_z\,dr\wedge d\theta \\[0.3em]
+d\ast\omega &= \left(\frac{\partial}{\partial r}(rF_r) + \frac{\partial F_\theta}{\partial\theta} + \frac{\partial}{\partial z}(rF_z)\right) dr\wedge d\theta\wedge dz \\[0.3em]
+\ast d\ast\omega &= \frac{1}{r}\frac{\partial}{\partial r}(rF_r) + \frac{1}{r}\frac{\partial F_\theta}{\partial\theta} + \frac{\partial F_z}{\partial z}
+\end{aligned}$$
+<p>This is the formula for divergence in cylindrical coordinates.
+</p>
+<h4 id="9.2.4-Curl">9.2.4 Curl</h4>
+<p>Curl is $\mathrm{curl}\,\mathbf{F} \leftrightarrow \ast d\omega$.
+</p>
+$$d\omega = \left(\frac{\partial}{\partial r}(rF_\theta) - \frac{\partial F_r}{\partial\theta}\right) dr\wedge d\theta + \left(\frac{\partial F_z}{\partial\theta} - \frac{\partial}{\partial z}(rF_\theta)\right) d\theta\wedge dz + \left(\frac{\partial F_r}{\partial z} - \frac{\partial F_z}{\partial r}\right) dz\wedge dr$$
+$$\ast d\omega = \frac{1}{r}\!\left(\frac{\partial F_z}{\partial\theta} - \frac{\partial}{\partial z}(rF_\theta)\right)\! dr + r\!\left(\frac{\partial F_r}{\partial z} - \frac{\partial F_z}{\partial r}\right)\! d\theta + \frac{1}{r}\!\left(\frac{\partial}{\partial r}(rF_\theta) - \frac{\partial F_r}{\partial\theta}\right)\! dz$$
+<p>Reading off the coefficients of $dr, d\theta, dz$ from the $1$-form and converting back to orthonormal components, the coefficient of $d\theta$ is divided by the scale factor $r$. In the end,
+</p>
+$$\nabla \times \mathbf{F} = \begin{pmatrix}
+\frac{1}{r}\frac{\partial F_z}{\partial \theta} - \frac{\partial F_\theta}{\partial z} \\[0.3em]
+\frac{\partial F_r}{\partial z} - \frac{\partial F_z}{\partial r} \\[0.3em]
+\frac{1}{r}\frac{\partial}{\partial r}(r F_\theta) - \frac{1}{r}\frac{\partial F_r}{\partial \theta}
+\end{pmatrix}$$
+<p>The structure in which $r$ appears both inside and outside $\frac{\partial}{\partial r}$ has exactly the same origin as the $\frac{1}{r}$ that appeared when we counted the area element of a sector in the previous chapter.
+</p>
+<hr />
+<h3 id="§9.3-Spherical-Coordinates-__MATH_BLOCK_104__">§9.3 Spherical Coordinates $(\rho,\theta,\phi)$</h3>
+<h4 id="9.3.1-Deriving-the-Dictionary">9.3.1 Deriving the Dictionary</h4>
+<p>The conversion to spherical coordinates is $x = \rho\sin\theta\cos\phi$, $y = \rho\sin\theta\sin\phi$, $z = \rho\cos\theta$ ($\theta$ is the angle from the $z$-axis, $\phi$ is the azimuthal angle in the $xy$ plane).
+</p>
+$$J = \begin{pmatrix}
+\sin\theta\cos\phi & \rho\cos\theta\cos\phi & -\rho\sin\theta\sin\phi \\
+\sin\theta\sin\phi & \rho\cos\theta\sin\phi & \rho\sin\theta\cos\phi \\
+\cos\theta & -\rho\sin\theta & 0
+\end{pmatrix},\qquad
+\mathbf{g} = J^T J = \begin{pmatrix}
+1 & 0 & 0 \\
+0 & \rho^2 & 0 \\
+0 & 0 & \rho^2\sin^2\theta
+\end{pmatrix}$$
+<p>The scale factors $1, \rho, \rho\sin\theta$ derived from the diagonal metric components determine the coefficients in the $\ast$ dictionary.
+</p>
+$$\begin{aligned}
+\ast(d\rho) &= \rho^2\sin\theta\; d\theta \wedge d\phi \\
+\ast(d\theta) &= \sin\theta\; d\phi \wedge d\rho \\
+\ast(d\phi) &= \frac{1}{\sin\theta}\; d\rho \wedge d\theta
+\end{aligned}$$
+<blockquote>
+<p><strong>Note</strong> (Four things to distinguish in spherical coordinates)</p>
+<p>| Name | Concrete example in spherical coordinates |</p>
+<p>| :--- | :--- |</p>
+<p>| <strong>Coordinate $1$-forms</strong> | $d\rho, d\theta, d\phi$ |</p>
+<p>| <strong>$1$-forms for unit-length scales</strong> | $d\rho, \rho\,d\theta, \rho\sin\theta\,d\phi$ |</p>
+<p>| <strong>Components used in vector analysis</strong> | $F_\rho, F_\theta, F_\phi$ |</p>
+<p>| <strong>Coefficients as $1$-forms</strong> | $F_\rho, \rho F_\theta, \rho\sin\theta F_\phi$ |</p>
+<p>The $1$-form for orthonormal components $F_\rho,F_\theta,F_\phi$ is $\omega = F_\rho d\rho + \rho F_\theta d\theta + \rho\sin\theta F_\phi d\phi$.</p>
+</blockquote>
+<p>Here we compute on the coordinate patch $\rho>0$ and $0<\theta<\pi$. At the origin $\rho=0$ and on the polar axis $\sin\theta=0$, spherical coordinates themselves become singular, and formulas containing $1/\rho$ or $1/\sin\theta$ cannot be used as written. For problems spanning singular points, use a different coordinate patch, or compute in a region excluding the singularities and then treat them via boundary conditions.
+</p>
+<h4 id="9.3.2-Divergence">9.3.2 Divergence</h4>
+<p>When converting a vector field $\mathbf{F}$ with orthonormal components $F_\rho,F_\theta,F_\phi$ to a $1$-form, the coefficient of $d\rho$ is $F_\rho$ ($\rho$ already carries length), the coefficient of $d\theta$ is $\rho F_\theta$, and the coefficient of $d\phi$ is $\rho\sin\theta\,F_\phi$ (corresponding respectively to arc lengths $\rho\,d\theta$, $\rho\sin\theta\,d\phi$).
+</p>
+$$\omega = F_\rho\,d\rho + \rho F_\theta\,d\theta + \rho\sin\theta\,F_\phi\,d\phi$$
+<p>Compute $\ast d\ast\omega$.
+</p>
+$$\ast\omega = \rho^2\sin\theta\,F_\rho\,d\theta\wedge d\phi + \rho\sin\theta\,F_\theta\,d\phi\wedge d\rho + \rho\,F_\phi\,d\rho\wedge d\theta$$
+$$d\ast\omega = \left(\frac{\partial}{\partial\rho}(\rho^2\sin\theta\,F_\rho) + \frac{\partial}{\partial\theta}(\rho\sin\theta\,F_\theta) + \frac{\partial}{\partial\phi}(\rho\,F_\phi)\right) d\rho\wedge d\theta\wedge d\phi$$
+<p>From $\ast(d\rho\wedge d\theta\wedge d\phi) = 1/(\rho^2\sin\theta)$,
+</p>
+$$\nabla \cdot \mathbf{F} = \frac{1}{\rho^2}\frac{\partial}{\partial\rho}(\rho^2 F_\rho) + \frac{1}{\rho\sin\theta}\frac{\partial}{\partial\theta}(\sin\theta\,F_\theta) + \frac{1}{\rho\sin\theta}\frac{\partial F_\phi}{\partial\phi}$$
+<h4 id="9.3.3-Curl">9.3.3 Curl</h4>
+<p>Similarly, from $\ast d\omega$,
+</p>
+$$\nabla \times \mathbf{F} = \begin{pmatrix}
+\frac{1}{\rho\sin\theta}\frac{\partial}{\partial\theta}(\sin\theta\,F_\phi) - \frac{1}{\rho\sin\theta}\frac{\partial F_\theta}{\partial\phi} \\[0.3em]
+\frac{1}{\rho\sin\theta}\frac{\partial F_\rho}{\partial\phi} - \frac{1}{\rho}\frac{\partial}{\partial\rho}(\rho F_\phi) \\[0.3em]
+\frac{1}{\rho}\frac{\partial}{\partial\rho}(\rho F_\theta) - \frac{1}{\rho}\frac{\partial F_\rho}{\partial\theta}
+\end{pmatrix}$$
+<hr />
+<h3 id="§9.4-A-Hard-Problem-in-Calculus-—-The-Vector-Laplacian-in-Spherical-Coordinates">§9.4 A Hard Problem in Calculus — The Vector Laplacian in Spherical Coordinates</h3>
+<p>The vector Laplacian $\nabla^2\mathbf{F} = \nabla(\nabla\cdot\mathbf{F}) - \nabla\times(\nabla\times\mathbf{F})$ is known as one of the longest formulas in the vector-analysis handbook. Here we show that every component falls out mechanically from the dictionary.
+</p>
+<p>The strategy is simply to use the Chapter 8 dictionary as is.
+</p>
+<ul>
+<li>$\nabla(\nabla\cdot\mathbf{F}) \leftrightarrow d(\ast d\ast\omega)$</li>
+<li>$\nabla\times(\nabla\times\mathbf{F}) \leftrightarrow \ast d(\ast d\omega)$</li>
+</ul>
+<p>Therefore, viewing the result as a $1$-form,
+</p>
+$$\nabla^2\mathbf{F} \leftrightarrow d\bigl(\ast d\ast\omega\bigr)-\ast d\bigl(\ast d\omega\bigr)$$
+<p>Starting from $\omega = F_\rho\,d\rho + \rho F_\theta\,d\theta + \rho\sin\theta\,F_\phi\,d\phi$ in spherical coordinates, we compute $d\ast d\ast\omega$ and $\ast d\ast d\omega$ separately and take their difference.
+</p>
+<h4 id="9.4.1-The-First-Term-—-Gradient-of-the-Divergence">9.4.1 The First Term — Gradient of the Divergence</h4>
+<p>From §9.3.2, the divergence is
+</p>
+$$\ast d\ast\omega = \frac{1}{\rho^2}\frac{\partial}{\partial\rho}(\rho^2 F_\rho) + \frac{1}{\rho\sin\theta}\frac{\partial}{\partial\theta}(\sin\theta\,F_\theta) + \frac{1}{\rho\sin\theta}\frac{\partial F_\phi}{\partial\phi}$$
+<p>Denote this by $S$. Since $S$ is a scalar field, its gradient is $dS = \frac{\partial S}{\partial\rho}\,d\rho + \frac{\partial S}{\partial\theta}\,d\theta + \frac{\partial S}{\partial\phi}\,d\phi$. Converting to orthonormal components,
+</p>
+$$\nabla(\nabla\cdot\mathbf{F}) = \begin{pmatrix}
+\frac{\partial S}{\partial\rho} \\[0.5em]
+\frac{1}{\rho}\frac{\partial S}{\partial\theta} \\[0.5em]
+\frac{1}{\rho\sin\theta}\frac{\partial S}{\partial\phi}
+\end{pmatrix}$$
+<h4 id="9.4.2-The-Second-Term-—-Curl-of-the-Curl">9.4.2 The Second Term — Curl of the Curl</h4>
+<p>Write the curl from §9.3.3 as $C_\rho, C_\theta, C_\phi$.
+</p>
+$$\begin{aligned}
+C_\rho &= \frac{1}{\rho\sin\theta}\frac{\partial}{\partial\theta}(\sin\theta\,F_\phi) - \frac{1}{\rho\sin\theta}\frac{\partial F_\theta}{\partial\phi} \\[0.3em]
+C_\theta &= \frac{1}{\rho\sin\theta}\frac{\partial F_\rho}{\partial\phi} - \frac{1}{\rho}\frac{\partial}{\partial\rho}(\rho F_\phi) \\[0.3em]
+C_\phi &= \frac{1}{\rho}\frac{\partial}{\partial\rho}(\rho F_\theta) - \frac{1}{\rho}\frac{\partial F_\rho}{\partial\theta}
+\end{aligned}$$
+<p>To apply $\nabla\times$ again to $\mathbf{C} = \nabla\times\mathbf{F}$, substitute $C_\rho, C_\theta, C_\phi$ into the formula of §9.3.3 in place of $F_\rho, F_\theta, F_\phi$.
+</p>
+$$\begin{aligned}
+(\nabla\times(\nabla\times\mathbf{F}))_\rho &= \frac{1}{\rho\sin\theta}\frac{\partial}{\partial\theta}(\sin\theta\,C_\phi) - \frac{1}{\rho\sin\theta}\frac{\partial C_\theta}{\partial\phi} \\[0.5em]
+(\nabla\times(\nabla\times\mathbf{F}))_\theta &= \frac{1}{\rho\sin\theta}\frac{\partial C_\rho}{\partial\phi} - \frac{1}{\rho}\frac{\partial}{\partial\rho}(\rho C_\phi) \\[0.5em]
+(\nabla\times(\nabla\times\mathbf{F}))_\phi &= \frac{1}{\rho}\frac{\partial}{\partial\rho}(\rho C_\theta) - \frac{1}{\rho}\frac{\partial C_\rho}{\partial\theta}
+\end{aligned}$$
+<h4 id="9.4.3-Take-the-Difference-—-The-Vector-Laplacian">9.4.3 Take the Difference — The Vector Laplacian</h4>
+<p>Since $\nabla^2\mathbf{F} = \nabla(\nabla\cdot\mathbf{F}) - \nabla\times(\nabla\times\mathbf{F})$, each component is obtained by subtracting the second term from the first. Expand the $\rho$ component.
+</p>
+$$(\nabla^2\mathbf{F})_\rho = \frac{\partial S}{\partial\rho} - \frac{1}{\rho\sin\theta}\frac{\partial}{\partial\theta}(\sin\theta\,C_\phi) + \frac{1}{\rho\sin\theta}\frac{\partial C_\theta}{\partial\phi}$$
+<p>Substituting the expressions for $S$ and $C_\theta, C_\phi$, expanding partial derivatives, and collecting terms yields the following. The expansion is long, so here we show only the result after substitution and like-term collection.
+</p>
+$$(\nabla^2\mathbf{F})_\rho = \nabla^2 F_\rho - \frac{2F_\rho}{\rho^2} - \frac{2}{\rho^2\sin\theta}\frac{\partial}{\partial\theta}(\sin\theta\,F_\theta) - \frac{2}{\rho^2\sin\theta}\frac{\partial F_\phi}{\partial\phi}$$
+<p>Here $\nabla^2 F_\rho$ denotes the scalar Laplacian applied to the scalar component $F_\rho$:
+</p>
+$$\nabla^2 F_\rho = \frac{1}{\rho^2}\frac{\partial}{\partial\rho}\!\left(\rho^2\frac{\partial F_\rho}{\partial\rho}\right) + \frac{1}{\rho^2\sin\theta}\frac{\partial}{\partial\theta}\!\left(\sin\theta\frac{\partial F_\rho}{\partial\theta}\right) + \frac{1}{\rho^2\sin^2\theta}\frac{\partial^2 F_\rho}{\partial\phi^2}$$
+<p>Similarly, for the $\theta$ and $\phi$ components,
+</p>
+$$(\nabla^2\mathbf{F})_\theta = \nabla^2 F_\theta - \frac{F_\theta}{\rho^2\sin^2\theta} + \frac{2}{\rho^2}\frac{\partial F_\rho}{\partial\theta} - \frac{2\cos\theta}{\rho^2\sin^2\theta}\frac{\partial F_\phi}{\partial\phi}$$
+$$(\nabla^2\mathbf{F})_\phi = \nabla^2 F_\phi - \frac{F_\phi}{\rho^2\sin^2\theta} + \frac{2}{\rho^2\sin\theta}\frac{\partial F_\rho}{\partial\phi} + \frac{2\cos\theta}{\rho^2\sin^2\theta}\frac{\partial F_\theta}{\partial\phi}$$
+<p>This completes the derivation of all components. Deriving from scratch in the usual vector-analysis style would easily exceed a page of computation, but via the dictionary each step is nothing more than partial differentiation and multiplication by coefficients. There is no need to memorize individual formulas by rote—given the single identity $d(\ast d\ast\omega)-\ast d(\ast d\omega)$ and the $\ast$ dictionary of §9.3, everything can be reconstructed on the spot.
+</p>
+<hr />
+<h3 id="§9.5-A-Hard-Problem-in-Electromagnetism-—-Divergence-of-the-Point-Charge-Electric-Field">§9.5 A Hard Problem in Electromagnetism — Divergence of the Point-Charge Electric Field</h3>
+<p>Finally, one example from electromagnetism. It also serves as a bridge to Chapter 10.
+</p>
+<blockquote>
+<p><strong>Note</strong> (For readers who have not studied electromagnetism) The terms "electric field" and "point charge" below need not be fully understood. Please read them simply as the calculation of "a vector field proportional to $\frac{1}{\rho^2}$." Chapter 10 does not dig deeply into electromagnetism itself either. It only shows that Maxwell's equations become terrifyingly concise when written in differential forms—and that we will actually write out in full what happens when one drops them all the way down to matrices, even though most textbooks stop at saying how beautiful they are.</p>
+</blockquote>
+<p>When a point charge $q$ sits at the origin, the electric field is $\mathbf{E} = \frac{q}{4\pi\varepsilon_0}\frac{\hat{\boldsymbol{\rho}}}{\rho^2}$ ($\hat{\boldsymbol{\rho}}$ is the radial unit vector). In vector analysis one shows $\nabla\cdot\mathbf{E} = 0$ (away from the origin) by plugging into the spherical divergence formula, but it is clearer to work directly with the $1$-form corresponding to $\mathbf{E}$.
+</p>
+<p>The $\rho$ component of $\mathbf{E}$ is $E_\rho = \frac{k}{\rho^2}$ ($k = q/4\pi\varepsilon_0$); the $\theta$ and $\phi$ components are zero. The corresponding $1$-form is
+</p>
+$$\omega = \frac{k}{\rho^2}\,d\rho$$
+<p>Compute $d\ast\omega$. In spherical coordinates $\ast(d\rho) = \rho^2\sin\theta\,d\theta\wedge d\phi$ (§9.3.1), so
+</p>
+$$\ast\omega = \frac{k}{\rho^2} \cdot \rho^2\sin\theta\,d\theta\wedge d\phi = k\sin\theta\,d\theta\wedge d\phi$$
+$$d\ast\omega = \frac{\partial}{\partial\rho}(k\sin\theta)\,d\rho\wedge d\theta\wedge d\phi + \frac{\partial}{\partial\theta}(k\sin\theta)\,d\theta\wedge d\theta\wedge d\phi + \cdots$$
+<p>The second term vanishes because $d\theta\wedge d\theta = 0$; the third term likewise. The first term has $\frac{\partial}{\partial\rho}(k\sin\theta) = 0$ (no dependence on $\rho$). Therefore
+</p>
+$$d\ast\omega = 0 \quad (\rho \neq 0)$$
+<p>So $\ast d\ast\omega = 0$, which corresponds to $\nabla\cdot\mathbf{E}=0$ away from the origin. The $\rho^2$ in $E_\rho$ cancels the $\rho^2$ in $\ast(d\rho)$, and the exterior derivative of the remaining $\sin\theta\,d\theta\wedge d\phi$ is zero—that alone shows zero divergence away from the origin.
+</p>
+<blockquote>
+<p><strong>Note</strong> (What about the origin?) At $\rho = 0$, $\omega$ is not defined. To treat all of space including the origin, one must represent the point charge by distributions ($\delta$ functions) or in integral form rather than by ordinary divergence as a function. This book does not go there; we restrict ourselves to computation on the region excluding the origin. In Chapter 10, where charge density is treated, we write charge density as $\rho_{\mathrm e}$ so as not to confuse it with the radial coordinate $\rho$, and handle the form in which $\rho_{\mathrm e}/\varepsilon_0$ appears on the right-hand side.</p>
+</blockquote>
+<hr />
+<h3 id="§9.6-The-Dictionary-Ends;-the-Journey-Continues">§9.6 The Dictionary Ends; the Journey Continues</h3>
+<p>In this chapter we used the dictionary built through Chapter 8 to derive vector-analysis formulas mechanically and to solve hard problems from calculus and electromagnetism. What matters is that every calculation required not "recalling a formula" but only "looking up the dictionary and tracing the procedure."
+</p>
+<p>There is no longer any need to memorize the divergence and curl formulas for cylindrical or spherical coordinates by rote. Remember this single path: $J \to g = J^T J \to \ast$ dictionary $\to$ combinations of $d$ and $\ast$—and you can reconstruct the formulas for orthogonal curvilinear coordinates on the spot. The same principle holds for non-orthogonal coordinates, but note that the $\ast$ dictionary then acquires mixed terms from the off-diagonal metric, so the tables in this chapter with scale factors alone no longer suffice.
+</p>
+<p>In Chapter 10 we apply this toolkit to Maxwell's equations.
+ The four fundamental equations of vector analysis collapse to two in differential-form language. Many textbooks stop here with "how beautiful," but we go further. We write Maxwell's equations in differential forms and actually carry out the full component expansion—showing what it looks like when done. Having worked through the calculations of this chapter, that translation should no longer be difficult.
+</p>
+<blockquote>
+<p><strong>Checkpoint — Chapter 9 as a whole</strong></p>
+<p>- Deriving formulas in orthogonal curvilinear coordinates proceeds by $J \to g = J^T J \to \ast$ dictionary $\to$ combinations of $d$ and $\ast$.</p>
+<p>- We derived the $\ast$ dictionary and the divergence and curl formulas in cylindrical and spherical coordinates.</p>
+<p>- Even hard problems such as the vector Laplacian $\nabla^2\mathbf{F}$ can be solved mechanically by combining the dictionary with identities.</p>
+<p>- Zero divergence of the point-charge electric field follows from the simple cancellation of $\ast(d\rho)$ with the $\rho^2$ in $E_\rho$.</p>
+<p>- Formulas need not be memorized by rote. Given the dictionary—and even that dictionary can be reconstructed on the spot—everything can be rebuilt when needed.</p>
+</blockquote>
+      <div class="nav-buttons">
+        <a href="ch08.html">← Chapter 8...</a>
+        <a href="ch10.html">Chapter 10... →</a>
+      </div>
+    </article>
+    <footer class="site-footer">
+      <p>&copy; 2026 yokiikoy. CC BY-NC 4.0.</p>
+    </footer>
+  </main>
+</body>
+</html>

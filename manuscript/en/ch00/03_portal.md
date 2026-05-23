@@ -6,6 +6,10 @@ The PDF version of this book, errata, revision history, GitHub repository, and l
 
 [https://covectorspace.xyz/en/](https://covectorspace.xyz/en/)
 
+### GitHub Pages (English)
+
+[https://yokiikoy.github.io/nabla-kaitai/en/](https://yokiikoy.github.io/nabla-kaitai/en/) · [Japanese edition](https://yokiikoy.github.io/nabla-kaitai/)
+
 This book is available for free. Obvious typo-level corrections are also accepted through GitHub Issues.
 
 > <strong>Note</strong> (on the name)  

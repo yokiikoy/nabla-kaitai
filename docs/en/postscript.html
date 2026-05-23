@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Afterword: How *Unmasking Div, Grad, and Curl* Was Born | Unmasking Div, Grad, and Curl</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+<style>
+  :root { --sidebar-width: 320px; }
+  html { color-scheme: light; background: #fff; }
+  body { margin: 0; display: flex; background: #fff; color: #24292f; line-height: 1.7; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .sidebar { width: var(--sidebar-width); height: 100vh; position: sticky; top: 0; background: #f8f9fa; color: #24292f; border-right: 1px solid #d0d7de; overflow-y: auto; padding: 1.5rem; box-sizing: border-box; flex-shrink: 0; }
+  .sidebar h2 { font-size: 1.2rem; border: none; margin-bottom: 0.5rem; color: #24292f; }
+  .sidebar .author { font-size: 0.8rem; color: #666; margin-bottom: 1.5rem; }
+  .sidebar .toc { font-size: 0.85rem; }
+  .sidebar .toc ul { list-style: none; padding-left: 0; margin: 0; }
+  .sidebar .toc li { margin-bottom: 0.4rem; }
+  .sidebar .toc .level-1 { font-weight: bold; margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 2px; }
+  .sidebar .toc .sub-toc { font-size: 0.8rem; margin-top: 0.5rem; padding-left: 0.8rem; border-left: 2px solid #eee; }
+  .sidebar .toc .sub-toc li { margin-bottom: 0.2rem; font-weight: normal; }
+  .sidebar .toc .sub-toc .level-3 { padding-left: 0.8rem; font-size: 0.75rem; color: #666; }
+  .sidebar a { text-decoration: none; color: #0969da; }
+  .sidebar a:hover { text-decoration: underline; }
+  .sidebar .active { color: #cf222e; font-weight: bold; }
+  .sidebar .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
+  .mobile-current { display: none; }
+  .mobile-toc-button { display: none; }
+  .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; background: #fff; color: #24292f; }
+  .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; color-scheme: light; background: #fff; color: #24292f; }
+  .markdown-body p, .markdown-body li { color: #24292f; }
+  @media (max-width: 900px) { 
+    body { flex-direction: column; } 
+    .sidebar { width: 100%; height: auto; position: sticky; top: 0; z-index: 10; padding: 0.75rem 1rem; border-right: none; border-bottom: 1px solid #d0d7de; box-shadow: 0 1px 8px rgba(27, 31, 36, 0.08); }
+    .sidebar h2 { margin: 0; font-size: 1rem; }
+    .sidebar .author { display: none; }
+    .sidebar .toc { display: none; }
+    .mobile-current { display: block; margin-top: 0.35rem; font-size: 0.85rem; color: #57606a; }
+    .mobile-current strong { color: #cf222e; }
+    .mobile-toc-button { display: inline-block; margin-top: 0.35rem; font-size: 0.85rem; }
+    .main-content { padding: 1rem; } 
+    .markdown-body { padding: 0.5rem; }
+  }
+  blockquote { border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }
+  blockquote p { color: #57606a; }
+  .table-wrapper { overflow-x: auto; margin: 1.5em 0; }
+  .markdown-body table { border-collapse: collapse; width: 100%; font-size: 0.9em; background: #fff; }
+  .markdown-body th, .markdown-body td { border: 1px solid #d0d7de; padding: 6px 13px; color: #24292f !important; }
+  .markdown-body tr:nth-child(even) { background-color: #f6f8fa !important; }
+  th { font-weight: 600; background-color: #f6f8fa; }
+  code, pre { color: #24292f; background-color: #f6f8fa; }
+  .nav-buttons { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }
+  .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
+  .nav-buttons a:hover { background: #f6f8fa; }
+  strong { font-weight: 800 !important; color: #000; }
+  blockquote strong { color: #24292f !important; }
+  /* KaTeX responsiveness */
+  .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }
+  .full-toc h2 { font-size: 1.1rem; margin: 1.5em 0 0.3em; padding-bottom: 2px; border-bottom: 1px solid #d0d7de; }
+  .full-toc h2 a { color: #24292f; text-decoration: none; }
+  .full-toc h2 a:hover { color: #0969da; }
+  .full-toc h2 .disabled-link { color: #8c959f; cursor: not-allowed; }
+  .full-toc ul { list-style: none; padding-left: 1.5rem; margin: 0.3em 0 0; }
+  .full-toc li { margin-bottom: 0.2rem; font-size: 0.9rem; }
+  .full-toc .level-3 { padding-left: 1rem; font-size: 0.8rem; color: #57606a; }
+  .full-toc a { color: #0969da; text-decoration: none; }
+  .full-toc a:hover { text-decoration: underline; }
+  .full-toc .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
+  .full-toc .part-header { font-size: 1.1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }
+  .full-toc .toc-part-chapters { padding-left: 1.5rem; }
+  .full-toc .toc-part-chapters h3 { font-size: 0.95rem; margin: 0.5em 0 0.2em; }
+  .full-toc .toc-part-chapters h3 a { color: #24292f; }
+  .full-toc .toc-part-chapters ul { padding-left: 1.5rem; }
+  .site-footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #d0d7de; font-size: 0.8rem; color: #57606a; }
+  .site-footer a { color: #0969da; text-decoration: none; }
+  .site-footer a:hover { text-decoration: underline; }
+</style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ],
+            throwOnError : false
+        });
+    });
+</script>
+
+</head>
+<body>
+  <nav class="sidebar">
+    <h2><a href="index.html">Unmasking Div, Grad, and Curl</a></h2>
+    <div class="author">
+      Author: yokiikoy<br>
+      <a href="http://covectorspace.xyz/en/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a><br>
+      <a href="../index.html" style="font-size: 0.75rem; color: #666; text-decoration: none;">Japanese edition</a>
+    </div>
+    <div class="mobile-current">Current: <strong>Afterword: How *Unmasking Div, Grad, and Curl* Was Born</strong></div>
+    <a class="mobile-toc-button" href="toc.html">Open contents</a>
+    <div class="toc">
+      <ul>
+<li class="level-1"><a href="toc.html" id="link-toc.html">Contents</a></li>
+<li class="level-1"><a href="index.html" id="link-index.html">Preface</a></li>
+<li class="level-1"><a href="intro.html" id="link-intro.html">Introduction</a></li>
+<li class="level-1"><a href="portal.html" id="link-portal.html">Portal Site and a Small Experiment</a></li>
+<li class="level-1"><a href="ch01.html" id="link-ch01.html">Chapter 1</a></li>
+<li class="level-1"><a href="ch02.html" id="link-ch02.html">Chapter 2</a></li>
+<li class="level-1"><a href="ch03.html" id="link-ch03.html">Chapter 3</a></li>
+<li class="level-1"><a href="ch04.html" id="link-ch04.html">Chapter 4</a></li>
+<li class="level-1"><a href="ch05.html" id="link-ch05.html">Chapter 5</a></li>
+<li class="level-1"><a href="ch06.html" id="link-ch06.html">Chapter 6</a></li>
+<li class="level-1"><a href="ch07.html" id="link-ch07.html">Chapter 7</a></li>
+<li class="level-1"><a href="ch08.html" id="link-ch08.html">Chapter 8</a></li>
+<li class="level-1"><a href="ch09.html" id="link-ch09.html">Chapter 9</a></li>
+<li class="level-1"><a href="ch10.html" id="link-ch10.html">Chapter 10</a></li>
+<li class="level-1"><a href="ch11.html" id="link-ch11.html">Chapter 11</a></li>
+<li class="level-1"><a href="ch12.html" id="link-ch12.html">Chapter 12</a></li>
+<li class="level-1"><a href="postscript.html" class="active" id="link-postscript.html">Afterword</a></li>
+<li class="level-1"><a href="refs.html" id="link-refs.html">References (with Comments from the Author)</a></li>
+<li class="level-1"><a href="appendix.html" id="link-appendix.html">Appendix</a></li>
+</ul>
+    </div>
+  </nav>
+  <main class="main-content">
+    <article class="markdown-body">
+<h1 id="Afterword:-How-*Unmasking-Div,-Grad,-and-Curl*-Was-Born">Afterword: How <em>Unmasking Div, Grad, and Curl</em> Was Born</h1>
+<p>To you, reader, who have finished this long journey—first, my heartfelt respect.
+</p>
+<p>As you close this book, let me share a little of the backstage story of how this peculiar, somewhat forceful <em>Unmasking Div, Grad, and Curl</em> came to be.
+</p>
+<p>It began with a bitter memory of my own. Like many students of physics, I nearly drowned in the quagmire of "vector analysis." Faced with $\mathrm{curl}$ and $\mathrm{div}$ in cylindrical or spherical coordinates, the question "why does it take this form?" was silenced by pressure to "just memorize the formulas." I had heard that differential forms could be the special remedy, but the axiomatic approach of mathematics books was too abstract for me then.
+</p>
+<p>"Is there no slightly sneaky 'silver bullet' that would solve this indigestion in one shot?"—As I wondered, the first breakthrough came. This is personal: at the time I was quite absorbed in quantum mechanics and had grown accustomed to Dirac's bra–ket notation. The feeling of laying state vectors (column vectors) on their sides as dual vectors (row vectors) and computing naturally as matrix products—that sensation.
+</p>
+<p>What mattered to me, however, was not that bra–ket notation was "convenient notation for inner products." Quite the opposite. A bra is originally a dual vector that eats a ket. The dual pairing in which a row vector eats a column vector and the inner product that compares two vectors via the metric are, in principle, different operations. Yet in the notation of physical mathematics they often appear with similar faces, and the distinction collapses before one notices. Dirac himself, in his justly famous book, writes that one "set[s] up a second set of vectors, which mathematicians call the dual vectors." Even so, in education a bra is often treated like "the left half of an inner-product symbol." I felt indignation about that at the time.
+</p>
+<p>Around then I wondered: what if I applied this sensation directly to the classical $dx,dy,dz$ of three-dimensional Euclidean space? When I thought that, the first core of this book was fixed. Redefine the $dx$ at the tail of the integral sign as a "row vector (matrix) that extracts components from a displacement vector," and the abstract idea "function that eats vectors (1-form)" converts instantly into "matrix multiplication" that everyone knows. At least for me as a student, that became the decisive foothold for understanding vector analysis.
+</p>
+<p>This is not an inner product. It is a measuring device that eats displacement vectors. Identification via the metric should come later. For my personal understanding, that was truly the silver bullet. Formulas of vector analysis could all be derived by hand from rules of matrix addition, subtraction, and multiplication.
+</p>
+<p>But that alone was still not enough motive to start writing the book. The second breakthrough came from W. L. Burke's educational philosophy of "putting the metric later and later into the course."
+</p>
+<p>Burke's intent was probably to show structures that hold before length, angle, and inner product are introduced, separated from structures that depend on the metric. The exterior derivative $d$, the wedge product, boundaries, and Stokes-type structure work to a large extent before the metric enters. In general relativity and vector analysis, putting the metric upfront from the start makes the exterior derivative, boundaries, conservation laws, coordinate changes, and metric-dependent conversion via the Hodge star look mixed together. Burke, I think, had a problem consciousness about that quite early.
+</p>
+<p>Of course, this is my own reading. I do not think Burke himself wanted to "separate dual and inner product" the way I do. Still, on the point that introducing the metric in a hurry makes structures that should look separate collapse into one, I strongly sympathized with Burke's concern.
+</p>
+<p>From Dirac I received the feeling "do not collapse dual into inner product." From Burke I received the feeling "if you introduce the metric in a hurry, you stop seeing structures that are visible without it." In my mind these two feelings linked up, and the book settled into the shape: place $dx$ as a measuring device, separate the pullback from the metric, and only then introduce the metric and Hodge star.
+</p>
+<p>Especially important for me was showing that coordinate changes and the pullback can first be treated separately from talk of length and angle. Coordinate change is the demon gate of vector analysis. Pour unit vectors, scale factors, area elements, and the metric in all at once, and you lose sight of what comes from what. This book first treats the pullback as matrix calculation with the Jacobian, then introduces the metric and Hodge star. I decided to turn that order itself into "table-of-contents educational entertainment" that draws readers in.
+</p>
+<p>From Chapter 1 through Chapter 5 we did not formally define the metric and pressed forward with naive intuition about length and area in real space $(x,y,z)$. From a more advanced standpoint one might want to say "area needs a metric," but in the early part of this book we fixed on $xyz$ Cartesian coordinates and deliberately used naive intuition about area and volume wherever the Pythagorean theorem holds. The metric $g = J^T J$ truly becomes necessary when generalizing to coordinate systems with distorted scales like parameter spaces—we derived that fact in a discovery-style way in Chapter 6 through matrix calculation.
+</p>
+<p>Then came the opening of Chapter 6. Joking that "the author is getting bored too," we formally defined the inner product. At the same time we clarified the meaning of the metric $g = J^T J$ and positioned the Hodge star $\ast$ as a "type-conversion adapter linking differential forms and vector analysis." Through this discovery-based construction, the setup was to make readers accept the structure that "$df$ does not depend on the metric, but reading the usual gradient vector, curl, and divergence requires the metric and Hodge star."
+</p>
+<p>Among these ideas, Burke's philosophy of "delaying the metric" and Flanders's physical applications of differential forms are both written in existing English literature. This book claims no mathematical novelty. Only the configuration—defining $dx$ as a matrix and pushing through the whole book with matrix calculation—seems, as far as I know, uncommon in the Western books I have seen. Perhaps those of us trained in East Asian entrance-exam culture are oddly accustomed to symbolic calculation—I joke—but in any case I merely organized something I wrote for myself. For the giants on whose shoulders this book stands, please see the references at the end.
+</p>
+<p>This book is a "survival guide" written for my past self, who stumbled in vector analysis. Having cleared vector analysis and knowing powerful tools such as "dual," "exterior derivative," "pullback," "metric," and "Hodge star $\ast$," and knowing the limits of Cartesian coordinates, you have already opened the door to the next world.
+</p>
+<p>What follows is an extra. Still, before you close the book, there is a conviction I want to state.
+</p>
+<p>This book progressed by dropping differential forms—which look abstract—into matrix calculation as far as possible. Reading $dx$ as a row vector, treating the wedge product as calculation with antisymmetric matrices, and reading the Hodge star as a dictionary built from the metric matrix were all devices for that purpose.
+</p>
+<p>Looking back, this was perhaps not merely my personal shortcut but an attempt to "misuse" algebraic training that science-track students who have gone through serious entrance-exam mathematics already possess at the entrance to university mathematics. Japanese competitive entrance exams, for better or worse, drill students in transforming expressions, substituting letters, tracking parameters, and organizing conditions. Not even calculus is an exception; substitution integrals and parametric representations are typically trained as almost purely algebraic symbol manipulation.
+</p>
+<p>Such training is often excessive and can look like meaningless technique. Rather than lamenting that it is meaningless or an obstacle to abstraction, there is room to use it as an embodied, powerful weapon.
+</p>
+<p>As an expression of that, this book asks readers for quite a lot of hand calculation—mostly not analytic work such as evaluating limits or studying convergence, but algebraic work: rearranging symbols, tracking components, multiplying matrices, expanding wedge products. That is not because I underestimate readers. I expect you can withstand this level of symbol manipulation—or perhaps I am flattering you a little.
+</p>
+<p>University mathematics sometimes jumps to set-theoretic "definitions" too quickly. Abstract definitions have strength; there is still much to learn from Bourbaki-style structural organization. But there should also be a path where one first grasps abstract concepts as concrete operations using the algebraic body one already has. This book tried that path in a rather extreme form. The assertion $dx=(1\ 0\ 0)$ is its symbol.
+</p>
+<p>This book's structure is certainly not the only correct one. It is probably awkward, forceful in places, and from a standard textbook looks like a detour. Even so, if through this book you felt abstract symbols as something you can move with your hands, the book has done its job.
+</p>
+<p>As the author, I sincerely hope that <em>Unmasking Div, Grad, and Curl</em> will be a sturdy foothold on your journey in physics and mathematics—keeping the algebraic hands you already have and going higher and farther.
+</p>
+<blockquote>
+<p><strong>Note</strong> (the third breakthrough)</p>
+<p>After Dirac's bra–ket notation and Burke's delay of the metric, this book has a third breakthrough: the arrival of generative AI, that is, LLMs.</p>
+<p>The real benefit LLMs brought was not teaching me correct answers. Rather, they gave me the freedom to externalize, compare, and discard the unorganized discomfort, draft explanations, objections, and rephrasings inside me as text again and again. Fragments that might have taken years to shape alone in a notebook could be lined up as drafts, broken apart, and rebuilt. In fact, the time for this book to reach its present form was only a few months. In that sense the LLM was a powerful sparring partner that made writing the book possible.</p>
+<p>Even so, this is not a heartwarming story that "thanks to the LLM it was easy to write." On the contrary, left alone an LLM quickly steers the conversation back to standard theory. $dx$ is a cotangent basis. The exterior derivative is the natural operation on a manifold. The Hodge star is fixed by the metric and orientation. Yes, all true. But what I wanted to write was a book that, before going to those correct explanations, traces with matrix calculation and the feel of finite cells why beginners are left behind there.</p>
+<p>So while writing I often had to tell the LLM, "Don't go to manifolds yet," "First write $dx=(1\ 0\ 0)$," "First count finite cells," "Don't put the metric in there yet." A strange job where I was supposedly using a convenient tool yet worried I might be writing nonsense myself.</p>
+<p>Generative AI produced many drafts and rephrasings. But every sentence that remains in this book was chosen, cut, corrected, and sometimes peeled away from explanations that were too standard by me. If the book has a strange stubbornness about not wanting to return immediately to standard theory, or superfluous meta remarks, that is my habit. And if mathematical errors remain, that too is my responsibility, not the LLM's.</p>
+</blockquote>
+      <div class="nav-buttons">
+        <a href="ch12.html">← Chapter 12...</a>
+        <a href="refs.html">References (wit... →</a>
+      </div>
+    </article>
+    <footer class="site-footer">
+      <p>&copy; 2026 yokiikoy. CC BY-NC 4.0.</p>
+    </footer>
+  </main>
+</body>
+</html>

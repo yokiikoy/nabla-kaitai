@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 6: The Metric $g$ and the Hodge Star $\ast$ — Summoning the Inner Product and Reversing Degree | Unmasking Div, Grad, and Curl</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+<style>
+  :root { --sidebar-width: 320px; }
+  html { color-scheme: light; background: #fff; }
+  body { margin: 0; display: flex; background: #fff; color: #24292f; line-height: 1.7; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .sidebar { width: var(--sidebar-width); height: 100vh; position: sticky; top: 0; background: #f8f9fa; color: #24292f; border-right: 1px solid #d0d7de; overflow-y: auto; padding: 1.5rem; box-sizing: border-box; flex-shrink: 0; }
+  .sidebar h2 { font-size: 1.2rem; border: none; margin-bottom: 0.5rem; color: #24292f; }
+  .sidebar .author { font-size: 0.8rem; color: #666; margin-bottom: 1.5rem; }
+  .sidebar .toc { font-size: 0.85rem; }
+  .sidebar .toc ul { list-style: none; padding-left: 0; margin: 0; }
+  .sidebar .toc li { margin-bottom: 0.4rem; }
+  .sidebar .toc .level-1 { font-weight: bold; margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 2px; }
+  .sidebar .toc .sub-toc { font-size: 0.8rem; margin-top: 0.5rem; padding-left: 0.8rem; border-left: 2px solid #eee; }
+  .sidebar .toc .sub-toc li { margin-bottom: 0.2rem; font-weight: normal; }
+  .sidebar .toc .sub-toc .level-3 { padding-left: 0.8rem; font-size: 0.75rem; color: #666; }
+  .sidebar a { text-decoration: none; color: #0969da; }
+  .sidebar a:hover { text-decoration: underline; }
+  .sidebar .active { color: #cf222e; font-weight: bold; }
+  .sidebar .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
+  .mobile-current { display: none; }
+  .mobile-toc-button { display: none; }
+  .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; background: #fff; color: #24292f; }
+  .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; color-scheme: light; background: #fff; color: #24292f; }
+  .markdown-body p, .markdown-body li { color: #24292f; }
+  @media (max-width: 900px) { 
+    body { flex-direction: column; } 
+    .sidebar { width: 100%; height: auto; position: sticky; top: 0; z-index: 10; padding: 0.75rem 1rem; border-right: none; border-bottom: 1px solid #d0d7de; box-shadow: 0 1px 8px rgba(27, 31, 36, 0.08); }
+    .sidebar h2 { margin: 0; font-size: 1rem; }
+    .sidebar .author { display: none; }
+    .sidebar .toc { display: none; }
+    .mobile-current { display: block; margin-top: 0.35rem; font-size: 0.85rem; color: #57606a; }
+    .mobile-current strong { color: #cf222e; }
+    .mobile-toc-button { display: inline-block; margin-top: 0.35rem; font-size: 0.85rem; }
+    .main-content { padding: 1rem; } 
+    .markdown-body { padding: 0.5rem; }
+  }
+  blockquote { border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }
+  blockquote p { color: #57606a; }
+  .table-wrapper { overflow-x: auto; margin: 1.5em 0; }
+  .markdown-body table { border-collapse: collapse; width: 100%; font-size: 0.9em; background: #fff; }
+  .markdown-body th, .markdown-body td { border: 1px solid #d0d7de; padding: 6px 13px; color: #24292f !important; }
+  .markdown-body tr:nth-child(even) { background-color: #f6f8fa !important; }
+  th { font-weight: 600; background-color: #f6f8fa; }
+  code, pre { color: #24292f; background-color: #f6f8fa; }
+  .nav-buttons { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }
+  .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
+  .nav-buttons a:hover { background: #f6f8fa; }
+  strong { font-weight: 800 !important; color: #000; }
+  blockquote strong { color: #24292f !important; }
+  /* KaTeX responsiveness */
+  .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }
+  .full-toc h2 { font-size: 1.1rem; margin: 1.5em 0 0.3em; padding-bottom: 2px; border-bottom: 1px solid #d0d7de; }
+  .full-toc h2 a { color: #24292f; text-decoration: none; }
+  .full-toc h2 a:hover { color: #0969da; }
+  .full-toc h2 .disabled-link { color: #8c959f; cursor: not-allowed; }
+  .full-toc ul { list-style: none; padding-left: 1.5rem; margin: 0.3em 0 0; }
+  .full-toc li { margin-bottom: 0.2rem; font-size: 0.9rem; }
+  .full-toc .level-3 { padding-left: 1rem; font-size: 0.8rem; color: #57606a; }
+  .full-toc a { color: #0969da; text-decoration: none; }
+  .full-toc a:hover { text-decoration: underline; }
+  .full-toc .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
+  .full-toc .part-header { font-size: 1.1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }
+  .full-toc .toc-part-chapters { padding-left: 1.5rem; }
+  .full-toc .toc-part-chapters h3 { font-size: 0.95rem; margin: 0.5em 0 0.2em; }
+  .full-toc .toc-part-chapters h3 a { color: #24292f; }
+  .full-toc .toc-part-chapters ul { padding-left: 1.5rem; }
+  .site-footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #d0d7de; font-size: 0.8rem; color: #57606a; }
+  .site-footer a { color: #0969da; text-decoration: none; }
+  .site-footer a:hover { text-decoration: underline; }
+</style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ],
+            throwOnError : false
+        });
+    });
+</script>
+
+</head>
+<body>
+  <nav class="sidebar">
+    <h2><a href="index.html">Unmasking Div, Grad, and Curl</a></h2>
+    <div class="author">
+      Author: yokiikoy<br>
+      <a href="http://covectorspace.xyz/en/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a><br>
+      <a href="../index.html" style="font-size: 0.75rem; color: #666; text-decoration: none;">Japanese edition</a>
+    </div>
+    <div class="mobile-current">Current: <strong>Chapter 6: The Metric $g$ and the Hodge Star $\ast$ — Summoning the Inner Product and Reversing Degree</strong></div>
+    <a class="mobile-toc-button" href="toc.html">Open contents</a>
+    <div class="toc">
+      <ul>
+<li class="level-1"><a href="toc.html" id="link-toc.html">Contents</a></li>
+<li class="level-1"><a href="index.html" id="link-index.html">Preface</a></li>
+<li class="level-1"><a href="intro.html" id="link-intro.html">Introduction</a></li>
+<li class="level-1"><a href="portal.html" id="link-portal.html">Portal Site and a Small Experiment</a></li>
+<li class="level-1"><a href="ch01.html" id="link-ch01.html">Chapter 1</a></li>
+<li class="level-1"><a href="ch02.html" id="link-ch02.html">Chapter 2</a></li>
+<li class="level-1"><a href="ch03.html" id="link-ch03.html">Chapter 3</a></li>
+<li class="level-1"><a href="ch04.html" id="link-ch04.html">Chapter 4</a></li>
+<li class="level-1"><a href="ch05.html" id="link-ch05.html">Chapter 5</a></li>
+<li class="level-1"><a href="ch06.html" class="active" id="link-ch06.html">Chapter 6</a><ul class="sub-toc"><li class="level-3"><a href="#§6.0-The-End-of-Excuses-—-Releasing-the-Inner-Product">§6.0 The End of Excuses — Releasing the Inner Product</a></li><li class="level-3"><a href="#§6.2-Converting-Between-Column-Vectors-and-Row-Vectors-Using-$g$">§6.2 Converting Between Column Vectors and Row Vectors Using $g$</a></li><li class="level-3"><a href="#§6.3-The-Hodge-Star-$\ast$-—-The-Correspondence-Connecting-Two-Routes">§6.3 The Hodge Star $\ast$ — The Correspondence Connecting Two Routes</a></li><li class="level-3"><a href="#§6.4-Examples-of-the-Correspondence-—-Differential-Forms-and-Vector-Analysis">§6.4 Examples of the Correspondence — Differential Forms and Vector Analysis</a></li><li class="level-3"><a href="#§6.5-The-Types-of-the-Three-Operations-—-grad,-curl,-div">§6.5 The Types of the Three Operations — grad, curl, div</a></li><li class="level-3"><a href="#§6.6-Toward-Vector-Analysis">§6.6 Toward Vector Analysis</a></li><li class="level-2"><a href="#Appendix-D:-Array-Representation-of-the-Hodge-Star">Appendix D: Array Representation of the Hodge Star</a></li><li class="level-3"><a href="#D.1-$\ast_{1\to2}$-—-placing-three-coefficients-into-an-antisymmetric-matrix">D.1 $\ast_{1\to2}$ — placing three coefficients into an antisymmetric matrix</a></li><li class="level-3"><a href="#D.2-$\ast_{2\to1}$-—-extracting-coefficients-by-the-Frobenius-product">D.2 $\ast_{2\to1}$ — extracting coefficients by the Frobenius product</a></li><li class="level-3"><a href="#D.3-$\ast\ast=\mathrm{id}$-in-the-$1$-form-and-$2$-form-case">D.3 $\ast\ast=\mathrm{id}$ in the $1$-form and $2$-form case</a></li><li class="level-3"><a href="#D.4-Array-representation-of-$\ast_{0\to3}$-and-$\ast_{3\to0}$">D.4 Array representation of $\ast_{0\to3}$ and $\ast_{3\to0}$</a></li><li class="level-3"><a href="#D.5-Summary">D.5 Summary</a></li></ul></li>
+<li class="level-1"><a href="ch07.html" id="link-ch07.html">Chapter 7</a></li>
+<li class="level-1"><a href="ch08.html" id="link-ch08.html">Chapter 8</a></li>
+<li class="level-1"><a href="ch09.html" id="link-ch09.html">Chapter 9</a></li>
+<li class="level-1"><a href="ch10.html" id="link-ch10.html">Chapter 10</a></li>
+<li class="level-1"><a href="ch11.html" id="link-ch11.html">Chapter 11</a></li>
+<li class="level-1"><a href="ch12.html" id="link-ch12.html">Chapter 12</a></li>
+<li class="level-1"><a href="postscript.html" id="link-postscript.html">Afterword</a></li>
+<li class="level-1"><a href="refs.html" id="link-refs.html">References (with Comments from the Author)</a></li>
+<li class="level-1"><a href="appendix.html" id="link-appendix.html">Appendix</a></li>
+</ul>
+    </div>
+  </nav>
+  <main class="main-content">
+    <article class="markdown-body">
+<h1 id="Chapter-6:-The-Metric-__MATH_BLOCK_85__-and-the-Hodge-Star-__MATH_BLOCK_86__-—-Summoning-the-Inner-Product-and-Reversing-Degree">Chapter 6: The Metric $g$ and the Hodge Star $\ast$ — Summoning the Inner Product and Reversing Degree</h1>
+<h3 id="§6.0-The-End-of-Excuses-—-Releasing-the-Inner-Product">§6.0 The End of Excuses — Releasing the Inner Product</h3>
+<p>When, in Chapter 2, we restored the scalar area of a parallelogram as the square root of the sum of squares of three projected areas, and when, in Chapter 3, we measured the surface area $4\pi R^2$ of a sphere and the arc length $2\pi R$ of a circle by the same idea—here we have repeatedly hedged, each time we computed a length or an area, with “we have not yet formally introduced the metric (inner product).”
+</p>
+<p>The reader has probably begun to find this tedious by now. To be honest, I have too.
+</p>
+<p>After all, we are computing on real space $(x,y,z)$—orthogonal Cartesian coordinates. In this space the Pythagorean theorem holds. Let us stop being shy and start using the <strong>inner product</strong>.
+</p>
+<p>What is the inner product? We have already met it many times. In Chapter 2, when we obtained an oriented area, we said that if you take the square root of the sum of squares of the three shadow components $A_{yz}, A_{zx}, A_{xy}$, you recover the elementary-school area—that “sum of squares” is precisely the inner product with itself (or its square root). More generally, for column vectors among themselves, or for $1$-forms written as row vectors, the scalar quantity obtained by multiplying corresponding components and adding is what we call the <strong>inner product</strong> here.
+</p>
+<p>...<strong>That is all</strong>. Most readers probably learned the inner product in high-school mathematics and are thinking, “Why state the obvious?” Yet in this book we have, uncomfortably, avoided defining the inner product head-on until now. There is a reason.
+</p>
+<p>The reason is that if we bring out the inner product too soon, the distinctions we have cared about until now will collapse.
+</p>
+<p>From a more advanced standpoint, “vector addition and subtraction” and the “inner product” are not inseparable; they can be thought of separately. On that view one distinguishes “spaces with an inner product” from “spaces without one,” and calls the matrix that defines the inner product the “metric tensor.” I respect that distinction too. That is precisely why we have repeatedly hedged that we have not yet formally introduced the metric or the inner product.
+</p>
+<p>What we really want to distinguish here is the operation “row vector × column vector gives a scalar” from the operation “take the inner product between vectors of the same kind.”
+</p>
+<blockquote>
+<p><strong>Note</strong> (Why separate row and column so insistently) There is a standpoint that says one can describe physics quite powerfully even without putting the metric or inner product front and center—for example, elementary integration of $n$-forms and much undergraduate-level physics calculation work well on that view. I respect that standpoint too. On the other hand, the metric viewpoint that uses length, angle, inner product, and the Hodge star $\ast$ is of course also powerful. Personally, I think the ideal is to move back and forth between these two views as the problem demands. And to move back and forth, we must first not confuse “the operation measured by row vector × column vector” with “the operation that takes the inner product between vectors of the same kind.” That is why this book has been so insistent about separating row vectors and column vectors.</p>
+</blockquote>
+<p>Since Chapter 1 we have done mountains of calculations that obtain a scalar from row vector × column vector. So how is that different from the inner product?
+</p>
+<p>The conclusion: <strong>they are completely different things</strong>. Row vector times column vector is a calculation between <strong>vectors of different kinds</strong>—row and column. The inner product, by contrast, is a calculation between <strong>vectors of the same kind</strong>—“row with row” or “column with column.”
+</p>
+<p>Yes—the matter is deeper than the reader may have thought. On the special stage of real space, these two often happen to return the same number, which has encouraged their confusion—and on top of that confusion a vast edifice called vector analysis has been built. The goal of this chapter is to make this distinction clear, then introduce the metric $g$ as the natural generalization of the inner product, and from there expose what the Hodge star $\ast$ really is.
+</p>
+<h3 id="§6.2-Converting-Between-Column-Vectors-and-Row-Vectors-Using-__MATH_BLOCK_96__">§6.2 Converting Between Column Vectors and Row Vectors Using $g$</h3>
+<h4 id="6.2.1-__MATH_BLOCK_97__-Is-a-Row-Vector">6.2.1 $\mathbf{v}^T \mathbf{g}$ Is a Row Vector</h4>
+<p>Look once more at the inner-product formula from §6.1, $\mathbf{v}_1^T \mathbf{g} \,\mathbf{v}_2$. Matrix products can be executed from the left in order, so this expression can be read as “first compute $\mathbf{v}_1^T \mathbf{g}$, then multiply the result by $\mathbf{v}_2$.”
+</p>
+<p>$\mathbf{v}_1$ is a column vector, but transposed $\mathbf{v}_1^T$ is a row vector. Multiplying a row vector by a square matrix again yields a row vector. So if we extract only the part $\mathbf{v}_1^T \mathbf{g}$,
+</p>
+$$\omega = \mathbf{v}^T \mathbf{g}$$
+<p>this is a <strong>row vector</strong> of size $1 \times 3$. The metric $g$ is, arising naturally from the matrix form of the inner product, a <strong>device that converts column vectors into row vectors</strong>.
+</p>
+<p>Let us also write the reverse direction. Suppose a $1$-form given as a row vector
+</p>
+$$
+\omega =
+\begin{pmatrix}
+\omega_1 & \omega_2 & \omega_3
+\end{pmatrix}
+$$
+<p>is given. The corresponding column vector $\mathbf{v}_\omega$ is
+</p>
+$$
+\mathbf{v}_\omega = \mathbf{g}^{-1}\omega^T
+$$
+<blockquote>
+<p><strong>Note</strong> (Inverse matrix) For a square matrix $A$, the matrix $A^{-1}$ satisfying</p>
+$$
+A^{-1}A = AA^{-1} = I
+$$
+<p>is called the inverse of $A$. Intuitively, it is the matrix that undoes the transformation by $A$. Here we use $\mathbf{g}^{-1}$ to return a row vector built with $\mathbf{g}$ to the original column vector.</p>
+</blockquote>
+<p>In fact, if $\omega = \mathbf{v}^T\mathbf{g}$, transposing gives
+</p>
+$$
+\omega^T = \mathbf{g}^T\mathbf{v}
+$$
+<p>Since $\mathbf{g}$ is symmetric, $\mathbf{g}^T = \mathbf{g}$. Therefore
+</p>
+$$
+\mathbf{v} = \mathbf{g}^{-1}\omega^T
+$$
+<p>returns us to the start.
+</p>
+<p>In orthogonal Cartesian coordinates on real space, $\mathbf{g}=I$, so this reverse conversion too looks like mere transpose. In a general coordinate system, however, $\mathbf{g}^{-1}$ is needed to return a row vector to a column vector.
+</p>
+<blockquote>
+<p><strong>Note</strong> (What we smuggled in Chapter 2) When we sought a matrix representation of a $2$-form in Chapter 2, we already used the form $\mathbf{v}_1^T M \mathbf{v}_2$. At that time we only said that “laying a column vector on its side is mathematically ill-behaved” and pushed on without going deeper. The $\mathbf{v}^T\mathbf{g}$ we are looking at now is the true nature of the operation we smuggled in then. In real space $\mathbf{g}=I$, so transpose alone makes a column vector look like a row vector. In parameter space, however, to convert a column vector into a row measuring device that reproduces the inner product in real space, we must pass explicitly through the metric $\mathbf{g}$.</p>
+</blockquote>
+<p>Consider the meaning of this conversion. Since Chapter 1 we have distinguished “the figure being measured (column vector $\mathbf{v}$)” from “the measuring device (row vector $\omega$).” They were inhabitants of different worlds. But via $g$, a column vector that lived on the figure side changes form to the scale side—the row vector. Even for the same arrow, the “sensitivity as a scale” changes from place to place because $\mathbf{g}$ absorbs all the differences in calibration at each location.
+</p>
+<p>In real space ($\mathbf{g}=I$) we have $\omega = \mathbf{v}^T$, and the components of the column vector become the components of the row vector as-is. In parameter space $\mathbf{g} = \begin{pmatrix} 1 & 0 & 0 \\ 0 & r^2 & 0 \\ 0 & 0 & 1 \end{pmatrix}$, so $\omega = \begin{pmatrix} \Delta r & r^2\Delta\theta & \Delta z \end{pmatrix}$. Only the $\theta$ component is multiplied by $r^2$, reflecting that the $\theta$ direction’s scale is stretched by a factor of $r$.
+</p>
+<p>Without $g$, we cannot convert between “the figure being measured” and “the measuring device” without strain. $g$ is the standard go-between that ties the two together.
+</p>
+<h4 id="6.2.2-What-the-Metric-Gives-—-Geometric-Size-of-Parallel-__MATH_BLOCK_138__-Parallelepipeds">6.2.2 What the Metric Gives — Geometric Size of Parallel $k$-Parallelepipeds</h4>
+<p>The most basic role of the metric $g$ is to define the <strong>actual geometric size</strong> (length, area, volume) of the <strong>parallel $k$-parallelepiped</strong> spanned by $k$ vectors.
+</p>
+<p>In the chapters until now we performed “oriented counting” by feeding $k$ vectors to a $k$-form. $dx(\mathbf{v})$ is the number of the $x$ component of $\mathbf{v}$; $dx \wedge dy(\mathbf{v}_1, \mathbf{v}_2)$ is the oriented area of the parallelogram spanned by $\mathbf{v}_1, \mathbf{v}_2$. But these are measurements of shadows after all; how many meters of segment the vectors span, how many square meters of parallelogram they span under that metric, is determined only once the metric $g$ is given.
+</p>
+<p>For $k=1$ (the segment spanned by one vector $\mathbf{v}$), the square of its length is defined by the inner product with itself, as we already derived in §6.1:
+</p>
+$$|\mathbf{v}|^2 = \mathbf{v}^T \mathbf{g} \,\mathbf{v}$$
+<p>In real space ($\mathbf{g}=I$), $|\mathbf{v}|^2 = \Delta x^2 + \Delta y^2 + \Delta z^2$. In the parameter space of cylindrical coordinates, $|\mathbf{v}|^2 = \Delta r^2 + r^2\Delta\theta^2 + \Delta z^2$.
+</p>
+<p>For $k=0$, no displacement vector is fed in; the corresponding size is simply the absolute value of the scalar coefficient $|f|$.
+</p>
+<p>The same holds for $k=2$ (area of the parallelogram spanned by two vectors) and $k=3$ (volume of the parallelepiped spanned by three vectors). As we saw in Chapter 2 §2.4.7, the square root of the sum of squares of the coefficients $A_{xy}, A_{yz}, A_{zx}$ of the three basis $2$-forms $dx \wedge dy, dy \wedge dz, dz \wedge dx$, namely $\sqrt{A_{yz}^2 + A_{zx}^2 + A_{xy}^2}$, gives the unsigned area of the parallelogram. In $xyz$ coordinates this calculation needs only the coefficients of the basis $2$-forms; no other information is required.
+</p>
+<blockquote>
+<p><strong>Note</strong> (Why we do not write $k=2$ in vector form) For $k=1$ we wrote length as the inner product $\mathbf{v}^T\mathbf{g}\,\mathbf{v}$ of the column vector $\mathbf{v}$. The analogous inner product for $k=2$—inner product between matrices (the Frobenius product in Appendix D)—we have not yet defined. Moreover, to display the coefficients of a $2$-form as a $3$-component vector requires the Hodge star $\ast$, which changes degree. Here we still treat a face as a face—that is, as coefficients of a $2$-form.</p>
+</blockquote>
+<p>The role of the metric $g$ is to generalize this “computation in $xyz$” to coordinate systems with distorted scales, such as parameter space. In every case, <strong>once $g$ is fixed, a consistent geometric size is defined for parallel $k$-parallelepipeds of every degree</strong>—that is the most fundamental role of the metric.
+</p>
+<h4 id="6.2.3-Properties-of-the-Inner-Product">6.2.3 Properties of the Inner Product</h4>
+<p>Just as in Chapter 5 we summarized the properties of the exterior derivative $d$ (linearity, raising degree, $d^2=0$, Leibniz rule), let us organize here the properties of the inner product that emerge from the calculations so far. These do not depend on a particular coordinate system.
+</p>
+<ol>
+<li><strong>Symmetry</strong>: $\mathbf{v}_1 \cdot \mathbf{v}_2 = \mathbf{v}_2 \cdot \mathbf{v}_1$. Apply this to the matrix form derived in §6.1, $\mathbf{v}_1^T \mathbf{g} \,\mathbf{v}_2$. We have $\mathbf{v}_2 \cdot \mathbf{v}_1 = \mathbf{v}_2^T \mathbf{g} \,\mathbf{v}_1$, but a scalar is unchanged under transpose, so $\mathbf{v}_2^T \mathbf{g} \,\mathbf{v}_1 = (\mathbf{v}_2^T \mathbf{g} \,\mathbf{v}_1)^T = \mathbf{v}_1^T \mathbf{g}^T \mathbf{v}_2$. For this to equal $\mathbf{v}_1^T \mathbf{g} \,\mathbf{v}_2$ we must have $\mathbf{g} = \mathbf{g}^T$. That is, from symmetry of the inner product it follows that $\mathbf{g}$ must be a <strong>symmetric matrix</strong>.</li>
+</ol>
+<ol>
+<li><strong>Linearity</strong> (bilinearity): $(a\mathbf{v}_1 + b\mathbf{v}_2) \cdot \mathbf{v}_3 = a(\mathbf{v}_1 \cdot \mathbf{v}_3) + b(\mathbf{v}_2 \cdot \mathbf{v}_3)$. Linear in each argument. This is nothing but the distributive law for matrix products, $(a\mathbf{v}_1 + b\mathbf{v}_2)^T \mathbf{g} \,\mathbf{v}_3 = a\mathbf{v}_1^T \mathbf{g} \,\mathbf{v}_3 + b\mathbf{v}_2^T \mathbf{g} \,\mathbf{v}_3$.</li>
+</ol>
+<ol>
+<li><strong>Positive definiteness</strong>: $\mathbf{v} \cdot \mathbf{v} > 0$ ($\mathbf{v} \neq \mathbf{0}$). This guarantees that “square of length” is positive. In special relativity, where signs are mixed, this need not hold; but on the three-dimensional real space that is the stage of this book it always does.</li>
+</ol>
+<blockquote>
+<p><strong>Note</strong> (Symmetric vs antisymmetric matrices)</p>
+<p>The fact that the area-measuring device in Chapter 2 required an antisymmetric matrix ($M = -M^T$) and that the inner product here requires a symmetric matrix ($\mathbf{g} = \mathbf{g}^T$) are exactly paired. Antisymmetry governs oriented counting; the symmetric metric governs length and angle, and from there the unsigned area and volume induced.</p>
+</blockquote>
+<h4 id="6.2.4-Letting-the-Geometry-of-the-Metric-Matrix-Live-in-Its-Components">6.2.4 Letting the Geometry of the Metric Matrix Live in Its Components</h4>
+<p>The diagonal entries of $\mathbf{g}$ express “how much a step along that axis contributes to length”; the off-diagonal entries express “how much steps along different axes interfere with each other.” That $\mathbf{g}$ in cylindrical coordinates was diagonal is because the axes $r,\theta,z$ are mutually orthogonal. In any case, the single matrix $\mathbf{g}$ carries in its components all the “ruler properties” at that location.
+</p>
+<blockquote>
+<p><strong>Note</strong> (Axiomatic inner product—reversed order of axioms and matrix) In a standard linear-algebra textbook one first defines the three properties above as axioms, then derives the theorem that any operation satisfying them can be written, in some basis, in the form $\mathbf{v}^T \mathbf{g} \mathbf{w}$ with a symmetric matrix $\mathbf{g}$. The logical order is the reverse of ours. On the axiomatic side the matrix representation is only one representation; on the measuring-device reading of this book, <strong>this matrix $\mathbf{g}$ is the scale of space itself</strong>, the starting point of all measurement. Neither is “correct” in preference to the other. One enters from abstract properties; one enters from concrete symbolic operations of measurement. Only the direction that suits you differs.</p>
+</blockquote>
+<blockquote>
+<p><strong>Checkpoint so far — §6.0–§6.2</strong></p>
+<p>- The inner product is the operation of taking the sum of products of components between vectors of the same kind (row × row, or column × column). It is a different thing from row × column.</p>
+<p>- The inner product in parameter space is computed by pulling back to real space first. In that process $J^T J$ appears naturally. That is the true nature of the metric $g$.</p>
+<p>- $g$ converts column vectors to row vectors. Concretely, from a column vector $\mathbf{v}$ the corresponding $1$-form is built by $\omega_{\mathbf{v}} = \mathbf{v}^T\mathbf{g}$.</p>
+<p>- Conversely, from a $1$-form $\omega$ given as a row vector, the corresponding column vector is $\mathbf{v}_\omega = \mathbf{g}^{-1}\omega^T$. In Cartesian coordinates $\mathbf{g}=I$, so both look like almost nothing but transpose.</p>
+<p>- With $g$ as mediator, geometric size is defined for parallel $k$-parallelepipeds of every degree.</p>
+<p>- From the properties of the inner product (symmetry, linearity, positive definiteness) the symmetry of $g$ follows. This pairs with the antisymmetry of the area-measuring device $\wedge$.</p>
+</blockquote>
+<hr />
+<h3 id="§6.3-The-Hodge-Star-__MATH_BLOCK_214__-—-The-Correspondence-Connecting-Two-Routes">§6.3 The Hodge Star $\ast$ — The Correspondence Connecting Two Routes</h3>
+<h4 id="6.3.1-Two-Ways-to-Obtain-a-Scalar">6.3.1 Two Ways to Obtain a Scalar</h4>
+<p>By now the true nature of $g = J^T J$ has been revealed, and we can compute inner products in any coordinate system. Let us step back and look at the larger picture.
+</p>
+<p>When we survey the formulas of physics, we notice that there is more than one way to produce a scalar quantity. When we integrate a field along a line or over a surface, a natural notation appears: something that measures acts on something that is measured and returns a number. On the other hand, quantities such as power and energy density are often written as inner products of the same kind of arrow, as in $\mathbf{E}\cdot\mathbf{J}$ or $\mathbf{A}\cdot(\nabla\times\mathbf{A})$.
+</p>
+<p>In other words, at least on the surface, two conventions for obtaining scalars coexist in the notation of physics. In the language of this book, they are the following two:
+</p>
+<ul>
+<li><strong>Route ① (differential-forms route / $d$ route)</strong>: Prepare a measuring device (row vector: a $1$-form, and so on) and a figure to be measured (column vector: a vector field, and so on), and obtain a scalar by a row $\times$ column computation. What this computation uses is the logic of action and evaluation—a form eats a vector and returns a scalar.</li>
+<li><strong>Route ② (vector-calculus route / $\nabla$ route)</strong>: Unify all quantities as "arrows of the same kind," and obtain a scalar by an inner product between like vectors (column $\times$ column, or row $\times$ row). In this computation, the metric $g$ is inserted so that like vectors can be compared. Many readers will be familiar with this method from school education.</li>
+</ul>
+<blockquote>
+<p><strong>Note</strong> (What to call the two methods—the author's dilemma) The author long wondered what to call these two conventions in a textbook. Calling Route ① the "differential forms method" is natural, but in this book we also write "d method" alongside it. For readers who do not yet know differential forms, the symbol $d$ is more familiar. The author personally also calls it the "topology method." For readers raised in topology or geometry, that name may feel more natural. Likewise, calling Route ② the "vector calculus method" is natural, but in this book we also write "$\nabla$ method" alongside it. The symbol $\nabla$ (nabla) is the most familiar symbol for readers who have studied physics. The author personally also calls it the "inner product method," using that name when emphasizing that the structure of the inner product sits at the core. All of these names refer to the same two conventions.</p>
+</blockquote>
+<blockquote>
+<p><strong>Note</strong> (Genealogy of the two notations) Route ① lies close to Grassmann's exterior algebra and Élie Cartan's line of development; Route ② lies close to the vector calculus systematized by Gibbs and Heaviside. This is not a matter of one being correct and the other wrong.</p>
+</blockquote>
+<p>In fact, whichever method we adopt, the physical result we obtain in the end is the same. This is merely a difference of expression.
+</p>
+<p>Yet a practical problem arises here. In the framework of Route ②, quantities that ought to be measured through a "surface" ($2$-forms) and quantities measured along a "line" ($1$-forms) are all treated as the same kind of "three-component arrow." To handle the notions of area and volume from Route ① within the framework of Route ②'s "inner product of arrows," we need a correspondence that links forms of different degrees.
+</p>
+<p>The number of independent components of a $k$-form had a characteristic symmetry. As we saw in Chapter 2 §2.5.9, in three-dimensional space a $0$-form has $1$ component, a $1$-form has $3$, a $2$-form also has $3$, and a $3$-form has $1$—folded at the middle, the pattern $1, 3, 3, 1$ is symmetric left and right. Between a $1$-form and a $2$-form with the same number of independent components, and between a $0$-form and a $3$-form, some correspondence ought to exist. The device that supplies that correspondence is the <strong>Hodge star $\ast$</strong>.
+</p>
+<p>$\ast$ uses the information of the inner product (that is, $g$) to assign to each form the partner that combines with it to make a volume. In the main text we first build this correspondence in the basis of physical space; verification in components is deferred to Appendix D.
+</p>
+<blockquote>
+<p><strong>Note</strong> (Between the two methods) We need not use only one of Route ① and Route ②. The author's ideal is to move freely between both. This book starts from Route ① (differential forms) in order to build a solid foundation that does not depend on distortion of space. On top of that, we want to be able to read the same quantities in the language of Route ② when needed—and $\ast$ is what bridges the two.</p>
+</blockquote>
+<blockquote>
+<p><strong>Note</strong> (For readers who know vector calculus) Many operations that in ordinary vector calculus are treated as face orientations or cross products can be read anew as the correspondence given by this $\ast$. In this chapter, however, we do not use those as known formulas; we rebuild them from $g$ and the basis $2$-forms of Chapter 2.</p>
+</blockquote>
+<h4 id="6.3.2-The-__MATH_BLOCK_251__-Dictionary-in-Physical-Space—Choosing-the-Partner-That-Makes-a-Volume">6.3.2 The $\ast$ Dictionary in Physical Space—Choosing the Partner That Makes a Volume</h4>
+<p>So how is $\ast$ determined?
+</p>
+<p>Here we first consider orthogonal Cartesian coordinates in physical space $(x,y,z)$. In this space, $dx, dy, dz$ are mutually orthogonal reference measuring devices of length $1$. We also fix the orientation of space so that
+</p>
+$$
+dx \wedge dy \wedge dz
+$$
+<p>is the positive volume form.
+</p>
+<p>We may think of $\ast$ as the operation that, given a form, returns the partner which combines with it to yield a volume form.
+</p>
+<p>For example, what $2$-form combines with $dx$ to produce the positive volume form? It is $dy \wedge dz$. Indeed,
+</p>
+$$
+dx \wedge dy \wedge dz
+$$
+<p>is obtained. Therefore it is natural to set
+</p>
+$$
+\ast dx = dy \wedge dz.
+$$
+<p>Likewise,
+</p>
+$$
+dy \wedge dz \wedge dx = dx \wedge dy \wedge dz,
+$$
+<p>so
+</p>
+$$
+\ast dy = dz \wedge dx,
+$$
+<p>and
+</p>
+$$
+dz \wedge dx \wedge dy = dx \wedge dy \wedge dz,
+$$
+<p>so
+</p>
+$$
+\ast dz = dx \wedge dy.
+$$
+<p>In other words, $\ast$ assigns to each line measuring device the surface measuring device that combines with it to give the positive volume form. By the same idea, the scalar $1$ corresponds to the volume form $dx \wedge dy \wedge dz$, and the volume form corresponds to the scalar $1$.
+</p>
+<p>Therefore the $\ast$ dictionary in physical space is as follows.
+</p>
+$$\begin{aligned}
+\ast(1) &= dx \wedge dy \wedge dz, \qquad &\ast(dx \wedge dy \wedge dz) &= 1 \\
+\ast(dx) &= dy \wedge dz, \qquad &\ast(dy \wedge dz) &= dx \\
+\ast(dy) &= dz \wedge dx, \qquad &\ast(dz \wedge dx) &= dy \\
+\ast(dz) &= dx \wedge dy, \qquad &\ast(dx \wedge dy) &= dz
+\end{aligned}$$
+<p>At this stage it is enough to read $\ast$ as a "dictionary." However, this correspondence is not a mere memorization table. Once a basis is chosen, $\ast$ can be written as an array representation of a linear transformation that rearranges coefficients. The array representation over all degrees is confirmed in Appendix D.
+</p>
+<p>The meaning of this dictionary is simple. What corresponds to a line segment in the $x$ direction ($dx$) is the face perpendicular to the $x$ axis ($dy \wedge dz$). Likewise $y \leftrightarrow dz \wedge dx$, $z \leftrightarrow dx \wedge dy$. And the scalar $1$ ($0$-form) and the volume $dx \wedge dy \wedge dz$ ($3$-form) correspond to each other. This is precisely the manifestation of the symmetry $1, 3, 3, 1$ of independent component counts that we saw in Chapter 2.
+</p>
+<blockquote>
+<p><strong>Note</strong> (Why this dictionary is the right one) That $\ast dx = dy \wedge dz$ holds is because $dx, dy, dz$ form an orthonormal basis (mutually orthogonal, length $1$) and because we have taken the orientation of space so that $dx \wedge dy \wedge dz$ is positive in a right-handed system. Under these conditions, the dictionary above is determined uniquely. Once parameter space is taken into account, the $\ast$ dictionary depends on the metric $g$ and on how orientation is chosen—in other words, if $g$ is not $I$, the coefficients in the dictionary become more complicated.</p>
+</blockquote>
+<h4 id="6.3.3-__MATH_BLOCK_286__">6.3.3 $\ast\ast = \mathrm{id}$</h4>
+<p>As the dictionary above shows immediately, applying $\ast$ twice returns the original:
+</p>
+$$\ast(\ast(dx)) = \ast(dy \wedge dz) = dx.$$
+<p>In general, in three-dimensional Cartesian physical space, $\ast\ast = \mathrm{id}$ (the identity operator) holds. One application of $\ast$ reverses the degree of a form; two applications return it to the original.
+</p>
+<blockquote>
+<p><strong>Checkpoint so far — §6.3</strong></p>
+<p>- There are two ways to obtain a scalar. Route ① obtains a scalar by row $\times$ column action. Route ② reads it as an inner product of like vectors, and the metric $g$ appears there.</p>
+<p>- The symmetry $1, 3, 3, 1$ seen in Chapter 2 suggests that a correspondence can be set up between $1$-forms and $2$-forms with the same number of independent components.</p>
+<p>- The Hodge star $\ast$ returns, for a given form, the partner which combines with it to give the positive volume form. The dictionary in physical space includes $\ast dx = dy \wedge dz$, and so on.</p>
+<p>- This dictionary is not a mere memorization table; once a basis is chosen, it can be written as an array representation of a linear transformation. Details of the array representation are confirmed in Appendix D.</p>
+<p>- $\ast\ast = \mathrm{id}$ follows immediately from this dictionary.</p>
+</blockquote>
+<h4 id="6.3.4-Properties-of-__MATH_BLOCK_298__">6.3.4 Properties of $\ast$</h4>
+<p>Following the pattern of §6.2.3, where we summarized the properties of the inner product, and of Chapter 5, where we summarized the properties of the exterior derivative $d$, let us organize the properties of $\ast$ that emerge from the construction so far.
+</p>
+<ol>
+<li><strong>Reversal of degree</strong>: In three-dimensional space, $\ast$ pairs $0$-forms with $3$-forms and $1$-forms with $2$-forms. In general it sends a $k$-form to a $(3-k)$-form.</li>
+</ol>
+<ol>
+<li><strong>Linearity</strong>: $\ast(\omega_1 + \omega_2) = \ast\omega_1 + \ast\omega_2$. $\ast$ is the operation that extends the dictionary on the basis linearly with coefficients; linearity is immediate. Details of the array representation are confirmed in Appendix D.</li>
+</ol>
+<ol>
+<li><strong>Correspondence with the inner product</strong>: For forms $\alpha, \beta$ of the same degree, combining $\alpha$ and $\ast\beta$ by the wedge product yields a $3$-form whose coefficient is the inner product of $\alpha$ and $\beta$. In Cartesian coordinates,</li>
+</ol>
+$$
+\alpha \wedge \ast\beta
+=
+(\alpha\cdot\beta)\,dx\wedge dy\wedge dz
+$$
+<p>Here $\alpha\cdot\beta$ denotes the metric-induced inner product of forms of the same degree. For two $1$-forms it is the sum of products of components; for two $2$-forms it is the Frobenius product seen in Appendix D. This formula expresses that $\ast$ links the "scalar obtained by the inner product" with the "$3$-form obtained by the wedge product."
+</p>
+<blockquote>
+<p><strong>Note</strong> (Relation to more advanced definitions) In more advanced textbooks, $\alpha\wedge\ast\beta=(\alpha\cdot\beta)\,dx\wedge dy\wedge dz$ is often adopted as the definition of $\ast$. In this book we first built the dictionary on each basis element and its array representation; that is a concrete realization of this definition in Cartesian coordinates.</p>
+</blockquote>
+<ol>
+<li><strong>$\ast\ast = \mathrm{id}$</strong>: Applying it twice returns the original (§6.3.3). This holds under the conditions of an orthonormal basis and a right-handed system; in Appendix D it can also be verified algebraically through antisymmetric matrices and the Frobenius product.</li>
+</ol>
+<ol>
+<li><strong>Dependence on the metric $g$</strong>: The $\ast$ dictionary is determined by the metric $g$ of space. In Cartesian coordinates ($g=I$), the concise dictionary of §6.3.2 suffices; in a general coordinate system, the coefficients of $\ast$ become functions of position. We treat the general case in detail in Chapter 9.</li>
+</ol>
+<p>These properties show that $\ast$ is not a mere "dictionary" but the very <strong>degree-reversal structure</strong> of a space equipped with a metric and an orientation.
+</p>
+<hr />
+<h3 id="§6.4-Examples-of-the-Correspondence-—-Differential-Forms-and-Vector-Analysis">§6.4 Examples of the Correspondence — Differential Forms and Vector Analysis</h3>
+<h4 id="6.4.1-Joule-Heating-__MATH_BLOCK_330__-—-Two-Routes">6.4.1 Joule Heating $P=VI$ — Two Routes</h4>
+<p>Let us verify in actual computation how $\ast$ concretely links differential forms with dot-product representations of like-kind vectors. The purpose of this section is not to learn formulas from electromagnetism or vector analysis. It is to survey, in two examples, how quantities that arise naturally in the language of differential forms can be read in the notation of scalar products and vector analysis.
+</p>
+<blockquote>
+<p><strong>Note</strong> (you need not know electromagnetism or vector analysis) From here on, for the sake of explanation we will use a few symbols from electromagnetism and vector analysis a little ahead of their formal introduction. You need not understand right now what $E$ or $J$ represent, or what $\mathbf{A}\cdot(\nabla\times\mathbf{A})$ means. What we want to see here is a single point: a $3$-form that appears naturally in the language of differential forms can be read, through the Hodge star $\ast$, as a scalar or an inner product. The relation to vector-analytic notation will peek through a little later, but a full systematic treatment is deferred to later chapters.</p>
+</blockquote>
+<p>Revisit the high-school physics formula "electric power = voltage × current ($P=VI$)" as a phenomenon that occurs at each point in space.
+</p>
+<ul>
+<li>The <strong>electric field $E$</strong>, which is the origin of voltage, is a <strong>$1$-form</strong> that counts along line segments.</li>
+<li>The <strong>current density $J$</strong>, which is the origin of current, is a <strong>$2$-form</strong> that counts charge crossing a surface.</li>
+</ul>
+<p>First, let us compute by <strong>Route ① (differential forms)</strong>. Take the wedge product of the $1$-form $E$ and the $2$-form $J$:
+</p>
+$$E \wedge J$$
+<p>The wedge product of a $1$-form and a $2$-form is a $3$-form (a volume density). This means "power per unit volume (W/m³)." Integrating this over a spatial region ($\int_V E \wedge J$) yields the total power consumed in the region (watts). This route uses only the operation of wedging a $1$-form and a $2$-form into a $3$-form.
+</p>
+<p>Next, see how the same calculation is carried out by <strong>Route ② (dot product of like-kind vectors)</strong>. To take an inner product treating both $E$ and $J$ as if they were $1$-forms, convert $J$, which measures surfaces, into a form that measures lines via $\ast$:
+</p>
+$$\text{Route ② display of }J \longleftrightarrow \ast J$$
+<p>Now we have two $1$-forms, $E$ and $\ast J$. Take their inner product (dot product). Here $E\cdot J$ is the Route ② display after $J$ has been read through $\ast$ as a like-kind object. To write the inner product of $1$-forms in the language of differential forms, apply $\ast$ to one side to obtain a $2$-form, wedge to a $3$-form, then apply $\ast$ overall to drop to a $0$-form:
+</p>
+$$\text{Route ② display }E\cdot J \longleftrightarrow \ast(E \wedge \ast(\ast J))$$
+<p>Here $\ast\ast = \mathrm{id}$, so the inner $\ast(\ast J) = J$:
+</p>
+$$\ast(E \wedge J)$$
+<p>The bracketed quantity $E \wedge J$ is exactly the same $3$-form obtained in Route ①. The outer $\ast$ strips the volume $dx \wedge dy \wedge dz$ from the $3$-form and extracts a scalar value. The way of writing that multiplies the scalar $E \cdot J$ by a small volume $dV$ and integrates again can be read as restoring afterward the volume that this $3$-form already carried.
+</p>
+<p><strong>In short, $\ast$ links the $3$-form of Route ① and the scalar display of Route ② without contradiction.</strong> Because $\ast\ast = \mathrm{id}$, either route leads to the same result.
+</p>
+<h4 id="6.4.2-Helicity-__MATH_BLOCK_383__-—-The-Round-Trip-of-__MATH_BLOCK_384__">6.4.2 Helicity $A \cdot (\nabla \times A)$ — The Round Trip of $\ast$</h4>
+<p>In one more example, let us see further how $\ast$ works. Consider the following $3$-form built from a $1$-form $\alpha$ and its exterior derivative $d\alpha$:
+</p>
+$$\alpha \wedge d\alpha$$
+<p>In the language of Route ②, this quantity appears as the inner product of a vector field $\mathbf{A}$ with its curl:
+</p>
+$$\mathbf{A} \cdot (\nabla \times \mathbf{A})$$
+<p>Write the $1$-form corresponding to $\mathbf{A}$ as $\alpha$. The $d\alpha$ is first obtained as a $2$-form; in the language of Route ② it corresponds to the $1$-form $\ast d\alpha$.
+</p>
+<p>First compute by <strong>Route ①</strong>. The wedge product of the $1$-form $\alpha$ and the $2$-form $d\alpha$:
+</p>
+$$\alpha \wedge d\alpha$$
+<p>The wedge of a $1$-form and a $2$-form is a $3$-form. On this route, $\alpha$ and $d\alpha$ are combined directly by the wedge product.
+</p>
+<p>Next look at the internal structure of the same calculation on <strong>Route ②</strong>. To read it as a dot product of like-kind vectors, we cannot leave the $2$-form $d\alpha$ as it is; we assign the corresponding $1$-form $\ast d\alpha$:
+</p>
+$$\nabla \times \mathbf{A} \longleftrightarrow \ast d\alpha$$
+<p>Now we have two $1$-forms, $\alpha$ and $\ast d\alpha$. Take their inner product:
+</p>
+$$\mathbf{A} \cdot (\nabla \times \mathbf{A}) \longleftrightarrow \ast(\alpha \wedge \ast(\ast d\alpha))$$
+<p>By $\ast\ast = \mathrm{id}$, the inner $\ast(\ast d\alpha) = d\alpha$. Therefore,
+</p>
+$$\ast(\alpha \wedge d\alpha)$$
+<p>The bracketed quantity is the same as the $3$-form $\alpha \wedge d\alpha$ from Route ①. The outer $\ast$ strips the volume and extracts a scalar value.
+</p>
+<p><strong>What deserves attention here is that $\ast$ appears twice and cancels via $\ast\ast = \mathrm{id}$.</strong> Inside Route ② we use $\ast d\alpha$ as the $1$-form corresponding to $d\alpha$ (a $2$-form), and call on $\ast$ again to take the inner product. This round trip is canceled by $\ast\ast = \mathrm{id}$.
+</p>
+<blockquote>
+<p><strong>Note</strong> (why the round trip of $\ast$ occurs) Vector analysis has no concept of the degree of a form and treats everything uniformly as "a three-component arrow." To read a $2$-form as an arrow, one must build the corresponding $1$-form with $\ast$; to take an inner product one must again use $\ast$ to return to the original degree. The Hodge star $\ast$ is the single correspondence that links these two representations.</p>
+</blockquote>
+<blockquote>
+<p><strong>Checkpoint so far — §6.4</strong></p>
+<p>- In the Joule-heating calculation, Route ① ($E \wedge J$) and Route ② ($E \cdot J = \ast(E \wedge J)$) agree via $\ast$.</p>
+<p>- In the helicity calculation, $\ast$ is used twice and cancels by $\ast\ast = \mathrm{id}$. Route ① ($\alpha \wedge d\alpha$) and Route ② ($\mathbf{A} \cdot (\nabla \times \mathbf{A})$) give the same result.</p>
+<p>- $\ast$ is the correspondence linking differential forms and vector analysis; $\ast\ast = \mathrm{id}$ guarantees consistency of the round trip.</p>
+</blockquote>
+<hr />
+<h3 id="§6.5-The-Types-of-the-Three-Operations-—-grad,-curl,-div">§6.5 The Types of the Three Operations — grad, curl, div</h3>
+<p>By now we have the two operators $d$ (Chapter 5) and $\ast$ (this chapter). Combining them yields operations that move the degree of a form in various ways.
+</p>
+<p>Among these, three types are especially named in three-dimensional vector analysis:
+</p>
+$$
+0 \to 1,\qquad
+1 \to 2 \to 1,\qquad
+1 \to 2 \to 3 \to 0
+$$
+<p>In this book we call them, respectively,
+</p>
+$$
+\mathrm{grad},\qquad
+\mathrm{curl},\qquad
+\mathrm{div}
+$$
+<p>This chapter stops at naming these three types. The correspondence with the usual $\nabla f$, $\nabla\times\mathbf F$, and $\nabla\cdot\mathbf F$ is treated again in later chapters.
+</p>
+<blockquote>
+<p><strong>Note</strong> (for readers who know vector analysis) By this point you may already see the usual $\nabla f$, $\nabla\times\mathbf F$, and $\nabla\cdot\mathbf F$ in the background. This chapter, however, does not formally develop the usual vector-analytic notation. Here we confirm the path: "from combinations of $d$ and $\ast$, extract the three types corresponding to grad, curl, and div." The usual nabla notation, the correspondence with Stokes' theorem, and why formulas grow long in curvilinear coordinates are taken up again in later chapters.</p>
+</blockquote>
+<p>Below, we work first in Cartesian coordinates. Use the $1$-form
+</p>
+$$
+\omega = P\,dx + Q\,dy + R\,dz
+$$
+<p>Readers who know vector analysis may read this as the field with components $(P,Q,R)$. A full systematic treatment of this correspondence is deferred to later chapters.
+</p>
+<h4 id="6.5.1-Gradient-__MATH_BLOCK_454__">6.5.1 Gradient $\mathrm{grad}\,f = df$</h4>
+<p>The exterior derivative $df$ of a $0$-form (scalar field) $f$ is a $1$-form:
+</p>
+$$
+df = \frac{\partial f}{\partial x}\,dx
+{}+ \frac{\partial f}{\partial y}\,dy
+{}+ \frac{\partial f}{\partial z}\,dz
+$$
+<p>In this book we call this the $1$-form representation of the gradient and write
+</p>
+$$
+\mathrm{grad}\,f = df
+$$
+<p>The operator $d$ raises the degree from $0 \to 1$. That is the form of the gradient needed in this chapter. The relation to the column-vector display $\nabla f$ of usual vector analysis is organized again in later chapters.
+</p>
+<h4 id="6.5.2-Curl-__MATH_BLOCK_463__">6.5.2 Curl $\mathrm{curl}\,\omega = \ast\,d\,\omega$</h4>
+<p>For the $1$-form
+</p>
+$$
+\omega = P\,dx + Q\,dy + R\,dz
+$$
+<p>applying $d$ yields the $2$-form $d\omega$:
+</p>
+$$d\omega = (\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z})\,dy \wedge dz + (\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x})\,dz \wedge dx + (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,dx \wedge dy$$
+<p>Applying $\ast$ returns the $2$-form to a $1$-form:
+</p>
+$$\ast(d\omega) = (\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z})\,dx + (\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x})\,dy + (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,dz$$
+<p>In this book we call this $1$-form the $1$-form representation of the curl and write
+</p>
+$$\mathrm{curl}\,\omega = \ast\,d\,\omega$$
+<p>The composition $\ast\,d$ has the degree transition
+</p>
+$$
+1 \to 2 \to 1
+$$
+<p>This structure of "rising once to a surface form, then returning to a line form" corresponds to the curl. The relation to what is written $\nabla\times\mathbf F$ in usual vector analysis is treated again in later chapters.
+</p>
+<h4 id="6.5.3-Divergence-__MATH_BLOCK_475__">6.5.3 Divergence $\mathrm{div}\,\omega = \ast\,d\,\ast\,\omega$</h4>
+<p>Apply $\ast$ first to the $1$-form $\omega$ to obtain a $2$-form. Apply $d$ to obtain a $3$-form. Apply $\ast$ once more to return to a $0$-form, namely a scalar field:
+</p>
+$$
+\ast d\ast\omega
+$$
+<p>Computing in Cartesian coordinates,
+</p>
+$$\ast(d(\ast\omega)) = \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}$$
+<p>In this book we call this $0$-form the divergence and write
+</p>
+$$\mathrm{div}\,\omega = \ast\,d\,\ast\,\omega$$
+<p>The composition $\ast\,d\,\ast$ has the degree transition
+</p>
+$$
+1 \to 2 \to 3 \to 0
+$$
+<p>The relation to what is written $\nabla\cdot\mathbf F$ in usual vector analysis is treated again in later chapters.
+</p>
+<h4 id="6.5.4-The-Shadow-of-__MATH_BLOCK_487__">6.5.4 The Shadow of $d^2 = 0$</h4>
+<p>Recall $d^2 = 0$ from Chapter 5. From this single fact, relations arise among the three operations.
+</p>
+<p>First,
+</p>
+$$
+\mathrm{curl}(\mathrm{grad}\,f)
+=
+\ast d(df)
+=
+\ast(d^2 f)
+=
+0
+$$
+<p>Also,
+</p>
+$$
+\mathrm{div}(\mathrm{curl}\,\omega)
+=
+\ast d\ast(\ast d\omega)
+=
+\ast d(d\omega)
+=
+\ast(d^2\omega)
+=
+0
+$$
+<p>Here we stop at viewing these as identities on the side of forms. Readers who know vector analysis will see the correspondence with the usual identities. In this book, however, the meaning in the usual nabla notation is deferred to later chapters.
+</p>
+<hr />
+<h3 id="§6.6-Toward-Vector-Analysis">§6.6 Toward Vector Analysis</h3>
+<p>In Chapter 5 we acquired the exterior derivative $d$; in this chapter, the metric $g$ and the Hodge star $\ast$. With this, the main tools needed to move from the world of forms toward vector analysis are in place.
+</p>
+<p>What we confirmed in this chapter is that from combinations of $d$ and $\ast$, one can extract the three types called grad, curl, and div in three-dimensional vector analysis.
+</p>
+<p>Let us tabulate the correspondences obtained here.
+</p>
+<div class="table-wrapper"><table>
+<thead><tr>
+<th>Operation</th>
+<th>Decomposition in this book</th>
+<th>Degree transition</th>
+<th>Number of uses of $\ast$</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$\mathrm{grad}$</td>
+<td>$d$</td>
+<td>$0 \to 1$</td>
+<td>0</td>
+</tr>
+<tr>
+<td>$\mathrm{curl}$</td>
+<td>$\ast\,d$</td>
+<td>$1 \to 2 \to 1$</td>
+<td>1</td>
+</tr>
+<tr>
+<td>$\mathrm{div}$</td>
+<td>$\ast\,d\,\ast$</td>
+<td>$1 \to 2 \to 3 \to 0$</td>
+<td>2</td>
+</tr>
+</tbody>
+</table></div>
+<p>By now, a substantial part of the structure behind nabla notation has come into view. However, this chapter has not yet formally developed the usual vector analysis.
+</p>
+<p>Readers who know vector analysis may already see the usual $\nabla$ notation rising from here. But this book will not rush. The systematic organization in the usual nabla notation is deferred to later chapters.
+</p>
+<p>In later chapters we will use the $d$, $g$, and $\ast$ obtained here to return to the notation of usual vector analysis. Stokes' theorem, Gauss' theorem, and why formulas grow long in curvilinear coordinates will all be reread from this toolkit.
+</p>
+<blockquote>
+<p><strong>Note</strong> (by flipping just one sign in the metric) This chapter assumed a positive definite metric ($\mathbf{v}^T \mathbf{g} \,\mathbf{v} > 0$ for $\mathbf{v} \neq 0$). But on the four-dimensional spacetime stage of special relativity, an indefinite metric appears, such as $\mathbf{g} = \begin{pmatrix} -1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{pmatrix}$, with only the time component's sign flipped. This book is fixed on three-dimensional Cartesian physical space, so we do not go further here; but the idea learned in this chapter of "inserting the matrix $\mathbf{g}$" extends directly to four-dimensional spacetime. When that becomes necessary, I hope the reader will return to this chapter.</p>
+</blockquote>
+<hr />
+<blockquote>
+<p><strong>Checkpoint so far — Chapter 6 as a whole</strong></p>
+<p>- The inner product is an operation taking the product-sum of components between vectors of the same kind (row×row, or column×column). It is a different operation from row×column computation.</p>
+<p>- In physical space the inner-product matrix is the identity $I$. In parameter space it is determined by the linear coefficients of coordinate transformation as $\mathbf{g}=J^T J$. That is, the metric $g$ is nothing other than the matrix that appears in the middle when one pulls back to physical space and takes the inner product.</p>
+<p>- $\mathbf{v}^T \mathbf{g}$ converts a column vector into a row vector; $\mathbf{g}^{-1}\omega^T$ returns a row vector to column-vector display. Without $g$, objects and measuring devices cannot convert into each other.</p>
+<p>- There are two ways to obtain a scalar: Route ① (row×column) and Route ② (inner product of like-kind vectors). The Hodge star $\ast$ is the correspondence linking the two.</p>
+<p>- $\ast$ returns, for a given form, the partner that combines with it to yield a positive volume form. The dictionary in physical space is $\ast dx = dy \wedge dz$, etc., and it satisfies $\ast\ast = \mathrm{id}$.</p>
+<p>- The Joule-heating and helicity examples show that Route ① and Route ② give the same result through $\ast$ and $\ast\ast = \mathrm{id}$.</p>
+<p>- In Chapter 6 we confirmed that the three types $\mathrm{grad}=d$, $\mathrm{curl}=\ast\,d$, $\mathrm{div}=\ast\,d\,\ast$ appear. The systematic organization in the usual nabla notation is deferred to later chapters.</p>
+<p>- From $d^2=0$, on the side of forms we get $\mathrm{curl}(\mathrm{grad}\,f)=0$ and $\mathrm{div}(\mathrm{curl}\,\omega)=0$. The meaning in usual vector analysis is treated again in later chapters.</p>
+</blockquote>
+<hr />
+<h2 id="Appendix-D:-Array-Representation-of-the-Hodge-Star">Appendix D: Array Representation of the Hodge Star</h2>
+<p>§6.3.2 gave the dictionary for $\ast$ in real space. This appendix checks how that dictionary looks as array operations. The Hodge star is not an abstract symbol; once a basis is chosen, it is a linear transformation that can be displayed as a concrete array. We first view the $1$-form $\leftrightarrow$ $2$-form correspondence through antisymmetric matrices, and finally view the $0$-form $\leftrightarrow$ $3$-form correspondence through a third-order array.
+</p>
+<h3 id="D.1-__MATH_BLOCK_537__-—-placing-three-coefficients-into-an-antisymmetric-matrix">D.1 $\ast_{1\to2}$ — placing three coefficients into an antisymmetric matrix</h3>
+<p>For the $1$-form
+</p>
+$$
+\omega =
+\begin{pmatrix}P & Q & R\end{pmatrix}
+=
+P\,dx + Q\,dy + R\,dz
+$$
+<p>apply the dictionary from the main text,
+</p>
+$$
+\ast dx = dy \wedge dz,\qquad
+\ast dy = dz \wedge dx,\qquad
+\ast dz = dx \wedge dy
+$$
+<p>to obtain
+</p>
+$$
+\ast\omega
+=
+P\,dy\wedge dz
++
+Q\,dz\wedge dx
++
+R\,dx\wedge dy
+$$
+<p>In the antisymmetric matrix representation of Chapter 2, let the matrix representing $dy\wedge dz$ be
+</p>
+$$
+E_1 =
+\begin{pmatrix}
+0 & 0 & 0 \\
+0 & 0 & 1 \\
+0 & -1 & 0
+\end{pmatrix}
+$$
+<p>Similarly, let the matrix representing $dz\wedge dx$ be
+</p>
+$$
+E_2 =
+\begin{pmatrix}
+0 & 0 & -1 \\
+0 & 0 & 0 \\
+1 & 0 & 0
+\end{pmatrix}
+$$
+<p>and let the matrix representing $dx\wedge dy$ be
+</p>
+$$
+E_3 =
+\begin{pmatrix}
+0 & 1 & 0 \\
+-1 & 0 & 0 \\
+0 & 0 & 0
+\end{pmatrix}
+$$
+<p>Therefore,
+</p>
+$$
+\ast_{1\to2}
+=
+\begin{pmatrix}
+E_1\\
+E_2\\
+E_3
+\end{pmatrix}
+$$
+<p>can be viewed as a "vertical vector of matrices." Multiplying the $1$-form $\omega=\begin{pmatrix}P&Q&R\end{pmatrix}$ on the left gives
+</p>
+$$
+\omega\,\ast_{1\to2}
+=
+\begin{pmatrix}P&Q&R\end{pmatrix}
+\begin{pmatrix}
+E_1\\
+E_2\\
+E_3
+\end{pmatrix}
+=
+P E_1+Q E_2+R E_3
+$$
+<p>Hence
+</p>
+$$
+\ast_{1\to2}(\omega)
+=
+\begin{pmatrix}
+0 & R & -Q \\
+-R & 0 & P \\
+Q & -P & 0
+\end{pmatrix}
+$$
+<p>The three coefficients $P,Q,R$ of the $1$-form have been placed into the three independent components of the antisymmetric matrix of the $2$-form. This is the most visible form of $\ast_{1\to2}$.
+</p>
+<blockquote>
+<p><strong>Note</strong> (relation to $\widehat{\epsilon}$ in Chapter 2) These $E_1,E_2,E_3$ are the same matrices written in Appendix A as $\varepsilon_{1,\cdot,\cdot},\varepsilon_{2,\cdot,\cdot},\varepsilon_{3,\cdot,\cdot}$. The essence of $\ast_{1\to2}$ is to place the first index of Einstein's epsilon $\varepsilon_{ijk}$ in the direction of the components of the $1$-form, and the remaining two indices in the directions of the $3\times3$ matrix. The same triple introduced in Chapter 2 as the volume-measuring device $\widehat{\epsilon}$ reappears here as the Hodge star.</p>
+</blockquote>
+<h3 id="D.2-__MATH_BLOCK_556__-—-extracting-coefficients-by-the-Frobenius-product">D.2 $\ast_{2\to1}$ — extracting coefficients by the Frobenius product</h3>
+<p>The reverse map $\ast_{2\to1}$ is the operation that extracts three independent components from an antisymmetric matrix. Looking at matrix entries alone, it suffices to read $A=M_{23}$, $B=M_{31}$, $C=M_{12}$. That is, to return from the antisymmetric matrix
+</p>
+$$
+M=
+\begin{pmatrix}
+0 & C & -B \\
+-C & 0 & A \\
+B & -A & 0
+\end{pmatrix}
+$$
+<p>representing the $2$-form
+</p>
+$$
+\eta
+=
+A\,dy\wedge dz
++
+B\,dz\wedge dx
++
+C\,dx\wedge dy
+$$
+<p>to $A\,dx+B\,dy+C\,dz$, one need only read these three components. If we stop at this mere "reading," however, the transpose relation with $\ast_{1\to2}$ is hard to see. So we rewrite coefficient extraction itself as an inner product between matrices.
+</p>
+<p>Define the inner product of $3\times3$ matrices $A,B$ by
+</p>
+$$
+A\cdot B
+=
+\frac{1}{2}\operatorname{tr}(A^T B)
+=
+\frac{1}{2}
+\sum_{i=1}^{3}
+\sum_{j=1}^{3}
+A_{ij}B_{ij}
+$$
+<blockquote>
+<p><strong>Note</strong> (trace) $\operatorname{tr}$ is the <strong>trace</strong> of a matrix (the sum of diagonal entries). It appeared when we treated the matrix representation of the exterior derivative in Appendix B. $\operatorname{tr}(A^T B)$ is the three-step operation "transpose $A$, multiply by $B$, and add the diagonal entries." Since the product $A\cdot B$ is equivalently $\frac{1}{2}\sum A_{ij}B_{ij}$, use the latter expression when you want to think in components.</p>
+</blockquote>
+<p>This is the same notation as the inner product $\mathbf{v}_1 \cdot \mathbf{v}_2$ between column vectors in §6.2.3. Matrices, too, are "things of the same kind," and we multiply corresponding components and take the sum. Because we contract successively over the two indices $i$ and $j$, this is called the <strong>Frobenius product</strong> or <strong>consecutive contraction</strong>.
+</p>
+<blockquote>
+<p><strong>Note</strong> (the factor $1/2$) Some conventions adopt $\operatorname{tr}(A^T B)$ (without $1/2$) as the Frobenius product. For antisymmetric matrices, however, that picks up both members of a pair such as $M_{23}$ and $M_{32}=-M_{23}$, and the inner product is doubled. In this book we build $1/2$ into the definition. Then the inner product of the $2$-form $M$ with itself, $M\cdot M=M_{23}^2+M_{31}^2+M_{12}^2$, agrees directly with the "squared unsigned area of the parallelogram" in §6.2.2.</p>
+</blockquote>
+<blockquote>
+<p><strong>Note</strong> (the pull of abstraction) §6.2.3 touched on an axiomatic inner product, but once you actually work by hand like this, you can see why that brevity is attractive. For the inner product of column vectors we use $\mathbf{v}_1^T \mathbf{v}_2$; for the inner product of matrices we use $\frac{1}{2}\operatorname{tr}(A^T B)$—redefining the inner product from scratch every time the representation changes is, when you think about it, quite a burden. One notices the urge to lump these together and settle everything with one phrase: "an inner product is an operation satisfying certain axioms." Even so, this book does not abandon its policy of making representations explicit to the end. By this point, that is stubbornness.</p>
+</blockquote>
+<p>The $E_1,E_2,E_3$ of D.1 are orthonormal with respect to this inner product. Indeed, each $E_k$ has only two nonzero components; for the same $E_k$ we get $\frac{1}{2}(1^2+(-1)^2)=1$, and for different $E_i,E_j$ the positions of the nonzero components do not overlap. Therefore,
+</p>
+$$
+E_i\cdot E_j=\delta_{ij}
+$$
+<p>Using this orthonormality, the reverse transformation $\ast_{2\to1}$ can be written as inner products with $E_1,E_2,E_3$. Let $M$ be an arbitrary $3\times3$ matrix; when it comes from a $2$-form, $M$ is an antisymmetric matrix.
+</p>
+$$
+\ast_{2\to1}(M)
+=
+\begin{pmatrix}
+E_1\cdot M & E_2\cdot M & E_3\cdot M
+\end{pmatrix}
+$$
+<p>Here $E_k\cdot M=\frac{1}{2}\operatorname{tr}(E_k^T M)$ is the Frobenius product defined above. In components,
+</p>
+$$
+\begin{aligned}
+E_1 \cdot M &= \frac{1}{2}(M_{23}-M_{32}) \\
+E_2 \cdot M &= \frac{1}{2}(M_{31}-M_{13}) \\
+E_3 \cdot M &= \frac{1}{2}(M_{12}-M_{21})
+\end{aligned}
+$$
+<p>If $M$ is an antisymmetric matrix, then $M_{32}=-M_{23}$, $M_{13}=-M_{31}$, $M_{21}=-M_{12}$, so
+</p>
+$$
+\ast_{2\to1}(M)
+=
+\begin{pmatrix}
+M_{23} & M_{31} & M_{12}
+\end{pmatrix}
+$$
+<p>Therefore, $\ast_{2\to1}$ is at once the operation that extracts independent components from an antisymmetric matrix and coefficient extraction by the Frobenius product with $E_k$.
+</p>
+<p>Writing out all components, $\ast_{2\to1}$ is the following "horizontal vector of matrices":
+</p>
+$$
+\ast_{2\to1} = \begin{pmatrix}
+\begin{pmatrix} 0 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & -1 & 0 \end{pmatrix} &
+\begin{pmatrix} 0 & 0 & -1 \\ 0 & 0 & 0 \\ 1 & 0 & 0 \end{pmatrix} &
+\begin{pmatrix} 0 & 1 & 0 \\ -1 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}
+\end{pmatrix}
+$$
+<p>In $\ast_{1\to2}$ we multiply by coefficients and add; in $\ast_{2\to1}$ we extract coefficients by inner product. Vertical and horizontal, weighted sum and inner-product extraction, correspond to each other.
+</p>
+<h3 id="D.3-__MATH_BLOCK_607__-in-the-__MATH_BLOCK_608__-form-and-__MATH_BLOCK_609__-form-case">D.3 $\ast\ast=\mathrm{id}$ in the $1$-form and $2$-form case</h3>
+<p>Combining D.1 and D.2, $\ast\ast=\mathrm{id}$ for $1$-forms and $2$-forms appears as orthonormality of arrays.
+</p>
+<p>For
+</p>
+$$
+\omega=P\,dx+Q\,dy+R\,dz
+$$
+<p>D.1 gives
+</p>
+$$
+\ast_{1\to2}(\omega)=P E_1+Q E_2+R E_3
+$$
+<p>Applying $\ast_{2\to1}$ to this,
+</p>
+$$
+\begin{aligned}
+\ast_{2\to1}(\ast_{1\to2}(\omega))
+&=
+\begin{pmatrix}
+E_1\cdot (P E_1+Q E_2+R E_3) &
+E_2\cdot (P E_1+Q E_2+R E_3) &
+E_3\cdot (P E_1+Q E_2+R E_3)
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+P & Q & R
+\end{pmatrix}
+=
+\omega
+\end{aligned}
+$$
+<p>In the last equality we used $E_i\cdot E_j=\delta_{ij}$. That is, the three coefficients placed into $E_1,E_2,E_3$ by $\ast_{1\to2}$ are recovered unchanged by $\ast_{2\to1}$ through inner products with the same $E_1,E_2,E_3$.
+</p>
+<p>The reverse direction is the same. For the antisymmetric matrix
+</p>
+$$
+M=P E_1+Q E_2+R E_3
+$$
+<p>D.2 gives
+</p>
+$$
+\ast_{2\to1}(M)
+=
+\begin{pmatrix}
+E_1\cdot M & E_2\cdot M & E_3\cdot M
+\end{pmatrix}
+=
+\begin{pmatrix}
+P & Q & R
+\end{pmatrix}
+$$
+<p>and applying D.1's $\ast_{1\to2}$,
+</p>
+$$
+\ast_{1\to2}(\ast_{2\to1}(M))
+=
+P E_1+Q E_2+R E_3
+=
+M
+$$
+<p>Therefore, in the $1$-form and $2$-form case,
+</p>
+$$
+\ast_{2\to1}(\ast_{1\to2}(\omega))=\omega,
+\qquad
+\ast_{1\to2}(\ast_{2\to1}(M))=M
+$$
+<p>hold. $\ast_{1\to2}$ places three coefficients into $E_1,E_2,E_3$; $\ast_{2\to1}$ extracts coefficients by inner product with $E_1,E_2,E_3$. Using the normalized Frobenius product, the transpose relation between the two appears as this correspondence between placement and coefficient extraction.
+</p>
+<h3 id="D.4-Array-representation-of-__MATH_BLOCK_626__-and-__MATH_BLOCK_627__">D.4 Array representation of $\ast_{0\to3}$ and $\ast_{3\to0}$</h3>
+<p>So far we have displayed $\ast_{1\to2}$ and $\ast_{2\to1}$ as transformations that move coefficient arrays. What remains is $\ast_{0\to3}$ and $\ast_{3\to0}$.
+</p>
+<p>A $0$-form has a single coefficient. A $3$-form, viewed purely as an array, is a completely antisymmetric third-order array with three indices. Therefore, $\ast_{0\to3}$ is the transformation that spreads one component into $3\times3\times3$ components, and $\ast_{3\to0}$ is the transformation that extracts one component from $3\times3\times3$ components.
+</p>
+<p>Here we bring $\varepsilon_{ijk}$, which also appeared in Chapter 2, to the fore and look at its form.
+</p>
+<blockquote>
+<p><strong>Note</strong> (what $\varepsilon_{ijk}$ really is) $\varepsilon_{ijk}$ is the completely antisymmetric symbol that appeared in Chapter 2. If the indices $(i,j,k)$ are an even permutation of $(1,2,3)$, it is $+1$; if an odd permutation, $-1$; if the same index appears twice, $0$. In an orthonormal Cartesian basis, it can be read as the component of a completely antisymmetric tensor. In this book we use those components as the representation of the Hodge star.</p>
+</blockquote>
+<p>First, apply $\ast_{0\to3}$ to the $0$-form $f$. The output is a $3$-form, so it can be written in components with three indices. Here we take the components of $\ast_{0\to3}$ itself to be
+</p>
+$$
+(\ast_{0\to3})_{ijk}
+=
+\varepsilon_{ijk}
+$$
+<p>Display this as three $3\times3$ matrices with $i$ fixed—that is, for each of $i=1,2,3$, arrange the $(j,k)$ components as a matrix:
+</p>
+$$
+(\ast_{0\to3})_{1jk}
+=
+\begin{pmatrix}
+0&0&0\\
+0&0&1\\
+0&-1&0
+\end{pmatrix},
+$$
+$$
+(\ast_{0\to3})_{2jk}
+=
+\begin{pmatrix}
+0&0&-1\\
+0&0&0\\
+1&0&0
+\end{pmatrix},
+$$
+$$
+(\ast_{0\to3})_{3jk}
+=
+\begin{pmatrix}
+0&1&0\\
+-1&0&0\\
+0&0&0
+\end{pmatrix}.
+$$
+<p>As you can see, these are exactly the antisymmetric matrices $E_1,E_2,E_3$ used in D.1. That is,
+</p>
+$$
+(\ast_{0\to3})_{1jk}= (E_1)_{jk},
+\qquad
+(\ast_{0\to3})_{2jk}= (E_2)_{jk},
+\qquad
+(\ast_{0\to3})_{3jk}= (E_3)_{jk}
+$$
+<p>Almost nothing new happens here. The antisymmetric matrices $E_1,E_2,E_3$ seen in D.1 are now simply arranged as three slices with $i=1,2,3$. In the $1$-form and $2$-form case we read three coefficients as the coefficients of three antisymmetric matrices. In the $0$-form and $3$-form case we build, from one coefficient, the completely antisymmetric third-order array obtained by stacking all three slices at once.
+</p>
+<p>Indeed, acting on the $0$-form $f$,
+</p>
+$$
+(\ast_{0\to3}f)_{ijk}
+=
+(\ast_{0\to3})_{ijk}f
+=
+\varepsilon_{ijk}f
+$$
+<p>This is the operation of spreading the coefficient $f$ into a completely antisymmetric third-order array.
+</p>
+<p>Next, consider the reverse map $\ast_{3\to0}$. This is the transformation that takes a third-order array and returns a single coefficient. Its components are
+</p>
+$$
+(\ast_{3\to0})_{ijk}
+=
+\frac{1}{3!}\varepsilon_{ijk}
+$$
+<p>Therefore, displayed again as three $3\times3$ matrices with $i$ fixed,
+</p>
+$$
+(\ast_{3\to0})_{1jk}
+=
+\frac{1}{3!}
+\begin{pmatrix}
+0&0&0\\
+0&0&1\\
+0&-1&0
+\end{pmatrix},
+$$
+$$
+(\ast_{3\to0})_{2jk}
+=
+\frac{1}{3!}
+\begin{pmatrix}
+0&0&-1\\
+0&0&0\\
+1&0&0
+\end{pmatrix},
+$$
+$$
+(\ast_{3\to0})_{3jk}
+=
+\frac{1}{3!}
+\begin{pmatrix}
+0&1&0\\
+-1&0&0\\
+0&0&0
+\end{pmatrix}.
+$$
+<p>That is, $\ast_{3\to0}$ uses the same three antisymmetric matrices. The only difference is that the whole thing is multiplied by $1/3!$.
+</p>
+<p>If we think of the indices $(i,j,k)$ lined up in a row as a single number, then $\ast_{0\to3}$ is a column vector that spreads one component into $27$ components, and $\ast_{3\to0}$ is a row vector that extracts one component from $27$ components. Apart from the normalization factor $1/3!$, the two are in a transpose relation.
+</p>
+<p>Let a $3$-form be represented by its completely antisymmetric components $\eta_{ijk}$. Acting with $\ast_{3\to0}$ sums over all three indices:
+</p>
+$$
+\ast_{3\to0}\eta
+=
+\sum_{i=1}^{3}
+\sum_{j=1}^{3}
+\sum_{k=1}^{3}
+(\ast_{3\to0})_{ijk}\eta_{ijk}
+$$
+<p>Therefore,
+</p>
+$$
+\ast_{3\to0}\eta
+=
+\frac{1}{3!}
+\sum_{i=1}^{3}
+\sum_{j=1}^{3}
+\sum_{k=1}^{3}
+\varepsilon_{ijk}\eta_{ijk}
+$$
+<p>This is a triple contraction that extracts one coefficient from a completely antisymmetric third-order array.
+</p>
+<p>The factor $1/3!$ plays the same role as the $1/2$ that appears in the Frobenius product of D.2. In an antisymmetric matrix, each independent component appears twice, so we multiply by $1/2$ to correct for the duplication. Here, each independent component of a completely antisymmetric third-order array appears $3!=6$ times, so we multiply by $1/3!$ to correct for the duplication.
+</p>
+<p>Let us verify that applying $\ast$ twice returns the original. First, start from the $0$-form $f$:
+</p>
+$$
+\ast_{3\to0}(\ast_{0\to3}f)
+=
+\frac{1}{3!}
+\sum_{i=1}^{3}
+\sum_{j=1}^{3}
+\sum_{k=1}^{3}
+\varepsilon_{ijk}(\ast_{0\to3}f)_{ijk}
+$$
+<p>Since $(\ast_{0\to3}f)_{ijk}=\varepsilon_{ijk}f$,
+</p>
+$$
+\ast_{3\to0}(\ast_{0\to3}f)
+=
+\frac{1}{3!}
+\sum_{i=1}^{3}
+\sum_{j=1}^{3}
+\sum_{k=1}^{3}
+\varepsilon_{ijk}\varepsilon_{ijk}f
+$$
+<p>Only the $3!=6$ cases in which $(i,j,k)$ is a permutation of $(1,2,3)$ are nonzero; then $\varepsilon_{ijk}\varepsilon_{ijk}=1$, so
+</p>
+$$
+\ast_{3\to0}(\ast_{0\to3}f)
+=
+\frac{1}{3!}(3!)f
+=
+f
+$$
+<p>Let us also check the reverse direction. An arbitrary $3$-form has only one independent component in three dimensions. Therefore the completely antisymmetric components $\eta_{ijk}$ can be written using some coefficient $h$ as
+</p>
+$$
+\eta_{ijk}
+=
+h\,\varepsilon_{ijk}
+$$
+<p>Then
+</p>
+$$
+\ast_{3\to0}\eta
+=
+\frac{1}{3!}
+\sum_{i=1}^{3}
+\sum_{j=1}^{3}
+\sum_{k=1}^{3}
+\varepsilon_{ijk}(h\varepsilon_{ijk})
+=
+h
+$$
+<p>Therefore,
+</p>
+$$
+(\ast_{0\to3}(\ast_{3\to0}\eta))_{ijk}
+=
+(\ast_{0\to3}h)_{ijk}
+=
+h\varepsilon_{ijk}
+=
+\eta_{ijk}
+$$
+<p>Thus we have confirmed $\ast\ast=\mathrm{id}$ in the $0$-form and $3$-form case as well, in the array representation.
+</p>
+<p>In the end, what we saw here is the same as in D.1–D.3. In $\ast_{1\to2}$ we distributed three coefficients among three antisymmetric matrices. In $\ast_{0\to3}$ we distributed one coefficient simultaneously among all three antisymmetric matrices. In $\ast_{2\to1}$ we extracted coefficients from an antisymmetric matrix; in $\ast_{3\to0}$ we extracted coefficients by triple contraction with the three antisymmetric matrices. The Hodge star, at every degree, is a linear transformation that can be displayed as a concrete array once a basis is chosen.
+</p>
+<h3 id="D.5-Summary">D.5 Summary</h3>
+<blockquote>
+<p><strong>Checkpoint so far — Appendix D</strong></p>
+<p>- $\ast_{1\to2}$ is the linear transformation that places three coefficients into the antisymmetric matrices $E_1,E_2,E_3$.</p>
+<p>- $\ast_{2\to1}$ is the linear transformation that extracts coefficients from an antisymmetric matrix, and can be written by the Frobenius product with $E_k$.</p>
+<p>- Using the Frobenius product $A\cdot B=\frac{1}{2}\operatorname{tr}(A^TB)$, we have $E_i\cdot E_j=\delta_{ij}$.</p>
+<p>- Therefore, in the $1$-form and $2$-form case, $\ast_{2\to1}(\ast_{1\to2}(\omega))=\omega$ and $\ast_{1\to2}(\ast_{2\to1}(M))=M$ hold.</p>
+<p>- $\ast_{0\to3}$ can be displayed as a third-order array obtained by stacking the three antisymmetric matrices $E_1,E_2,E_3$. In components, $(\ast_{0\to3})_{ijk}=\varepsilon_{ijk}$.</p>
+<p>- $\ast_{3\to0}$ can be displayed as the same array multiplied by the normalization factor $1/3!$. In components, $(\ast_{3\to0})_{ijk}=\frac{1}{3!}\varepsilon_{ijk}$.</p>
+<p>- The factors $1/2$ and $1/3!$ correct for duplication of antisymmetric components.</p>
+<p>- In the $0$-form/$3$-form case as well, $\ast_{3\to0}(\ast_{0\to3}f)=f$ and $\ast_{0\to3}(\ast_{3\to0}\eta)=\eta$ hold.</p>
+<p>- Therefore, the Hodge star $\ast$, for both $0\leftrightarrow3$ and $1\leftrightarrow2$, is a linear transformation that can be displayed as a concrete array once a basis is chosen.</p>
+</blockquote>
+      <div class="nav-buttons">
+        <a href="ch05.html">← Chapter 5...</a>
+        <a href="ch07.html">Chapter 7... →</a>
+      </div>
+    </article>
+    <footer class="site-footer">
+      <p>&copy; 2026 yokiikoy. CC BY-NC 4.0.</p>
+    </footer>
+  </main>
+</body>
+</html>

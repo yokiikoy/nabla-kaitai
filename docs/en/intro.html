@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Introduction: What Is $dx$? What Is Nabla? | Unmasking Div, Grad, and Curl</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+<style>
+  :root { --sidebar-width: 320px; }
+  html { color-scheme: light; background: #fff; }
+  body { margin: 0; display: flex; background: #fff; color: #24292f; line-height: 1.7; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .sidebar { width: var(--sidebar-width); height: 100vh; position: sticky; top: 0; background: #f8f9fa; color: #24292f; border-right: 1px solid #d0d7de; overflow-y: auto; padding: 1.5rem; box-sizing: border-box; flex-shrink: 0; }
+  .sidebar h2 { font-size: 1.2rem; border: none; margin-bottom: 0.5rem; color: #24292f; }
+  .sidebar .author { font-size: 0.8rem; color: #666; margin-bottom: 1.5rem; }
+  .sidebar .toc { font-size: 0.85rem; }
+  .sidebar .toc ul { list-style: none; padding-left: 0; margin: 0; }
+  .sidebar .toc li { margin-bottom: 0.4rem; }
+  .sidebar .toc .level-1 { font-weight: bold; margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 2px; }
+  .sidebar .toc .sub-toc { font-size: 0.8rem; margin-top: 0.5rem; padding-left: 0.8rem; border-left: 2px solid #eee; }
+  .sidebar .toc .sub-toc li { margin-bottom: 0.2rem; font-weight: normal; }
+  .sidebar .toc .sub-toc .level-3 { padding-left: 0.8rem; font-size: 0.75rem; color: #666; }
+  .sidebar a { text-decoration: none; color: #0969da; }
+  .sidebar a:hover { text-decoration: underline; }
+  .sidebar .active { color: #cf222e; font-weight: bold; }
+  .sidebar .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
+  .mobile-current { display: none; }
+  .mobile-toc-button { display: none; }
+  .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; background: #fff; color: #24292f; }
+  .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; color-scheme: light; background: #fff; color: #24292f; }
+  .markdown-body p, .markdown-body li { color: #24292f; }
+  @media (max-width: 900px) { 
+    body { flex-direction: column; } 
+    .sidebar { width: 100%; height: auto; position: sticky; top: 0; z-index: 10; padding: 0.75rem 1rem; border-right: none; border-bottom: 1px solid #d0d7de; box-shadow: 0 1px 8px rgba(27, 31, 36, 0.08); }
+    .sidebar h2 { margin: 0; font-size: 1rem; }
+    .sidebar .author { display: none; }
+    .sidebar .toc { display: none; }
+    .mobile-current { display: block; margin-top: 0.35rem; font-size: 0.85rem; color: #57606a; }
+    .mobile-current strong { color: #cf222e; }
+    .mobile-toc-button { display: inline-block; margin-top: 0.35rem; font-size: 0.85rem; }
+    .main-content { padding: 1rem; } 
+    .markdown-body { padding: 0.5rem; }
+  }
+  blockquote { border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }
+  blockquote p { color: #57606a; }
+  .table-wrapper { overflow-x: auto; margin: 1.5em 0; }
+  .markdown-body table { border-collapse: collapse; width: 100%; font-size: 0.9em; background: #fff; }
+  .markdown-body th, .markdown-body td { border: 1px solid #d0d7de; padding: 6px 13px; color: #24292f !important; }
+  .markdown-body tr:nth-child(even) { background-color: #f6f8fa !important; }
+  th { font-weight: 600; background-color: #f6f8fa; }
+  code, pre { color: #24292f; background-color: #f6f8fa; }
+  .nav-buttons { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }
+  .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
+  .nav-buttons a:hover { background: #f6f8fa; }
+  strong { font-weight: 800 !important; color: #000; }
+  blockquote strong { color: #24292f !important; }
+  /* KaTeX responsiveness */
+  .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }
+  .full-toc h2 { font-size: 1.1rem; margin: 1.5em 0 0.3em; padding-bottom: 2px; border-bottom: 1px solid #d0d7de; }
+  .full-toc h2 a { color: #24292f; text-decoration: none; }
+  .full-toc h2 a:hover { color: #0969da; }
+  .full-toc h2 .disabled-link { color: #8c959f; cursor: not-allowed; }
+  .full-toc ul { list-style: none; padding-left: 1.5rem; margin: 0.3em 0 0; }
+  .full-toc li { margin-bottom: 0.2rem; font-size: 0.9rem; }
+  .full-toc .level-3 { padding-left: 1rem; font-size: 0.8rem; color: #57606a; }
+  .full-toc a { color: #0969da; text-decoration: none; }
+  .full-toc a:hover { text-decoration: underline; }
+  .full-toc .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
+  .full-toc .part-header { font-size: 1.1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }
+  .full-toc .toc-part-chapters { padding-left: 1.5rem; }
+  .full-toc .toc-part-chapters h3 { font-size: 0.95rem; margin: 0.5em 0 0.2em; }
+  .full-toc .toc-part-chapters h3 a { color: #24292f; }
+  .full-toc .toc-part-chapters ul { padding-left: 1.5rem; }
+  .site-footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #d0d7de; font-size: 0.8rem; color: #57606a; }
+  .site-footer a { color: #0969da; text-decoration: none; }
+  .site-footer a:hover { text-decoration: underline; }
+</style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ],
+            throwOnError : false
+        });
+    });
+</script>
+
+</head>
+<body>
+  <nav class="sidebar">
+    <h2><a href="index.html">Unmasking Div, Grad, and Curl</a></h2>
+    <div class="author">
+      Author: yokiikoy<br>
+      <a href="http://covectorspace.xyz/en/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a><br>
+      <a href="../index.html" style="font-size: 0.75rem; color: #666; text-decoration: none;">Japanese edition</a>
+    </div>
+    <div class="mobile-current">Current: <strong>Introduction: What Is $dx$? What Is Nabla?</strong></div>
+    <a class="mobile-toc-button" href="toc.html">Open contents</a>
+    <div class="toc">
+      <ul>
+<li class="level-1"><a href="toc.html" id="link-toc.html">Contents</a></li>
+<li class="level-1"><a href="index.html" id="link-index.html">Preface</a></li>
+<li class="level-1"><a href="intro.html" class="active" id="link-intro.html">Introduction</a><ul class="sub-toc"><li class="level-2"><a href="#Prerequisites">Prerequisites</a></li><li class="level-2"><a href="#What-Is-$dx$?">What Is $dx$?</a></li><li class="level-2"><a href="#What-Is-Nabla?">What Is Nabla?</a></li></ul></li>
+<li class="level-1"><a href="portal.html" id="link-portal.html">Portal Site and a Small Experiment</a></li>
+<li class="level-1"><a href="ch01.html" id="link-ch01.html">Chapter 1</a></li>
+<li class="level-1"><a href="ch02.html" id="link-ch02.html">Chapter 2</a></li>
+<li class="level-1"><a href="ch03.html" id="link-ch03.html">Chapter 3</a></li>
+<li class="level-1"><a href="ch04.html" id="link-ch04.html">Chapter 4</a></li>
+<li class="level-1"><a href="ch05.html" id="link-ch05.html">Chapter 5</a></li>
+<li class="level-1"><a href="ch06.html" id="link-ch06.html">Chapter 6</a></li>
+<li class="level-1"><a href="ch07.html" id="link-ch07.html">Chapter 7</a></li>
+<li class="level-1"><a href="ch08.html" id="link-ch08.html">Chapter 8</a></li>
+<li class="level-1"><a href="ch09.html" id="link-ch09.html">Chapter 9</a></li>
+<li class="level-1"><a href="ch10.html" id="link-ch10.html">Chapter 10</a></li>
+<li class="level-1"><a href="ch11.html" id="link-ch11.html">Chapter 11</a></li>
+<li class="level-1"><a href="ch12.html" id="link-ch12.html">Chapter 12</a></li>
+<li class="level-1"><a href="postscript.html" id="link-postscript.html">Afterword</a></li>
+<li class="level-1"><a href="refs.html" id="link-refs.html">References (with Comments from the Author)</a></li>
+<li class="level-1"><a href="appendix.html" id="link-appendix.html">Appendix</a></li>
+</ul>
+    </div>
+  </nav>
+  <main class="main-content">
+    <article class="markdown-body">
+<h1 id="Introduction:-What-Is-__MATH_BLOCK_2__?-What-Is-Nabla?">Introduction: What Is $dx$? What Is Nabla?</h1>
+<h2 id="Prerequisites">Prerequisites</h2>
+<p>You should be able to read this book if you are comfortable with the following basic material.
+</p>
+<ul>
+<li><strong>Calculus</strong>: You should be able to differentiate and integrate one-variable functions. It is even better if substitution in integrals does not bother you.</li>
+<li><strong>Linear algebra</strong>: You should not be allergic to multiplying matrices. You should also have an image of moving back and forth between “vectors as arrows” and “vectors as lists of numbers.”</li>
+</ul>
+<p>You do not need to know determinants in advance. We will discover them along the way.
+</p>
+<p>When I say that a high-school student could read this book, I do not mean that it will be effortless. But I wrote it so that, at least, the twenty-year-old version of myself could have read it through.
+</p>
+<h2 id="What-Is-__MATH_BLOCK_3__?">What Is $dx$?</h2>
+<p>Every integral sign has a $dx$ at its tail. In high-school mathematics, it is treated almost like a marker saying “integrate with respect to $x$.” We are also taught that $\frac{dy}{dx}$ is not a fraction, even though substitution in integrals effectively lets us manipulate it as if it were one.
+</p>
+<p>In first-year university calculus, $dx$ appears as part of the total differential. But in many cases, we still do not go very deeply into what it actually is.
+</p>
+<p>In physics and engineering courses, the situation becomes even stranger. Infinitesimals such as $dx$ and $\delta x$ are manipulated as if they were perfectly ordinary objects.
+</p>
+<p>When I was a first-year master’s student, I once asked a mathematics friend what $dx$ was. I remember getting an explanation that was both understandable and not understandable: “$dx$ is a linear functional on the tangent vector space, or an element of the cotangent space.”
+</p>
+<p>So what is $dx$, in the end? Unless we are already in an advanced course, must we either avoid the question or treat $dx$ as an infinitesimal?
+</p>
+<p>From a more advanced mathematical point of view, my friend was overwhelmingly right. It is better if one can understand $dx$ that way. But it is hard.
+</p>
+<p>So this book asks a more practical question: what would it take to lead a high-school student toward that understanding? The foothold I use is matrix algebra, which, at least in my case, had already been drilled into me in high school.
+</p>
+<p>In this book, we first read $dx$ as “a measuring device that extracts the $x$-component from a displacement vector.” In matrix representation, symbolically,
+</p>
+$$
+dx=\begin{pmatrix}1&0&0\end{pmatrix}
+$$
+<p>The question is what the $dx$ at the tail of the integral sign is actually doing. This book begins by making that operation visible.
+</p>
+<p>$dx$ eats a displacement and returns its $x$-component. $dx\wedge dy$ measures the oriented area spanned by two displacements. $dx\wedge dy\wedge dz$ measures the oriented volume spanned by three displacements.
+</p>
+<p>Instead of immediately placing abstract terminology between the $dx$ of high-school mathematics and the $dx$ of differential forms, we first place matrices and measuring devices there. That is the starting point of this book.
+</p>
+<h2 id="What-Is-Nabla?">What Is Nabla?</h2>
+<p>The other symbol this book wants to confront is $\nabla$.
+</p>
+<p>In English, $\nabla$ is usually called <strong>del</strong>; it is also called <strong>nabla</strong>. Japanese textbooks often use the name <em>nabla</em>. This book is not really about the name of the symbol. It is about what div, grad, and curl are actually doing.
+</p>
+<p>When you study vector analysis, the whole subject may suddenly start to look like a collection of formulas. At least that was my experience. In Cartesian coordinates, things may still look manageable. But once cylindrical or spherical coordinates enter the stage, $r$ and $\sin\theta$ appear, and one has to memorize coefficients whose origin is not clear.
+</p>
+<p>For example, in two dimensions, one encounters
+</p>
+$$
+\frac{\partial F_y}{\partial x}-\frac{\partial F_x}{\partial y}
+\qquad=\qquad
+\frac{1}{r}\frac{\partial (r F_\theta)}{\partial r}-\frac{1}{r}\frac{\partial F_r}{\partial \theta}
+$$
+<p>The left-hand side is written in Cartesian coordinates. The right-hand side is the same quantity written in polar coordinates. With a midterm tomorrow, it is not especially easy to feel convinced that this deserves to be called “curl.”
+</p>
+<p>Of course, this point is explained in supplementary books on mathematical physics and in careful recent books as well. But as far as I know, books in Japanese that build this up heuristically within the structure of a textbook are still rare.
+</p>
+<p>This book does not begin with nabla. Since we are going to think about the matrix representation of $dx$, we use that representation first.
+</p>
+<p>From $dx$, we rethink what area is and what volume is. Then we move on to integration, changes of variables, the exterior derivative, and the Hodge star. Only after that do we return to nabla.
+</p>
+<p>It will not help you in time for tomorrow’s midterm. But perhaps it will make it in time for the final.
+</p>
+      <div class="nav-buttons">
+        <a href="index.html">← Preface...</a>
+        <a href="portal.html">Portal Site and... →</a>
+      </div>
+    </article>
+    <footer class="site-footer">
+      <p>&copy; 2026 yokiikoy. CC BY-NC 4.0.</p>
+    </footer>
+  </main>
+</body>
+</html>

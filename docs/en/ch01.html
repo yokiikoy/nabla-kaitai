@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 1: What Is $dx$? — A Measuring Device That Eats Vectors, or a Row Vector | Unmasking Div, Grad, and Curl</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+<style>
+  :root { --sidebar-width: 320px; }
+  html { color-scheme: light; background: #fff; }
+  body { margin: 0; display: flex; background: #fff; color: #24292f; line-height: 1.7; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .sidebar { width: var(--sidebar-width); height: 100vh; position: sticky; top: 0; background: #f8f9fa; color: #24292f; border-right: 1px solid #d0d7de; overflow-y: auto; padding: 1.5rem; box-sizing: border-box; flex-shrink: 0; }
+  .sidebar h2 { font-size: 1.2rem; border: none; margin-bottom: 0.5rem; color: #24292f; }
+  .sidebar .author { font-size: 0.8rem; color: #666; margin-bottom: 1.5rem; }
+  .sidebar .toc { font-size: 0.85rem; }
+  .sidebar .toc ul { list-style: none; padding-left: 0; margin: 0; }
+  .sidebar .toc li { margin-bottom: 0.4rem; }
+  .sidebar .toc .level-1 { font-weight: bold; margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 2px; }
+  .sidebar .toc .sub-toc { font-size: 0.8rem; margin-top: 0.5rem; padding-left: 0.8rem; border-left: 2px solid #eee; }
+  .sidebar .toc .sub-toc li { margin-bottom: 0.2rem; font-weight: normal; }
+  .sidebar .toc .sub-toc .level-3 { padding-left: 0.8rem; font-size: 0.75rem; color: #666; }
+  .sidebar a { text-decoration: none; color: #0969da; }
+  .sidebar a:hover { text-decoration: underline; }
+  .sidebar .active { color: #cf222e; font-weight: bold; }
+  .sidebar .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
+  .mobile-current { display: none; }
+  .mobile-toc-button { display: none; }
+  .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; background: #fff; color: #24292f; }
+  .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; color-scheme: light; background: #fff; color: #24292f; }
+  .markdown-body p, .markdown-body li { color: #24292f; }
+  @media (max-width: 900px) { 
+    body { flex-direction: column; } 
+    .sidebar { width: 100%; height: auto; position: sticky; top: 0; z-index: 10; padding: 0.75rem 1rem; border-right: none; border-bottom: 1px solid #d0d7de; box-shadow: 0 1px 8px rgba(27, 31, 36, 0.08); }
+    .sidebar h2 { margin: 0; font-size: 1rem; }
+    .sidebar .author { display: none; }
+    .sidebar .toc { display: none; }
+    .mobile-current { display: block; margin-top: 0.35rem; font-size: 0.85rem; color: #57606a; }
+    .mobile-current strong { color: #cf222e; }
+    .mobile-toc-button { display: inline-block; margin-top: 0.35rem; font-size: 0.85rem; }
+    .main-content { padding: 1rem; } 
+    .markdown-body { padding: 0.5rem; }
+  }
+  blockquote { border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }
+  blockquote p { color: #57606a; }
+  .table-wrapper { overflow-x: auto; margin: 1.5em 0; }
+  .markdown-body table { border-collapse: collapse; width: 100%; font-size: 0.9em; background: #fff; }
+  .markdown-body th, .markdown-body td { border: 1px solid #d0d7de; padding: 6px 13px; color: #24292f !important; }
+  .markdown-body tr:nth-child(even) { background-color: #f6f8fa !important; }
+  th { font-weight: 600; background-color: #f6f8fa; }
+  code, pre { color: #24292f; background-color: #f6f8fa; }
+  .nav-buttons { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }
+  .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
+  .nav-buttons a:hover { background: #f6f8fa; }
+  strong { font-weight: 800 !important; color: #000; }
+  blockquote strong { color: #24292f !important; }
+  /* KaTeX responsiveness */
+  .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }
+  .full-toc h2 { font-size: 1.1rem; margin: 1.5em 0 0.3em; padding-bottom: 2px; border-bottom: 1px solid #d0d7de; }
+  .full-toc h2 a { color: #24292f; text-decoration: none; }
+  .full-toc h2 a:hover { color: #0969da; }
+  .full-toc h2 .disabled-link { color: #8c959f; cursor: not-allowed; }
+  .full-toc ul { list-style: none; padding-left: 1.5rem; margin: 0.3em 0 0; }
+  .full-toc li { margin-bottom: 0.2rem; font-size: 0.9rem; }
+  .full-toc .level-3 { padding-left: 1rem; font-size: 0.8rem; color: #57606a; }
+  .full-toc a { color: #0969da; text-decoration: none; }
+  .full-toc a:hover { text-decoration: underline; }
+  .full-toc .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
+  .full-toc .part-header { font-size: 1.1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }
+  .full-toc .toc-part-chapters { padding-left: 1.5rem; }
+  .full-toc .toc-part-chapters h3 { font-size: 0.95rem; margin: 0.5em 0 0.2em; }
+  .full-toc .toc-part-chapters h3 a { color: #24292f; }
+  .full-toc .toc-part-chapters ul { padding-left: 1.5rem; }
+  .site-footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #d0d7de; font-size: 0.8rem; color: #57606a; }
+  .site-footer a { color: #0969da; text-decoration: none; }
+  .site-footer a:hover { text-decoration: underline; }
+</style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ],
+            throwOnError : false
+        });
+    });
+</script>
+
+</head>
+<body>
+  <nav class="sidebar">
+    <h2><a href="index.html">Unmasking Div, Grad, and Curl</a></h2>
+    <div class="author">
+      Author: yokiikoy<br>
+      <a href="http://covectorspace.xyz/en/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a><br>
+      <a href="../index.html" style="font-size: 0.75rem; color: #666; text-decoration: none;">Japanese edition</a>
+    </div>
+    <div class="mobile-current">Current: <strong>Chapter 1: What Is $dx$? — A Measuring Device That Eats Vectors, or a Row Vector</strong></div>
+    <a class="mobile-toc-button" href="toc.html">Open contents</a>
+    <div class="toc">
+      <ul>
+<li class="level-1"><a href="toc.html" id="link-toc.html">Contents</a></li>
+<li class="level-1"><a href="index.html" id="link-index.html">Preface</a></li>
+<li class="level-1"><a href="intro.html" id="link-intro.html">Introduction</a></li>
+<li class="level-1"><a href="portal.html" id="link-portal.html">Portal Site and a Small Experiment</a></li>
+<li class="level-1"><a href="ch01.html" class="active" id="link-ch01.html">Chapter 1</a><ul class="sub-toc"><li class="level-3"><a href="#§1.0-The-Mathematician’s-One-Dimension,-the-Physicist’s-One-Dimension">§1.0 The Mathematician’s One Dimension, the Physicist’s One Dimension</a></li><li class="level-3"><a href="#§1.2-The-Total-Differential-$df$-—-An-Operator-That-Packs-Rates-of-Change-into-a-Matrix">§1.2 The Total Differential $df$ — An Operator That Packs Rates of Change into a Matrix</a></li><li class="level-3"><a href="#§1.3-Leibniz-Notation-and-Algebraic-Intuition">§1.3 Leibniz Notation and Algebraic Intuition</a></li><li class="level-3"><a href="#§1.4-Coordinate-Transformations-—-Rebuilding-Measuring-Devices-in-New-Coordinates">§1.4 Coordinate Transformations — Rebuilding Measuring Devices in New Coordinates</a></li><li class="level-3"><a href="#§1.5-Writing-in-Another-Coordinate-System-—-Exercises">§1.5 Writing in Another Coordinate System — Exercises</a></li><li class="level-3"><a href="#§1.6-Summary-of-This-Chapter-and-Outlook-Toward-the-Next">§1.6 Summary of This Chapter and Outlook Toward the Next</a></li></ul></li>
+<li class="level-1"><a href="ch02.html" id="link-ch02.html">Chapter 2</a></li>
+<li class="level-1"><a href="ch03.html" id="link-ch03.html">Chapter 3</a></li>
+<li class="level-1"><a href="ch04.html" id="link-ch04.html">Chapter 4</a></li>
+<li class="level-1"><a href="ch05.html" id="link-ch05.html">Chapter 5</a></li>
+<li class="level-1"><a href="ch06.html" id="link-ch06.html">Chapter 6</a></li>
+<li class="level-1"><a href="ch07.html" id="link-ch07.html">Chapter 7</a></li>
+<li class="level-1"><a href="ch08.html" id="link-ch08.html">Chapter 8</a></li>
+<li class="level-1"><a href="ch09.html" id="link-ch09.html">Chapter 9</a></li>
+<li class="level-1"><a href="ch10.html" id="link-ch10.html">Chapter 10</a></li>
+<li class="level-1"><a href="ch11.html" id="link-ch11.html">Chapter 11</a></li>
+<li class="level-1"><a href="ch12.html" id="link-ch12.html">Chapter 12</a></li>
+<li class="level-1"><a href="postscript.html" id="link-postscript.html">Afterword</a></li>
+<li class="level-1"><a href="refs.html" id="link-refs.html">References (with Comments from the Author)</a></li>
+<li class="level-1"><a href="appendix.html" id="link-appendix.html">Appendix</a></li>
+</ul>
+    </div>
+  </nav>
+  <main class="main-content">
+    <article class="markdown-body">
+<h1 id="Chapter-1:-What-Is-__MATH_BLOCK_65__?-—-A-Measuring-Device-That-Eats-Vectors,-or-a-Row-Vector">Chapter 1: What Is $dx$? — A Measuring Device That Eats Vectors, or a Row Vector</h1>
+<h3 id="§1.0-The-Mathematician’s-One-Dimension,-the-Physicist’s-One-Dimension">§1.0 The Mathematician’s One Dimension, the Physicist’s One Dimension</h3>
+<p>When we first learn the one-dimensional integral $\int f(x)\,dx$ in high school, the textbook places before us a single line: the $x$-axis. For a mathematics textbook, that is perfectly reasonable. A <strong>mathematician</strong> assumes a self-contained abstract world called one-dimensional space $\mathbb{R}^1$, and builds the logic there. A point is a real number $x$, a displacement is a real number $\Delta x$, and an integral is defined as the limit of “function times tiny width.” Everything is self-contained.
+</p>
+<p><strong>But here, we are physicists.</strong>
+</p>
+<blockquote>
+<p><strong>Note</strong> (I am not a physicist)</p>
+<p>Of course, this is rhetoric. My degree is not in physics but in chemistry, and I am not currently in academia.</p>
+<p>What I mean is that the viewpoint of this book may be useful not only to readers in physics, but also to readers in information science, mechanical engineering, electrical engineering, other areas of science and engineering, or simply anyone who has gotten lost in the notation of vector analysis or calculus.</p>
+<p>“Physicist” here is not an institutional affiliation. It means a way of looking at things mathematically, as one often does in physical mathematics. I do not mean to put down mathematicians or mathematics books.</p>
+<p>I still wrote it a little grandly because I simply wanted to say it.</p>
+</blockquote>
+<p>The <strong>actual physical space</strong> we deal with is always three-dimensional. Even when a point mass appears to move along a straight line, it is not living in some “fictional one-dimensional space.” Rather, we are looking at a slice of three-dimensional space $\mathbb{R}^3$ in which displacement in the $y$ and $z$ directions happens not to be observed, or can be neglected.
+</p>
+<p>For example, consider a cart sliding on a frictionless straight rail. We say, “This is one-dimensional motion in the $x$ direction,” but in reality:
+</p>
+<ul>
+<li>the rail is installed in three-dimensional space;</li>
+<li>the cart may be vibrating slightly up and down;</li>
+<li>there may also be tiny lateral fluctuations due to air resistance.</li>
+</ul>
+<p>What a physicist calls “one-dimensional motion” is a situation in which, <strong>in three-dimensional space, displacement in one particular direction dominates, while displacement in the other directions is either negligibly small or constrained to be exactly zero by the symmetry of the system.</strong>
+</p>
+<blockquote>
+<p><strong>Note</strong> (the embedding point of view)</p>
+<p>The “physicist’s one dimension” here means viewing a one-dimensional parameter space as being mapped into three-dimensional space as a curve. In mathematics, such a map is first treated as a <strong>parametrization</strong> of a curve; under good conditions, such as no self-intersection and nonzero velocity, it is called an <strong>embedding</strong>.</p>
+<p>This book is not denying abstract one-dimensional spaces themselves. Rather, here we first understand the “motion along a curve in space” that often appears in physical mathematics as a mapping into three-dimensional space.</p>
+</blockquote>
+<p>Therefore, what a physicist calls a “one-dimensional infinitesimal displacement” is not really just a scalar $\Delta x$. It is more appropriately represented as the following <strong>column vector</strong>:
+</p>
+$$
+\mathbf{v} :=
+\begin{pmatrix}
+\Delta x \\
+0 \\
+0
+\end{pmatrix}
+$$
+<p>We call a three-component expression of displacement from a point in three-dimensional space a <strong>displacement vector</strong>. Following the usual convention, the <strong>first component</strong> corresponds to displacement in the $x$-axis direction, the <strong>second component</strong> to displacement in the $y$-axis direction, and the <strong>third component</strong> to displacement in the $z$-axis direction.
+</p>
+<p>The zeros in the second and third components should not be read as saying that those components are merely “being ignored” or “do not exist.” They are the result of a positive choice: <strong>we are currently focusing only on motion in the $x$-axis direction and intentionally excluding the other components from what we measure.</strong>
+</p>
+<p>This physicist’s three-dimensional point of view lets us see that $dx$ is not a mere extra symbol hanging off the end of an integral sign. In the next section, from this perspective, we will reread $dx$ <strong>not as an infinitesimal quantity, but as a matrix, or as an operator.</strong>
+</p>
+<blockquote>
+<p><strong>Note</strong> (the standpoint of this book)</p>
+<p>This book is, above all, a book for unwinding elementary calculus and vector analysis. It is not a systematic development of differential forms in arbitrary dimensions.</p>
+<p>Therefore, until the end, we basically stay fixed in three-dimensional Cartesian coordinates $(x,y,z)$ and adopt the most straightforward expression from linear algebra: matrix representation. The $dx,dy,dz$ used in this book are defined, in this coordinate system, as concrete matrices that extract components.</p>
+<p>The aim is to let vector analysis sink in first as concrete symbols and operations—without leaning on infinitesimals—within the plain setting of three dimensions, Cartesian coordinates, and matrices.</p>
+</blockquote>
+<blockquote>
+<p><strong>Note</strong> (on the name “Cartesian coordinates”)</p>
+<p>In this book, “Cartesian coordinates” means an <strong>orthonormal coordinate system</strong>: a coordinate system whose axes meet at a common origin, are mutually orthogonal, and have equal spacing. In mathematics and in other books, this may also be called a rectangular coordinate system on Euclidean space, a Cartesian coordinate system, and so on. In this book, I will simply call it “Cartesian coordinates.”</p>
+</blockquote>
+<blockquote>
+<p><strong>Note</strong> (extensions in Part III)</p>
+<p>In Part III, however, we will touch on curvilinear coordinates and extensions to higher dimensions as needed.</p>
+</blockquote>
+<blockquote>
+<p><strong>Checkpoint so far</strong></p>
+<p>- An infinitesimal displacement is a column vector $\mathbf{v}$. The symbol $\Delta x$ is a scalar width, while a standalone $dx$ is an operator, a row vector or $1$-form.</p>
+<p>- The Cartesian $dy$ and $dz$ will be introduced in <strong>the next section, §1.2.3</strong>. They are $1$-forms based on <strong>the same idea</strong> as $dx$ in §1.1.6. Their distinction from $\Delta y$, $\Delta z$, and from $dy(\mathbf{v})$, $dz(\mathbf{v})$, follows the <strong>notational contract</strong> in §1.1.6.</p>
+<p>- Each term of the Riemann sum has the form $(f\,dx)(\mathbf{v}_i)$, and the integral can be understood as the limit of such sums.</p>
+<p>- The $dx$ at the end of the integral sign $\int_a^b f(x)\,dx$ is conventional notation. The displacement itself is written as $\Delta x$ or $dx(\mathbf{v})$, according to the contract in §1.1.6.</p>
+</blockquote>
+<hr />
+<h3 id="§1.2-The-Total-Differential-__MATH_BLOCK_101__-—-An-Operator-That-Packs-Rates-of-Change-into-a-Matrix">§1.2 The Total Differential $df$ — An Operator That Packs Rates of Change into a Matrix</h3>
+<p>In the previous section, we dismantled the Riemann integral as “the limit of sums of the action of the matrix $f(x)\,dx$ on displacement vectors.” In this section, we extend that idea to the differential of the function itself and <strong>define the total differential $df$ as a row vector, or matrix</strong>. A “differential” is not merely a numerical rate of change. We treat it as an <strong>operator that produces the linear part of the change only after it is multiplied by a displacement vector</strong>.
+</p>
+<h4 id="1.2.1-Matrix-Representation-of-Differentiability">1.2.1 Matrix Representation of Differentiability</h4>
+<p>A function $f(x)$ is differentiable at a point $x$ if the following linear approximation holds:
+</p>
+$$
+\Delta f = f(x+\Delta x)-f(x)=f'(x)\Delta x+o(|\Delta x|)\quad(|\Delta x|\to0).
+$$
+<blockquote>
+<p><strong>Note</strong> (Landau order notation)</p>
+<p>The term $o(|\Delta x|)$ is <strong>Landau order notation</strong>. As $\Delta x\to0$, the quantity written as $o(|\Delta x|)$ is a remainder whose ratio to $|\Delta x|$ tends to $0$. In other words, it is <strong>small enough to ignore</strong> compared with the main term $f'(x)\Delta x$. This notation often appears in science and engineering texts, though some readers may be seeing it for the first time.</p>
+</blockquote>
+<p>Here $\Delta x$ is a scalar, but as in the previous section, we represent the corresponding displacement as the three-dimensional vector:
+</p>
+$$
+\mathbf{v}=\begin{pmatrix}\Delta x\\0\\0\end{pmatrix}.
+$$
+<p>Then the change $\Delta f$ of the function can be regarded as the effect caused by this $\mathbf{v}$.
+</p>
+<h4 id="1.2.2-Defining-__MATH_BLOCK_115__-as-a-Matrix-and-Reading-__MATH_BLOCK_116__">1.2.2 Defining $df$ as a Matrix and Reading $df(\mathbf{v})$</h4>
+<p>At the point $x$, define the <strong>total differential</strong> $df$ of the function $f$ as the following $1\times3$ row vector:
+</p>
+$$
+df:=f'(x)\,dx=\begin{pmatrix}f'(x)&0&0\end{pmatrix}.
+$$
+<p>As in the previous section, we write the result of letting this $df$ act on the displacement $\mathbf{v}$ as $df(\mathbf{v})$:
+</p>
+$$
+df(\mathbf{v})=
+\begin{pmatrix}f'(x)&0&0\end{pmatrix}
+\begin{pmatrix}\Delta x\\0\\0\end{pmatrix}
+=f'(x)\,\Delta x.
+$$
+<p>Here is the <strong>important change in viewpoint</strong>. <strong>Always read it as follows</strong>:
+</p>
+<ul>
+<li>The expression $df=f'(x)\,dx$ is the familiar notation for the <strong>total differential</strong>, but in this book both $df$ and $dx$ are <strong>row-vector operators</strong>. By themselves, they are <strong>not infinitesimal changes</strong>.</li>
+<li>When we write $df(\mathbf{v})$, we mean the <strong>linear part of the change</strong> for a finite, though sufficiently small, displacement $\mathbf{v}$.</li>
+</ul>
+<p>The object $df$ itself is not a change. It is a <strong>measuring device for the linear part of the change</strong>.
+</p>
+<blockquote>
+<p><strong>Note</strong> ($df$ is an operator; $df(\mathbf{v})$ is the linear part of the change)</p>
+<p>This is the same distinction as the notational contract in §1.1.6, stated once again. It may feel repetitive, but <strong>if you misread this point, everything that follows will shift out of alignment</strong>. The repetition is worth it.</p>
+</blockquote>
+<h4 id="1.2.3-The-Measuring-Devices-__MATH_BLOCK_132__-and-__MATH_BLOCK_133__-in-the-__MATH_BLOCK_134__-and-__MATH_BLOCK_135__-Directions">1.2.3 The Measuring Devices $dy$ and $dz$ in the $y$ and $z$ Directions</h4>
+<p>The strength of this viewpoint shows up when we return to the mechanics example from §1.1.5: it extends naturally to the general case where the force has a component in the $y$ direction as well. With the $dy$ we now define, two-dimensional work can be treated uniformly in the form $F_x\,dx+F_y\,dy$.
+</p>
+<p>Just as $dx$ extracts the $x$-component, we define $dy$ in physical space as the row vector, or $1$-form, that extracts the $y$-component, and $dz$ as the one that extracts the $z$-component. Their matrix representations are
+</p>
+$$
+dy:=\begin{pmatrix}0&1&0\end{pmatrix},\qquad
+dz:=\begin{pmatrix}0&0&1\end{pmatrix}.
+$$
+<p>For a displacement
+</p>
+$$
+\mathbf{v}=\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix},
+$$
+<p>we have $dy(\mathbf{v})=\Delta y$ and $dz(\mathbf{v})=\Delta z$.
+</p>
+<blockquote>
+<p><strong>Note</strong> (the contract for $dy$ and $dz$)</p>
+<p>A standalone $dy$ or $dz$ is an operator. When we speak of infinitesimal widths in the $y$ or $z$ direction, we write $\Delta y$, $\Delta z$, or $dy(\mathbf{v})$, $dz(\mathbf{v})$. The $dy$ and $dz$ appearing at the tail of an integral sign should be read in the same way as $dx$, as conventional notation inherited from elementary calculus. The detailed convention is the <strong>same idea</strong> as the notational contract for $dx$ in §1.1.6.</p>
+</blockquote>
+<p>Now we have all <strong>three measuring devices</strong> for three-dimensional space. In the main line of this chapter, we have focused on the $x$-direction slice, but you should think of the coordinates $y,z$ and the measuring devices $dy,dz$ as being available from the beginning.
+</p>
+<p>We have now supplemented the one-variable expression $df=f'(x)\,dx$ with $dy$ and $dz$ as measuring devices of the same type. In the concrete example below and in the extension to three dimensions in §1.2.6, we will see how all three devices come into play.
+</p>
+<h4 id="1.2.4-Example:-__MATH_BLOCK_168__">1.2.4 Example: $f(x)=x^2$</h4>
+<p>Let $f(x)=x^2$. Then $f'(x)=2x$.
+</p>
+<p>For example, at $x=3$, the total differential is written explicitly as a row vector. Placing the row vector and column vector side by side,
+</p>
+$$
+df=6\,dx=\begin{pmatrix}6&0&0\end{pmatrix},\qquad
+\mathbf{v}=\begin{pmatrix}0.1\\0\\0\end{pmatrix}.
+$$
+<p>Therefore the matrix product is
+</p>
+$$
+df(\mathbf{v})=
+\begin{pmatrix}6&0&0\end{pmatrix}
+\begin{pmatrix}0.1\\0\\0\end{pmatrix}
+=6\cdot0.1+0\cdot0+0\cdot0=0.6.
+$$
+<p>Indeed, $f(3.1)-f(3)=9.61-9=0.61$, so the linear approximation $0.6$ agrees well.
+</p>
+<h4 id="1.2.5-Substitution-in-Integrals-and-Rebuilding-Measuring-Devices">1.2.5 Substitution in Integrals and Rebuilding Measuring Devices</h4>
+<p>So far, we have read $dx$ as a measuring device for displacement.
+</p>
+<p>That is, $dx$ is not a standalone infinitesimal quantity. It is a row vector that eats a displacement vector and returns its $x$-component. This reading is the basic convention of this book.
+</p>
+<p>Once we have this reading, the substitution rule familiar from high school begins to look a little different.
+</p>
+<p>Suppose a variable $x$ is expressed in terms of another variable $t$ by
+</p>
+$$
+x=\gamma(t).
+$$
+<p>In substitution, one often writes
+</p>
+$$
+dx=\gamma'(t)\,dt.
+$$
+<p>In ordinary calculus, this formula is explained by differentiating a composite function. For example, if $F'(x)=f(x)$, then differentiating $F(\gamma(t))$ with respect to $t$ gives
+</p>
+$$
+\frac{d}{dt}F(\gamma(t))=f(\gamma(t))\gamma'(t).
+$$
+<p>Therefore,
+</p>
+$$
+\int_{t_0}^{t_1}f(\gamma(t))\gamma'(t)\,dt
+=F(\gamma(t_1))-F(\gamma(t_0)).
+$$
+<p>If we write the endpoints as
+</p>
+$$
+x_0=\gamma(t_0),\qquad x_1=\gamma(t_1),
+$$
+<p>then the right-hand side is
+</p>
+$$
+F(x_1)-F(x_0)=\int_{x_0}^{x_1}f(x)\,dx.
+$$
+<p>Thus we obtain
+</p>
+$$
+\int_{x_0}^{x_1}f(x)\,dx
+=
+\int_{t_0}^{t_1}f(\gamma(t))\gamma'(t)\,dt.
+$$
+<p>Up to this point, this is the standard explanation of substitution.
+</p>
+<p>But in this book, we look at the formula with slightly different eyes. The expression
+</p>
+$$
+dx=\gamma'(t)\,dt
+$$
+<p>is not merely a computational symbol. It can be read as the result of rebuilding the measuring device $dx$ on the $x$ axis into a measuring device on the $t$ axis, using $dt$.
+</p>
+<p>When $t$ changes a little, $x=\gamma(t)$ changes by $\gamma'(t)$ times that amount. Therefore, to build a measuring device that eats a small interval on the $t$ side and returns the same value as the displacement on the $x$ side, we need to multiply $dt$ by $\gamma'(t)$.
+</p>
+<p>Chapter 4 will treat this viewpoint seriously as the pullback.
+</p>
+<p>There, we will not use the formula as a mysterious given. We will rediscover the same coefficient $\gamma'(t)$ by mapping finite intervals and measuring their images. Then we will extend the same structure to finite cells and finite boxes.
+</p>
+<p>For now, we have walked through the standard substitution calculation once. Later, in the main line of this book, we will reread it as “making measuring devices consistent.”
+</p>
+<blockquote>
+<p><strong>Note</strong> ($dx=\gamma'(t)\,dt$)</p>
+<p>In ordinary calculus, for the substitution $x=\gamma(t)$, this relation is written as $dx=\gamma'(t)\,dt$.</p>
+<p>From the standpoint of this book, however, this does not mean that the measuring device $dx$ itself on the $x$ side has moved to the $t$ side. It should be read as pulling back the $1$-form $dx$ on the target side along the map $\gamma:I\to\mathbb{R}$ to the domain side.</p>
+<p>More precisely, using the pullback notation introduced in Chapter 4, it is safer to write $\gamma^\ast(dx)=\gamma'(t)\,dt$. In other words, the $dx$ on the left originally measures displacement on the $x$ side, while $\gamma'(t)\,dt$ on the right is the device rebuilt to measure displacement on the $t$ side and return the same first-order change.</p>
+<p>At least from the standpoint of this book, hiding this distinction is one reason explanations of $dx$ in substitution can become confusing.</p>
+</blockquote>
+<h4 id="1.2.6-Extension-to-Three-Dimensions">1.2.6 Extension to Three Dimensions</h4>
+<p>A function $f$ that assigns a scalar, or real number, to each point $(x,y,z)$ in space may be treated simply as a <strong>real-valued function</strong> on physical space.
+</p>
+<blockquote>
+<p><strong>Note</strong> (scalar fields)</p>
+<p>In physics, such a function is often called a <strong>scalar field</strong>.</p>
+</blockquote>
+<p>To say that $f(x,y,z)$ is <strong>totally differentiable</strong> at the point $(x,y,z)$ means that, for a displacement
+</p>
+$$
+\mathbf{v}=\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix},
+$$
+<p>the following relation holds:
+</p>
+$$
+\begin{aligned}
+\Delta f
+&=f(x+\Delta x,\,y+\Delta y,\,z+\Delta z)-f(x,y,z)\\
+&=\frac{\partial f}{\partial x}\,\Delta x
+{}+\frac{\partial f}{\partial y}\,\Delta y
+{}+\frac{\partial f}{\partial z}\,\Delta z
+{}+o(\|\mathbf{v}\|)\quad(\|\mathbf{v}\|\to0).
+\end{aligned}
+$$
+<p>This has the same form as the one-variable definition in §1.2.1. The term $o(\|\mathbf{v}\|)$ is the same kind of remainder notation as $o(|\Delta x|)$. We will not go deeply into it here, but it should not obstruct the discussion.
+</p>
+<p>Using the measuring devices $dx,dy,dz$ from §1.2.3, define the same type of operator as in §1.2.2 by
+</p>
+$$
+df:=\frac{\partial f}{\partial x}\,dx+
+\frac{\partial f}{\partial y}\,dy+
+\frac{\partial f}{\partial z}\,dz
+=
+\begin{pmatrix}
+\frac{\partial f}{\partial x}&
+\frac{\partial f}{\partial y}&
+\frac{\partial f}{\partial z}
+\end{pmatrix}.
+$$
+<p>For the next few lines, we drop the $o(\|\mathbf{v}\|)$ term and follow only the <strong>skeleton of the notation</strong>. By definition of differentiability, for $\mathbf{v}=\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$ we have $\Delta f=df(\mathbf{v})+o(\|\mathbf{v}\|)$. So <strong>$df(\mathbf{v})$ is not the exact change $\Delta f$, but its linear principal part once the remainder is stripped away</strong>. Writing that principal part as a matrix product gives
+</p>
+$$
+\begin{aligned}
+df(\mathbf{v})
+&=\frac{\partial f}{\partial x}
+\begin{pmatrix}1&0&0\end{pmatrix}
+\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}
++\frac{\partial f}{\partial y}
+\begin{pmatrix}0&1&0\end{pmatrix}
+\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}\\
+&\quad+\frac{\partial f}{\partial z}
+\begin{pmatrix}0&0&1\end{pmatrix}
+\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}\\
+&=\frac{\partial f}{\partial x}\,\Delta x+
+\frac{\partial f}{\partial y}\,\Delta y+
+\frac{\partial f}{\partial z}\,\Delta z.
+\end{aligned}
+$$
+<p>The first line shows, as a <strong>matrix product</strong>, how the measuring devices $dx,dy,dz$ from §1.2.3 extract the $x,y,z$ components from $\mathbf{v}$ as row vectors, with the partial derivatives attached as coefficients. The second line is the evaluated result, which has the same form as the <strong>linear principal term</strong> in the definition of $\Delta f$ above. The reading from §1.2.2 remains unchanged in three dimensions: <strong>row vector, or operator, times column vector, or displacement, gives a scalar</strong>.
+</p>
+<p>If a function $f(x,y)$ involves only two coordinates, we can include it in the same framework by regarding it as independent of $z$, so that $\partial f/\partial z=0$. This three-dimensional framework contains the two-dimensional case naturally.
+</p>
+<p>Compare the cases.
+</p>
+<p>For one variable:
+</p>
+$$
+df:=f'(x)\,dx=\begin{pmatrix}f'(x)&0&0\end{pmatrix}.
+$$
+<p>For a two-variable function $f(x,y)$, using $dy$ from §1.2.3:
+</p>
+$$
+df:=\frac{\partial f}{\partial x}\,dx+
+\frac{\partial f}{\partial y}\,dy
+=
+\begin{pmatrix}
+\frac{\partial f}{\partial x}&
+\frac{\partial f}{\partial y}&0
+\end{pmatrix}.
+$$
+<p>For three variables $f(x,y,z)$, we simply have all three components of the row vector, as in §1.2.6.
+</p>
+<p>Thus <strong>the form is the same; only the number of components increases</strong>. This is the advantage of the three-dimensional matrix representation. By viewing $df$ as a matrix, we can treat differentiation uniformly as an operator that gives the linear approximation with respect to a displacement.
+</p>
+<h4 id="1.2.7-A-Preview-of-Line-Integrals">1.2.7 A Preview of Line Integrals</h4>
+<p>Suppose a curve in space is parametrized by
+</p>
+$$
+\mathbf{r}(t)=\begin{pmatrix}x(t)\\y(t)\\z(t)\end{pmatrix},
+$$
+<p>and write the displacement of each small step as $\Delta\mathbf{r}$. The limit of the operation of summing $(df)(\Delta\mathbf{r})$ over each step is written symbolically as
+</p>
+$$
+\int_\gamma df
+$$
+<p>where $\gamma$ is the curve. Just as with $\int f'(x)\,dx$ in §1.2.5, the skeleton is the limit of a Riemann sum in which the <strong>$1$-form $df$ acts on the displacement of each step</strong>. The precise treatment of closed curves, orientation, changes of parameter, and so on is left to later chapters.
+</p>
+<hr />
+<blockquote>
+<p><strong>Checkpoint so far</strong></p>
+<p>- Differentiability is understood as a linear approximation of the form $\Delta f=f'(x)\Delta x+o(|\Delta x|)$, where $o$ is Landau order notation.</p>
+<p>- $df=f'(x)\,dx$ is a row vector. Its action on a displacement, $df(\mathbf{v})$, gives the linear part of the change.</p>
+<p>- We look once at the standard starting point for substitution in integrals, but in this book we later reread it as “making measuring devices consistent” (§1.2.5).</p>
+</blockquote>
+<hr />
+<h3 id="§1.3-Leibniz-Notation-and-Algebraic-Intuition">§1.3 Leibniz Notation and Algebraic Intuition</h3>
+<p>When Leibniz introduced the symbols $dx$ and $dy$, he treated them intuitively as “infinitesimals.”
+</p>
+<blockquote>
+<p><strong>Note</strong> (Leibniz and notation)</p>
+<p><strong>Gottfried Wilhelm Leibniz</strong> (1646–1716) was the mathematician who organized the notation of calculus, including symbols such as $dx$ and $dy$. We will not go into the historical details here. I mention him only as the person who introduced the notation. Many readers are already used to the symbol $dx$ itself; if the name is unfamiliar, this one sentence is enough.</p>
+</blockquote>
+<p>We have relocated that intuition into the language of <strong>linear algebra</strong>. Leibniz’s notation
+</p>
+$$
+df=f'(x)\,dx
+$$
+<p>is not merely a formal equality:
+</p>
+<ul>
+<li>$dx$: Leibniz’s infinitesimal intuition → in this book, extraction of the $x$-component as an <strong>operator</strong>. When we speak of the infinitesimal displacement itself, we write $\Delta x$ or $dx(\mathbf{v})$. The symbols $dy$ and $dz$ are defined in the same way as $dx$ in §1.2.3.</li>
+<li>$df$: Leibniz’s intuition of an infinitesimal change → in this book, the total differential as an <strong>operator</strong>. Its action on a displacement, $df(\mathbf{v})$, gives the linear part of the change.</li>
+</ul>
+<p><strong>Leibniz’s genius was to treat differentiation and integration as essentially algebraic operations.</strong> This book gives that intuition a concrete skeleton: matrices.
+</p>
+<p>In the next section, we make explicit the hidden assumption behind this framework: the “convenience” of Cartesian coordinates. That also points toward more general coordinates.
+</p>
+<hr />
+<blockquote>
+<p><strong>Checkpoint so far</strong></p>
+<p>- In this book, the Leibnizian intuitions behind $dx$ and $df$ are row vectors, or operators, acting on displacements.</p>
+<p>- When discussing displacement widths, we write $\Delta x$; when discussing the linear part of a function’s change, we write $df(\mathbf{v})$.</p>
+</blockquote>
+<hr />
+<h3 id="§1.4-Coordinate-Transformations-—-Rebuilding-Measuring-Devices-in-New-Coordinates">§1.4 Coordinate Transformations — Rebuilding Measuring Devices in New Coordinates</h3>
+<blockquote>
+<p><strong>Note</strong> (how to read this section)</p>
+<p>It is all right if you do not fully understand this section on the first reading. What matters here is not the formula for cylindrical coordinates itself, but the feeling that, once we view $dx$ as a matrix, we can still compute when coordinates change.</p>
+<p>To repeat: for now, atmosphere is enough. In Chapter 4, we will spend much more space on the same idea. There, we will start by actually mapping finite intervals and finite cells and measuring their images. That will let us explain the rebuilding of measuring devices in a more organized way, without relying on the assumption that something is “sufficiently small.” What follows here is an explanation closer to the approximate viewpoint often used in ordinary calculus and mathematical physics: we assume that the change in parameter space is sufficiently small and extract only the first-order term.</p>
+</blockquote>
+<p>Throughout this chapter, we have discussed the matrix representation of $dx$ by setting
+</p>
+$$
+dx:=\begin{pmatrix}1&0&0\end{pmatrix}.
+$$
+<p>As long as we view physical space in Cartesian coordinates $(x,y,z)$, this is the measuring device that extracts the $x$-component.
+</p>
+<p>But physical problems are not always rectangular. In problems such as flow inside a circular pipe or the magnetic field around a straight current, it is often easier to use cylindrical coordinates, where a point is specified by the triple $(r,\theta,z)$.
+</p>
+<p>So what does the measuring device $dx$ in physical space look like when viewed through cylindrical coordinates?
+</p>
+<p>The important point is not to memorize a coordinate-transformation formula. The point is to rebuild a measuring device in physical space into one expressed in another set of variables, so that it returns the same first-order value.
+</p>
+<blockquote>
+<p><strong>Note</strong> (locality of cylindrical coordinates)</p>
+<p>Here we do not deal with the periodicity of $\theta$ or the singularity at $r=0$. We treat cylindrical coordinates only as a local parametrization.</p>
+<p>In actual computations in mathematical physics using cylindrical or spherical coordinates, one can often avoid coordinate singularities by choosing the integration range or the target region appropriately.</p>
+<p>However, in problems involving the origin, an axis, or the periodicity of the angle in an essential way, this local representation is not enough. In such cases, one must handle coordinate patches and boundary conditions more carefully.</p>
+</blockquote>
+<h4 id="1.4.1-The-Transformation-from-Cylindrical-Coordinates-to-Physical-Space">1.4.1 The Transformation from Cylindrical Coordinates to Physical Space</h4>
+<p>Write the transformation from the parameter space of cylindrical coordinates to physical space as
+</p>
+$$
+\Phi(r,\theta,z)
+=
+\begin{pmatrix}
+r\cos\theta\\
+r\sin\theta\\
+z
+\end{pmatrix}.
+$$
+<p>This transformation sends the point $(r,\theta,z)$ in parameter space to the point $(x,y,z)$ in physical space. In other words,
+</p>
+$$
+x=r\cos\theta,\qquad
+y=r\sin\theta,\qquad
+z=z.
+$$
+<p>The question is: what kind of measuring device does the physical-space $dx$ become on the parameter-space side?
+</p>
+<h4 id="1.4.2-Map-a-Small-Step-and-Measure-It-with-__MATH_BLOCK_271__">1.4.2 Map a Small Step and Measure It with $dx$</h4>
+<p>Consider a small step
+</p>
+$$
+\mathbf h
+=
+\begin{pmatrix}
+\Delta r\\
+\Delta\theta\\
+\Delta z
+\end{pmatrix}
+$$
+<p>from the point
+</p>
+$$
+p=(r,\theta,z)
+$$
+<p>in parameter space.
+</p>
+<p>After the move, the point is
+</p>
+$$
+p+\mathbf h
+=
+(r+\Delta r,\theta+\Delta\theta,z+\Delta z).
+$$
+<p>But this $\mathbf h$ is not a displacement vector in physical space. It lists the changes in the parameter space of cylindrical coordinates.
+</p>
+<p>Now send this small step into physical space by the transformation $\Phi$. The displacement in physical space is
+</p>
+$$
+\Phi(p+\mathbf h)-\Phi(p).
+$$
+<p>Written componentwise, this is
+</p>
+$$
+\Phi(r+\Delta r,\theta+\Delta\theta,z+\Delta z)
+-
+\Phi(r,\theta,z)
+=
+\begin{pmatrix}
+(r+\Delta r)\cos(\theta+\Delta\theta)-r\cos\theta\\
+(r+\Delta r)\sin(\theta+\Delta\theta)-r\sin\theta\\
+\Delta z
+\end{pmatrix}.
+$$
+<p>This vector is the true displacement in physical space.
+</p>
+<p>The physical-space measuring device $dx$ extracts only the $x$-component from a physical-space displacement vector. Therefore, applying $dx$ to the displacement above gives
+</p>
+$$
+dx\bigl(\Phi(p+\mathbf h)-\Phi(p)\bigr)
+=
+(r+\Delta r)\cos(\theta+\Delta\theta)-r\cos\theta.
+$$
+<p>This value measures how much the $x$-component in physical space changes when we move by $\mathbf h$ in parameter space.
+</p>
+<h4 id="1.4.3-Build-a-Measuring-Device-from-the-First-Order-Term">1.4.3 Build a Measuring Device from the First-Order Term</h4>
+<p>Now assume that $\Delta r,\Delta\theta,\Delta z$ are small, and look only at the first-order terms.
+</p>
+<p>First,
+</p>
+$$
+\Delta x
+=
+(r+\Delta r)\cos(\theta+\Delta\theta)-r\cos\theta.
+$$
+<p>Using the first-order approximation
+</p>
+$$
+\cos(\theta+\Delta\theta)
+=
+\cos\theta-\sin\theta\,\Delta\theta
++
+\text{higher-order terms},
+$$
+<p>we get
+</p>
+$$
+\begin{aligned}
+\Delta x
+&=
+(r+\Delta r)\cos(\theta+\Delta\theta)-r\cos\theta\\
+&=
+(r+\Delta r)(\cos\theta-\sin\theta\,\Delta\theta+\text{higher-order terms})-r\cos\theta\\
+&=
+r\cos\theta
++\cos\theta\,\Delta r
+-r\sin\theta\,\Delta\theta
++\text{higher-order terms}
+-r\cos\theta\\
+&=
+\cos\theta\,\Delta r
+-r\sin\theta\,\Delta\theta
++\text{higher-order terms}.
+\end{aligned}
+$$
+<p>Since $\Delta z$ does not affect the $x$-component, we can write
+</p>
+$$
+\Delta x
+=
+\cos\theta\,\Delta r
+-r\sin\theta\,\Delta\theta
++0\cdot\Delta z
++
+\text{higher-order terms}.
+$$
+<p>The first-order term we have obtained is
+</p>
+$$
+\cos\theta\,\Delta r
+-r\sin\theta\,\Delta\theta
++0\cdot\Delta z.
+$$
+<p>This is equal to the value obtained by applying the following row vector to the small step in parameter space,
+</p>
+$$
+\mathbf h
+=
+\begin{pmatrix}
+\Delta r\\
+\Delta\theta\\
+\Delta z
+\end{pmatrix}:
+$$
+$$
+\begin{pmatrix}
+\cos\theta & -r\sin\theta & 0
+\end{pmatrix}
+\begin{pmatrix}
+\Delta r\\
+\Delta\theta\\
+\Delta z
+\end{pmatrix}
+=
+\cos\theta\,\Delta r
+-r\sin\theta\,\Delta\theta
++0\cdot\Delta z.
+$$
+<p>Therefore, if we rewrite the physical-space measuring device $dx$ as a measuring device on the cylindrical-coordinate parameter space that returns the same first-order value, we get
+</p>
+$$
+\begin{pmatrix}
+\cos\theta & -r\sin\theta & 0
+\end{pmatrix}.
+$$
+<p>This is what $dx$ looks like when viewed through cylindrical coordinates.
+</p>
+<blockquote>
+<p><strong>Note</strong> (splitting large geometry into small geometry)</p>
+<p>Many textbooks draw a curved $(r,\theta)$ grid in physical space and explain geometrically that “the arc length in the $\theta$ direction is approximately $r\Delta\theta$.” That intuition itself is correct.</p>
+<p>In this book, however, we first prioritize an algebraic procedure: map a small step in parameter space into physical space, and then measure its image.</p>
+<p>The coefficient $-r\sin\theta$ carries the information of how much a step in the $\theta$ direction contributes to the $x$ direction in physical space. Similarly, $\cos\theta$ tells us how much the $r$ direction contributes to the $x$ direction, and $0$ tells us that the $z$ direction does not contribute to the $x$ direction.</p>
+<p>In other words, the single row $\begin{pmatrix}\cos\theta & -r\sin\theta & 0\end{pmatrix}$ is the geometry of the change in the $x$-component split into three small components.</p>
+</blockquote>
+<h4 id="1.4.4-Reading-It-as-a-Pulled-Back-Measuring-Device">1.4.4 Reading It as a Pulled-Back Measuring Device</h4>
+<p>Read the computation above this way.
+</p>
+<p>The physical-space measuring device $dx$ eats a displacement in physical space and returns its $x$-component. But when we want to compute in cylindrical coordinates, the input is not the physical-space displacement itself. The input is a small step in parameter space,
+</p>
+$$
+\begin{pmatrix}
+\Delta r\\
+\Delta\theta\\
+\Delta z
+\end{pmatrix}.
+$$
+<p>So we build a measuring device that, when it eats a small step in parameter space, returns the same first-order value that $dx$ would have measured in physical space.
+</p>
+<p>That measuring device was
+</p>
+$$
+\begin{pmatrix}
+\cos\theta & -r\sin\theta & 0
+\end{pmatrix}.
+$$
+<p>In the mathematics of measuring devices, this operation is called a <strong>pullback</strong>. Symbolically,
+</p>
+$$
+\Phi^*(dx)
+=
+\cos\theta\,dr-r\sin\theta\,d\theta.
+$$
+<p>Here $dr,d\theta,dz$ are the measuring devices that extract, respectively, the first, second, and third components from a displacement in parameter space,
+</p>
+$$
+\begin{pmatrix}
+\Delta r\\
+\Delta\theta\\
+\Delta z
+\end{pmatrix}.
+$$
+<p>Therefore,
+</p>
+$$
+\cos\theta\,dr-r\sin\theta\,d\theta
+$$
+<p>is simply the parameter-space row vector
+</p>
+$$
+\begin{pmatrix}
+\cos\theta & -r\sin\theta & 0
+\end{pmatrix}
+$$
+<p>written in measuring-device notation.
+</p>
+<p>In other words, it is safe here to read
+</p>
+$$
+\Phi^*(dx)
+=
+\begin{pmatrix}
+\cos\theta & -r\sin\theta & 0
+\end{pmatrix}.
+$$
+<p>The right-hand side, however, is a row vector that eats displacements in the parameter space of cylindrical coordinates:
+</p>
+$$
+\begin{pmatrix}
+\Delta r\\
+\Delta\theta\\
+\Delta z
+\end{pmatrix}.
+$$
+<blockquote>
+<p><strong>Note</strong> (we built it from a finite step here)</p>
+<p>Here we did not start by using the known formula</p>
+$$
+dx=\frac{\partial x}{\partial r}dr+\frac{\partial x}{\partial\theta}d\theta+\frac{\partial x}{\partial z}dz.
+$$
+<p>First, we mapped a small step in parameter space into physical space and measured its image using the physical-space $dx$. Then we built a measuring device on the parameter-space side that returns the same first-order value.</p>
+<p>In Chapter 4, we will extend this same idea to finite intervals, finite cells, and finite boxes. There, we will see how measuring devices must be rebuilt in order to preserve lengths of intervals, areas, and volumes.</p>
+</blockquote>
+<h4 id="1.4.5-Two-Cartesian-Coordinate-Systems">1.4.5 Two Cartesian Coordinate Systems</h4>
+<p>Let us now make clear the relation between the two triples of numbers we are using: $(x,y,z)$ in physical space and $(r,\theta,z)$ in the parameter space of cylindrical coordinates.
+</p>
+<p>The physical-space $(x,y,z)$ is the usual Cartesian coordinate system. On the other hand, $(r,\theta,z)$ is also a coordinate system consisting of three numbers on the calculation page. Physically, $\theta$ is an angle, but in parameter space it is treated as one coordinate axis.
+</p>
+<p>Thus both physical space and parameter space have “straight components” for purposes of calculation. What is curved is the transformation $\Phi$ connecting the two spaces. That curvature appears as coefficients such as $\cos\theta$ and $-r\sin\theta$.
+</p>
+<p>One can think of curved coordinate axes as growing inside physical space. But in this book, I try not to think that way. Instead, I think as follows:
+</p>
+<p><strong>There are two places: physical space and parameter space. Between them is a translation rule </strong>$\Phi$<strong>.</strong>
+</p>
+<p>From this point of view, rebuilding measuring devices becomes fairly simple. We pull the measuring device in physical space back to the parameter-space side through the transformation $\Phi$. Then we can read, directly from a displacement in parameter space, the same first-order value that would have been measured in physical space.
+</p>
+<blockquote>
+<p><strong>Note</strong> (matrix representations of $dr$, $d\theta$, and $dz$)</p>
+<p>Parameter space is also, for purposes of calculation, a space with three components. Thus $dr$ is the measuring device that extracts the first component in parameter space, $d\theta$ extracts the second, and $dz$ extracts the third.</p>
+<p>In matrix representation,</p>
+$$
+dr=\begin{pmatrix}1&0&0\end{pmatrix},\qquad
+d\theta=\begin{pmatrix}0&1&0\end{pmatrix},\qquad
+dz=\begin{pmatrix}0&0&1\end{pmatrix}.
+$$
+<p>But these are measuring devices acting on displacements in parameter space. They live on a different space from the $dx,dy,dz$ that act on physical-space $(x,y,z)$.</p>
+</blockquote>
+<h4 id="1.4.6-Foreshadowing-Chapter-4">1.4.6 Foreshadowing Chapter 4</h4>
+<p>In this way, the pullback is the operation of rebuilding a measuring device from physical space so that it returns the same value on the parameter-space side.
+</p>
+<p>In Chapter 1, we have only seen one example, using the smallest measuring device, $dx$. In Chapter 4, however, we will extend the same idea to area and volume.
+</p>
+<p>There, we will pull back area-measuring devices such as
+</p>
+$$
+dx\wedge dy
+$$
+<p>and volume-measuring devices such as
+</p>
+$$
+dx\wedge dy\wedge dz
+$$
+<p>to other variable systems.
+</p>
+<p>The coefficients that appear then are the familiar $r$ in cylindrical coordinates, or the Jacobian $J$ that appears in general changes of variables.
+</p>
+<p>In other words, the Chapter 4 formulas
+</p>
+$$
+\Phi^*(dx\wedge dy)=r\,dr\wedge d\theta
+$$
+<p>and
+</p>
+$$
+\Phi^*(dx\wedge dy\wedge dz)=J\,du\wedge dv\wedge dw
+$$
+<p>have the same structure as the formula we have just seen:
+</p>
+$$
+\Phi^*(dx)
+=
+\cos\theta\,dr-r\sin\theta\,d\theta.
+$$
+<blockquote>
+<p><strong>Note</strong> (the philosophy of delaying the metric)</p>
+<p>The $\cos\theta$ and $-r\sin\theta$ that appeared here will later be organized in relation to the metric $g$ in Chapter 6. For now, however, it is enough to read them as the components of a measuring device rebuilt by the transformation $\Phi$.</p>
+<p>It is also important to draw curved figures in physical space and estimate arc length as $r\Delta\theta$. But in this book, we first prioritize the algebraic procedure of mapping a small step in parameter space and measuring its image. That procedure will become important later when we compute areas and volumes.</p>
+</blockquote>
+<hr />
+<blockquote>
+<p><strong>Checkpoint so far</strong></p>
+<p>- The measuring device $dx$ itself extracts the $x$-component in physical space.</p>
+<p>- When we want to compute in cylindrical coordinates, we rebuild the physical-space measuring device $dx$ as a measuring device on the parameter-space side.</p>
+<p>- By mapping a small step in parameter space into physical space and measuring its image with $dx$, we can determine the components of the parameter-space measuring device.</p>
+<p>- In cylindrical coordinates, $\Phi^*(dx)=\cos\theta\,dr-r\sin\theta\,d\theta$.</p>
+<p>- In Chapter 4, we will extend the same idea to area-measuring devices and volume-measuring devices.</p>
+</blockquote>
+<hr />
+<h3 id="§1.5-Writing-in-Another-Coordinate-System-—-Exercises">§1.5 Writing in Another Coordinate System — Exercises</h3>
+<p>Near the end of this chapter, we want you to work through, by hand, what it means to “write in another coordinate system.” We have not yet defined coordinate changes as a general theory, but in §1.4.3 we already saw that <strong>the same</strong> $dx$ <strong>gets a different matrix representation when coordinates change</strong>. This exercise lets you confirm that by calculation. <strong>Why do it before the full vocabulary of coordinate change is in place?</strong> So that when later chapters get busy, you already feel that changing components is only natural.
+</p>
+<h4 id="1.5.1-Exercise:-Measurement-in-Cylindrical-Coordinates">1.5.1 Exercise: Measurement in Cylindrical Coordinates</h4>
+<p><strong>Problem setup</strong>  
+ As in the previous section, the matrix representation of $dx$ in cylindrical coordinates $(r,\theta,z)$ is
+</p>
+$$
+dx = \begin{pmatrix} \cos\theta & -r\sin\theta & 0 \end{pmatrix}
+$$
+<p>(The row above is the row vector that acts on displacements in parameter space, constructed in §1.4.3. It is <strong>not</strong> obtained by taking the Cartesian row $\begin{pmatrix}1&0&0\end{pmatrix}$ from §1.1.3 and simply turning it into a column vector.)
+</p>
+<p>Answer the following questions.
+</p>
+<p><strong>Question 1</strong>  
+ Suppose a particle is at the point $P(r=2,\theta=\pi/6,z=0)$ in the parameter space of cylindrical coordinates. The particle undergoes a small displacement of $0.1$ in the $r$ direction. <strong>In this section, we denote by</strong> $\mathbf{v}$ <strong>the vector</strong> $\begin{pmatrix}\Delta r\\\Delta\theta\\\Delta z\end{pmatrix}$ <strong>listing the changes in the parameters</strong> $r,\theta,z$ (this ordering is different from the Cartesian column $\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$ in §1.0–§1.2). Write this displacement vector $\mathbf{v}$ in terms of its components.
+</p>
+<p><strong>Question 2</strong>  
+ Apply the matrix $dx$ at the point $P$ to the displacement vector $\mathbf{v}$ from Question 1. (Use $\cos(\pi/6)=\sqrt{3}/2$.)
+</p>
+<p><strong>Question 3</strong>  
+ Explain what the result $dx(\mathbf{v})$ from Question 2 means physically.
+</p>
+<h4 id="1.5.2-Solutions-and-Commentary">1.5.2 Solutions and Commentary</h4>
+<p><strong>Answer to Question 1</strong>  
+ The displacement is $0.1$ in the $r$ direction and zero in the $\theta$ and $z$ directions, so as a column vector listing <strong>changes in the cylindrical parameters</strong>, we write
+</p>
+$$
+\mathbf{v} = \begin{pmatrix} 0.1 \\ 0 \\ 0 \end{pmatrix}
+$$
+<p><strong>Answer to Question 2</strong>  
+ At the point $P$, the matrix $dx$ is the $1\times 3$ row vector obtained by substituting $\theta=\pi/6$ and $r=2$:
+</p>
+$$
+dx
+=
+\begin{pmatrix}
+\cos(\frac{\pi}{6}) & -2\sin(\frac{\pi}{6}) & 0
+\end{pmatrix}
+=
+\begin{pmatrix}
+\frac{\sqrt{3}}{2} & -2 \times \frac{1}{2} & 0
+\end{pmatrix}
+=
+\begin{pmatrix}
+\frac{\sqrt{3}}{2} & -1 & 0
+\end{pmatrix}
+$$
+<p>(In cylindrical coordinates, the components of $dx$ depend on $r$ and $\theta$, so what we mean here is the row evaluated at the coordinates of the point $P$. The notation $dx(\mathbf{v})$ matches §1.1.3.)
+</p>
+<p>What matters is that the second entry of the row vector is generally the coefficient $-r\sin\theta$, and thanks to $r$ it <strong>carries a length dimension</strong>. Substituting $r=2$ and $\theta=\pi/6$ gives the numerical value $-1$ for that coefficient, but <strong>the number</strong> $-1$ <strong>by itself does not carry a dimension</strong>. The correct reading is that the matrix entry $-r\sin\theta$ carries the length dimension. This is the key to dimensional analysis.
+</p>
+<p>Applying this to the displacement vector $\mathbf{v}$ gives
+</p>
+$$
+dx(\mathbf{v})
+=
+\begin{pmatrix}
+\frac{\sqrt{3}}{2} & -1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+0.1\\
+0\\
+0
+\end{pmatrix}
+=
+0.1 \times \frac{\sqrt{3}}{2}
+\approx 0.0866
+$$
+<p><strong>Answer to Question 3 (physical meaning)</strong>  
+ This result expresses the physical fact that <strong>a motion of $0.1$ outward in the $r$ direction in cylindrical coordinates corresponds, when viewed along the $x$ axis in physical space, to a forward displacement of about $0.0866$.</strong>
+</p>
+<blockquote>
+<p><strong>Note</strong> (“about” versus exact agreement)</p>
+<p>For this displacement we have $\Delta\theta=\Delta z=0$, so from $x=r\cos\theta$ we get $\Delta x=(\Delta r)\cos\theta$ <strong>exactly</strong>. We wrote “about” only because the decimal display $0.0866$ is rounded.</p>
+</blockquote>
+<h4 id="1.5.3-Motion-in-the-Angular-Direction">1.5.3 Motion in the Angular Direction</h4>
+<p>At the same point $P(r=2,\theta=\pi/6,z=0)$, let us also consider motion by $0.1$ in the $\theta$ direction.
+</p>
+<p>Then the displacement in the parameter space of cylindrical coordinates is
+</p>
+$$
+\mathbf{v}
+=
+\begin{pmatrix}
+0\\
+0.1\\
+0
+\end{pmatrix}
+$$
+<p>At the point $P$, $dx$ is again
+</p>
+$$
+dx
+=
+\begin{pmatrix}
+\frac{\sqrt{3}}{2} & -1 & 0
+\end{pmatrix}
+$$
+<p>so
+</p>
+$$
+dx(\mathbf{v})
+=
+\begin{pmatrix}
+\frac{\sqrt{3}}{2} & -1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+0\\
+0.1\\
+0
+\end{pmatrix}
+=
+-0.1
+$$
+<p>Here, the second component of the input vector, $0.1$, is an angle and therefore dimensionless. But the second entry of the row vector, $-r\sin\theta$, carries a length dimension. Therefore the output $-0.1$ has the dimension of length.
+</p>
+<p>This is an important property of <strong>linear forms</strong>. The matrix entries of $dx$ themselves are functions that include $r$, and even when the input is given in coordinate components (with mismatched dimensions), the output is always automatically adjusted to have the correct physical dimension, namely “length in the $x$ direction.” <strong>A linear form is a measuring device that absorbs the distortion of the coordinate system and outputs a physically meaningful measured value.</strong>
+</p>
+<hr />
+<h3 id="§1.6-Summary-of-This-Chapter-and-Outlook-Toward-the-Next">§1.6 Summary of This Chapter and Outlook Toward the Next</h3>
+<blockquote>
+<p><strong>Checkpoint — Chapter 1 as a whole</strong></p>
+<p>- Chapter 1 centers on reading $dx$ as a matrix / linear form and reading $\int f\,dx$ as the limit of actions. The main exposition leaned on the $x$ direction, but the Cartesian measuring devices $dy$ and $dz$ were defined in the same way as $dx$ in §1.2.3.</p>
+<p>- $df$ is also unified as a row vector; the extension to several dimensions is simply an increase in the number of components.</p>
+<p>- From the next chapter onward, we extend these measuring devices to the <strong>wedge product</strong>, exterior derivative, and Hodge star.</p>
+</blockquote>
+<p>In this chapter we leaned on the $x$ direction for concrete examples of integrals and $df$, and often treated $y$ and $z$ as fixed “slices.” Even so, the linear forms in physical space are the full trio $dx$, $dy$, and $dz$ (§1.2.3).
+</p>
+<p>In the next chapter we combine these three to introduce the <strong>wedge product</strong>, also called the <strong>exterior product</strong> $\wedge$. This constructs <strong>area-measuring devices</strong> and <strong>volume-measuring devices</strong> ($2$-forms and $3$-forms), and leads to <strong>higher differential forms</strong> that are not limited to objects that act on vectors and return scalars. Aggregation along curves, surfaces, and regions (line integrals, surface integrals, volume integrals) will be treated in later chapters, after these measuring devices are in place.
+</p>
+<p><!-- role: roadmap -->
+ In later parts we proceed to the <strong>exterior derivative</strong> $\mathrm{d}$, the <strong>Hodge star operator</strong> $\ast$, and the vector-analysis operators $\mathrm{grad}$ ($\nabla$), $\mathrm{curl}$ ($\nabla\times$), and $\mathrm{div}$ ($\nabla\cdot$), followed by Stokes’s theorem, Maxwell’s equations, and the basic equations of fluid mechanics. The correspondence between differential forms and vector fields in three dimensions can be organized using the Hodge star.
+</p>
+<p>Let us gradually unravel how three-dimensional Euclidean space looks.
+</p>
+      <div class="nav-buttons">
+        <a href="portal.html">← Portal Site and...</a>
+        <a href="ch02.html">Chapter 2... →</a>
+      </div>
+    </article>
+    <footer class="site-footer">
+      <p>&copy; 2026 yokiikoy. CC BY-NC 4.0.</p>
+    </footer>
+  </main>
+</body>
+</html>

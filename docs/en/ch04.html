@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 4: What Is a Change of Variables? — The Pullback $\Phi^*$: Making Measuring Devices Consistent | Unmasking Div, Grad, and Curl</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+<style>
+  :root { --sidebar-width: 320px; }
+  html { color-scheme: light; background: #fff; }
+  body { margin: 0; display: flex; background: #fff; color: #24292f; line-height: 1.7; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .sidebar { width: var(--sidebar-width); height: 100vh; position: sticky; top: 0; background: #f8f9fa; color: #24292f; border-right: 1px solid #d0d7de; overflow-y: auto; padding: 1.5rem; box-sizing: border-box; flex-shrink: 0; }
+  .sidebar h2 { font-size: 1.2rem; border: none; margin-bottom: 0.5rem; color: #24292f; }
+  .sidebar .author { font-size: 0.8rem; color: #666; margin-bottom: 1.5rem; }
+  .sidebar .toc { font-size: 0.85rem; }
+  .sidebar .toc ul { list-style: none; padding-left: 0; margin: 0; }
+  .sidebar .toc li { margin-bottom: 0.4rem; }
+  .sidebar .toc .level-1 { font-weight: bold; margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 2px; }
+  .sidebar .toc .sub-toc { font-size: 0.8rem; margin-top: 0.5rem; padding-left: 0.8rem; border-left: 2px solid #eee; }
+  .sidebar .toc .sub-toc li { margin-bottom: 0.2rem; font-weight: normal; }
+  .sidebar .toc .sub-toc .level-3 { padding-left: 0.8rem; font-size: 0.75rem; color: #666; }
+  .sidebar a { text-decoration: none; color: #0969da; }
+  .sidebar a:hover { text-decoration: underline; }
+  .sidebar .active { color: #cf222e; font-weight: bold; }
+  .sidebar .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
+  .mobile-current { display: none; }
+  .mobile-toc-button { display: none; }
+  .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; background: #fff; color: #24292f; }
+  .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; color-scheme: light; background: #fff; color: #24292f; }
+  .markdown-body p, .markdown-body li { color: #24292f; }
+  @media (max-width: 900px) { 
+    body { flex-direction: column; } 
+    .sidebar { width: 100%; height: auto; position: sticky; top: 0; z-index: 10; padding: 0.75rem 1rem; border-right: none; border-bottom: 1px solid #d0d7de; box-shadow: 0 1px 8px rgba(27, 31, 36, 0.08); }
+    .sidebar h2 { margin: 0; font-size: 1rem; }
+    .sidebar .author { display: none; }
+    .sidebar .toc { display: none; }
+    .mobile-current { display: block; margin-top: 0.35rem; font-size: 0.85rem; color: #57606a; }
+    .mobile-current strong { color: #cf222e; }
+    .mobile-toc-button { display: inline-block; margin-top: 0.35rem; font-size: 0.85rem; }
+    .main-content { padding: 1rem; } 
+    .markdown-body { padding: 0.5rem; }
+  }
+  blockquote { border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }
+  blockquote p { color: #57606a; }
+  .table-wrapper { overflow-x: auto; margin: 1.5em 0; }
+  .markdown-body table { border-collapse: collapse; width: 100%; font-size: 0.9em; background: #fff; }
+  .markdown-body th, .markdown-body td { border: 1px solid #d0d7de; padding: 6px 13px; color: #24292f !important; }
+  .markdown-body tr:nth-child(even) { background-color: #f6f8fa !important; }
+  th { font-weight: 600; background-color: #f6f8fa; }
+  code, pre { color: #24292f; background-color: #f6f8fa; }
+  .nav-buttons { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }
+  .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
+  .nav-buttons a:hover { background: #f6f8fa; }
+  strong { font-weight: 800 !important; color: #000; }
+  blockquote strong { color: #24292f !important; }
+  /* KaTeX responsiveness */
+  .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }
+  .full-toc h2 { font-size: 1.1rem; margin: 1.5em 0 0.3em; padding-bottom: 2px; border-bottom: 1px solid #d0d7de; }
+  .full-toc h2 a { color: #24292f; text-decoration: none; }
+  .full-toc h2 a:hover { color: #0969da; }
+  .full-toc h2 .disabled-link { color: #8c959f; cursor: not-allowed; }
+  .full-toc ul { list-style: none; padding-left: 1.5rem; margin: 0.3em 0 0; }
+  .full-toc li { margin-bottom: 0.2rem; font-size: 0.9rem; }
+  .full-toc .level-3 { padding-left: 1rem; font-size: 0.8rem; color: #57606a; }
+  .full-toc a { color: #0969da; text-decoration: none; }
+  .full-toc a:hover { text-decoration: underline; }
+  .full-toc .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
+  .full-toc .part-header { font-size: 1.1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }
+  .full-toc .toc-part-chapters { padding-left: 1.5rem; }
+  .full-toc .toc-part-chapters h3 { font-size: 0.95rem; margin: 0.5em 0 0.2em; }
+  .full-toc .toc-part-chapters h3 a { color: #24292f; }
+  .full-toc .toc-part-chapters ul { padding-left: 1.5rem; }
+  .site-footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #d0d7de; font-size: 0.8rem; color: #57606a; }
+  .site-footer a { color: #0969da; text-decoration: none; }
+  .site-footer a:hover { text-decoration: underline; }
+</style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ],
+            throwOnError : false
+        });
+    });
+</script>
+
+</head>
+<body>
+  <nav class="sidebar">
+    <h2><a href="index.html">Unmasking Div, Grad, and Curl</a></h2>
+    <div class="author">
+      Author: yokiikoy<br>
+      <a href="http://covectorspace.xyz/en/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a><br>
+      <a href="../index.html" style="font-size: 0.75rem; color: #666; text-decoration: none;">Japanese edition</a>
+    </div>
+    <div class="mobile-current">Current: <strong>Chapter 4: What Is a Change of Variables? — The Pullback $\Phi^*$: Making Measuring Devices Consistent</strong></div>
+    <a class="mobile-toc-button" href="toc.html">Open contents</a>
+    <div class="toc">
+      <ul>
+<li class="level-1"><a href="toc.html" id="link-toc.html">Contents</a></li>
+<li class="level-1"><a href="index.html" id="link-index.html">Preface</a></li>
+<li class="level-1"><a href="intro.html" id="link-intro.html">Introduction</a></li>
+<li class="level-1"><a href="portal.html" id="link-portal.html">Portal Site and a Small Experiment</a></li>
+<li class="level-1"><a href="ch01.html" id="link-ch01.html">Chapter 1</a></li>
+<li class="level-1"><a href="ch02.html" id="link-ch02.html">Chapter 2</a></li>
+<li class="level-1"><a href="ch03.html" id="link-ch03.html">Chapter 3</a></li>
+<li class="level-1"><a href="ch04.html" class="active" id="link-ch04.html">Chapter 4</a><ul class="sub-toc"><li class="level-3"><a href="#§4.0-Physics-Curves;-Computation-Uses-Boxes">§4.0 Physics Curves; Computation Uses Boxes</a></li><li class="level-3"><a href="#§4.1-Pullback-of-a-1-Form-—-Work-and-the-Work-Energy-Theorem">§4.1 Pullback of a 1-Form — Work and the Work-Energy Theorem</a></li><li class="level-3"><a href="#§4.3-Pullback-of-a-3-Form-—-Conservation-of-Mass-and-Volume-Integrals">§4.3 Pullback of a 3-Form — Conservation of Mass and Volume Integrals</a></li><li class="level-3"><a href="#§4.4-Properties-of-the-Pullback-—-What-We-Have-Established-So-Far">§4.4 Properties of the Pullback — What We Have Established So Far</a></li><li class="level-3"><a href="#§4.5-Summary-of-This-Chapter-and-Outlook-Toward-Chapter-5,-the-Exterior-Derivative">§4.5 Summary of This Chapter and Outlook Toward Chapter 5, the Exterior Derivative</a></li></ul></li>
+<li class="level-1"><a href="ch05.html" id="link-ch05.html">Chapter 5</a></li>
+<li class="level-1"><a href="ch06.html" id="link-ch06.html">Chapter 6</a></li>
+<li class="level-1"><a href="ch07.html" id="link-ch07.html">Chapter 7</a></li>
+<li class="level-1"><a href="ch08.html" id="link-ch08.html">Chapter 8</a></li>
+<li class="level-1"><a href="ch09.html" id="link-ch09.html">Chapter 9</a></li>
+<li class="level-1"><a href="ch10.html" id="link-ch10.html">Chapter 10</a></li>
+<li class="level-1"><a href="ch11.html" id="link-ch11.html">Chapter 11</a></li>
+<li class="level-1"><a href="ch12.html" id="link-ch12.html">Chapter 12</a></li>
+<li class="level-1"><a href="postscript.html" id="link-postscript.html">Afterword</a></li>
+<li class="level-1"><a href="refs.html" id="link-refs.html">References (with Comments from the Author)</a></li>
+<li class="level-1"><a href="appendix.html" id="link-appendix.html">Appendix</a></li>
+</ul>
+    </div>
+  </nav>
+  <main class="main-content">
+    <article class="markdown-body">
+<h1 id="Chapter-4:-What-Is-a-Change-of-Variables?-—-The-Pullback-__MATH_BLOCK_41__:-Making-Measuring-Devices-Consistent">Chapter 4: What Is a Change of Variables? — The Pullback $\Phi^*$: Making Measuring Devices Consistent</h1>
+<h3 id="§4.0-Physics-Curves;-Computation-Uses-Boxes">§4.0 Physics Curves; Computation Uses Boxes</h3>
+<p>The quantities we truly want to measure in physics do not depend on the names of coordinates.
+</p>
+<p>Work done on a particle must be the same whether we write the trajectory in $x$ or in time $t$. The area swept out by a planet must be the same whether we measure it in Cartesian coordinates or polar coordinates. The mass of an object must be the same whether we integrate in Cartesian coordinates or cylindrical coordinates.
+</p>
+<p>Yet physics is usually curved.
+ Trajectories curve, surfaces curve, and the boundaries of regions curve.
+</p>
+<p>Computation, on the other hand, is boxy.
+ We mark off intervals, divide into grids, and slice into boxes. Integration is the technique of tallying curved physical quantities using boxy computation.
+</p>
+<p>Here a problem arises.
+ If we change the variables used for computation, we cannot use the measuring devices as they stand.
+</p>
+<p>$dx$ is a measuring device that reads displacement in the $x$ direction; swapping it for $dt$ alone does not measure work correctly.
+ $dx \wedge dy$ is an area-measuring device in the $xy$ plane; swapping it for $dr \wedge d\theta$ alone does not measure area correctly.
+ $dx \wedge dy \wedge dz$ likewise does not measure volume correctly if we swap it for $dr \wedge d\theta \wedge dz$ alone.
+</p>
+<p>Physical quantities must not change.
+ But the boxes used for computation do change.
+</p>
+<p>Then how should we rebuild the measuring devices?
+</p>
+<p>In this chapter we pursue this question through three examples.
+</p>
+<p>First, on a finite interval, we see what must be multiplied on the time side so that a piece of work agrees. Next, on a finite grid, we find the factor that makes area agree. Finally, on finite boxes, we find the factor that makes volume agree.
+</p>
+<p>As the partition is refined, a finite ratio becomes a derivative, and a finite determinant becomes the determinant of the matrix built from partial derivatives. The rebuild of measuring devices obtained in that limit is called the pullback, written $\Phi^*$.
+</p>
+<p>So the order of this chapter is as follows.
+</p>
+<blockquote>
+<p>- Find it on a finite interval.</p>
+<p>- Do the same on a finite grid.</p>
+<p>- Do the same on finite boxes.</p>
+<p>- Finally, $\Phi^*$ appears as the limit $h\to0$.</p>
+</blockquote>
+<p>In this chapter we do not memorize formulas; we make things consistent.
+ Through three physical quantities—work, area, and volume—we see how $dx$, $dx \wedge dy$, and $dx \wedge dy \wedge dz$ are each rebuilt.
+</p>
+<h3 id="§4.1-Pullback-of-a-1-Form-—-Work-and-the-Work-Energy-Theorem">§4.1 Pullback of a 1-Form — Work and the Work-Energy Theorem</h3>
+<blockquote>
+<p><strong>Note</strong> (for readers without a physics background) All we use here is that position can be written as $x=\gamma(t)$. Read $F(x)$ as a function of position and $v(t)$ as a function of time.</p>
+</blockquote>
+<p><strong>① Start from a physical quantity.</strong> We do not jump straight to general theory. Let us begin from a familiar fact of mechanics.
+</p>
+<p>Suppose a force $F$ acts on a particle moving along the $x$ axis. Work is given by
+</p>
+$$W = \int F\,dx$$
+<p>On the other hand, the equation of motion is
+</p>
+$$F = m\frac{dv}{dt}$$
+<p>From these two, the familiar work-energy theorem
+</p>
+$$W = \frac{1}{2}mv^2\,\Big|_{t_0}^{t_1}$$
+<p>follows. In this section we reread this derivation through the lens of "how must we rebuild the measuring device so that the same work comes out?" We begin by finding the coefficient needed on the time-side measuring device, interval by interval on a finite partition.
+</p>
+<p><strong>② Naive substitution—it does not match.</strong> Write the particle's position as $x = \gamma(t)$. The velocity is $v(t)=\gamma'(t)$. The measuring device for work is $F\,dx$—a $1$-form that eats displacement in physical space and returns a piece of work.
+</p>
+<p>But the motion is given by time $t$. So we want to compute work in time.
+</p>
+<p>First on the physical-space side, take uniformly accelerated motion $x(t) = \frac{1}{2}at^2$ and constant force $F = ma$. With endpoint $X = \frac{1}{2}aT^2$,
+</p>
+$$W_{\text{phys}} = \int_0^X ma\,dx = ma\,X = \frac{1}{2}ma^2T^2$$
+<p>On the other hand, if we integrate naively on the time side—that is, replace $dx$ by $dt$ as-is—
+</p>
+$$W_{\text{naive}} = \int_0^T ma\,dt = ma\,T$$
+<p>We have $\frac{1}{2}ma^2T^2 \neq ma\,T$, so they clearly do not agree. With $dt$ alone, the value of work changes.
+</p>
+<p><strong>③ See the cause on a finite interval.</strong> Consider a small time interval $[t_i, t_{i+1}]$. Let its width be $\Delta t_i = t_{i+1} - t_i$ and the corresponding change in position $\Delta x_i = \gamma(t_{i+1}) - \gamma(t_i)$. One term of work on the physical-space side is $F_i\,\Delta x_i$. One term built naively on the time side is $F_i\,\Delta t_i$. These do not agree because we ignored the consistency factor between $\Delta t_i$ and $\Delta x_i$.
+</p>
+<p>So multiply the time-side term by a coefficient $c_i$ and try $F_i\,c_i\,\Delta t_i$. For this to agree with $F_i\,\Delta x_i$, we need $c_i\,\Delta t_i = \Delta x_i$. Therefore
+</p>
+$$c_i = \frac{\Delta x_i}{\Delta t_i}$$
+<p>Up to here it is just division. Yet this division has meaning. We were asking: what measuring device must eat the time-side interval $\Delta t_i$ so that the same value as the physical-space displacement $\Delta x_i$ comes out? The answer is
+</p>
+$$\frac{\Delta x_i}{\Delta t_i}\,dt$$
+<p>Indeed, if we feed $\Delta t_i$ to this measuring device,
+</p>
+$$\left(\frac{\Delta x_i}{\Delta t_i}\,dt\right)(\Delta t_i)=\Delta x_i$$
+<p>So on a finite time interval we can read the same displacement as on the physical-space side.
+</p>
+<p>Write this provisional measuring device on a finite interval as
+</p>
+$$\gamma_h^\square(dx):=\frac{\Delta x_i}{\Delta t_i}\,dt$$
+<p>where $h$ denotes the maximum width of the partition. Feeding this measuring device to a finite interval gives
+</p>
+$$\gamma_h^\square(dx)\bigl(\Delta t_i\bigr)=\Delta x_i$$
+<p>As the partition is refined, the finite ratio approaches the velocity
+</p>
+$$\frac{\Delta x_i}{\Delta t_i}\to \gamma'(t)$$
+<p>So in the limit we obtain
+</p>
+$$
+\gamma_h^\square(dx)
+\xrightarrow{h\to0}
+\gamma^*(dx)
+=
+\gamma'(t)\,dt
+$$
+<p>After the limit we write this measuring device as $\gamma^*(dx)=\gamma'(t)\,dt$. The coefficient $\Delta x_i/\Delta t_i$ found on finite intervals has become the velocity $\gamma'(t)$ in the limit.
+</p>
+<p>Henceforth we write the same rebuild for finite grids and boxes collectively as $\Phi_h^\square$.
+</p>
+<blockquote>
+<p><strong>Note</strong> ($\Phi_h^\square$ and $\Phi^*$)</p>
+<p>$\gamma_h^\square$ and $\Phi_h^\square$ are provisional measuring devices used in this book on finite intervals and finite cells. They are distinguished from $\Phi^*$ after $h\to0$.</p>
+<p>In the finite cell version, the coefficient is obtained by dividing the measured value of the figure spanned by finite displacement vectors by the cell width on the computation side. Therefore, feeding this measuring device to a finite cell recovers the original measured value.</p>
+<p>This coefficient is determined cell by cell. To keep the notation light, dependence on the cell index is not written into $\Phi_h^\square$.</p>
+<p>What we measure here is not the image of a finite cell under the map itself, but the figure spanned by the chosen displacement vectors: displacement in one dimension, a parallelogram in two dimensions, a parallelepiped in three dimensions. For example, the image of a finite polar grid cell is a curved sector, but what we measure here is not that sector itself but the parallelogram spanned by the two chosen displacement vectors.</p>
+<p>In the limit of partition width $h\to0$, the coefficients of $\gamma_h^\square$ and $\Phi_h^\square$ converge to the coefficients of the pullback $\Phi^*$ after the limit.</p>
+</blockquote>
+<p><strong>④ Write the pullback of the concrete example.</strong> After taking the limit, the measuring device on the time axis (the pulled-back result) is
+</p>
+$$\gamma^*(F\,dx) = F(\gamma(t))\,v(t)\,dt$$
+<p>By this we can recast the measuring device $F\,dx$ for work in physical space into one for the time axis.
+</p>
+<p><strong>⑤ Pullback of a $1$-form with a coefficient.</strong> For an arbitrary coefficient $F(x)$, the same structure holds. When position is given by $x = \gamma(t)$,
+</p>
+$$
+\gamma^*(F(x)\,dx)
+=
+F(\gamma(t))\,\gamma'(t)\,dt
+$$
+<p><strong>⑥ Define it through this transformation.</strong> By now the route from the finite-interval version to the standard version is visible. So for a smooth curve $\gamma: t \mapsto x$, we define the rebuild of the $1$-form $\omega = F(x)\,dx$ by
+</p>
+$$
+\gamma^*(F(x)\,dx)
+=
+F(\gamma(t))\,\gamma'(t)\,dt
+$$
+<p>This formula is the pullback of the physical-space $1$-form to the time side. The velocity $\gamma'(t)$ is the limit of $\Delta x_i/\Delta t_i$ found on finite intervals and serves as the consistency factor for "recasting the physical-space measuring device $dx$ into the time-axis measuring device $dt$."
+</p>
+<p>Next we repeat the same procedure for the two-dimensional area-measuring device $dx\wedge dy$. In one dimension we mapped a finite interval and measured the displacement of its image. In two dimensions we will map a finite rectangle and measure the area spanned by two displacement vectors of its image.
+</p>
+<p><strong>⑦ Return to the physical quantity.</strong> Here, using the equation of motion $F = m\,dv/dt$,
+</p>
+$$\gamma^*(F\,dx) = m\frac{dv}{dt}\,v\,dt = m v\,dv$$
+<p>Here $\frac{dv}{dt}\,dt$ can be read as $\gamma^*(dv)$: the velocity-axis measuring device $dv$ pulled back to the time axis. Therefore
+</p>
+$$W = \int F\,dx = \int_{\gamma} F\,dx = \int_{t_0}^{t_1} \gamma^*(F\,dx) = \int_{v(t_0)}^{v(t_1)} m v\,dv = \frac{1}{2}mv^2\,\Big|_{t_0}^{t_1}$$
+<p>—work equals the change in kinetic energy.
+</p>
+<blockquote>
+<p><strong>Aside</strong> (why the name "pullback") If we are "sending" a measuring device that lives in physical space into parameter space, is that not a "push forward"?—that is how it feels to me. For me, physical space is "reality" and parameter space is a "tool for computation." But the mathematical map $\gamma$ is always defined in the direction “parameter space $\to$ physical space.” In the mathematical world, parameter space is the departure point. So the movement of a measuring device that goes against the direction of the map, from physical space back to parameter space, is called a pullback. I have made peace with calling it that by convention.</p>
+</blockquote>
+<blockquote>
+<p><strong>Note</strong> ($dx$ is a row vector, $dt$ is too) In the calculations of §4.1, $dx$, $dt$, and $dv$ all keep the same type: "eat displacement and return a scalar." The principle "row vector × column vector → scalar" from Chapter 1 §1.1.3 does not break even in the middle of a pullback. The result $\gamma^*(F\,dx)$ is again a $1$-form (row vector) on the time axis; feeding it the time-side displacement $\Delta t$ yields a scalar (a piece of work)—this consistency is what supports understanding of the pullback.</p>
+</blockquote>
+<h3 id="§4.3-Pullback-of-a-3-Form-—-Conservation-of-Mass-and-Volume-Integrals">§4.3 Pullback of a 3-Form — Conservation of Mass and Volume Integrals</h3>
+<p><strong>① Start from a physical quantity.</strong> The end point is a volume integral. This time we map a three-dimensional finite box and measure it.
+</p>
+<p>Consider the mass of a cylinder of uniform density $\rho$ (radius $C$, height $H$). Computing directly in $(x,y,z)$ space,
+</p>
+$$M = \rho \cdot (\text{volume}) = \rho \cdot \pi C^2 H$$
+<p>This $M$ must not change no matter which coordinates we use to compute it.
+</p>
+<p><strong>② Naive substitution — it does not work as-is.</strong> We want to write the integral in cylindrical coordinates $(r,\theta,z)$. The cylinder ranges over $r \in [0, C],\; \theta \in [0, 2\pi],\; z \in [0, H]$, so if we replace $dx \wedge dy \wedge dz$ outright by $dr \wedge d\theta \wedge dz$:
+</p>
+$$
+M_{\text{naive}}
+=
+\rho \iiint dr\wedge d\theta\wedge dz
+=
+\rho
+\int_0^H
+\biggl(
+  \int_0^{2\pi}
+  \biggl(
+    \int_0^C dr
+  \biggr)
+  d\theta
+\biggr)
+dz
+=
+2\pi\rho C H
+$$
+<p>Comparing this with the correct value $\rho \pi C^2 H$, we have $2\pi\rho C H \neq \rho \pi C^2 H$. They clearly do not agree.
+</p>
+<p><strong>③ Find the cause on a finite mesh.</strong> In three dimensions, we ask what must be fed to a finite box on the $(r,\theta,z)$ side so that we get the same value as the volume on the $(x,y,z)$ side.
+</p>
+<p>Cut a grid of finite size $\Delta r \times \Delta\theta \times \Delta z$ in $(r,\theta,z)$ space. The transformation is $x = r\cos\theta,\; y = r\sin\theta,\; z = z$. The $z$ direction is unchanged by the transformation, so the volume is “mesh-cell area in the $xy$ plane” $\times \Delta z$. The area in the $xy$ plane follows exactly the procedure of §4.2:
+</p>
+$$\det = r\Delta r\,\sin\Delta\theta$$
+<p>Therefore, the volume of one cell is
+</p>
+$$\text{volume} = \bigl(r\Delta r\,\sin\Delta\theta\bigr) \times \Delta z$$
+<p>The finite cell in cylindrical coordinates itself is curved in the $\theta$ direction, but what we are measuring here is the signed volume of the parallelepiped spanned by three difference vectors.
+</p>
+<p>Dividing this measured value by the cell widths $\Delta r_i\,\Delta\theta_j\,\Delta z_k$ on the $(r,\theta,z)$ side gives the coefficient of a provisional measuring device used on a finite cell. That is,
+</p>
+$$
+\Phi_h^\square(dx\wedge dy\wedge dz)
+:=
+r_i\frac{\sin\Delta\theta_j}{\Delta\theta_j}\,dr\wedge d\theta\wedge dz
+$$
+<p>Feed this measuring device to a finite box and we get
+</p>
+$$
+\begin{aligned}
+&\Phi_h^\square(dx\wedge dy\wedge dz)
+(\Delta r_i,\Delta\theta_j,\Delta z_k)\\
+&\qquad =
+r_i\frac{\sin\Delta\theta_j}{\Delta\theta_j}
+\Delta r_i\Delta\theta_j\Delta z_k \\
+&\qquad =
+r_i\Delta r_i\sin\Delta\theta_j\Delta z_k
+\end{aligned}
+$$
+<p>The right-hand side is the signed volume of the parallelepiped spanned by three finite difference vectors.
+</p>
+<p>Writing the total mass sum in the finite-cell version as $M_h^\square$, we have
+</p>
+$$
+M_h^\square
+:=
+\sum_i\sum_j\sum_k
+\rho\,
+\Phi_h^\square(dx\wedge dy\wedge dz)(\Delta r_i,\Delta\theta_j,\Delta z_k)
+=
+\sum_i\sum_j\sum_k
+\rho\,r_i\,\Delta r_i\,\sin\Delta\theta_j\,\Delta z_k
+$$
+<p>In the final stage, when we take the limit of the sum,
+</p>
+$$
+\frac{\sin\Delta\theta_j}{\Delta\theta_j}\to 1
+$$
+<p>Therefore the true mass $M$ is obtained as
+</p>
+$$
+M
+=
+\lim_{h\to0} M_h^\square
+=
+\rho\iiint_{V'} r\,dr\wedge d\theta\wedge dz
+=
+\rho
+\int_0^H
+\biggl(
+  \int_0^{2\pi}
+  \biggl(
+    \int_0^C r\,dr
+  \biggr)
+  d\theta
+\biggr)
+dz
+=
+\rho\cdot\pi C^2H
+$$
+<p>The coefficient of the measuring device on a finite cell is $r_i\frac{\sin\Delta\theta_j}{\Delta\theta_j}$. As $h\to0$, this coefficient again approaches $r$.
+</p>
+<p><strong>④ Write the standard form obtained in the limit.</strong> For the transformation to cylindrical coordinates $\Phi(r,\theta,z) = (r\cos\theta,\; r\sin\theta,\; z)$:
+</p>
+$$
+\Phi_h^\square(dx\wedge dy\wedge dz)
+\xrightarrow{h\to0}
+\Phi^*(dx \wedge dy \wedge dz)
+=
+r\,dr \wedge d\theta \wedge dz
+$$
+<p>This is the limiting rebuild of the $3$-form obtained from the finite-cell version $\Phi_h^\square$. We denote this limiting rebuild by $\Phi^*$. The same consistency coefficient $r$ from §4.2 carries over unchanged.
+</p>
+<p><strong>⑤ Pullback of a weighted $3$-form.</strong> For a $3$-form $\rho\,dx \wedge dy \wedge dz$ with arbitrary density $\rho(x,y,z)$, the same structure holds:
+</p>
+$$\Phi^*\bigl(\rho(x,y,z)\,dx \wedge dy \wedge dz\bigr) = \rho(r\cos\theta,\, r\sin\theta,\, z)\; r\,dr \wedge d\theta \wedge dz$$
+<p>The coefficient $\rho$ is only re-expressed in new coordinates (pullback of a $0$-form); only the part $dx \wedge dy \wedge dz$ changes to $r\,dr \wedge d\theta \wedge dz$.
+</p>
+<p><strong>⑥ Transfer the same discovery to a general transformation.</strong> More generally, consider a transformation of space $\Phi(u,v,w) = (x(u,v,w), y(u,v,w), z(u,v,w))$. Mapping a finite box on the $(u,v,w)$ side produces three difference vectors. Measuring them with $dx\wedge dy\wedge dz$ gives the oriented volume of the mapped parallelepiped.
+</p>
+<p>Dividing that volume value by $\Delta u\,\Delta v\,\Delta w$ and refining the partition, the difference ratios converge to partial derivatives and a $3\times3$ determinant appears. Therefore, after $h\to0$, the pullback is:
+</p>
+$$
+\begin{aligned}
+&\Phi^*\bigl(\rho(x,y,z)\,dx \wedge dy \wedge dz\bigr) \\
+&= \rho(x(u,v,w), y(u,v,w), z(u,v,w))\,
+\det\!\begin{pmatrix}
+\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} & \frac{\partial x}{\partial w} \\[6pt]
+\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} & \frac{\partial y}{\partial w} \\[6pt]
+\frac{\partial z}{\partial u} & \frac{\partial z}{\partial v} & \frac{\partial z}{\partial w}
+\end{pmatrix}
+\,du \wedge dv \wedge dw
+\end{aligned}
+$$
+<p>Writing this $3 \times 3$ determinant as $J(u,v,w)$, we obtain
+</p>
+$$\Phi^*(\rho\,dx \wedge dy \wedge dz) = \rho(\Phi(u,v,w))\,J\,du \wedge dv \wedge dw$$
+<p>This $3\times3$ determinant $J(u,v,w)$ is the consistency coefficient of the $3$-form.
+</p>
+<p>Arranging three difference vectors on a finite mesh gives
+</p>
+$$\det\!\begin{pmatrix}
+\Delta x_u & \Delta x_v & \Delta x_w \\[2pt]
+\Delta y_u & \Delta y_v & \Delta y_w \\[2pt]
+\Delta z_u & \Delta z_v & \Delta z_w
+\end{pmatrix}$$
+<p>This is the measured value assigned to the finite box by the provisional measuring device. For the parallelepiped spanned by the difference vectors, it is an equality. As the partition width $h$ is taken toward $0$, the coefficient obtained by dividing this finite determinant by $\Delta u\,\Delta v\,\Delta w$ converges to the Jacobian $J$ built from partial derivatives.
+</p>
+<p>If $J$ is negative, orientation is reversed. In the formal pullback, we use this signed $J$ as-is. On the other hand, when we are computing ordinary positive volume or mass density as a non-oriented scalar quantity, we need the magnitude with orientation forgotten, so $|J|$ appears. It is important not to confuse $J$ and $|J|$ here.
+</p>
+<p>For a $1$-form we have a $1 \times 1$ determinant (the velocity $\gamma'(t)$), for a $2$-form a $2 \times 2$ determinant, for a $3$-form a $3 \times 3$ determinant ($J$) — as the degree rises, the size of the determinant governing the consistency coefficient grows by one each time. The partial-derivative determinant formula above is precisely <strong>the general definition of the pullback of a $3$-form</strong>.
+</p>
+<blockquote>
+<p><strong>Note</strong> (for readers who have studied vector analysis) When you learned in a change of variables that “in polar coordinates, $r\,dr\,d\theta$ appears,” many textbooks give a geometric explanation: “consider the arc length $r\Delta\theta$ in the $\theta$ direction and $\Delta V \approx \Delta r \cdot r\Delta\theta \cdot \Delta z$.” That explanation is not wrong. But in the computation of this book we never consider arc length at all. Only the transformation formulas, trigonometric identities, and the determinant corresponding to $\wedge$ produce the consistency coefficient $r$.</p>
+</blockquote>
+<p><strong>⑦ Return to the physical quantity.</strong> Integrating with the pulled-back measuring device,
+</p>
+$$
+M
+=
+\rho\iiint_V dx\wedge dy\wedge dz
+=
+\rho\iiint_{V'} r\,dr\wedge d\theta\wedge dz
+$$
+$$
+=
+\rho
+\int_0^H
+\biggl(
+  \int_0^{2\pi}
+  \biggl(
+    \int_0^C r\,dr
+  \biggr)
+  d\theta
+\biggr)
+dz
+=
+\rho\cdot\pi C^2H
+$$
+<p>This agrees with the correct value. To preserve the integral value, the measuring device $dx \wedge dy \wedge dz$ had to be rebuilt as $r\,dr \wedge d\theta \wedge dz$ in $(r,\theta,z)$ space. The same pattern repeats across the chapter: in §4.1 the consistency factor $\gamma'(t)$ describes conservation of energy; in §4.2 the factor $r$ describes conservation of angular momentum; and here, the factor $r$—more generally, $J$—describes conservation of mass.
+</p>
+<hr />
+<h3 id="§4.4-Properties-of-the-Pullback-—-What-We-Have-Established-So-Far">§4.4 Properties of the Pullback — What We Have Established So Far</h3>
+<p>In §4.1–§4.3 we constructed pullbacks through three concrete examples. Here we organize the algebraic properties common to all of them. At the same time, we define the $3 \times 3$ determinant $J$ that appeared in §4.3 as the <strong>Jacobian determinant</strong>. The matrix
+</p>
+$$\begin{pmatrix}
+\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} & \frac{\partial x}{\partial w} \\[4pt]
+\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} & \frac{\partial y}{\partial w} \\[4pt]
+\frac{\partial z}{\partial u} & \frac{\partial z}{\partial v} & \frac{\partial z}{\partial w}
+\end{pmatrix}$$
+<p>is called the <strong>Jacobian matrix</strong>, and its determinant is the Jacobian $J$.
+</p>
+<p><strong>① Pullback of a $0$-form (scalar field).</strong> To pull back a scalar field $f(x,y,z)$ by a transformation $\Phi$ is simply to rewrite the coordinates into a parametric representation:
+</p>
+$$\Phi^*(f) = f(\Phi(u,v,w))$$
+<p>For example, the operation in §4.1 that rewrote $F(x)$ in $F(x)\,dx$ as $F(\gamma(t))$ is nothing but the pullback of the $0$-form $F$.
+</p>
+<p><strong>② Linearity.</strong> For two $k$-forms $\omega, \eta$ and scalars $a,b$,
+</p>
+$$\Phi^*(a\omega + b\eta) = a\,\Phi^*(\omega) + b\,\Phi^*(\eta)$$
+<p>holds. This guarantees that sums and scalar multiples of measuring devices stay consistent before and after pullback.
+</p>
+<p><strong>③ Compatibility with the wedge product.</strong> For a $k$-form $\omega$ and an $\ell$-form $\eta$,
+</p>
+$$\Phi^*(\omega \wedge \eta) = \Phi^*(\omega) \wedge \Phi^*(\eta)$$
+<p>holds. In other words, “assemble then pull back” and “pull back then assemble” give the same result. The operation in §4.2 of expanding $dx$ and $dy$ separately and then assembling with $\wedge$ was exactly an instance of this property.
+</p>
+<p><strong>④ Consistency factors by degree.</strong> For the pullback $\Phi^*$ after taking the limit $h\to0$ from finite cells, we take the Jacobian matrix assembled from the partial derivatives of $\Phi$, pick out the $k$ directions needed, and the $k \times k$ determinant of those entries becomes the consistency factor. Within the scope of this book, it appears in the following forms.
+</p>
+<ul>
+<li>$k=1$ ($1$-form): a $1 \times 1$ determinant</li>
+</ul>
+$$
+\det
+\begin{pmatrix}
+\gamma'(t)
+\end{pmatrix}
+=
+\gamma'(t)
+$$
+<ul>
+<li>$k=2$ ($2$-form): a $2 \times 2$ determinant</li>
+</ul>
+$$
+\det
+\begin{pmatrix}
+\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v}\\[4pt]
+\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
+\end{pmatrix}
+=
+\frac{\partial x}{\partial u}\frac{\partial y}{\partial v}
+-
+\frac{\partial x}{\partial v}\frac{\partial y}{\partial u}
+$$
+<ul>
+<li>$k=3$ ($3$-form): a $3 \times 3$ determinant</li>
+</ul>
+$$
+J
+=
+\det
+\begin{pmatrix}
+\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} & \frac{\partial x}{\partial w}\\[4pt]
+\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} & \frac{\partial y}{\partial w}\\[4pt]
+\frac{\partial z}{\partial u} & \frac{\partial z}{\partial v} & \frac{\partial z}{\partial w}
+\end{pmatrix}
+$$
+<p>Thus a $1 \times 1$ determinant appears for $1$-forms, a $2 \times 2$ determinant for $2$-forms, and a $3 \times 3$ determinant for $3$-forms. As the degree increases, the size of the determinant that fixes the consistency factor of the measuring device grows by one step at a time. This structure is the same for $k$-forms in higher dimensions as well. Arrange the coefficients obtained by differentiating the transformation formulas, pick out the $k$ directions needed, and form the determinant. That determinant is the consistency factor for rewriting a $k$-dimensional measuring device into a form usable in the variables on the parameter-space side.
+</p>
+<blockquote>
+<p><strong>Note</strong> (The name “Jacobian”) In general, the matrix assembled from the partial derivatives of a change of variables is called the Jacobian matrix, and its determinant is called the Jacobian. In one dimension this is the $1\times1$ determinant $\gamma'(t)$; in two dimensions it is the $2\times2$ determinant above; in three dimensions it is $J$.</p>
+<p>In this book, we often write the $3\times3$ determinant that appears especially as a volume conversion factor as $J$ and call it the Jacobian.</p>
+</blockquote>
+<p><strong>⑤ Relation between the finite-cell version and the pullback after the limit.</strong> In the derivations of this chapter, we did not write partial derivatives right away. First in §4.1, we wrote the rebuilding of the measuring device on a finite interval as $\gamma_h^\square$. There, the finite ratio $\Delta x/\Delta t$ served as the coefficient on each interval, and in the limit $h\to0$ we moved to $\gamma^*$.
+</p>
+<p>In §4.2 and §4.3, we extended this idea to two and three dimensions. The finite-cell version $\Phi_h^\square$ is a provisional measuring device used on finite cells. Its coefficients are fixed by “measurement of the figure spanned by finite-difference vectors, divided by the cell width on the parameter-space side.” When we feed this measuring device to a finite cell, the original measurement comes back.
+</p>
+<p>For example, for a $2$-form, the coefficient is the area of the parallelogram spanned by two difference vectors, divided by $\Delta u\,\Delta v$. For a $3$-form, it is the volume of the parallelepiped spanned by three difference vectors, divided by $\Delta u\,\Delta v\,\Delta w$.
+</p>
+<p>In the limit as the partition width $h\to0$, these coefficients converge to determinants built from partial derivatives. These are the coefficients of the pullback $\Phi^*$ after the limit. Thus the flow of this chapter is a two-stage process: “build a provisional measuring device on finite cells → obtain $\Phi^*$ in the limit $h\to0$.”
+</p>
+<blockquote>
+<p><strong>Note</strong> (Commutation with the exterior derivative $d$ — foreshadowing Chapter 5) In addition to these, there is an important relation between pullback and the exterior derivative $d$:</p>
+$$\Phi^*(d\omega) = d(\Phi^*\omega)$$
+<p>In other words, “exterior differentiate then pull back” and “pull back then exterior differentiate” give the same result. We will take up this property again in §5.9 after we formally introduce $d$ in Chapter 5.</p>
+</blockquote>
+<p>We will not go any deeper here. In later chapters we will move on to language for dealing with curved space itself. Even then, the experience with finite cells and determinants that we saw in this chapter will serve as a foothold.
+</p>
+<hr />
+<h3 id="§4.5-Summary-of-This-Chapter-and-Outlook-Toward-Chapter-5,-the-Exterior-Derivative">§4.5 Summary of This Chapter and Outlook Toward Chapter 5, the Exterior Derivative</h3>
+<p>Over the past four chapters, we have assembled the following four things:
+</p>
+<ol>
+<li><strong>Chapter 1</strong>: View $dx$ as a matrix ($1$-form), and read integration as the limit of matrix action</li>
+<li><strong>Chapter 2</strong>: Construct $2$-forms and $3$-forms via the wedge product $\wedge$, and measure area and volume algebraically</li>
+<li><strong>Chapter 3</strong>: Apply forms to curves, surfaces, and regions, and establish the operation of aggregating their output</li>
+<li><strong>Chapter 4 (this chapter)</strong>: Through three concrete examples—the work–energy theorem, conservation of angular momentum, and conservation of mass—establish the unified principle that pullback rebuilds measuring devices so that integral values are preserved</li>
+</ol>
+<p>What this chapter established is the following unified principle:
+</p>
+<p><strong>When counting in different variables, rebuild the measuring devices so that the integral value does not change.</strong> This is the pullback. Whether it is work along a curve, area or flux on a surface, or total mass in a region—all can be handled by the same idea.
+</p>
+<p>The pullback is the technique of rebuilding measuring devices so that integral values are preserved, and its core lies in the discovery-based derivations we saw in §4.1–§4.3. That is, the flow: “the naive attempt does not match → build a provisional measuring device on finite cells → obtain the general form in the limit $h\to0$.” In the finite-cell version $\Phi_h^\square$, the coefficient is the determinant of finite-difference vectors divided by the cell width; in $\Phi^*$, its limit appears as partial-derivative coefficients and the Jacobian. For $1$-forms the velocity $\gamma'(t)$, for $2$-forms $r$, and for $3$-forms the $3\times3$ determinant $J$ all emerged from measuring finite cells.
+</p>
+<blockquote>
+<p><strong>Checkpoint so far — Chapter 4</strong></p>
+<p>- The pullback $\Phi^*$ is the operation of rewriting measuring devices on the physical-space side into a form usable in the variables on the parameter-space side, so that the integral value does not change.</p>
+<p>- For a $1$-form, the physical-space measuring device $F(x)\,dx$ is rebuilt on the time side as $\gamma^*(F(x)\,dx)=F(\gamma(t))\,\gamma'(t)\,dt$. On finite intervals the consistency factor is $\Delta x/\Delta t$; in the limit, it becomes the velocity $\gamma'(t)$.</p>
+<p>- For a $2$-form, $dx\wedge dy$ is rebuilt on the polar-coordinate side as $\Phi^*(dx\wedge dy)=r\,dr\wedge d\theta$. On a finite grid, $r\Delta r\sin\Delta\theta$ appears, and in the limit $h\to0$ the coefficient $r$ remains.</p>
+<p>- For a $3$-form, $dx\wedge dy\wedge dz$ is rebuilt on the cylindrical-coordinate side as $\Phi^*(dx\wedge dy\wedge dz)=r\,dr\wedge d\theta\wedge dz$. For a general transformation, $\Phi^*(dx\wedge dy\wedge dz)=J\,du\wedge dv\wedge dw$.</p>
+<p>- The finite-cell version $\Phi_h^\square$ is a provisional measuring device used on finite cells. Its coefficient is fixed by “measurement of the figure spanned by finite-difference vectors, divided by the cell width on the parameter-space side.” When we feed this measuring device to a finite cell, the original measurement comes back. In the limit $h\to0$, this coefficient becomes the coefficient of $\Phi^*$.</p>
+<p>- For $1$-forms a $1\times1$ determinant, for $2$-forms a $2\times2$ determinant, and for $3$-forms a $3\times3$ determinant serve as the consistency factors for rebuilding measuring devices.</p>
+<p>- Chapter 1 §1.4’s $dx = \cos\theta\,dr - r\sin\theta\,d\theta$ was already a prototype of $1$-form pullback.</p>
+</blockquote>
+<hr />
+<p>In the next chapter, we finally introduce the <strong>exterior derivative $d$</strong>. We have reached the point of building measuring devices, integrating them, and rebuilding them to suit the variables. What we look at next is change in the measuring devices themselves. The operation that records how a form changes from place to place, producing a form one degree higher, is the exterior derivative $d$.
+</p>
+      <div class="nav-buttons">
+        <a href="ch03.html">← Chapter 3...</a>
+        <a href="ch05.html">Chapter 5... →</a>
+      </div>
+    </article>
+    <footer class="site-footer">
+      <p>&copy; 2026 yokiikoy. CC BY-NC 4.0.</p>
+    </footer>
+  </main>
+</body>
+</html>

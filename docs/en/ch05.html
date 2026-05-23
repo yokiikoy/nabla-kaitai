@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 5: What Does It Mean to Differentiate? — The Exterior Derivative $d$: Integral Quantities and Local Laws | Unmasking Div, Grad, and Curl</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+<style>
+  :root { --sidebar-width: 320px; }
+  html { color-scheme: light; background: #fff; }
+  body { margin: 0; display: flex; background: #fff; color: #24292f; line-height: 1.7; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .sidebar { width: var(--sidebar-width); height: 100vh; position: sticky; top: 0; background: #f8f9fa; color: #24292f; border-right: 1px solid #d0d7de; overflow-y: auto; padding: 1.5rem; box-sizing: border-box; flex-shrink: 0; }
+  .sidebar h2 { font-size: 1.2rem; border: none; margin-bottom: 0.5rem; color: #24292f; }
+  .sidebar .author { font-size: 0.8rem; color: #666; margin-bottom: 1.5rem; }
+  .sidebar .toc { font-size: 0.85rem; }
+  .sidebar .toc ul { list-style: none; padding-left: 0; margin: 0; }
+  .sidebar .toc li { margin-bottom: 0.4rem; }
+  .sidebar .toc .level-1 { font-weight: bold; margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 2px; }
+  .sidebar .toc .sub-toc { font-size: 0.8rem; margin-top: 0.5rem; padding-left: 0.8rem; border-left: 2px solid #eee; }
+  .sidebar .toc .sub-toc li { margin-bottom: 0.2rem; font-weight: normal; }
+  .sidebar .toc .sub-toc .level-3 { padding-left: 0.8rem; font-size: 0.75rem; color: #666; }
+  .sidebar a { text-decoration: none; color: #0969da; }
+  .sidebar a:hover { text-decoration: underline; }
+  .sidebar .active { color: #cf222e; font-weight: bold; }
+  .sidebar .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
+  .mobile-current { display: none; }
+  .mobile-toc-button { display: none; }
+  .main-content { flex: 1; min-width: 0; padding: 2rem 4rem; overflow-x: hidden; background: #fff; color: #24292f; }
+  .markdown-body { max-width: 850px; margin: 0 auto; min-height: 100vh; color-scheme: light; background: #fff; color: #24292f; }
+  .markdown-body p, .markdown-body li { color: #24292f; }
+  @media (max-width: 900px) { 
+    body { flex-direction: column; } 
+    .sidebar { width: 100%; height: auto; position: sticky; top: 0; z-index: 10; padding: 0.75rem 1rem; border-right: none; border-bottom: 1px solid #d0d7de; box-shadow: 0 1px 8px rgba(27, 31, 36, 0.08); }
+    .sidebar h2 { margin: 0; font-size: 1rem; }
+    .sidebar .author { display: none; }
+    .sidebar .toc { display: none; }
+    .mobile-current { display: block; margin-top: 0.35rem; font-size: 0.85rem; color: #57606a; }
+    .mobile-current strong { color: #cf222e; }
+    .mobile-toc-button { display: inline-block; margin-top: 0.35rem; font-size: 0.85rem; }
+    .main-content { padding: 1rem; } 
+    .markdown-body { padding: 0.5rem; }
+  }
+  blockquote { border-left: 4px solid #d0d7de; color: #57606a; background: #f6f8fa; padding: 0.5em 1.2em; margin: 1.5em 0; border-radius: 0 6px 6px 0; }
+  blockquote p { color: #57606a; }
+  .table-wrapper { overflow-x: auto; margin: 1.5em 0; }
+  .markdown-body table { border-collapse: collapse; width: 100%; font-size: 0.9em; background: #fff; }
+  .markdown-body th, .markdown-body td { border: 1px solid #d0d7de; padding: 6px 13px; color: #24292f !important; }
+  .markdown-body tr:nth-child(even) { background-color: #f6f8fa !important; }
+  th { font-weight: 600; background-color: #f6f8fa; }
+  code, pre { color: #24292f; background-color: #f6f8fa; }
+  .nav-buttons { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; }
+  .nav-buttons a { padding: 0.5rem 1rem; border: 1px solid #d0d7de; border-radius: 6px; color: #0969da; text-decoration: none; font-size: 0.9rem; }
+  .nav-buttons a:hover { background: #f6f8fa; }
+  strong { font-weight: 800 !important; color: #000; }
+  blockquote strong { color: #24292f !important; }
+  /* KaTeX responsiveness */
+  .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.5em 0; }
+  .full-toc h2 { font-size: 1.1rem; margin: 1.5em 0 0.3em; padding-bottom: 2px; border-bottom: 1px solid #d0d7de; }
+  .full-toc h2 a { color: #24292f; text-decoration: none; }
+  .full-toc h2 a:hover { color: #0969da; }
+  .full-toc h2 .disabled-link { color: #8c959f; cursor: not-allowed; }
+  .full-toc ul { list-style: none; padding-left: 1.5rem; margin: 0.3em 0 0; }
+  .full-toc li { margin-bottom: 0.2rem; font-size: 0.9rem; }
+  .full-toc .level-3 { padding-left: 1rem; font-size: 0.8rem; color: #57606a; }
+  .full-toc a { color: #0969da; text-decoration: none; }
+  .full-toc a:hover { text-decoration: underline; }
+  .full-toc .disabled-link { color: #8c959f; cursor: not-allowed; text-decoration: none; }
+  .full-toc .part-header { font-size: 1.1rem; margin: 2em 0 0.5em; padding: 0.3em 0.8em; background: #f6f8fa; border-left: 4px solid #0969da; color: #24292f; }
+  .full-toc .toc-part-chapters { padding-left: 1.5rem; }
+  .full-toc .toc-part-chapters h3 { font-size: 0.95rem; margin: 0.5em 0 0.2em; }
+  .full-toc .toc-part-chapters h3 a { color: #24292f; }
+  .full-toc .toc-part-chapters ul { padding-left: 1.5rem; }
+  .site-footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #d0d7de; font-size: 0.8rem; color: #57606a; }
+  .site-footer a { color: #0969da; text-decoration: none; }
+  .site-footer a:hover { text-decoration: underline; }
+</style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ],
+            throwOnError : false
+        });
+    });
+</script>
+
+</head>
+<body>
+  <nav class="sidebar">
+    <h2><a href="index.html">Unmasking Div, Grad, and Curl</a></h2>
+    <div class="author">
+      Author: yokiikoy<br>
+      <a href="http://covectorspace.xyz/en/" style="font-size: 0.75rem; color: #666; text-decoration: none;">Project Co-Vector Space</a><br>
+      <a href="../index.html" style="font-size: 0.75rem; color: #666; text-decoration: none;">Japanese edition</a>
+    </div>
+    <div class="mobile-current">Current: <strong>Chapter 5: What Does It Mean to Differentiate? — The Exterior Derivative $d$: Integral Quantities and Local Laws</strong></div>
+    <a class="mobile-toc-button" href="toc.html">Open contents</a>
+    <div class="toc">
+      <ul>
+<li class="level-1"><a href="toc.html" id="link-toc.html">Contents</a></li>
+<li class="level-1"><a href="index.html" id="link-index.html">Preface</a></li>
+<li class="level-1"><a href="intro.html" id="link-intro.html">Introduction</a></li>
+<li class="level-1"><a href="portal.html" id="link-portal.html">Portal Site and a Small Experiment</a></li>
+<li class="level-1"><a href="ch01.html" id="link-ch01.html">Chapter 1</a></li>
+<li class="level-1"><a href="ch02.html" id="link-ch02.html">Chapter 2</a></li>
+<li class="level-1"><a href="ch03.html" id="link-ch03.html">Chapter 3</a></li>
+<li class="level-1"><a href="ch04.html" id="link-ch04.html">Chapter 4</a></li>
+<li class="level-1"><a href="ch05.html" class="active" id="link-ch05.html">Chapter 5</a><ul class="sub-toc"><li class="level-3"><a href="#§5.0-The-Bridge-to-Differentiation-—-Observation-Is-Integral,-Law-Is-Differential">§5.0 The Bridge to Differentiation — Observation Is Integral, Law Is Differential</a></li><li class="level-3"><a href="#§5.2-The-"Mismatch"-Revealed-by-a-Closed-Loop">§5.2 The "Mismatch" Revealed by a Closed Loop</a></li><li class="level-3"><a href="#§5.3-Dismantling-an-Infinitesimal-Loop-—-The-Mismatch-Is-Proportional-to-Area">§5.3 Dismantling an Infinitesimal Loop — The Mismatch Is Proportional to Area</a></li><li class="level-3"><a href="#§5.4-The-Birth-of-$d$-—-A-New-Measuring-Device-for-Mismatch-per-Unit-Area">§5.4 The Birth of $d$ — A New Measuring Device for Mismatch per Unit Area</a></li><li class="level-3"><a href="#§5.5-The-Exterior-Derivative-of-a-General-$1$-Form-—-Extension-to-Three-Dimensions">§5.5 The Exterior Derivative of a General $1$-Form — Extension to Three Dimensions</a></li><li class="level-3"><a href="#§5.6-Accumulate-It,-and-Only-the-Boundary-Remains-—-Stokes'-Theorem">§5.6 Accumulate It, and Only the Boundary Remains — Stokes' Theorem</a></li><li class="level-3"><a href="#§5.7-The-Same-Thing-One-Degree-Higher-—-Exterior-Derivative-of-a-$2$-Form-and-Divergence">§5.7 The Same Thing One Degree Higher — Exterior Derivative of a $2$-Form and Divergence</a></li><li class="level-3"><a href="#§5.8-$d^2-=-0$-—-The-Mismatch-of-a-Mismatch-Leaves-Nothing-Behind">§5.8 $d^2 = 0$ — The Mismatch of a Mismatch Leaves Nothing Behind</a></li><li class="level-3"><a href="#§5.9-Unifying-the-Exterior-Derivative-—-One-Formula,-One-Rule">§5.9 Unifying the Exterior Derivative — One Formula, One Rule</a></li><li class="level-3"><a href="#§5.10-From-Integrals-to-Differential-Equations-—-Localizing-Physical-Laws">§5.10 From Integrals to Differential Equations — Localizing Physical Laws</a></li><li class="level-3"><a href="#§5.11-Outlook-Toward-Part-II-—-Foreshadowing-the-Hodge-Star">§5.11 Outlook Toward Part II — Foreshadowing the Hodge Star</a></li><li class="level-2"><a href="#Appendix-B:-Matrix-Representation-of-the-Exterior-Derivative">Appendix B: Matrix Representation of the Exterior Derivative</a></li><li class="level-3"><a href="#B.1-$0$-form:-the-$1-\times-3$-row-vector-of-$df$">B.1 $0$-form: the $1 \times 3$ row vector of $df$</a></li><li class="level-3"><a href="#B.2-$1$-form:-the-Jacobian-matrix-$\mathbf{J}$-of-the-coefficients">B.2 $1$-form: the Jacobian matrix $\mathbf{J}$ of the coefficients</a></li><li class="level-3"><a href="#B.3-$d\omega-=-\mathbf{J}^T---\mathbf{J}$">B.3 $d\omega = \mathbf{J}^T - \mathbf{J}$</a></li><li class="level-3"><a href="#B.4-$2$-form:-$d\eta$-and-the-trace-of-the-Jacobian-matrix">B.4 $2$-form: $d\eta$ and the trace of the Jacobian matrix</a></li><li class="level-3"><a href="#B.5-$d^2-f-=-0$-and-the-Hessian">B.5 $d^2 f = 0$ and the Hessian</a></li><li class="level-2"><a href="#Appendix-C:-Integral-Forms-of-Electromagnetism-and-Differential-Forms">Appendix C: Integral Forms of Electromagnetism and Differential Forms</a></li><li class="level-3"><a href="#C.1-Degrees-of-physical-quantities">C.1 Degrees of physical quantities</a></li><li class="level-3"><a href="#C.2-Gauss's-law-for-charge">C.2 Gauss's law for charge</a></li><li class="level-3"><a href="#C.3-The-law-of-magnetic-flux">C.3 The law of magnetic flux</a></li><li class="level-3"><a href="#C.4-Faraday's-law">C.4 Faraday's law</a></li><li class="level-3"><a href="#C.5-Ampère–Maxwell's-law">C.5 Ampère–Maxwell's law</a></li><li class="level-3"><a href="#C.6-Where-a-metric-is-needed">C.6 Where a metric is needed</a></li></ul></li>
+<li class="level-1"><a href="ch06.html" id="link-ch06.html">Chapter 6</a></li>
+<li class="level-1"><a href="ch07.html" id="link-ch07.html">Chapter 7</a></li>
+<li class="level-1"><a href="ch08.html" id="link-ch08.html">Chapter 8</a></li>
+<li class="level-1"><a href="ch09.html" id="link-ch09.html">Chapter 9</a></li>
+<li class="level-1"><a href="ch10.html" id="link-ch10.html">Chapter 10</a></li>
+<li class="level-1"><a href="ch11.html" id="link-ch11.html">Chapter 11</a></li>
+<li class="level-1"><a href="ch12.html" id="link-ch12.html">Chapter 12</a></li>
+<li class="level-1"><a href="postscript.html" id="link-postscript.html">Afterword</a></li>
+<li class="level-1"><a href="refs.html" id="link-refs.html">References (with Comments from the Author)</a></li>
+<li class="level-1"><a href="appendix.html" id="link-appendix.html">Appendix</a></li>
+</ul>
+    </div>
+  </nav>
+  <main class="main-content">
+    <article class="markdown-body">
+<h1 id="Chapter-5:-What-Does-It-Mean-to-Differentiate?-—-The-Exterior-Derivative-__MATH_BLOCK_98__:-Integral-Quantities-and-Local-Laws">Chapter 5: What Does It Mean to Differentiate? — The Exterior Derivative $d$: Integral Quantities and Local Laws</h1>
+<h3 id="§5.0-The-Bridge-to-Differentiation-—-Observation-Is-Integral,-Law-Is-Differential">§5.0 The Bridge to Differentiation — Observation Is Integral, Law Is Differential</h3>
+<p>In Chapter 3 we defined integration over curves, surfaces, and regions in the language of $k$-forms. Work along a curve $\gamma$ is $\int_\gamma \omega$, flux through a surface $S$ is $\iint_S \eta$, and the total mass of a region $V$ is $\iiint_V \Omega$. Each followed the same principle: feed $k$ displacement vectors to a $k$-form (measuring device), obtain a scalar, and aggregate over the entire region.
+</p>
+<p>In Chapter 4 we introduced the operation that rebuilds measuring devices to compute the same integral in different variables—the pullback $\Phi^*$. With that, we also gained a tool for changing the variables of computation while preserving the integral value.
+</p>
+<p>The integrals we now have in hand are all quantities that span an <strong>entire region</strong> (below we call such quantities <strong>global</strong>). Work is the total sum over an entire curve, flux is the total amount crossing an entire surface, and mass is the grand total over an entire region. They depend on how the measuring device is applied and on the choice of region.
+</p>
+<p>But this alone is not what physicists ultimately want. Behind the laws observed as integral quantities, they want to see local relations that hold at each point. Whether Maxwell's equations or the Navier–Stokes equations, the fundamental laws of nature are written as <strong>local</strong> relations—differential equations—that describe <strong>what holds at each point in space and each instant in time</strong>. Global integral quantities depend on the region, but local laws have a universality that does not depend on the region.
+</p>
+<blockquote>
+<p><strong>Note</strong> (the terms global / local) Other books sometimes call a similar contrast <strong>macro / micro</strong>. In this chapter, however, we use global / local to mean the contrast between a quantity integrated over an entire region and a relation that holds at each point—not so much a difference of scale.</p>
+</blockquote>
+<p>Here a fundamental question arises.
+</p>
+<blockquote>
+<p><strong>How do we extract a local law from an integrated quantity?</strong></p>
+</blockquote>
+<p>The subject of this chapter—the <strong>exterior derivative $d$</strong>—answers this question. $d$ is an operator that acts on a $k$-form and returns a $(k+1)$-form; combined with the integrals defined in Chapter 3, it translates a "global integral measured on the boundary" into "an accumulation of local changes in the interior." In short, <strong>$d$ is the device that converts integral laws into differential laws</strong>.
+</p>
+<p>The structure of this chapter is as follows. First we recall the $df$ introduced in Chapter 1 and build $d\omega$ from the mismatch that remains when a general $1$-form is measured on a closed loop. Next we extend the same idea to $2$-forms and unify Stokes' theorem and Gauss' theorem into a single form. Finally we look at the structure $d^2=0$ and at how the exterior derivative localizes physical laws, connecting to the Hodge star in the next chapter.
+</p>
+<h3 id="§5.2-The-"Mismatch"-Revealed-by-a-Closed-Loop">§5.2 The "Mismatch" Revealed by a Closed Loop</h3>
+<h4 id="5.2.1-What-About-a-General-__MATH_BLOCK_119__-Form?">5.2.1 What About a General $1$-Form?</h4>
+<p>What about a general $1$-form
+</p>
+$$\omega = P(x,y,z)\,dx + Q(x,y,z)\,dy + R(x,y,z)\,dz$$
+<p>? Here $P, Q, R$ are coefficients that vary from place to place (scalar fields)—the "general $1$-form" introduced in Chapter 3 §3.4.1.
+</p>
+<blockquote>
+<p><strong>Note</strong> (what "general" means) The $df$ treated in §5.1 had coefficients of the special combination $\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z}$—a triple derived from partial derivatives of a single function $f$. By contrast, the "general" $\omega$ here has $P, Q, R$ as <strong>three arbitrary scalar fields unrelated to one another</strong>. In other words, we call a $1$-form "general" when it cannot necessarily be written as $\omega = df$. The $y\,dx + x\,dy$ of §5.1.3 happened to be an exact form writable as $d(xy)$, but forms that are not of that kind are rather the norm.</p>
+</blockquote>
+<p>$\omega$ need not represent a force; it can be any measuring device applied along a line.
+</p>
+<p>For this $\omega$, there is no guarantee that the same telescoping sum as in §5.1 works. The most concise way to decide is to integrate on a <strong>closed loop</strong>—a curve whose start and end coincide. If $\int_\gamma \omega$ could be written only as the difference of endpoint values, then on a closed loop we would have to get $f(A)-f(A)=0$.
+</p>
+<p>We write the line integral along a closed loop as $\oint_\gamma \omega$. In general:
+</p>
+$$\oint_\gamma \omega \neq 0$$
+<p>If you drag an object once around against friction, the work is not zero; if you go once around a swirling current, you receive net work. This <strong>fact that "closing the loop still does not balance the books" is evidence of local structure such as circulation or vorticity</strong>.
+</p>
+<blockquote>
+<p><strong>Note</strong> (no physics background needed) Readers who have not yet treated friction or water flow in physics need not stop here. What matters now is not the specific physical phenomenon but only the sense that "if the integral on a closed loop is not zero, there is local structure like circulation in that field." The detailed physical correspondences will be touched on in later chapters.</p>
+</blockquote>
+<h4 id="5.2.2-Where-Does-the-Local-Information-Live?">5.2.2 Where Does the Local Information Live?</h4>
+<p>Then where does this "mismatch left after one circuit" come from? If we think of the closed loop only at a global scale all at once, we cannot tell which points inside contributed how much to the mismatch. Recall how we found $f'(x)$ in Chapter 1—we extracted a rate of change <strong>at a single point</strong> by taking the limit $\Delta x \to 0$ of $\Delta f / \Delta x$.
+</p>
+<p>We use the same idea here. As we shrink the loop more and more, what happens to the value of the integral $\oint \omega$ around one circuit? If the leading term of $\oint \omega$ shrinks in proportion to the <strong>area enclosed</strong> by the loop, then the mismatch per unit area—how much the books fail to balance per unit area—should be determined as a value intrinsic to that point.
+</p>
+<p>Conversely, if it does not scale that way (for example, if it scales with the perimeter of the loop), it cannot be fixed as a per-area quantity, and we cannot call it "a property at that point." So the question is:
+</p>
+<blockquote>
+<p><strong>When a tiny loop is traversed once, does the leading term of $\oint \omega$ scale with the enclosed area? If so, what is the proportionality constant?</strong></p>
+</blockquote>
+<p>In the next section we actually answer this question with a tiny rectangle placed in the $xy$ plane.
+</p>
+<hr />
+<h3 id="§5.3-Dismantling-an-Infinitesimal-Loop-—-The-Mismatch-Is-Proportional-to-Area">§5.3 Dismantling an Infinitesimal Loop — The Mismatch Is Proportional to Area</h3>
+<h4 id="5.3.1-A-Tiny-Rectangle-in-the-__MATH_BLOCK_144__-Plane">5.3.1 A Tiny Rectangle in the $xy$ Plane</h4>
+<p>Consider a tiny rectangle parallel to the $xy$ plane, with the point $(x, y, z)$ as its lower-left vertex. Let the width in the $x$ direction be $\Delta x$ and the width in the $y$ direction be $\Delta y$. Traverse the four edges of this rectangle once in the <strong>counterclockwise (right-handed) direction</strong>, and integrate $\omega = P\,dx + Q\,dy + R\,dz$.
+</p>
+<p>Let us evaluate the integral on each edge using a first-order Taylor approximation (with $\Delta x, \Delta y$ sufficiently small).
+</p>
+<blockquote>
+<p><strong>Note</strong> (on Taylor expansion) There is no need to be intimidated by the words "Taylor expansion." What we use here is the first-order approximation of a multivariable function—the same thing as $\Delta f \approx f'(x)\,\Delta x$ in Chapter 1 §1.2.1. For example, the value of $Q(x+\Delta x, y)$ shifted by $\Delta x$ in the $x$ direction can be approximated as $Q + \frac{\partial Q}{\partial x}\,\Delta x$ using the partial derivative of $Q$ with respect to $x$. When $\Delta x$ is sufficiently small, terms of order $(\Delta x)^2$ and higher are overwhelmingly smaller than $\Delta x$ and may be ignored—that is what first-order approximation means.</p>
+</blockquote>
+<p>$z$ is fixed, so $dz=0$ and the $R$ term contributes nothing.
+</p>
+<p><strong>Edge 1 (bottom edge, rightward)</strong>: from $(x, y)$ to $(x+\Delta x, y)$. With $y$ fixed, $dy=0$. $P$ is approximately $P(x, y, z)$. Contribution: $P(x, y, z)\,\Delta x$.
+</p>
+<p><strong>Edge 2 (right edge, upward)</strong>: from $(x+\Delta x, y)$ to $(x+\Delta x, y+\Delta y)$. $dx=0$. Evaluate $Q$ at the position shifted by $\Delta x$ in the $x$ direction:
+</p>
+$$Q(x+\Delta x, y, z) \approx Q(x, y, z) + \frac{\partial Q}{\partial x}\Delta x$$
+<p>Contribution: $\bigl(Q + \frac{\partial Q}{\partial x}\Delta x\bigr)\,\Delta y$.
+</p>
+<p><strong>Edge 3 (top edge, leftward)</strong>: from $(x+\Delta x, y+\Delta y)$ to $(x, y+\Delta y)$. The direction is negative, so the sign flips. Evaluate $P$ at the position shifted by $\Delta y$ in the $y$ direction:
+</p>
+$$P(x, y+\Delta y, z) \approx P(x, y, z) + \frac{\partial P}{\partial y}\Delta y$$
+<p>Contribution: $-\bigl(P + \frac{\partial P}{\partial y}\Delta y\bigr)\,\Delta x$.
+</p>
+<p><strong>Edge 4 (left edge, downward)</strong>: from $(x, y+\Delta y)$ back to $(x, y)$. Contribution: $-Q(x, y, z)\,\Delta y$.
+</p>
+<p>Summing the contributions from all four edges:
+</p>
+$$\begin{aligned}
+\oint \omega &\approx P\Delta x + (Q + \frac{\partial Q}{\partial x}\Delta x)\Delta y - (P + \frac{\partial P}{\partial y}\Delta y)\Delta x - Q\Delta y \\
+&= P\Delta x + Q\Delta y + \frac{\partial Q}{\partial x}\Delta x\Delta y - P\Delta x - \frac{\partial P}{\partial y}\Delta x\Delta y - Q\Delta y \\
+&= (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,\Delta x\,\Delta y
+\end{aligned}$$
+<p>The omitted terms are higher order in $\Delta x$ and $\Delta y$.
+</p>
+<p>The terms $P\Delta x$ and $Q\Delta y$ cancel beautifully, leaving only $(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,\Delta x\,\Delta y$ as the leading term.
+</p>
+<h4 id="5.3.2-The-Decisive-Fact">5.3.2 The Decisive Fact</h4>
+<p>This result tells us just one thing:
+</p>
+<blockquote>
+<p><strong>The leading term of the mismatch left after one circuit is proportional to the enclosed area $\Delta x\,\Delta y$.</strong></p>
+</blockquote>
+<p>And the proportionality constant $\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}$ is precisely the <strong>mismatch per unit area</strong> at the point $(x,y,z)$—a local quantity representing the "strength of vorticity" at that point. More precisely, for the tiny rectangle $R_{\Delta x,\Delta y}$,
+</p>
+$$\lim_{\Delta x,\Delta y\to 0}\frac{1}{\Delta x\,\Delta y}\oint_{\partial R_{\Delta x,\Delta y}}\omega = \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}$$
+<p>is the quantity extracted by this limit.
+</p>
+<p>This is "differentiation" in the same spirit as $f'(x) = \lim_{\Delta x\to 0} \frac{\Delta f}{\Delta x}$ in Chapter 1. Only the denominator has changed—from "distance moved" to "area enclosed"—but the spirit of <strong>extracting a rate of change locally</strong> is unchanged.
+</p>
+<blockquote>
+<p><strong>Note</strong> (why only $\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}$ survives) $\frac{\partial P}{\partial x}$ and $\frac{\partial Q}{\partial y}$ do not appear. The change of $P$ in the $x$ direction ($\frac{\partial P}{\partial x}$) acts in the same direction on the bottom and top edges and cancels; the change of $Q$ in the $y$ direction ($\frac{\partial Q}{\partial y}$) likewise cancels on the right and left edges. What survives is only "the change of $P$ in the $y$ direction" and "the change of $Q$ in the $x$ direction"—the difference of <strong>partial derivatives in mutually orthogonal directions</strong>. This crosswise structure is the key to everything from the next section onward.</p>
+</blockquote>
+<hr />
+<h3 id="§5.4-The-Birth-of-__MATH_BLOCK_212__-—-A-New-Measuring-Device-for-Mismatch-per-Unit-Area">§5.4 The Birth of $d$ — A New Measuring Device for Mismatch per Unit Area</h3>
+<h4 id="5.4.1-Revisiting-the-Wedge-Product">5.4.1 Revisiting the Wedge Product</h4>
+<p>Let us restate the $(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,\Delta x\,\Delta y$ obtained in §5.3 in the language of Chapter 2. In Chapter 2 §2.4.4 we defined the area-measuring device $dx \wedge dy$. This was a device that, when fed two vectors $\mathbf{v}_1, \mathbf{v}_2$, returns the signed area of the shadow they cast onto the $xy$ plane:
+</p>
+$$(dx \wedge dy)(\mathbf{v}_1, \mathbf{v}_2) = \det\begin{pmatrix} dx(\mathbf{v}_1) & dx(\mathbf{v}_2) \\ dy(\mathbf{v}_1) & dy(\mathbf{v}_2) \end{pmatrix}$$
+<p>In particular, if we feed the displacement $\Delta x\,\hat{e}_x$ in the $x$ direction and the displacement $\Delta y\,\hat{e}_y$ in the $y$ direction, we get $(dx \wedge dy)(\Delta x\,\hat{e}_x,\; \Delta y\,\hat{e}_y) = \Delta x\,\Delta y$.
+</p>
+<h4 id="5.4.2-Definition-of-__MATH_BLOCK_222__">5.4.2 Definition of $d\omega$</h4>
+<p>Written in this language, the result of §5.3 says that for the two edges $\Delta x\,\hat{e}_x,\; \Delta y\,\hat{e}_y$ of an infinitesimal rectangle, some <strong>new $2$-form</strong> returned the leading term $(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,\Delta x\,\Delta y$. We call this $2$-form the <strong>exterior derivative</strong> of $\omega$, and write it $d\omega$:
+</p>
+$$d\omega := (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,dx \wedge dy$$
+<p>$d\omega$ is a $2$-form—it eats two vectors and returns a scalar. Its value represents the mismatch per unit area of a closed loop over the infinitesimal parallelogram spanned by the two vectors fed to it.
+</p>
+<p>Let us organize what is happening here:
+</p>
+<ul>
+<li><strong>Input</strong>: $\omega = P\,dx + Q\,dy + R\,dz$ ($1$-form, a line measuring device that eats one vector)</li>
+<li><strong>Output</strong>: $d\omega = (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,dx \wedge dy$ ($2$-form, a surface measuring device that eats two vectors)</li>
+<li><strong>Operation</strong>: $d$ <strong>raises the degree by one</strong>, from 1 to 2</li>
+</ul>
+<p>This is exactly the same structure as the $df$ we saw in §5.1. $d$ acts on a $0$-form $f$ and returns the $1$-form $df$; it acts on a $1$-form $\omega$ and returns the $2$-form $d\omega$. <strong>One of the great roles of $d$ is to raise the degree by one.</strong>
+</p>
+<blockquote>
+<p><strong>Checkpoint</strong></p>
+<p>- $df$ was the exterior derivative from $0$-form to $1$-form. $\int_\gamma df = f(B)-f(A)$ (depends only on the endpoints).</p>
+<p>- For a general $\omega$, $\oint \omega \neq 0$ on a closed loop. To investigate this mismatch, we shrink the loop.</p>
+<p>- On an infinitesimal rectangle in the $xy$ plane, $\oint \omega = (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,\Delta x\,\Delta y +$ higher-order terms. The leading term of the mismatch is proportional to area.</p>
+<p>- We define the $2$-form that measures this proportionality coefficient as $d\omega := (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,dx \wedge dy$. $d$ is the operator that raises the degree.</p>
+</blockquote>
+<hr />
+<h3 id="§5.5-The-Exterior-Derivative-of-a-General-__MATH_BLOCK_258__-Form-—-Extension-to-Three-Dimensions">§5.5 The Exterior Derivative of a General $1$-Form — Extension to Three Dimensions</h3>
+<h4 id="5.5.1-The-__MATH_BLOCK_259__-Plane-and-the-__MATH_BLOCK_260__-Plane">5.5.1 The $yz$ Plane and the $zx$ Plane</h4>
+<p>In §5.3–§5.4 we considered loops only in the $xy$ plane. But in three-dimensional space there are three orientations of surface. On an infinitesimal rectangle in the $yz$ plane, a similar calculation gives $(\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z})\,\Delta y\,\Delta z$; on the $zx$ plane we get $(\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x})\,\Delta z\,\Delta x$. These correspond to $dy \wedge dz$ and $dz \wedge dx$, respectively.
+</p>
+<p>The complete formula that follows from this intuition is:
+</p>
+$$d\omega = (\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z})\,dy \wedge dz + (\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x})\,dz \wedge dx + (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,dx \wedge dy$$
+<blockquote>
+<p><strong>Note</strong> ($2$-forms measure tilted parallelograms) This $d\omega$ is a $2$-form—a <strong>measuring device that eats two vectors</strong>. The two vectors fed to it need not be parallel to the $xy$ plane. If we feed the two edges $\mathbf{v}_1, \mathbf{v}_2$ of an infinitesimal parallelogram floating obliquely in three-dimensional space, it returns the mismatch per unit area of a closed loop over that surface. It is exactly the same thing we did in §5.3—the only difference is that the surface being measured need not be parallel to a coordinate plane. The mechanism for extracting the area (and orientation) of a parallelogram from two vectors was already verified in Chapter 2 §2.4, when we constructed $dy \wedge dz$ and the like as antisymmetric matrices.</p>
+</blockquote>
+<h4 id="5.5.2-Algebraic-Derivation-—-Leibniz-Rule-and-__MATH_BLOCK_274__">5.5.2 Algebraic Derivation — Leibniz Rule and $d(dx)=0$</h4>
+<p>The formula above can of course be derived by doing separate loop calculations on each plane. But drawing a loop and adding four edges every time is tedious. What we do here is recast the exterior derivative introduced geometrically in §5.3 as computational algebraic rules, and confirm that these rules do indeed reproduce the exterior derivative. In other words, using the intuition from the $xy$-plane example, we move to a form that can be computed mechanically.
+</p>
+<blockquote>
+<p><strong>Note</strong> (Relation to the axiomatic definition) Many mathematics books take Leibniz's rule and $d(dx)=0$ as the <strong>definition</strong> of $d$. That definition is concise, but it is hard to see why those rules should hold. In this book we start from the dissection of an infinitesimal loop. What we are about to verify is that this geometric $d$ and the algebraic computational rules are consistent. The rules are for computational convenience; <strong>the meaning is in §5.3</strong>. Still, when one looks ahead to higher dimensions, this algebraic definition is indeed very concise.</p>
+</blockquote>
+<p>First, for $\omega = P\,dx + Q\,dy + R\,dz$, we take $d$ to act linearly: $d\omega = d(P\,dx) + d(Q\,dy) + d(R\,dz)$. This is the same as considering loops around tilted parallelograms. The question is $d(P\,dx)$—how does $d$ act on the $1$-form $dx$ with coefficient $P$?
+</p>
+<p>Here, the geometric $d$ obtained in §5.3–§5.4 has already taught us something. For $\omega = P\,dx$ ($Q=R=0$), if we carry out the infinitesimal loop calculation of §5.3 not only in the $xy$ plane but also in the $zx$ plane, $d(P\,dx)$ should have no component on the $yz$ face, and
+</p>
+$$d(P\,dx) = \frac{\partial P}{\partial z}\,(dz \wedge dx) - \frac{\partial P}{\partial y}\,(dx \wedge dy)$$
+<p>(the loop on the $xy$ face gives $(0 - \frac{\partial P}{\partial y}) = -\frac{\partial P}{\partial y}$; the loop on the $zx$ face gives $(\frac{\partial P}{\partial z} - 0) = \frac{\partial P}{\partial z}$).
+</p>
+<p>Now recall $dP = \frac{\partial P}{\partial x}\,dx + \frac{\partial P}{\partial y}\,dy + \frac{\partial P}{\partial z}\,dz$ (§5.1). Taking its wedge product with $dx$:
+</p>
+$$dP \wedge dx = (\frac{\partial P}{\partial x}\,dx + \frac{\partial P}{\partial y}\,dy + \frac{\partial P}{\partial z}\,dz) \wedge dx = \frac{\partial P}{\partial z}\,(dz \wedge dx) - \frac{\partial P}{\partial y}\,(dx \wedge dy)$$
+<p>(the term with $\frac{\partial P}{\partial x}$ vanishes because $dx \wedge dx = 0$)
+</p>
+<p>This <strong>agrees completely</strong> with the geometric calculation. That is, at least for a term of the form $P\,dx$:
+</p>
+$$d(P\,dx) = dP \wedge dx$$
+<p>So only the variation of the coefficient $P$ from place to place attaches to the measuring device in the $dx$ direction as a new area-measuring device.
+</p>
+<p>Comparing the geometric result with Leibniz's rule $d(P\,dx) = dP \wedge dx + P\,d(dx)$, the extra term $P\,d(dx)$ must be zero. Since $P$ is an arbitrary function, this can hold in general only if $d(dx)=0$—that is, $d(dx) = 0$ is required.
+</p>
+<p>Generalizing this observation, we arrive at the following <strong>graded Leibniz rule</strong>. $P$ is a $0$-form and $dx$ is a $1$-form; the behavior of $d$ on the “product” of a $0$-form and a $1$-form is:
+</p>
+$$d(P\,dx) = (dP) \wedge dx + P\,d(dx)$$
+<p>$dP$ is known—from §5.1, $dP = \frac{\partial P}{\partial x}\,dx + \frac{\partial P}{\partial y}\,dy + \frac{\partial P}{\partial z}\,dz$. The question is the value of $d(dx)$.
+</p>
+<p>Here, the exterior derivative of the coordinate function $x$ is $dx$ ($d(x) = dx$). The $dx$ of Cartesian coordinates is a reference measuring device whose coefficients do not change from place to place. So even if we send $dx$ itself once around an infinitesimal loop, no mismatch per unit area appears. The same holds for $dy$ and $dz$. Therefore, for the coordinate basis, we adopt the following computational rule:
+</p>
+$$d(dx) = d(dy) = d(dz) = 0$$
+<p>Then:
+</p>
+$$d(P\,dx) = (\frac{\partial P}{\partial x}\,dx + \frac{\partial P}{\partial y}\,dy + \frac{\partial P}{\partial z}\,dz) \wedge dx + P\,0$$
+<p>Using the antisymmetry of $\wedge$ ($dx \wedge dx = 0$, $dy \wedge dx = -dx \wedge dy$):
+</p>
+$$d(P\,dx) = \frac{\partial P}{\partial x}\,(dx \wedge dx) + \frac{\partial P}{\partial y}\,(dy \wedge dx) + \frac{\partial P}{\partial z}\,(dz \wedge dx) = \frac{\partial P}{\partial z}\,(dz \wedge dx) - \frac{\partial P}{\partial y}\,(dx \wedge dy)$$
+<p>Similarly:
+</p>
+$$\begin{aligned}
+d(Q\,dy) &= (\frac{\partial Q}{\partial x}\,dx + \frac{\partial Q}{\partial y}\,dy + \frac{\partial Q}{\partial z}\,dz) \wedge dy = \frac{\partial Q}{\partial x}\,(dx \wedge dy) - \frac{\partial Q}{\partial z}\,(dy \wedge dz) \\
+d(R\,dz) &= (\frac{\partial R}{\partial x}\,dx + \frac{\partial R}{\partial y}\,dy + \frac{\partial R}{\partial z}\,dz) \wedge dz = -\frac{\partial R}{\partial x}\,(dz \wedge dx) + \frac{\partial R}{\partial y}\,(dy \wedge dz)
+\end{aligned}$$
+<p>Adding the three and collecting in the order of the basis $dy \wedge dz,\; dz \wedge dx,\; dx \wedge dy$ (this cyclic order is foreshadowing for consistency with the right-handed system in the next chapter):
+</p>
+$$\begin{aligned}
+d\omega &= (-\frac{\partial Q}{\partial z} + \frac{\partial R}{\partial y})\,dy \wedge dz + (\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x})\,dz \wedge dx + (-\frac{\partial P}{\partial y} + \frac{\partial Q}{\partial x})\,dx \wedge dy \\
+&= (\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z})\,dy \wedge dz + (\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x})\,dz \wedge dx + (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,dx \wedge dy
+\end{aligned}$$
+<p>This includes the $xy$ component $(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y})$ derived geometrically in §5.3, and the $yz$ and $zx$ components follow the same cross pattern.
+</p>
+<h4 id="5.5.3-The-Pattern-of-the-Coefficients">5.5.3 The Pattern of the Coefficients</h4>
+<p>Notice how the coefficients are arranged. $(\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z},\; \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x},\; \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})$ are obtained by taking partial derivatives of $(P, Q, R)$ <strong>with respect to axes other than their own, crossing them, and taking differences</strong>. There is a cyclic symmetry:
+</p>
+$$\begin{aligned}
+dy \wedge dz &\longleftrightarrow \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z} \\
+dz \wedge dx &\longleftrightarrow \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x} \\
+dx \wedge dy &\longleftrightarrow \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}
+\end{aligned}$$
+<blockquote>
+<p><strong>Note</strong> (A guidepost for experienced readers) Readers who already know vector analysis will find these three coefficients familiar. In this book we do not rely on their names; we first build the operation $d$ itself. The correspondence will be organized in later chapters.</p>
+</blockquote>
+<blockquote>
+<p><strong>Checkpoint</strong></p>
+<p>- The exterior derivative $d\omega$ of a general $1$-form $\omega$ is a $2$-form whose coefficients are the cross differences of partial derivatives $(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z},\; \frac{\partial P}{\partial z}-\frac{\partial R}{\partial x},\; \frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y})$.</p>
+<p>- The computational rules are threefold: (1) linearity, (2) Leibniz rule $d(P\,dx) = dP \wedge dx + P\,d(dx)$, (3) $d(dx)=d(dy)=d(dz)=0$.</p>
+<p>- The result is fully consistent with the infinitesimal loop calculation of §5.3.</p>
+</blockquote>
+<hr />
+<h3 id="§5.6-Accumulate-It,-and-Only-the-Boundary-Remains-—-Stokes'-Theorem">§5.6 Accumulate It, and Only the Boundary Remains — Stokes' Theorem</h3>
+<h4 id="5.6.1-Tiling-a-Surface">5.6.1 Tiling a Surface</h4>
+<p>In §5.3 we computed $\oint \omega$ around <strong>a single</strong> infinitesimal rectangle and saw that its leading term is the product of $d\omega$ and area. What happens if we <strong>tile an entire surface</strong> with these infinitesimal rectangles and add everything up?
+</p>
+<p>Divide a surface $S$ into small coordinate patches and cut each into infinitesimal rectangles on its parameter plane (this is exactly the idea of a surface element from Chapter 3 §3.2). For each infinitesimal rectangle, the integral of $\omega$ around the boundary in the orientation matching the surface has, as its leading term, the value obtained by feeding the surface element to $d\omega$.
+</p>
+<p>Here we consider the case where the surface can be smoothly parameterized and a natural orientation is induced on the boundary as well. Reversing the orientation of the surface simultaneously reverses the direction in which the boundary is traced. Only after fixing this “pairing of surface orientation and boundary orientation” do the signs on the two sides agree.
+</p>
+<h4 id="5.6.2-Interior-Edges-Cancel">5.6.2 Interior Edges Cancel</h4>
+<p>Here is the decisive geometric observation. Focus on <strong>the edge shared by two adjacent rectangles</strong>. For the rectangle on the left, that edge is traced “upward”; for the rectangle on the right, it is traced “downward.” Because the paths run in opposite directions, the line integral of $\omega$ <strong>cancels completely</strong> on this edge.
+</p>
+<p>This cancellation occurs on <strong>every shared edge</strong> in the interior of the surface $S$. No matter how finely we partition and add, the contributions from interior edges vanish in plus-minus pairs.
+</p>
+<h4 id="5.6.3-Only-the-Boundary-Survives">5.6.3 Only the Boundary Survives</h4>
+<p>Then which edges survive without cancellation—<strong>edges for which no adjacent rectangle exists</strong>, that is, edges along the <strong>boundary $\partial S$</strong> of the surface $S$.
+</p>
+<p>In other words:
+</p>
+$$\oint_{\partial S} \omega = \iint_S d\omega$$
+<p>The left-hand side is “the line integral of $\omega$ along the one-dimensional closed curve that is the boundary of the surface”; the right-hand side is “the sum of mismatch densities from the countless infinitesimal loops tiled in the interior of the surface.” In the limit of a finer and finer partition, only the cancellation of interior edges remains, and the two sides agree.
+</p>
+<p>This is the <strong>Kelvin–Stokes theorem</strong> (also called simply Stokes' theorem).
+</p>
+<p>Writing out the components for $\omega = P\,dx + Q\,dy + R\,dz$ explicitly:
+</p>
+$$\oint_{\partial S} \bigl(P\,dx + Q\,dy + R\,dz\bigr) = \iint_S \Bigl( (\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z})\,dy \wedge dz + (\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x})\,dz \wedge dx + (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,dx \wedge dy \Bigr)$$
+<p>In the matrix language we have used since Chapter 2, the $2$-form on the right-hand side is represented by the antisymmetric matrix $\mathbf{J}^T - \mathbf{J}$, where $\mathbf{J}$ is the Jacobian matrix of the coefficient vector $(P,Q,R)$. If $\mathbf{v}_1, \mathbf{v}_2$ are the two edges of a surface element, then $(d\omega)(\mathbf{v}_1, \mathbf{v}_2) = \mathbf{v}_1^T(\mathbf{J}^T - \mathbf{J})\mathbf{v}_2$. All components are written out in Appendix B.3; consult it as needed.
+</p>
+<p>The structure of this theorem is remarkably simple. <strong>Integral measured on the global boundary</strong> $=$ <strong>accumulation of local mismatch ($d\omega$) in the interior</strong>. $d$ is the device that <strong>translates</strong> information about $\omega$ on the boundary $\partial S$ into information about $d\omega$ in the interior $S$.
+</p>
+<blockquote>
+<p><strong>Note</strong> (Assumptions used in localization) The tiling explanation here assumes a sufficiently smooth surface and field that can be divided into sufficiently fine coordinate patches. When there are cusps on the boundary, self-intersections, singular points, and the like, patch decomposition and orientation must be handled separately. In this book we treat the smooth cases ordinarily used in physics.</p>
+</blockquote>
+<blockquote>
+<p><strong>Note</strong> (Correspondence with Chapter 3) When we defined surface integrals in Chapter 3 §3.2.1, we fed $dx \wedge dy$ to the surface element $(\mathbf{r}_u\Delta u,\;\mathbf{r}_v\Delta v)$. Here too, we divide the surface into small surface elements, act with the measuring device on each element, and organize the contributions that cancel in the interior.</p>
+</blockquote>
+<blockquote>
+<p><strong>Checkpoint</strong></p>
+<p>- If we tile a surface $S$ with infinitesimal loops, interior edges cancel and only the contribution from the boundary $\partial S$ remains.</p>
+<p>- $\oint_{\partial S} \omega = \iint_S d\omega$. A global boundary integral equals an integral of the local exterior derivative.</p>
+<p>- As with surface integrals in Chapter 3, we divide the surface into small patches, act with the measuring device on each patch, and aggregate.</p>
+</blockquote>
+<hr />
+<h3 id="§5.7-The-Same-Thing-One-Degree-Higher-—-Exterior-Derivative-of-a-__MATH_BLOCK_374__-Form-and-Divergence">§5.7 The Same Thing One Degree Higher — Exterior Derivative of a $2$-Form and Divergence</h3>
+<h4 id="5.7.1-A-__MATH_BLOCK_375__-Form-Is-a-Measuring-Device-for-Surfaces">5.7.1 A $2$-Form Is a Measuring Device for Surfaces</h4>
+<p>In Chapter 3 §3.4.2 we wrote a general $2$-form in the form
+</p>
+$$\eta = A\,dy \wedge dz + B\,dz \wedge dx + C\,dx \wedge dy$$
+<p>This is a measuring device for flux through a surface. As we saw in Chapter 2 §2.4.5, the three basis $2$-forms each measure the area of the projection onto the $yz$, $zx$, and $xy$ planes, respectively.
+</p>
+<h4 id="5.7.2-Measuring-on-the-Faces-of-a-Tiny-Rectangular-Box">5.7.2 Measuring on the Faces of a Tiny Rectangular Box</h4>
+<p>In the same spirit as §5.3, we now integrate $\eta$ over <strong>all six faces</strong> of a tiny rectangular box in space, $[x, x+\Delta x] \times [y, y+\Delta y] \times [z, z+\Delta z]$. We align the orientations outward.
+</p>
+<p>For the term $C\,dx \wedge dy$, consider only the bottom and top faces perpendicular to $z$:
+</p>
+<ul>
+<li><strong>Bottom face</strong> ($z$, outward direction is $-z$): evaluate $C(x,y,z)$ with the orientation of $-dx \wedge dy$ → approximately $-C(x,y,z)\,\Delta x\,\Delta y$</li>
+<li><strong>Top face</strong> ($z+\Delta z$, outward direction is $+z$): $C(x,y,z+\Delta z) \approx C + \frac{\partial C}{\partial z}\Delta z$ → approximately $(C + \frac{\partial C}{\partial z}\Delta z)\,\Delta x\,\Delta y$</li>
+</ul>
+<p>Summing, the $C\Delta x\Delta y$ terms cancel and $\frac{\partial C}{\partial z}\,\Delta x\,\Delta y\,\Delta z$ remains. The term $A\,dy \wedge dz$ contributes $\frac{\partial A}{\partial x}\,\Delta x\,\Delta y\,\Delta z$ from the faces perpendicular to $x$, and the term $B\,dz \wedge dx$ contributes $\frac{\partial B}{\partial y}\,\Delta x\,\Delta y\,\Delta z$ from the faces perpendicular to $y$.
+</p>
+<p>The total over all six faces is:
+</p>
+$$\iint_{\partial (\text{box})} \eta \approx (\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z})\,\Delta x\,\Delta y\,\Delta z$$
+<p>Here too the structure is the same—<strong>the leading term of the mismatch measured on the surface is proportional to the enclosed volume</strong>. The proportionality constant $\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z}$ represents the "outflow per unit volume."
+</p>
+<h4 id="5.7.3-Definition-of-__MATH_BLOCK_403__-and-Algebraic-Derivation">5.7.3 Definition of $d\eta$ and Algebraic Derivation</h4>
+<p>As a $3$-form that eats the three edges $\Delta x\,\hat{e}_x,\; \Delta y\,\hat{e}_y,\; \Delta z\,\hat{e}_z$ of the box:
+</p>
+$$d\eta := (\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z})\,dx \wedge dy \wedge dz$$
+<p>This formula can also be derived from the algebraic rules of §5.5.2. First, as we did in §5.5.2, let us confirm for the term $A\,dy \wedge dz$ that the geometric result is consistent with the Leibniz rule.
+</p>
+<p>According to the geometric calculation in §5.7.2, the contribution of $A\,dy \wedge dz$ was $\frac{\partial A}{\partial x}\,\Delta x\,\Delta y\,\Delta z$. In the language of $dx \wedge dy \wedge dz$, this is $\frac{\partial A}{\partial x}\,dx \wedge dy \wedge dz$.
+</p>
+<p>On the other hand, applying the Leibniz rule to $d(A\,dy \wedge dz)$ gives:
+</p>
+$$d(A\,dy \wedge dz) = dA \wedge dy \wedge dz + A\,d(dy \wedge dz)$$
+<p>Here, as in §5.5.2, using $d(dy)=d(dz)=0$:
+</p>
+$$d(dy \wedge dz) = d(dy) \wedge dz - dy \wedge d(dz) = 0 \wedge dz - dy \wedge 0 = 0$$
+<p>so the second term vanishes and only the first remains:
+</p>
+$$dA \wedge dy \wedge dz = (\frac{\partial A}{\partial x}\,dx + \frac{\partial A}{\partial y}\,dy + \frac{\partial A}{\partial z}\,dz) \wedge dy \wedge dz$$
+<p>By antisymmetry of $\wedge$ ($dy \wedge dy = 0$, $dz \wedge dz = 0$), the terms with $\frac{\partial A}{\partial y}$ and $\frac{\partial A}{\partial z}$ vanish, leaving only $\frac{\partial A}{\partial x}\,dx \wedge dy \wedge dz$. This <strong>agrees completely</strong> with the geometric calculation in §5.7.2.
+</p>
+<p>The terms $B\,dz \wedge dx$ and $C\,dx \wedge dy$ are similar; adding the three yields:
+</p>
+$$d\eta = (\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z})\,dx \wedge dy \wedge dz$$
+<p>$d$ has accomplished the promotion $2$-form $\to$ $3$-form.
+</p>
+<h4 id="5.7.4-Gauss'-Theorem">5.7.4 Gauss' Theorem</h4>
+<p>By the same tiling argument as in §5.6—this time filling the solid $V$ with tiny rectangular boxes—internal faces cancel and only the outer surface $\partial V$ remains:
+</p>
+$$\iint_{\partial V} \eta = \iiint_V d\eta$$
+<p>This is <strong>Gauss' theorem</strong>. It has <strong>exactly the same form</strong> as Stokes' theorem, only with the dimension shifted by one. Placed side by side, the parallel is obvious: $\omega$ ($1$-form) $\to$ $d\omega$ ($2$-form) $\to$ surface $S$, $\eta$ ($2$-form) $\to$ $d\eta$ ($3$-form) $\to$ solid $V$.
+</p>
+<p>Writing out the components explicitly for $\eta = A\,dy \wedge dz + B\,dz \wedge dx + C\,dx \wedge dy$:
+</p>
+$$\iint_{\partial V} \bigl(A\,dy \wedge dz + B\,dz \wedge dx + C\,dx \wedge dy\bigr) = \iiint_V (\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z})\,dx \wedge dy \wedge dz$$
+<blockquote>
+<p><strong>Note</strong> (a guide for readers already familiar with vector calculus) Readers who already know vector analysis may recognize $\frac{\partial A}{\partial x}+\frac{\partial B}{\partial y}+\frac{\partial C}{\partial z}$. In this book we first obtain this quantity as the exterior derivative of a $2$-form, and we keep that order of presentation. The correspondence with names will be organized in a later chapter.</p>
+</blockquote>
+<blockquote>
+<p><strong>Checkpoint so far</strong></p>
+<p>- The exterior derivative $d\eta$ of a $2$-form $\eta$ is a $3$-form whose coefficient is $\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z}$.</p>
+<p>- The derivation can be done mechanically with the same algebraic rules as §5.5 (Leibniz rule $+$ $d(dx)=0$).</p>
+<p>- $\iint_{\partial V} \eta = \iiint_V d\eta$. Stokes ($1$-form $\to$ surface) and Gauss ($2$-form $\to$ solid) differ only in degree; the structure is the same.</p>
+</blockquote>
+<hr />
+<h3 id="§5.8-__MATH_BLOCK_456__-—-The-Mismatch-of-a-Mismatch-Leaves-Nothing-Behind">§5.8 $d^2 = 0$ — The Mismatch of a Mismatch Leaves Nothing Behind</h3>
+<p>Before unifying Stokes' theorem and Gauss' theorem in the next section, let us confirm one more basic structure of the exterior derivative. $d$ raises the degree by one, but applying it twice in succession leaves no new mismatch. This fact is also connected to the geometric structure we will see later: "the boundary of a boundary cancels as an oriented sum."
+</p>
+<h4 id="5.8.1-__MATH_BLOCK_458__">5.8.1 $d(df) = 0$</h4>
+<p>In §5.1 we defined $df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz$. Let us apply the exterior derivative once more. Using the formula from §5.5 with $P = \frac{\partial f}{\partial x},\; Q = \frac{\partial f}{\partial y},\; R = \frac{\partial f}{\partial z}$:
+</p>
+$$d(df) = \left(\frac{\partial^2 f}{\partial y \partial z} - \frac{\partial^2 f}{\partial z \partial y}\right) dy \wedge dz + \left(\frac{\partial^2 f}{\partial z \partial x} - \frac{\partial^2 f}{\partial x \partial z}\right) dz \wedge dx + \left(\frac{\partial^2 f}{\partial x \partial y} - \frac{\partial^2 f}{\partial y \partial x}\right) dx \wedge dy$$
+<p>By symmetry of mixed partial derivatives (if $f$ is $C^2$ (twice continuously differentiable), then $\frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x}$, etc.; see Chapter 1 §1.2), every coefficient vanishes:
+</p>
+$$d(df) = 0$$
+<blockquote>
+<p><strong>Note</strong> ($d^2=0$ in the axiomatic viewpoint and the $C^2$ condition) When we compute concretely in coordinates, we see that $d^2=0$ is inevitable from symmetry of mixed partial derivatives and antisymmetry of the wedge product. From the axiomatic standpoint of differential forms, one may instead read things the other way around: requiring $d^2=0$ (as part of the definition) means we are implicitly working with a class of functions for which symmetry of mixed partial derivatives holds ($C^2$ functions). In this book we first understand it through concrete calculation, as the mechanism that prevents contradictions in the hierarchy of physical laws.</p>
+</blockquote>
+<h4 id="5.8.2-__MATH_BLOCK_469__">5.8.2 $d(d\omega) = 0$</h4>
+<p>Apply the formula of §5.7 to the $d\omega$ of §5.5. With $A = \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z},\; B = \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x},\; C = \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}$:
+</p>
+$$d(d\omega) = \left(\frac{\partial^2 R}{\partial x \partial y} - \frac{\partial^2 Q}{\partial x \partial z} + \frac{\partial^2 P}{\partial y \partial z} - \frac{\partial^2 R}{\partial y \partial x} + \frac{\partial^2 Q}{\partial z \partial x} - \frac{\partial^2 P}{\partial z \partial y}\right) dx \wedge dy \wedge dz$$
+<p>Expanding and rearranging the expression in parentheses:
+</p>
+$$\left(\frac{\partial^2 R}{\partial x \partial y} - \frac{\partial^2 Q}{\partial x \partial z}\right) + \left(\frac{\partial^2 P}{\partial y \partial z} - \frac{\partial^2 R}{\partial y \partial x}\right) + \left(\frac{\partial^2 Q}{\partial z \partial x} - \frac{\partial^2 P}{\partial z \partial y}\right)$$
+<p>By symmetry of mixed partial derivatives ($\frac{\partial^2 R}{\partial y \partial x}=\frac{\partial^2 R}{\partial x \partial y}$, etc.), the six terms cancel in three pairs and the sum is zero:
+</p>
+$$d(d\omega) = 0$$
+<blockquote>
+<p><strong>Checkpoint so far</strong></p>
+<p>- $d^2 = 0$: applying the exterior derivative twice always gives zero. Symmetry of mixed partial derivatives and antisymmetry of the wedge produce the cancellation.</p>
+<p>- Several identities familiar to readers who already know vector calculus—"it vanishes when you differentiate twice"—will be organized in a later chapter as other expressions of this $d^2=0$.</p>
+</blockquote>
+<hr />
+<h3 id="§5.9-Unifying-the-Exterior-Derivative-—-One-Formula,-One-Rule">§5.9 Unifying the Exterior Derivative — One Formula, One Rule</h3>
+<h4 id="5.9.1-Stokes-and-Gauss-Were-the-Same-Formula">5.9.1 Stokes and Gauss Were the Same Formula</h4>
+<p>Place Stokes' theorem $\oint_{\partial S}\omega = \iint_S d\omega$ from §5.6 and Gauss' theorem $\iint_{\partial V}\eta = \iiint_V d\eta$ from §5.7 side by side. Only the number of integral signs differs—$\oint$, $\iint$, $\iiint$—yet the structure is identical. If $M$ is a curve, we write $\int$ (1-dimensional); if a surface, $\iint$ (2-dimensional); if a solid, $\iiint$ (3-dimensional)—the number of integral signs is determined only by the dimension of $M$.
+</p>
+<p>So, regardless of dimension, we write uniformly:
+</p>
+$$\int_{\partial M} \omega = \int_M d\omega$$
+<p>Here $\omega$ is a $k$-form, $M$ is a $(k+1)$-dimensional region, and $\partial M$ is its $k$-dimensional boundary. For $k=0$, with the oriented boundary $\partial M=\{B\}-\{A\}$, this is the fundamental theorem of calculus: $\int_{\partial M} f=f(B)-f(A)=\int_M df$; for $k=1$ it is Stokes' theorem; for $k=2$ it is Gauss' theorem. All fit into this single line.
+</p>
+<p>The power of this unified form stands out even more in combination with $d^2=0$ from §5.8. Replacing $\omega$ by $d\omega$ in $\int_{\partial M} \omega = \int_M d\omega$:
+</p>
+$$\int_{\partial(\partial M)} \omega = \int_{\partial M} d\omega = \int_M d(d\omega) = 0$$
+<p>That is, <strong>"the boundary of a boundary is zero as an oriented sum"</strong> ($\partial^2 M = 0$) and <strong>$d^2=0$</strong> correspond to each other. This does not mean that the second boundary is always empty as a set. For example, if we subdivide the boundary of a polygon further into boundary pieces, vertices appear—but counted with orientation, contributions from adjacent edges cancel. $d^2=0$ is the algebraic portrait of this topological cancellation.
+</p>
+<blockquote>
+<p><strong>Note</strong> (three dimensions suffice) Because the stage of this book is three-dimensional space, the dimension of $M$ is 1, 2, or 3, and $\omega$ is a $0$-form, $1$-form, or $2$-form. We do not enter $k=3$ ($M$ four-dimensional). Still, it does no harm to keep in the back of your mind that this formula holds regardless of $k$.</p>
+</blockquote>
+<h4 id="5.9.2-Exterior-Derivative-of-a-General-__MATH_BLOCK_511__-Form">5.9.2 Exterior Derivative of a General $k$-Form</h4>
+<p>Likewise, the action of $d$ collapses into one pattern regardless of degree. When an arbitrary $k$-form $\omega$ is written as a sum of coefficients $a_{i_1\cdots i_k}$ and basis elements $dx_{i_1}\wedge\cdots\wedge dx_{i_k}$:
+</p>
+$$d\omega = \sum \Bigl( \sum_j \frac{\partial a_{i_1\cdots i_k}}{\partial x_j}\,dx_j \Bigr) \wedge dx_{i_1}\wedge\cdots\wedge dx_{i_k}$$
+<p>For this book we need only the three cases $k=0,1,2$, written out concretely in §5.1 ($df$), §5.5 ($d\omega$), and §5.7 ($d\eta$). The general form above is only confirmation that "at every degree, take the total differential of the coefficients and attach with the wedge"—a single principle.
+</p>
+<h4 id="5.9.3-Summary-of-Computational-Rules">5.9.3 Summary of Computational Rules</h4>
+<p>All computations of the exterior derivative $d$ built in this chapter are summarized in the following four rules:
+</p>
+<ol>
+<li><strong>Action on a $0$-form</strong>: $df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz$ (the definition since Chapter 1 §1.2)</li>
+<li><strong>Linearity</strong>: $d(\omega_1 + \omega_2) = d\omega_1 + d\omega_2$</li>
+<li><strong>Graded Leibniz rule</strong>: $d(f\,\omega) = df \wedge \omega + f\,d\omega$</li>
+<li><strong>Exterior derivative of coordinate bases is zero</strong>: $d(dx) = d(dy) = d(dz) = 0$</li>
+</ol>
+<p>Rule 4 reflects the geometric fact that the coordinate bases $dx, dy, dz$ themselves have no coefficients that vary with position, so measuring them on a tiny loop produces no local mismatch. It is also consistent with $d^2=0$ in §5.8.
+</p>
+<p>With only these four rules, the exterior derivative of any form from $0$-form to $3$-form can be computed mechanically. In fact, every calculation treated in this chapter is nothing but a combination of these rules.
+</p>
+<blockquote>
+<p><strong>Note</strong> (commutativity with pullback—payoff of a Chapter 4 foreshadowing) As foreshadowed in Chapter 4, between pullback $\Phi^*$ and exterior derivative $d$ there holds the commutation relation</p>
+$$\Phi^*(d\omega) = d(\Phi^*\omega)$$
+<p>"differentiate then pull back" and "pull back then differentiate" give the same result. This property cannot be derived directly from the four rules above, but if we recall that $d$ is the operation that "measures local mismatch" and $\Phi^*$ is the operation that "relabels coordinates," it is natural—the structure of local mismatch does not depend on how coordinates are chosen. This fact will be an important footing when we consider differential forms on general manifolds in Chapter 11.</p>
+</blockquote>
+<blockquote>
+<p><strong>Checkpoint so far</strong></p>
+<p>- A single line $\int_{\partial M} \omega = \int_M d\omega$ unifies the fundamental theorem of calculus, Stokes' theorem, and Gauss' theorem.</p>
+<p>- Computation of $d$ is summarized in four rules ($df$, linearity, Leibniz rule, $d(dx)=0$).</p>
+<p>- $d^2=0$ and $\partial^2 M=0$ echo each other as algebraic truth and geometric truth.</p>
+</blockquote>
+<hr />
+<h3 id="§5.10-From-Integrals-to-Differential-Equations-—-Localizing-Physical-Laws">§5.10 From Integrals to Differential Equations — Localizing Physical Laws</h3>
+<h4 id="5.10.1-Turning-Integral-Laws-into-Differential-Laws">5.10.1 Turning Integral Laws into Differential Laws</h4>
+<p>Let us return to the question posed at the opening of this chapter.
+</p>
+<blockquote>
+<p><strong>How do we extract a local law from an integrated quantity?</strong></p>
+</blockquote>
+<p>The answer lies in the two tools we have developed—<strong>Stokes' theorem</strong> and the <strong>exterior derivative $d$</strong>.
+</p>
+<p>Many fundamental laws of physics are discovered first in <strong>integral form</strong>. They take the shape: a quantity measured on the boundary of a region equals the total of sources inside:
+</p>
+$$\int_{\partial M} \omega = \int_M \eta$$
+<p>The left-hand side is the integral measured on the boundary (a global observable); the right-hand side is the integral of sources in the interior (a global total). $\omega$ and $\eta$ are differential forms of the appropriate degrees.
+</p>
+<p>Apply Stokes' theorem to the left-hand side. Since $\int_{\partial M} \omega = \int_M d\omega$:
+</p>
+$$\int_M d\omega = \int_M \eta$$
+<p>Rearranging:
+</p>
+$$\int_M (d\omega - \eta) = 0$$
+<p>This is the decisive moment. If this equality holds for <strong>every smooth region $M$</strong>, including sufficiently small ones, the integrand form must vanish identically at each point. For if there were a point where $d\omega - \eta \neq 0$, the integral over a tiny region around that point would not be zero—a contradiction. Here too we are considering the case where the fields are sufficiently smooth and contain no singular concentrated sources.
+</p>
+<p>Therefore:
+</p>
+$$d\omega = \eta$$
+<p>This is the <strong>local differential law extracted from the integral law</strong>. $d$ has functioned precisely as the operator that converts an integral equation into a differential equation.
+</p>
+<p>In other words, the exterior derivative $d$ is not merely a symbol that raises the degree of a form. It is the operator that translates a law observed on the boundary into a law that holds at each point in the interior.
+</p>
+<h4 id="5.10.2-Examples-from-Physics">5.10.2 Examples from Physics</h4>
+<p>A typical instance of this pattern is the fundamental laws of electromagnetism.
+</p>
+<blockquote>
+<p><strong>Note</strong> (for readers who have not yet studied electromagnetism) In this section we are not after the detailed content of electromagnetism, but after the mechanism by which an integral law becomes a local one. Think of $E,D,B,H,J,\rho$ not so much as names of physical quantities as symbols standing for "quantities measured along a line," "quantities measured through a surface," and "quantities measured over a volume."</p>
+</blockquote>
+<blockquote>
+<p><strong>Note</strong> (for readers who learned electromagnetism through vector calculus) Here we choose the degree of each form according to the dimension of the object over which we integrate, rather than treating the fields as ordinary three-component vectors. Because $E$ and $H$ are integrated along lines, they are $1$-forms; because $D,B,J$ are integrated through surfaces, they are $2$-forms; because $\rho$ is integrated over volume, it is a $3$-form. The correspondence with the usual vector-calculus notation will be organized after we introduce the Hodge star.</p>
+</blockquote>
+<p>In electromagnetism, the object of integration depends on the kind of quantity: some are measured along lines, some through surfaces, some over volume. Schematically, we can read the situation as follows.
+</p>
+<div class="table-wrapper"><table>
+<thead><tr>
+<th>Quantity</th>
+<th>What is measured</th>
+<th>Form</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$E,H$</td>
+<td>along a line</td>
+<td>$1$-form</td>
+</tr>
+<tr>
+<td>$D,B,J$</td>
+<td>through a surface</td>
+<td>$2$-form</td>
+</tr>
+<tr>
+<td>$\rho$</td>
+<td>over a volume</td>
+<td>$3$-form</td>
+</tr>
+</tbody>
+</table></div>
+<p>For example, Gauss's law for charge takes the form
+</p>
+$$
+\int_{\partial V}D=\int_V\rho
+$$
+<p>The left-hand side is the total flux of $D$ passing outward through the closed surface $\partial V$; the right-hand side is the total charge contained in the interior $V$. By Stokes' theorem,
+</p>
+$$
+\int_{\partial V}D=\int_V dD
+$$
+<p>so
+</p>
+$$
+\int_V dD=\int_V\rho
+$$
+<p>If this holds for every region $V$, then
+</p>
+$$
+dD=\rho
+$$
+<p>Similarly, the law that the net magnetic flux through a closed surface is zero can be written
+</p>
+$$
+\int_{\partial V}B=0
+$$
+<p>By Stokes' theorem,
+</p>
+$$
+\int_V dB=0
+$$
+<p>and if this holds for every $V$, then
+</p>
+$$
+dB=0
+$$
+<p>Laws that include time variation have the same type. For a surface $S$,
+</p>
+$$
+\int_{\partial S}E
+=
+-\frac{\partial}{\partial t}\int_S B
+$$
+<p>implies
+</p>
+$$
+dE=-\frac{\partial B}{\partial t}
+$$
+<p>and
+</p>
+$$
+\int_{\partial S}H
+=
+\int_S J+\frac{\partial}{\partial t}\int_S D
+$$
+<p>implies
+</p>
+$$
+dH=J+\frac{\partial D}{\partial t}
+$$
+<p>Here $d$ is the exterior derivative in the spatial directions, and time variation is represented by $\partial/\partial t$.
+</p>
+<p>Thus the fundamental equations of electromagnetism appear, in the language of this chapter, as expressions of the same type:
+</p>
+$$
+dD=\rho,\qquad
+dB=0,\qquad
+dE=-\frac{\partial B}{\partial t},\qquad
+dH=J+\frac{\partial D}{\partial t}
+$$
+<p>What matters here is not to memorize these as new formulas of electromagnetism. The single point is that an integral law measured on the boundary passes, via the exterior derivative $d$, to a local law in the interior.
+</p>
+<p>On the other hand, relating $E$ to $D$, or $B$ to $H$, requires a convention for how space and the medium are measured. Likewise, matching quantities measured along lines to quantities measured through surfaces requires additional rules for how length, area, and volume are measured. The Hodge star, which we introduce in the next chapter, is the tool that supplies this correspondence.
+</p>
+<p>A detailed development including component formulas is deferred to Appendix C, "Integral Forms of Electromagnetism and Differential Forms."
+</p>
+<blockquote>
+<p><strong>Checkpoint so far</strong></p>
+<p>- Physical laws are often given in the form $\int_{\partial M} \omega = \int_M \eta$.</p>
+<p>- By Stokes' theorem, rewrite $\int_{\partial M} \omega = \int_M d\omega$; since the equality holds for every $M$, we obtain $d\omega = \eta$ (the local law).</p>
+<p>- This localization, however, is an argument in regions where the fields are sufficiently smooth and contain no singular concentrated sources.</p>
+<p>- $d$ is the operator that converts integral laws into differential laws.</p>
+</blockquote>
+<hr />
+<h3 id="§5.11-Outlook-Toward-Part-II-—-Foreshadowing-the-Hodge-Star">§5.11 Outlook Toward Part II — Foreshadowing the Hodge Star</h3>
+<p>In this chapter we have acquired the powerful operator called the exterior derivative $d$. $d$ maps:
+</p>
+<ul>
+<li>$0$-form $\to$ $1$-form: $df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz$</li>
+<li>$1$-form $\to$ $2$-form: $d\omega = (\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z})\,dy\wedge dz + (\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x})\,dz\wedge dx + (\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y})\,dx\wedge dy$</li>
+<li>$2$-form $\to$ $3$-form: $d\eta = (\frac{\partial A}{\partial x}+\frac{\partial B}{\partial y}+\frac{\partial C}{\partial z})\,dx\wedge dy\wedge dz$</li>
+</ul>
+<p>Each time the degree rises by one step, the coefficients rearrange in a different pattern. And $d^2=0$ guarantees that no contradiction can slip in among these levels.
+</p>
+<p>Yet one asymmetry stands out. A $0$-form and a $3$-form each have 1 independent component; a $1$-form and a $2$-form each have 3—symmetry in the pattern $1, 3, 3, 1$ (as we saw in Chapter 2 §2.5.9–§2.5.10). This symmetry is no accident. In three-dimensional space with Cartesian coordinates, once we add rules for measuring length, area, and volume, a "dictionary" appears that links forms of the same information content.
+</p>
+<p>That dictionary is the <strong>Hodge star</strong> $\ast$, which we introduce in the next chapter. But $\ast$ is not a mere relabeling of symbols. It depends on which direction corresponds to which face, how area and volume are measured, and how orientation is fixed. For that reason we do not yet use concrete correspondence formulas in this chapter.
+</p>
+<p>What we have built so far is, after all, only $d$. $d$ raises the degree by one, extracts local mismatch, and converts integral laws into local laws. Yet $d$ alone cannot yet reconstruct the familiar operations of vector analysis. To match $1$-forms with $2$-forms, we need the additional rules for how length, area, and volume are measured in space—the <strong>metric</strong>.
+</p>
+<p>In the next chapter we define those rules of "measurement" as the Hodge star $\ast$. To the $d$ constructed in Chapter 5 we add $\ast$ in Chapter 6, and use the two together to rebuild the familiar operations of vector analysis in later chapters. From here we move into the core of Part II—unmasking div, grad, and curl.
+</p>
+<hr />
+<blockquote>
+<p><strong>Checkpoint so far — Chapter 5</strong></p>
+<p>- The exterior derivative $d$ is the operator that maps a $k$-form to a $(k+1)$-form: $0$-form $\to$ $1$-form ($df$), $1$-form $\to$ $2$-form, $2$-form $\to$ $3$-form.</p>
+<p>- There are four computational rules: the definition of $df$, linearity, the Leibniz rule $d(f\omega) = df\wedge\omega + f\,d\omega$, and $d(dx)=d(dy)=d(dz)=0$.</p>
+<p>- The geometric origin is §5.3's dissection of a tiny loop: the mismatch around a closed loop scales with area, and the proportionality constant is $d\omega$.</p>
+<p>- Stokes' theorem $\int_{\partial M} \omega = \int_M d\omega$ is the universal bridge linking boundary and interior.</p>
+<p>- $d^2 = 0$ comes from the symmetry of mixed partial derivatives and the antisymmetry of the wedge product; geometrically it corresponds to "the boundary of a boundary is zero as an oriented sum."</p>
+<p>- $d$ is the operator that converts integral laws into local differential laws—an indispensable role in the formulation of physics.</p>
+<p>- In the next chapter we add rules for measuring length, area, and volume, and organize the correspondence between $d$ and the operations of vector analysis through the Hodge star $\ast$.</p>
+</blockquote>
+<hr />
+<h2 id="Appendix-B:-Matrix-Representation-of-the-Exterior-Derivative">Appendix B: Matrix Representation of the Exterior Derivative</h2>
+<p>The main text of this chapter proceeded with the basis $dx, dy, dz$ and the algebra of the wedge product. Here we rewrite the exterior derivative in the language of matrix representations, following the book's convention since Chapter 2 — <strong>arranging every component without exception into matrices</strong>.
+</p>
+<h3 id="B.1-__MATH_BLOCK_634__-form:-the-__MATH_BLOCK_635__-row-vector-of-__MATH_BLOCK_636__">B.1 $0$-form: the $1 \times 3$ row vector of $df$</h3>
+<p>For $f = f(x,y,z)$, as defined in Chapter 1 §1.2:
+</p>
+$$df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz$$
+<p>As a row vector ($1 \times 3$ matrix):
+</p>
+$$df = \begin{pmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & \frac{\partial f}{\partial z} \end{pmatrix}$$
+<h3 id="B.2-__MATH_BLOCK_639__-form:-the-Jacobian-matrix-__MATH_BLOCK_640__-of-the-coefficients">B.2 $1$-form: the Jacobian matrix $\mathbf{J}$ of the coefficients</h3>
+<p>For $\omega = P\,dx + Q\,dy + R\,dz$, the $3 \times 3$ matrix that arranges <strong>all</strong> partial derivatives of the coefficients $(P,Q,R)$ is:
+</p>
+$$\mathbf{J} := \begin{pmatrix}
+\frac{\partial P}{\partial x} & \frac{\partial P}{\partial y} & \frac{\partial P}{\partial z} \\
+\frac{\partial Q}{\partial x} & \frac{\partial Q}{\partial y} & \frac{\partial Q}{\partial z} \\
+\frac{\partial R}{\partial x} & \frac{\partial R}{\partial y} & \frac{\partial R}{\partial z}
+\end{pmatrix}$$
+<p>This is the Jacobian matrix of the vector field obtained by stacking $(P,Q,R)$ as a column. The reason §5.1 said that "a mere matrix of partial derivatives is not enough" is precisely that this $\mathbf{J}$ is not antisymmetric.
+</p>
+<h3 id="B.3-__MATH_BLOCK_646__">B.3 $d\omega = \mathbf{J}^T - \mathbf{J}$</h3>
+<p>The result of §5.5 is:
+</p>
+$$d\omega = (\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z})\,dy \wedge dz + (\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x})\,dz \wedge dx + (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\,dx \wedge dy$$
+<p>Following the convention of Chapter 2 §2.4.4, we seek the antisymmetric matrix $\mathbf{M}$ such that $(d\omega)(\mathbf{v}_1, \mathbf{v}_2) = \mathbf{v}_1^T \mathbf{M} \mathbf{v}_2$ for arbitrary column vectors $\mathbf{v}_1, \mathbf{v}_2$.
+</p>
+<p>Writing out the entries of $\mathbf{J}^T - \mathbf{J}$:
+</p>
+$$\mathbf{J}^T - \mathbf{J} = \begin{pmatrix}
+0 & \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} & \frac{\partial R}{\partial x} - \frac{\partial P}{\partial z} \\
+\frac{\partial P}{\partial y} - \frac{\partial Q}{\partial x} & 0 & \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z} \\
+\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x} & \frac{\partial Q}{\partial z} - \frac{\partial R}{\partial y} & 0
+\end{pmatrix}$$
+<p>With the Chapter 2 convention for representing a $2$-form by an antisymmetric matrix, this gives:
+</p>
+$$d\omega = \mathbf{J}^T - \mathbf{J}$$
+<p>Thus, <strong>the matrix representation of the exterior derivative $d\omega$ is the antisymmetric matrix obtained by subtracting the Jacobian matrix of the coefficients from its transpose.</strong>
+</p>
+<h3 id="B.4-__MATH_BLOCK_653__-form:-__MATH_BLOCK_654__-and-the-trace-of-the-Jacobian-matrix">B.4 $2$-form: $d\eta$ and the trace of the Jacobian matrix</h3>
+<p>For $\eta = A\,dy \wedge dz + B\,dz \wedge dx + C\,dx \wedge dy$, let the Jacobian matrix of the coefficients $(A,B,C)$ be:
+</p>
+$$\mathbf{J}_\eta := \begin{pmatrix}
+\frac{\partial A}{\partial x} & \frac{\partial A}{\partial y} & \frac{\partial A}{\partial z} \\
+\frac{\partial B}{\partial x} & \frac{\partial B}{\partial y} & \frac{\partial B}{\partial z} \\
+\frac{\partial C}{\partial x} & \frac{\partial C}{\partial y} & \frac{\partial C}{\partial z}
+\end{pmatrix}$$
+<p>Then the coefficient in the result of §5.7, $d\eta = (\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z})\,dx \wedge dy \wedge dz$, agrees with the <strong>trace</strong> (sum of diagonal entries) of $\mathbf{J}_\eta$:
+</p>
+$$\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z} = \operatorname{tr}(\mathbf{J}_\eta)$$
+<h4 id="B.4.1-The-27-components-of-__MATH_BLOCK_659__-—-expanded-into-three-matrices">B.4.1 The 27 components of $d\eta$ — expanded into three matrices</h4>
+<p>The antisymmetric components of $\eta$ are $\eta_{yz}=A,\; \eta_{zx}=B,\; \eta_{xy}=C$ (the others are sign reversals or $0$). To see where all entries go, first arrange the raw derivative components $\partial_a\eta_{bc}$, where $\partial_x=\frac{\partial}{\partial x}$, $\partial_y=\frac{\partial}{\partial y}$, $\partial_z=\frac{\partial}{\partial z}$, and $a,b,c\in\{x,y,z\}$, so there are $3^3=27$ entries before antisymmetrization. Arranging them into three $3 \times 3$ matrices with $a$ fixed gives:
+</p>
+$$
+\begin{aligned}
+d\eta_{x,\cdot,\cdot}
+&= \begin{pmatrix}
+0 & \frac{\partial C}{\partial x} & -\frac{\partial B}{\partial x} \\
+-\frac{\partial C}{\partial x} & 0 & \frac{\partial A}{\partial x} \\
+\frac{\partial B}{\partial x} & -\frac{\partial A}{\partial x} & 0
+\end{pmatrix}, \\
+d\eta_{y,\cdot,\cdot}
+&= \begin{pmatrix}
+0 & \frac{\partial C}{\partial y} & -\frac{\partial B}{\partial y} \\
+-\frac{\partial C}{\partial y} & 0 & \frac{\partial A}{\partial y} \\
+\frac{\partial B}{\partial y} & -\frac{\partial A}{\partial y} & 0
+\end{pmatrix}, \\
+d\eta_{z,\cdot,\cdot}
+&= \begin{pmatrix}
+0 & \frac{\partial C}{\partial z} & -\frac{\partial B}{\partial z} \\
+-\frac{\partial C}{\partial z} & 0 & \frac{\partial A}{\partial z} \\
+\frac{\partial B}{\partial z} & -\frac{\partial A}{\partial z} & 0
+\end{pmatrix}
+\end{aligned}
+$$
+<p>When these $27$ components are contracted with the corresponding basis wedge products of $1$-forms (for example, if $a=x,\;b=y,\;c=z$, then $dx \wedge dy \wedge dz$), terms with repeated indices (diagonal entries, $b=c$, and so on) vanish because $dx \wedge dx = 0$, and only the $6$ terms with all of $a,b,c$ distinct (permutations of $3!$) survive. Each is summed with its sign. The factor convention is the same as in Chapter 2 §2.4.4: the matrix stores each antisymmetric pair twice, while the form stores it once. With that convention, the six surviving signed terms combine to
+</p>
+$$d\eta = \left( \frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z} \right) dx \wedge dy \wedge dz$$
+<p>In other words, of the $27$ components of $d\eta$, $6$ survive and pair up and combine into the trace of $\mathbf{J}_\eta$.
+</p>
+<p>A $3$-form has only the single basis element $dx \wedge dy \wedge dz$, so in this representation it reduces to a scalar coefficient.
+</p>
+<h3 id="B.5-__MATH_BLOCK_686__-and-the-Hessian">B.5 $d^2 f = 0$ and the Hessian</h3>
+<p>The Hessian of a $0$-form $f$:
+</p>
+$$\mathbf{H}_f := \begin{pmatrix}
+\frac{\partial^2 f}{\partial x^2} & \frac{\partial^2 f}{\partial x \partial y} & \frac{\partial^2 f}{\partial x \partial z} \\
+\frac{\partial^2 f}{\partial y \partial x} & \frac{\partial^2 f}{\partial y^2} & \frac{\partial^2 f}{\partial y \partial z} \\
+\frac{\partial^2 f}{\partial z \partial x} & \frac{\partial^2 f}{\partial z \partial y} & \frac{\partial^2 f}{\partial z^2}
+\end{pmatrix}$$
+<p>arranges the second partial derivatives of $f$. If $f$ is $C^2$, then $\mathbf{H}_f$ is a symmetric matrix ($\frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x}$, and so on).
+</p>
+<p>$d(df) = 0$ is the §5.5 formula for $d\omega$ with $(P,Q,R) = (\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z})$. We have $\mathbf{J} = \mathbf{H}_f$, and because $\mathbf{H}_f$ is symmetric, $\mathbf{J}^T - \mathbf{J} = 0$; hence $d(df) = 0$. In the language of matrices, this is rephrased as "the antisymmetric part of the Hessian is zero."
+</p>
+<h2 id="Appendix-C:-Integral-Forms-of-Electromagnetism-and-Differential-Forms">Appendix C: Integral Forms of Electromagnetism and Differential Forms</h2>
+<p>This appendix verifies, in component form, the passage from the integral forms of the four fundamental equations of electromagnetism to their local forms. What we use here are the exterior derivative $d$ and the degree of a differential form. The metric of space does not appear in this localization itself.
+</p>
+<h3 id="C.1-Degrees-of-physical-quantities">C.1 Degrees of physical quantities</h3>
+<p>Quantities measured along a line are placed as $1$-forms, quantities measured through a surface as $2$-forms, and quantities measured over a volume as $3$-forms. In components:
+</p>
+$$
+E = E_x\,dx+E_y\,dy+E_z\,dz,
+\qquad
+H = H_x\,dx+H_y\,dy+H_z\,dz
+$$
+$$D = D_x\,dy\wedge dz + D_y\,dz\wedge dx + D_z\,dx\wedge dy$$
+$$B = B_x\,dy\wedge dz + B_y\,dz\wedge dx + B_z\,dx\wedge dy$$
+$$J = J_x\,dy\wedge dz + J_y\,dz\wedge dx + J_z\,dx\wedge dy$$
+$$
+\rho = \rho\,dx\wedge dy\wedge dz
+$$
+<p>To keep the notation simple, we write both the coefficient representing charge density and the $3$-form obtained by multiplying it by the volume form with the same symbol $\rho$.
+</p>
+<p>$E$ and $H$ are $1$-forms measured along a line; $D$, $B$, and $J$ are $2$-forms measured through a surface; $\rho$ is a $3$-form measured over a volume.
+</p>
+<h3 id="C.2-Gauss's-law-for-charge">C.2 Gauss's law for charge</h3>
+<p>The integral form is:
+</p>
+$$
+\int_{\partial V}D=\int_V\rho
+$$
+<p>Applying the generalized Stokes' theorem to the left-hand side:
+</p>
+$$
+\int_{\partial V}D=\int_V dD
+$$
+<p>Therefore, if
+</p>
+$$
+\int_V dD=\int_V\rho
+$$
+<p>holds for every region $V$, the local form is:
+</p>
+$$
+dD=\rho
+$$
+<p>Expanding in components:
+</p>
+$$
+dD
+=
+\left(\frac{\partial D_x}{\partial x}
+{}+\frac{\partial D_y}{\partial y}
+{}+\frac{\partial D_z}{\partial z}\right)
+dx\wedge dy\wedge dz
+$$
+<p>Hence:
+</p>
+$$
+\frac{\partial D_x}{\partial x}
+{}+\frac{\partial D_y}{\partial y}
+{}+\frac{\partial D_z}{\partial z}
+=\rho
+$$
+<h3 id="C.3-The-law-of-magnetic-flux">C.3 The law of magnetic flux</h3>
+<p>The integral form stating that the net magnetic flux through a closed surface is zero is:
+</p>
+$$
+\int_{\partial V}B=0
+$$
+<p>By the generalized Stokes' theorem:
+</p>
+$$
+\int_V dB=0
+$$
+<p>If this holds for every region $V$, the local form is:
+</p>
+$$
+dB=0
+$$
+<p>Expanding in components:
+</p>
+$$
+dB
+=
+\left(\frac{\partial B_x}{\partial x}
+{}+\frac{\partial B_y}{\partial y}
+{}+\frac{\partial B_z}{\partial z}\right)
+dx\wedge dy\wedge dz
+$$
+<p>Therefore:
+</p>
+$$
+\frac{\partial B_x}{\partial x}
+{}+\frac{\partial B_y}{\partial y}
+{}+\frac{\partial B_z}{\partial z}
+=0
+$$
+<h3 id="C.4-Faraday's-law">C.4 Faraday's law</h3>
+<p>The integral form is:
+</p>
+$$
+\int_{\partial S}E
+=
+-\frac{\partial}{\partial t}\int_S B
+$$
+<p>Applying the generalized Stokes' theorem to the left-hand side:
+</p>
+$$
+\int_S dE
+=
+-\frac{\partial}{\partial t}\int_S B
+$$
+<p>If this holds for every surface $S$, the local form is:
+</p>
+$$
+dE=-\frac{\partial B}{\partial t}
+$$
+<p>Expanding in components:
+</p>
+$$dE = \left(\frac{\partial E_z}{\partial y}-\frac{\partial E_y}{\partial z}\right)dy\wedge dz + \left(\frac{\partial E_x}{\partial z}-\frac{\partial E_z}{\partial x}\right)dz\wedge dx + \left(\frac{\partial E_y}{\partial x}-\frac{\partial E_x}{\partial y}\right)dx\wedge dy$$
+<p>On the other hand,
+</p>
+$$
+-\frac{\partial B}{\partial t}
+=
+-\frac{\partial B_x}{\partial t}\,dy\wedge dz
+-\frac{\partial B_y}{\partial t}\,dz\wedge dx
+-\frac{\partial B_z}{\partial t}\,dx\wedge dy
+$$
+<p>so the components are:
+</p>
+$$
+\frac{\partial E_z}{\partial y}
+-
+\frac{\partial E_y}{\partial z}
+=
+-\frac{\partial B_x}{\partial t}
+$$
+$$
+\frac{\partial E_x}{\partial z}
+-
+\frac{\partial E_z}{\partial x}
+=
+-\frac{\partial B_y}{\partial t}
+$$
+$$
+\frac{\partial E_y}{\partial x}
+-
+\frac{\partial E_x}{\partial y}
+=
+-\frac{\partial B_z}{\partial t}
+$$
+<h3 id="C.5-Ampère–Maxwell's-law">C.5 Ampère–Maxwell's law</h3>
+<p>The integral form is:
+</p>
+$$
+\int_{\partial S}H
+=
+\int_S J+\frac{\partial}{\partial t}\int_S D
+$$
+<p>Applying the generalized Stokes' theorem to the left-hand side:
+</p>
+$$
+\int_S dH
+=
+\int_S J+\frac{\partial}{\partial t}\int_S D
+$$
+<p>If this holds for every surface $S$, the local form is:
+</p>
+$$
+dH=J+\frac{\partial D}{\partial t}
+$$
+<p>Expanding in components:
+</p>
+$$dH = \left(\frac{\partial H_z}{\partial y}-\frac{\partial H_y}{\partial z}\right)dy\wedge dz + \left(\frac{\partial H_x}{\partial z}-\frac{\partial H_z}{\partial x}\right)dz\wedge dx + \left(\frac{\partial H_y}{\partial x}-\frac{\partial H_x}{\partial y}\right)dx\wedge dy$$
+<p>Also,
+</p>
+$$J+\frac{\partial D}{\partial t} = \left(J_x+\frac{\partial D_x}{\partial t}\right)dy\wedge dz + \left(J_y+\frac{\partial D_y}{\partial t}\right)dz\wedge dx + \left(J_z+\frac{\partial D_z}{\partial t}\right)dx\wedge dy$$
+<p>so the components are:
+</p>
+$$
+\frac{\partial H_z}{\partial y}
+-
+\frac{\partial H_y}{\partial z}
+=
+J_x+\frac{\partial D_x}{\partial t}
+$$
+$$
+\frac{\partial H_x}{\partial z}
+-
+\frac{\partial H_z}{\partial x}
+=
+J_y+\frac{\partial D_y}{\partial t}
+$$
+$$
+\frac{\partial H_y}{\partial x}
+-
+\frac{\partial H_x}{\partial y}
+=
+J_z+\frac{\partial D_z}{\partial t}
+$$
+<h3 id="C.6-Where-a-metric-is-needed">C.6 Where a metric is needed</h3>
+<p>The four local forms above can be written using only the exterior derivative $d$ and the degree of differential forms. At this stage, no metric for measuring lengths or angles is used.
+</p>
+<p>A metric becomes necessary when relating $E$ to $D$ and $B$ to $H$. It is also needed when pairing $1$-forms with $2$-forms so that the usual three-component fields can be treated as objects of the same kind.
+</p>
+<p>The Hodge star, introduced in the next chapter, is the tool that provides this correspondence.
+</p>
+      <div class="nav-buttons">
+        <a href="ch04.html">← Chapter 4...</a>
+        <a href="ch06.html">Chapter 6... →</a>
+      </div>
+    </article>
+    <footer class="site-footer">
+      <p>&copy; 2026 yokiikoy. CC BY-NC 4.0.</p>
+    </footer>
+  </main>
+</body>
+</html>

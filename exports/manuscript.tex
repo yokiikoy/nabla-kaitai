@@ -82,16 +82,16 @@
 \vspace*{20mm}
 {\fontsize{34}{42}\selectfont\bfseries ナブラ解体新書\par}
 \vspace{7mm}
-{\Large 行列表示の微分形式による\par}
-{\Large ベクトル解析の抜け道\par}
+{\Large 行列表示の微分形式による\par}{\Large ベクトル解析の抜け道\par}
 \vspace{0mm}
-{\normalsize v1.0.0\par}
+{\normalsize v1.0.1\par}
 \vspace{1mm}
 \begin{minipage}{0.78\textwidth}
 \centering
 \small
 \begin{tabular}{|l|p{0.6\textwidth}|}\hline
 \multicolumn{2}{|c|}{\textbf{Versioning Policy}}\\ \hline
+\textbf{v1.0.1} & 英語版初公開（ch00--ch12 + 後付け）・軽微な修正\\ \hline
 \textbf{v1.0.0} & 全12章の内容確定・相互参照の整合性完了・手計算による検算完了\\ \hline
 \textbf{v2.0.0} & 図表の作成と配置完了・組版完了・印刷用データの出力\\ \hline
 v0.x.0         & 章の追加・章構成の変更・大幅な書き直し\\ \hline
@@ -99,15 +99,15 @@ v0.0.x         & 注釈の追加・誤字修正・軽微な推敲\\ \hline
 \end{tabular}\par\bigskip
 \begin{tabular}{|p{\dimexpr\textwidth-2\tabcolsep-2\arrayrulewidth\relax}|}\hline
 \multicolumn{1}{|c|}{\textbf{直近の改定履歴}}\\ \hline
-{\small 6df80ce (2026-05-22)  Fix PDF rendering of nested section headings (\#135)}\\ \hline
-{\small e2a0b99 (2026-05-22)  Fix HTML blockquote math and ch02 scalar tone (\#133)}\\ \hline
-{\small dc03f7b (2026-05-22)  Merge pull request \#130 from yokiikoy/release/v1.0.0}\\ \hline
+{\small 114c741 (2026-05-23)  Merge pull request \#179 from yokiikoy/fix/ch02-typo-176}\\ \hline
+{\small f8d6eb4 (2026-05-23)  Merge pull request \#175 from yokiikoy/ai/english-translation-backmatter}\\ \hline
+{\small bb981f5 (2026-05-23)  Apply backmatter close-reading polish (\#191).}\\ \hline
 \end{tabular}
 \end{minipage}\par
 \vfill
 {\includegraphics[height=0.28\textheight]{exports/icons/nabla_icon_inflate_65.png}\par}
 \vfill
-{\footnotesize 2026-05-22 11:29 JST --- 著者：yokiikoy\par}
+{\footnotesize 2026-05-23 14:30 JST --- 著者：yokiikoy\par}
 \restoregeometry
 \end{titlepage}
 \frontmatter
@@ -258,6 +258,13 @@ dx=\begin{pmatrix}1&0&0\end{pmatrix}
 \subsection{ポータルサイト}\label{ux30ddux30fcux30bfux30ebux30b5ux30a4ux30c8}}
 
 \url{https://covectorspace.xyz/jp/}
+
+\hypertarget{github-pagesux65e5ux672cux8a9e}{%
+\subsection{GitHub
+Pages（日本語）}\label{github-pagesux65e5ux672cux8a9e}}
+
+\url{https://yokiikoy.github.io/nabla-kaitai/} ·
+\href{https://yokiikoy.github.io/nabla-kaitai/en/}{English edition}
 
 本書は無料で公開しています。明らかな誤植レベルの指摘は GitHub Issues
 でも受け付けます。
@@ -3860,8 +3867,10 @@ dx(\gamma'(t)) = -R\sin t,\qquad dy(\gamma'(t)) = R\cos t
 \[\iiint_V \Omega\]
 
 と書く。\(\rho=1\) なら §3.1 の係数1の場合に戻る。\(\rho\)
-が質量密度なら総質量、電荷密度なら総電荷を与える。\(3\)-form
-の独立成分は \(dx \wedge dy \wedge dz\)
+が質量密度なら総質量、電荷密度なら総電荷を与える（第9章
+§9.5・第10章以降では、球座標の動径 \(\rho\) との混同を避け、電荷密度を
+\(\rho_{\mathrm e}\) と書く）。\(3\)-form の独立成分は
+\(dx \wedge dy \wedge dz\)
 の1つだけなので、\textbf{「密度（$\rho$）」と「体積の測り方（$dx \wedge dy \wedge dz$）」がきれいに分離}して見通しがよい。
 
 \hypertarget{ux7ddaux9762ux4f53ux306eux7d71ux4e00ux50cf}{%
@@ -6128,7 +6137,9 @@ dx \wedge dy &\longleftrightarrow \frac{\partial Q}{\partial x} - \frac{\partial
 は線に沿って積分されるので \(1\)-form、\(D,B,J\)
 は面を貫いて積分されるので \(2\)-form、\(\rho\)
 は体積にわたって積分されるので \(3\)-form
-として扱う。通常のベクトル解析記法との対応は、ホッジ・スターを導入した後で整理する。
+として扱う。通常のベクトル解析記法との対応は、ホッジ・スターを導入した後で整理する。第9章
+§9.5・第10章以降では、球座標の動径 \(\rho\) と混同しないよう、電荷密度を
+\(\rho_{\mathrm e}\) と書く。
 \end{quote}
 
 電磁気では、量の種類によって積分する対象が異なる。線に沿って測る量、面を貫いて測る量、体積にわたって測る量がある。そこで模式的に、次のように読むことができる。
@@ -6530,7 +6541,9 @@ H = H_x\,dx+H_y\,dy+H_z\,dz
 \]
 
 ここでは記号を簡単にするため、電荷密度を表す係数と、それを体積形式に乗せた
-\(3\)-form の両方を同じ \(\rho\) で書いている。
+\(3\)-form の両方を同じ \(\rho\) で書いている。第9章
+§9.5・第10章以降では動径座標 \(\rho\) との混同を避けるため、電荷密度を
+\(\rho_{\mathrm e}\) と表記する。
 
 \(E,H\) は線に沿って測る \(1\)-form、\(D,B,J\) は面を貫いて測る
 \(2\)-form、\(\rho\) は体積にわたって測る \(3\)-form である。
@@ -13131,16 +13144,16 @@ D^2 &= \sigma_1\sigma_1\,\frac{\partial^2}{\partial x^2} + \sigma_1\sigma_2\,\fr
 \]
 
 これらをゼロとおけば、真空のマクスウェル方程式4本がすべて現れる。電流
-\(\mathbf{J}\) と電荷 \(\rho\)
+\(\mathbf{J}\) と電荷密度 \(\rho_{\mathrm e}\)
 がある場合は、第10章と同じ正規化のもとで右辺を
-\(\rho/\epsilon_0 - \mu_0 c \mathbf{J}\!\cdot\!\bm{\sigma}\)
+\(\rho_{\mathrm e}/\varepsilon_0 - \mu_0 c \mathbf{J}\!\cdot\!\bm{\sigma}\)
 と置けば、源のあるマクスウェル方程式が一行にまとまる。
 
-\[(D + \frac{\partial}{\partial t})F = \frac{\rho}{\varepsilon_0} - \mu_0 c \mathbf{J}\!\cdot\!\bm{\sigma}\]
+\[(D + \frac{\partial}{\partial t})F = \frac{\rho_{\mathrm e}}{\varepsilon_0} - \mu_0 c \mathbf{J}\!\cdot\!\bm{\sigma}\]
 
 \begin{quote}
 \textbf{注} （第12章での正規化と符号） ここでの
-\(t, \mathbf{B}, \rho, \mathbf{J}\) は第10章 §10.1–10.5
+\(t, \mathbf{B}, \rho_{\mathrm e}, \mathbf{J}\) は第10章 §10.1–10.5
 と同様に正規化された量である。右辺の源の係数と符号は、第10章の
 \(d(\ast F) = \mu_0(\ast\mathcal{J})\)
 の展開結果と整合するように選ばれている。
@@ -13156,7 +13169,7 @@ D^2 &= \sigma_1\sigma_1\,\frac{\partial^2}{\partial x^2} + \sigma_1\sigma_2\,\fr
 4次元時空のディラック演算子}{12.3.4 \textbackslash cancel\{\textbackslash partial\} F = J —— 4次元時空のディラック演算子}}\label{cancelpartial-f-j-4ux6b21ux5143ux6642ux7a7aux306eux30c7ux30a3ux30e9ux30c3ux30afux6f14ux7b97ux5b50}}
 
 §12.3.3 の
-\((D + \frac{\partial}{\partial t})F = \rho + \mathbf{J}\!\cdot\!\bm{\sigma}\)
+\((D + \frac{\partial}{\partial t})F = \rho_{\mathrm e}/\varepsilon_0 - \mu_0 c \mathbf{J}\!\cdot\!\bm{\sigma}\)
 には、時間と空間が分離して現れている。これは3次元のパウリ行列
 \(\sigma_1,\sigma_2,\sigma_3\)
 をベースに組み立てたからだ。4次元時空を最初から扱えば、この分離すら消える。
