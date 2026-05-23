@@ -323,6 +323,7 @@ Per-section Pass status:
 | `translation/reviews/backmatter-pass1-review.md` | complete |
 | `translation/reviews/backmatter-pass2.md` | complete |
 | `translation/reviews/backmatter-pass3.md` | complete |
+| `translation/reviews/backmatter-close-reading-polish.md` | complete (#191) |
 
 **English edition body complete (ch00–ch12 + back matter).**
 

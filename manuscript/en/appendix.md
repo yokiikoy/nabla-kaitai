@@ -10,13 +10,13 @@ This book is not an axiomatic development of differential forms on general manif
 > If I wrote that plainly, readers I genuinely want to support might get scared and run away. So on the surface I gave it a gentle name.
 
 > <strong>Note</strong> ("I" am angry)
-> When I was young, I published a series of SNS posts pointing in the same direction as this book and was harshly criticized by people who presented themselves as knowledgeable about mathematics, including people with institutional standing. Of course, the drafts of that time had many immature points. Even after ten years I still write in this vein——that was surely a post with "momentum." But what I received then was less criticism that read the definitions, checked the scope, and showed how to fix things, and more an attitude of judging an unfinished attempt from a professional position.
+> When I was young, I published a series of SNS posts pointing in the same direction as this book and was harshly criticized by people who presented themselves as knowledgeable about mathematics, including people with institutional standing. Of course, the drafts of that time had many immature points. Even after ten years I still write in this vein—that was surely a post with "momentum." But what I received then was less criticism that read the definitions, checked the scope, and showed how to fix things, and more an attitude of judging an unfinished attempt from a professional position.
 >
 > That was perhaps a kind of inevitability produced by the engagement structure of SNS and crowd psychology. Publishing writing for free costs more than one imagines; I learned that firsthand.
 >
 > Even having understood that structure, I am still angry. An attitude that claims rigor while refusing to read what the other person defined and the scope in which they are speaking is, at least in my view, not a mathematical attitude.
 >
-> Even so, I decided to publish this book for free. In a sense it is also a private act of compensation. On top of that——sorry, this too is a bit of official rhetoric——to protect the readers this book is really for, or rather to protect my own self-respect, I have drawn preventive lines as carefully as I can.
+> Even so, I decided to publish this book for free. In a sense it is also a private act of compensation. On top of that—sorry, this too is a bit of official rhetoric—to protect the readers this book is really for, or rather to protect my own self-respect, I have drawn preventive lines as carefully as I can.
 >
 > If a definition in this book looks different from a mathematician's textbook, I want you first to read the definition inside this book. Then please distinguish whether there is a real contradiction or whether someone has simply imported notation from a different context. After that, by all means criticize me harshly again. Having read the definitions, I want you to point out my mistakes.
 
@@ -25,7 +25,7 @@ This book is not an axiomatic development of differential forms on general manif
 >
 > If I put that into words it looks like an excuse; if I stay silent it will be misunderstood. Worse, I half believe such criticism myself, so I cannot speak about it well.
 >
-> Even so, a shortcut is not necessarily bad. A shortcut does not replace a professional system, nor is it merely subordinate to one. It can be a powerful language for treating three-dimensional physical mathematics in the tangible words of matrix representation——at least a system of operations on concrete symbols.
+> Even so, a shortcut is not necessarily bad. A shortcut does not replace a professional system, nor is it merely subordinate to one. It can be a powerful language for treating three-dimensional physical mathematics in the tangible words of matrix representation—at least a system of operations on concrete symbols.
 >
 > Once again, the first purpose of this book is my own act of compensation. Even so, if a reader takes home one language they can move with their hands, that is an unexpected bonus.
 
@@ -46,13 +46,13 @@ This book is not an axiomatic development of differential forms on general manif
   → An intentional choice. Defined in Chapter 1 §1.1 and used consistently throughout. The aim is to translate the abstract idea "1-form = function that eats vectors" into "matrix multiplication" that the reader already knows. Correspondence with standard differential-form notation is shown in Chapter 11.
 
 - <strong>The exterior derivative $d$ should be defined generally from axioms (Leibniz rule, $d^2=0$)</strong>
-  → This book does not start from axioms; in Chapter 5 §5.3 it discovery-style derives $d$ from the physical intuition of "mismatch when traversing an infinitesimal loop." $d^2=0$ is understood in Chapter 5 §8.8 as a consequence of symmetry of mixed partial derivatives. The axiomatic definition is supplemented in Chapter 11.
+  → This book does not start from axioms; in Chapter 5 §5.3 it discovery-style derives $d$ from the physical intuition of "mismatch when traversing an infinitesimal loop." $d^2=0$ is understood in Chapter 5 §5.8 as a consequence of symmetry of mixed partial derivatives. The axiomatic definition is supplemented in Chapter 11.
 
 - <strong>A complete proof of Stokes' theorem on general $n$-dimensional manifolds is not given</strong>
   → This book derives the concrete cases in three-dimensional Euclidean space (Gauss, Stokes, Green) directly from the definition of integration (Chapters 5 and 8). Proof of Stokes' theorem in general dimension is outside the book's scope; Chapter 11 gives signposts only.
 
 - <strong>The axiomatic approach via universal properties of exterior algebra is not used in defining the wedge product</strong>
-  → In §2.4 this book builds the wedge product as antisymmetrization of the tensor product. That is the most concrete practice of the axiomatic approach, chosen so the reader can work by hand with matrix subtraction. Definition via universal properties is introduced in Chapter 11.
+  → In §2.4 this book builds the wedge product as antisymmetrization of the tensor product. That is a concrete entry point toward the axiomatic approach, chosen so the reader can work by hand with matrix subtraction. The more standard abstract viewpoint is signposted in Chapter 11.
 
 - <strong>The book relies too much on component representations even though geometric objects have no absolute coordinate representation</strong>
   → An intentional choice. The subject of this book is "how to use differential forms," not the philosophy of "differential forms as coordinate-independent geometric entities." Like standard vector-analysis textbooks, it adopts component representations as a practical computational tool. The coordinate-invariant viewpoint is connected in Chapter 11.
@@ -77,7 +77,7 @@ This book is not an axiomatic development of differential forms on general manif
   → As noted in Chapter 10 §10.3, Chapter 10 keeps from Chapter 6 only the procedure "build the dictionary for $\ast$ from the metric matrix," giving up positive definiteness. The theoretical basis for generalizing from positive definite to pseudo-Riemannian is supplemented in Chapter 11.
 
 - <strong>Spaces with torsion or manifolds with nonsymmetric connections are not considered</strong>
-  → Outside the book's scope. The book treats three-dimensional Cartesian space (and parameter spaces); connections are implicitly always symmetric, metric-compatible Levi-Civita connections. General connection theory is signposted in Chapter 11.
+  → Outside the book's scope. The book treats three-dimensional Cartesian space (and parameter spaces); when connections are mentioned, they are implicitly symmetric, metric-compatible Levi-Civita connections. General connection theory is signposted in Chapter 11.
 
 - <strong>There are algebraic limits to treating spinors and similar objects with differential forms alone</strong>
   → True. Differential forms are a framework for antisymmetric tensors; treating spinors (double-valued representations) naturally requires additional tools such as Clifford algebra and spin structure. This book does not enter that direction, but Chapter 12 gives signposts toward geometric algebra.
@@ -119,7 +119,7 @@ This book is not an axiomatic development of differential forms on general manif
 ---
 
 > <strong>Note</strong> (Easter egg)
-> Once I harbored a borrowed admiration for the name "Bourbaki"——a presence that brought a great turn to mathematics. I thought there must be some sharp new language there, different from existing mathematics books.
+> Once I harbored a borrowed admiration for the name "Bourbaki"—a presence that brought a great turn to mathematics. I thought there must be some sharp new language there, different from existing mathematics books.
 >
 > When I actually read it, what I found was, for me, rather the familiar face of "university mathematics textbooks." Of course, that does not mean Bourbaki was boring. Quite the opposite. The once-new axiomatic, structural style has settled deeply, not through Bourbaki alone, as part of the standard prose of modern mathematics. That is why it looks "ordinary" to readers today.
 >
