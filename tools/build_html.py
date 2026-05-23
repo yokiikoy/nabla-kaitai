@@ -134,7 +134,7 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
       </div>
     </article>
     <footer class="site-footer">
-      <p>&copy; 2026 yokiikoy. CC BY-NC 4.0.</p>
+      <p>{html_footer}</p>
     </footer>
   </main>
 </body>
@@ -376,14 +376,12 @@ def main():
 
     if args.lang == 'ja':
         lang_switch = '<a href="en/index.html" style="font-size: 0.75rem; color: #666; text-decoration: none;">English edition</a>'
-        portal_url = 'http://covectorspace.xyz/jp/'
-        mobile_current_label = '現在:'
-        mobile_toc_label = '目次を開く'
     else:
         lang_switch = '<a href="../index.html" style="font-size: 0.75rem; color: #666; text-decoration: none;">Japanese edition</a>'
-        portal_url = 'http://covectorspace.xyz/en/'
-        mobile_current_label = 'Current:'
-        mobile_toc_label = 'Open contents'
+    portal_url = locale['portal_url']
+    mobile_current_label = locale['mobile_current_label']
+    mobile_toc_label = locale['mobile_toc_label']
+    html_footer = locale['html_footer']
 
     preview_notice = ""
     if profile.is_preview:
@@ -448,6 +446,7 @@ def main():
             lang_switch=lang_switch,
             mobile_current_label=mobile_current_label,
             mobile_toc_label=mobile_toc_label,
+            html_footer=html_footer,
         )
         with open(docs_dir / ch.filename, 'w', encoding='utf-8') as f:
             f.write(final_html)
@@ -520,6 +519,7 @@ def main():
         lang_switch=lang_switch,
         mobile_current_label=mobile_current_label,
         mobile_toc_label=mobile_toc_label,
+        html_footer=html_footer,
     )
     with open(docs_dir / 'toc.html', 'w', encoding='utf-8') as f:
         f.write(toc_page_html)

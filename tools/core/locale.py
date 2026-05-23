@@ -15,6 +15,22 @@ LOCALES = {
         'toc_intro': '各見出しはリンクになっており、クリックすると該当章の該当位置にジャンプします。',
         'book_link_text': 'ナブラ解体新書',
         'author_line': '著者：yokiikoy',
+        'portal_url': 'https://covectorspace.xyz/jp/',
+        'contents_name': '目次',
+        'git_log_fallback': '未取得',
+        'xetex_linebreak_locale': 'ja',
+        'pdf_footer': (
+            r'\textcopyright\ yokiikoy (CC BY-NC 4.0). '
+            r'本書の最新版・PDF・改訂履歴・関連情報・本書以外のコンテンツはポータルサイト '
+            r'\href{https://covectorspace.xyz/jp/}{Project Co-Vector Space} をご確認ください。\\[2pt]'
+        ),
+        'html_footer': (
+            '&copy; 2026 yokiikoy. CC BY-NC 4.0. '
+            '本書の最新版・PDF・改訂履歴・関連情報・本書以外のコンテンツはポータルサイト '
+            '<a href="https://covectorspace.xyz/jp/">Project Co-Vector Space</a> をご確認ください。'
+        ),
+        'mobile_current_label': '現在:',
+        'mobile_toc_label': '目次を開く',
         'part_labels': {
             'I': ('ch01.html', 'ch05.html', '第I部：$\\mathbb{R}^3$ 上の微分形式（第1章〜第5章）'),
             'II': ('ch06.html', 'ch09.html', '第II部：ベクトル解析（第6章〜第9章）'),
@@ -51,6 +67,22 @@ LOCALES = {
         'toc_intro': 'Each heading is a link to the corresponding section in its chapter.',
         'book_link_text': 'Unmasking Div, Grad, and Curl',
         'author_line': 'Author: yokiikoy',
+        'portal_url': 'https://covectorspace.xyz/en/',
+        'contents_name': 'Contents',
+        'git_log_fallback': 'unavailable',
+        'xetex_linebreak_locale': 'en',
+        'pdf_footer': (
+            r'\textcopyright\ yokiikoy (CC BY-NC 4.0). '
+            r'For the latest edition, PDF, revision history, related information, and content beyond this book, '
+            r'see the portal site \href{https://covectorspace.xyz/en/}{Project Co-Vector Space}.\\[2pt]'
+        ),
+        'html_footer': (
+            '&copy; 2026 yokiikoy. CC BY-NC 4.0. '
+            'For the latest edition, PDF, revision history, related information, and content beyond this book, '
+            'see the portal site <a href="https://covectorspace.xyz/en/">Project Co-Vector Space</a>.'
+        ),
+        'mobile_current_label': 'Current:',
+        'mobile_toc_label': 'Open contents',
         'part_labels': {
             'I': ('ch01.html', 'ch05.html', 'Part I: Differential Forms on $\\mathbb{R}^3$ (Chapters 1–5)'),
             'II': ('ch06.html', 'ch09.html', 'Part II: Vector Analysis (Chapters 6–9)'),

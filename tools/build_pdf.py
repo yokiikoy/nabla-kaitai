@@ -61,7 +61,7 @@ def main():
     # Git metadata for title page
     build_datetime = datetime.now().strftime('%Y-%m-%d %H:%M JST')
     author_name = 'yokiikoy'
-    git_log = git_text(['log', '-3', '--format=%h (%ad)  %s', '--date=short'], '未取得')
+    git_log = git_text(['log', '-3', '--format=%h (%ad)  %s', '--date=short'], locale['git_log_fallback'])
     log_lines = [l.strip() for l in git_log.split('\n') if l.strip()]
     while len(log_lines) < 3:
         log_lines.append('')
@@ -246,6 +246,10 @@ def main():
 
     latex_body = fix_dashes(latex_body)
 
+    pdf_footer = locale['pdf_footer']
+    contents_name = locale['contents_name']
+    xetex_locale = locale['xetex_linebreak_locale']
+
     # --- Preamble ---
     preamble = (
         r'\documentclass[a4paper,12pt,openany]{book}' '\n'
@@ -256,7 +260,7 @@ def main():
         r'\setsansfont{IPAexGothic}[Ligatures=TeX]' '\n'
         r'\setmonofont{IPAexGothic}[Ligatures=TeX]' '\n'
         r'\newfontface\strongface{IPAexGothic}[AutoFakeBold=4.0]' '\n'
-        r'\XeTeXlinebreaklocale "ja"' '\n'
+        rf'\XeTeXlinebreaklocale "{xetex_locale}"' '\n'
         r'\XeTeXlinebreakskip=0pt plus 1pt minus 0.1pt' '\n'
         r'\usepackage{geometry}' '\n'
         r'\geometry{margin=25mm}' '\n'
@@ -267,7 +271,7 @@ def main():
         r'  \tiny' '\n'
         r'  \parbox{\textwidth}{%' '\n'
         r'    \raggedright' '\n'
-        r'    \textcopyright\ yokiikoy (CC BY-NC 4.0). 本書の最新版・PDF・改訂履歴・関連情報・本書以外のコンテンツはポータルサイト \href{https://covectorspace.xyz/jp/}{Project Co-Vector Space} をご確認ください。\\[2pt]' '\n'
+        f'    {pdf_footer}' '\n'
         r'    \centering\thepage' '\n'
         r'  }%' '\n'
         r'}' '\n'
@@ -276,7 +280,7 @@ def main():
         r'  \tiny' '\n'
         r'  \parbox{\textwidth}{%' '\n'
         r'    \raggedright' '\n'
-        r'    \textcopyright\ yokiikoy (CC BY-NC 4.0). 本書の最新版・PDF・改訂履歴・関連情報・本書以外のコンテンツはポータルサイト \href{https://covectorspace.xyz/jp/}{Project Co-Vector Space} をご確認ください。\\[2pt]' '\n'
+        f'    {pdf_footer}' '\n'
         r'    \centering\thepage' '\n'
         r'  }%' '\n'
         r'}\renewcommand{\headrulewidth}{0pt}}' '\n'
@@ -284,7 +288,7 @@ def main():
         r'\usepackage{hyperref}' '\n'
         r'\usepackage{bookmark}' '\n'
         r'\hypersetup{colorlinks=true,linkcolor=blue}' '\n'
-        r'\renewcommand{\contentsname}{目次}' '\n'
+        rf'\renewcommand{{\contentsname}}{{{contents_name}}}' '\n'
         r'\usepackage{longtable,booktabs,array,calc,multirow,colortbl}' '\n'
         r'\usepackage{graphicx}' '\n'
         r'\usepackage{adjustbox}' '\n'
