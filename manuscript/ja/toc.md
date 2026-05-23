@@ -9,7 +9,7 @@ order: 0
 
 ## 『ナブラ解体新書 —— 行列表示の微分形式によるベクトル解析の抜け道 ——』
 
-<strong>Unmasking Div, Grad, and Curl: A Heuristic Matrix Route from Differential Forms to Vector Analysis</strong>
+<strong>Unmasking Div, Grad, and Curl: A Shortcut to Vector Analysis through Matrix-Represented Differential Forms</strong>
 
 ---
 

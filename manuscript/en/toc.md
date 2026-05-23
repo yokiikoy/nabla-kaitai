@@ -1,13 +1,13 @@
 ---
 title: "Table of Contents"
-series: "Unmasking Div, Grad, and Curl: A Heuristic Matrix Route from Differential Forms to Vector Analysis"
+series: "Unmasking Div, Grad, and Curl: A Shortcut to Vector Analysis through Matrix-Represented Differential Forms"
 chapter: NA
 order: 0
 ---
 
 # Table of Contents
 
-## *Unmasking Div, Grad, and Curl: A Heuristic Matrix Route from Differential Forms to Vector Analysis*
+## *Unmasking Div, Grad, and Curl: A Shortcut to Vector Analysis through Matrix-Represented Differential Forms*
 
 ---
 

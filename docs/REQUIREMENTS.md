@@ -12,7 +12,7 @@
 
 - 日本語: **ナブラ解体新書**
 - サブタイトル: 行列表示の微分形式によるベクトル解析の抜け道
-- 英語: **Unmasking Div Grad Curl: An Elementary Matrix Bypass via Exterior Forms**
+- 英語: **Unmasking Div, Grad, and Curl: A Shortcut to Vector Analysis through Matrix-Represented Differential Forms**
 
 ## 2. ターゲットと4部構成
 

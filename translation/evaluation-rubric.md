@@ -1,6 +1,6 @@
 # English Translation Evaluation Rubric v0.1
 
-This rubric is used to evaluate each English translation draft of *Unmasking Div, Grad, and Curl*.
+This rubric is used to evaluate each English translation draft of *Unmasking Div, Grad, and Curl: A Shortcut to Vector Analysis through Matrix-Represented Differential Forms*.
 
 The goal is not merely to produce grammatically correct English. The goal is to produce an English mathematical text that preserves the author’s argument, tone, and pedagogical strategy while reading naturally as English.
 

@@ -2,7 +2,17 @@
 
 ## Title
 
-*Unmasking Div, Grad, and Curl: A Heuristic Matrix Route from Differential Forms to Vector Analysis*
+**Full title (metadata, toc, PDF subtitle block):**
+
+*Unmasking Div, Grad, and Curl: A Shortcut to Vector Analysis through Matrix-Represented Differential Forms*
+
+Use a hyphen in `Matrix-Represented` in prose, metadata, URLs, and GitHub. Typography-only contexts (e.g. a print cover) may use a figure dash if desired.
+
+**Short title (HTML sidebar, page `<title>` suffix):**
+
+*Unmasking Div, Grad, and Curl*
+
+**Chapter 7 §7.0:** refer to the full English title, then note the Japanese parallel *Unmasking Nabla* / ナブラ解体新書.
 
 ## Basic Policy
 
