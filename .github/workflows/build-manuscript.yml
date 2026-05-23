@@ -67,10 +67,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "$(cat <<'EOF'
-chore: rebuild release artifacts
-
-Automated rebuild from tools/build_release.py on main.
-EOF
-)"
+          git commit -m "chore: rebuild release artifacts (automated)"
           git push
