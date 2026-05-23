@@ -53,6 +53,7 @@ Per-section Pass status (all included in chapter-wide Pass 2 and Pass 3):
 | **1** | #177 | BP-001, BP-002 |
 | **2** | #178 | BP-013, BP-021 |
 | **3** | `edit/ja-backport-wave3` | BP-022–023; BP-017 wontfix (author) | `backport-log.md`, `backport-rubric.md` |
+| **4** | `edit/ja-backport-wave4` (#193) | JA-BP-001/002/003, 004, 020, 025, 034, 035, 040, 041 | `ja-backport-wave4.md` |
 
 ---
 
@@ -73,6 +74,7 @@ Per-section Pass status (all included in chapter-wide Pass 2 and Pass 3):
 | `translation/reviews/ch03-3.*-review.md` | ch03 per-section Pass 1 |
 | `translation/reviews/ch03-pass2.md` | ch03 Pass 2 |
 | `translation/reviews/ch03-pass3.md` | ch03 Pass 3 |
+| `translation/reviews/ja-backport-wave4.md` | JA backport Wave 4 (#193) |
 
 ---
 
