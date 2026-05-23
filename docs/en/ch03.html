@@ -109,7 +109,7 @@
 <li class="level-1"><a href="portal.html" id="link-portal.html">Portal Site and a Small Experiment</a></li>
 <li class="level-1"><a href="ch01.html" id="link-ch01.html">Chapter 1</a></li>
 <li class="level-1"><a href="ch02.html" id="link-ch02.html">Chapter 2</a></li>
-<li class="level-1"><a href="ch03.html" class="active" id="link-ch03.html">Chapter 3</a><ul class="sub-toc"><li class="level-3"><a href="#§3.0-Measuring-Curved-Things-—-Paying-Back-a-Debt-from-Elementary-School">§3.0 Measuring Curved Things — Paying Back a Debt from Elementary School</a></li><li class="level-3"><a href="#§3.2-Surface-Area-—-The-Limit-of-Two-Dimensions,-Coefficient-1">§3.2 Surface Area — The Limit of Two Dimensions, Coefficient 1</a></li><li class="level-3"><a href="#§3.3-Curves-—-The-Limit-of-One-Dimension,-Coefficient-1,-Revealed">§3.3 Curves — The Limit of One Dimension, Coefficient 1, Revealed</a></li><li class="level-3"><a href="#§3.4-Adding-Coefficients-—-Density-Times-Geometry">§3.4 Adding Coefficients — Density Times Geometry</a></li><li class="level-3"><a href="#§3.5-Summary-of-This-Chapter-and-Outlook-Toward-the-Next">§3.5 Summary of This Chapter and Outlook Toward the Next</a></li></ul></li>
+<li class="level-1"><a href="ch03.html" class="active" id="link-ch03.html">Chapter 3</a><ul class="sub-toc"><li class="level-3"><a href="#§3.0-Measuring-Curved-Things-—-Paying-Back-a-Debt-from-Elementary-School">§3.0 Measuring Curved Things — Paying Back a Debt from Elementary School</a></li><li class="level-3"><a href="#§3.1-Volume-—-Three-Dimensions,-Coefficient-1">§3.1 Volume — Three Dimensions, Coefficient 1</a></li><li class="level-3"><a href="#§3.2-Surface-Area-—-The-Limit-of-Two-Dimensions,-Coefficient-1">§3.2 Surface Area — The Limit of Two Dimensions, Coefficient 1</a></li><li class="level-3"><a href="#§3.3-Curves-—-The-Limit-of-One-Dimension,-Coefficient-1,-Revealed">§3.3 Curves — The Limit of One Dimension, Coefficient 1, Revealed</a></li><li class="level-3"><a href="#§3.4-Adding-Coefficients-—-Density-Times-Geometry">§3.4 Adding Coefficients — Density Times Geometry</a></li><li class="level-3"><a href="#§3.5-Summary-of-This-Chapter-and-Outlook-Toward-the-Next">§3.5 Summary of This Chapter and Outlook Toward the Next</a></li></ul></li>
 <li class="level-1"><a href="ch04.html" id="link-ch04.html">Chapter 4</a></li>
 <li class="level-1"><a href="ch05.html" id="link-ch05.html">Chapter 5</a></li>
 <li class="level-1"><a href="ch06.html" id="link-ch06.html">Chapter 6</a></li>
@@ -155,6 +155,90 @@
 <p><strong>Note</strong> (ground rules)</p>
 <p>We state this up front as a promise. Below, we treat curves and surfaces as sufficiently smooth, and cases where chopping into small pieces and adding converges in a straightforward way. Details such as orientation reversal and self-intersection are kept at the level of “they do not cause trouble in situations commonly used in physics.” A rigorous theory of integrability is outside the scope of this book.</p>
 </blockquote>
+<hr />
+<h3 id="§3.1-Volume-—-Three-Dimensions,-Coefficient-1">§3.1 Volume — Three Dimensions, Coefficient 1</h3>
+<h4 id="3.1.1-From-Rectangular-Boxes-to-Curved-Regions-—-Defining-by-Riemann-Sums">3.1.1 From Rectangular Boxes to Curved Regions — Defining by Riemann Sums</h4>
+<p>In Chapter 2 §2.5, we assembled the volume-measuring device $dx \wedge dy \wedge dz$. If we feed it three vectors $\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3$, we get the signed volume of the parallelepiped they span.
+</p>
+<p>Now we want to measure the volume of a region $V$ in space. However curved $V$ may be, if we chop finely enough each small piece can be treated as almost a rectangular box. So we slice $V$ in the $x$, $y$, and $z$ directions, label the small boxes inside $V$ by an index $i$, and take the three edge vectors of the $i$th box to be
+</p>
+$$\Delta x_i\,\hat{e}_x,\quad \Delta y_i\,\hat{e}_y,\quad \Delta z_i\,\hat{e}_z.$$
+<p>Feed these three vectors to the volume-measuring device $dx \wedge dy \wedge dz$:
+</p>
+$$(dx \wedge dy \wedge dz)(\Delta x_i\,\hat{e}_x,\; \Delta y_i\,\hat{e}_y,\; \Delta z_i\,\hat{e}_z) = \det\begin{pmatrix}\Delta x_i & 0 & 0 \\ 0 & \Delta y_i & 0 \\ 0 & 0 & \Delta z_i\end{pmatrix} = \Delta x_i\,\Delta y_i\,\Delta z_i.$$
+<blockquote>
+<p><strong>Note</strong> (contraction of measuring device and figure)</p>
+<p>What happens here is exactly the pattern from Chapter 2 §2.5.10. A <strong>$3$-form (volume-measuring device)</strong> eats the <strong>volume element (figure)</strong> spanned by three displacement vectors and spits out a scalar. This contraction is performed on each small box. We call the oriented small box — the tiny volume figure — spanned by these three displacement vectors a <strong>volume element</strong>.</p>
+</blockquote>
+<p>Add the scalar $\Delta x_i\,\Delta y_i\,\Delta z_i$ from each small box over all boxes inside $V$:
+</p>
+$$\sum_{\text{small box }i \subset V} \Delta x_i\,\Delta y_i\,\Delta z_i.$$
+<p>Then take the limit as the mesh becomes infinitely fine. We <strong>write</strong> this limit as
+</p>
+$$\iiint_V dx \wedge dy \wedge dz.$$
+<p>This is the definition of integration of a $3$-form — a volume integral.
+</p>
+<blockquote>
+<p><strong>Note</strong> (the symbol $\iiint$)</p>
+<p>In this book we <strong>define $\iiint_V$ here for the first time</strong> as the symbol for “integration of a $3$-form over a three-dimensional region $V$.” It is not a symbol assumed from high-school volume integrals; it is the name we give to the Riemann-sum limit above.</p>
+</blockquote>
+<p>We have defined it. But how do we actually compute this sum? When $V$ is a curved region such as $x^2+y^2+z^2 \le R^2$, it is tedious to decide which small boxes lie inside $V$ while adding. If we organize the sum cleverly, however, the picture improves. In the next subsection we try it in practice.
+</p>
+<h4 id="3.1.2-Volume-of-a-Sphere-—-Adding-Messily-and-Straightforwardly">3.1.2 Volume of a Sphere — Adding Messily and Straightforwardly</h4>
+<p>Let us compute the volume of a sphere $x^2 + y^2 + z^2 \le R^2$ of radius $R$ in a truly messy, straightforward way. We want to show only one thing: without fleeing to a special coordinate system, we can reach the familiar $\frac{4}{3}\pi R^3$ simply by organizing the Riemann sum honestly in $x,y,z$. We use no special coordinates. In $x,y,z$ we simply stack small boxes $\Delta x\,\Delta y\,\Delta z$.
+</p>
+<p>View the sphere as the region determined by the value of
+</p>
+$$F(x,y,z)=x^2+y^2+z^2.$$
+<p>The interior is all points with $F\le R^2$; the boundary sphere is $F=R^2$.
+</p>
+<p>To read orientation on the boundary or displacement along the sphere, the total differential $dF$ from Chapter 1 is useful. At the stage of counting volume, however, we do not use $dF$ yet. Here we first unpack the condition $F\le R^2$ and count small boxes. The main actor for measuring volume remains $dx\wedge dy\wedge dz$.
+</p>
+<p>How can we organize the Riemann sum from §3.1.1 so that it can be computed? Fix $z$ at some value. Then $F\le R^2$ becomes
+</p>
+$$x^2+y^2\le R^2-z^2.$$
+<p>So at that height, the allowed $(x,y)$ form a disk of radius $\sqrt{R^2-z^2}$. Fixing $y$ as well gives
+</p>
+$$x^2\le R^2-z^2-y^2,$$
+<p>so $x$ runs from $-\sqrt{R^2 - z^2 - y^2}$ to $+\sqrt{R^2 - z^2 - y^2}$. Similarly, $y$ runs from $-\sqrt{R^2 - z^2}$ to $+\sqrt{R^2 - z^2}$, and $z$ from $-R$ to $+R$.
+</p>
+<p>This is simply unpacking the test $F\le R^2$ in the order $z$, $y$, $x$. If we add in this order — think of stacking the one-dimensional Riemann sums from Chapter 1 §1.1 three times — then in the limit:
+</p>
+$$\iiint_V dx \wedge dy \wedge dz = \int_{-R}^{R} \Biggl( \int_{-\sqrt{R^2 - z^2}}^{\sqrt{R^2 - z^2}} \Biggl( \int_{-\sqrt{R^2 - z^2 - y^2}}^{\sqrt{R^2 - z^2 - y^2}} dx \Biggr) dy \Biggr) dz.$$
+<p>The $dx, dy, dz$ on the right appear as the result of organizing the sum on the left in order; we are not omitting $\wedge$. From inside the parentheses outward: sum over $x$ ($\int dx$), then over $y$ ($\int dy$), then over $z$ ($\int dz$).
+</p>
+<p>The innermost sum over $x$ (the $x$ integral in the limit) is immediate:
+</p>
+$$\int_{-\sqrt{R^2 - z^2 - y^2}}^{\sqrt{R^2 - z^2 - y^2}} dx = 2\sqrt{R^2 - z^2 - y^2}.$$
+<p>Next the $y$ integral. Set $a = \sqrt{R^2 - z^2}$:
+</p>
+$$\int_{-a}^{a} 2\sqrt{a^2 - y^2}\,dy.$$
+<p>Use substitution from high-school calculus. With $y = a\sin t$, we have $dy = a\cos t\,dt$. As $y$ goes from $-a$ to $a$, $t$ goes from $-\pi/2$ to $\pi/2$. Also $\sqrt{a^2 - y^2} = \sqrt{a^2 - a^2\sin^2 t} = a\cos t$ (for $t \in [-\pi/2,\pi/2]$ we have $\cos t \ge 0$, so the absolute value drops). Therefore:
+</p>
+$$\begin{aligned}
+\int_{-a}^{a} 2\sqrt{a^2 - y^2}\,dy
+&= \int_{-\pi/2}^{\pi/2} 2\cdot a\cos t \cdot a\cos t\,dt \\
+&= 2a^2\!\int_{-\pi/2}^{\pi/2} \cos^2 t\,dt
+\end{aligned}$$
+<p>Since $\cos^2 t = (1 + \cos 2t)/2$:
+</p>
+$$\begin{aligned}
+2a^2\!\int_{-\pi/2}^{\pi/2} \frac{1 + \cos 2t}{2}\,dt
+&= a^2\int_{-\pi/2}^{\pi/2} (1 + \cos 2t)\,dt \\[4pt]
+&= a^2\Bigl[t + \frac{\sin 2t}{2}\Bigr]_{-\pi/2}^{\pi/2} \\[4pt]
+&= a^2\Bigl[\Bigl(\frac{\pi}{2} + 0\Bigr) - \Bigl(-\frac{\pi}{2} + 0\Bigr)\Bigr] \\[4pt]
+&= \pi a^2 = \pi(R^2 - z^2)
+\end{aligned}$$
+<p>Finally the $z$ integral:
+</p>
+$$\int_{-R}^{R} \pi(R^2 - z^2)\,dz = 2\pi\Bigl[R^2 z - \frac{z^3}{3}\Bigr]_{0}^{R} = 2\pi\cdot\frac{2R^3}{3} = \frac{4}{3}\pi R^3.$$
+<blockquote>
+<p><strong>Note</strong> (what this calculation means)</p>
+<p>What we did here is only the organization of the Riemann sum from §3.1.1. Instead of deciding which small boxes lie inside the sphere one by one, we organized the actual summation from the inside out in the order $x \to y \to z$. Each stage is a one-variable Riemann sum from Chapter 1; in the limit it becomes a familiar one-variable integral. That is all. If we aggregate the contraction of measuring device and figure honestly, we reach $\frac{4}{3}\pi R^3$.</p>
+</blockquote>
+<p>Thus we have confirmed that the integral of the single measuring device $dx \wedge dy \wedge dz$ gives the correct volume $\frac{4}{3}\pi R^3$ of a curved region. In three dimensions, a volume-measuring device with coefficient $1$ measures volume directly.
+</p>
+<hr />
 <blockquote>
 <p><strong>Checkpoint so far</strong></p>
 <p>- The integral of $dx \wedge dy \wedge dz$ is the limit of a Riemann sum that chops a region into small boxes and adds the values obtained by feeding each volume element to the volume-measuring device. $\iiint_V$ is the symbol this book gives to that limit.</p>
@@ -192,7 +276,7 @@ $$(dx \wedge dy)(\Delta\mathbf{a},\Delta\mathbf{b})
 $$\iint_S dx \wedge dy.$$
 <p>This is the definition of integration of a $2$-form — a surface integral. The structure is the same type as the volume integral in §3.1; only the number of vectors fed in has dropped from three to two.
 </p>
-<h4 id="3.2.2-What-__MATH_BLOCK_95__-Measures-—-A-Test-on-the-Sphere">3.2.2 What $dx \wedge dy$ Measures — A Test on the Sphere</h4>
+<h4 id="3.2.2-What-__MATH_BLOCK_191__-Measures-—-A-Test-on-the-Sphere">3.2.2 What $dx \wedge dy$ Measures — A Test on the Sphere</h4>
 <p>Let us actually compute on a sphere. Consider the upper half of a sphere of radius $R$ ($z \ge 0$). A point $(x,y,z)$ on the sphere satisfies
 </p>
 $$x^2+y^2+z^2=R^2,\qquad z=\sqrt{R^2-x^2-y^2}.$$
@@ -436,7 +520,7 @@ $$ds(\mathbf{v}) = \sqrt{dx(\mathbf{v})^2 + dy(\mathbf{v})^2 + dz(\mathbf{v})^2}
 </blockquote>
 <p>This $ds$ is a convenient notation for measuring arc length, but it is not itself a $1$-form in the sense of this book. A $1$-form is a measuring device that acts linearly on a displacement $\mathbf{v}$, whereas $ds(\mathbf{v})$ contains a square root of a sum of squares, so in general $ds(\mathbf{v}+\mathbf{w}) = ds(\mathbf{v})+ds(\mathbf{w})$ does not hold. Therefore $ds$ cannot be written as a linear combination of $dx, dy, dz$ — in the form $P\,dx+Q\,dy+R\,dz$.
 </p>
-<h4 id="3.3.3-What-Can-a-__MATH_BLOCK_242__-Form-Measure?">3.3.3 What Can a $1$-Form Measure?</h4>
+<h4 id="3.3.3-What-Can-a-__MATH_BLOCK_338__-Form-Measure?">3.3.3 What Can a $1$-Form Measure?</h4>
 <p>Arc length could be measured by integrating the line element $ds(\mathbf{v}) = \sqrt{dx(\mathbf{v})^2 + dy(\mathbf{v})^2 + dz(\mathbf{v})^2}$. However, this $ds$ cannot be written as a linear combination of $dx, dy, dz$; it requires a square root of a sum of squares. Here we first ask: what does a $1$-form that does not use such a square root of a sum of squares — that is, a $1$-form that can be written as a linear combination of $dx, dy, dz$ — actually measure?
 </p>
 <p>Suppose a force field $\mathbf{F}(x,y,z) = (F_x, F_y, F_z)$ acts at each point in space. When we move a particle along a curve, the infinitesimal work done by the force on each subinterval is the product of the component of the force in the direction of displacement and the magnitude of the displacement — namely, $F_x\,\Delta x + F_y\,\Delta y + F_z\,\Delta z$. Summing this over the whole interval gives the work $W = \int_\gamma \mathbf{F}\cdot d\mathbf{r}$.
@@ -465,7 +549,7 @@ $$ds(\mathbf{v}) = \sqrt{dx(\mathbf{v})^2 + dy(\mathbf{v})^2 + dz(\mathbf{v})^2}
 </p>
 <p>Below, we define the integrals of forms with coefficients, in order from one to two to three dimensions.
 </p>
-<h4 id="3.4.1-Line-Integral-of-a-General-__MATH_BLOCK_273__-Form-(Work)">3.4.1 Line Integral of a General $1$-Form (Work)</h4>
+<h4 id="3.4.1-Line-Integral-of-a-General-__MATH_BLOCK_369__-Form-(Work)">3.4.1 Line Integral of a General $1$-Form (Work)</h4>
 <p>In real space, take three scalar fields $P, Q, R$ that depend on the point $(x,y,z)$, and call
 </p>
 $$\omega = P(x,y,z)\,dx + Q(x,y,z)\,dy + R(x,y,z)\,dz$$
@@ -511,7 +595,7 @@ $$\omega(\gamma'(t)) = (\sin t)(-\sin t) + (\cos t)(\cos t) = -\sin^2\!t + \cos^
 $$\int_\gamma \omega = \int_0^{2\pi} \cos 2t\,dt = \Bigl[\frac{1}{2}\sin 2t\Bigr]_0^{2\pi} = 0$$
 <p>The work is zero. This force field does no net work along the unit circle.
 </p>
-<h4 id="3.4.2-Surface-Integral-of-a-General-__MATH_BLOCK_311__-Form-(Flux)">3.4.2 Surface Integral of a General $2$-Form (Flux)</h4>
+<h4 id="3.4.2-Surface-Integral-of-a-General-__MATH_BLOCK_407__-Form-(Flux)">3.4.2 Surface Integral of a General $2$-Form (Flux)</h4>
 <p>Similarly, with three scalar fields $P,Q,R$ as coefficients,
 </p>
 $$
@@ -536,7 +620,7 @@ $$\iint_S \eta$$
 <p><strong>Note</strong> (correspondence with vector analysis is only a guidepost here)</p>
 <p>The connection with flux is nothing more than a bridge for readers who already know vector analysis. The main line of this book remains the operation of "feeding a $2$-form and aggregating." Lack of vector-analysis background will not hinder the discussion from here on.</p>
 </blockquote>
-<h4 id="3.4.3-Volume-Integral-of-a-General-__MATH_BLOCK_323__-Form-(Total-Mass)">3.4.3 Volume Integral of a General $3$-Form (Total Mass)</h4>
+<h4 id="3.4.3-Volume-Integral-of-a-General-__MATH_BLOCK_419__-Form-(Total-Mass)">3.4.3 Volume Integral of a General $3$-Form (Total Mass)</h4>
 <p>The general form of a $3$-form, with scalar field $\rho(x,y,z)$ as coefficient, is
 </p>
 $$\Omega = \rho(x,y,z)\,dx \wedge dy \wedge dz$$

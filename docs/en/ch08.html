@@ -114,7 +114,7 @@
 <li class="level-1"><a href="ch05.html" id="link-ch05.html">Chapter 5</a></li>
 <li class="level-1"><a href="ch06.html" id="link-ch06.html">Chapter 6</a></li>
 <li class="level-1"><a href="ch07.html" id="link-ch07.html">Chapter 7</a></li>
-<li class="level-1"><a href="ch08.html" class="active" id="link-ch08.html">Chapter 8</a><ul class="sub-toc"><li class="level-3"><a href="#§8.0-The-Highlight-of-This-Book">§8.0 The Highlight of This Book</a></li><li class="level-3"><a href="#§8.2-Completing-the-Translation-Dictionary">§8.2 Completing the Translation Dictionary</a></li><li class="level-3"><a href="#§8.3-Translating-Stokes'-Theorem">§8.3 Translating Stokes' Theorem</a></li><li class="level-3"><a href="#§8.4-Translating-Gauss'-Theorem">§8.4 Translating Gauss' Theorem</a></li><li class="level-3"><a href="#§8.5-Why-the-Two-Languages-Agree">§8.5 Why the Two Languages Agree</a></li><li class="level-3"><a href="#§8.6-Curvilinear-Coordinates-and-the-Two-Routes">§8.6 Curvilinear Coordinates and the Two Routes</a></li></ul></li>
+<li class="level-1"><a href="ch08.html" class="active" id="link-ch08.html">Chapter 8</a><ul class="sub-toc"><li class="level-3"><a href="#§8.0-The-Highlight-of-This-Book">§8.0 The Highlight of This Book</a></li><li class="level-3"><a href="#§8.1-Two-Differentials,-Two-Worlds">§8.1 Two Differentials, Two Worlds</a></li><li class="level-3"><a href="#§8.2-Completing-the-Translation-Dictionary">§8.2 Completing the Translation Dictionary</a></li><li class="level-3"><a href="#§8.3-Translating-Stokes'-Theorem">§8.3 Translating Stokes' Theorem</a></li><li class="level-3"><a href="#§8.4-Translating-Gauss'-Theorem">§8.4 Translating Gauss' Theorem</a></li><li class="level-3"><a href="#§8.5-Why-the-Two-Languages-Agree">§8.5 Why the Two Languages Agree</a></li><li class="level-3"><a href="#§8.6-Curvilinear-Coordinates-and-the-Two-Routes">§8.6 Curvilinear Coordinates and the Two Routes</a></li></ul></li>
 <li class="level-1"><a href="ch09.html" id="link-ch09.html">Chapter 9</a></li>
 <li class="level-1"><a href="ch10.html" id="link-ch10.html">Chapter 10</a></li>
 <li class="level-1"><a href="ch11.html" id="link-ch11.html">Chapter 11</a></li>
@@ -135,6 +135,61 @@
 </p>
 <p>This chapter is the <strong>highlight</strong> of the book. The central translation itself is surprisingly short. At the end, however, to move on to the practical chapter that follows, we will take a single look at how this dictionary behaves in curvilinear coordinates. The painstaking preparation from Chapters 1 through 7—matrices, wedge products, the exterior derivative, the metric, the Hodge star, and vector analysis—was all for that purpose. Because all these tools are now assembled, in this chapter we need only “translate,” and two worlds fit into one picture. We have acquired two languages—the differential of measuring devices ($d$) and the differential of fields ($\nabla$). These two do fundamentally different things. Yet when they are linked through integration, they give exactly the same results. We will now dig thoroughly into how that works.
 </p>
+<hr />
+<h3 id="§8.1-Two-Differentials,-Two-Worlds">§8.1 Two Differentials, Two Worlds</h3>
+<h4 id="8.1.1-Differentiating-measuring-devices—the-standpoint-of-__MATH_BLOCK_39__">8.1.1 Differentiating measuring devices—the standpoint of $d$</h4>
+<p>Since Chapter 1 we have treated $dx = \begin{pmatrix}1&0&0\end{pmatrix}$, $dy = \begin{pmatrix}0&1&0\end{pmatrix}$, $dz = \begin{pmatrix}0&0&1\end{pmatrix}$ as row-vector measuring devices. When you feed them a column vector (a displacement), they return the displacement in that direction as a scalar.
+</p>
+<p>The exterior derivative $d$ is the operation that differentiates the coefficients and produces the next measuring device.
+</p>
+<p>When $f(x,y,z)$ is a scalar field, $df$ is a new measuring device that measures changes in $f$. It becomes a row vector whose components are the partial derivatives.
+</p>
+$$df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz = \begin{pmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & \frac{\partial f}{\partial z} \end{pmatrix}$$
+<p>When $\omega = P\,dx + Q\,dy + R\,dz$ is a $1$-form, $d\omega$ is a $2$-form (antisymmetric matrix) that measures the local mismatch of $\omega$.
+</p>
+$$d\omega = \left(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\right)dy\wedge dz + \left(\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x}\right)dz\wedge dx + \left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)dx\wedge dy$$
+<p>When $\eta = A\,dy\wedge dz + B\,dz\wedge dx + C\,dx\wedge dy$ is a $2$-form, $d\eta$ is a $3$-form (third-order antisymmetric tensor).
+</p>
+$$d\eta = \left(\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z}\right) dx\wedge dy\wedge dz$$
+<p>In this way, each time $d$ acts, the degree of the measuring device rises one step: $0\to1\to2\to3$. The core point is that <strong>$d$ does not produce a new arrow field in the sense of vector analysis; it differentiates the coefficients and changes the measuring-device side</strong>. $f$ remains a scalar field, but each time $d$ acts it generates a new measuring device—$df$ ($1$-form), $d\omega$ ($2$-form), $d\eta$ ($3$-form).
+</p>
+<h4 id="8.1.2-The-formal-differential-operator-stays-the-same;-new-fields-are-what-we-consider—the-standpoint-of-__MATH_BLOCK_67__">8.1.2 The formal differential operator stays the same; new fields are what we consider—the standpoint of $\nabla$</h4>
+<p>Meanwhile, in the world of
+</p>
+$$
+\nabla
+=
+\begin{pmatrix}
+\frac{\partial}{\partial x}\\[0.3em]
+\frac{\partial}{\partial y}\\[0.3em]
+\frac{\partial}{\partial z}
+\end{pmatrix}
+$$
+<p>introduced in Chapter 7, <strong>the formal differential operator stays the same; depending on what it acts on, new fields are born</strong>. $\nabla$ is always the same operator, but acting on a scalar field $f$ yields a vector field $\nabla f$; acting on a vector field $\mathbf{F}$ yields a scalar field $\nabla\cdot\mathbf{F}$ or a vector field $\nabla\times\mathbf{F}$.
+</p>
+<p>Applying $\nabla$ to a scalar field $f(x,y,z)$ gives a column-vector field whose components are the rates of change in each direction.
+</p>
+$$\nabla f = \begin{pmatrix} \frac{\partial f}{\partial x} \\[0.3em] \frac{\partial f}{\partial y} \\[0.3em] \frac{\partial f}{\partial z} \end{pmatrix}$$
+<p>This is an arrow standing at each point in space; it is no longer a measuring device. It represents the direction of steepest increase of $f$ and the strength of that increase.
+</p>
+<p>Applying $\nabla\cdot$ to a vector field $\mathbf{F}$ with components $F_x,F_y,F_z$ gives a scalar field.
+</p>
+$$\nabla \cdot \mathbf{F} = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z}$$
+<p>It returns the sum of the rates of change in each direction—the strength of outflow.
+</p>
+<p>Applying $\nabla\times$ to the same $\mathbf{F}$ gives a column-vector field again.
+</p>
+$$\nabla \times \mathbf{F} = \begin{pmatrix} \frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z} \\[0.3em] \frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x} \\[0.3em] \frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y} \end{pmatrix}$$
+<p>It represents the axis and strength of the local rotation.
+</p>
+<p>In the world of $\nabla$, the result is always returned as an arrow or a scalar in real space. Both $\nabla f$ and $\nabla\times\mathbf{F}$ look like the same kind of “arrow” on the page; there is no distinction by type.
+</p>
+<blockquote>
+<p><strong>Checkpoint so far — §8.1</strong></p>
+<p>- Standpoint of $d$: $d$ does not produce a new arrow field; the measuring-device side changes. New measuring devices are born.</p>
+<p>- Standpoint of $\nabla$: the formal differential operator stays the same; new fields are born.</p>
+</blockquote>
+<hr />
 <h3 id="§8.2-Completing-the-Translation-Dictionary">§8.2 Completing the Translation Dictionary</h3>
 <p>In Chapter 6 §6.5 we introduced the correspondences $\mathrm{grad}=d$, $\mathrm{curl}=\ast d$, and $\mathrm{div}=\ast d\ast$. Here we align this dictionary with the language of $\nabla$ and organize it in complete form. What we complete here is the translation dictionary used within three-dimensional Euclidean space and the matrix representation of this book.
 </p>
@@ -234,7 +289,7 @@ $$
 <h3 id="§8.3-Translating-Stokes'-Theorem">§8.3 Translating Stokes' Theorem</h3>
 <p>In Chapter 5 §5.6 we already derived Stokes' theorem in the form $\int_{\partial S}\omega = \int_S d\omega$. In Chapter 7 §7.8.1 we wrote the same theorem in the language of $\nabla$ as $\oint_C \mathbf{F}\cdot d\mathbf{r} = \iint_S (\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS$. We now confirm that these two are the same thing, using the dictionary of §8.2.
 </p>
-<h4 id="8.3.1-From-__MATH_BLOCK_95__-to-__MATH_BLOCK_96__">8.3.1 From $\nabla$ to $d$</h4>
+<h4 id="8.3.1-From-__MATH_BLOCK_151__-to-__MATH_BLOCK_152__">8.3.1 From $\nabla$ to $d$</h4>
 <p>Start with Stokes' theorem in $\nabla$ notation.
 </p>
 $$\oint_C \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdot \mathbf{n}\,dS$$

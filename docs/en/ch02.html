@@ -108,7 +108,7 @@
 <li class="level-1"><a href="intro.html" id="link-intro.html">Introduction</a></li>
 <li class="level-1"><a href="portal.html" id="link-portal.html">Portal Site and a Small Experiment</a></li>
 <li class="level-1"><a href="ch01.html" id="link-ch01.html">Chapter 1</a></li>
-<li class="level-1"><a href="ch02.html" class="active" id="link-ch02.html">Chapter 2</a><ul class="sub-toc"><li class="level-3"><a href="#§2.0-Measuring-Devices,-Area,-Volume,-and-Length">§2.0 Measuring Devices, Area, Volume, and Length</a></li><li class="level-3"><a href="#§2.2-The-Three-Rules-an-Area-Measuring-Device-Must-Satisfy">§2.2 The Three Rules an Area-Measuring Device Must Satisfy</a></li><li class="level-3"><a href="#§2.3-An-Area-Measuring-Device-Is-an-"Antisymmetric-Matrix"">§2.3 An Area-Measuring Device Is an "Antisymmetric Matrix"</a></li><li class="level-3"><a href="#§2.4-Internal-Structure-of-the-Area-Measuring-Device">§2.4 Internal Structure of the Area-Measuring Device</a></li><li class="level-3"><a href="#§2.5-Volume-Measuring-Devices-and-Determinants">§2.5 Volume-Measuring Devices and Determinants</a></li><li class="level-3"><a href="#§2.6-Summary-of-This-Chapter-and-Outlook-Toward-Chapter-3">§2.6 Summary of This Chapter and Outlook Toward Chapter 3</a></li><li class="level-2"><a href="#Appendix-A:-Tensor-Product-Representation-of-the-Volume-Measuring-Device-—-Full-Component-Calculation">Appendix A: Tensor-Product Representation of the Volume-Measuring Device — Full Component Calculation</a></li></ul></li>
+<li class="level-1"><a href="ch02.html" class="active" id="link-ch02.html">Chapter 2</a><ul class="sub-toc"><li class="level-3"><a href="#§2.0-Measuring-Devices,-Area,-Volume,-and-Length">§2.0 Measuring Devices, Area, Volume, and Length</a></li><li class="level-3"><a href="#§2.1-The-Limits-of-Elementary-School-Area">§2.1 The Limits of Elementary-School Area</a></li><li class="level-3"><a href="#§2.2-The-Three-Rules-an-Area-Measuring-Device-Must-Satisfy">§2.2 The Three Rules an Area-Measuring Device Must Satisfy</a></li><li class="level-3"><a href="#§2.3-An-Area-Measuring-Device-Is-an-"Antisymmetric-Matrix"">§2.3 An Area-Measuring Device Is an "Antisymmetric Matrix"</a></li><li class="level-3"><a href="#§2.4-Internal-Structure-of-the-Area-Measuring-Device">§2.4 Internal Structure of the Area-Measuring Device</a></li><li class="level-3"><a href="#§2.5-Volume-Measuring-Devices-and-Determinants">§2.5 Volume-Measuring Devices and Determinants</a></li><li class="level-3"><a href="#§2.6-Summary-of-This-Chapter-and-Outlook-Toward-Chapter-3">§2.6 Summary of This Chapter and Outlook Toward Chapter 3</a></li><li class="level-2"><a href="#Appendix-A:-Tensor-Product-Representation-of-the-Volume-Measuring-Device-—-Full-Component-Calculation">Appendix A: Tensor-Product Representation of the Volume-Measuring Device — Full Component Calculation</a></li></ul></li>
 <li class="level-1"><a href="ch03.html" id="link-ch03.html">Chapter 3</a></li>
 <li class="level-1"><a href="ch04.html" id="link-ch04.html">Chapter 4</a></li>
 <li class="level-1"><a href="ch05.html" id="link-ch05.html">Chapter 5</a></li>
@@ -131,6 +131,36 @@
 <h3 id="§2.0-Measuring-Devices,-Area,-Volume,-and-Length">§2.0 Measuring Devices, Area, Volume, and Length</h3>
 <p>In Chapter 1, we defined $dx$, $dy$, and $dz$ as row vectors ($1$-forms) that eat one vector and return a scalar, and we reread $\int f\,dx$ as the limit of matrix actions. In this chapter we extend that framework and <strong>discover area-measuring devices</strong> ($2$-forms), which eat two vectors, and <strong>volume-measuring devices</strong> ($3$-forms), which eat three. Both are built from the same parts: $dx$, $dy$, and $dz$.
 </p>
+<hr />
+<h3 id="§2.1-The-Limits-of-Elementary-School-Area">§2.1 The Limits of Elementary-School Area</h3>
+<p>Many readers know that “integration is, roughly speaking, a calculation for finding area.”
+ But what is area, exactly? If we think about it again, we may realize that we have not really formalized the idea since elementary school.
+</p>
+<p>So what was that elementary-school formalization? It was based on a very simple intuition: <strong>“how many $1\times 1$ squares (tiles) can be packed into the figure.”</strong>
+</p>
+<p>For a figure drawn on two-dimensional paper (the $xy$ plane), this “tiling with squares” works well. For example, the area $S$ of the parallelogram spanned by two two-dimensional vectors $\mathbf{v}_1=(x_1,y_1)$ and $\mathbf{v}_2=(x_2,y_2)$ can be written as
+</p>
+$$S=\sqrt{(x_1 y_2-x_2 y_1)^2}.$$
+<p>However, we live in three-dimensional space. When we try to compute the area of a “tilted plane” in three-dimensional space, things get a bit painful.
+</p>
+<p>Many readers were asked in high-school mathematics to find the area of the parallelogram spanned by three-dimensional vectors $\mathbf{v}_1=(x_1,y_1,z_1)$ and $\mathbf{v}_2=(x_2,y_2,z_2)$. Using high-school notation, we can write
+</p>
+$$
+S=\sqrt{|\mathbf{v}_1|^2|\mathbf{v}_2|^2-(\mathbf{v}_1\cdot\mathbf{v}_2)^2}.
+$$
+<p>If we expand in components, we fight through a calculation that fills a notebook page before we finally reach
+</p>
+$$S=\sqrt{(y_1 z_2-z_1 y_2)^2+(z_1 x_2-x_1 z_2)^2+(x_1 y_2-x_2 y_1)^2}.$$
+<p>The process is long enough that one would rather not do it more than a few times in life.
+ Why does it become so painful? Because <strong>we originally defined area inside the two-dimensional world</strong>. <strong>In three-dimensional space</strong>, the tilt of the plane and the relation between the two vectors lying on it get entangled, and the formula becomes bulky once <strong>angles</strong> have to be handled too.
+</p>
+<blockquote>
+<p><strong>Note</strong> (terms defined later)</p>
+<p>We use “angle” and “inner product” here, but at this stage the intuitive meanings from elementary school are enough. A formal definition of the inner product is given in Chapter 6, but it is not needed to follow the discussion here.</p>
+</blockquote>
+<p>Here we change viewpoint completely. <strong>We set aside the elementary-school definition of area for now</strong> and <strong>redesign from scratch an algebraic measuring device that outputs area.</strong>
+</p>
+<hr />
 <h3 id="§2.2-The-Three-Rules-an-Area-Measuring-Device-Must-Satisfy">§2.2 The Three Rules an Area-Measuring Device Must Satisfy</h3>
 <p>As a first step in the design, we do not rely only on “$1\times 1$ squares.” We take as our base the <strong>parallelogram spanned by two vectors</strong>.
 </p>
@@ -328,8 +358,8 @@ $$
 </p>
 $$
 \begin{pmatrix} 0 & 1 & 0 \\ -1 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}
-= \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}
-- \begin{pmatrix} 0 & 0 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}
+= \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix} -
+\begin{pmatrix} 0 & 0 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}
 $$
 <p>The first term on the right-hand side is "the matrix whose only nonzero entry is row 1, column 2," and it represents the operation of extracting the $x$ component from $\mathbf{v}_1$ and the $y$ component from $\mathbf{v}_2$ and multiplying them ($x_1 y_2$).
 </p>
@@ -360,7 +390,7 @@ $$
 <p>Splendid — from combinations of the measuring devices ($1$-forms) of Chapter 1, we have constructed an area-measuring device ($2$-form) systematically.
  Because it is built from the subtraction of tensor products, please also notice that <strong>swapping the arguments flips the sign (alternating property)</strong>—Rule 2 from §2.2 is automatically "built in."
 </p>
-<h4 id="2.4.6-The-Three-Basis-__MATH_BLOCK_203__-Forms">2.4.6 The Three Basis $2$-Forms</h4>
+<h4 id="2.4.6-The-Three-Basis-__MATH_BLOCK_213__-Forms">2.4.6 The Three Basis $2$-Forms</h4>
 <p>By the same method, we can also construct the remaining two "biased pairs of glasses."
 </p>
 <p><strong>Glasses that look at the $yz$ plane:</strong> $dy \wedge dz$
@@ -562,7 +592,7 @@ $$\begin{pmatrix} x_1 & x_2 & x_3 \\ y_1 & y_2 & y_3 \\ z_1 & z_2 & z_3 \end{pma
 <blockquote>
 <p><strong>Note</strong> (the order of the six terms of the determinant) Some textbooks simply declare upfront that “the definition of the determinant is these six terms.” In the flow of this book, the order is <strong>rules of the measuring device → six terms</strong>.</p>
 </blockquote>
-<h4 id="2.5.3-Reinterpreting-the-__MATH_BLOCK_308__-form-as-a-Determinant">2.5.3 Reinterpreting the $2$-form as a Determinant</h4>
+<h4 id="2.5.3-Reinterpreting-the-__MATH_BLOCK_318__-form-as-a-Determinant">2.5.3 Reinterpreting the $2$-form as a Determinant</h4>
 <p>In fact, a determinant was hiding in the wedge product of the $2$-form defined in §2.4 as well. Let us recall the definition:
 </p>
 $$(dx \wedge dy)(\mathbf{v}_1, \mathbf{v}_2) = dx(\mathbf{v}_1)\,dy(\mathbf{v}_2) - dy(\mathbf{v}_1)\,dx(\mathbf{v}_2)$$
@@ -571,7 +601,7 @@ $$(dx \wedge dy)(\mathbf{v}_1, \mathbf{v}_2) = dx(\mathbf{v}_1)\,dy(\mathbf{v}_2
 $$(dx \wedge dy)(\mathbf{v}_1, \mathbf{v}_2) = \det\begin{pmatrix} dx(\mathbf{v}_1) & dx(\mathbf{v}_2) \\ dy(\mathbf{v}_1) & dy(\mathbf{v}_2) \end{pmatrix}$$
 <p>In other words, the value of the wedge product is the determinant of the matrix with “which measuring device” across the rows and “which vector” down the columns.
 </p>
-<h4 id="2.5.4-Definition-of-__MATH_BLOCK_311__-—-Completing-the-Determinant-Pattern">2.5.4 Definition of $dx \wedge dy \wedge dz$ — Completing the Determinant Pattern</h4>
+<h4 id="2.5.4-Definition-of-__MATH_BLOCK_321__-—-Completing-the-Determinant-Pattern">2.5.4 Definition of $dx \wedge dy \wedge dz$ — Completing the Determinant Pattern</h4>
 <p>Extending this “determinant pattern” straightforwardly to $3 \times 3$ gives us the volume-measuring device.
 </p>
 <p><strong>Definition:</strong> For three vectors $\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3$,
@@ -589,7 +619,7 @@ $$= \det\begin{pmatrix} x_1 & x_2 & x_3 \\ y_1 & y_2 & y_3 \\ z_1 & z_2 & z_3 \e
 <li><strong>Alternativity</strong>: swapping two columns of the determinant flips the sign.</li>
 <li><strong>Normalization</strong>: inserting $\hat{e}_x, \hat{e}_y, \hat{e}_z$ gives the identity matrix, and $\det(I) = 1$.</li>
 </ul>
-<h4 id="2.5.5-Tensor-Product-Representation-of-the-Volume-Measuring-Device-—-An-Array-of-Three-__MATH_BLOCK_325__-Blocks-Side-by-Side">2.5.5 Tensor-Product Representation of the Volume-Measuring Device — An Array of Three $3 \times 3$ Blocks Side by Side</h4>
+<h4 id="2.5.5-Tensor-Product-Representation-of-the-Volume-Measuring-Device-—-An-Array-of-Three-__MATH_BLOCK_335__-Blocks-Side-by-Side">2.5.5 Tensor-Product Representation of the Volume-Measuring Device — An Array of Three $3 \times 3$ Blocks Side by Side</h4>
 <p>In §2.4.4–2.4.5 we saw that the area-measuring device $dx \wedge dy$ can be built as the difference of tensor products $dx \otimes dy - dy \otimes dx$, and that the result is a $3 \times 3$ antisymmetric matrix. Can the same trick be applied to the volume-measuring device $dx \wedge dy \wedge dz$?
 </p>
 <p>Why bring out a tensor array here at all? Because we want to show that <strong>the operation of eating three vectors and returning a determinant can be written with exactly the same idea of “contraction” as for the area-measuring device</strong>. As defined in §2.4.2, contraction is the operation of summing over a shared index and eliminating that index. $1$-forms, $2$-forms, and $3$-forms all run on this single principle.
@@ -691,7 +721,7 @@ $$\mathbf{v}_1 \cdot (\mathbf{v}_2 \times \mathbf{v}_3) = \det\begin{pmatrix}x_1
 </p>
 <p>If we want the positive elementary-school volume—the scalar volume “how many unit cubes fit inside?”—we take the magnitude of the signed output. Since a $3$-form in three-dimensional space has only one independent component, this is simply $|V|=\sqrt{V^2}$. As with area, this nonlinear operation requires a metric; we will treat it again in Chapter 6.
 </p>
-<h4 id="2.5.9-The-“Size”-of-a-__MATH_BLOCK_387__-form-—-Why-Is-There-Only-One-Independent-Component?">2.5.9 The “Size” of a $3$-form — Why Is There Only One Independent Component?</h4>
+<h4 id="2.5.9-The-“Size”-of-a-__MATH_BLOCK_397__-form-—-Why-Is-There-Only-One-Independent-Component?">2.5.9 The “Size” of a $3$-form — Why Is There Only One Independent Component?</h4>
 <p>An area-measuring device ($2$-form) could be represented by a $3 \times 3$ antisymmetric matrix, with 3 independent components (the coefficients of $dy \wedge dz$, $dz \wedge dx$, $dx \wedge dy$).
 </p>
 <p>How many independent components does a volume-measuring device ($3$-form) have? Consider the candidates we can build as basis $3$-forms. The number of ways to choose three measuring devices $dx, dy, dz$ <strong>without repetition</strong> is … only one. Just $dx \wedge dy \wedge dz$ (changing the order only changes the sign; it does not produce a new basis).

@@ -110,7 +110,7 @@
 <li class="level-1"><a href="ch01.html" id="link-ch01.html">Chapter 1</a></li>
 <li class="level-1"><a href="ch02.html" id="link-ch02.html">Chapter 2</a></li>
 <li class="level-1"><a href="ch03.html" id="link-ch03.html">Chapter 3</a></li>
-<li class="level-1"><a href="ch04.html" class="active" id="link-ch04.html">Chapter 4</a><ul class="sub-toc"><li class="level-3"><a href="#§4.0-Physics-Curves;-Computation-Uses-Boxes">§4.0 Physics Curves; Computation Uses Boxes</a></li><li class="level-3"><a href="#§4.1-Pullback-of-a-1-Form-—-Work-and-the-Work-Energy-Theorem">§4.1 Pullback of a 1-Form — Work and the Work-Energy Theorem</a></li><li class="level-3"><a href="#§4.3-Pullback-of-a-3-Form-—-Conservation-of-Mass-and-Volume-Integrals">§4.3 Pullback of a 3-Form — Conservation of Mass and Volume Integrals</a></li><li class="level-3"><a href="#§4.4-Properties-of-the-Pullback-—-What-We-Have-Established-So-Far">§4.4 Properties of the Pullback — What We Have Established So Far</a></li><li class="level-3"><a href="#§4.5-Summary-of-This-Chapter-and-Outlook-Toward-Chapter-5,-the-Exterior-Derivative">§4.5 Summary of This Chapter and Outlook Toward Chapter 5, the Exterior Derivative</a></li></ul></li>
+<li class="level-1"><a href="ch04.html" class="active" id="link-ch04.html">Chapter 4</a><ul class="sub-toc"><li class="level-3"><a href="#§4.0-Physics-Curves;-Computation-Uses-Boxes">§4.0 Physics Curves; Computation Uses Boxes</a></li><li class="level-3"><a href="#§4.1-Pullback-of-a-1-Form-—-Work-and-the-Work-Energy-Theorem">§4.1 Pullback of a 1-Form — Work and the Work-Energy Theorem</a></li><li class="level-3"><a href="#§4.2-Pullback-of-a-2-Form-—-Conservation-of-Angular-Momentum-and-Areal-Velocity">§4.2 Pullback of a 2-Form — Conservation of Angular Momentum and Areal Velocity</a></li><li class="level-3"><a href="#§4.3-Pullback-of-a-3-Form-—-Conservation-of-Mass-and-Volume-Integrals">§4.3 Pullback of a 3-Form — Conservation of Mass and Volume Integrals</a></li><li class="level-3"><a href="#§4.4-Properties-of-the-Pullback-—-What-We-Have-Established-So-Far">§4.4 Properties of the Pullback — What We Have Established So Far</a></li><li class="level-3"><a href="#§4.5-Summary-of-This-Chapter-and-Outlook-Toward-Chapter-5,-the-Exterior-Derivative">§4.5 Summary of This Chapter and Outlook Toward Chapter 5, the Exterior Derivative</a></li></ul></li>
 <li class="level-1"><a href="ch05.html" id="link-ch05.html">Chapter 5</a></li>
 <li class="level-1"><a href="ch06.html" id="link-ch06.html">Chapter 6</a></li>
 <li class="level-1"><a href="ch07.html" id="link-ch07.html">Chapter 7</a></li>
@@ -127,7 +127,7 @@
   </nav>
   <main class="main-content">
     <article class="markdown-body">
-<h1 id="Chapter-4:-What-Is-a-Change-of-Variables?-—-The-Pullback-__MATH_BLOCK_41__:-Making-Measuring-Devices-Consistent">Chapter 4: What Is a Change of Variables? — The Pullback $\Phi^*$: Making Measuring Devices Consistent</h1>
+<h1 id="Chapter-4:-What-Is-a-Change-of-Variables?-—-The-Pullback-__MATH_BLOCK_64__:-Making-Measuring-Devices-Consistent">Chapter 4: What Is a Change of Variables? — The Pullback $\Phi^*$: Making Measuring Devices Consistent</h1>
 <h3 id="§4.0-Physics-Curves;-Computation-Uses-Boxes">§4.0 Physics Curves; Computation Uses Boxes</h3>
 <p>The quantities we truly want to measure in physics do not depend on the names of coordinates.
 </p>
@@ -277,6 +277,217 @@ $$W = \int F\,dx = \int_{\gamma} F\,dx = \int_{t_0}^{t_1} \gamma^*(F\,dx) = \int
 <blockquote>
 <p><strong>Note</strong> ($dx$ is a row vector, $dt$ is too) In the calculations of §4.1, $dx$, $dt$, and $dv$ all keep the same type: "eat displacement and return a scalar." The principle "row vector × column vector → scalar" from Chapter 1 §1.1.3 does not break even in the middle of a pullback. The result $\gamma^*(F\,dx)$ is again a $1$-form (row vector) on the time axis; feeding it the time-side displacement $\Delta t$ yields a scalar (a piece of work)—this consistency is what supports understanding of the pullback.</p>
 </blockquote>
+<hr />
+<h3 id="§4.2-Pullback-of-a-2-Form-—-Conservation-of-Angular-Momentum-and-Areal-Velocity">§4.2 Pullback of a 2-Form — Conservation of Angular Momentum and Areal Velocity</h3>
+<p><strong>① Start from a physical quantity.</strong> In §4.1 we mapped a one-dimensional finite interval and measured its image. This time we apply the same idea to a two-dimensional finite grid.
+</p>
+<blockquote>
+<p><strong>Note</strong> (for readers without a physics background) The words “conservation of angular momentum” and “Kepler’s second law” appear below, but what this section really uses is the fact that “area on a plane can be remeasured in different variables.” The physical meaning can be read afterward.</p>
+</blockquote>
+<p>Consider a particle moving in a central force field. When the force always points toward the origin, the angular momentum
+</p>
+$$
+L
+=
+m\left(x(t)y'(t)-y(t)x'(t)\right)
+$$
+<p>is constant in time (the law of conservation of angular momentum). This conservation law has a beautiful geometric meaning—the rate at which the position vector of the particle sweeps out area (<strong>areal velocity</strong>) is constant (Kepler’s second law).
+</p>
+<p>We may assume the motion takes place in the plane $z=0$. The area of the sector $D$ swept out by the position vector from time $t_0$ to $t_1$ is
+</p>
+$$A = \iint_D dx \wedge dy$$
+<p>Here $dx \wedge dy$ is the area-measuring device ($2$-form) on the $xy$ plane.
+</p>
+<blockquote>
+<p><strong>Note</strong> (For physicists who work in two dimensions) Let us confirm this point. This book consistently assumes the reality of three-dimensional space. Setting $z=0$ in the angular-momentum discussion below is a temporary simplification to make the calculation easier to read; we are still looking at one plane inside three-dimensional space.</p>
+</blockquote>
+<p><strong>② Naive substitution—it does not match as written.</strong> The sector on the right-hand side is awkward to write in $(x,y)$. So we want to write it in $(r,\theta)$. But what happens if we replace $dx \wedge dy$ directly by $dr \wedge d\theta$? Let us compute the area of a full circle of radius $C$. The correct value is $\pi C^2$. Yet with naive substitution:
+</p>
+$$
+A_{\text{naive}}
+=
+\iint dr \wedge d\theta
+=
+\int_0^{2\pi}
+\biggl(
+  \int_0^C dr
+\biggr)
+d\theta
+=
+2\pi C
+$$
+<p>This is completely different from $\pi C^2$. With $dr \wedge d\theta$ alone, the correct area does not come out.
+</p>
+<p><strong>③ See the cause on a finite grid.</strong> This time, let us ask what measuring device should eat a finite cell on the $(r,\theta)$ side so that we get the same area value as on the $xy$ side.
+</p>
+<p>Cut a grid of finite size $\Delta r \times \Delta\theta$ in $(r,\theta)$ space. Find the two displacement vectors that one cell at coordinates $(r, \theta)$ produces in $(x,y)$ space.
+</p>
+<p>Edge in the $\Delta r$ direction: only $r$ changes while $\theta$ is fixed, so the difference is exact:
+</p>
+$$\Delta x_r = \Delta r \cos\theta,\qquad \Delta y_r = \Delta r \sin\theta$$
+<p>Edge in the $\Delta\theta$ direction: use the difference formulas for trigonometric functions:
+</p>
+$$\begin{aligned}
+\Delta x_\theta &= r\bigl(\cos(\theta+\Delta\theta) - \cos\theta\bigr)
+= -2r\sin\biggl(\theta+\frac{\Delta\theta}{2}\biggr)\sin\biggl(\frac{\Delta\theta}{2}\biggr) \\[4pt]
+\Delta y_\theta &= r\bigl(\sin(\theta+\Delta\theta) - \sin\theta\bigr)
+= 2r\cos\biggl(\theta+\frac{\Delta\theta}{2}\biggr)\sin\biggl(\frac{\Delta\theta}{2}\biggr)
+\end{aligned}$$
+<p>Find the area of the parallelogram spanned by the two edges $\mathbf{v}_r = (\Delta x_r, \Delta y_r)$ and $\mathbf{v}_\theta = (\Delta x_\theta, \Delta y_\theta)$ by a determinant:
+</p>
+$$\begin{aligned}
+\det(\mathbf{v}_r,\mathbf{v}_\theta) &= \Delta x_r\,\Delta y_\theta - \Delta x_\theta\,\Delta y_r \\
+&= 2r\Delta r\,\sin\biggl(\frac{\Delta\theta}{2}\biggr)\biggl[ \cos\theta\cos\biggl(\theta+\frac{\Delta\theta}{2}\biggr) + \sin\theta\sin\biggl(\theta+\frac{\Delta\theta}{2}\biggr) \biggr] \\
+&= r\Delta r\,\sin\Delta\theta
+\end{aligned}$$
+<p>The result is
+</p>
+$$\det = r\Delta r\,\sin\Delta\theta$$
+<p>Divide this measured value by the cell width $\Delta r_i\,\Delta\theta_j$ on the $(r,\theta)$ side, and we obtain the coefficient of the provisional measuring device used on a finite cell. That is,
+</p>
+$$
+\Phi_h^\square(dx\wedge dy)
+:=
+r_i\frac{\sin\Delta\theta_j}{\Delta\theta_j}\,dr\wedge d\theta
+$$
+<p>Feed this measuring device to a finite cell, and
+</p>
+$$
+\begin{aligned}
+\Phi_h^\square(dx\wedge dy)(\Delta r_i,\Delta\theta_j)
+&=
+\left(
+r_i\frac{\sin\Delta\theta_j}{\Delta\theta_j}\,dr\wedge d\theta
+\right)(\Delta r_i,\Delta\theta_j) \\
+&=
+r_i\,\Delta r_i\,\sin\Delta\theta_j
+\end{aligned}
+$$
+<p>The right-hand side is the signed area of the parallelogram spanned by the two finite-difference vectors.
+</p>
+<p>Let $A_h^\square$ denote the total area sum in the finite-cell version. Therefore
+</p>
+$$
+A_h^\square
+:=
+\sum_i\sum_j
+\Phi_h^\square(dx\wedge dy)(\Delta r_i,\Delta\theta_j)
+=
+\sum_i\sum_j r_i\,\Delta r_i\,\sin\Delta\theta_j
+$$
+<p>$\sin\Delta\theta_j$ is an exact value for finite $\Delta\theta_j$. What we measure here is not the curved sector area of the polar-coordinate finite grid itself, but the signed area of the parallelogram spanned by two finite-difference vectors. Write the sector swept out by the position vector in physical space as $D$. On the other hand, write the $(r,\theta)$ range corresponding to that region in polar coordinates as $D'$.
+</p>
+<p>In the final stage of taking the limit of the sum,
+</p>
+$$
+\frac{\sin\Delta\theta_j}{\Delta\theta_j}\to 1
+$$
+<p>Therefore the true area $A$ is obtained as
+</p>
+$$
+A
+=
+\lim_{h\to0} A_h^\square
+=
+\iint_{D'} r\,dr\wedge d\theta
+=
+\int_{\theta_0}^{\theta_1}
+\biggl(
+  \int_0^{R(\theta)} r\,dr
+\biggr)
+d\theta
+=
+\int_{\theta_0}^{\theta_1}
+\frac{1}{2}R(\theta)^2\,d\theta
+$$
+<p>The coefficient of the measuring device on a finite cell is $r_i\frac{\sin\Delta\theta_j}{\Delta\theta_j}$. As the partition is refined, this coefficient approaches $r$. Thus, in the limit, we obtain
+</p>
+$$
+\Phi_h^\square(dx\wedge dy)
+\xrightarrow{h\to0}
+\Phi^*(dx\wedge dy)
+=
+r\,dr\wedge d\theta
+$$
+<blockquote>
+<p><strong>Note</strong> ($\Delta r,\Delta\theta$ need not be infinitesimal) In the computation of the difference vectors so far, we have used no assumption that $\Delta r$ or $\Delta\theta$ is “sufficiently small.” The $\Delta x_r, \Delta y_r, \Delta x_\theta, \Delta y_\theta$ found above are formulas that hold exactly no matter how large $\Delta r,\Delta\theta$ may be. By “exact” here we mean that we measure the parallelogram spanned by finite-difference vectors. The passage to infinitesimals is made only in the final stage—the limit of the sum—when we move to $\Phi^*$ and integration.</p>
+</blockquote>
+<p><strong>④ Write the standard form obtained in the limit.</strong> For the transformation to polar coordinates $\Phi(r,\theta) = (r\cos\theta,\; r\sin\theta)$:
+</p>
+$$\Phi^*(dx \wedge dy) = r\,dr \wedge d\theta$$
+<p>This is the $2$-form rebuilt in the limit from the finite-cell version $\Phi_h^\square$. We denote that limiting rebuild by $\Phi^*$. This $r$ plays the same role for $2$-forms that the velocity $\gamma'(t)$ played for $1$-forms in §4.1.
+</p>
+<p><strong>⑤ Pullback of a coefficient-carrying $2$-form.</strong> For a $2$-form $G(x,y)\,dx \wedge dy$ with an arbitrary coefficient $G(x,y)$, the same structure holds:
+</p>
+$$\Phi^*\bigl(G(x,y)\,dx \wedge dy\bigr) = G(r\cos\theta,\, r\sin\theta)\; r\,dr \wedge d\theta$$
+<p>The coefficient $G$ is merely rebuilt in polar coordinates (pullback of a $0$-form), while only the $dx \wedge dy$ part changes to $r\,dr \wedge d\theta$. The pullback $\Phi^*$ naturally splits into “rebuilding the coefficient” and “rebuilding the measuring device.”
+</p>
+<p><strong>⑥ Carry the same discovery to a general transformation.</strong> Nothing here is special to polar coordinates. Consider a transformation between planes $\Phi(u,v)=(x(u,v),y(u,v))$, and map a finite rectangle on the $(u,v)$ side. Measure the two difference vectors in the $u$ and $v$ directions with $dx\wedge dy$, and we get an area value for each finite rectangle.
+</p>
+<p>Divide that area value by $\Delta u\,\Delta v$, and refine the partition. Then the difference ratios converge to partial derivatives, and a $2\times2$ determinant appears. Therefore, after $h\to0$, the rebuilding is
+</p>
+$$\Phi^*\bigl(G(x,y)\,dx \wedge dy\bigr) = G(x(u,v), y(u,v))\;
+\det\!\begin{pmatrix}
+\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\[6pt]
+\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
+\end{pmatrix}
+\,du \wedge dv$$
+<p>That is,
+</p>
+$$\Phi^*\bigl(G(x,y)\,dx \wedge dy\bigr)
+=G(\Phi(u,v))\left(
+\frac{\partial x}{\partial u}\frac{\partial y}{\partial v}
+-\frac{\partial x}{\partial v}\frac{\partial y}{\partial u}
+\right)\,du\wedge dv$$
+<p>The $2\times2$ determinant that appears here is the consistency factor for rebuilding the physical-space area-measuring device $dx\wedge dy$ into a measuring device $du\wedge dv$ usable on the $(u,v)$ side.
+</p>
+<p>What we saw on the finite grid,
+</p>
+$$\Delta x_u\,\Delta y_v-\Delta x_v\,\Delta y_u$$
+<p>is the finite-cell version for discovering this partial-derivative determinant. It is an equality for the parallelogram spanned by finite-difference vectors. In the limiting rebuild written as $\Phi^*$, these finite ratios are replaced by partial-derivative coefficients. The coefficient obtained by dividing the measured value on a finite cell by $\Delta u\,\Delta v$ converges to the $2\times2$ determinant above as the partition width $h$ is taken toward $0$.
+</p>
+<p><strong>⑦ Return to the physical quantity.</strong> Integrate the area of the sector $D$ over the corresponding polar-coordinate region $D'$ using the pulled-back measuring device:
+</p>
+$$
+A
+=
+\iint_D dx\wedge dy
+=
+\iint_{D'} \Phi^*(dx\wedge dy)
+=
+\iint_{D'} r\,dr\wedge d\theta
+$$
+$$
+=
+\int_{\theta_0}^{\theta_1}
+\biggl(
+  \int_0^{R(\theta)} r\,dr
+\biggr)
+d\theta
+=
+\int_{\theta_0}^{\theta_1}
+\frac{1}{2}R(\theta)^2\,d\theta
+$$
+<p>Integrating in $r$, $\frac{1}{2}r^2$ appears, and the area is reduced to a line integral of a $1$-form along the $\theta$ axis. Pull back further to the time parameter $t$. If the particle’s orbit is $r = R(t),\, \theta = \Theta(t)$, then
+</p>
+$$
+\frac{dA}{dt}
+=
+\frac{1}{2}r(t)^2\,\theta'(t)
+$$
+<p>From the definition of angular momentum
+</p>
+$$
+L
+=
+m r(t)^2\theta'(t)
+$$
+<p>the areal velocity is
+</p>
+$$\frac{dA}{dt} = \frac{L}{2m}$$
+<p>In a central force field, $L$ is conserved, so the areal velocity is also constant—this is Kepler’s second law, the geometric expression of the law of conservation of angular momentum. This is exactly the same structure as in §4.1: there, the consistency factor $\gamma'(t)$ for a $1$-form described energy conservation; here, the consistency factor $r$ for a $2$-form describes conservation of angular momentum.
+</p>
+<hr />
 <h3 id="§4.3-Pullback-of-a-3-Form-—-Conservation-of-Mass-and-Volume-Integrals">§4.3 Pullback of a 3-Form — Conservation of Mass and Volume Integrals</h3>
 <p><strong>① Start from a physical quantity.</strong> The end point is a volume integral. This time we map a three-dimensional finite box and measure it.
 </p>

@@ -115,7 +115,7 @@
 <li class="level-1"><a href="ch06.html" id="link-ch06.html">Chapter 6</a></li>
 <li class="level-1"><a href="ch07.html" id="link-ch07.html">Chapter 7</a></li>
 <li class="level-1"><a href="ch08.html" id="link-ch08.html">Chapter 8</a></li>
-<li class="level-1"><a href="ch09.html" class="active" id="link-ch09.html">Chapter 9</a><ul class="sub-toc"><li class="level-3"><a href="#§9.0-The-Central-Tools-of-This-Book-Are-Now-in-Place">§9.0 The Central Tools of This Book Are Now in Place</a></li><li class="level-3"><a href="#§9.2-Cylindrical-Coordinates-$(r,\theta,z)$">§9.2 Cylindrical Coordinates $(r,\theta,z)$</a></li><li class="level-3"><a href="#§9.3-Spherical-Coordinates-$(\rho,\theta,\phi)$">§9.3 Spherical Coordinates $(\rho,\theta,\phi)$</a></li><li class="level-3"><a href="#§9.4-A-Hard-Problem-in-Calculus-—-The-Vector-Laplacian-in-Spherical-Coordinates">§9.4 A Hard Problem in Calculus — The Vector Laplacian in Spherical Coordinates</a></li><li class="level-3"><a href="#§9.5-A-Hard-Problem-in-Electromagnetism-—-Divergence-of-the-Point-Charge-Electric-Field">§9.5 A Hard Problem in Electromagnetism — Divergence of the Point-Charge Electric Field</a></li><li class="level-3"><a href="#§9.6-The-Dictionary-Ends;-the-Journey-Continues">§9.6 The Dictionary Ends; the Journey Continues</a></li></ul></li>
+<li class="level-1"><a href="ch09.html" class="active" id="link-ch09.html">Chapter 9</a><ul class="sub-toc"><li class="level-3"><a href="#§9.0-The-Central-Tools-of-This-Book-Are-Now-in-Place">§9.0 The Central Tools of This Book Are Now in Place</a></li><li class="level-3"><a href="#§9.1-Building-the-Dictionary-on-the-Spot-—-A-Mechanical-Procedure">§9.1 Building the Dictionary on the Spot — A Mechanical Procedure</a></li><li class="level-3"><a href="#§9.2-Cylindrical-Coordinates-$(r,\theta,z)$">§9.2 Cylindrical Coordinates $(r,\theta,z)$</a></li><li class="level-3"><a href="#§9.3-Spherical-Coordinates-$(\rho,\theta,\phi)$">§9.3 Spherical Coordinates $(\rho,\theta,\phi)$</a></li><li class="level-3"><a href="#§9.4-A-Hard-Problem-in-Calculus-—-The-Vector-Laplacian-in-Spherical-Coordinates">§9.4 A Hard Problem in Calculus — The Vector Laplacian in Spherical Coordinates</a></li><li class="level-3"><a href="#§9.5-A-Hard-Problem-in-Electromagnetism-—-Divergence-of-the-Point-Charge-Electric-Field">§9.5 A Hard Problem in Electromagnetism — Divergence of the Point-Charge Electric Field</a></li><li class="level-3"><a href="#§9.6-The-Dictionary-Ends;-the-Journey-Continues">§9.6 The Dictionary Ends; the Journey Continues</a></li></ul></li>
 <li class="level-1"><a href="ch10.html" id="link-ch10.html">Chapter 10</a></li>
 <li class="level-1"><a href="ch11.html" id="link-ch11.html">Chapter 11</a></li>
 <li class="level-1"><a href="ch12.html" id="link-ch12.html">Chapter 12</a></li>
@@ -138,7 +138,31 @@
 <blockquote>
 <p><strong>Note</strong> (for readers who have not studied vector analysis) Among the calculations below, every derivation of grad, div, and curl takes only a few lines. Substitute the dictionary into $d$, $\ast d$, or $\ast d\ast$ as appropriate, and expand the partial derivatives—that is all. That is why it looks easy. But if you try to derive the same results in the style of vector analysis, you are forced through pages of manipulation while manually attaching factors such as $\frac{1}{r}\frac{\partial}{\partial r}(r\,\cdot\,)$ and $\frac{1}{\rho^2\sin\theta}$ to the $\nabla$ formulas. It looks easy because $\ast$ automatically organizes measuring devices of different degrees. The Laplacian in §9.4 is admittedly tough, but even there all you do is consult the dictionary and expand partial derivatives—the method does not change. This difference is exactly the value of the "measuring device" framework that this book has built up from Chapter 1.</p>
 </blockquote>
-<h3 id="§9.2-Cylindrical-Coordinates-__MATH_BLOCK_38__">§9.2 Cylindrical Coordinates $(r,\theta,z)$</h3>
+<hr />
+<h3 id="§9.1-Building-the-Dictionary-on-the-Spot-—-A-Mechanical-Procedure">§9.1 Building the Dictionary on the Spot — A Mechanical Procedure</h3>
+<p>The procedure for deriving the formulas for $\mathrm{grad}$, $\mathrm{div}$, and $\mathrm{curl}$ in orthogonal curvilinear coordinates boils down to the following three steps.
+</p>
+<ol>
+<li><strong>Write the Jacobian matrix $J$</strong>. From the coordinate transformation $x = x(q_1,q_2,q_3)$, $y = y(q_1,q_2,q_3)$, $z = z(q_1,q_2,q_3)$, arrange the partial derivatives. Each column of $J$ represents how a single step along one axis in parameter space moves in physical space.</li>
+</ol>
+<ol>
+<li><strong>Compute the metric $\mathbf{g} = J^T J$</strong>. This is the procedure we have followed since Chapter 6 §6.1.3. The diagonal entries of $\mathbf{g}$ are the squares of the scales along each axis; the off-diagonal entries represent how orthogonal the axes are to one another.</li>
+</ol>
+<ol>
+<li><strong>From $\mathbf{g}$, derive the dictionary for the Hodge star $\ast$, and combine it with $d$</strong>. Substitute the dictionary for $\ast$ in that coordinate system into each formula $\mathrm{grad} = d$, $\mathrm{curl}=\ast d$, $\mathrm{div}=\ast d\ast$, and the desired formulas are obtained mechanically.</li>
+</ol>
+<p>However, the usual $\mathrm{grad}$ and $\mathrm{curl}$ of vector analysis return vector fields as arrows. By contrast, this book's $\mathrm{grad}=d$, $\mathrm{curl}=\ast d$, and $\mathrm{div}=\ast d\ast$ are read first as formulas on the measuring-device side. To read a $1$-form obtained on the differential-forms side as a column vector, first use the metric $\mathbf{g}$ to convert it back to the form $\mathbf{g}^{-1}(\cdot)^T$. These are the column components corresponding to the coordinates. To read them as orthonormal vector components as used in vector analysis, you must also account for the scale factor in each direction.
+</p>
+<p>Also, in curvilinear coordinates, the orthonormal vector components used in vector analysis generally do not agree with the coefficients relative to the coordinate-associated $1$-forms. Because the calculation is carried out on the $1$-form side, first convert the vector field to the corresponding $1$-form. Then the coefficients of $d\theta$ and $d\phi$ pick up scale factors.
+</p>
+<blockquote>
+<p><strong>Note</strong> (vector components and $1$-form coefficients)</p>
+<p>In curvilinear coordinates you must distinguish the coordinate-associated $1$-forms from the $1$-forms that measure actual length in units of 1. For example, in polar coordinates, the angular scale $d\theta$ itself differs from the unit-length scale $r\,d\theta$. The dictionary of the Hodge star absorbs all of this scale-factor information. That is what lets us carry out "straight computation" on a "distorted coordinate system."</p>
+</blockquote>
+<p>Below, we demonstrate this procedure in cylindrical and spherical coordinates. Keep in mind the flow: compute first as $1$-forms and $2$-forms, then convert back to orthonormal vector components at the end.
+</p>
+<hr />
+<h3 id="§9.2-Cylindrical-Coordinates-__MATH_BLOCK_75__">§9.2 Cylindrical Coordinates $(r,\theta,z)$</h3>
 <h4 id="9.2.1-Deriving-the-Dictionary">9.2.1 Deriving the Dictionary</h4>
 <p>The coordinate transformation to cylindrical coordinates is $x = r\cos\theta$, $y = r\sin\theta$, $z = z$.
 </p>
@@ -231,7 +255,7 @@ $$\nabla \times \mathbf{F} = \begin{pmatrix}
 <p>The structure in which $r$ appears both inside and outside $\frac{\partial}{\partial r}$ has exactly the same origin as the $\frac{1}{r}$ that appeared when we counted the area element of a sector in the previous chapter.
 </p>
 <hr />
-<h3 id="§9.3-Spherical-Coordinates-__MATH_BLOCK_104__">§9.3 Spherical Coordinates $(\rho,\theta,\phi)$</h3>
+<h3 id="§9.3-Spherical-Coordinates-__MATH_BLOCK_141__">§9.3 Spherical Coordinates $(\rho,\theta,\phi)$</h3>
 <h4 id="9.3.1-Deriving-the-Dictionary">9.3.1 Deriving the Dictionary</h4>
 <p>The conversion to spherical coordinates is $x = \rho\sin\theta\cos\phi$, $y = \rho\sin\theta\sin\phi$, $z = \rho\cos\theta$ ($\theta$ is the angle from the $z$-axis, $\phi$ is the azimuthal angle in the $xy$ plane).
 </p>
