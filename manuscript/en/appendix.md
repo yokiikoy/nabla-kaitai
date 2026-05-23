@@ -20,8 +20,9 @@ This book is not an axiomatic development of differential forms on general manif
 >
 > If a definition in this book looks different from a mathematician's textbook, I want you first to read the definition inside this book. Then please distinguish whether there is a real contradiction or whether someone has simply imported notation from a different context. After that, by all means criticize me harshly again. Having read the definitions, I want you to point out my mistakes.
 
-> <strong>Note</strong> (as advanced "gatekeeping")
-> As I read mathematics books, I have internalized, at least somewhat, the beauty and strength of abstract orders of definition. The result is that what this book does can suddenly look like nothing more than sophisticated gatekeeping.
+> <strong>Note</strong> (as advanced <em>kihaji</em>, or high-level rote mnemonics)
+> Here <em>kihaji</em> refers to a Japanese elementary-school style of memorizing a procedure by a surface mnemonic, without understanding the underlying structure.
+> As I read mathematics books, I have internalized, at least somewhat, the beauty and strength of abstract orders of definition. The result is that what this book does can suddenly look like nothing more than advanced <em>kihaji</em>: a high-level version of procedural mnemonic that works without grasping the underlying structure.
 >
 > If I put that into words it looks like an excuse; if I stay silent it will be misunderstood. Worse, I half believe such criticism myself, so I cannot speak about it well.
 >
@@ -30,7 +31,7 @@ This book is not an axiomatic development of differential forms on general manif
 > Once again, the first purpose of this book is my own act of compensation. Even so, if a reader takes home one language they can move with their hands, that is an unexpected bonus.
 
 > <strong>Note</strong> (will the day come when I am not fooled?)
-> They say one stands at thirty; when I actually reached that milestone, I was still getting angry at formulas rather than standing upright. I have started making dad jokes.
+> They say, in an old East Asian classical phrase, that one should “stand” at thirty. In Japanese, “standing,” “setting up” an equation, and “getting angry” all echo the same verb. When I reached that age, I was still setting up formulas and getting angry at them rather than standing upright. I have started making dad jokes.
 
 ---
 
