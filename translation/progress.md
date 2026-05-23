@@ -309,6 +309,24 @@ Per-section Pass status:
 
 **English manuscript translation complete (ch00–ch12).**
 
+### English Back Matter (branch `ai/english-translation-backmatter`, PR [#175](https://github.com/yokiikoy/nabla-kaitai/pull/175))
+
+| File | Pass | Notes |
+|------|------|-------|
+| `manuscript/en/appendix.md` | **1 → 2 → 3** | FAQ / scope defense |
+| `manuscript/en/afterword.md` | **1 → 2 → 3** | Origin story + LLM note |
+| `manuscript/en/references.md` | **1 → 2 → 3** | Six references with comments |
+
+| Artifact | Status |
+|----------|--------|
+| `translation/drafts/backmatter-*.md` | integrated into en back matter |
+| `translation/reviews/backmatter-pass1-review.md` | complete |
+| `translation/reviews/backmatter-pass2.md` | complete |
+| `translation/reviews/backmatter-pass3.md` | complete |
+| `translation/reviews/backmatter-close-reading-polish.md` | complete (#191) |
+
+**English edition body complete (ch00–ch12 + back matter).**
+
 ---
 
 ## History (closed issues on this branch)

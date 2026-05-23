@@ -6,7 +6,7 @@ This book's peculiar algebraic approach was built by combining the insights of t
 
 <strong>1. Daniel Fleisch, *A Student's Guide to Vectors and Tensors*, Cambridge University Press (2011)</strong>
 
-Comment: A careful guide to the traditional approach. A well-regarded introduction that treats traditional vector analysis and tensor analysis component calculation with extreme care. The best book for acquiring the power to break through head-on the jungle of Christoffel symbols and index manipulation—the route this book tries to bypass via differential forms.
+Comment: A careful guide to the traditional approach. A well-regarded introduction that treats traditional vector analysis and tensor analysis component calculation with extreme care. The best book for acquiring the power to break through head-on the jungle of Christoffel symbols and index manipulation——the route this book tries to bypass via differential forms.
 
 ---
 
@@ -25,13 +25,13 @@ Comment: A classic of physical-mathematical application. A bible-like masterpiec
 <strong>4. William L. Burke, *Applied Differential Geometry*, Cambridge University Press (1985)</strong>
 <strong>William L. Burke, *Div, Grad, Curl are Dead* (Unfinished Manuscript)</strong>
 
-Comment: The structural pillar of this book—the philosophy of "delaying the metric." The most important literature that fixed the skeleton of this book. Burke advocated the educational philosophy of "putting the metric later and later into the course." This philosophy, which made explicit how much can be said with the exterior derivative $d$ before introducing the metric, supports the book's structure up to the delayed introduction of the metric and Hodge star in Chapter 6.
+Comment: The structural pillar of this book——the philosophy of "delaying the metric." The most important literature that fixed the skeleton of this book. Burke advocated the educational philosophy of "putting the metric later and later into the course." This philosophy, which made explicit how much can be said with the exterior derivative $d$ (topology) without the metric, supports the structure through Chapter 5 of this book.
 
 ---
 
 <strong>5. Leonard Susskind & Art Friedman, *Quantum Mechanics: The Theoretical Minimum*, Basic Books (2014)</strong>
 
-Comment: Intuition for matrix representation. The intuition of translating abstract $1$-forms (dual space) into the physicist's mother tongue—"lay column vectors on their sides as row vectors and take matrix products"—was strongly influenced by the operational feel of bra–ket notation in quantum mechanics.
+Comment: Intuition for matrix representation. The intuition of translating abstract $1$-forms (dual space) into the physicist's mother tongue——"lay row vectors on their sides and take matrix products"——was strongly influenced by the operational feel of bra–ket notation in quantum mechanics.
 
 ---
 
