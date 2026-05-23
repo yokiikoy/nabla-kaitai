@@ -33,7 +33,7 @@ order: 101
 <strong>4. William L. Burke, *Applied Differential Geometry*, Cambridge University Press (1985)</strong>
 <strong>William L. Burke, *Div, Grad, Curl are Dead* (Unfinished Manuscript)</strong>
 
-【コメント：本書の構成上の支柱——「計量遅延」の哲学】本書の骨格を決定づけた最重要文献。Burke は「計量をコースのどんどん後の方に遅らせる（put the metric later and later into the course）」という教育的哲学を提唱しました。計量なしでも外微分 $d$（トポロジー）で語れる部分があまりに多いことを明示したこの哲学は、本書の第5章までの構成を支えています。
+【コメント：本書の構成上の支柱——「計量遅延」の哲学】本書の骨格を決定づけた最重要文献。Burke は「計量をコースのどんどん後の方に遅らせる（put the metric later and later into the course）」という教育的哲学を提唱しました。計量なしでも外微分 $d$（トポロジー）で語れる部分があまりに多いことを明示したこの哲学は、本書の第6章で計量とホッジ・スター $\ast$ を導入するまでの構成を支えています。
 
 ---
 
