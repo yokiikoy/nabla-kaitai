@@ -98,6 +98,18 @@ From $dx$, we rethink what area is and what volume is. Then we move on to integr
 
 It will not help you in time for tomorrow’s midterm. But perhaps it will make it in time for the final.
 
+---
+
+## Roadmap of This Book
+
+This book has twelve chapters, divided into three large parts.
+
+1. <strong>Part I: Differential Forms on $\mathbb{R}^3$ (Chapters 1–4)</strong>  
+   We redefine $dx$ as a “matrix” and algebraically build the mechanism that measures area and volume, then reach integration and the pullback.
+2. <strong>Part II: Vector Analysis (Chapters 5–9)</strong>  
+   This is the core of the book. We treat the exterior derivative $d$, the metric and Hodge star $\ast$, vector analysis via nabla, translation between the two languages, and curvilinear coordinates in practice.
+3. <strong>Part III: Development and Integration (Chapters 10–12)</strong>  
+   We look at applications to electromagnetism, namely Maxwell’s equations, and then glance toward the worlds of manifolds and Geometric Algebra.
 
 # Portal Site and a Small Experiment
 
@@ -191,6 +203,268 @@ This physicist’s three-dimensional point of view lets us see that $dx$ is not 
 > <strong>Note</strong> (extensions in Part III)  
 > In Part III, however, we will touch on curvilinear coordinates and extensions to higher dimensions as needed.
 
+---
+
+### §1.1 Riemann Sums and Matrix Products
+
+In the previous section, we reinterpreted a physical infinitesimal displacement as the column vector $\mathbf{v}$. As in §1.0,
+
+$$
+\mathbf{v} = \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix}.
+$$
+
+With that picture in place, let us rewrite the familiar Riemann integral and see what perspective “$dx$ as a matrix” gives us.
+
+> <strong>Note</strong> (on transpose notation)  
+> In mathematics and in other books, a column vector is sometimes laid sideways on the page and marked with a superscript ${}^T$, as in $(\Delta x,\Delta y,\Delta z)^T$. In this book, I avoid this kind of space-saving transpose notation as much as possible. Column vectors are written as columns, and row vectors as rows. If ${}^T$ appears exceptionally, read it as an intentional transpose operation.
+
+#### 1.1.1 The Standard Construction of a Riemann Sum (Review)
+
+The definite integral of a function $f(x)$ over the interval $[a,b]$ is defined as follows. In high-school language, this is the method of exhaustion by subdivision.
+
+> <strong>Note</strong> (closed intervals)  
+> The notation $[a,b]$ denotes the <strong>closed interval</strong> containing both endpoints $a$ and $b$: the set of real numbers $x$ such that $a \le x \le b$.
+
+1. Divide the interval into $n$ subintervals: $a=x_0<x_1<\cdots<x_n=b$.
+2. Let the width of the small interval be $\Delta x_i=x_i-x_{i-1}$.
+3. Choose one representative point $\xi_i$ <strong>inside</strong> each subinterval $[x_{i-1},x_i]$.
+4. Form the Riemann sum $R_n:=\sum_{i=1}^n f(\xi_i)\Delta x_i$. We write the sum for this particular $n$-fold partition as $R_n$.
+5. Take the limit as the partition becomes finer. Strictly speaking, the <strong>maximum</strong> width of the subintervals approaches $0$. Merely increasing the number of pieces $n$ can still leave a large interval somewhere, so more advanced mathematics emphasizes this condition. In what follows, $\lim_{n\to\infty}R_n$ assumes partitions satisfying this condition:
+
+$$
+\int_a^b f(x)\,dx = \lim_{n\to\infty} R_n.
+$$
+
+In the usual textbook explanation, you read $dx$ as what the “tiny width $\Delta x_i$” becomes in the limit. Here we go one step deeper.
+
+#### 1.1.2 Displacement on Each Subinterval
+
+For the $i$-th subinterval $[x_{i-1},x_i]$, we write the displacement vector from §1.0, adjusted to the width of that interval, as
+
+$$
+\mathbf{v}_i = \begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix}.
+$$
+
+The subscript $i$ only means “for the $i$-th subinterval.” The object $\mathbf{v}_i$ is still a displacement vector. Since we are currently considering straight-line motion, the $y$ and $z$ components are zero. But that is not a condition imposed in advance; rather, in this particular situation, those components simply come out to be zero.
+
+<!-- pagebreak -->
+
+#### 1.1.3 The Appearance of $dx$ — The Defining Assertion of This Book
+
+Now we give the symbol $dx$ the following meaning. <strong>This may look bold, even strange, but it is also the defining feature of this book</strong>: here, we <strong>declare</strong> that $dx$ is the following $1\times3$ matrix.
+
+That is, we <strong>define</strong> $dx$ as the following <strong>row vector</strong>, with its components written horizontally as a $1\times3$ matrix:
+
+$$
+dx := \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}.
+$$
+
+This is not, in fact, a private notation detached from the standard point of view. The same object already appears in standard linear algebra, tensor analysis, and manifold theory. What I am doing here is fixing standard coordinates on $\mathbb{R}^3$ and writing it out as a matrix from the beginning. I spell this out in the note below.
+
+For readers familiar with more advanced mathematics: this is the matrix representation of the linear operator that takes an input column vector and returns only its $x$-component. It is the representation of $dx$ in the standard coordinates of $\mathbb{R}^3$.
+
+> <strong>Note</strong> ($dx=(1\ 0\ 0)$ and its relation to textbooks)  
+> This notation is not often brought to the foreground in ordinary textbooks, but it is already there implicitly.
+>
+> <strong>For readers who have studied vector analysis</strong>  
+> For a scalar-valued function $f:\mathbb{R}^3\to\mathbb{R}$, the gradient is
+> $$
+> \nabla f = \begin{pmatrix}
+> \frac{\partial f}{\partial x} \\
+> \frac{\partial f}{\partial y} \\
+> \frac{\partial f}{\partial z}
+> \end{pmatrix}.
+> $$
+> Its transpose
+> $$
+> (\nabla f)^T=
+> \begin{pmatrix}
+> \frac{\partial f}{\partial x} &
+> \frac{\partial f}{\partial y} &
+> \frac{\partial f}{\partial z}
+> \end{pmatrix}
+> $$
+> is a $1\times3$ row vector. If we set $f=x$, then $(\nabla x)^T=(1\ 0\ 0)$. In the Cartesian coordinates and matrix convention used in this book, this transpose of the gradient is precisely the row-vector representation of $dx$.
+>
+> <strong>For readers who have studied tensor analysis</strong>  
+> The symbols $dx^i$ are the dual basis to the coordinate basis $\frac{\partial}{\partial x^j}$, so
+> $$
+> dx^i\!\left(\frac{\partial}{\partial x^j}\right)=\delta^i_j.
+> $$
+> Therefore, in Cartesian coordinates, their row-vector representations are
+> $$
+> dx^1=(1\ 0\ 0),\qquad dx^2=(0\ 1\ 0),\qquad dx^3=(0\ 0\ 1).
+> $$
+>
+> <strong>For readers familiar with manifold theory</strong>  
+> We have $df_p:T_p\mathbb{R}^3\to\mathbb{R}$, $df_p(v)=v(f)$, and $dx^i_p(v)=v(x^i)$. In standard coordinates, if
+> $$
+> v=v^i\frac{\partial}{\partial x^i}
+> \longmapsto
+> \begin{pmatrix}v^1\\v^2\\v^3\end{pmatrix},
+> $$
+> then $dx^1_p(v)=v^1$, $dx^2_p(v)=v^2$, and $dx^3_p(v)=v^3$. Thus, in standard coordinate representation,
+> $$
+> dx^1_p\longmapsto(1\ 0\ 0),\qquad
+> dx^2_p\longmapsto(0\ 1\ 0),\qquad
+> dx^3_p\longmapsto(0\ 0\ 1).
+> $$
+
+Now multiply the displacement vector $\mathbf{v}_i$ on the left by the row vector $dx$:
+
+$$
+dx\,\mathbf{v}_i
+=
+\begin{pmatrix} 1 & 0 & 0 \end{pmatrix}
+\begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix}
+=
+\Delta x_i.
+$$
+
+Here we write the image that “$dx$ eats the displacement vector $\mathbf{v}_i$ and spits out the scalar $\Delta x_i$” <strong>as if it were a function value</strong>:
+
+$$
+dx(\mathbf{v}_i)
+:=
+dx\,\mathbf{v}_i
+=
+\Delta x_i.
+$$
+
+In this book, I will often emphasize this form $dx(\mathbf{v})$: the row vector $dx$ acts on the column vector $\mathbf{v}$. This point cannot be emphasized too often.
+
+> <strong>Note</strong> (operator, functional, function, or map?)  
+> Different books use different words for this $dx(\mathbf{v})$: <strong>operator</strong>, <strong>functional</strong>, <strong>function</strong>, or <strong>map</strong>. I prefer to call it an <strong>operator</strong>, so that is the word I will often use from here on.
+
+The $\Delta x_i$ that appears in the Riemann sum is not a “mysterious one-dimensional infinitesimal quantity.” It is <strong>the result of applying the matrix $dx$ above to the displacement vector $\mathbf{v}_i$ in three-dimensional space and extracting only its $x$-component</strong>.
+
+In other words,
+
+$$
+\Delta x_i = dx(\mathbf{v}_i).
+$$
+
+<strong>This is the decisive moment</strong>:
+
+* Left-hand side: $dx(\mathbf{v}_i)$ is the algebraic operation in which the matrix $dx$ acts on the <strong>displacement vector</strong> $\mathbf{v}_i$.
+* Right-hand side: the “small interval width $\Delta x_i$” that appears in the conventional Riemann sum.
+
+Thus $\Delta x_i$ is <strong>not a mysterious one-dimensional infinitesimal displacement, but $dx(\mathbf{v}_i)$, obtained by extracting only the $x$-direction component from the three-dimensional infinitesimal displacement $\mathbf{v}_i$</strong>.
+
+> <strong>Note</strong> (component-order convention)  
+> For row vectors and abbreviated row components, I write $(1\ 0\ 0)$, with <strong>no commas</strong>, separating components only by spaces. I use notation with <strong>commas followed by spaces</strong>, such as $(1, 0, 0)$, when emphasizing <strong>coordinates</strong>, such as the position of a point. I do <strong>not</strong> use that notation for abbreviated matrices or row vectors.
+
+Once this one line lands, the $dx$ at the end of the integral sign starts to look different. Next, let us rewrite the ordinary Riemann sum in this notation.
+
+#### 1.1.4 Vector Reinterpretation of the Riemann Sum and the Integral Sign
+
+From this point of view, the Riemann sum becomes
+
+$$
+R_n
+=
+\sum_{i=1}^n f(\xi_i)\,dx(\mathbf{v}_i).
+$$
+
+Since
+
+$$
+dx(\mathbf{v}_i)=\Delta x_i,
+$$
+
+this is the same as the ordinary Riemann sum
+
+$$
+R_n
+=
+\sum_{i=1}^n f(\xi_i)\,\Delta x_i.
+$$
+
+But the same notation admits a second reading. On each subinterval, consider the row vector obtained by multiplying the measuring device $dx$ by the function value $f(\xi_i)$:
+
+$$
+\bigl(f(\xi_i)\,dx\bigr)
+:=
+f(\xi_i)\,dx
+=
+\begin{pmatrix}
+f(\xi_i) & 0 & 0
+\end{pmatrix}.
+$$
+
+If this row vector acts on the displacement vector $\mathbf{v}_i$, then
+
+$$
+\bigl(f(\xi_i)\,dx\bigr)(\mathbf{v}_i)
+=
+f(\xi_i)\,dx(\mathbf{v}_i)
+=
+f(\xi_i)\,\Delta x_i.
+$$
+
+In other words, we obtain the individual terms of the Riemann sum themselves.
+
+Therefore, the Riemann sum can also be read as
+
+$$
+R_n
+=
+\sum_{i=1}^n
+\bigl(f(\xi_i)\,dx\bigr)(\mathbf{v}_i).
+$$
+
+In the limit where the partition becomes infinitely fine, that is, in the limit where the maximum width tends to $0$, the definition of the Riemann integral gives
+
+$$
+\int_a^b f(x)\,dx
+=
+\lim_{n\to\infty} R_n
+=
+\lim_{n\to\infty}
+\sum_{i=1}^n
+\bigl(f(\xi_i)\,dx\bigr)(\mathbf{v}_i).
+$$
+
+The left-hand side, $\int_a^b f(x)\,dx$, is the familiar integral notation we have known since high school. It is the same quantity as $\lim_{n\to\infty}R_n$ in the construction above.
+
+The right-hand side is another face of the same integral: <strong>the limit of the sum, over subintervals, of the values obtained when the measuring device $f(\xi_i)\,dx$ acts on the displacement vector $\mathbf{v}_i$</strong>.
+
+Thus the $dx$ at the end of the integral sign is not a mere decoration. At least in this reading, it works as a measuring device that extracts the $x$-direction width from the displacement vector on each subinterval. And $f(x)\,dx$ can be read as a new row vector obtained by multiplying that measuring device by the value of the function.
+
+> <strong>Note</strong> (work integrals)  
+> The work integral $W=\int F(x)\,dx$ from mechanics can be read in the same way. On each subinterval, the row vector $F(\xi_i)\,dx$ eats the displacement vector $\mathbf{v}_i$ and returns $F(\xi_i)\Delta x_i$. The limit of the sum is the work.
+
+#### 1.1.5 Linear Forms ($1$-Forms)
+
+So far, we have defined $dx$ as a row vector that acts on a displacement vector, extracts a specified component, and returns a scalar, that is, a real number. A <strong>linear</strong> measuring device of this kind, one that eats a vector and spits out a scalar, is technically called a <strong>linear form</strong>, or a <strong>$1$-form</strong>. What we have been calling “$dx$ as a matrix” is precisely this $1$-form.
+
+> <strong>Note</strong> (the term “covector”)  
+> Mathematicians also often use the term <strong>covector</strong> as another name for a <strong>linear form</strong>, or <strong>$1$-form</strong>. Keep it in the corner of your mind as a dictionary entry for reading other books.
+
+The origin of the name is simple:
+
+* <strong>“linear”</strong>: because it processes the displacement vector <strong>linearly</strong>;
+* <strong>“form”</strong>: for now, think of it as a fixed pattern of measurement or action.
+
+From here on, I will call this measuring device a “matrix,” a “linear form ($1$-form),” or an operator. These all refer to the same object.
+
+> <strong>Note</strong> (matrix, linear form, measuring device)  
+> To repeat: from the standpoint of this book, these are represented by the same array. Throughout the book, I will call the same object a “matrix,” a “linear form,” or a “measuring device,” depending on what needs to be emphasized.
+
+#### 1.1.6 The Notational Contract of This Book
+
+In this book, <strong>we do not use a standalone $dx$ to mean an “infinitesimal displacement” or an “infinitesimal change.”</strong> To avoid confusing the width of a displacement with the measuring device, the row vector, we make the following agreement. For the magnitude of an infinitesimal displacement in the $x$ direction, we use $\Delta x$, or we explicitly write the displacement vector $\mathbf{v}$ and write $dx(\mathbf{v})$.
+
+On the other hand, a <strong>standalone $dx$</strong> means the operator, the row vector or $1$-form, that <strong>extracts the $x$-component</strong>. A $dx$ appearing in an expression such as $df=f'(x)\,dx$ is also <strong>always read as an operator</strong>. <strong>Keep this distinction clear. Everything that follows depends on it.</strong>
+
+From here on, the $dx$ at the end of the integral sign $\int_a^b f(x)\,dx$ will remain as <strong>conventional notation</strong> inherited from high school. But outside the integral sign, we will always write it in the form $dx(\mathbf{v})$ when the action is being shown explicitly. In the main text, when speaking about displacements and infinitesimal widths, we will use $\Delta x$ or $dx(\mathbf{v})$, and we will not attach the image of width or amount of change to a bare $dx$.
+
+> <strong>Note</strong> (usage of $dx$ in the literature)  
+> Physicists often use the convention of writing the displacement component itself as $dx$. But once you get used to the notation of this book, it becomes easier to read by separating <strong>$dx$ as a measuring device</strong> from the scalar of displacement. In more advanced books, that distinction will matter directly.
+
+In the next section, we extend this point of view to the differential of a function and define the total differential $df$ as a matrix.
+
+---
 
 > <strong>Checkpoint so far</strong>
 > - An infinitesimal displacement is a column vector $\mathbf{v}$. The symbol $\Delta x$ is a scalar width, while a standalone $dx$ is an operator, a row vector or $1$-form.
@@ -1076,6 +1350,40 @@ Let us gradually unravel how three-dimensional Euclidean space looks.
 
 In Chapter 1, we defined $dx$, $dy$, and $dz$ as row vectors ($1$-forms) that eat one vector and return a scalar, and we reread $\int f\,dx$ as the limit of matrix actions. In this chapter we extend that framework and <strong>discover area-measuring devices</strong> ($2$-forms), which eat two vectors, and <strong>volume-measuring devices</strong> ($3$-forms), which eat three. Both are built from the same parts: $dx$, $dy$, and $dz$.
 
+---
+
+### §2.1 The Limits of Elementary-School Area
+
+Many readers know that “integration is, roughly speaking, a calculation for finding area.”
+But what is area, exactly? If we think about it again, we may realize that we have not really formalized the idea since elementary school.
+
+So what was that elementary-school formalization? It was based on a very simple intuition: **“how many $1\times 1$ squares (tiles) can be packed into the figure.”**
+
+For a figure drawn on two-dimensional paper (the $xy$ plane), this “tiling with squares” works well. For example, the area $S$ of the parallelogram spanned by two two-dimensional vectors $\mathbf{v}_1=(x_1,y_1)$ and $\mathbf{v}_2=(x_2,y_2)$ can be written as
+
+$$S=\sqrt{(x_1 y_2-x_2 y_1)^2}.$$
+
+However, we live in three-dimensional space. When we try to compute the area of a “tilted plane” in three-dimensional space, things get a bit painful.
+
+Many readers were asked in high-school mathematics to find the area of the parallelogram spanned by three-dimensional vectors $\mathbf{v}_1=(x_1,y_1,z_1)$ and $\mathbf{v}_2=(x_2,y_2,z_2)$. Using high-school notation, we can write
+
+$$
+S=\sqrt{|\mathbf{v}_1|^2|\mathbf{v}_2|^2-(\mathbf{v}_1\cdot\mathbf{v}_2)^2}.
+$$
+
+If we expand in components, we fight through a calculation that fills a notebook page before we finally reach
+
+$$S=\sqrt{(y_1 z_2-z_1 y_2)^2+(z_1 x_2-x_1 z_2)^2+(x_1 y_2-x_2 y_1)^2}.$$
+
+The process is long enough that one would rather not do it more than a few times in life.
+Why does it become so painful? Because <strong>we originally defined area inside the two-dimensional world</strong>. <strong>In three-dimensional space</strong>, the tilt of the plane and the relation between the two vectors lying on it get entangled, and the formula becomes bulky once <strong>angles</strong> have to be handled too.
+
+> <strong>Note</strong> (terms defined later)  
+> We use “angle” and “inner product” here, but at this stage the intuitive meanings from elementary school are enough. A formal definition of the inner product is given in Chapter 6, but it is not needed to follow the discussion here.
+
+Here we change viewpoint completely. <strong>We set aside the elementary-school definition of area for now</strong> and <strong>redesign from scratch an algebraic measuring device that outputs area.</strong>
+
+---
 
 ### §2.2 The Three Rules an Area-Measuring Device Must Satisfy
 
@@ -1295,8 +1603,8 @@ Now, if we look closely at the matrix $M$ of this area-measuring device, we see 
 
 $$
 \begin{pmatrix} 0 & 1 & 0 \\ -1 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}
-= \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}
-- \begin{pmatrix} 0 & 0 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}
+= \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix} -
+\begin{pmatrix} 0 & 0 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}
 $$
 
 The first term on the right-hand side is "the matrix whose only nonzero entry is row 1, column 2," and it represents the operation of extracting the $x$ component from $\mathbf{v}_1$ and the $y$ component from $\mathbf{v}_2$ and multiplying them ($x_1 y_2$).
@@ -1778,6 +2086,104 @@ The principle is the same at every degree. We begin with the case where a volume
 > <strong>Note</strong> (ground rules)  
 > We state this up front as a promise. Below, we treat curves and surfaces as sufficiently smooth, and cases where chopping into small pieces and adding converges in a straightforward way. Details such as orientation reversal and self-intersection are kept at the level of “they do not cause trouble in situations commonly used in physics.” A rigorous theory of integrability is outside the scope of this book.
 
+---
+
+### §3.1 Volume — Three Dimensions, Coefficient 1
+
+#### 3.1.1 From Rectangular Boxes to Curved Regions — Defining by Riemann Sums
+
+In Chapter 2 §2.5, we assembled the volume-measuring device $dx \wedge dy \wedge dz$. If we feed it three vectors $\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3$, we get the signed volume of the parallelepiped they span.
+
+Now we want to measure the volume of a region $V$ in space. However curved $V$ may be, if we chop finely enough each small piece can be treated as almost a rectangular box. So we slice $V$ in the $x$, $y$, and $z$ directions, label the small boxes inside $V$ by an index $i$, and take the three edge vectors of the $i$th box to be
+
+$$\Delta x_i\,\hat{e}_x,\quad \Delta y_i\,\hat{e}_y,\quad \Delta z_i\,\hat{e}_z.$$
+
+Feed these three vectors to the volume-measuring device $dx \wedge dy \wedge dz$:
+
+$$(dx \wedge dy \wedge dz)(\Delta x_i\,\hat{e}_x,\; \Delta y_i\,\hat{e}_y,\; \Delta z_i\,\hat{e}_z) = \det\begin{pmatrix}\Delta x_i & 0 & 0 \\ 0 & \Delta y_i & 0 \\ 0 & 0 & \Delta z_i\end{pmatrix} = \Delta x_i\,\Delta y_i\,\Delta z_i.$$
+
+> <strong>Note</strong> (contraction of measuring device and figure)  
+> What happens here is exactly the pattern from Chapter 2 §2.5.10. A <strong>$3$-form (volume-measuring device)</strong> eats the <strong>volume element (figure)</strong> spanned by three displacement vectors and spits out a scalar. This contraction is performed on each small box. We call the oriented small box — the tiny volume figure — spanned by these three displacement vectors a <strong>volume element</strong>.
+
+Add the scalar $\Delta x_i\,\Delta y_i\,\Delta z_i$ from each small box over all boxes inside $V$:
+
+$$\sum_{\text{small box }i \subset V} \Delta x_i\,\Delta y_i\,\Delta z_i.$$
+
+Then take the limit as the mesh becomes infinitely fine. We <strong>write</strong> this limit as
+
+$$\iiint_V dx \wedge dy \wedge dz.$$
+
+This is the definition of integration of a $3$-form — a volume integral.
+
+> <strong>Note</strong> (the symbol $\iiint$)  
+> In this book we <strong>define $\iiint_V$ here for the first time</strong> as the symbol for “integration of a $3$-form over a three-dimensional region $V$.” It is not a symbol assumed from high-school volume integrals; it is the name we give to the Riemann-sum limit above.
+
+We have defined it. But how do we actually compute this sum? When $V$ is a curved region such as $x^2+y^2+z^2 \le R^2$, it is tedious to decide which small boxes lie inside $V$ while adding. If we organize the sum cleverly, however, the picture improves. In the next subsection we try it in practice.
+
+#### 3.1.2 Volume of a Sphere — Adding Messily and Straightforwardly
+
+Let us compute the volume of a sphere $x^2 + y^2 + z^2 \le R^2$ of radius $R$ in a truly messy, straightforward way. We want to show only one thing: without fleeing to a special coordinate system, we can reach the familiar $\frac{4}{3}\pi R^3$ simply by organizing the Riemann sum honestly in $x,y,z$. We use no special coordinates. In $x,y,z$ we simply stack small boxes $\Delta x\,\Delta y\,\Delta z$.
+
+View the sphere as the region determined by the value of
+
+$$F(x,y,z)=x^2+y^2+z^2.$$
+
+The interior is all points with $F\le R^2$; the boundary sphere is $F=R^2$.
+
+To read orientation on the boundary or displacement along the sphere, the total differential $dF$ from Chapter 1 is useful. At the stage of counting volume, however, we do not use $dF$ yet. Here we first unpack the condition $F\le R^2$ and count small boxes. The main actor for measuring volume remains $dx\wedge dy\wedge dz$.
+
+How can we organize the Riemann sum from §3.1.1 so that it can be computed? Fix $z$ at some value. Then $F\le R^2$ becomes
+
+$$x^2+y^2\le R^2-z^2.$$
+
+So at that height, the allowed $(x,y)$ form a disk of radius $\sqrt{R^2-z^2}$. Fixing $y$ as well gives
+
+$$x^2\le R^2-z^2-y^2,$$
+
+so $x$ runs from $-\sqrt{R^2 - z^2 - y^2}$ to $+\sqrt{R^2 - z^2 - y^2}$. Similarly, $y$ runs from $-\sqrt{R^2 - z^2}$ to $+\sqrt{R^2 - z^2}$, and $z$ from $-R$ to $+R$.
+
+This is simply unpacking the test $F\le R^2$ in the order $z$, $y$, $x$. If we add in this order — think of stacking the one-dimensional Riemann sums from Chapter 1 §1.1 three times — then in the limit:
+
+$$\iiint_V dx \wedge dy \wedge dz = \int_{-R}^{R} \Biggl( \int_{-\sqrt{R^2 - z^2}}^{\sqrt{R^2 - z^2}} \Biggl( \int_{-\sqrt{R^2 - z^2 - y^2}}^{\sqrt{R^2 - z^2 - y^2}} dx \Biggr) dy \Biggr) dz.$$
+
+The $dx, dy, dz$ on the right appear as the result of organizing the sum on the left in order; we are not omitting $\wedge$. From inside the parentheses outward: sum over $x$ ($\int dx$), then over $y$ ($\int dy$), then over $z$ ($\int dz$).
+
+The innermost sum over $x$ (the $x$ integral in the limit) is immediate:
+
+$$\int_{-\sqrt{R^2 - z^2 - y^2}}^{\sqrt{R^2 - z^2 - y^2}} dx = 2\sqrt{R^2 - z^2 - y^2}.$$
+
+Next the $y$ integral. Set $a = \sqrt{R^2 - z^2}$:
+
+$$\int_{-a}^{a} 2\sqrt{a^2 - y^2}\,dy.$$
+
+Use substitution from high-school calculus. With $y = a\sin t$, we have $dy = a\cos t\,dt$. As $y$ goes from $-a$ to $a$, $t$ goes from $-\pi/2$ to $\pi/2$. Also $\sqrt{a^2 - y^2} = \sqrt{a^2 - a^2\sin^2 t} = a\cos t$ (for $t \in [-\pi/2,\pi/2]$ we have $\cos t \ge 0$, so the absolute value drops). Therefore:
+
+$$\begin{aligned}
+\int_{-a}^{a} 2\sqrt{a^2 - y^2}\,dy
+&= \int_{-\pi/2}^{\pi/2} 2\cdot a\cos t \cdot a\cos t\,dt \\
+&= 2a^2\!\int_{-\pi/2}^{\pi/2} \cos^2 t\,dt
+\end{aligned}$$
+
+Since $\cos^2 t = (1 + \cos 2t)/2$:
+
+$$\begin{aligned}
+2a^2\!\int_{-\pi/2}^{\pi/2} \frac{1 + \cos 2t}{2}\,dt
+&= a^2\int_{-\pi/2}^{\pi/2} (1 + \cos 2t)\,dt \\[4pt]
+&= a^2\Bigl[t + \frac{\sin 2t}{2}\Bigr]_{-\pi/2}^{\pi/2} \\[4pt]
+&= a^2\Bigl[\Bigl(\frac{\pi}{2} + 0\Bigr) - \Bigl(-\frac{\pi}{2} + 0\Bigr)\Bigr] \\[4pt]
+&= \pi a^2 = \pi(R^2 - z^2)
+\end{aligned}$$
+
+Finally the $z$ integral:
+
+$$\int_{-R}^{R} \pi(R^2 - z^2)\,dz = 2\pi\Bigl[R^2 z - \frac{z^3}{3}\Bigr]_{0}^{R} = 2\pi\cdot\frac{2R^3}{3} = \frac{4}{3}\pi R^3.$$
+
+> <strong>Note</strong> (what this calculation means)  
+> What we did here is only the organization of the Riemann sum from §3.1.1. Instead of deciding which small boxes lie inside the sphere one by one, we organized the actual summation from the inside out in the order $x \to y \to z$. Each stage is a one-variable Riemann sum from Chapter 1; in the limit it becomes a familiar one-variable integral. That is all. If we aggregate the contraction of measuring device and figure honestly, we reach $\frac{4}{3}\pi R^3$.
+
+Thus we have confirmed that the integral of the single measuring device $dx \wedge dy \wedge dz$ gives the correct volume $\frac{4}{3}\pi R^3$ of a curved region. In three dimensions, a volume-measuring device with coefficient $1$ measures volume directly.
+
+---
 
 > <strong>Checkpoint so far</strong>
 > - The integral of $dx \wedge dy \wedge dz$ is the limit of a Riemann sum that chops a region into small boxes and adds the values obtained by feeding each volume element to the volume-measuring device. $\iiint_V$ is the symbol this book gives to that limit.
@@ -2489,6 +2895,240 @@ $$W = \int F\,dx = \int_{\gamma} F\,dx = \int_{t_0}^{t_1} \gamma^*(F\,dx) = \int
 
 > <strong>Note</strong> ($dx$ is a row vector, $dt$ is too) In the calculations of §4.1, $dx$, $dt$, and $dv$ all keep the same type: "eat displacement and return a scalar." The principle "row vector × column vector → scalar" from Chapter 1 §1.1.3 does not break even in the middle of a pullback. The result $\gamma^*(F\,dx)$ is again a $1$-form (row vector) on the time axis; feeding it the time-side displacement $\Delta t$ yields a scalar (a piece of work)—this consistency is what supports understanding of the pullback.
 
+---
+
+### §4.2 Pullback of a 2-Form — Conservation of Angular Momentum and Areal Velocity
+
+<strong>① Start from a physical quantity.</strong> In §4.1 we mapped a one-dimensional finite interval and measured its image. This time we apply the same idea to a two-dimensional finite grid.
+
+> <strong>Note</strong> (for readers without a physics background) The words “conservation of angular momentum” and “Kepler’s second law” appear below, but what this section really uses is the fact that “area on a plane can be remeasured in different variables.” The physical meaning can be read afterward.
+
+Consider a particle moving in a central force field. When the force always points toward the origin, the angular momentum
+
+$$
+L
+=
+m\left(x(t)y'(t)-y(t)x'(t)\right)
+$$
+
+is constant in time (the law of conservation of angular momentum). This conservation law has a beautiful geometric meaning—the rate at which the position vector of the particle sweeps out area (<strong>areal velocity</strong>) is constant (Kepler’s second law).
+
+We may assume the motion takes place in the plane $z=0$. The area of the sector $D$ swept out by the position vector from time $t_0$ to $t_1$ is
+
+$$A = \iint_D dx \wedge dy$$
+
+Here $dx \wedge dy$ is the area-measuring device ($2$-form) on the $xy$ plane.
+
+> <strong>Note</strong> (For physicists who work in two dimensions) Let us confirm this point. This book consistently assumes the reality of three-dimensional space. Setting $z=0$ in the angular-momentum discussion below is a temporary simplification to make the calculation easier to read; we are still looking at one plane inside three-dimensional space.
+
+<strong>② Naive substitution—it does not match as written.</strong> The sector on the right-hand side is awkward to write in $(x,y)$. So we want to write it in $(r,\theta)$. But what happens if we replace $dx \wedge dy$ directly by $dr \wedge d\theta$? Let us compute the area of a full circle of radius $C$. The correct value is $\pi C^2$. Yet with naive substitution:
+
+$$
+A_{\text{naive}}
+=
+\iint dr \wedge d\theta
+=
+\int_0^{2\pi}
+\biggl(
+  \int_0^C dr
+\biggr)
+d\theta
+=
+2\pi C
+$$
+
+This is completely different from $\pi C^2$. With $dr \wedge d\theta$ alone, the correct area does not come out.
+
+<strong>③ See the cause on a finite grid.</strong> This time, let us ask what measuring device should eat a finite cell on the $(r,\theta)$ side so that we get the same area value as on the $xy$ side.
+
+Cut a grid of finite size $\Delta r \times \Delta\theta$ in $(r,\theta)$ space. Find the two displacement vectors that one cell at coordinates $(r, \theta)$ produces in $(x,y)$ space.
+
+Edge in the $\Delta r$ direction: only $r$ changes while $\theta$ is fixed, so the difference is exact:
+
+$$\Delta x_r = \Delta r \cos\theta,\qquad \Delta y_r = \Delta r \sin\theta$$
+
+Edge in the $\Delta\theta$ direction: use the difference formulas for trigonometric functions:
+
+$$\begin{aligned}
+\Delta x_\theta &= r\bigl(\cos(\theta+\Delta\theta) - \cos\theta\bigr)
+= -2r\sin\biggl(\theta+\frac{\Delta\theta}{2}\biggr)\sin\biggl(\frac{\Delta\theta}{2}\biggr) \\[4pt]
+\Delta y_\theta &= r\bigl(\sin(\theta+\Delta\theta) - \sin\theta\bigr)
+= 2r\cos\biggl(\theta+\frac{\Delta\theta}{2}\biggr)\sin\biggl(\frac{\Delta\theta}{2}\biggr)
+\end{aligned}$$
+
+Find the area of the parallelogram spanned by the two edges $\mathbf{v}_r = (\Delta x_r, \Delta y_r)$ and $\mathbf{v}_\theta = (\Delta x_\theta, \Delta y_\theta)$ by a determinant:
+
+$$\begin{aligned}
+\det(\mathbf{v}_r,\mathbf{v}_\theta) &= \Delta x_r\,\Delta y_\theta - \Delta x_\theta\,\Delta y_r \\
+&= 2r\Delta r\,\sin\biggl(\frac{\Delta\theta}{2}\biggr)\biggl[ \cos\theta\cos\biggl(\theta+\frac{\Delta\theta}{2}\biggr) + \sin\theta\sin\biggl(\theta+\frac{\Delta\theta}{2}\biggr) \biggr] \\
+&= r\Delta r\,\sin\Delta\theta
+\end{aligned}$$
+
+The result is
+
+$$\det = r\Delta r\,\sin\Delta\theta$$
+
+Divide this measured value by the cell width $\Delta r_i\,\Delta\theta_j$ on the $(r,\theta)$ side, and we obtain the coefficient of the provisional measuring device used on a finite cell. That is,
+
+$$
+\Phi_h^\square(dx\wedge dy)
+:=
+r_i\frac{\sin\Delta\theta_j}{\Delta\theta_j}\,dr\wedge d\theta
+$$
+
+Feed this measuring device to a finite cell, and
+
+$$
+\begin{aligned}
+\Phi_h^\square(dx\wedge dy)(\Delta r_i,\Delta\theta_j)
+&=
+\left(
+r_i\frac{\sin\Delta\theta_j}{\Delta\theta_j}\,dr\wedge d\theta
+\right)(\Delta r_i,\Delta\theta_j) \\
+&=
+r_i\,\Delta r_i\,\sin\Delta\theta_j
+\end{aligned}
+$$
+
+The right-hand side is the signed area of the parallelogram spanned by the two finite-difference vectors.
+
+Let $A_h^\square$ denote the total area sum in the finite-cell version. Therefore
+
+$$
+A_h^\square
+:=
+\sum_i\sum_j
+\Phi_h^\square(dx\wedge dy)(\Delta r_i,\Delta\theta_j)
+=
+\sum_i\sum_j r_i\,\Delta r_i\,\sin\Delta\theta_j
+$$
+
+$\sin\Delta\theta_j$ is an exact value for finite $\Delta\theta_j$. What we measure here is not the curved sector area of the polar-coordinate finite grid itself, but the signed area of the parallelogram spanned by two finite-difference vectors. Write the sector swept out by the position vector in physical space as $D$. On the other hand, write the $(r,\theta)$ range corresponding to that region in polar coordinates as $D'$.
+
+In the final stage of taking the limit of the sum,
+
+$$
+\frac{\sin\Delta\theta_j}{\Delta\theta_j}\to 1
+$$
+
+Therefore the true area $A$ is obtained as
+
+$$
+A
+=
+\lim_{h\to0} A_h^\square
+=
+\iint_{D'} r\,dr\wedge d\theta
+=
+\int_{\theta_0}^{\theta_1}
+\biggl(
+  \int_0^{R(\theta)} r\,dr
+\biggr)
+d\theta
+=
+\int_{\theta_0}^{\theta_1}
+\frac{1}{2}R(\theta)^2\,d\theta
+$$
+
+The coefficient of the measuring device on a finite cell is $r_i\frac{\sin\Delta\theta_j}{\Delta\theta_j}$. As the partition is refined, this coefficient approaches $r$. Thus, in the limit, we obtain
+
+$$
+\Phi_h^\square(dx\wedge dy)
+\xrightarrow{h\to0}
+\Phi^*(dx\wedge dy)
+=
+r\,dr\wedge d\theta
+$$
+
+> <strong>Note</strong> ($\Delta r,\Delta\theta$ need not be infinitesimal) In the computation of the difference vectors so far, we have used no assumption that $\Delta r$ or $\Delta\theta$ is “sufficiently small.” The $\Delta x_r, \Delta y_r, \Delta x_\theta, \Delta y_\theta$ found above are formulas that hold exactly no matter how large $\Delta r,\Delta\theta$ may be. By “exact” here we mean that we measure the parallelogram spanned by finite-difference vectors. The passage to infinitesimals is made only in the final stage—the limit of the sum—when we move to $\Phi^*$ and integration.
+
+<strong>④ Write the standard form obtained in the limit.</strong> For the transformation to polar coordinates $\Phi(r,\theta) = (r\cos\theta,\; r\sin\theta)$:
+
+$$\Phi^*(dx \wedge dy) = r\,dr \wedge d\theta$$
+
+This is the $2$-form rebuilt in the limit from the finite-cell version $\Phi_h^\square$. We denote that limiting rebuild by $\Phi^*$. This $r$ plays the same role for $2$-forms that the velocity $\gamma'(t)$ played for $1$-forms in §4.1.
+
+<strong>⑤ Pullback of a coefficient-carrying $2$-form.</strong> For a $2$-form $G(x,y)\,dx \wedge dy$ with an arbitrary coefficient $G(x,y)$, the same structure holds:
+
+$$\Phi^*\bigl(G(x,y)\,dx \wedge dy\bigr) = G(r\cos\theta,\, r\sin\theta)\; r\,dr \wedge d\theta$$
+
+The coefficient $G$ is merely rebuilt in polar coordinates (pullback of a $0$-form), while only the $dx \wedge dy$ part changes to $r\,dr \wedge d\theta$. The pullback $\Phi^*$ naturally splits into “rebuilding the coefficient” and “rebuilding the measuring device.”
+
+<strong>⑥ Carry the same discovery to a general transformation.</strong> Nothing here is special to polar coordinates. Consider a transformation between planes $\Phi(u,v)=(x(u,v),y(u,v))$, and map a finite rectangle on the $(u,v)$ side. Measure the two difference vectors in the $u$ and $v$ directions with $dx\wedge dy$, and we get an area value for each finite rectangle.
+
+Divide that area value by $\Delta u\,\Delta v$, and refine the partition. Then the difference ratios converge to partial derivatives, and a $2\times2$ determinant appears. Therefore, after $h\to0$, the rebuilding is
+
+$$\Phi^*\bigl(G(x,y)\,dx \wedge dy\bigr) = G(x(u,v), y(u,v))\;
+\det\!\begin{pmatrix}
+\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\[6pt]
+\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
+\end{pmatrix}
+\,du \wedge dv$$
+
+That is,
+
+$$\Phi^*\bigl(G(x,y)\,dx \wedge dy\bigr)
+=G(\Phi(u,v))\left(
+\frac{\partial x}{\partial u}\frac{\partial y}{\partial v}
+-\frac{\partial x}{\partial v}\frac{\partial y}{\partial u}
+\right)\,du\wedge dv$$
+
+The $2\times2$ determinant that appears here is the consistency factor for rebuilding the physical-space area-measuring device $dx\wedge dy$ into a measuring device $du\wedge dv$ usable on the $(u,v)$ side.
+
+What we saw on the finite grid,
+
+$$\Delta x_u\,\Delta y_v-\Delta x_v\,\Delta y_u$$
+
+is the finite-cell version for discovering this partial-derivative determinant. It is an equality for the parallelogram spanned by finite-difference vectors. In the limiting rebuild written as $\Phi^*$, these finite ratios are replaced by partial-derivative coefficients. The coefficient obtained by dividing the measured value on a finite cell by $\Delta u\,\Delta v$ converges to the $2\times2$ determinant above as the partition width $h$ is taken toward $0$.
+
+<strong>⑦ Return to the physical quantity.</strong> Integrate the area of the sector $D$ over the corresponding polar-coordinate region $D'$ using the pulled-back measuring device:
+
+$$
+A
+=
+\iint_D dx\wedge dy
+=
+\iint_{D'} \Phi^*(dx\wedge dy)
+=
+\iint_{D'} r\,dr\wedge d\theta
+$$
+
+$$
+=
+\int_{\theta_0}^{\theta_1}
+\biggl(
+  \int_0^{R(\theta)} r\,dr
+\biggr)
+d\theta
+=
+\int_{\theta_0}^{\theta_1}
+\frac{1}{2}R(\theta)^2\,d\theta
+$$
+
+Integrating in $r$, $\frac{1}{2}r^2$ appears, and the area is reduced to a line integral of a $1$-form along the $\theta$ axis. Pull back further to the time parameter $t$. If the particle’s orbit is $r = R(t),\, \theta = \Theta(t)$, then
+
+$$
+\frac{dA}{dt}
+=
+\frac{1}{2}r(t)^2\,\theta'(t)
+$$
+
+From the definition of angular momentum
+
+$$
+L
+=
+m r(t)^2\theta'(t)
+$$
+
+the areal velocity is
+
+$$\frac{dA}{dt} = \frac{L}{2m}$$
+
+In a central force field, $L$ is conserved, so the areal velocity is also constant—this is Kepler’s second law, the geometric expression of the law of conservation of angular momentum. This is exactly the same structure as in §4.1: there, the consistency factor $\gamma'(t)$ for a $1$-form described energy conservation; here, the consistency factor $r$ for a $2$-form describes conservation of angular momentum.
+
+
+---
 
 ### §4.3 Pullback of a 3-Form — Conservation of Mass and Volume Integrals
 
@@ -2834,6 +3474,65 @@ The subject of this chapter—the <strong>exterior derivative $d$</strong>—ans
 
 The structure of this chapter is as follows. First we recall the $df$ introduced in Chapter 1 and build $d\omega$ from the mismatch that remains when a general $1$-form is measured on a closed loop. Next we extend the same idea to $2$-forms and unify Stokes' theorem and Gauss' theorem into a single form. Finally we look at the structure $d^2=0$ and at how the exterior derivative localizes physical laws, connecting to the Hodge star in the next chapter.
 
+---
+
+### §5.1 Revisiting $df$ — Are Differentiation and Integration Inverse Operations?
+
+#### 5.1.1 $df$ Is "Raising the Degree"
+
+In Chapter 1 §1.2 we defined the total differential of a function $f(x,y,z)$ as a row vector:
+
+$$df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz = \begin{pmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & \frac{\partial f}{\partial z} \end{pmatrix}$$
+
+This is an operation that takes a <strong>$0$-form (the scalar field $f$) as input and outputs a $1$-form (the row vector $df$)</strong>. The degree rises from 0 to 1.
+
+Recall here that $df(\mathbf{v})$ returns the first-order change in $f$ for a displacement $\mathbf{v}$. When $\mathbf{v} = \begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$ is sufficiently small:
+
+$$df(\mathbf{v}) = \frac{\partial f}{\partial x}\,\Delta x + \frac{\partial f}{\partial y}\,\Delta y + \frac{\partial f}{\partial z}\,\Delta z \approx f(\mathbf{r}+\mathbf{v}) - f(\mathbf{r})$$
+
+$df$ by itself is not "the change itself"—as agreed in Chapter 1 §1.1.6, $df$ is an operator; a numerical value is obtained only when it acts on a displacement vector.
+
+#### 5.1.2 A Line Integral Leaves Only the Difference of Endpoints
+
+Integrate this $df$ along a curve $\gamma$. As in Chapter 3 §3.3.1, partition the curve into small intervals, feed $df$ each step's displacement $\Delta\mathbf{r}_i$, and add up the results.
+
+To first order on each interval, $df(\Delta\mathbf{r}_i) \approx f(\mathbf{r}_i) - f(\mathbf{r}_{i-1})$, so the sum over all intervals is:
+
+$$\sum_{i=1}^n df(\Delta\mathbf{r}_i) \approx \sum_{i=1}^n \bigl(f(\mathbf{r}_i) - f(\mathbf{r}_{i-1})\bigr)$$
+
+Expanding this sum:
+
+$$\bigl(f(\mathbf{r}_1)-f(\mathbf{r}_0)\bigr) + \bigl(f(\mathbf{r}_2)-f(\mathbf{r}_1)\bigr) + \cdots + \bigl(f(\mathbf{r}_n)-f(\mathbf{r}_{n-1})\bigr)$$
+
+Adjacent terms $f(\mathbf{r}_1), f(\mathbf{r}_2), \dots, f(\mathbf{r}_{n-1})$ cancel in plus and minus—a <strong>telescoping sum</strong>. Only the first and last survive. In the limit of infinitely fine partition:
+
+$$\int_\gamma df = f(\mathbf{r}_n) - f(\mathbf{r}_0) = f(B) - f(A)$$
+
+where $A$ is the starting point of the curve and $B$ is the endpoint.
+
+> <strong>Checkpoint so far</strong>
+> - $\int_\gamma df = f(B) - f(A)$. The result of the integral depends entirely on the endpoint values, not at all on the shape of the path.
+> - This holds precisely because $df$ is a special $1$-form. In mechanics, it is the mathematical reason why "the work of a conservative force does not depend on the path."
+
+#### 5.1.3 Checking with a Chapter 3 Example
+
+In Chapter 3 §3.4.1 we integrated $\omega = y\,dx + x\,dy$ along the unit circle $\gamma(t) = (\cos t,\; \sin t,\; 0),\; t \in [0,2\pi]$ and found the result to be $0$. At the time we integrated straightforwardly along the coefficients, but viewed in today's language the story is much simpler.
+
+In fact $y\,dx + x\,dy$ is nothing other than $d(xy)$. For:
+
+$$d(xy) = \frac{\partial (xy)}{\partial x}\,dx + \frac{\partial (xy)}{\partial y}\,dy + \frac{\partial (xy)}{\partial z}\,dz = y\,dx + x\,dy$$
+
+Therefore $\omega = df$ (with $f = xy$), and the telescoping-sum argument of §5.1.2 applies as-is. The unit circle is a closed curve, so $B = A$, and hence:
+
+$$\oint_\gamma \omega = \oint_\gamma d(xy) = xy(\gamma(2\pi))-xy(\gamma(0))=0$$
+
+The calculation $\int_0^{2\pi} \cos 2t\,dt = 0$ from back then mechanically gave zero precisely because $\omega$ was an <strong>exact form</strong>, namely $d(xy)$.
+
+> <strong>Note</strong> (exact forms) A $1$-form that can be written as $\omega = df$ is called an <strong>exact form</strong>. Integrating an exact form along a closed curve always gives zero, as long as $f$ is a single-valued function. On the other hand, beware: "the integral along some closed curve was zero" does not necessarily mean the form is exact (whether the integral is zero on all closed curves also depends on the topology of the region). We examine this point in detail in §5.2.
+
+> <strong>Note</strong> (the relation between $d$ and $\int$—a boundary formula, not an inverse map) $\int_\gamma df = f(B)-f(A)$ does not mean that integration is a global inverse of the exterior derivative $d$. Integration is a functional that depends on the choice of curve $\gamma$; it is not an operation that reconstructs the entire original function $f$ from $df$. This formula is the fundamental theorem of calculus: "integrating an exact form along a curve leaves only the boundary, namely the endpoints." It is safest to think of it as the $0$-form version of the Stokes-type formulas we will see later.
+
+---
 
 ### §5.2 The "Mismatch" Revealed by a Closed Loop
 
@@ -3828,6 +4527,151 @@ The conclusion: <strong>they are completely different things</strong>. Row vecto
 
 Yes—the matter is deeper than the reader may have thought. On the special stage of real space, these two often happen to return the same number, which has encouraged their confusion—and on top of that confusion a vast edifice called vector analysis has been built. The goal of this chapter is to make this distinction clear, then introduce the metric $g$ as the natural generalization of the inner product, and from there expose what the Hodge star $\ast$ really is.
 
+---
+
+### §6.1 The Inner Product on Parameter Space — The True Nature of the Metric $g$
+
+#### 6.1.1 Inner Product in Real Space
+
+Write two column vectors in real space $(x,y,z)$ in components:
+
+$$\mathbf{v}_1 = \begin{pmatrix} x_1 \\ y_1 \\ z_1 \end{pmatrix},\qquad \mathbf{v}_2 = \begin{pmatrix} x_2 \\ y_2 \\ z_2 \end{pmatrix}$$
+
+In this book, the <strong>inner product</strong> (dot product), denoted by $\cdot$, is the operation of multiplying components with the same index and adding the results.
+
+$$\mathbf{v}_1 \cdot \mathbf{v}_2 = x_1 x_2 + y_1 y_2 + z_1 z_2$$
+
+In $xyz$ coordinates, the inner product is computed simply by multiplying corresponding components and adding.
+
+#### 6.1.2 Rereading the Inner Product as a Measuring Device
+
+Here let us reread the same calculation in the language of “measuring devices.” At first glance the inner product looks like an operation of a different lineage from the measuring devices we have handled until now. In fact, however, the inner product can also be read as an operation that “turns something into a measuring device, acts on something else, and yields a scalar.”
+
+The entry point is the transpose. Transposing $\mathbf{v}_1$ turns a column vector into a row vector:
+
+$$\mathbf{v}_1^T = \begin{pmatrix} x_1 & y_1 & z_1 \end{pmatrix}$$
+
+This is a measuring device that eats the paired column vector $\mathbf{v}_2$ and measures “how large is the inner product with $\mathbf{v}_1$?”
+
+$$\mathbf{v}_1^T\mathbf{v}_2
+= \begin{pmatrix} x_1 & y_1 & z_1 \end{pmatrix}
+\begin{pmatrix} x_2 \\ y_2 \\ z_2 \end{pmatrix}
+= x_1x_2 + y_1y_2 + z_1z_2$$
+
+That is, in orthogonal Cartesian coordinates on real space, transposing a column vector $\mathbf{v}_1$ alone yields the row vector—a measuring device—for taking the inner product with that vector.
+
+> <strong>Note</strong> (What raising and lowering indices really are) In tensor analysis there is a convention of distinguishing vector components from measuring-device components by upper and lower indices. One is then told that the metric $g$ is used to raise and lower indices. In the language of this book, the true nature of that is the operation “convert a column vector into a row vector that measures the inner product.” In orthogonal Cartesian coordinates $g=I$, so transpose alone suffices; but in parameter space, as we shall see next, we must insert $\mathbf{g}=J^T J$ along the way.
+
+#### 6.1.3 Taking the Inner Product in Parameter Space
+
+What happens if we carry out the same rereading in parameter space $(r,\theta,z)$?
+
+In orthogonal Cartesian coordinates on real space, $\mathbf{v}_1^T$ was directly the “measuring device for the inner product with $\mathbf{v}_1$.” So in parameter space too we are tempted to use $\mathbf{v}_1^T$ as the measuring device as-is. But that only computes $\Delta r_1 \Delta r_2 + \Delta\theta_1 \Delta\theta_2 + \Delta z_1 \Delta z_2$, which is not the correct inner product in real space. The correspondence between increments in parameter space and displacements in real space varies from place to place.
+
+What, then, must we insert to turn a column vector in parameter space into a row vector that correctly measures the inner product in real space?
+
+In Chapter 4 we saw how the Jacobian matrix of a coordinate change transforms components. Here we use that same matrix $J$ to read a displacement in parameter space as a displacement in real space.
+
+$$J = \begin{pmatrix}
+\frac{\partial x}{\partial r} & \frac{\partial x}{\partial \theta} & \frac{\partial x}{\partial z} \\
+\frac{\partial y}{\partial r} & \frac{\partial y}{\partial \theta} & \frac{\partial y}{\partial z} \\
+\frac{\partial z}{\partial r} & \frac{\partial z}{\partial \theta} & \frac{\partial z}{\partial z}
+\end{pmatrix}$$
+
+From the cylindrical-coordinate formulas $x = r\cos\theta,\; y = r\sin\theta,\; z = z$, computing partial derivatives gives:
+
+$$J = \begin{pmatrix}
+\cos\theta & -r\sin\theta & 0 \\
+\sin\theta & r\cos\theta & 0 \\
+0 & 0 & 1
+\end{pmatrix}$$
+
+Write the vectors $\mathbf{v}_1, \mathbf{v}_2$ in parameter space in components:
+
+$$\mathbf{v}_1 = \begin{pmatrix} \Delta r_1 \\ \Delta\theta_1 \\ \Delta z_1 \end{pmatrix},\qquad \mathbf{v}_2 = \begin{pmatrix} \Delta r_2 \\ \Delta\theta_2 \\ \Delta z_2 \end{pmatrix}$$
+
+Read in real space, these become $J\mathbf{v}_1$ and $J\mathbf{v}_2$ respectively. By the reading of the previous subsection, the measuring device for “the inner product with $J\mathbf{v}_1$” in real space is $(J\mathbf{v}_1)^T$. Therefore the inner product we want can be written as
+
+$$\text{inner product} = (J\mathbf{v}_1)^T (J\mathbf{v}_2)$$
+
+Using the rule for transposes, $(J\mathbf{v}_1)^T = \mathbf{v}_1^T J^T$, so
+
+$$= \mathbf{v}_1^T (J^T J) \mathbf{v}_2$$
+
+Let us actually compute $J^T J$. $J^T$ is $J$ with rows and columns swapped:
+
+$$J^T = \begin{pmatrix}
+\cos\theta & \sin\theta & 0 \\
+-r\sin\theta & r\cos\theta & 0 \\
+0 & 0 & 1
+\end{pmatrix}$$
+
+Therefore,
+
+$$J^T J = \begin{pmatrix}
+\cos\theta & \sin\theta & 0 \\
+-r\sin\theta & r\cos\theta & 0 \\
+0 & 0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+\cos\theta & -r\sin\theta & 0 \\
+\sin\theta & r\cos\theta & 0 \\
+0 & 0 & 1
+\end{pmatrix}
+= \begin{pmatrix}
+1 & 0 & 0 \\
+0 & r^2 & 0 \\
+0 & 0 & 1
+\end{pmatrix}$$
+
+The algebraic identity $\cos^2\theta + \sin^2\theta = 1$ does all the geometry’s work, leaving $1, r^2, 1$ on the diagonal. We never once thought about arc length in the $\theta$ direction—it is a purely algebraic manipulation using only matrix product and transpose properties.
+
+<strong>Thus a new measuring device appears.</strong> To build from a column vector $\mathbf{v}_1$ in parameter space a row vector that correctly measures the inner product in real space, we must multiply on the right by $J^T J$, not merely transpose:
+
+$$\omega_{\mathbf{v}_1} = \mathbf{v}_1^T (J^T J)$$
+
+Acting this measuring device on $\mathbf{v}_2$ yields the same value as the inner product in real space.
+
+We call this $J^T J$ the <strong>metric matrix $\mathbf{g}$</strong>:
+
+$$\mathbf{g} = J^T J$$
+
+In $xyz$ coordinates we computed the inner product from the sum of products of components alone, never going through pullback. In parameter space we first read displacements in real space via $J$, then take the sum of products of components. Folding these two stages into matrix form puts $\mathbf{g}=J^T J$ in the middle—and its contents are found mechanically from partial derivatives and matrix products alone, as long as we know the Jacobian matrix $J$. No room remains anywhere for new axioms of geometry.
+
+For safety, let us check with concrete numbers. Consider the point $r=2,\; \theta=\pi/3$. Then $\cos\theta = 1/2,\; \sin\theta = \sqrt{3}/2$, so
+
+$$J = \begin{pmatrix}
+1/2 & -\sqrt{3} & 0 \\
+\sqrt{3}/2 & 1 & 0 \\
+0 & 0 & 1
+\end{pmatrix}$$
+
+In parameter space consider the unit displacement $\mathbf{v} = \begin{pmatrix}0 \\ 1 \\ 0\end{pmatrix}$ in the $\theta$ direction. We have $\mathbf{g} = \begin{pmatrix} 1 & 0 & 0 \\ 0 & r^2 & 0 \\ 0 & 0 & 1 \end{pmatrix}$, and since $r=2$ now, $\mathbf{g} = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 4 & 0 \\ 0 & 0 & 1 \end{pmatrix}$. Computing the inner product (square of length) in parameter space:
+
+$$\mathbf{v}^T \mathbf{g} \,\mathbf{v} = \begin{pmatrix} 0 & 1 & 0 \end{pmatrix}
+\begin{pmatrix} 1 & 0 & 0 \\ 0 & 4 & 0 \\ 0 & 0 & 1 \end{pmatrix}
+\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} = 4$$
+
+On the other hand, reading the same $\mathbf{v}$ as a displacement in real space:
+
+$$J\mathbf{v} = \begin{pmatrix}
+1/2 & -\sqrt{3} & 0 \\
+\sqrt{3}/2 & 1 & 0 \\
+0 & 0 & 1
+\end{pmatrix}
+\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} = \begin{pmatrix} -\sqrt{3} \\ 1 \\ 0 \end{pmatrix}$$
+
+The inner product (square of length) in real space is $(-\sqrt{3})^2 + 1^2 + 0^2 = 4$. They indeed agree. For $\mathbf{v} = \begin{pmatrix}1 \\ 0 \\ 0\end{pmatrix}$ (unit displacement in the $r$ direction) likewise, $\mathbf{v}^T \mathbf{g} \,\mathbf{v} = 1$ and $(J\mathbf{v})^T (J\mathbf{v}) = \cos^2\theta + \sin^2\theta = 1$ agree. In this way $\mathbf{g} = J^T J$ ties the inner products in parameter space and real space without contradiction.
+
+We computed here in cylindrical coordinates $(r,\theta,z)$, but for spherical coordinates $(r,\theta,\phi)$ likewise $\mathbf{g}$ is obtained from $J$, with $\theta$ taken as the polar angle:
+
+$$\mathbf{g}_{\text{spherical}} = \begin{pmatrix} 1 & 0 & 0 \\ 0 & r^2 & 0 \\ 0 & 0 & r^2\sin^2\theta \end{pmatrix}$$
+
+The factors $r^2$ and $r^2\sin^2\theta$ on the diagonal are likewise conversion factors derived mechanically from $J$, which lines up the linear coefficients of the coordinate change.
+
+With $g$ as mediator, we can compute inner products (lengths and angles) consistently in any coordinate system. Moreover, the action of the Hodge star $\ast$, treated later, can be read naturally from these rules of inner product.
+
+---
 
 ### §6.2 Converting Between Column Vectors and Row Vectors Using $g$
 
@@ -4849,7 +5693,7 @@ In the end, what we saw here is the same as in D.1–D.3. In $\ast_{1\to2}$ we d
 
 ### §7.0 Enter Nabla
 
-The title of this book is *Unmasking Nabla*—yet up to this point we have never once defined nabla $\nabla$ head-on, at least officially. In Chapter 6 we got a preview of the shapes of grad, curl, and div by combining $d$ and $\ast$. In this chapter we rewrite the same objects in the standard notation of vector analysis.
+The title of this book is *Unmasking Div, Grad, and Curl* (or *Unmasking Nabla*, as the Japanese title suggests)—yet up to this point we have never once defined nabla $\nabla$ head-on, at least officially. In Chapter 6 we got a preview of the shapes of grad, curl, and div by combining $d$ and $\ast$. In this chapter we rewrite the same objects in the standard notation of vector analysis.
 
 What have we been doing instead? We have piled up the backstage tools: $dx$ as a row vector, $2$-forms as antisymmetric matrices, $d$ as the operation that raises degree—and so on. Some readers have surely been wondering, “When is $\nabla$ finally going to show up?”
 
@@ -4861,6 +5705,86 @@ In this chapter we finally define $\nabla$. Then we unfold standard vector analy
 
 The tools used in this chapter are only those we have already assembled—column vectors, row vectors, matrices, inner products, the Jacobian matrix, and partial derivatives.
 
+---
+
+### §7.1 Dot Products and Cross Products
+
+#### 7.1.1 Dot Product
+
+For two column vectors
+
+$$
+\mathbf{a}
+=
+\begin{pmatrix}
+a_x\\
+a_y\\
+a_z
+\end{pmatrix},
+\qquad
+\mathbf{b}
+=
+\begin{pmatrix}
+b_x\\
+b_y\\
+b_z
+\end{pmatrix}
+$$
+
+we define the <strong>dot product</strong> (inner product) by
+
+$$\mathbf{a} \cdot \mathbf{b} = a_x b_x + a_y b_y + a_z b_z$$
+
+As we saw in §6.1, in real space $(x,y,z)$ this can be written as $\mathbf{a}^T \mathbf{b}$. In Cartesian coordinates the same numerical computation can be written as the row-column product $\mathbf a^T\mathbf b$; conceptually, however, it is the inner product introduced in Chapter 6.
+
+#### 7.1.2 Cross Product
+
+For two column vectors $\mathbf{a}, \mathbf{b}$, we define the <strong>cross product</strong> by
+
+$$\mathbf{a} \times \mathbf{b} = \begin{pmatrix}
+a_y b_z - a_z b_y \\
+a_z b_x - a_x b_z \\
+a_x b_y - a_y b_x
+\end{pmatrix}$$
+
+The result is again a column vector. The arrangement of cross-product components follows a regular pattern, and it can be written compactly using the following antisymmetric matrix:
+
+$$\mathbf{a} \times = \begin{pmatrix}
+0 & -a_z & a_y \\
+a_z & 0 & -a_x \\
+-a_y & a_x & 0
+\end{pmatrix}$$
+
+Multiplying this $3\times 3$ matrix on the left by the vector $\mathbf{b}$ gives
+
+$$\mathbf{a} \times \mathbf{b} = (\mathbf{a} \times)\,\mathbf{b} = \begin{pmatrix}
+0 & -a_z & a_y \\
+a_z & 0 & -a_x \\
+-a_y & a_x & 0
+\end{pmatrix}\begin{pmatrix}
+b_x \\ b_y \\ b_z
+\end{pmatrix} = \begin{pmatrix}
+a_y b_z - a_z b_y \\
+a_z b_x - a_x b_z \\
+a_x b_y - a_y b_x
+\end{pmatrix}$$
+
+We call this $(\mathbf{a} \times)$ the <strong>cross-product matrix</strong> of $\mathbf{a}$. It appeared in Chapter 2 as the matrix representation of a $2$-form, and in Appendix D of Chapter 6 it reappeared as the array form of the Hodge star—exactly the same shape. In this chapter we use it purely as the operation “multiply a vector by a vector and obtain a vector.”
+
+The cross product has the following basic properties:
+
+1. <strong>Anticommutativity</strong>: $\mathbf{a} \times \mathbf{b} = -\,\mathbf{b} \times \mathbf{a}$
+2. <strong>Cross product with itself is zero</strong>: $\mathbf{a} \times \mathbf{a} = \mathbf{0}$
+3. <strong>Orthogonality</strong>: $(\mathbf{a} \times \mathbf{b}) \cdot \mathbf{a} = 0$, $(\mathbf{a} \times \mathbf{b}) \cdot \mathbf{b} = 0$
+
+Property 3 means that the cross product produces a vector orthogonal to both $\mathbf{a}$ and $\mathbf{b}$. That is the real content of the so-called “right-hand rule.”
+
+> <strong>Checkpoint — §7.1</strong>
+> - Dot product: $\mathbf{a}\cdot\mathbf{b} = a_x b_x + a_y b_y + a_z b_z$. In real space, transposing the column vector $\mathbf{a}$ gives $\mathbf{a}^T \mathbf{b}$.
+> - Cross product: $\mathbf{a}\times\mathbf{b}$ can be written as $(\mathbf{a}\times)\,\mathbf{b}$ using the cross-product matrix $(\mathbf{a}\times)$.
+> - The cross product is anticommutative, vanishes with itself, and its result is orthogonal to both input vectors.
+
+---
 
 ### §7.2 $\nabla$ and the Gradient
 
@@ -5257,6 +6181,71 @@ From here on, there is no holding back. $d$, $\ast$, and $\nabla$—all the tool
 
 This chapter is the <strong>highlight</strong> of the book. The central translation itself is surprisingly short. At the end, however, to move on to the practical chapter that follows, we will take a single look at how this dictionary behaves in curvilinear coordinates. The painstaking preparation from Chapters 1 through 7—matrices, wedge products, the exterior derivative, the metric, the Hodge star, and vector analysis—was all for that purpose. Because all these tools are now assembled, in this chapter we need only “translate,” and two worlds fit into one picture. We have acquired two languages—the differential of measuring devices ($d$) and the differential of fields ($\nabla$). These two do fundamentally different things. Yet when they are linked through integration, they give exactly the same results. We will now dig thoroughly into how that works.
 
+---
+
+### §8.1 Two Differentials, Two Worlds
+
+#### 8.1.1 Differentiating measuring devices—the standpoint of $d$
+
+Since Chapter 1 we have treated $dx = \begin{pmatrix}1&0&0\end{pmatrix}$, $dy = \begin{pmatrix}0&1&0\end{pmatrix}$, $dz = \begin{pmatrix}0&0&1\end{pmatrix}$ as row-vector measuring devices. When you feed them a column vector (a displacement), they return the displacement in that direction as a scalar.
+
+The exterior derivative $d$ is the operation that differentiates the coefficients and produces the next measuring device.
+
+When $f(x,y,z)$ is a scalar field, $df$ is a new measuring device that measures changes in $f$. It becomes a row vector whose components are the partial derivatives.
+
+$$df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + \frac{\partial f}{\partial z}\,dz = \begin{pmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & \frac{\partial f}{\partial z} \end{pmatrix}$$
+
+When $\omega = P\,dx + Q\,dy + R\,dz$ is a $1$-form, $d\omega$ is a $2$-form (antisymmetric matrix) that measures the local mismatch of $\omega$.
+
+$$d\omega = \left(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\right)dy\wedge dz + \left(\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x}\right)dz\wedge dx + \left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)dx\wedge dy$$
+
+When $\eta = A\,dy\wedge dz + B\,dz\wedge dx + C\,dx\wedge dy$ is a $2$-form, $d\eta$ is a $3$-form (third-order antisymmetric tensor).
+
+$$d\eta = \left(\frac{\partial A}{\partial x} + \frac{\partial B}{\partial y} + \frac{\partial C}{\partial z}\right) dx\wedge dy\wedge dz$$
+
+In this way, each time $d$ acts, the degree of the measuring device rises one step: $0\to1\to2\to3$. The core point is that <strong>$d$ does not produce a new arrow field in the sense of vector analysis; it differentiates the coefficients and changes the measuring-device side</strong>. $f$ remains a scalar field, but each time $d$ acts it generates a new measuring device—$df$ ($1$-form), $d\omega$ ($2$-form), $d\eta$ ($3$-form).
+
+#### 8.1.2 The formal differential operator stays the same; new fields are what we consider—the standpoint of $\nabla$
+
+Meanwhile, in the world of
+
+$$
+\nabla
+=
+\begin{pmatrix}
+\frac{\partial}{\partial x}\\[0.3em]
+\frac{\partial}{\partial y}\\[0.3em]
+\frac{\partial}{\partial z}
+\end{pmatrix}
+$$
+
+introduced in Chapter 7, <strong>the formal differential operator stays the same; depending on what it acts on, new fields are born</strong>. $\nabla$ is always the same operator, but acting on a scalar field $f$ yields a vector field $\nabla f$; acting on a vector field $\mathbf{F}$ yields a scalar field $\nabla\cdot\mathbf{F}$ or a vector field $\nabla\times\mathbf{F}$.
+
+Applying $\nabla$ to a scalar field $f(x,y,z)$ gives a column-vector field whose components are the rates of change in each direction.
+
+$$\nabla f = \begin{pmatrix} \frac{\partial f}{\partial x} \\[0.3em] \frac{\partial f}{\partial y} \\[0.3em] \frac{\partial f}{\partial z} \end{pmatrix}$$
+
+This is an arrow standing at each point in space; it is no longer a measuring device. It represents the direction of steepest increase of $f$ and the strength of that increase.
+
+Applying $\nabla\cdot$ to a vector field $\mathbf{F}$ with components $F_x,F_y,F_z$ gives a scalar field.
+
+$$\nabla \cdot \mathbf{F} = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z}$$
+
+It returns the sum of the rates of change in each direction—the strength of outflow.
+
+Applying $\nabla\times$ to the same $\mathbf{F}$ gives a column-vector field again.
+
+$$\nabla \times \mathbf{F} = \begin{pmatrix} \frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z} \\[0.3em] \frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x} \\[0.3em] \frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y} \end{pmatrix}$$
+
+It represents the axis and strength of the local rotation.
+
+In the world of $\nabla$, the result is always returned as an arrow or a scalar in real space. Both $\nabla f$ and $\nabla\times\mathbf{F}$ look like the same kind of “arrow” on the page; there is no distinction by type.
+
+> <strong>Checkpoint so far — §8.1</strong>
+> - Standpoint of $d$: $d$ does not produce a new arrow field; the measuring-device side changes. New measuring devices are born.
+> - Standpoint of $\nabla$: the formal differential operator stays the same; new fields are born.
+
+---
 
 ### §8.2 Completing the Translation Dictionary
 
@@ -5561,6 +6550,28 @@ The reader may simply watch the calculations below—or follow along by hand. Ei
 
 > <strong>Note</strong> (for readers who have not studied vector analysis) Among the calculations below, every derivation of grad, div, and curl takes only a few lines. Substitute the dictionary into $d$, $\ast d$, or $\ast d\ast$ as appropriate, and expand the partial derivatives—that is all. That is why it looks easy. But if you try to derive the same results in the style of vector analysis, you are forced through pages of manipulation while manually attaching factors such as $\frac{1}{r}\frac{\partial}{\partial r}(r\,\cdot\,)$ and $\frac{1}{\rho^2\sin\theta}$ to the $\nabla$ formulas. It looks easy because $\ast$ automatically organizes measuring devices of different degrees. The Laplacian in §9.4 is admittedly tough, but even there all you do is consult the dictionary and expand partial derivatives—the method does not change. This difference is exactly the value of the "measuring device" framework that this book has built up from Chapter 1.
 
+---
+
+### §9.1 Building the Dictionary on the Spot — A Mechanical Procedure
+
+The procedure for deriving the formulas for $\mathrm{grad}$, $\mathrm{div}$, and $\mathrm{curl}$ in orthogonal curvilinear coordinates boils down to the following three steps.
+
+1. <strong>Write the Jacobian matrix $J$</strong>. From the coordinate transformation $x = x(q_1,q_2,q_3)$, $y = y(q_1,q_2,q_3)$, $z = z(q_1,q_2,q_3)$, arrange the partial derivatives. Each column of $J$ represents how a single step along one axis in parameter space moves in physical space.
+
+2. <strong>Compute the metric $\mathbf{g} = J^T J$</strong>. This is the procedure we have followed since Chapter 6 §6.1.3. The diagonal entries of $\mathbf{g}$ are the squares of the scales along each axis; the off-diagonal entries represent how orthogonal the axes are to one another.
+
+3. <strong>From $\mathbf{g}$, derive the dictionary for the Hodge star $\ast$, and combine it with $d$</strong>. Substitute the dictionary for $\ast$ in that coordinate system into each formula $\mathrm{grad} = d$, $\mathrm{curl}=\ast d$, $\mathrm{div}=\ast d\ast$, and the desired formulas are obtained mechanically.
+
+However, the usual $\mathrm{grad}$ and $\mathrm{curl}$ of vector analysis return vector fields as arrows. By contrast, this book's $\mathrm{grad}=d$, $\mathrm{curl}=\ast d$, and $\mathrm{div}=\ast d\ast$ are read first as formulas on the measuring-device side. To read a $1$-form obtained on the differential-forms side as a column vector, first use the metric $\mathbf{g}$ to convert it back to the form $\mathbf{g}^{-1}(\cdot)^T$. These are the column components corresponding to the coordinates. To read them as orthonormal vector components as used in vector analysis, you must also account for the scale factor in each direction.
+
+Also, in curvilinear coordinates, the orthonormal vector components used in vector analysis generally do not agree with the coefficients relative to the coordinate-associated $1$-forms. Because the calculation is carried out on the $1$-form side, first convert the vector field to the corresponding $1$-form. Then the coefficients of $d\theta$ and $d\phi$ pick up scale factors.
+
+> <strong>Note</strong> (vector components and $1$-form coefficients)
+> In curvilinear coordinates you must distinguish the coordinate-associated $1$-forms from the $1$-forms that measure actual length in units of 1. For example, in polar coordinates, the angular scale $d\theta$ itself differs from the unit-length scale $r\,d\theta$. The dictionary of the Hodge star absorbs all of this scale-factor information. That is what lets us carry out "straight computation" on a "distorted coordinate system."
+
+Below, we demonstrate this procedure in cylindrical and spherical coordinates. Keep in mind the flow: compute first as $1$-forms and $2$-forms, then convert back to orthonormal vector components at the end.
+
+---
 
 ### §9.2 Cylindrical Coordinates $(r,\theta,z)$
 
@@ -5862,6 +6873,55 @@ However, one caveat. This book is not an electromagnetism textbook. If you know 
 
 > <strong>Note</strong> (the role of this chapter) The core of this book is complete by Chapter 9. This chapter is, so to speak, a bonus, or nearly a digression. Do not take it too seriously; read it at your leisure.
 
+---
+
+### §10.1 Maxwell's Equations — Two Equations
+
+The fundamental laws of electromagnetism are summarized in vector-analysis notation as the following four equations. We adopt SI units.
+
+$$\begin{aligned}
+\mathrm{div}\,\mathbf{E} &= \frac{\rho_{\mathrm e}}{\varepsilon_0} &
+\mathrm{div}\,\mathbf{B} &= 0 \\[0.5em]
+\mathrm{curl}\,\mathbf{B} &= \mu_0\mathbf{J} + \frac{1}{c^2}\frac{\partial \mathbf{E}}{\partial t} &
+\mathrm{curl}\,\mathbf{E} &= -\frac{\partial \mathbf{B}}{\partial t}
+\end{aligned}$$
+
+As they stand, the "types" are not aligned for packing into a $4\times4$ matrix. The electric field $\mathbf{E}$ (dimension $\mathrm{V/m}$) and magnetic flux density $\mathbf{B}$ (dimension $\mathrm{T}$) have different units, and spatial derivatives ($\mathrm{curl}$ and $\mathrm{div}$) and the time derivative with respect to $t$ also have different dimensions.
+
+So we introduce a length-dimension time coordinate and rescale the magnetic field to match the electric field.
+
+1. <strong>Time conversion</strong>: Multiply time $t$ by the speed of light $c$ to introduce the coordinate $w = ct$ with dimension of length. The time derivative becomes $\frac{\partial}{\partial t} = c\frac{\partial}{\partial w}$.
+
+2. <strong>Magnetic field conversion</strong>: Multiply magnetic flux density $\mathbf{B}$ by $c$ to define $\mathbf{B}' = c\mathbf{B}$, which has the same $\mathrm{V/m}$ dimension as the electric field.
+
+Substitute these into the four equations above. Faraday's law becomes
+
+$$\mathrm{curl}\,\mathbf{E} = -\frac{\partial}{\partial t}\!\left(\frac{1}{c}\mathbf{B}'\right) = -c\frac{\partial}{\partial w}\!\left(\frac{1}{c}\mathbf{B}'\right) = -\frac{\partial \mathbf{B}'}{\partial w}$$
+
+and Ampère's law is similarly rearranged to give
+
+$$\begin{aligned}
+\mathrm{div}\,\mathbf{E} &= \frac{\rho_{\mathrm e}}{\varepsilon_0} &
+\mathrm{div}\,\mathbf{B}' &= 0 \\[0.5em]
+\mathrm{curl}\,\mathbf{B}' &= c\mu_0\mathbf{J} + \frac{\partial \mathbf{E}}{\partial w} &
+\mathrm{curl}\,\mathbf{E} &= -\frac{\partial \mathbf{B}'}{\partial w}
+\end{aligned}$$
+
+Time derivatives are now written with respect to the length-dimension coordinate $w$, so the denominators in time and space derivatives are aligned.
+
+Henceforth we rename $\mathbf{B}'$ back to $\mathbf{B}$ and write $w$ as $t$. That is, from here on $\mathbf{B}$ is not the original magnetic flux density but the dimension-aligned field scaled by $c$, and $t$ is not the original time but the length-dimension time coordinate scaled by $c$.
+
+Now we are ready. $\mathbf{E}$ and $\mathbf{B}$ have the same dimension and can be arranged in the same matrix. With the $2$-form $F$ combining the electromagnetic field and the $1$-form $\mathcal{J}$ combining current and charge (strictly, the four-current lowered by the metric), the four equations consolidate into <strong>two</strong> under this book's normalization and sign conventions.
+
+$$dF = 0, \qquad d(\ast F) = \mu_0(\ast\mathcal{J})$$
+
+Here, to show the form as physical laws, we write the Hodge star without subscript as $\ast$. When entering component calculations, we write the exterior derivative and Hodge star on four-dimensional spacetime as $d_4,\ast_4$, and those on spatial three dimensions at each instant as $d_3,\ast_3$. In this chapter's convention, we will define $\mu_0\ast\mathcal{J}$ directly in components.
+
+That is all. Four equations become two—this conciseness symbolizes the expressive power of differential forms.
+
+However, this book does not end here. What is inside $F$? When we expand $dF=0$ in components, do we really get $\mathrm{curl}\,\mathbf{E} = -\frac{\partial\mathbf{B}}{\partial t}$ and $\mathrm{div}\,\mathbf{B} = 0$? We will write all of that out in this chapter.
+
+---
 
 ### §10.2 The Electromagnetic Field $F$ and Fixing Sign Conventions
 
@@ -7263,6 +8323,85 @@ Let us collect in one table where the concepts of this book sit in manifold theo
 | $dF=0$, $d(\ast F)=\mu_0(\ast\mathcal{J})$ (Chapter 10) | On curved spacetime as well, the same form if we use the Hodge star from the spacetime metric and an appropriate current form |
 | $4\times4\times4$ slices in Appendix E (Chapter 10) | Component calculation for a 3-form on a 4-dimensional manifold |
 
+---
+
+### §11.2 Riemannian Geometry — The Tensor-Analysis Style
+
+Whereas manifold theory aims to define geometric objects without dependence on coordinates, classical Riemannian geometry—the tensor analysis used in Einstein's general relativity—adopts the style of "choosing coordinates and confronting component transformation laws head-on." This is closer to the approach of this book, which has made matrix components explicit throughout.
+
+#### 11.2.1 Tensors — Definition by Transformation Laws
+
+In classical tensor analysis, tensors are defined by their "transformation rules under coordinate changes." Under a change from coordinates $x^i$ to $\bar{x}^i$,
+
+<strong>contravariant vectors</strong> $V^i$ transform as $\bar{V}^i = \sum_j \frac{\partial \bar{x}^i}{\partial x^j} V^j$, and
+<strong>covariant vectors</strong> $\omega_i$ transform as $\bar{\omega}_i = \sum_j \frac{\partial x^j}{\partial \bar{x}^i} \omega_j$.
+
+This distinction already appeared in Chapter 4 of this book. The components $v^i$ of a displacement vector $\mathbf{v}$ are contravariant (transform by the inverse Jacobian), whereas the coefficients $\omega_i$ of a $1$-form $\omega$ are covariant (transform by the Jacobian). A general $(r,s)$-tensor $T^{i_1\cdots i_r}_{j_1\cdots j_s}$ has $r$ contravariant indices and $s$ covariant indices, and each index follows the transformation law above.
+
+The components $g_{ij}$ of the matrix $\mathbf{g}$ representing the metric in this book are a $(0,2)$-tensor (a second-order covariant tensor). Under coordinate transformation, $g_{ij}$ transforms as
+
+$$\bar{g}_{ij} = \sum_{p,q} \frac{\partial x^p}{\partial \bar{x}^i} \frac{\partial x^q}{\partial \bar{x}^j}\,g_{pq}$$
+
+The relation $\mathbf{g} = J^T J$ derived in Chapter 6 of this book is none other than the formula for computing $\bar{g}_{ij}$ in curvilinear coordinates when $g_{ij} = \delta_{ij}$ in Cartesian coordinates. A general Riemannian metric is not necessarily obtained as $J^T J$ from the Jacobian $J$ of a single coordinate transformation. The $J^T J$ of Chapter 6 is simply the most concrete example of computing an induced metric within Euclidean space.
+
+#### 11.2.2 Christoffel Symbols — When Differentiation Fails to Be Tensorial
+
+The partial derivatives $\partial_j V^i$ of a vector field $V^i$ do not, as they stand, behave as a tensor—under coordinate transformation extra terms appear. Choosing the Levi-Civita connection compatible with the metric $g$, its connection coefficients, namely the <strong>Christoffel symbols</strong>, are given by
+
+$$\Gamma^i_{jk} = \frac{1}{2}\sum_m g^{im}(\partial_j g_{km} + \partial_k g_{jm} - \partial_m g_{jk})$$
+
+Here $g^{im}$ are the components of the inverse matrix of $g_{ij}$. In the terminology of this book, $\Gamma^i_{jk}$ are "coefficients that compensate for changes in the basis and the metric in that coordinate representation," and in general they involve first derivatives of $g_{ij}$.
+
+Defining the <strong>covariant derivative</strong>
+
+$$\nabla_j V^i = \partial_j V^i + \sum_k \Gamma^i_{jk} V^k$$
+
+using the Christoffel symbols, $\nabla_j V^i$ transforms correctly as a $(1,1)$-tensor. The covariant derivative is precisely the tool that defines "straightness" in curved space. The component representation of the connection concept (§11.1.7) is none other than $\Gamma^i_{jk}$.
+
+Let us rephrase this in terms of the book's experience. In Chapter 9 we derived formulas for $\mathrm{div}$ and $\mathrm{curl}$ from $\mathbf{g}$ in cylindrical and spherical coordinates. The derivation via the $\ast$ dictionary in Chapter 9 differs from the method of explicitly computing Christoffel symbols. Rather, we should say that by using $d$ and $\ast$, we reached the same coordinate formulas without putting $\Gamma^i_{jk}$ in a table. If one derives the same formulas in tensor analysis, covariant derivatives and Christoffel symbols appear there. Learning Riemannian geometry is revisiting the same coordinate formulas from the side of the connection coefficients $\Gamma^i_{jk}$ and the curvature tensor $R^i_{\,mjk}$.
+
+#### 11.2.3 The Riemann Curvature Tensor
+
+The non-commutativity of covariant derivatives quantifies how curved space is. For a vector field $V^i$,
+$$(\nabla_j \nabla_k - \nabla_k \nabla_j) V^i = \sum_m R^i_{\,mjk} V^m$$
+This defines the curvature. Written out in Christoffel symbols, $R^i_{\,mjk}$ is expressed as a combination of first derivatives of $\Gamma$ and products $\Gamma\Gamma$. The precise index order and sign depend on conventions in the literature, but for example, in coordinates where $\mathbf g$ is constant, the Christoffel symbols vanish and $R^i{}_{mjk}=0$; this is the flat case.
+
+> <strong>Note</strong> (Coordinate-dependent metric and curvature) That $\mathbf{g}(x)$ depends on location does not by itself mean curvature is nonzero. Writing Euclidean space in curvilinear coordinates (polar, spherical, etc.), $g_{ij}(x)$ may depend on location yet curvature is zero. Curvature becomes nonzero when $R^i_{\,mjk}$, built from $\Gamma$ and its derivatives, does not vanish.
+
+The curvature tensor has $n^4$ components, but many symmetries make the number of independent components far smaller. Writing the fully covariant curvature tensor as $R_{abcd}$, a representative convention gives
+$$R_{abcd}=-R_{bacd},\qquad R_{abcd}=-R_{abdc},\qquad R_{abcd}=R_{cdab}$$
+and the first Bianchi identity also holds. This leaves 20 independent components in four dimensions.
+
+> <strong>Note</strong> (Sign and index conventions for the curvature tensor)
+> There are several conventions for the sign and index order of the curvature tensor. This section showed one representative convention, but other texts may use different index orders or signs.
+> $$
+> \nabla_i R_{mjkl}+\nabla_j R_{mkil}+\nabla_k R_{mijl}=0
+> $$
+> This identity suggests the same "double boundary yields zero" structure as $d^2=0$ for the exterior derivative, but strictly it is an identity for the exterior covariant derivative $D$ involving the connection, not simply $d^2=0$.
+
+The Ricci tensor is obtained by contracting one pair of indices of the curvature tensor. The precise position and sign of the contraction depend on the curvature tensor convention. Here we do not fix the convention in detail. Together with the <strong>scalar curvature</strong> $R = \sum_i\sum_j g^{ij} \mathrm{Ric}_{ij}$, these constitute the left-hand side of the Einstein equations:
+
+$$R_{ij} - \frac{1}{2}R\,g_{ij} = \frac{8\pi G}{c^4}\,T_{ij}$$
+
+The left-hand side represents the geometry of spacetime (curvature); the right-hand side represents the matter energy-momentum tensor $T_{ij}$.
+
+> <strong>Note</strong> (Sign convention and cosmological constant in the Einstein equations) This equation adopts one sign convention and sets the cosmological constant $\Lambda = 0$. Depending on sign conventions (metric signature, coordinate system, definition of the curvature tensor), the form of the equation changes, and extensions including a cosmological term also exist. This book neither derives nor proves it, but we record it as a warning for readers consulting other literature.
+
+This book does not derive this equation, nor does it ask the reader to understand it. Nevertheless, the foundation behind it—manifold, metric, covariant derivative, curvature—cannot be exhausted by the $d$ and $\ast$ treated in this book alone. Rather, the connection $\nabla$—in the sense of a covariant derivative, introduced here in Chapter 11—is indispensable. Even so, the differential-forms viewpoint is a powerful entry point for advancing into these structures.
+
+#### 11.2.4 Two Styles — Relation to This Book
+
+Descriptions via differential forms and via index-based tensor analysis are both languages for handling tensor fields. The former foreground antisymmetric tensors and the exterior derivative; the latter foreground components and transformation laws.
+
+This book has consistently adopted the style of making components explicit—matrices, index-free partial derivatives, expansions of wedge products. In this sense, the natural extension of this book lies in concrete tensor-analysis calculations rather than in the abstract theory of differential forms. Already when we pulled the $\ast$ dictionary for curvilinear coordinates in Chapter 9, we reached coordinate formulas for $\mathrm{curl}$ and $\mathrm{div}$ without explicitly writing $\Gamma^i_{jk}$. If one derives the same formulas in tensor analysis, behind them appear the world of $g_{ij}$, connection coefficients $\Gamma^i_{jk}$, and covariant derivatives. Beyond that lies the full scope of Riemannian geometry.
+
+### §11.3 Beyond That
+
+This book ends here. The framework of $d$ and $\ast$ built up from Chapter 1 has fulfilled the original goal of deconstructing vector analysis.
+
+But having come this far, if only as a hobby, let us peek just a little at the face of another school.
+
+In modern mathematical physics there is <strong>geometric algebra</strong>, a world that from the outset integrates the exterior product ($\wedge$) and inner product (metric) that we struggled to separate into a single algebra as the "geometric product." The two tools $d$ and $\ast$ are also absorbed there into more fundamental operators. Only those who have known the pain of separation can taste the power of integration—that alone we convey, and with that we close this book.
 
 # Chapter 12: The True Nabla — Clifford, Pauli, Dirac, and Hamilton
 
@@ -7276,6 +8415,37 @@ We can. And quite easily. Bring out the imaginary unit $i$, and they collapse in
 
 > <strong>Note</strong> (the position of this chapter) This chapter is an advanced supplement and lies off the main line of the book. Chapter 9 completed the rewrite of vector analysis, and Chapter 10 finished the matrix expansion of Maxwell's equations. Here we do not intend to write a textbook of rigorous geometric algebra (Clifford algebra). The purpose is to see, as an entry point to calculation, how grad, curl, and div—which this book has dismantled—are integrated again into a single operator inside Pauli matrices and the Dirac operator.
 
+---
+
+### §12.1 Combining Them with the Imaginary Unit — Unifying Maxwell's Equations
+
+In Chapter 10 we consolidated Maxwell's equations into the two equations
+
+$$dF = 0, \qquad d(\ast F) = \mu_0(\ast\mathcal{J})$$
+
+Notice here that both $F$ and $\ast F$ are $2$-forms. In four-dimensional spacetime, the Hodge star $\ast$ maps $2$-forms to $2$-forms. So $F$ and $\ast F$ are forms of the same degree.
+
+When the degrees match, there is no obstacle to addition. Using the imaginary unit $i$, we build a single complex $2$-form (in this chapter we follow the sign conventions of Chapter 10; on a Lorentzian metric the sign of $\ast^2$ depends on dimension and signature conventions, so here we prioritize consistency with the component expansion).
+
+$$G = F + i\ast F$$
+
+Apply the exterior derivative $d$ to $G$. Since $d$ is a real differential operator, $d(i\ast F) = i\,d(\ast F)$.
+
+$$dG = dF + i\,d(\ast F) = 0 + i\mu_0(\ast\mathcal{J})$$
+
+That is,
+
+$$d(F + i\ast F) = i\mu_0(\ast\mathcal{J})$$
+
+That is all. The two equations $dF=0$ and $d(\ast F)=\mu_0(\ast\mathcal{J})$ have been unified into a single complex equation. The real part $F$ and the imaginary part $\ast F$ share the source-free and source Maxwell equations between them.
+
+But pause here and think. This trick works only because, **by accident**, in four dimensions $\ast$ maps $2$-forms to $2$-forms. In general $n$ dimensions, $\ast$ maps $k$-forms to $(n-k)$-forms. Being able to add $2$-form to $2$-form is a privilege of $n=4$; adding $1$-form to $2$-form directly is not allowed in the usual framework of differential forms.
+
+When $d$ and $\ast$ are combined, conversions between different degrees appear—grad ($0\to1$), curl ($1\to1$), div ($1\to0$), and so on. If we could treat the origins of these in a single algebra, we should be able not to dismantle $\nabla$ but to **unify** it.
+
+Adding forms of different degrees—is there no such "magic box"?
+
+---
 
 ### §12.2 Pauli Matrices — The Magic of Adding Different Degrees
 
@@ -7589,6 +8759,13 @@ As the author, I sincerely hope that *Unmasking Div, Grad, and Curl* will be a s
 
 This book's peculiar algebraic approach was built by combining the insights of the following pioneers.
 
+---
+
+<strong>1. Daniel Fleisch, *A Student's Guide to Vectors and Tensors*, Cambridge University Press (2011)</strong>
+
+Comment: A careful guide to the traditional approach. A well-regarded introduction that treats traditional vector analysis and tensor analysis component calculation with extreme care. The best book for acquiring the power to break through head-on the jungle of Christoffel symbols and index manipulation—the route this book tries to bypass via differential forms.
+
+---
 
 <strong>2. David Bachman, *A Geometric Approach to Differential Forms*, Birkhäuser (2nd ed. 2011)</strong>
 
@@ -7655,6 +8832,35 @@ This book is not an axiomatic development of differential forms on general manif
 > <strong>Note</strong> (will the day come when I am not fooled?)
 > They say one stands at thirty; when I actually reached that milestone, I was still getting angry at formulas rather than standing upright. I have started making dad jokes.
 
+---
+
+## I. On the Theoretical Framework and Rigor
+
+- <strong>Introducing the exterior derivative $d$ without mathematical definitions of manifolds, atlases, tangent spaces, and so on is inaccurate</strong>
+  → This book is not a textbook of differential forms on general manifolds; it is an introductory book for reaching vector analysis on three-dimensional Euclidean space. Chapter 11 gives signposts for moving to general manifolds.
+
+- <strong>Contravariant and covariant vectors (dual spaces) should be distinguished clearly from the start</strong>
+  → Chapter 1 §1.1.6 introduces the distinction between "column vectors (displacements)" and "row vectors (measuring devices)," which is a concrete representation of the dual-space idea. A more abstract formulation of dual spaces is connected in Chapter 6 and Chapter 11.
+
+- <strong>Treating $dx$ as a row vector is not standard notation in mathematics books</strong>
+  → An intentional choice. Defined in Chapter 1 §1.1 and used consistently throughout. The aim is to translate the abstract idea "1-form = function that eats vectors" into "matrix multiplication" that the reader already knows. Correspondence with standard differential-form notation is shown in Chapter 11.
+
+- <strong>The exterior derivative $d$ should be defined generally from axioms (Leibniz rule, $d^2=0$)</strong>
+  → This book does not start from axioms; in Chapter 5 §5.3 it discovery-style derives $d$ from the physical intuition of "mismatch when traversing an infinitesimal loop." $d^2=0$ is understood in Chapter 5 §5.8 as a consequence of symmetry of mixed partial derivatives. The axiomatic definition is supplemented in Chapter 11.
+
+- <strong>A complete proof of Stokes' theorem on general $n$-dimensional manifolds is not given</strong>
+  → This book derives the concrete cases in three-dimensional Euclidean space (Gauss, Stokes, Green) directly from the definition of integration (Chapters 5 and 8). Proof of Stokes' theorem in general dimension is outside the book's scope; Chapter 11 gives signposts only.
+
+- <strong>The axiomatic approach via universal properties of exterior algebra is not used in defining the wedge product</strong>
+  → In §2.4 this book builds the wedge product as antisymmetrization of the tensor product. That is a concrete entry point toward the axiomatic approach, chosen so the reader can work by hand with matrix subtraction. The more standard abstract viewpoint is signposted in Chapter 11.
+
+- <strong>The book relies too much on component representations even though geometric objects have no absolute coordinate representation</strong>
+  → An intentional choice. The subject of this book is "how to use differential forms," not the philosophy of "differential forms as coordinate-independent geometric entities." Like standard vector-analysis textbooks, it adopts component representations as a practical computational tool. The coordinate-invariant viewpoint is connected in Chapter 11.
+
+- <strong>Avoiding standard notation makes the book look like it claims a private school</strong>
+  → The notation is chosen with top priority on "beginners can work by hand with matrix calculations." Why standard notation (index contraction, $\partial_\mu$, and so on) is deliberately avoided is explained in Chapter 11. This policy itself is widely seen in numerical computation and similar fields; the author does not especially claim anything new. There simply seemed to be no Japanese book in this style, so the author wrote one.
+
+---
 
 ## II. On Methodological Choices and Limits of Application
 

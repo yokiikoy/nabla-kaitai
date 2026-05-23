@@ -121,7 +121,7 @@
 <li class="level-1"><a href="ch12.html" id="link-ch12.html">Chapter 12</a></li>
 <li class="level-1"><a href="postscript.html" id="link-postscript.html">Afterword</a></li>
 <li class="level-1"><a href="refs.html" id="link-refs.html">References (with Comments from the Author)</a></li>
-<li class="level-1"><a href="appendix.html" class="active" id="link-appendix.html">Appendix</a><ul class="sub-toc"><li class="level-2"><a href="#II.-On-Methodological-Choices-and-Limits-of-Application">II. On Methodological Choices and Limits of Application</a></li><li class="level-2"><a href="#III.-On-Physical-Definitions-and-Pedagogical-Choices">III. On Physical Definitions and Pedagogical Choices</a></li></ul></li>
+<li class="level-1"><a href="appendix.html" class="active" id="link-appendix.html">Appendix</a><ul class="sub-toc"><li class="level-2"><a href="#I.-On-the-Theoretical-Framework-and-Rigor">I. On the Theoretical Framework and Rigor</a></li><li class="level-2"><a href="#II.-On-Methodological-Choices-and-Limits-of-Application">II. On Methodological Choices and Limits of Application</a></li><li class="level-2"><a href="#III.-On-Physical-Definitions-and-Pedagogical-Choices">III. On Physical Definitions and Pedagogical Choices</a></li></ul></li>
 </ul>
     </div>
   </nav>
@@ -156,6 +156,49 @@
 <p><strong>Note</strong> (will the day come when I am not fooled?)</p>
 <p>They say one stands at thirty; when I actually reached that milestone, I was still getting angry at formulas rather than standing upright. I have started making dad jokes.</p>
 </blockquote>
+<hr />
+<h2 id="I.-On-the-Theoretical-Framework-and-Rigor">I. On the Theoretical Framework and Rigor</h2>
+<ul>
+<li><strong>Introducing the exterior derivative $d$ without mathematical definitions of manifolds, atlases, tangent spaces, and so on is inaccurate</strong></li>
+<p>  → This book is not a textbook of differential forms on general manifolds; it is an introductory book for reaching vector analysis on three-dimensional Euclidean space. Chapter 11 gives signposts for moving to general manifolds.
+</p>
+</ul>
+<ul>
+<li><strong>Contravariant and covariant vectors (dual spaces) should be distinguished clearly from the start</strong></li>
+<p>  → Chapter 1 §1.1.6 introduces the distinction between "column vectors (displacements)" and "row vectors (measuring devices)," which is a concrete representation of the dual-space idea. A more abstract formulation of dual spaces is connected in Chapter 6 and Chapter 11.
+</p>
+</ul>
+<ul>
+<li><strong>Treating $dx$ as a row vector is not standard notation in mathematics books</strong></li>
+<p>  → An intentional choice. Defined in Chapter 1 §1.1 and used consistently throughout. The aim is to translate the abstract idea "1-form = function that eats vectors" into "matrix multiplication" that the reader already knows. Correspondence with standard differential-form notation is shown in Chapter 11.
+</p>
+</ul>
+<ul>
+<li><strong>The exterior derivative $d$ should be defined generally from axioms (Leibniz rule, $d^2=0$)</strong></li>
+<p>  → This book does not start from axioms; in Chapter 5 §5.3 it discovery-style derives $d$ from the physical intuition of "mismatch when traversing an infinitesimal loop." $d^2=0$ is understood in Chapter 5 §5.8 as a consequence of symmetry of mixed partial derivatives. The axiomatic definition is supplemented in Chapter 11.
+</p>
+</ul>
+<ul>
+<li><strong>A complete proof of Stokes' theorem on general $n$-dimensional manifolds is not given</strong></li>
+<p>  → This book derives the concrete cases in three-dimensional Euclidean space (Gauss, Stokes, Green) directly from the definition of integration (Chapters 5 and 8). Proof of Stokes' theorem in general dimension is outside the book's scope; Chapter 11 gives signposts only.
+</p>
+</ul>
+<ul>
+<li><strong>The axiomatic approach via universal properties of exterior algebra is not used in defining the wedge product</strong></li>
+<p>  → In §2.4 this book builds the wedge product as antisymmetrization of the tensor product. That is a concrete entry point toward the axiomatic approach, chosen so the reader can work by hand with matrix subtraction. The more standard abstract viewpoint is signposted in Chapter 11.
+</p>
+</ul>
+<ul>
+<li><strong>The book relies too much on component representations even though geometric objects have no absolute coordinate representation</strong></li>
+<p>  → An intentional choice. The subject of this book is "how to use differential forms," not the philosophy of "differential forms as coordinate-independent geometric entities." Like standard vector-analysis textbooks, it adopts component representations as a practical computational tool. The coordinate-invariant viewpoint is connected in Chapter 11.
+</p>
+</ul>
+<ul>
+<li><strong>Avoiding standard notation makes the book look like it claims a private school</strong></li>
+<p>  → The notation is chosen with top priority on "beginners can work by hand with matrix calculations." Why standard notation (index contraction, $\partial_\mu$, and so on) is deliberately avoided is explained in Chapter 11. This policy itself is widely seen in numerical computation and similar fields; the author does not especially claim anything new. There simply seemed to be no Japanese book in this style, so the author wrote one.
+</p>
+</ul>
+<hr />
 <h2 id="II.-On-Methodological-Choices-and-Limits-of-Application">II. On Methodological Choices and Limits of Application</h2>
 <ul>
 <li><strong>Einstein summation (tensor analysis) would allow the same calculations without bundles of matrices</strong></li>

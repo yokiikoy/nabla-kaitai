@@ -113,7 +113,7 @@
 <li class="level-1"><a href="ch04.html" id="link-ch04.html">Chapter 4</a></li>
 <li class="level-1"><a href="ch05.html" id="link-ch05.html">Chapter 5</a></li>
 <li class="level-1"><a href="ch06.html" id="link-ch06.html">Chapter 6</a></li>
-<li class="level-1"><a href="ch07.html" class="active" id="link-ch07.html">Chapter 7</a><ul class="sub-toc"><li class="level-3"><a href="#§7.0-Enter-Nabla">§7.0 Enter Nabla</a></li><li class="level-3"><a href="#§7.2-$\nabla$-and-the-Gradient">§7.2 $\nabla$ and the Gradient</a></li><li class="level-3"><a href="#§7.3-Divergence">§7.3 Divergence</a></li><li class="level-3"><a href="#§7.4-Curl">§7.4 Curl</a></li><li class="level-3"><a href="#§7.5-The-Laplacian">§7.5 The Laplacian</a></li><li class="level-3"><a href="#§7.6-Identities">§7.6 Identities</a></li><li class="level-3"><a href="#§7.7-A-Formula-Collection-for-Nabla">§7.7 A Formula Collection for Nabla</a></li><li class="level-3"><a href="#§7.8-Integral-Theorems-—-Stokes,-Gauss,-and-Green">§7.8 Integral Theorems — Stokes, Gauss, and Green</a></li><li class="level-3"><a href="#§7.9-Toward-Chapter-8-—-Do-Not-Look-at-the-Arrows;-Look-at-the-Measuring-Devices">§7.9 Toward Chapter 8 — Do Not Look at the Arrows; Look at the Measuring Devices</a></li></ul></li>
+<li class="level-1"><a href="ch07.html" class="active" id="link-ch07.html">Chapter 7</a><ul class="sub-toc"><li class="level-3"><a href="#§7.0-Enter-Nabla">§7.0 Enter Nabla</a></li><li class="level-3"><a href="#§7.1-Dot-Products-and-Cross-Products">§7.1 Dot Products and Cross Products</a></li><li class="level-3"><a href="#§7.2-$\nabla$-and-the-Gradient">§7.2 $\nabla$ and the Gradient</a></li><li class="level-3"><a href="#§7.3-Divergence">§7.3 Divergence</a></li><li class="level-3"><a href="#§7.4-Curl">§7.4 Curl</a></li><li class="level-3"><a href="#§7.5-The-Laplacian">§7.5 The Laplacian</a></li><li class="level-3"><a href="#§7.6-Identities">§7.6 Identities</a></li><li class="level-3"><a href="#§7.7-A-Formula-Collection-for-Nabla">§7.7 A Formula Collection for Nabla</a></li><li class="level-3"><a href="#§7.8-Integral-Theorems-—-Stokes,-Gauss,-and-Green">§7.8 Integral Theorems — Stokes, Gauss, and Green</a></li><li class="level-3"><a href="#§7.9-Toward-Chapter-8-—-Do-Not-Look-at-the-Arrows;-Look-at-the-Measuring-Devices">§7.9 Toward Chapter 8 — Do Not Look at the Arrows; Look at the Measuring Devices</a></li></ul></li>
 <li class="level-1"><a href="ch08.html" id="link-ch08.html">Chapter 8</a></li>
 <li class="level-1"><a href="ch09.html" id="link-ch09.html">Chapter 9</a></li>
 <li class="level-1"><a href="ch10.html" id="link-ch10.html">Chapter 10</a></li>
@@ -142,8 +142,81 @@
 </blockquote>
 <p>The tools used in this chapter are only those we have already assembled—column vectors, row vectors, matrices, inner products, the Jacobian matrix, and partial derivatives.
 </p>
-<h3 id="§7.2-__MATH_BLOCK_49__-and-the-Gradient">§7.2 $\nabla$ and the Gradient</h3>
-<h4 id="7.2.1-Definition-of-__MATH_BLOCK_50__">7.2.1 Definition of $\nabla$</h4>
+<hr />
+<h3 id="§7.1-Dot-Products-and-Cross-Products">§7.1 Dot Products and Cross Products</h3>
+<h4 id="7.1.1-Dot-Product">7.1.1 Dot Product</h4>
+<p>For two column vectors
+</p>
+$$
+\mathbf{a}
+=
+\begin{pmatrix}
+a_x\\
+a_y\\
+a_z
+\end{pmatrix},
+\qquad
+\mathbf{b}
+=
+\begin{pmatrix}
+b_x\\
+b_y\\
+b_z
+\end{pmatrix}
+$$
+<p>we define the <strong>dot product</strong> (inner product) by
+</p>
+$$\mathbf{a} \cdot \mathbf{b} = a_x b_x + a_y b_y + a_z b_z$$
+<p>As we saw in §6.1, in real space $(x,y,z)$ this can be written as $\mathbf{a}^T \mathbf{b}$. In Cartesian coordinates the same numerical computation can be written as the row-column product $\mathbf a^T\mathbf b$; conceptually, however, it is the inner product introduced in Chapter 6.
+</p>
+<h4 id="7.1.2-Cross-Product">7.1.2 Cross Product</h4>
+<p>For two column vectors $\mathbf{a}, \mathbf{b}$, we define the <strong>cross product</strong> by
+</p>
+$$\mathbf{a} \times \mathbf{b} = \begin{pmatrix}
+a_y b_z - a_z b_y \\
+a_z b_x - a_x b_z \\
+a_x b_y - a_y b_x
+\end{pmatrix}$$
+<p>The result is again a column vector. The arrangement of cross-product components follows a regular pattern, and it can be written compactly using the following antisymmetric matrix:
+</p>
+$$\mathbf{a} \times = \begin{pmatrix}
+0 & -a_z & a_y \\
+a_z & 0 & -a_x \\
+-a_y & a_x & 0
+\end{pmatrix}$$
+<p>Multiplying this $3\times 3$ matrix on the left by the vector $\mathbf{b}$ gives
+</p>
+$$\mathbf{a} \times \mathbf{b} = (\mathbf{a} \times)\,\mathbf{b} = \begin{pmatrix}
+0 & -a_z & a_y \\
+a_z & 0 & -a_x \\
+-a_y & a_x & 0
+\end{pmatrix}\begin{pmatrix}
+b_x \\ b_y \\ b_z
+\end{pmatrix} = \begin{pmatrix}
+a_y b_z - a_z b_y \\
+a_z b_x - a_x b_z \\
+a_x b_y - a_y b_x
+\end{pmatrix}$$
+<p>We call this $(\mathbf{a} \times)$ the <strong>cross-product matrix</strong> of $\mathbf{a}$. It appeared in Chapter 2 as the matrix representation of a $2$-form, and in Appendix D of Chapter 6 it reappeared as the array form of the Hodge star—exactly the same shape. In this chapter we use it purely as the operation “multiply a vector by a vector and obtain a vector.”
+</p>
+<p>The cross product has the following basic properties:
+</p>
+<ol>
+<li><strong>Anticommutativity</strong>: $\mathbf{a} \times \mathbf{b} = -\,\mathbf{b} \times \mathbf{a}$</li>
+<li><strong>Cross product with itself is zero</strong>: $\mathbf{a} \times \mathbf{a} = \mathbf{0}$</li>
+<li><strong>Orthogonality</strong>: $(\mathbf{a} \times \mathbf{b}) \cdot \mathbf{a} = 0$, $(\mathbf{a} \times \mathbf{b}) \cdot \mathbf{b} = 0$</li>
+</ol>
+<p>Property 3 means that the cross product produces a vector orthogonal to both $\mathbf{a}$ and $\mathbf{b}$. That is the real content of the so-called “right-hand rule.”
+</p>
+<blockquote>
+<p><strong>Checkpoint — §7.1</strong></p>
+<p>- Dot product: $\mathbf{a}\cdot\mathbf{b} = a_x b_x + a_y b_y + a_z b_z$. In real space, transposing the column vector $\mathbf{a}$ gives $\mathbf{a}^T \mathbf{b}$.</p>
+<p>- Cross product: $\mathbf{a}\times\mathbf{b}$ can be written as $(\mathbf{a}\times)\,\mathbf{b}$ using the cross-product matrix $(\mathbf{a}\times)$.</p>
+<p>- The cross product is anticommutative, vanishes with itself, and its result is orthogonal to both input vectors.</p>
+</blockquote>
+<hr />
+<h3 id="§7.2-__MATH_BLOCK_75__-and-the-Gradient">§7.2 $\nabla$ and the Gradient</h3>
+<h4 id="7.2.1-Definition-of-__MATH_BLOCK_76__">7.2.1 Definition of $\nabla$</h4>
 <p>English textbooks usually call the symbol $\nabla$ <strong>del</strong>; it is also called <strong>nabla</strong>, the name common in Japanese texts. This book is about what div, grad, and curl do—not primarily about what to call the symbol. We define nabla $\nabla$ as a formal column vector whose components are partial-derivative operators:
 </p>
 $$\nabla = \begin{pmatrix}
@@ -325,7 +398,7 @@ $$\nabla^2 \mathbf{F} = \begin{pmatrix} \nabla^2 F_x \\ \nabla^2 F_y \\ \nabla^2
 <h3 id="§7.6-Identities">§7.6 Identities</h3>
 <p>Among the three operations defined so far, two important identities hold. Both take the form "applying twice gives zero."
 </p>
-<h4 id="7.6.1-__MATH_BLOCK_99__">7.6.1 $\mathrm{curl}(\mathrm{grad}\,f) = \mathbf{0}$</h4>
+<h4 id="7.6.1-__MATH_BLOCK_125__">7.6.1 $\mathrm{curl}(\mathrm{grad}\,f) = \mathbf{0}$</h4>
 <p>If we take a vector field from a gradient and then take its curl, we always get the zero vector.
 </p>
 $$\nabla \times (\nabla f) = \begin{pmatrix}
@@ -337,7 +410,7 @@ $$\nabla \times (\nabla f) = \begin{pmatrix}
 </p>
 <p>Physical meaning: "A gradient field has no vortex." Conservative gravitational and electrostatic fields fall into this category.
 </p>
-<h4 id="7.6.2-__MATH_BLOCK_102__">7.6.2 $\mathrm{div}(\mathrm{curl}\,\mathbf{F}) = 0$</h4>
+<h4 id="7.6.2-__MATH_BLOCK_128__">7.6.2 $\mathrm{div}(\mathrm{curl}\,\mathbf{F}) = 0$</h4>
 <p>If we take a vector field from a curl and then take its divergence, we always get zero.
 </p>
 $$\nabla \cdot (\nabla \times \mathbf{F}) = \frac{\partial}{\partial x}\!\left(\frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z}\right) + \frac{\partial}{\partial y}\!\left(\frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x}\right) + \frac{\partial}{\partial z}\!\left(\frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y}\right)$$

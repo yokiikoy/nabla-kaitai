@@ -117,7 +117,7 @@
 <li class="level-1"><a href="ch08.html" id="link-ch08.html">Chapter 8</a></li>
 <li class="level-1"><a href="ch09.html" id="link-ch09.html">Chapter 9</a></li>
 <li class="level-1"><a href="ch10.html" id="link-ch10.html">Chapter 10</a></li>
-<li class="level-1"><a href="ch11.html" class="active" id="link-ch11.html">Chapter 11</a><ul class="sub-toc"><li class="level-3"><a href="#§11.0-The-Position-of-This-Chapter-—-A-Guidepost-for-Readers-Who-Want-to-Look-Further-Ahead">§11.0 The Position of This Chapter — A Guidepost for Readers Who Want to Look Further Ahead</a></li><li class="level-3"><a href="#§11.1-Manifolds-—-Starting-from-$\mathbf{g}(x)$">§11.1 Manifolds — Starting from $\mathbf{g}(x)$</a></li></ul></li>
+<li class="level-1"><a href="ch11.html" class="active" id="link-ch11.html">Chapter 11</a><ul class="sub-toc"><li class="level-3"><a href="#§11.0-The-Position-of-This-Chapter-—-A-Guidepost-for-Readers-Who-Want-to-Look-Further-Ahead">§11.0 The Position of This Chapter — A Guidepost for Readers Who Want to Look Further Ahead</a></li><li class="level-3"><a href="#§11.1-Manifolds-—-Starting-from-$\mathbf{g}(x)$">§11.1 Manifolds — Starting from $\mathbf{g}(x)$</a></li><li class="level-3"><a href="#§11.2-Riemannian-Geometry-—-The-Tensor-Analysis-Style">§11.2 Riemannian Geometry — The Tensor-Analysis Style</a></li><li class="level-3"><a href="#§11.3-Beyond-That">§11.3 Beyond That</a></li></ul></li>
 <li class="level-1"><a href="ch12.html" id="link-ch12.html">Chapter 12</a></li>
 <li class="level-1"><a href="postscript.html" id="link-postscript.html">Afterword</a></li>
 <li class="level-1"><a href="refs.html" id="link-refs.html">References (with Comments from the Author)</a></li>
@@ -156,7 +156,7 @@
 <p>In other words, this book may be called an intermediate approach for gaining both "the geometric intuition of differential forms" and "the computational power of tensor analysis."</p>
 <p>—though I must admit that, seen from either tradition, it has unavoidably halfway aspects.</p>
 </blockquote>
-<h3 id="§11.1-Manifolds-—-Starting-from-__MATH_BLOCK_16__">§11.1 Manifolds — Starting from $\mathbf{g}(x)$</h3>
+<h3 id="§11.1-Manifolds-—-Starting-from-__MATH_BLOCK_23__">§11.1 Manifolds — Starting from $\mathbf{g}(x)$</h3>
 <p>In this book we introduced the metric $\mathbf{g}$ in Chapter 6, and in Chapter 9 we practiced building the dictionary for $\ast$ from $\mathbf{g}$. In Cartesian coordinates in Chapter 6, $\mathbf{g} = I$ was a constant matrix, but in cylindrical and spherical coordinates in Chapter 9, the components of $\mathbf{g}$ already depended on $r, \rho, \theta$. What happens, then, if we view this not as a matter of coordinate representation but as a metric $\mathbf{g}(p)$ assigned to each point of space itself?
 </p>
 <p>The dictionary for $\ast$ is built from $\mathbf{g}$. If $\mathbf{g}$ changes from place to place, the dictionary for $\ast$ changes from place to place as well. The correspondence table $dx \mapsto \ast(dx) = \cdots\, dy \wedge dz$ comes to have different coefficients at each point in space.
@@ -226,7 +226,7 @@ $$(f^*\omega)_p(v_1, \dots, v_k) = \omega_{f(p)}(df_p(v_1), \dots, df_p(v_k))$$
 </p>
 <p>This duality extends to higher-degree forms. Representing $k$-forms by matrices in Chapter 2 ($k=1$ as row vectors, $k=2$ as antisymmetric matrices, $k=3$ as antisymmetric third-order tensors) is nothing but the component representation of $k$-forms as alternating multilinear maps. When we handled $4\times4\times4$ slice matrices in Appendix E, we were already practicing component calculation for 3-forms on a manifold.
 </p>
-<h4 id="11.1.4-Exterior-Derivative-__MATH_BLOCK_145__-—-What-Does-Not-Change-on-a-Manifold">11.1.4 Exterior Derivative $d$ — What Does Not Change on a Manifold</h4>
+<h4 id="11.1.4-Exterior-Derivative-__MATH_BLOCK_152__-—-What-Does-Not-Change-on-a-Manifold">11.1.4 Exterior Derivative $d$ — What Does Not Change on a Manifold</h4>
 <p>The exterior derivative $d$ is one of the few differential operators that can be defined on a manifold <strong>without using the metric at all</strong>. For a $k$-form $\omega$, $d\omega$ is a $(k+1)$-form, and its definition agrees completely with what we learned in Chapter 5 as a combination of partial derivatives and the wedge product.
 </p>
 <p>The exterior derivative $d$ is a linear operator from $\Omega^k(M)$ to $\Omega^{k+1}(M)$; on functions it gives the ordinary total differential, it satisfies the graded Leibniz rule, and in local coordinates it is given by partial derivatives and the wedge product. For this operator, $d^2 = 0$ holds. The metric appears nowhere. Curved or flat, we can use the same computational rules for $d$ that we grew familiar with in this book.
@@ -312,6 +312,80 @@ $$\ast: \Omega^k(M) \to \Omega^{n-k}(M)$$
 </tr>
 </tbody>
 </table></div>
+<hr />
+<h3 id="§11.2-Riemannian-Geometry-—-The-Tensor-Analysis-Style">§11.2 Riemannian Geometry — The Tensor-Analysis Style</h3>
+<p>Whereas manifold theory aims to define geometric objects without dependence on coordinates, classical Riemannian geometry—the tensor analysis used in Einstein's general relativity—adopts the style of "choosing coordinates and confronting component transformation laws head-on." This is closer to the approach of this book, which has made matrix components explicit throughout.
+</p>
+<h4 id="11.2.1-Tensors-—-Definition-by-Transformation-Laws">11.2.1 Tensors — Definition by Transformation Laws</h4>
+<p>In classical tensor analysis, tensors are defined by their "transformation rules under coordinate changes." Under a change from coordinates $x^i$ to $\bar{x}^i$,
+</p>
+<p><strong>contravariant vectors</strong> $V^i$ transform as $\bar{V}^i = \sum_j \frac{\partial \bar{x}^i}{\partial x^j} V^j$, and
+ <strong>covariant vectors</strong> $\omega_i$ transform as $\bar{\omega}_i = \sum_j \frac{\partial x^j}{\partial \bar{x}^i} \omega_j$.
+</p>
+<p>This distinction already appeared in Chapter 4 of this book. The components $v^i$ of a displacement vector $\mathbf{v}$ are contravariant (transform by the inverse Jacobian), whereas the coefficients $\omega_i$ of a $1$-form $\omega$ are covariant (transform by the Jacobian). A general $(r,s)$-tensor $T^{i_1\cdots i_r}_{j_1\cdots j_s}$ has $r$ contravariant indices and $s$ covariant indices, and each index follows the transformation law above.
+</p>
+<p>The components $g_{ij}$ of the matrix $\mathbf{g}$ representing the metric in this book are a $(0,2)$-tensor (a second-order covariant tensor). Under coordinate transformation, $g_{ij}$ transforms as
+</p>
+$$\bar{g}_{ij} = \sum_{p,q} \frac{\partial x^p}{\partial \bar{x}^i} \frac{\partial x^q}{\partial \bar{x}^j}\,g_{pq}$$
+<p>The relation $\mathbf{g} = J^T J$ derived in Chapter 6 of this book is none other than the formula for computing $\bar{g}_{ij}$ in curvilinear coordinates when $g_{ij} = \delta_{ij}$ in Cartesian coordinates. A general Riemannian metric is not necessarily obtained as $J^T J$ from the Jacobian $J$ of a single coordinate transformation. The $J^T J$ of Chapter 6 is simply the most concrete example of computing an induced metric within Euclidean space.
+</p>
+<h4 id="11.2.2-Christoffel-Symbols-—-When-Differentiation-Fails-to-Be-Tensorial">11.2.2 Christoffel Symbols — When Differentiation Fails to Be Tensorial</h4>
+<p>The partial derivatives $\partial_j V^i$ of a vector field $V^i$ do not, as they stand, behave as a tensor—under coordinate transformation extra terms appear. Choosing the Levi-Civita connection compatible with the metric $g$, its connection coefficients, namely the <strong>Christoffel symbols</strong>, are given by
+</p>
+$$\Gamma^i_{jk} = \frac{1}{2}\sum_m g^{im}(\partial_j g_{km} + \partial_k g_{jm} - \partial_m g_{jk})$$
+<p>Here $g^{im}$ are the components of the inverse matrix of $g_{ij}$. In the terminology of this book, $\Gamma^i_{jk}$ are "coefficients that compensate for changes in the basis and the metric in that coordinate representation," and in general they involve first derivatives of $g_{ij}$.
+</p>
+<p>Defining the <strong>covariant derivative</strong>
+</p>
+$$\nabla_j V^i = \partial_j V^i + \sum_k \Gamma^i_{jk} V^k$$
+<p>using the Christoffel symbols, $\nabla_j V^i$ transforms correctly as a $(1,1)$-tensor. The covariant derivative is precisely the tool that defines "straightness" in curved space. The component representation of the connection concept (§11.1.7) is none other than $\Gamma^i_{jk}$.
+</p>
+<p>Let us rephrase this in terms of the book's experience. In Chapter 9 we derived formulas for $\mathrm{div}$ and $\mathrm{curl}$ from $\mathbf{g}$ in cylindrical and spherical coordinates. The derivation via the $\ast$ dictionary in Chapter 9 differs from the method of explicitly computing Christoffel symbols. Rather, we should say that by using $d$ and $\ast$, we reached the same coordinate formulas without putting $\Gamma^i_{jk}$ in a table. If one derives the same formulas in tensor analysis, covariant derivatives and Christoffel symbols appear there. Learning Riemannian geometry is revisiting the same coordinate formulas from the side of the connection coefficients $\Gamma^i_{jk}$ and the curvature tensor $R^i_{\,mjk}$.
+</p>
+<h4 id="11.2.3-The-Riemann-Curvature-Tensor">11.2.3 The Riemann Curvature Tensor</h4>
+<p>The non-commutativity of covariant derivatives quantifies how curved space is. For a vector field $V^i$,
+</p>
+$$(\nabla_j \nabla_k - \nabla_k \nabla_j) V^i = \sum_m R^i_{\,mjk} V^m$$
+<p>This defines the curvature. Written out in Christoffel symbols, $R^i_{\,mjk}$ is expressed as a combination of first derivatives of $\Gamma$ and products $\Gamma\Gamma$. The precise index order and sign depend on conventions in the literature, but for example, in coordinates where $\mathbf g$ is constant, the Christoffel symbols vanish and $R^i{}_{mjk}=0$; this is the flat case.
+</p>
+<blockquote>
+<p><strong>Note</strong> (Coordinate-dependent metric and curvature) That $\mathbf{g}(x)$ depends on location does not by itself mean curvature is nonzero. Writing Euclidean space in curvilinear coordinates (polar, spherical, etc.), $g_{ij}(x)$ may depend on location yet curvature is zero. Curvature becomes nonzero when $R^i_{\,mjk}$, built from $\Gamma$ and its derivatives, does not vanish.</p>
+</blockquote>
+<p>The curvature tensor has $n^4$ components, but many symmetries make the number of independent components far smaller. Writing the fully covariant curvature tensor as $R_{abcd}$, a representative convention gives
+</p>
+$$R_{abcd}=-R_{bacd},\qquad R_{abcd}=-R_{abdc},\qquad R_{abcd}=R_{cdab}$$
+<p>and the first Bianchi identity also holds. This leaves 20 independent components in four dimensions.
+</p>
+<blockquote>
+<p><strong>Note</strong> (Sign and index conventions for the curvature tensor)</p>
+<p>There are several conventions for the sign and index order of the curvature tensor. This section showed one representative convention, but other texts may use different index orders or signs.</p>
+$$
+\nabla_i R_{mjkl}+\nabla_j R_{mkil}+\nabla_k R_{mijl}=0
+$$
+<p>This identity suggests the same "double boundary yields zero" structure as $d^2=0$ for the exterior derivative, but strictly it is an identity for the exterior covariant derivative $D$ involving the connection, not simply $d^2=0$.</p>
+</blockquote>
+<p>The Ricci tensor is obtained by contracting one pair of indices of the curvature tensor. The precise position and sign of the contraction depend on the curvature tensor convention. Here we do not fix the convention in detail. Together with the <strong>scalar curvature</strong> $R = \sum_i\sum_j g^{ij} \mathrm{Ric}_{ij}$, these constitute the left-hand side of the Einstein equations:
+</p>
+$$R_{ij} - \frac{1}{2}R\,g_{ij} = \frac{8\pi G}{c^4}\,T_{ij}$$
+<p>The left-hand side represents the geometry of spacetime (curvature); the right-hand side represents the matter energy-momentum tensor $T_{ij}$.
+</p>
+<blockquote>
+<p><strong>Note</strong> (Sign convention and cosmological constant in the Einstein equations) This equation adopts one sign convention and sets the cosmological constant $\Lambda = 0$. Depending on sign conventions (metric signature, coordinate system, definition of the curvature tensor), the form of the equation changes, and extensions including a cosmological term also exist. This book neither derives nor proves it, but we record it as a warning for readers consulting other literature.</p>
+</blockquote>
+<p>This book does not derive this equation, nor does it ask the reader to understand it. Nevertheless, the foundation behind it—manifold, metric, covariant derivative, curvature—cannot be exhausted by the $d$ and $\ast$ treated in this book alone. Rather, the connection $\nabla$—in the sense of a covariant derivative, introduced here in Chapter 11—is indispensable. Even so, the differential-forms viewpoint is a powerful entry point for advancing into these structures.
+</p>
+<h4 id="11.2.4-Two-Styles-—-Relation-to-This-Book">11.2.4 Two Styles — Relation to This Book</h4>
+<p>Descriptions via differential forms and via index-based tensor analysis are both languages for handling tensor fields. The former foreground antisymmetric tensors and the exterior derivative; the latter foreground components and transformation laws.
+</p>
+<p>This book has consistently adopted the style of making components explicit—matrices, index-free partial derivatives, expansions of wedge products. In this sense, the natural extension of this book lies in concrete tensor-analysis calculations rather than in the abstract theory of differential forms. Already when we pulled the $\ast$ dictionary for curvilinear coordinates in Chapter 9, we reached coordinate formulas for $\mathrm{curl}$ and $\mathrm{div}$ without explicitly writing $\Gamma^i_{jk}$. If one derives the same formulas in tensor analysis, behind them appear the world of $g_{ij}$, connection coefficients $\Gamma^i_{jk}$, and covariant derivatives. Beyond that lies the full scope of Riemannian geometry.
+</p>
+<h3 id="§11.3-Beyond-That">§11.3 Beyond That</h3>
+<p>This book ends here. The framework of $d$ and $\ast$ built up from Chapter 1 has fulfilled the original goal of deconstructing vector analysis.
+</p>
+<p>But having come this far, if only as a hobby, let us peek just a little at the face of another school.
+</p>
+<p>In modern mathematical physics there is <strong>geometric algebra</strong>, a world that from the outset integrates the exterior product ($\wedge$) and inner product (metric) that we struggled to separate into a single algebra as the "geometric product." The two tools $d$ and $\ast$ are also absorbed there into more fundamental operators. Only those who have known the pain of separation can taste the power of integration—that alone we convey, and with that we close this book.
+</p>
       <div class="nav-buttons">
         <a href="ch10.html">← Chapter 10...</a>
         <a href="ch12.html">Chapter 12... →</a>

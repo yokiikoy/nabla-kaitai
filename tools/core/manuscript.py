@@ -43,33 +43,31 @@ class ManuscriptModel:
         if not os.path.exists(filepath):
             return title, lines, toc
 
-        in_yaml = False
-        yaml_done = False
         with open(filepath, 'r', encoding='utf-8') as f:
-            for line in f:
-                stripped = line.rstrip('\n')
-                if not yaml_done and stripped == '---':
-                    if not in_yaml:
-                        in_yaml = True
-                        continue
-                    else:
-                        in_yaml = False
-                        yaml_done = True
-                        continue
-                if in_yaml:
-                    continue
-                    
-                lines.append(stripped)
-                # Extract headers
-                h_match = re.match(r'^(#{1,3})\s+(.+)$', stripped)
-                if h_match:
-                    level = len(h_match.group(1))
-                    text = h_match.group(2).strip()
-                    if level == 1 and not title:
-                        title = text
-                    elif level > 1:
-                        anchor = self._slugify(text)
-                        toc.append(TocItem(level=level, title=text, anchor=anchor))
+            raw_lines = [line.rstrip('\n') for line in f]
+
+        # Strip YAML front matter only when the file begins with '---'.
+        # Otherwise horizontal rules ('---') in chapter bodies must be kept
+        # (EN chapters often omit opening YAML that JA chapters include).
+        start = 0
+        if raw_lines and raw_lines[0].strip() == '---':
+            for i in range(1, len(raw_lines)):
+                if raw_lines[i].strip() == '---':
+                    start = i + 1
+                    break
+
+        for stripped in raw_lines[start:]:
+            lines.append(stripped)
+            # Extract headers
+            h_match = re.match(r'^(#{1,3})\s+(.+)$', stripped)
+            if h_match:
+                level = len(h_match.group(1))
+                text = h_match.group(2).strip()
+                if level == 1 and not title:
+                    title = text
+                elif level > 1:
+                    anchor = self._slugify(text)
+                    toc.append(TocItem(level=level, title=text, anchor=anchor))
         return title, lines, toc
 
     def _load_chapter(self, ch_id: str, is_front: bool = False) -> Optional[Chapter]:

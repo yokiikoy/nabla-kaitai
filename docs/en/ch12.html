@@ -118,7 +118,7 @@
 <li class="level-1"><a href="ch09.html" id="link-ch09.html">Chapter 9</a></li>
 <li class="level-1"><a href="ch10.html" id="link-ch10.html">Chapter 10</a></li>
 <li class="level-1"><a href="ch11.html" id="link-ch11.html">Chapter 11</a></li>
-<li class="level-1"><a href="ch12.html" class="active" id="link-ch12.html">Chapter 12</a><ul class="sub-toc"><li class="level-3"><a href="#§12.0-Combining-Two-Equations-into-One">§12.0 Combining Two Equations into One</a></li><li class="level-3"><a href="#§12.2-Pauli-Matrices-—-The-Magic-of-Adding-Different-Degrees">§12.2 Pauli Matrices — The Magic of Adding Different Degrees</a></li><li class="level-3"><a href="#§12.3-The-Dirac-Operator-and-the-"True-Nabla"">§12.3 The Dirac Operator and the "True Nabla"</a></li><li class="level-3"><a href="#§12.4-The-Operator-$\nabla$">§12.4 The Operator $\nabla$</a></li></ul></li>
+<li class="level-1"><a href="ch12.html" class="active" id="link-ch12.html">Chapter 12</a><ul class="sub-toc"><li class="level-3"><a href="#§12.0-Combining-Two-Equations-into-One">§12.0 Combining Two Equations into One</a></li><li class="level-3"><a href="#§12.1-Combining-Them-with-the-Imaginary-Unit-—-Unifying-Maxwell's-Equations">§12.1 Combining Them with the Imaginary Unit — Unifying Maxwell's Equations</a></li><li class="level-3"><a href="#§12.2-Pauli-Matrices-—-The-Magic-of-Adding-Different-Degrees">§12.2 Pauli Matrices — The Magic of Adding Different Degrees</a></li><li class="level-3"><a href="#§12.3-The-Dirac-Operator-and-the-"True-Nabla"">§12.3 The Dirac Operator and the "True Nabla"</a></li><li class="level-3"><a href="#§12.4-The-Operator-$\nabla$">§12.4 The Operator $\nabla$</a></li></ul></li>
 <li class="level-1"><a href="postscript.html" id="link-postscript.html">Afterword</a></li>
 <li class="level-1"><a href="refs.html" id="link-refs.html">References (with Comments from the Author)</a></li>
 <li class="level-1"><a href="appendix.html" id="link-appendix.html">Appendix</a></li>
@@ -136,6 +136,31 @@
 <blockquote>
 <p><strong>Note</strong> (the position of this chapter) This chapter is an advanced supplement and lies off the main line of the book. Chapter 9 completed the rewrite of vector analysis, and Chapter 10 finished the matrix expansion of Maxwell's equations. Here we do not intend to write a textbook of rigorous geometric algebra (Clifford algebra). The purpose is to see, as an entry point to calculation, how grad, curl, and div—which this book has dismantled—are integrated again into a single operator inside Pauli matrices and the Dirac operator.</p>
 </blockquote>
+<hr />
+<h3 id="§12.1-Combining-Them-with-the-Imaginary-Unit-—-Unifying-Maxwell's-Equations">§12.1 Combining Them with the Imaginary Unit — Unifying Maxwell's Equations</h3>
+<p>In Chapter 10 we consolidated Maxwell's equations into the two equations
+</p>
+$$dF = 0, \qquad d(\ast F) = \mu_0(\ast\mathcal{J})$$
+<p>Notice here that both $F$ and $\ast F$ are $2$-forms. In four-dimensional spacetime, the Hodge star $\ast$ maps $2$-forms to $2$-forms. So $F$ and $\ast F$ are forms of the same degree.
+</p>
+<p>When the degrees match, there is no obstacle to addition. Using the imaginary unit $i$, we build a single complex $2$-form (in this chapter we follow the sign conventions of Chapter 10; on a Lorentzian metric the sign of $\ast^2$ depends on dimension and signature conventions, so here we prioritize consistency with the component expansion).
+</p>
+$$G = F + i\ast F$$
+<p>Apply the exterior derivative $d$ to $G$. Since $d$ is a real differential operator, $d(i\ast F) = i\,d(\ast F)$.
+</p>
+$$dG = dF + i\,d(\ast F) = 0 + i\mu_0(\ast\mathcal{J})$$
+<p>That is,
+</p>
+$$d(F + i\ast F) = i\mu_0(\ast\mathcal{J})$$
+<p>That is all. The two equations $dF=0$ and $d(\ast F)=\mu_0(\ast\mathcal{J})$ have been unified into a single complex equation. The real part $F$ and the imaginary part $\ast F$ share the source-free and source Maxwell equations between them.
+</p>
+<p>But pause here and think. This trick works only because, <strong>by accident</strong>, in four dimensions $\ast$ maps $2$-forms to $2$-forms. In general $n$ dimensions, $\ast$ maps $k$-forms to $(n-k)$-forms. Being able to add $2$-form to $2$-form is a privilege of $n=4$; adding $1$-form to $2$-form directly is not allowed in the usual framework of differential forms.
+</p>
+<p>When $d$ and $\ast$ are combined, conversions between different degrees appear—grad ($0\to1$), curl ($1\to1$), div ($1\to0$), and so on. If we could treat the origins of these in a single algebra, we should be able not to dismantle $\nabla$ but to <strong>unify</strong> it.
+</p>
+<p>Adding forms of different degrees—is there no such "magic box"?
+</p>
+<hr />
 <h3 id="§12.2-Pauli-Matrices-—-The-Magic-of-Adding-Different-Degrees">§12.2 Pauli Matrices — The Magic of Adding Different Degrees</h3>
 <p>There is, in fact, a "magic box." Tools that physicists discovered for quantum mechanics can be used directly as that box. The Pauli matrices. More precisely, what we look at here is the Clifford algebra of three-dimensional Euclidean space, represented by Pauli matrices. Not differential forms themselves, but each degree ($0$ through $3$) is matched (under this chapter's convention) to basis elements inside this algebra.
 </p>
@@ -233,7 +258,7 @@ $$\psi = \varphi\,I + A_1\sigma_1 + A_2\sigma_2 + A_3\sigma_3$$
 </blockquote>
 <hr />
 <h3 id="§12.3-The-Dirac-Operator-and-the-"True-Nabla"">§12.3 The Dirac Operator and the "True Nabla"</h3>
-<h4 id="12.3.1-__MATH_BLOCK_100__-—-A-Unified-Differential-Operator">12.3.1 $\bm{\sigma}\!\cdot\!\nabla$ — A Unified Differential Operator</h4>
+<h4 id="12.3.1-__MATH_BLOCK_141__-—-A-Unified-Differential-Operator">12.3.1 $\bm{\sigma}\!\cdot\!\nabla$ — A Unified Differential Operator</h4>
 <p>Combine Pauli matrices with nabla $\nabla = (\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z})$ and define the operator
 </p>
 $$D = \sigma_1\frac{\partial}{\partial x} + \sigma_2\frac{\partial}{\partial y} + \sigma_3\frac{\partial}{\partial z} = \bm{\sigma}\!\cdot\!\nabla$$
@@ -270,7 +295,7 @@ $$D(\mathbf{A}\!\cdot\!\bm{\sigma}) = (\mathrm{div}\,\mathbf{A})\,I \;+\; i\,(\m
 <blockquote>
 <p><strong>Note</strong> (in the language of $d$ and $\ast$) $D$ can also be expressed in this book's language. Up to sign conventions, $D$ can be understood as an operator combining $d$ (raising degree) and $\ast d\ast$ (lowering degree). The latter is called the <strong>codifferential</strong> $\delta$, defined by $\delta = \pm\ast d\ast$ (the sign depends on dimension and degree). Here we do not enter the exact signs; it is enough to keep in mind the structure $D \sim d + \delta$. $d$ raises degree and $\delta$ lowers it—the sum $D$ of these two binds grad, curl, and div into one operator.</p>
 </blockquote>
-<h4 id="12.3.2-__MATH_BLOCK_139__-—-The-Laplacian">12.3.2 $D^2$ — The Laplacian</h4>
+<h4 id="12.3.2-__MATH_BLOCK_180__-—-The-Laplacian">12.3.2 $D^2$ — The Laplacian</h4>
 <p>What happens if we apply $D$ twice?
 </p>
 $$D^2 = (\bm{\sigma}\!\cdot\!\nabla)(\bm{\sigma}\!\cdot\!\nabla) = (\sigma_1\frac{\partial}{\partial x} + \sigma_2\frac{\partial}{\partial y} + \sigma_3\frac{\partial}{\partial z})(\sigma_1\frac{\partial}{\partial x} + \sigma_2\frac{\partial}{\partial y} + \sigma_3\frac{\partial}{\partial z})$$
@@ -324,7 +349,7 @@ $$(D + \frac{\partial}{\partial t})F = \frac{\rho_{\mathrm e}}{\varepsilon_0} - 
 </blockquote>
 <p>The two equations $dF=0$ and $d(\ast F)=\mu_0(\ast\mathcal{J})$ have been unified into a single complex equation in front of $D$. Whereas the four-dimensional trick of §12.1 depended on a special dimension, here the unified operator $D$ itself achieves the unification.
 </p>
-<h4 id="12.3.4-__MATH_BLOCK_173__-—-The-Dirac-Operator-in-Four-Dimensional-Spacetime">12.3.4 $\cancel{\partial} F = J$ — The Dirac Operator in Four-Dimensional Spacetime</h4>
+<h4 id="12.3.4-__MATH_BLOCK_214__-—-The-Dirac-Operator-in-Four-Dimensional-Spacetime">12.3.4 $\cancel{\partial} F = J$ — The Dirac Operator in Four-Dimensional Spacetime</h4>
 <p>In §12.3.3, $(D + \frac{\partial}{\partial t})F = \rho_{\mathrm e} + \mathbf{J}\!\cdot\!\bm{\sigma}$ still separates time and space. That is because it was built on the three-dimensional Pauli matrices $\sigma_1,\sigma_2,\sigma_3$. If we treat four-dimensional spacetime from the start, even this separation disappears.
 </p>
 <p>Extending Pauli matrices to $4\times4$ gives the <strong>gamma matrices</strong> $\gamma^0,\gamma^1,\gamma^2,\gamma^3$. They satisfy anticommutativity $\gamma^\mu\gamma^\nu + \gamma^\nu\gamma^\mu = 2g^{\mu\nu}I$ ($g^{\mu\nu}$ is the Minkowski metric). The signs of the real coefficients in this equation depend on the chosen metric signature and index conventions. As in Chapter 10, this chapter adopts the convention with spacetime metric signature $(-,+,+,+)$. Using these gamma matrices, define the four-dimensional Dirac operator by
@@ -340,7 +365,7 @@ $$\cancel{\partial} F = J$$
 </blockquote>
 <p>Both §12.1's $F + i\ast F$ and §12.3.3's $(D + \frac{\partial}{\partial t})F$ are absorbed into this single line. That is the farthest landscape on the journey that began with dismantling $\nabla$. The operator Dirac discovered in 1928 to derive the equation for the electron is the core of <strong>geometric algebra</strong>, which describes the geometry of spacetime and physical laws in one algebra; see Doran & Lasenby's <em>Geometric Algebra for Physicists</em> for details.
 </p>
-<h3 id="§12.4-The-Operator-__MATH_BLOCK_196__">§12.4 The Operator $\nabla$</h3>
+<h3 id="§12.4-The-Operator-__MATH_BLOCK_237__">§12.4 The Operator $\nabla$</h3>
 <p>Now let us return to the first question. What was $\nabla$?
 </p>
 <p>In vector analysis, $\nabla$ was introduced as a formal vector of partial derivatives and was a mysterious symbol with three faces: grad, curl, and div. This book <strong>dismantled</strong> it into $d$ and $\ast$, thereby revealing what each operator truly is.

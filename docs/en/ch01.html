@@ -107,7 +107,7 @@
 <li class="level-1"><a href="index.html" id="link-index.html">Preface</a></li>
 <li class="level-1"><a href="intro.html" id="link-intro.html">Introduction</a></li>
 <li class="level-1"><a href="portal.html" id="link-portal.html">Portal Site and a Small Experiment</a></li>
-<li class="level-1"><a href="ch01.html" class="active" id="link-ch01.html">Chapter 1</a><ul class="sub-toc"><li class="level-3"><a href="#§1.0-The-Mathematician’s-One-Dimension,-the-Physicist’s-One-Dimension">§1.0 The Mathematician’s One Dimension, the Physicist’s One Dimension</a></li><li class="level-3"><a href="#§1.2-The-Total-Differential-$df$-—-An-Operator-That-Packs-Rates-of-Change-into-a-Matrix">§1.2 The Total Differential $df$ — An Operator That Packs Rates of Change into a Matrix</a></li><li class="level-3"><a href="#§1.3-Leibniz-Notation-and-Algebraic-Intuition">§1.3 Leibniz Notation and Algebraic Intuition</a></li><li class="level-3"><a href="#§1.4-Coordinate-Transformations-—-Rebuilding-Measuring-Devices-in-New-Coordinates">§1.4 Coordinate Transformations — Rebuilding Measuring Devices in New Coordinates</a></li><li class="level-3"><a href="#§1.5-Writing-in-Another-Coordinate-System-—-Exercises">§1.5 Writing in Another Coordinate System — Exercises</a></li><li class="level-3"><a href="#§1.6-Summary-of-This-Chapter-and-Outlook-Toward-the-Next">§1.6 Summary of This Chapter and Outlook Toward the Next</a></li></ul></li>
+<li class="level-1"><a href="ch01.html" class="active" id="link-ch01.html">Chapter 1</a><ul class="sub-toc"><li class="level-3"><a href="#§1.0-The-Mathematician’s-One-Dimension,-the-Physicist’s-One-Dimension">§1.0 The Mathematician’s One Dimension, the Physicist’s One Dimension</a></li><li class="level-3"><a href="#§1.1-Riemann-Sums-and-Matrix-Products">§1.1 Riemann Sums and Matrix Products</a></li><li class="level-3"><a href="#§1.2-The-Total-Differential-$df$-—-An-Operator-That-Packs-Rates-of-Change-into-a-Matrix">§1.2 The Total Differential $df$ — An Operator That Packs Rates of Change into a Matrix</a></li><li class="level-3"><a href="#§1.3-Leibniz-Notation-and-Algebraic-Intuition">§1.3 Leibniz Notation and Algebraic Intuition</a></li><li class="level-3"><a href="#§1.4-Coordinate-Transformations-—-Rebuilding-Measuring-Devices-in-New-Coordinates">§1.4 Coordinate Transformations — Rebuilding Measuring Devices in New Coordinates</a></li><li class="level-3"><a href="#§1.5-Writing-in-Another-Coordinate-System-—-Exercises">§1.5 Writing in Another Coordinate System — Exercises</a></li><li class="level-3"><a href="#§1.6-Summary-of-This-Chapter-and-Outlook-Toward-the-Next">§1.6 Summary of This Chapter and Outlook Toward the Next</a></li></ul></li>
 <li class="level-1"><a href="ch02.html" id="link-ch02.html">Chapter 2</a></li>
 <li class="level-1"><a href="ch03.html" id="link-ch03.html">Chapter 3</a></li>
 <li class="level-1"><a href="ch04.html" id="link-ch04.html">Chapter 4</a></li>
@@ -127,7 +127,7 @@
   </nav>
   <main class="main-content">
     <article class="markdown-body">
-<h1 id="Chapter-1:-What-Is-__MATH_BLOCK_65__?-—-A-Measuring-Device-That-Eats-Vectors,-or-a-Row-Vector">Chapter 1: What Is $dx$? — A Measuring Device That Eats Vectors, or a Row Vector</h1>
+<h1 id="Chapter-1:-What-Is-__MATH_BLOCK_85__?-—-A-Measuring-Device-That-Eats-Vectors,-or-a-Row-Vector">Chapter 1: What Is $dx$? — A Measuring Device That Eats Vectors, or a Row Vector</h1>
 <h3 id="§1.0-The-Mathematician’s-One-Dimension,-the-Physicist’s-One-Dimension">§1.0 The Mathematician’s One Dimension, the Physicist’s One Dimension</h3>
 <p>When we first learn the one-dimensional integral $\int f(x)\,dx$ in high school, the textbook places before us a single line: the $x$-axis. For a mathematics textbook, that is perfectly reasonable. A <strong>mathematician</strong> assumes a self-contained abstract world called one-dimensional space $\mathbb{R}^1$, and builds the logic there. A point is a real number $x$, a displacement is a real number $\Delta x$, and an integral is defined as the limit of “function times tiny width.” Everything is self-contained.
 </p>
@@ -186,6 +186,255 @@ $$
 <p><strong>Note</strong> (extensions in Part III)</p>
 <p>In Part III, however, we will touch on curvilinear coordinates and extensions to higher dimensions as needed.</p>
 </blockquote>
+<hr />
+<h3 id="§1.1-Riemann-Sums-and-Matrix-Products">§1.1 Riemann Sums and Matrix Products</h3>
+<p>In the previous section, we reinterpreted a physical infinitesimal displacement as the column vector $\mathbf{v}$. As in §1.0,
+</p>
+$$
+\mathbf{v} = \begin{pmatrix} \Delta x \\ 0 \\ 0 \end{pmatrix}.
+$$
+<p>With that picture in place, let us rewrite the familiar Riemann integral and see what perspective “$dx$ as a matrix” gives us.
+</p>
+<blockquote>
+<p><strong>Note</strong> (on transpose notation)</p>
+<p>In mathematics and in other books, a column vector is sometimes laid sideways on the page and marked with a superscript ${}^T$, as in $(\Delta x,\Delta y,\Delta z)^T$. In this book, I avoid this kind of space-saving transpose notation as much as possible. Column vectors are written as columns, and row vectors as rows. If ${}^T$ appears exceptionally, read it as an intentional transpose operation.</p>
+</blockquote>
+<h4 id="1.1.1-The-Standard-Construction-of-a-Riemann-Sum-(Review)">1.1.1 The Standard Construction of a Riemann Sum (Review)</h4>
+<p>The definite integral of a function $f(x)$ over the interval $[a,b]$ is defined as follows. In high-school language, this is the method of exhaustion by subdivision.
+</p>
+<blockquote>
+<p><strong>Note</strong> (closed intervals)</p>
+<p>The notation $[a,b]$ denotes the <strong>closed interval</strong> containing both endpoints $a$ and $b$: the set of real numbers $x$ such that $a \le x \le b$.</p>
+</blockquote>
+<ol>
+<li>Divide the interval into $n$ subintervals: $a=x_0<x_1<\cdots<x_n=b$.</li>
+<li>Let the width of the small interval be $\Delta x_i=x_i-x_{i-1}$.</li>
+<li>Choose one representative point $\xi_i$ <strong>inside</strong> each subinterval $[x_{i-1},x_i]$.</li>
+<li>Form the Riemann sum $R_n:=\sum_{i=1}^n f(\xi_i)\Delta x_i$. We write the sum for this particular $n$-fold partition as $R_n$.</li>
+<li>Take the limit as the partition becomes finer. Strictly speaking, the <strong>maximum</strong> width of the subintervals approaches $0$. Merely increasing the number of pieces $n$ can still leave a large interval somewhere, so more advanced mathematics emphasizes this condition. In what follows, $\lim_{n\to\infty}R_n$ assumes partitions satisfying this condition:</li>
+</ol>
+$$
+\int_a^b f(x)\,dx = \lim_{n\to\infty} R_n.
+$$
+<p>In the usual textbook explanation, you read $dx$ as what the “tiny width $\Delta x_i$” becomes in the limit. Here we go one step deeper.
+</p>
+<h4 id="1.1.2-Displacement-on-Each-Subinterval">1.1.2 Displacement on Each Subinterval</h4>
+<p>For the $i$-th subinterval $[x_{i-1},x_i]$, we write the displacement vector from §1.0, adjusted to the width of that interval, as
+</p>
+$$
+\mathbf{v}_i = \begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix}.
+$$
+<p>The subscript $i$ only means “for the $i$-th subinterval.” The object $\mathbf{v}_i$ is still a displacement vector. Since we are currently considering straight-line motion, the $y$ and $z$ components are zero. But that is not a condition imposed in advance; rather, in this particular situation, those components simply come out to be zero.
+</p>
+<p><!-- pagebreak -->
+</p>
+<h4 id="1.1.3-The-Appearance-of-__MATH_BLOCK_136__-—-The-Defining-Assertion-of-This-Book">1.1.3 The Appearance of $dx$ — The Defining Assertion of This Book</h4>
+<p>Now we give the symbol $dx$ the following meaning. <strong>This may look bold, even strange, but it is also the defining feature of this book</strong>: here, we <strong>declare</strong> that $dx$ is the following $1\times3$ matrix.
+</p>
+<p>That is, we <strong>define</strong> $dx$ as the following <strong>row vector</strong>, with its components written horizontally as a $1\times3$ matrix:
+</p>
+$$
+dx := \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}.
+$$
+<p>This is not, in fact, a private notation detached from the standard point of view. The same object already appears in standard linear algebra, tensor analysis, and manifold theory. What I am doing here is fixing standard coordinates on $\mathbb{R}^3$ and writing it out as a matrix from the beginning. I spell this out in the note below.
+</p>
+<p>For readers familiar with more advanced mathematics: this is the matrix representation of the linear operator that takes an input column vector and returns only its $x$-component. It is the representation of $dx$ in the standard coordinates of $\mathbb{R}^3$.
+</p>
+<blockquote>
+<p><strong>Note</strong> ($dx=(1\ 0\ 0)$ and its relation to textbooks)</p>
+<p>This notation is not often brought to the foreground in ordinary textbooks, but it is already there implicitly.</p>
+<p><strong>For readers who have studied vector analysis</strong></p>
+<p>For a scalar-valued function $f:\mathbb{R}^3\to\mathbb{R}$, the gradient is</p>
+$$
+\nabla f = \begin{pmatrix}
+\frac{\partial f}{\partial x} \\
+\frac{\partial f}{\partial y} \\
+\frac{\partial f}{\partial z}
+\end{pmatrix}.
+$$
+<p>Its transpose</p>
+$$
+(\nabla f)^T=
+\begin{pmatrix}
+\frac{\partial f}{\partial x} &
+\frac{\partial f}{\partial y} &
+\frac{\partial f}{\partial z}
+\end{pmatrix}
+$$
+<p>is a $1\times3$ row vector. If we set $f=x$, then $(\nabla x)^T=(1\ 0\ 0)$. In the Cartesian coordinates and matrix convention used in this book, this transpose of the gradient is precisely the row-vector representation of $dx$.</p>
+<p><strong>For readers who have studied tensor analysis</strong></p>
+<p>The symbols $dx^i$ are the dual basis to the coordinate basis $\frac{\partial}{\partial x^j}$, so</p>
+$$
+dx^i\!\left(\frac{\partial}{\partial x^j}\right)=\delta^i_j.
+$$
+<p>Therefore, in Cartesian coordinates, their row-vector representations are</p>
+$$
+dx^1=(1\ 0\ 0),\qquad dx^2=(0\ 1\ 0),\qquad dx^3=(0\ 0\ 1).
+$$
+<p><strong>For readers familiar with manifold theory</strong></p>
+<p>We have $df_p:T_p\mathbb{R}^3\to\mathbb{R}$, $df_p(v)=v(f)$, and $dx^i_p(v)=v(x^i)$. In standard coordinates, if</p>
+$$
+v=v^i\frac{\partial}{\partial x^i}
+\longmapsto
+\begin{pmatrix}v^1\\v^2\\v^3\end{pmatrix},
+$$
+<p>then $dx^1_p(v)=v^1$, $dx^2_p(v)=v^2$, and $dx^3_p(v)=v^3$. Thus, in standard coordinate representation,</p>
+$$
+dx^1_p\longmapsto(1\ 0\ 0),\qquad
+dx^2_p\longmapsto(0\ 1\ 0),\qquad
+dx^3_p\longmapsto(0\ 0\ 1).
+$$
+</blockquote>
+<p>Now multiply the displacement vector $\mathbf{v}_i$ on the left by the row vector $dx$:
+</p>
+$$
+dx\,\mathbf{v}_i
+=
+\begin{pmatrix} 1 & 0 & 0 \end{pmatrix}
+\begin{pmatrix} \Delta x_i \\ 0 \\ 0 \end{pmatrix}
+=
+\Delta x_i.
+$$
+<p>Here we write the image that “$dx$ eats the displacement vector $\mathbf{v}_i$ and spits out the scalar $\Delta x_i$” <strong>as if it were a function value</strong>:
+</p>
+$$
+dx(\mathbf{v}_i)
+:=
+dx\,\mathbf{v}_i
+=
+\Delta x_i.
+$$
+<p>In this book, I will often emphasize this form $dx(\mathbf{v})$: the row vector $dx$ acts on the column vector $\mathbf{v}$. This point cannot be emphasized too often.
+</p>
+<blockquote>
+<p><strong>Note</strong> (operator, functional, function, or map?)</p>
+<p>Different books use different words for this $dx(\mathbf{v})$: <strong>operator</strong>, <strong>functional</strong>, <strong>function</strong>, or <strong>map</strong>. I prefer to call it an <strong>operator</strong>, so that is the word I will often use from here on.</p>
+</blockquote>
+<p>The $\Delta x_i$ that appears in the Riemann sum is not a “mysterious one-dimensional infinitesimal quantity.” It is <strong>the result of applying the matrix $dx$ above to the displacement vector $\mathbf{v}_i$ in three-dimensional space and extracting only its $x$-component</strong>.
+</p>
+<p>In other words,
+</p>
+$$
+\Delta x_i = dx(\mathbf{v}_i).
+$$
+<p><strong>This is the decisive moment</strong>:
+</p>
+<ul>
+<li>Left-hand side: $dx(\mathbf{v}_i)$ is the algebraic operation in which the matrix $dx$ acts on the <strong>displacement vector</strong> $\mathbf{v}_i$.</li>
+<li>Right-hand side: the “small interval width $\Delta x_i$” that appears in the conventional Riemann sum.</li>
+</ul>
+<p>Thus $\Delta x_i$ is <strong>not a mysterious one-dimensional infinitesimal displacement, but $dx(\mathbf{v}_i)$, obtained by extracting only the $x$-direction component from the three-dimensional infinitesimal displacement $\mathbf{v}_i$</strong>.
+</p>
+<blockquote>
+<p><strong>Note</strong> (component-order convention)</p>
+<p>For row vectors and abbreviated row components, I write $(1\ 0\ 0)$, with <strong>no commas</strong>, separating components only by spaces. I use notation with <strong>commas followed by spaces</strong>, such as $(1, 0, 0)$, when emphasizing <strong>coordinates</strong>, such as the position of a point. I do <strong>not</strong> use that notation for abbreviated matrices or row vectors.</p>
+</blockquote>
+<p>Once this one line lands, the $dx$ at the end of the integral sign starts to look different. Next, let us rewrite the ordinary Riemann sum in this notation.
+</p>
+<h4 id="1.1.4-Vector-Reinterpretation-of-the-Riemann-Sum-and-the-Integral-Sign">1.1.4 Vector Reinterpretation of the Riemann Sum and the Integral Sign</h4>
+<p>From this point of view, the Riemann sum becomes
+</p>
+$$
+R_n
+=
+\sum_{i=1}^n f(\xi_i)\,dx(\mathbf{v}_i).
+$$
+<p>Since
+</p>
+$$
+dx(\mathbf{v}_i)=\Delta x_i,
+$$
+<p>this is the same as the ordinary Riemann sum
+</p>
+$$
+R_n
+=
+\sum_{i=1}^n f(\xi_i)\,\Delta x_i.
+$$
+<p>But the same notation admits a second reading. On each subinterval, consider the row vector obtained by multiplying the measuring device $dx$ by the function value $f(\xi_i)$:
+</p>
+$$
+\bigl(f(\xi_i)\,dx\bigr)
+:=
+f(\xi_i)\,dx
+=
+\begin{pmatrix}
+f(\xi_i) & 0 & 0
+\end{pmatrix}.
+$$
+<p>If this row vector acts on the displacement vector $\mathbf{v}_i$, then
+</p>
+$$
+\bigl(f(\xi_i)\,dx\bigr)(\mathbf{v}_i)
+=
+f(\xi_i)\,dx(\mathbf{v}_i)
+=
+f(\xi_i)\,\Delta x_i.
+$$
+<p>In other words, we obtain the individual terms of the Riemann sum themselves.
+</p>
+<p>Therefore, the Riemann sum can also be read as
+</p>
+$$
+R_n
+=
+\sum_{i=1}^n
+\bigl(f(\xi_i)\,dx\bigr)(\mathbf{v}_i).
+$$
+<p>In the limit where the partition becomes infinitely fine, that is, in the limit where the maximum width tends to $0$, the definition of the Riemann integral gives
+</p>
+$$
+\int_a^b f(x)\,dx
+=
+\lim_{n\to\infty} R_n
+=
+\lim_{n\to\infty}
+\sum_{i=1}^n
+\bigl(f(\xi_i)\,dx\bigr)(\mathbf{v}_i).
+$$
+<p>The left-hand side, $\int_a^b f(x)\,dx$, is the familiar integral notation we have known since high school. It is the same quantity as $\lim_{n\to\infty}R_n$ in the construction above.
+</p>
+<p>The right-hand side is another face of the same integral: <strong>the limit of the sum, over subintervals, of the values obtained when the measuring device $f(\xi_i)\,dx$ acts on the displacement vector $\mathbf{v}_i$</strong>.
+</p>
+<p>Thus the $dx$ at the end of the integral sign is not a mere decoration. At least in this reading, it works as a measuring device that extracts the $x$-direction width from the displacement vector on each subinterval. And $f(x)\,dx$ can be read as a new row vector obtained by multiplying that measuring device by the value of the function.
+</p>
+<blockquote>
+<p><strong>Note</strong> (work integrals)</p>
+<p>The work integral $W=\int F(x)\,dx$ from mechanics can be read in the same way. On each subinterval, the row vector $F(\xi_i)\,dx$ eats the displacement vector $\mathbf{v}_i$ and returns $F(\xi_i)\Delta x_i$. The limit of the sum is the work.</p>
+</blockquote>
+<h4 id="1.1.5-Linear-Forms-(__MATH_BLOCK_199__-Forms)">1.1.5 Linear Forms ($1$-Forms)</h4>
+<p>So far, we have defined $dx$ as a row vector that acts on a displacement vector, extracts a specified component, and returns a scalar, that is, a real number. A <strong>linear</strong> measuring device of this kind, one that eats a vector and spits out a scalar, is technically called a <strong>linear form</strong>, or a <strong>$1$-form</strong>. What we have been calling “$dx$ as a matrix” is precisely this $1$-form.
+</p>
+<blockquote>
+<p><strong>Note</strong> (the term “covector”)</p>
+<p>Mathematicians also often use the term <strong>covector</strong> as another name for a <strong>linear form</strong>, or <strong>$1$-form</strong>. Keep it in the corner of your mind as a dictionary entry for reading other books.</p>
+</blockquote>
+<p>The origin of the name is simple:
+</p>
+<ul>
+<li><strong>“linear”</strong>: because it processes the displacement vector <strong>linearly</strong>;</li>
+<li><strong>“form”</strong>: for now, think of it as a fixed pattern of measurement or action.</li>
+</ul>
+<p>From here on, I will call this measuring device a “matrix,” a “linear form ($1$-form),” or an operator. These all refer to the same object.
+</p>
+<blockquote>
+<p><strong>Note</strong> (matrix, linear form, measuring device)</p>
+<p>To repeat: from the standpoint of this book, these are represented by the same array. Throughout the book, I will call the same object a “matrix,” a “linear form,” or a “measuring device,” depending on what needs to be emphasized.</p>
+</blockquote>
+<h4 id="1.1.6-The-Notational-Contract-of-This-Book">1.1.6 The Notational Contract of This Book</h4>
+<p>In this book, <strong>we do not use a standalone $dx$ to mean an “infinitesimal displacement” or an “infinitesimal change.”</strong> To avoid confusing the width of a displacement with the measuring device, the row vector, we make the following agreement. For the magnitude of an infinitesimal displacement in the $x$ direction, we use $\Delta x$, or we explicitly write the displacement vector $\mathbf{v}$ and write $dx(\mathbf{v})$.
+</p>
+<p>On the other hand, a <strong>standalone $dx$</strong> means the operator, the row vector or $1$-form, that <strong>extracts the $x$-component</strong>. A $dx$ appearing in an expression such as $df=f'(x)\,dx$ is also <strong>always read as an operator</strong>. <strong>Keep this distinction clear. Everything that follows depends on it.</strong>
+</p>
+<p>From here on, the $dx$ at the end of the integral sign $\int_a^b f(x)\,dx$ will remain as <strong>conventional notation</strong> inherited from high school. But outside the integral sign, we will always write it in the form $dx(\mathbf{v})$ when the action is being shown explicitly. In the main text, when speaking about displacements and infinitesimal widths, we will use $\Delta x$ or $dx(\mathbf{v})$, and we will not attach the image of width or amount of change to a bare $dx$.
+</p>
+<blockquote>
+<p><strong>Note</strong> (usage of $dx$ in the literature)</p>
+<p>Physicists often use the convention of writing the displacement component itself as $dx$. But once you get used to the notation of this book, it becomes easier to read by separating <strong>$dx$ as a measuring device</strong> from the scalar of displacement. In more advanced books, that distinction will matter directly.</p>
+</blockquote>
+<p>In the next section, we extend this point of view to the differential of a function and define the total differential $df$ as a matrix.
+</p>
+<hr />
 <blockquote>
 <p><strong>Checkpoint so far</strong></p>
 <p>- An infinitesimal displacement is a column vector $\mathbf{v}$. The symbol $\Delta x$ is a scalar width, while a standalone $dx$ is an operator, a row vector or $1$-form.</p>
@@ -194,7 +443,7 @@ $$
 <p>- The $dx$ at the end of the integral sign $\int_a^b f(x)\,dx$ is conventional notation. The displacement itself is written as $\Delta x$ or $dx(\mathbf{v})$, according to the contract in §1.1.6.</p>
 </blockquote>
 <hr />
-<h3 id="§1.2-The-Total-Differential-__MATH_BLOCK_101__-—-An-Operator-That-Packs-Rates-of-Change-into-a-Matrix">§1.2 The Total Differential $df$ — An Operator That Packs Rates of Change into a Matrix</h3>
+<h3 id="§1.2-The-Total-Differential-__MATH_BLOCK_243__-—-An-Operator-That-Packs-Rates-of-Change-into-a-Matrix">§1.2 The Total Differential $df$ — An Operator That Packs Rates of Change into a Matrix</h3>
 <p>In the previous section, we dismantled the Riemann integral as “the limit of sums of the action of the matrix $f(x)\,dx$ on displacement vectors.” In this section, we extend that idea to the differential of the function itself and <strong>define the total differential $df$ as a row vector, or matrix</strong>. A “differential” is not merely a numerical rate of change. We treat it as an <strong>operator that produces the linear part of the change only after it is multiplied by a displacement vector</strong>.
 </p>
 <h4 id="1.2.1-Matrix-Representation-of-Differentiability">1.2.1 Matrix Representation of Differentiability</h4>
@@ -214,7 +463,7 @@ $$
 $$
 <p>Then the change $\Delta f$ of the function can be regarded as the effect caused by this $\mathbf{v}$.
 </p>
-<h4 id="1.2.2-Defining-__MATH_BLOCK_115__-as-a-Matrix-and-Reading-__MATH_BLOCK_116__">1.2.2 Defining $df$ as a Matrix and Reading $df(\mathbf{v})$</h4>
+<h4 id="1.2.2-Defining-__MATH_BLOCK_257__-as-a-Matrix-and-Reading-__MATH_BLOCK_258__">1.2.2 Defining $df$ as a Matrix and Reading $df(\mathbf{v})$</h4>
 <p>At the point $x$, define the <strong>total differential</strong> $df$ of the function $f$ as the following $1\times3$ row vector:
 </p>
 $$
@@ -240,7 +489,7 @@ $$
 <p><strong>Note</strong> ($df$ is an operator; $df(\mathbf{v})$ is the linear part of the change)</p>
 <p>This is the same distinction as the notational contract in §1.1.6, stated once again. It may feel repetitive, but <strong>if you misread this point, everything that follows will shift out of alignment</strong>. The repetition is worth it.</p>
 </blockquote>
-<h4 id="1.2.3-The-Measuring-Devices-__MATH_BLOCK_132__-and-__MATH_BLOCK_133__-in-the-__MATH_BLOCK_134__-and-__MATH_BLOCK_135__-Directions">1.2.3 The Measuring Devices $dy$ and $dz$ in the $y$ and $z$ Directions</h4>
+<h4 id="1.2.3-The-Measuring-Devices-__MATH_BLOCK_274__-and-__MATH_BLOCK_275__-in-the-__MATH_BLOCK_276__-and-__MATH_BLOCK_277__-Directions">1.2.3 The Measuring Devices $dy$ and $dz$ in the $y$ and $z$ Directions</h4>
 <p>The strength of this viewpoint shows up when we return to the mechanics example from §1.1.5: it extends naturally to the general case where the force has a component in the $y$ direction as well. With the $dy$ we now define, two-dimensional work can be treated uniformly in the form $F_x\,dx+F_y\,dy$.
 </p>
 <p>Just as $dx$ extracts the $x$-component, we define $dy$ in physical space as the row vector, or $1$-form, that extracts the $y$-component, and $dz$ as the one that extracts the $z$-component. Their matrix representations are
@@ -264,7 +513,7 @@ $$
 </p>
 <p>We have now supplemented the one-variable expression $df=f'(x)\,dx$ with $dy$ and $dz$ as measuring devices of the same type. In the concrete example below and in the extension to three dimensions in §1.2.6, we will see how all three devices come into play.
 </p>
-<h4 id="1.2.4-Example:-__MATH_BLOCK_168__">1.2.4 Example: $f(x)=x^2$</h4>
+<h4 id="1.2.4-Example:-__MATH_BLOCK_310__">1.2.4 Example: $f(x)=x^2$</h4>
 <p>Let $f(x)=x^2$. Then $f'(x)=2x$.
 </p>
 <p>For example, at $x=3$, the total differential is written explicitly as a row vector. Placing the row vector and column vector side by side,
@@ -532,7 +781,7 @@ z=z.
 $$
 <p>The question is: what kind of measuring device does the physical-space $dx$ become on the parameter-space side?
 </p>
-<h4 id="1.4.2-Map-a-Small-Step-and-Measure-It-with-__MATH_BLOCK_271__">1.4.2 Map a Small Step and Measure It with $dx$</h4>
+<h4 id="1.4.2-Map-a-Small-Step-and-Measure-It-with-__MATH_BLOCK_413__">1.4.2 Map a Small Step and Measure It with $dx$</h4>
 <p>Consider a small step
 </p>
 $$
