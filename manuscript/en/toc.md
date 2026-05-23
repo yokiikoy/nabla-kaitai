@@ -121,7 +121,7 @@ order: 0
 ## Part III: Development and Integration
 
 <strong>Chapter 10: Maxwell’s Equations — Beyond Beauty</strong>
-- §10.0 The Usual Caveat
+- §10.0 The Obligatory Maxwell Chapter
 - §10.1 Maxwell’s Equations — Written as Two Equations
 - §10.2 The Electromagnetic Field $F$ and Fixing Sign Conventions
 - §10.3 The Minkowski Metric — From $\mathbb{R}^3$ to Four Dimensions
