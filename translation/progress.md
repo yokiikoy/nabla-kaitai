@@ -251,6 +251,25 @@ Per-section Pass status:
 | `translation/reviews/ch09-pass3.md` | complete |
 | `translation/reviews/ch09-close-reading-polish.md` | complete (#187) |
 
+### English Chapter 10 — `manuscript/en/ch10/ch10.md` (branch `ai/english-translation-ch10`, PR [#171](https://github.com/yokiikoy/nabla-kaitai/pull/171))
+
+| Scope | Pass | Notes |
+|-------|------|-------|
+| **Chapter 10 (§10.0–§10.6 + App. E–F)** | **1 → 2 → 3** | Maxwell chapter |
+
+| Block | Pass | Review |
+|-------|------|--------|
+| §10.0–§10.2 | **3** | `ch10-10.0-10.2-review.md` |
+| §10.3–§10.5 | **3** | `ch10-10.3-10.5-review.md` |
+| §10.6 | **3** | `ch10-10.6-review.md` |
+| Appendices E–F | **3** | `ch10-appendix-EF-review.md` |
+
+| Artifact | Status |
+|----------|--------|
+| `translation/drafts/ch10-*.md` | integrated into `ch10.md` |
+| `translation/reviews/ch10-pass2.md` | complete |
+| `translation/reviews/ch10-pass3.md` | complete |
+
 ---
 
 ## History (closed issues on this branch)
