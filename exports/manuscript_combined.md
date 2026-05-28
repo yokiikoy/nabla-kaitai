@@ -33,7 +33,7 @@
 
 # はじめに：$dx$とは何か・ナブラとは何か
 
-## 前提知識
+### 前提知識
 
 本書は、以下の基本事項に馴染みがあれば、十分に読み進めることができます。
 
@@ -44,7 +44,7 @@
 
 高校生でも読みこなせる、と言うと頑張ってもらう必要がありますが、少なくとも20歳の頃の筆者であれば通読できる、つもりで書きました。
 
-## $dx$とは何か
+### $dx$とは何か
 
 積分記号の最後には、いつも $dx$ が付いています。高校数学では、これは「$x$ で積分する」という印のように扱われます。
 また、 $\frac{dy}{dx}$ は割り算ではないと習うものの、あたかも割り算のように置換積分を行うことが、事実上許容されています。
@@ -75,7 +75,7 @@ $dx$ は変位を食べて $x$ 成分を返す。$dx\wedge dy$ は、二本の�
 
 高校数学の $dx$ と微分形式の $dx$ のあいだに、いきなり抽象語を置くのではなく、まず行列と測定器を置いてみる。これが本書の出発点です。
 
-## ナブラとは何か
+### ナブラとは何か
 
 もう一つ、本書が取り上げたい記号があります。$\nabla$ です。
 
@@ -101,7 +101,7 @@ $$
 
 ---
 
-## 本書のロードマップ
+### 本書のロードマップ
 
 本書は全12章で、大きく3つの部に分かれています。
 
@@ -148,7 +148,7 @@ $$
 
 ### §1.0 数学者の1次元、物理学者の1次元
 
-高校で $\int f(x) dx$ という1次元の積分を習ったとき、教科書の記述では「$x$ 軸という1本の線」が置かれる。数学の教科書としてはそれで妥当だ。<strong>数学者</strong>は1次元空間 $\mathbb{R}^1$ という自己完結した抽象世界を仮定し、その上で論理を積み上げる。点は実数 $x$、変位は実数 $\Delta x$、積分は「関数×微小幅」の極限として定義される。すべてが完結している。
+高校で $\int f(x) dx$ という1次元の積分を習ったとき、教科書の記述では「$x$ 軸という1本の線」が置かれる。数学の教科書としてはそれが自然だ。<strong>数学者</strong>は1次元空間 $\mathbb{R}^1$ という自己完結した抽象世界を仮定し、その上で論理を積み上げる。点は実数 $x$、変位は実数 $\Delta x$、積分は「関数×微小幅」の極限として定義される。すべてが完結している。
 
 <strong>しかし、我々は物理学者である。</strong>
 
@@ -615,6 +615,8 @@ $$df := \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy + 
 $$df(\mathbf{v}) = \frac{\partial f}{\partial x}\begin{pmatrix}1&0&0\end{pmatrix}\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix} + \frac{\partial f}{\partial y}\begin{pmatrix}0&1&0\end{pmatrix}\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix} + \frac{\partial f}{\partial z}\begin{pmatrix}0&0&1\end{pmatrix}\begin{pmatrix}\Delta x\\\Delta y\\\Delta z\end{pmatrix}$$
 $$= \frac{\partial f}{\partial x}\,\Delta x + \frac{\partial f}{\partial y}\,\Delta y + \frac{\partial f}{\partial z}\,\Delta z.$$
 第一行は、§1.2.3 の測定器 $dx,dy,dz$ が行ベクトルとして $\mathbf{v}$ から $x,y,z$ 成分を抜き出し、偏導関数が係数としてかかる様子を<strong>行列の積</strong>で見せたものである。第二行はその評価結果であり、先の $\Delta f$ の定義式における<strong>線形主項</strong>と同じ形である。<strong>横ベクトル（演算子）× 縦ベクトル（変位）→ スカラー</strong>という §1.2.2 の読みが、三次元でも変わらない。
+
+> <strong>注</strong> （$\Delta f$ の用法）本書では、文脈によって $\Delta f$ を厳密な差分 $f(p+\mathbf{v})-f(p)$ として使う場合と、剰余を落とした一次主項を指す略記として使う場合がある。厳密には微分可能性の定義では $\Delta f = df(\mathbf{v}) + o(\|\mathbf{v}\|)$ であり、$df(\mathbf{v})$ はその一次主項である。以後、一次近似だけを問題にする場面では、剰余項を省略して $\Delta f \approx df(\mathbf{v})$ の意味で扱うことがある。
 
 座標が二つまでしか現れない $f(x,y)$ も、$z$ に依らなければ $\partial f/\partial z=0$ として上の枠に含めればよい——<strong>三次元に載せた枠組みが、素直に埋め込まれる</strong>。
 
@@ -5202,7 +5204,7 @@ $$
 
 が得られる。$1$-form の三つの係数 $P,Q,R$ が、$2$-form の反対称行列の三つの独立成分へ配置された。これが $\ast_{1\to2}$ の最も見える姿である。
 
-> <strong>注</strong> （第2章の $\widehat{\epsilon}$ との関係）この $E_1,E_2,E_3$ は、付録Aで $\varepsilon_{1,\cdot,\cdot},\varepsilon_{2,\cdot,\cdot},\varepsilon_{3,\cdot,\cdot}$ として書き下した行列と同一である。$\ast_{1\to2}$ の本質は、エディントンのイプシロン $\varepsilon_{ijk}$ の第一添字を $1$-form の成分方向に、残りの二添字を $3\times3$ 行列の方向に配置したものだ。第2章で体積測定器 $\widehat{\epsilon}$ として導入したあの三枚組が、ここでホッジ・スターとして再登場している。
+> <strong>注</strong> （第2章の $\widehat{\epsilon}$ との関係）この $E_1,E_2,E_3$ は、付録Aで $\varepsilon_{1,\cdot,\cdot},\varepsilon_{2,\cdot,\cdot},\varepsilon_{3,\cdot,\cdot}$ として書き下した行列と同一である。$\ast_{1\to2}$ の本質は、レヴィ=チヴィタ記号 $\varepsilon_{ijk}$ の第一添字を $1$-form の成分方向に、残りの二添字を $3\times3$ 行列の方向に配置したものだ。第2章で体積測定器 $\widehat{\epsilon}$ として導入したあの三枚組が、ここでホッジ・スターとして再登場している。
 
 ### D.2 $\ast_{2\to1}$ ——フロベニウス積による係数抽出
 
@@ -5544,7 +5546,7 @@ $$
 
 である。これは、完全反対称な $3$ 階配列から一つの係数を取り出す三重縮約である。
 
-係数 $1/3!$ は、D.2 のフロベニウス積に現れた $1/2$ と同じ役割を持つ。反対称行列では独立成分が二回ずつ現れるので、$1/2$ を掛けて重複を補正した。ここでは、完全反対称な $3$ 階配列の独立成分が $3!=6$ 回現れるので、$1/3!$ を掛けて重複を補正している。
+係数 $1/3!$ は、D.2 のフロベニウス積に現れた $1/2$ と同じ役割を持つ。反対称行列では独立成分が二回ずつ現れるので、$1/2$ を掛けて重複を補正した。ここでは、完全反対称な $3$ 階配列の独立成分が $3!=6$ 回現れるので、$1/3!$ を掛けて重複を補正している。あるいは、$3$-form 同士の内積を $\langle\alpha,\beta\rangle = \frac{1}{3!}\alpha_{ijk}\beta_{ijk}$ のように定義すれば、正規化係数を内積側に吸収したうえで「$\ast_{0\to3}$ と $\ast_{3\to0}$ は転置の関係」と言える。
 
 実際に、$\ast$ を二度続けて作用させると元に戻ることを確認しておこう。まず、$0$-form $f$ から始める。
 
@@ -6282,7 +6284,7 @@ $\nabla\cdot\mathbf{F}$ は<strong>スカラー場</strong>、$\ast d\ast\omega$
 |:---:|:---:|:---:|:---:|
 | 勾配 | $\mathrm{grad}\,f$ | $df$ | $g^{-1}(df)^T$ |
 | 回転 | $\mathrm{rot}\,\mathbf{F}$ | $\ast d\omega$ | $g^{-1}(\ast d\omega)^T$ |
-| 発散 | $\mathrm{div}\,\mathbf{F}$ | $\ast d\ast\omega$ | そのまま $0$-form |
+| 発散 | $\mathrm{div}\,\mathbf{F}$ | $\ast d\ast\omega$ | $0$-form（スカラー場） |
 
 $\ast$ の使用回数が増えるほど、$\nabla$ 表記と $d,\ast$ 表記の間の「翻訳コスト」が上がる。
 ここで $\omega=\mathbf{F}^Tg$ である。勾配は $\ast$ がゼロ回だが、$df$ を通常の勾配ベクトルとして読むには計量による変換 $g^{-1}(df)^T$ が入る。回転は $\ast$ が $1$ 回、発散は $2$ 回である。この計量 $g$ と $\ast$ による翻訳辞書が、第7章 §7.7 の注で「微分形式のほうが汚い」と感じた原因だった。
@@ -6807,7 +6809,7 @@ $$d\ast\omega = 0 \quad (\rho \neq 0)$$
 
 $\ast d\ast\omega = \nabla\cdot\mathbf{E} = 0$ である。$\rho^2$ が $\ast(d\rho)$ の $\rho^2$ と打ち消し合い、残った $\sin\theta\,d\theta\wedge d\phi$ の外微分がゼロ——これだけの計算で、原点以外での発散ゼロが示された。
 
-> <strong>注</strong> （原点では？）$\rho = 0$ では $\omega$ が定義できない。原点を含む全空間で扱うには、通常の関数としての発散ではなく、分布（$\delta$ 関数）や積分形式で点電荷を表す必要がある。本書ではそこには立ち入らず、原点を除いた領域での計算に限ることにする。電荷密度を扱う第10章では、動径座標 $\rho$ と混同しないように、電荷密度を $\rho_{\mathrm e}$ と書いて右辺に $\rho_{\mathrm e}/\varepsilon_0$ が現れる形を扱う。
+> <strong>注</strong> （原点では？）$\rho = 0$ では $\omega$ が定義できない。原点を含む全空間で扱うには、通常の関数としての発散ではなく、超関数（ディストリビューション；$\delta$ 関数）や積分形式で点電荷を表す必要がある。本書ではそこには立ち入らず、原点を除いた領域での計算に限ることにする。電荷密度を扱う第10章では、動径座標 $\rho$ と混同しないように、電荷密度を $\rho_{\mathrm e}$ と書いて右辺に $\rho_{\mathrm e}/\varepsilon_0$ が現れる形を扱う。
 
 ---
 
@@ -7547,7 +7549,7 @@ $$
 $F$ を $-d\mathcal{A}$ として作った瞬間、$dF=0$ は証明すべき法則ではなく、外微分の構造から自動的に従う恒等式になる。
 
 > <strong>注</strong>（$\mathbf{B}$ と $\mathrm{div}\,\mathbf{B}=0$）
-> ベクトル解析でも「$\mathbf{B}$ が何かの回転で書けるなら $\mathrm{div}\,\mathbf{B}=0$」は公式として知られている。$\mathrm{div}\,\mathrm{rot}\equiv0$ である。これが $dd=0$ の3次元ベクトル解析版だ。
+> ベクトル解析でも「$\mathbf{B}$ が何かの回転で書けるなら $\mathrm{div}\,\mathbf{B}=0$」は公式として知られている。$\mathrm{div}\,\mathrm{rot}=0$ である。これが $dd=0$ の3次元ベクトル解析版だ。
 
 #### 残るのは、もう1本の方程式である
 
@@ -8267,7 +8269,7 @@ $$\left.\frac{\partial}{\partial x^i}\right|_p (f) = \left.\frac{\partial (f \ci
 
 が $T_p M$ の基底をなす。$\dim T_p M = \dim M = n$ である。
 
-二つのベクトル場 $X, Y$ が与えられたとき、その<strong>リー括弧（Lie bracket）</strong> $[X, Y] = XY - YX$ は再びベクトル場になる。$[X,Y]^i = \sum_j (X^j \partial_j Y^i - Y^j \partial_j X^i)$ であり、本書では陽に扱わなかったが、フロベニウスの定理（分布の積分可能性）やリー群論の根幹をなす演算である。
+二つのベクトル場 $X, Y$ が与えられたとき、その<strong>リー括弧（Lie bracket）</strong> $[X, Y] = XY - YX$ は再びベクトル場になる。$[X,Y]^i = \sum_j (X^j \partial_j Y^i - Y^j \partial_j X^i)$ であり、本書では陽に扱わなかったが、フロベニウスの定理（接分布（distribution）の積分可能性）やリー群論の根幹をなす演算である。
 
 すべての点における接空間の非交和が<strong>接束</strong> $TM = \bigsqcup_{p \in M} T_p M$ である。$TM$ 自身も $2n$ 次元の多様体になる。$M$ 上の<strong>ベクトル場</strong> $X$ とは、各点 $p \in M$ に接ベクトル $X_p \in T_p M$ を滑らかに割り当てる写像、すなわち接束の<strong>切断</strong> $X: M \to TM$ にほかならない。
 
