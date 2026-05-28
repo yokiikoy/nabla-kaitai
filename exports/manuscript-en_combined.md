@@ -33,7 +33,7 @@ Can you explain what $dx$ is?
 
 # Introduction: What Is $dx$? What Is Nabla?
 
-## Prerequisites
+### Prerequisites
 
 You should be able to read this book if you are comfortable with the following basic material.
 
@@ -44,7 +44,7 @@ You do not need to know determinants in advance. We will discover them along the
 
 When I say that a high-school student could read this book, I do not mean that it will be effortless. But I wrote it so that, at least, the twenty-year-old version of myself could have read it through.
 
-## What Is $dx$?
+### What Is $dx$?
 
 Every integral sign has a $dx$ at its tail. In high-school mathematics, it is treated almost like a marker saying “integrate with respect to $x$.” We are also taught that $\frac{dy}{dx}$ is not a fraction, even though substitution in integrals effectively lets us manipulate it as if it were one.
 
@@ -72,7 +72,7 @@ $dx$ eats a displacement and returns its $x$-component. $dx\wedge dy$ measures t
 
 Instead of immediately placing abstract terminology between the $dx$ of high-school mathematics and the $dx$ of differential forms, we first place matrices and measuring devices there. That is the starting point of this book.
 
-## What Is Nabla?
+### What Is Nabla?
 
 The other symbol this book wants to confront is $\nabla$.
 
@@ -100,7 +100,7 @@ It will not help you in time for tomorrow’s midterm. But perhaps it will make 
 
 ---
 
-## Roadmap of This Book
+### Roadmap of This Book
 
 This book has twelve chapters, divided into three large parts.
 
@@ -145,7 +145,7 @@ The invitation link is here.
 
 ### §1.0 The Mathematician’s One Dimension, the Physicist’s One Dimension
 
-When we first learn the one-dimensional integral $\int f(x)\,dx$ in high school, the textbook places before us a single line: the $x$-axis. For a mathematics textbook, that is perfectly reasonable. A <strong>mathematician</strong> assumes a self-contained abstract world called one-dimensional space $\mathbb{R}^1$, and builds the logic there. A point is a real number $x$, a displacement is a real number $\Delta x$, and an integral is defined as the limit of “function times tiny width.” Everything is self-contained.
+When we first learn the one-dimensional integral $\int f(x)\,dx$ in high school, the textbook places before us a single line: the $x$-axis. For a mathematics textbook, that is perfectly natural. A <strong>mathematician</strong> assumes a self-contained abstract world called one-dimensional space $\mathbb{R}^1$, and builds the logic there. A point is a real number $x$, a displacement is a real number $\Delta x$, and an integral is defined as the limit of “function times tiny width.” Everything is self-contained.
 
 <strong>But here, we are physicists.</strong>
 
@@ -715,6 +715,8 @@ df(\mathbf{v})
 $$
 
 The first line shows, as a <strong>matrix product</strong>, how the measuring devices $dx,dy,dz$ from §1.2.3 extract the $x,y,z$ components from $\mathbf{v}$ as row vectors, with the partial derivatives attached as coefficients. The second line is the evaluated result, which has the same form as the <strong>linear principal term</strong> in the definition of $\Delta f$ above. The reading from §1.2.2 remains unchanged in three dimensions: <strong>row vector, or operator, times column vector, or displacement, gives a scalar</strong>.
+
+> <strong>Note</strong> (usage of $\Delta f$) In this book, depending on context, $\Delta f$ may denote the exact difference $f(p+\mathbf{v})-f(p)$ or a shorthand for the first-order part with the remainder dropped. Strictly, by the definition of differentiability, $\Delta f = df(\mathbf{v}) + o(\|\mathbf{v}\|)$, and $df(\mathbf{v})$ is that first-order part. Later, when only the first-order approximation matters, we may omit the remainder and treat $\Delta f \approx df(\mathbf{v})$ in that sense.
 
 If a function $f(x,y)$ involves only two coordinates, we can include it in the same framework by regarding it as independent of $z$, so that $\partial f/\partial z=0$. This three-dimensional framework contains the two-dimensional case naturally.
 
@@ -5271,7 +5273,7 @@ $$
 
 The three coefficients $P,Q,R$ of the $1$-form have been placed into the three independent components of the antisymmetric matrix of the $2$-form. This is the most visible form of $\ast_{1\to2}$.
 
-> <strong>Note</strong> (relation to $\widehat{\epsilon}$ in Chapter 2) These $E_1,E_2,E_3$ are the same matrices written in Appendix A as $\varepsilon_{1,\cdot,\cdot},\varepsilon_{2,\cdot,\cdot},\varepsilon_{3,\cdot,\cdot}$. The essence of $\ast_{1\to2}$ is to place the first index of Einstein's epsilon $\varepsilon_{ijk}$ in the direction of the components of the $1$-form, and the remaining two indices in the directions of the $3\times3$ matrix. The same triple introduced in Chapter 2 as the volume-measuring device $\widehat{\epsilon}$ reappears here as the Hodge star.
+> <strong>Note</strong> (relation to $\widehat{\epsilon}$ in Chapter 2) These $E_1,E_2,E_3$ are the same matrices written in Appendix A as $\varepsilon_{1,\cdot,\cdot},\varepsilon_{2,\cdot,\cdot},\varepsilon_{3,\cdot,\cdot}$. The essence of $\ast_{1\to2}$ is to place the first index of the Levi-Civita symbol $\varepsilon_{ijk}$ in the direction of the components of the $1$-form, and the remaining two indices in the directions of the $3\times3$ matrix. The same triple introduced in Chapter 2 as the volume-measuring device $\widehat{\epsilon}$ reappears here as the Hodge star.
 
 ### D.2 $\ast_{2\to1}$ — extracting coefficients by the Frobenius product
 
@@ -5595,7 +5597,7 @@ $$
 
 This is a triple contraction that extracts one coefficient from a completely antisymmetric third-order array.
 
-The factor $1/3!$ plays the same role as the $1/2$ that appears in the Frobenius product of D.2. In an antisymmetric matrix, each independent component appears twice, so we multiply by $1/2$ to correct for the duplication. Here, each independent component of a completely antisymmetric third-order array appears $3!=6$ times, so we multiply by $1/3!$ to correct for the duplication.
+The factor $1/3!$ plays the same role as the $1/2$ that appears in the Frobenius product of D.2. In an antisymmetric matrix, each independent component appears twice, so we multiply by $1/2$ to correct for the duplication. Here, each independent component of a completely antisymmetric third-order array appears $3!=6$ times, so we multiply by $1/3!$ to correct for the duplication. Alternatively, if we define the inner product of two $3$-forms by $\langle\alpha,\beta\rangle = \frac{1}{3!}\alpha_{ijk}\beta_{ijk}$, then after absorbing the normalization into the inner product we can say that $\ast_{0\to3}$ and $\ast_{3\to0}$ are in a transpose relation.
 
 Let us verify that applying $\ast$ twice returns the original. First, start from the $0$-form $f$:
 
@@ -6316,7 +6318,7 @@ $\nabla\cdot\mathbf{F}$ is a <strong>scalar field</strong>; $\ast d\ast\omega$ i
 |:---:|:---:|:---:|:---:|
 | Gradient | $\mathrm{grad}\,f$ | $df$ | $g^{-1}(df)^T$ |
 | Curl | $\mathrm{curl}\,\mathbf{F}$ | $\ast d\omega$ | $g^{-1}(\ast d\omega)^T$ |
-| Divergence | $\mathrm{div}\,\mathbf{F}$ | $\ast d\ast\omega$ | as-is $0$-form |
+| Divergence | $\mathrm{div}\,\mathbf{F}$ | $\ast d\ast\omega$ | $0$-form (scalar field) |
 
 The more times $\ast$ is used, the higher the "translation cost" between $\nabla$ notation and $d,\ast$ notation.
 Here $\omega=\mathbf{F}^Tg$. For the gradient, $\ast$ appears zero times, but converting $df$ to the usual gradient vector requires the metric conversion $g^{-1}(df)^T$. For curl, $\ast$ appears once; for divergence, twice. This translation dictionary built from the metric $g$ and $\ast$ was the reason we felt in Chapter 7 §7.7 that "differential forms are messy."
@@ -6834,7 +6836,7 @@ $$d\ast\omega = 0 \quad (\rho \neq 0)$$
 
 So $\ast d\ast\omega = 0$, which corresponds to $\nabla\cdot\mathbf{E}=0$ away from the origin. The $\rho^2$ in $E_\rho$ cancels the $\rho^2$ in $\ast(d\rho)$, and the exterior derivative of the remaining $\sin\theta\,d\theta\wedge d\phi$ is zero—that alone shows zero divergence away from the origin.
 
-> <strong>Note</strong> (What about the origin?) At $\rho = 0$, $\omega$ is not defined. To treat all of space including the origin, one must represent the point charge by distributions ($\delta$ functions) or in integral form rather than by ordinary divergence as a function. This book does not go there; we restrict ourselves to computation on the region excluding the origin. In Chapter 10, where charge density is treated, we write charge density as $\rho_{\mathrm e}$ so as not to confuse it with the radial coordinate $\rho$, and handle the form in which $\rho_{\mathrm e}/\varepsilon_0$ appears on the right-hand side.
+> <strong>Note</strong> (What about the origin?) At $\rho = 0$, $\omega$ is not defined. To treat all of space including the origin, one must represent the point charge by generalized functions (distributions; $\delta$ functions) or in integral form rather than by ordinary divergence as a function. This book does not go there; we restrict ourselves to computation on the region excluding the origin. In Chapter 10, where charge density is treated, we write charge density as $\rho_{\mathrm e}$ so as not to confuse it with the radial coordinate $\rho$, and handle the form in which $\rho_{\mathrm e}/\varepsilon_0$ appears on the right-hand side.
 
 ---
 
@@ -7554,7 +7556,7 @@ The $dd=0$ seen in Chapter 5 appears here as half of Maxwell's equations.
 The moment $F$ is built as $-d\mathcal{A}$, $dF=0$ is no longer a law to be proved but an identity that follows automatically from the structure of the exterior derivative.
 
 > <strong>Note</strong> ($\mathbf{B}$ and $\mathrm{div}\,\mathbf{B}=0$)
-> In vector analysis too, it is known as a formula that if $\mathbf{B}$ can be written as the curl of something then $\mathrm{div}\,\mathbf{B}=0$. This is the familiar identity $\mathrm{div}\,\mathrm{curl}\equiv0$, the three-dimensional vector-analysis version of $dd=0$.
+> In vector analysis too, it is known as a formula that if $\mathbf{B}$ can be written as the curl of something then $\mathrm{div}\,\mathbf{B}=0$. This is the familiar identity $\mathrm{div}\,\mathrm{curl}=0$, the three-dimensional vector-analysis version of $dd=0$.
 
 #### What Remains Is the Other Equation
 
@@ -8225,7 +8227,7 @@ $$\left.\frac{\partial}{\partial x^i}\right|_p (f) = \left.\frac{\partial (f \ci
 
 forms a basis of $T_p M$. We have $\dim T_p M = \dim M = n$.
 
-When two vector fields $X, Y$ are given, their **Lie bracket** $[X, Y] = XY - YX$ is again a vector field. We have $[X,Y]^i = \sum_j (X^j \partial_j Y^i - Y^j \partial_j X^i)$; we did not treat it explicitly in this book, but it is the operation at the root of Frobenius's theorem (integrability of distributions) and Lie group theory.
+When two vector fields $X, Y$ are given, their **Lie bracket** $[X, Y] = XY - YX$ is again a vector field. We have $[X,Y]^i = \sum_j (X^j \partial_j Y^i - Y^j \partial_j X^i)$; we did not treat it explicitly in this book, but it is the operation at the root of Frobenius's theorem (integrability of a subbundle, or distribution) and Lie group theory.
 
 The disjoint union of tangent spaces at all points is the **tangent bundle** $TM = \bigsqcup_{p \in M} T_p M$. $TM$ itself is a $2n$-dimensional manifold. A **vector field** $X$ on $M$ is nothing but a smooth assignment of a tangent vector $X_p \in T_p M$ to each point $p \in M$—a **section** of the tangent bundle, $X: M \to TM$.
 
