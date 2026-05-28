@@ -99,15 +99,15 @@ v0.0.x         & Notes, typos, light polish\\ \hline
 \end{tabular}\par\bigskip
 \begin{tabular}{|p{\dimexpr\textwidth-2\tabcolsep-2\arrayrulewidth\relax}|}\hline
 \multicolumn{1}{|c|}{\textbf{Recent revision history}}\\ \hline
-{\small 3d8ba35 (2026-05-24)  Merge pull request \#212 from yokiikoy/fix/appendix-kihaji-grammar}\\ \hline
-{\small e64827c (2026-05-24)  Polish EN appendix kihaji note grammar after \#209.}\\ \hline
-{\small 4e82b81 (2026-05-24)  Merge pull request \#210 from yokiikoy/fix/appendix-kihaji-thirty}\\ \hline
+{\small 73b437f (2026-05-28)  Fix Japanese issues \#215–\#221 (minimal editorial pass).}\\ \hline
+{\small 8907e95 (2026-05-24)  Merge pull request \#214 from yokiikoy/pub/rebuild-en-pdf-post-yaml-fix}\\ \hline
+{\small 9bfe0d1 (2026-05-24)  Rebuild EN/JA PDF artifacts after \#202 YAML loader fix.}\\ \hline
 \end{tabular}
 \end{minipage}\par
 \vfill
 {\includegraphics[height=0.28\textheight]{exports/icons/nabla_icon_inflate_65.png}\par}
 \vfill
-{\footnotesize 2026-05-24 01:00 JST --- Author: yokiikoy\par}
+{\footnotesize 2026-05-28 13:42 JST --- Author: yokiikoy\par}
 \restoregeometry
 \end{titlepage}
 \frontmatter
@@ -200,7 +200,7 @@ gap, and at the same time, a proposed alternative.
 Nabla?}{Introduction: What Is dx? What Is Nabla?}}\label{introduction-what-is-dx-what-is-nabla}}
 
 \hypertarget{prerequisites}{%
-\section{Prerequisites}\label{prerequisites}}
+\subsection{Prerequisites}\label{prerequisites}}
 
 You should be able to read this book if you are comfortable with the
 following basic material.
@@ -224,7 +224,7 @@ mean that it will be effortless. But I wrote it so that, at least, the
 twenty-year-old version of myself could have read it through.
 
 \hypertarget{what-is-dx}{%
-\section{\texorpdfstring{What Is
+\subsection{\texorpdfstring{What Is
 \(dx\)?}{What Is dx?}}\label{what-is-dx}}
 
 Every integral sign has a \(dx\) at its tail. In high-school
@@ -281,7 +281,7 @@ first place matrices and measuring devices there. That is the starting
 point of this book.
 
 \hypertarget{what-is-nabla}{%
-\section{What Is Nabla?}\label{what-is-nabla}}
+\subsection{What Is Nabla?}\label{what-is-nabla}}
 
 The other symbol this book wants to confront is \(\nabla\).
 
@@ -328,7 +328,7 @@ make it in time for the final.
 \par\vspace{0.35em}\par
 
 \hypertarget{roadmap-of-this-book}{%
-\section{Roadmap of This Book}\label{roadmap-of-this-book}}
+\subsection{Roadmap of This Book}\label{roadmap-of-this-book}}
 
 This book has twelve chapters, divided into three large parts.
 
@@ -416,7 +416,7 @@ Dimension}\label{the-mathematicians-one-dimension-the-physicists-one-dimension}}
 
 When we first learn the one-dimensional integral \(\int f(x)\,dx\) in
 high school, the textbook places before us a single line: the
-\(x\)-axis. For a mathematics textbook, that is perfectly reasonable. A
+\(x\)-axis. For a mathematics textbook, that is perfectly natural. A
 \textbf{mathematician} assumes a self-contained abstract world called
 one-dimensional space \(\mathbb{R}^1\), and builds the logic there. A
 point is a real number \(x\), a displacement is a real number
@@ -1370,6 +1370,17 @@ same form as the \textbf{linear principal term} in the definition of
 \(\Delta f\) above. The reading from §1.2.2 remains unchanged in three
 dimensions:
 \textbf{row vector, or operator, times column vector, or displacement, gives a scalar}.
+
+\begin{quote}
+\textbf{Note} (usage of \(\Delta f\)) In this book, depending on
+context, \(\Delta f\) may denote the exact difference
+\(f(p+\mathbf{v})-f(p)\) or a shorthand for the first-order part with
+the remainder dropped. Strictly, by the definition of differentiability,
+\(\Delta f = df(\mathbf{v}) + o(\|\mathbf{v}\|)\), and
+\(df(\mathbf{v})\) is that first-order part. Later, when only the
+first-order approximation matters, we may omit the remainder and treat
+\(\Delta f \approx df(\mathbf{v})\) in that sense.
+\end{quote}
 
 If a function \(f(x,y)\) involves only two coordinates, we can include
 it in the same framework by regarding it as independent of \(z\), so
@@ -9644,8 +9655,8 @@ the three independent components of the antisymmetric matrix of the
 \textbf{Note} (relation to \(\widehat{\epsilon}\) in Chapter 2) These
 \(E_1,E_2,E_3\) are the same matrices written in Appendix A as
 \(\varepsilon_{1,\cdot,\cdot},\varepsilon_{2,\cdot,\cdot},\varepsilon_{3,\cdot,\cdot}\).
-The essence of \(\ast_{1\to2}\) is to place the first index of
-Einstein's epsilon \(\varepsilon_{ijk}\) in the direction of the
+The essence of \(\ast_{1\to2}\) is to place the first index of the
+Levi-Civita symbol \(\varepsilon_{ijk}\) in the direction of the
 components of the \(1\)-form, and the remaining two indices in the
 directions of the \(3\times3\) matrix. The same triple introduced in
 Chapter 2 as the volume-measuring device \(\widehat{\epsilon}\)
@@ -10090,7 +10101,11 @@ the Frobenius product of D.2. In an antisymmetric matrix, each
 independent component appears twice, so we multiply by \(1/2\) to
 correct for the duplication. Here, each independent component of a
 completely antisymmetric third-order array appears \(3!=6\) times, so we
-multiply by \(1/3!\) to correct for the duplication.
+multiply by \(1/3!\) to correct for the duplication. Alternatively, if
+we define the inner product of two \(3\)-forms by
+\(\langle\alpha,\beta\rangle = \frac{1}{3!}\alpha_{ijk}\beta_{ijk}\),
+then after absorbing the normalization into the inner product we can say
+that \(\ast_{0\to3}\) and \(\ast_{3\to0}\) are in a transpose relation.
 
 Let us verify that applying \(\ast\) twice returns the original. First,
 start from the \(0\)-form \(f\):
@@ -11325,8 +11340,8 @@ To read back as a vector field
 Gradient & \(\mathrm{grad}\,f\) & \(df\) & \(g^{-1}(df)^T\) \\
 Curl & \(\mathrm{curl}\,\mathbf{F}\) & \(\ast d\omega\) &
 \(g^{-1}(\ast d\omega)^T\) \\
-Divergence & \(\mathrm{div}\,\mathbf{F}\) & \(\ast d\ast\omega\) & as-is
-\(0\)-form \\
+Divergence & \(\mathrm{div}\,\mathbf{F}\) & \(\ast d\ast\omega\) &
+\(0\)-form (scalar field) \\
 \end{longtable}
 
 The more times \(\ast\) is used, the higher the ``translation cost''
@@ -12392,13 +12407,14 @@ zero—that alone shows zero divergence away from the origin.
 \begin{quote}
 \textbf{Note} (What about the origin?) At \(\rho = 0\), \(\omega\) is
 not defined. To treat all of space including the origin, one must
-represent the point charge by distributions (\(\delta\) functions) or in
-integral form rather than by ordinary divergence as a function. This
-book does not go there; we restrict ourselves to computation on the
-region excluding the origin. In Chapter 10, where charge density is
-treated, we write charge density as \(\rho_{\mathrm e}\) so as not to
-confuse it with the radial coordinate \(\rho\), and handle the form in
-which \(\rho_{\mathrm e}/\varepsilon_0\) appears on the right-hand side.
+represent the point charge by generalized functions (distributions;
+\(\delta\) functions) or in integral form rather than by ordinary
+divergence as a function. This book does not go there; we restrict
+ourselves to computation on the region excluding the origin. In Chapter
+10, where charge density is treated, we write charge density as
+\(\rho_{\mathrm e}\) so as not to confuse it with the radial coordinate
+\(\rho\), and handle the form in which
+\(\rho_{\mathrm e}/\varepsilon_0\) appears on the right-hand side.
 \end{quote}
 
 \par\vspace{0.35em}\par
@@ -13416,8 +13432,8 @@ structure of the exterior derivative.
 \textbf{Note} (\(\mathbf{B}\) and \(\mathrm{div}\,\mathbf{B}=0\)) In
 vector analysis too, it is known as a formula that if \(\mathbf{B}\) can
 be written as the curl of something then \(\mathrm{div}\,\mathbf{B}=0\).
-This is the familiar identity \(\mathrm{div}\,\mathrm{curl}\equiv0\),
-the three-dimensional vector-analysis version of \(dd=0\).
+This is the familiar identity \(\mathrm{div}\,\mathrm{curl}=0\), the
+three-dimensional vector-analysis version of \(dd=0\).
 \end{quote}
 
 \hypertarget{what-remains-is-the-other-equation}{%
@@ -14432,8 +14448,8 @@ When two vector fields \(X, Y\) are given, their \textbf{Lie bracket}
 \([X, Y] = XY - YX\) is again a vector field. We have
 \([X,Y]^i = \sum_j (X^j \partial_j Y^i - Y^j \partial_j X^i)\); we did
 not treat it explicitly in this book, but it is the operation at the
-root of Frobenius's theorem (integrability of distributions) and Lie
-group theory.
+root of Frobenius's theorem (integrability of a subbundle, or
+distribution) and Lie group theory.
 
 The disjoint union of tangent spaces at all points is the
 \textbf{tangent bundle} \(TM = \bigsqcup_{p \in M} T_p M\). \(TM\)

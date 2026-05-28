@@ -1,6 +1,6 @@
 # Introduction: What Is $dx$? What Is Nabla?
 
-## Prerequisites
+### Prerequisites
 
 You should be able to read this book if you are comfortable with the following basic material.
 
@@ -11,7 +11,7 @@ You do not need to know determinants in advance. We will discover them along the
 
 When I say that a high-school student could read this book, I do not mean that it will be effortless. But I wrote it so that, at least, the twenty-year-old version of myself could have read it through.
 
-## What Is $dx$?
+### What Is $dx$?
 
 Every integral sign has a $dx$ at its tail. In high-school mathematics, it is treated almost like a marker saying “integrate with respect to $x$.” We are also taught that $\frac{dy}{dx}$ is not a fraction, even though substitution in integrals effectively lets us manipulate it as if it were one.
 
@@ -39,7 +39,7 @@ $dx$ eats a displacement and returns its $x$-component. $dx\wedge dy$ measures t
 
 Instead of immediately placing abstract terminology between the $dx$ of high-school mathematics and the $dx$ of differential forms, we first place matrices and measuring devices there. That is the starting point of this book.
 
-## What Is Nabla?
+### What Is Nabla?
 
 The other symbol this book wants to confront is $\nabla$.
 
@@ -67,7 +67,7 @@ It will not help you in time for tomorrow’s midterm. But perhaps it will make 
 
 ---
 
-## Roadmap of This Book
+### Roadmap of This Book
 
 This book has twelve chapters, divided into three large parts.
 

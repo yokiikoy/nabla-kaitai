@@ -129,7 +129,7 @@
     <article class="markdown-body">
 <h1 id="Chapter-1:-What-Is-__MATH_BLOCK_85__?-—-A-Measuring-Device-That-Eats-Vectors,-or-a-Row-Vector">Chapter 1: What Is $dx$? — A Measuring Device That Eats Vectors, or a Row Vector</h1>
 <h3 id="§1.0-The-Mathematician’s-One-Dimension,-the-Physicist’s-One-Dimension">§1.0 The Mathematician’s One Dimension, the Physicist’s One Dimension</h3>
-<p>When we first learn the one-dimensional integral $\int f(x)\,dx$ in high school, the textbook places before us a single line: the $x$-axis. For a mathematics textbook, that is perfectly reasonable. A <strong>mathematician</strong> assumes a self-contained abstract world called one-dimensional space $\mathbb{R}^1$, and builds the logic there. A point is a real number $x$, a displacement is a real number $\Delta x$, and an integral is defined as the limit of “function times tiny width.” Everything is self-contained.
+<p>When we first learn the one-dimensional integral $\int f(x)\,dx$ in high school, the textbook places before us a single line: the $x$-axis. For a mathematics textbook, that is perfectly natural. A <strong>mathematician</strong> assumes a self-contained abstract world called one-dimensional space $\mathbb{R}^1$, and builds the logic there. A point is a real number $x$, a displacement is a real number $\Delta x$, and an integral is defined as the limit of “function times tiny width.” Everything is self-contained.
 </p>
 <p><strong>But here, we are physicists.</strong>
 </p>
@@ -661,6 +661,9 @@ df(\mathbf{v})
 $$
 <p>The first line shows, as a <strong>matrix product</strong>, how the measuring devices $dx,dy,dz$ from §1.2.3 extract the $x,y,z$ components from $\mathbf{v}$ as row vectors, with the partial derivatives attached as coefficients. The second line is the evaluated result, which has the same form as the <strong>linear principal term</strong> in the definition of $\Delta f$ above. The reading from §1.2.2 remains unchanged in three dimensions: <strong>row vector, or operator, times column vector, or displacement, gives a scalar</strong>.
 </p>
+<blockquote>
+<p><strong>Note</strong> (usage of $\Delta f$) In this book, depending on context, $\Delta f$ may denote the exact difference $f(p+\mathbf{v})-f(p)$ or a shorthand for the first-order part with the remainder dropped. Strictly, by the definition of differentiability, $\Delta f = df(\mathbf{v}) + o(\|\mathbf{v}\|)$, and $df(\mathbf{v})$ is that first-order part. Later, when only the first-order approximation matters, we may omit the remainder and treat $\Delta f \approx df(\mathbf{v})$ in that sense.</p>
+</blockquote>
 <p>If a function $f(x,y)$ involves only two coordinates, we can include it in the same framework by regarding it as independent of $z$, so that $\partial f/\partial z=0$. This three-dimensional framework contains the two-dimensional case naturally.
 </p>
 <p>Compare the cases.
@@ -781,7 +784,7 @@ z=z.
 $$
 <p>The question is: what kind of measuring device does the physical-space $dx$ become on the parameter-space side?
 </p>
-<h4 id="1.4.2-Map-a-Small-Step-and-Measure-It-with-__MATH_BLOCK_413__">1.4.2 Map a Small Step and Measure It with $dx$</h4>
+<h4 id="1.4.2-Map-a-Small-Step-and-Measure-It-with-__MATH_BLOCK_419__">1.4.2 Map a Small Step and Measure It with $dx$</h4>
 <p>Consider a small step
 </p>
 $$
